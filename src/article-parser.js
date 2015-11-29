@@ -116,7 +116,6 @@ var extract = (url) => {
   return new Promise((resolve, reject) => {
     let canonicals = [url];
     fetch(url).then((res) => {
-      console.log(res.status);
       let resURL = purifyURL(res.url);
       if(resURL){
         canonicals.push(resURL);
@@ -134,7 +133,8 @@ var extract = (url) => {
         if(!article || !article.content || !article.title){
           return reject('No article extracted');
         }
-        console.log(article.title);
+
+        console.log('Extracted %s', article.title);
 
         let content = sanitize(article.content, config.htmlRules);
         let $ = cheerio.load(content, {
