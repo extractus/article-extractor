@@ -2,6 +2,7 @@
  * Testing
  * @ndaidong
  */
+
 /* global describe it before */
 /* eslint no-undefined: 0*/
 /* eslint no-array-constructor: 0*/

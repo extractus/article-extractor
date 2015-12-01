@@ -90,6 +90,7 @@ var getDomain = (url) => {
 }
 
 module.exports = {
+  isValidURL: isValidURL,
   purifyURL: purifyURL,
   getDomain: getDomain
 }

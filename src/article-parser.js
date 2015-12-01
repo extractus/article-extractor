@@ -16,6 +16,7 @@ var config = require('./config');
 var urlResolver = require('./url-resolver');
 var purifyURL = urlResolver.purifyURL;
 var getDomain = urlResolver.getDomain;
+var isValidURL = urlResolver.isValidURL;
 
 var parseMeta = (html) => {
 
@@ -148,15 +149,23 @@ var extract = (url) => {
 
         let meta = parseMeta(html);
         if(meta.url){
-          let metaLink = purifyURL(meta.url);
-          if(metaLink){
-            canonicals.push(metaLink);
-          }
+          canonicals.push(meta.url);
         }
         if(meta.canonical){
           canonicals.push(meta.canonical);
         }
 
+        for(let i = canonicals.length - 1; i >= 0; i--){
+          let cano = canonicals[i];
+          if(cano.startsWith('//')){
+            cano = 'http:' + cano;
+          }
+          if(!isValidURL(cano)){
+            canonicals.splice(i, 1);
+            continue;
+          }
+          cano = purifyURL(cano);
+        }
         canonicals = bella.unique(canonicals);
 
         let bestURL = canonicals[canonicals.length - 1];
