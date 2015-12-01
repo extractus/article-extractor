@@ -160,17 +160,19 @@ var extract = (url) => {
           if(cano.startsWith('//')){
             cano = 'http:' + cano;
           }
+          cano = purifyURL(cano);
           if(!isValidURL(cano)){
             canonicals.splice(i, 1);
             continue;
           }
-          cano = purifyURL(cano);
         }
         canonicals = bella.unique(canonicals);
 
         let bestURL = canonicals[canonicals.length - 1];
         let title = meta.title || article.title;
         let t = bella.time();
+
+        let domain = getDomain(bestURL);
 
         return resolve({
           alias: bella.createAlias(title) + '-' + t,
@@ -181,8 +183,8 @@ var extract = (url) => {
           image: meta.image,
           content: content,
           author: meta.author,
-          source: meta.source,
-          domain: getDomain(bestURL),
+          source: meta.source || domain.replace('www.', ''),
+          domain: domain,
           duration: getDuration(content)
         });
       });
