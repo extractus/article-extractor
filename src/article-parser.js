@@ -11,6 +11,7 @@ var fetch = require('node-fetch');
 var read = require('node-readability');
 var sanitize = require('sanitize-html');
 var cheerio = require('cheerio');
+var oembed = require('oembed-auto');
 
 var config = require('./config');
 var urlResolver = require('./url-resolver');
@@ -113,6 +114,17 @@ var getDuration = (content) => {
   return minToRead < 1 ? 1 : minToRead;
 }
 
+var getOEmbed = (url) => {
+  return new Promise((resolve, reject) => {
+    oembed(url, (err, data) => {
+      if(err){
+        return reject(err);
+      }
+      return resolve(data);
+    });
+  });
+}
+
 var extract = (url) => {
   return new Promise((resolve, reject) => {
     let canonicals = [url];
@@ -174,7 +186,11 @@ var extract = (url) => {
 
         let domain = getDomain(bestURL);
 
-        return resolve({
+        if(!domain){
+          return reject({error: 10, message: 'No domain determined'});
+        }
+
+        let ar = {
           alias: bella.createAlias(title) + '-' + t,
           url: bestURL,
           canonicals: canonicals,
@@ -186,7 +202,40 @@ var extract = (url) => {
           source: meta.source || domain.replace('www.', ''),
           domain: domain,
           duration: getDuration(content)
+        }
+
+        let oe;
+        getOEmbed(bestURL).then((data) => {
+          oe = data;
+        }).catch((e) => {
+          console.log(e);
+        }).finally(() => {
+
+          if(oe){
+            if(oe.provider_name){
+              ar.source = oe.provider_name;
+            }
+            if(oe.html){
+              ar.content = oe.html;
+            }
+            if(oe.title && !ar.title){
+              ar.title = oe.title;
+            }
+            if(oe.author_name && !ar.author){
+              ar.author = oe.author_name;
+            }
+            if(oe.thumbnail_url && !ar.image){
+              ar.image = oe.thumbnail_url;
+            }
+          }
+
+          let auth = ar.author;
+          if(auth && auth.indexOf(' ') > 0){
+            ar.author = bella.ucwords(auth);
+          }
+          return resolve(ar);
         });
+
       });
     }).catch((e) => {
       return reject(e);
@@ -196,6 +245,7 @@ var extract = (url) => {
 
 module.exports = {
   extract: extract,
+  getOEmbed: getOEmbed,
   getDuration: getDuration,
   getDomain: getDomain,
   parseMeta: parseMeta,

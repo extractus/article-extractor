@@ -39,6 +39,9 @@ var isAdsDomain = (url) => {
 }
 
 var isValidURL = (str) => {
+  if(!str){
+    return false;
+  }
   if(str.match(/t\.co\/(\w)*\./gi)){
     return false;
   }
@@ -85,6 +88,9 @@ var purifyURL = (url) => {
 }
 
 var getDomain = (url) => {
+  if(!isValidURL(url)){
+    return false;
+  }
   let g = URL.parse(url);
   return g.host;
 }
