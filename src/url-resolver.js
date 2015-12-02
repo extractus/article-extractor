@@ -74,7 +74,6 @@ var removeUTM = (url) => {
 var purifyURL = (url) => {
   url = removeUTM(url);
   if(!isValidURL(url)){
-    console.log('Invalid URL', url);
     return false;
   }
   let g = URL.parse(url);

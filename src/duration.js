@@ -120,9 +120,7 @@ var estimateMovie = (src) => {
   return new Promise((resolve, reject) => {
     if(isYouTube(src)){
       let vid = getYtid(src);
-      let url = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=' + vid + '&key=' + config.YouTubeKey;
-      console.log(url);
-      return fetch(url).then((res) => {
+      return fetch('https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=' + vid + '&key=' + config.YouTubeKey).then((res) => {
         return res.json();
       }).then((ob) => {
         if(ob && ob.items){

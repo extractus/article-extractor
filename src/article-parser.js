@@ -268,10 +268,11 @@ var extract = (url) => {
     url = removeUTM(url);
 
     let canonicals = [url];
-    let resURL = '', bestURL = '';
-    let html = '';
-    let meta = {};
-    let article = {};
+    let resURL, bestURL;
+    let html;
+    let meta;
+    let oemb;
+    let article;
 
     let alias = '';
     let title = '';
@@ -349,7 +350,8 @@ var extract = (url) => {
         description = meta.description || '';
         image = meta.image || '';
         author = meta.author || '';
-        source = meta.source || domain.replace('www.', '');
+        domain = domain.replace('www.', '');
+        source = meta.source || domain;
 
         next();
       },
@@ -358,6 +360,7 @@ var extract = (url) => {
           return next();
         }
         getOEmbed(bestURL).then((oem) => {
+          oemb = oem;
           if(oem.provider_name){
             source = oem.provider_name;
           }
@@ -385,8 +388,6 @@ var extract = (url) => {
       },
       (next) => {
         if(!bestURL || !html || !meta || !title || !domain){
-          console.log('loss title %s', title);
-          console.log('loss domain %s', domain);
           return next();
         }
         let t = bella.time();
@@ -421,7 +422,7 @@ var extract = (url) => {
         next();
       },
       (next) => {
-        if(!article){
+        if(oemb || !article){
           return next();
         }
         getArticle(html).then((art) => {
@@ -433,7 +434,7 @@ var extract = (url) => {
         }).finally(next);
       },
       (next) => {
-        if(!article || !content){
+        if(!article || !content || oemb){
           return next();
         }
 
@@ -467,7 +468,7 @@ var extract = (url) => {
         }
       },
       (next) => {
-        if(!article || !content || !duration){
+        if(!article || !content){
           return next();
         }
         article.duration = duration;
