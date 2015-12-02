@@ -3,11 +3,6 @@
 var fs = require('fs');
 var path = require('path');
 
-var traceur = require('traceur');
-traceur.require.makeDefault((filename) => {
-  return !filename.includes('node_modules');
-});
-
 /**
  * Import specs
  */

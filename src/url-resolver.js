@@ -42,9 +42,6 @@ var isValidURL = (str) => {
   if(!str){
     return false;
   }
-  if(str.match(/t\.co\/(\w)*\./gi)){
-    return false;
-  }
   if(isInBlackList(str)){
     return false;
   }
@@ -75,10 +72,11 @@ var removeUTM = (url) => {
 }
 
 var purifyURL = (url) => {
+  url = removeUTM(url);
   if(!isValidURL(url)){
+    console.log('Invalid URL', url);
     return false;
   }
-  url = removeUTM(url);
   let g = URL.parse(url);
   let u = [g.protocol, '//', g.host, g.pathname].join('');
   if(isAdsDomain(url) || !g.search || g.search.indexOf('=') === -1){
@@ -98,5 +96,6 @@ var getDomain = (url) => {
 module.exports = {
   isValidURL: isValidURL,
   purifyURL: purifyURL,
+  removeUTM: removeUTM,
   getDomain: getDomain
 }
