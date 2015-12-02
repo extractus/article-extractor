@@ -32,7 +32,7 @@ ArticleParser.extract(url).then((article) => {
   wordsPerMinute: Number, // default 300, use to estimate time to read
   blackList: Array, // a set of domain we don't want to parse
   adsDomain: Array, // a set of domain that often contains utm_, pk_ in URLs we want to clean
-  htmlRules: Object, // passed to sanitize-html to clean HTML, see [sanitize-html](https://www.npmjs.com/package/sanitize-html)
+  htmlRules: Object, // passed to sanitize-html to clean HTML, refer: https://www.npmjs.com/package/sanitize-html
   SoundCloudKey: String, // use to get audio duration. Get it here https://developers.soundcloud.com/
   YouTubeKey: String, // use to get video duration. Get it here https://console.developers.google.com/
 }
@@ -68,3 +68,11 @@ mocha
 ```
 
  _* Ensure that you have [mocha](https://mochajs.org/) installed_
+
+![Screenshot](http://imgur.com/QnWH8wTl.png)
+
+
+# License
+
+Apache License
+
