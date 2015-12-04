@@ -3,7 +3,7 @@ var config = {};
 config.wordsPerMinute = 300;
 
 config.blackList = [
-
+  /twitter\.com\/(\S+)\/status\/(\w+)$/
 ];
 
 config.adsDomain = [

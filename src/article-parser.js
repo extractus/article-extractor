@@ -156,12 +156,17 @@ var parseMeta = (html, url) => {
 
 var getOEmbed = (url) => {
   return new Promise((resolve, reject) => {
-    oembed(url, (err, data) => {
-      if(err){
-        return reject(err);
-      }
-      return resolve(data);
-    });
+    try{
+      oembed(url, (err, data) => {
+        if(err){
+          return reject(err);
+        }
+        return resolve(data);
+      });
+    }
+    catch(e){
+      return reject(e);
+    }
   });
 }
 

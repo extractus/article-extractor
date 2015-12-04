@@ -10,32 +10,15 @@ var URL = require('url');
 var config = require('./config');
 
 var isInBlackList = (url) => {
-
-  let arr = config.blackList;
-
-  let yes = false;
-  for(let i = 0; i < arr.length; i++){
-    let str = arr[i];
-    if(url.includes(str)){
-      yes = true;
-      break;
-    }
-  }
-  return yes;
+  return config.blackList.some((c) => {
+    return url.match(c);
+  });
 }
 
 var isAdsDomain = (url) => {
-
-  let arr = config.adsDomain;
-
-  let yes = false;
-  for(let i = 0; i < arr.length; i++){
-    if(url.includes(arr[i]) > 0){
-      yes = true;
-      break;
-    }
-  }
-  return yes;
+  return config.adsDomain.some((c) => {
+    return url.match(c);
+  });
 }
 
 var isValidURL = (str) => {
