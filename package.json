@@ -1,5 +1,5 @@
 {
-  "version": "0.1.9",
+  "version": "0.2.01",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "http://techpush.net",

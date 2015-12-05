@@ -19,7 +19,6 @@ var AP = require('../../../src/article-parser');
 var extract = AP.extract;
 
 let samples = [
-  'https://twitter.com/ndaidong/status/671648545896718337',
   'http://www.onextrapixel.com/2015/12/02/why-and-how-to-liven-up-your-site-animation-in-web-design/',
   'http://www.smashingapps.com/2015/12/01/8-free-productivity-tools-for-business-owners.html',
   'http://www.ted.com/talks/tony_robbins_asks_why_we_do_what_we_do',
@@ -57,25 +56,51 @@ var testOne = (url) => {
         done();
       });
 
-      it(' title must be shorter than 120 characters', (done) => {
-        expect(article.title).to.have.length.below(120);
+      it(' alias must be string, not empty', (done) => {
+        expect(article.alias).to.be.a('string');
+        expect(article.alias).to.have.length.at.least(1);
         done();
       });
-
-      it(' description must be shorter than 160 characters', (done) => {
-        expect(article.description).to.have.length.below(160);
-        done();
-      });
-
-      it(' duration must be number > 0', (done) => {
-        expect(article.duration).to.be.a('number');
-        expect(article.duration).to.be.at.least(1);
+      it(' url must be string, not empty', (done) => {
+        expect(article.url).to.be.a('string');
+        expect(article.url).to.have.length.at.least(1);
         done();
       });
 
       it(' canonicals must be an array, not empty', (done) => {
         expect(article.canonicals).to.be.an('array');
         expect(article.canonicals).to.have.length.above(0);
+        done();
+      });
+
+      it(' title must be string, [1, 120] characters', (done) => {
+        expect(article.title).to.be.a('string');
+        expect(article.title).to.have.length.above(0);
+        expect(article.title).to.have.length.below(120);
+        done();
+      });
+
+      it(' description must be string, [1, 160] characters', (done) => {
+        expect(article.description).to.be.a('string');
+        expect(article.description).to.have.length.above(0);
+        expect(article.description).to.have.length.below(160);
+        done();
+      });
+
+      it(' domain must be string, not empty', (done) => {
+        expect(article.domain).to.be.a('string');
+        expect(article.domain).to.have.length.at.least(1);
+        done();
+      });
+      it(' source must be string, not empty', (done) => {
+        expect(article.source).to.be.a('string');
+        expect(article.source).to.have.length.at.least(1);
+        done();
+      });
+
+      it(' duration must be number > 0', (done) => {
+        expect(article.duration).to.be.a('number');
+        expect(article.duration).to.be.at.least(1);
         done();
       });
 

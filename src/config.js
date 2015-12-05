@@ -11,7 +11,7 @@ config.adsDomain = [
   'deadspin.com',
   'gizmodo.com',
   'stocktwits.com',
-  'dailyjs.com'
+  /dailyjs.com/
 ];
 
 config.htmlRules = {
