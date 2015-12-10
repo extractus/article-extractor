@@ -26,7 +26,8 @@ let samples = [
   'https://www.youtube.com/watch?v=8jPQjjsBbIc',
   'https://vimeo.com/146753785',
   'http://codecondo.com/5-steps-learn-rock-twitter/',
-  'https://googleblog.blogspot.com/2015/12/join-googleorg-to-help-make-education.html'
+  'https://googleblog.blogspot.com/2015/12/join-googleorg-to-help-make-education.html',
+  'http://www.usatoday.com/story/sports/ncaaf/2015/12/09/assistant-coach-salary-pay-will-muschamp-kirby-smart/77036724/'
 ];
 
 

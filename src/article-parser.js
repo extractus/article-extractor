@@ -275,7 +275,6 @@ var extract = (url) => {
 
     async.series([
       (next) => {
-        console.log('Fetching... %s', url);
         fetch(url).then((res) => {
           resURL = purifyURL(res.url);
           if(resURL){
@@ -295,7 +294,6 @@ var extract = (url) => {
           return next();
         }
 
-        console.log('Parsing meta data... %s', url);
         meta = parseMeta(html, resURL);
 
         if(!meta || !meta.title || !meta.url){
@@ -352,7 +350,6 @@ var extract = (url) => {
           return next();
         }
 
-        console.log('Getting oEmbed... %s', url);
         oEmbed.extract(bestURL).then((oem) => {
           oemb = oem;
           if(oem.provider_name){
@@ -384,8 +381,6 @@ var extract = (url) => {
         if(!bestURL || !html || !meta || !title || !domain){
           return next();
         }
-
-        console.log('Normalize data structure... %s', url);
 
         let t = bella.time();
         alias = bella.createAlias(title) + '-' + t;
@@ -422,7 +417,7 @@ var extract = (url) => {
         if(oemb || !article){
           return next();
         }
-        console.log('Extracting article content... %s', url);
+
         getArticle(html).then((art) => {
           content = art;
         }).catch((e) => {
@@ -436,7 +431,6 @@ var extract = (url) => {
           return next();
         }
 
-        console.log('Obtimizing description... %s', url);
         article.content = content;
 
         let desc = article.description;
@@ -451,7 +445,7 @@ var extract = (url) => {
         if(!article || !content || duration){
           return next();
         }
-        console.log('Calculating duration... %s', url);
+
         if(Duration.isMovie(bestURL) || Duration.isAudio(bestURL)){
           Duration.estimate(bestURL).then((d) => {
             duration = d;
@@ -476,7 +470,6 @@ var extract = (url) => {
       }
     ], (err) => {
       if(err){
-        console.log(err);
         return reject(err);
       }
 
@@ -491,19 +484,6 @@ var extract = (url) => {
       return resolve(article);
     });
   });
-}
-
-var turl = '';
-var check = (url) => {
-  extract(url).then((r) => {
-    console.log(r);
-  }).catch((e) => {
-    console.log(e);
-  });
-}
-
-if(turl){
-  check(turl);
 }
 
 module.exports = {
