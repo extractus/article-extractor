@@ -373,6 +373,7 @@ var extract = (url) => {
           if(oem.duration){
             duration = oem.duration;
           }
+          return oem;
         }).catch((e) => {
           tracer.getOEmbed = e;
         }).finally(next);
