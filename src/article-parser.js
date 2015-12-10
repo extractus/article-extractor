@@ -13,7 +13,7 @@ var parse = require('node-readability');
 var read = require('read-art');
 var sanitize = require('sanitize-html');
 var cheerio = require('cheerio');
-var oembed = require('oembed-auto');
+var oEmbed = require('oembed-auto-es6');
 
 var config = require('./config');
 
@@ -152,22 +152,6 @@ var parseMeta = (html, url) => {
   }
 
   return entry;
-}
-
-var getOEmbed = (url) => {
-  return new Promise((resolve, reject) => {
-    try{
-      oembed(url, (err, data) => {
-        if(err){
-          return reject(err);
-        }
-        return resolve(data);
-      });
-    }
-    catch(e){
-      return reject(e);
-    }
-  });
 }
 
 var getArticle = (html) => {
@@ -369,7 +353,7 @@ var extract = (url) => {
         }
 
         console.log('Getting oEmbed... %s', url);
-        getOEmbed(bestURL).then((oem) => {
+        oEmbed.extract(bestURL).then((oem) => {
           oemb = oem;
           if(oem.provider_name){
             source = oem.provider_name;
@@ -525,7 +509,7 @@ if(turl){
 module.exports = {
   configure: configure,
   extract: extract,
-  getOEmbed: getOEmbed,
+  getOEmbed: oEmbed.extract,
   getDomain: getDomain,
   parseMeta: parseMeta,
   purifyURL: purifyURL

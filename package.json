@@ -1,5 +1,5 @@
 {
-  "version": "0.2.02",
+  "version": "0.2.1",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "http://techpush.net",
@@ -23,13 +23,23 @@
     "read-art": "latest",
     "node-fetch": "latest",
     "node-readability": "latest",
-    "oembed-auto": "latest",
+    "oembed-auto-es6": "latest",
     "sanitize-html": "latest"
   },
   "devDependencies": {
     "mocha": "latest",
     "chai": "latest"
   },
+  "keywords": [
+    "article",
+    "extractor",
+    "parser",
+    "cleaner",
+    "crawler",
+    "readability",
+    "oembed",
+    "util"
+  ],
   "license": "MIT",
   "maintainers": [
     "ndaidong <ndaidong@gmail.com>"
