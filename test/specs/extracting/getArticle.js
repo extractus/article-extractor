@@ -23,7 +23,7 @@ let samples = [
   'http://www.smashingapps.com/2015/12/01/8-free-productivity-tools-for-business-owners.html',
   'http://www.ted.com/talks/tony_robbins_asks_why_we_do_what_we_do',
   'https://soundcloud.com/wlrn/1104am-local-government-opposed-to-bill-that-would-streamline-elections-1',
-  'https://www.youtube.com/watch?v=8jPQjjsBbIc',
+  'https://www.youtube.com/watch?v=PpZHjM1jiPA',
   'https://vimeo.com/146753785',
   'http://codecondo.com/5-steps-learn-rock-twitter/',
   'https://googleblog.blogspot.com/2015/12/join-googleorg-to-help-make-education.html',

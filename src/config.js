@@ -38,6 +38,6 @@ config.htmlRules = {
 }
 
 config.SoundCloudKey = 'd5ed9cc54022577fb5bba50f057d261c';
-config.YouTubeKey = 'AIzaSyBsMo0x1tEOHLS4XnxHQjdj8pqOSOWcDak';
+config.YouTubeKey = 'AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc';
 
 module.exports = config;

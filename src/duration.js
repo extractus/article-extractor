@@ -125,6 +125,7 @@ var estimateMovie = (src) => {
       return fetch(url).then((res) => {
         return res.json();
       }).then((ob) => {
+        console.log(ob);
         if (ob && ob.items) {
           let items = ob.items;
           if (bella.isArray(items) && items.length > 0) {
