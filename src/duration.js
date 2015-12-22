@@ -22,29 +22,29 @@ var getYtid = (lnk) => {
   lnk = lnk.replace('http://', '');
   lnk = lnk.replace('https://', '');
 
-  if(lnk.indexOf(x1) === 0){
+  if (lnk.indexOf(x1) === 0) {
     s = lnk.replace(x1, '');
     let arr = s.split('&');
-    if(arr.length > 0){
-      for(let i = 0; i < arr.length; i++){
+    if (arr.length > 0) {
+      for (let i = 0; i < arr.length; i++) {
         let tm = arr[i].split('=');
-        if(tm[0] === 'v'){
+        if (tm[0] === 'v') {
           vid = tm[1];
           break;
         }
       };
     }
   }
-  else if(lnk.indexOf(x2) === 0){
+  else if (lnk.indexOf(x2) === 0) {
     vid = lnk.replace(x2, '');
   }
-  else if(lnk.indexOf(x3) === 0){
+  else if (lnk.indexOf(x3) === 0) {
     vid = lnk.replace(x3, '');
   }
-  else if(lnk.indexOf(x4) === 0){
+  else if (lnk.indexOf(x4) === 0) {
     vid = lnk.replace(x4, '');
     let ques = vid.indexOf('?');
-    if(ques !== -1){
+    if (ques !== -1) {
       vid = vid.substring(0, ques);
     }
   }
@@ -61,7 +61,7 @@ var toSecond = (duration) => {
     let unit = part.charAt(part.length - 1);
     let amount = parseInt(part.slice(0, -1), 10);
 
-    switch(unit){
+    switch (unit) {
       case 'H':
         seconds += amount * 60 * 60; break;
       case 'M':
@@ -93,17 +93,18 @@ var isVimeo = (src) => {
   return src.includes('vimeo.com');
 }
 
-var isMovie = (src) => {
+function isMovie(src) {
   return isYouTube(src) || isVimeo(src);
 }
 
 var estimateAudio = (src) => {
   return new Promise((resolve, reject) => {
-    if(isSoundCloud(src)){
-      return fetch('http://api.soundcloud.com/resolve.json?url=' + bella.encode(src) + '&client_id=' + config.SoundCloudKey).then((res) => {
+    if (isSoundCloud(src)) {
+      let url = 'http://api.soundcloud.com/resolve.json?url=' + bella.encode(src) + '&client_id=' + config.SoundCloudKey;
+      return fetch(url).then((res) => {
         return res.json();
       }).then((ob) => {
-        if(ob && ob.duration){
+        if (ob && ob.duration) {
           let duration = Math.round(ob.duration / 1000);
           return resolve(duration);
         }
@@ -118,16 +119,17 @@ var estimateAudio = (src) => {
 
 var estimateMovie = (src) => {
   return new Promise((resolve, reject) => {
-    if(isYouTube(src)){
+    if (isYouTube(src)) {
       let vid = getYtid(src);
-      return fetch('https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=' + vid + '&key=' + config.YouTubeKey).then((res) => {
+      let url = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=' + vid + '&key=' + config.YouTubeKey;
+      return fetch(url).then((res) => {
         return res.json();
       }).then((ob) => {
-        if(ob && ob.items){
+        if (ob && ob.items) {
           let items = ob.items;
-          if(bella.isArray(items) && items.length > 0){
+          if (bella.isArray(items) && items.length > 0) {
             let item = items[0].contentDetails || false;
-            if(item && item.duration){
+            if (item && item.duration) {
               let duration = toSecond(item.duration);
               return resolve(duration);
             }
@@ -138,11 +140,11 @@ var estimateMovie = (src) => {
         return reject(e);
       });
     }
-    else if(isVimeo(src)){
+    else if (isVimeo(src)) {
       return fetch('http://vimeo.com/api/oembed.json?url=' + src).then((res) => {
         return res.json();
       }).then((ob) => {
-        if(ob && ob.duration){
+        if (ob && ob.duration) {
           let duration = ob.duration;
           return resolve(duration);
         }
@@ -165,11 +167,11 @@ var estimateArticle = (content) => {
 
 var estimate = (source) => {
   return new Promise((resolve) => {
-    if(urlResolver.isValidURL(source)){
-      if(isAudio(source)){
+    if (urlResolver.isValidURL(source)) {
+      if (isAudio(source)) {
         return resolve(estimateAudio(source));
       }
-      else if(isMovie(source)){
+      else if (isMovie(source)) {
         return resolve(estimateMovie(source));
       }
     }

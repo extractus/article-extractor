@@ -43,7 +43,7 @@ ArticleParser.extract(url).then((article) => {
 Return error message or an object:
 
 ```
-{ 
+{
   alias: 'how-to-stay-calm-when-you-know-you-ll-be-stressed-daniel-levitin-ted-talks-1449068980884',
   url: 'https://www.youtube.com/watch?v=8jPQjjsBbIc',
   canonicals: [ 'https://www.youtube.com/watch?v=8jPQjjsBbIc' ],
@@ -54,7 +54,7 @@ Return error message or an object:
   author: 'TED',
   source: 'YouTube',
   domain: 'www.youtube.com',
-  duration: 741 
+  duration: 741
 }
 
 ```
@@ -75,4 +75,3 @@ mocha
 # License
 
 Apache License
-
