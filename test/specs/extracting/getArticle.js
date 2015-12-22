@@ -53,7 +53,19 @@ var testOne = (url) => {
       });
 
       it(' should match schema', (done) => {
-        expect(article).to.have.all.keys('alias', 'url', 'canonicals', 'title', 'description', 'image', 'content', 'author', 'source', 'domain', 'duration');
+        expect(article).to.have.all.keys(
+          'alias',
+          'url',
+          'canonicals',
+          'title',
+          'description',
+          'image',
+          'content',
+          'author',
+          'source',
+          'domain',
+          'duration'
+        );
         done();
       });
 

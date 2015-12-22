@@ -25,31 +25,31 @@ var getDomain = urlResolver.getDomain;
 var isValidURL = urlResolver.isValidURL;
 
 var configure = (o) => {
-  if(o.wordsPerMinute){
+  if (o.wordsPerMinute) {
     let wpm = Number(o.wordsPerMinute);
-    if(bella.isNumber(wpm) && wpm > 100 && wpm < 1000){
+    if (bella.isNumber(wpm) && wpm > 100 && wpm < 1000) {
       config.wordsPerMinute = wpm;
     }
   }
-  if(o.blackList){
+  if (o.blackList) {
     let bl = o.blackList;
-    if(bella.isArray(bl)){
+    if (bella.isArray(bl)) {
       config.blackList = bl;
     }
   }
-  if(o.adsDomain){
+  if (o.adsDomain) {
     let ad = o.adsDomain;
-    if(bella.isArray(ad)){
+    if (bella.isArray(ad)) {
       config.adsDomain = ad;
     }
   }
-  if(o.htmlRules){
+  if (o.htmlRules) {
     let hr = o.htmlRules;
-    if(bella.isObject(hr)){
-      if(hr.allowedTags && bella.isArray(hr.allowedTags)){
+    if (bella.isObject(hr)) {
+      if (hr.allowedTags && bella.isArray(hr.allowedTags)) {
         config.htmlRules.allowedTags = hr.allowedTags;
       }
-      if(hr.allowedAttributes && bella.isObject(hr.allowedAttributes)){
+      if (hr.allowedAttributes && bella.isObject(hr.allowedAttributes)) {
         config.htmlRules.allowedAttributes = hr.allowedAttributes;
       }
     }
@@ -103,7 +103,7 @@ var parseMeta = (html, url) => {
     'dc.creator'
   ];
 
-  try{
+  try {
     let doc = cheerio.load(html, {
       lowerCaseTags: true,
       lowerCaseAttributeNames: true,
@@ -115,7 +115,7 @@ var parseMeta = (html, url) => {
     doc('link').each((i, link) => {
       let m = doc(link);
       let rel = m.attr('rel');
-      if(rel && rel === 'canonical'){
+      if (rel && rel === 'canonical') {
         entry.canonical = m.attr('href');
       }
     });
@@ -127,27 +127,27 @@ var parseMeta = (html, url) => {
       let property = bella.strtolower(m.attr('property'));
       let name = bella.strtolower(m.attr('name'));
 
-      if(bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)){
+      if (bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)) {
         entry.source = content;
       }
-      if(bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)){
+      if (bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)) {
         entry.url = content;
       }
-      if(bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)){
+      if (bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)) {
         entry.title = content;
       }
-      if(bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)){
+      if (bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)) {
         entry.description = content;
       }
-      if(bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)){
+      if (bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)) {
         entry.image = content;
       }
-      if(bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)){
+      if (bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)) {
         entry.author = content;
       }
     });
   }
-  catch(e){
+  catch (e) {
     console.log(e);
   }
 
@@ -161,13 +161,13 @@ var getArticle = (html) => {
 
     async.series([
       (next) => {
-        if(content){
+        if (content) {
           return next();
         }
 
         let $ = cheerio.load(html);
 
-        if(!$){
+        if (!$) {
           return next();
         }
 
@@ -180,11 +180,11 @@ var getArticle = (html) => {
           'article'
         ];
 
-        for(let i = 0; i < classes.length; i++){
+        for (let i = 0; i < classes.length; i++) {
           let c = $(classes[i]);
-          if(c){
+          if (c) {
             content = c.html();
-            if(content){
+            if (content) {
               break;
             }
           }
@@ -192,28 +192,28 @@ var getArticle = (html) => {
         next();
       },
       (next) => {
-        if(content){
+        if (content) {
           return next();
         }
         read(html, (err, a) => {
-          if(err){
+          if (err) {
             tracer.error = err;
           }
-          if(a && a.content){
+          if (a && a.content) {
             content = a.content;
           }
           next();
         });
       },
       (next) => {
-        if(content){
+        if (content) {
           return next();
         }
         parse(html, (err, a) => {
-          if(err){
+          if (err) {
             tracer.error = err;
           }
-          if(a && a.content){
+          if (a && a.content) {
             content = a.content;
             a.close();
           }
@@ -221,7 +221,7 @@ var getArticle = (html) => {
         });
       },
       (next) => {
-        if(!content){
+        if (!content) {
           return next();
         }
 
@@ -237,10 +237,10 @@ var getArticle = (html) => {
         next();
       }
     ], (err) => {
-      if(err){
+      if (err) {
         return reject(err);
       }
-      if(!content){
+      if (!content) {
         return reject(new Error('No article determined'));
       }
       return resolve(content);
@@ -277,10 +277,10 @@ var extract = (url) => {
       (next) => {
         fetch(url).then((res) => {
           resURL = purifyURL(res.url);
-          if(resURL){
+          if (resURL) {
             canonicals.push(resURL);
           }
-          else{
+          else {
             msg = 'No URL or URL is in black list';
           }
           res.text().then((s) => {
@@ -290,30 +290,30 @@ var extract = (url) => {
         }).catch(next);
       },
       (next) => {
-        if(!resURL || !html){
+        if (!resURL || !html) {
           return next();
         }
 
         meta = parseMeta(html, resURL);
 
-        if(!meta || !meta.title || !meta.url){
+        if (!meta || !meta.title || !meta.url) {
           return next();
         }
 
         canonicals.push(meta.url);
 
-        if(meta.canonical){
+        if (meta.canonical) {
           canonicals.push(meta.canonical);
         }
 
         canonicals = bella.unique(canonicals);
 
         let curls = canonicals.filter((cano) => {
-          if(cano.startsWith('//')){
+          if (cano.startsWith('//')) {
             cano = 'http:' + cano;
           }
           cano = purifyURL(cano);
-          if(isValidURL(cano)){
+          if (isValidURL(cano)) {
             return true;
           }
           return false;
@@ -325,14 +325,14 @@ var extract = (url) => {
 
         domain = getDomain(bestURL);
 
-        if(!domain){
+        if (!domain) {
           msg = 'No domain determined';
           return next();
         }
 
         title = meta.title || '';
 
-        if(!title){
+        if (!title) {
           msg = 'No title determined';
           return next();
         }
@@ -346,40 +346,42 @@ var extract = (url) => {
         next();
       },
       (next) => {
-        if(!bestURL || !html || !meta || !title || !domain){
+        if (!bestURL || !html || !meta || !title || !domain) {
           return next();
         }
 
-        oEmbed.extract(bestURL).then((oem) => {
-          oemb = oem;
-          if(oem.provider_name){
-            source = oem.provider_name;
-          }
-          if(oem.html){
-            content = oem.html;
-          }
-          if(oem.title){
-            title = oem.title;
-          }
-          if(oem.description){
-            description = oem.description;
-          }
-          if(oem.author_name){
-            author = oem.author_name;
-          }
-          if(oem.thumbnail_url){
-            image = oem.thumbnail_url;
-          }
-          if(oem.duration){
-            duration = oem.duration;
-          }
-          return oem;
-        }).catch((e) => {
-          tracer.getOEmbed = e;
-        }).finally(next);
+        oEmbed
+          .extract(bestURL)
+          .then((oem) => {
+            oemb = oem;
+            if (oem.provider_name) {
+              source = oem.provider_name;
+            }
+            if (oem.html) {
+              content = oem.html;
+            }
+            if (oem.title) {
+              title = oem.title;
+            }
+            if (oem.description) {
+              description = oem.description;
+            }
+            if (oem.author_name) {
+              author = oem.author_name;
+            }
+            if (oem.thumbnail_url) {
+              image = oem.thumbnail_url;
+            }
+            if (oem.duration) {
+              duration = oem.duration;
+            }
+            return oem;
+          }).catch((e) => {
+            tracer.getOEmbed = e;
+          }).finally(next);
       },
       (next) => {
-        if(!bestURL || !html || !meta || !title || !domain){
+        if (!bestURL || !html || !meta || !title || !domain) {
           return next();
         }
 
@@ -387,7 +389,7 @@ var extract = (url) => {
         alias = bella.createAlias(title) + '-' + t;
 
         let auth = author;
-        if(auth && auth.indexOf(' ') > 0){
+        if (auth && auth.indexOf(' ') > 0) {
           author = bella.ucwords(auth);
         }
 
@@ -395,7 +397,7 @@ var extract = (url) => {
         title = bella.truncate(tit, 118);
 
         let desc = bella.stripTags(description);
-        if(desc){
+        if (desc) {
           description = bella.truncate(desc, 156);
         }
 
@@ -415,7 +417,7 @@ var extract = (url) => {
         next();
       },
       (next) => {
-        if(oemb || !article){
+        if (oemb || !article) {
           return next();
         }
 
@@ -428,14 +430,14 @@ var extract = (url) => {
         }).finally(next);
       },
       (next) => {
-        if(!article || !content || oemb){
+        if (!article || !content || oemb) {
           return next();
         }
 
         article.content = content;
 
         let desc = article.description;
-        if(!desc && content){
+        if (!desc && content) {
           desc = bella.stripTags(content);
           article.description = bella.truncate(desc, 156);
         }
@@ -443,18 +445,18 @@ var extract = (url) => {
         next();
       },
       (next) => {
-        if(!article || !content || duration){
+        if (!article || !content || duration) {
           return next();
         }
 
-        if(Duration.isMovie(bestURL) || Duration.isAudio(bestURL)){
+        if (Duration.isMovie(bestURL) || Duration.isAudio(bestURL)) {
           Duration.estimate(bestURL).then((d) => {
             duration = d;
           }).catch((e) => {
             console.log(e);
           }).finally(next);
         }
-        else{
+        else {
           Duration.estimate(content).then((d) => {
             duration = d;
           }).catch((e) => {
@@ -463,22 +465,22 @@ var extract = (url) => {
         }
       },
       (next) => {
-        if(!article || !content){
+        if (!article || !content) {
           return next();
         }
         article.duration = duration;
         next();
       }
     ], (err) => {
-      if(err){
+      if (err) {
         return reject(err);
       }
 
-      if(!article){
+      if (!article) {
         return reject(new Error(msg));
       }
 
-      if(!article.title || !article.domain || !article.duration){
+      if (!article.title || !article.domain || !article.duration) {
         return reject(new Error('Not enough info to build article'));
       }
 
