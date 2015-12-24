@@ -31,12 +31,14 @@ var configure = (o) => {
       config.wordsPerMinute = wpm;
     }
   }
+
   if (o.blackList) {
     let bl = o.blackList;
     if (bella.isArray(bl)) {
       config.blackList = bl;
     }
   }
+
   if (o.adsDomain) {
     let ad = o.adsDomain;
     if (bella.isArray(ad)) {
@@ -146,9 +148,8 @@ var parseMeta = (html, url) => {
         entry.author = content;
       }
     });
-  }
-  catch (e) {
-    console.log(e);
+  } catch (e) {
+    tracer.parse = e;
   }
 
   return entry;
@@ -248,6 +249,15 @@ var getArticle = (html) => {
   });
 }
 
+/**
+ * Returns the first element that is a descendant of the element
+ * on which it is invoked that matches the specified group of selectors.
+ * @param {HTMLElement} root parent element to query off of
+ * @param {string} selector query string to match on
+ *
+ * @returns {HTMLElement} first element found matching query
+ */
+
 var extract = (url) => {
 
   return new Promise((resolve, reject) => {
@@ -279,8 +289,7 @@ var extract = (url) => {
           resURL = purifyURL(res.url);
           if (resURL) {
             canonicals.push(resURL);
-          }
-          else {
+          } else {
             msg = 'No URL or URL is in black list';
           }
           res.text().then((s) => {
@@ -424,7 +433,6 @@ var extract = (url) => {
         getArticle(html).then((art) => {
           content = art;
         }).catch((e) => {
-          console.log(e);
           tracer.read = e;
           msg = 'Parsing article failed';
         }).finally(next);
@@ -453,14 +461,13 @@ var extract = (url) => {
           Duration.estimate(bestURL).then((d) => {
             duration = d;
           }).catch((e) => {
-            console.log(e);
+            tracer.estimate = e;
           }).finally(next);
-        }
-        else {
+        } else {
           Duration.estimate(content).then((d) => {
             duration = d;
           }).catch((e) => {
-            console.log(e);
+            tracer.estimate = e;
           }).finally(next);
         }
       },

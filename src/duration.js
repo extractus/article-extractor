@@ -32,16 +32,13 @@ var getYtid = (lnk) => {
           vid = tm[1];
           break;
         }
-      };
+      }
     }
-  }
-  else if (lnk.indexOf(x2) === 0) {
+  } else if (lnk.indexOf(x2) === 0) {
     vid = lnk.replace(x2, '');
-  }
-  else if (lnk.indexOf(x3) === 0) {
+  } else if (lnk.indexOf(x3) === 0) {
     vid = lnk.replace(x3, '');
-  }
-  else if (lnk.indexOf(x4) === 0) {
+  } else if (lnk.indexOf(x4) === 0) {
     vid = lnk.replace(x4, '');
     let ques = vid.indexOf('?');
     if (ques !== -1) {
@@ -125,7 +122,6 @@ var estimateMovie = (src) => {
       return fetch(url).then((res) => {
         return res.json();
       }).then((ob) => {
-        console.log(ob);
         if (ob && ob.items) {
           let items = ob.items;
           if (bella.isArray(items) && items.length > 0) {
@@ -140,8 +136,7 @@ var estimateMovie = (src) => {
       }).catch((e) => {
         return reject(e);
       });
-    }
-    else if (isVimeo(src)) {
+    } else if (isVimeo(src)) {
       return fetch('http://vimeo.com/api/oembed.json?url=' + src).then((res) => {
         return res.json();
       }).then((ob) => {
@@ -171,8 +166,7 @@ var estimate = (source) => {
     if (urlResolver.isValidURL(source)) {
       if (isAudio(source)) {
         return resolve(estimateAudio(source));
-      }
-      else if (isMovie(source)) {
+      } else if (isMovie(source)) {
         return resolve(estimateMovie(source));
       }
     }

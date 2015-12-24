@@ -7,6 +7,7 @@
 /* eslint no-undefined: 0*/
 /* eslint no-array-constructor: 0*/
 /* eslint no-new-func: 0*/
+/* eslint no-console: 0*/
 
 'use strict';
 
