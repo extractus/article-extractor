@@ -13,13 +13,13 @@ var isInBlackList = (url) => {
   return config.blackList.some((c) => {
     return url.match(c);
   });
-}
+};
 
 var isAdsDomain = (url) => {
   return config.adsDomain.some((c) => {
     return url.match(c);
   });
-}
+};
 
 var isValidURL = (str) => {
   if (!str) {
@@ -37,7 +37,7 @@ var isValidURL = (str) => {
     return false;
   }
   return true;
-}
+};
 
 var removeUTM = (url) => {
   if (url.includes('#')) {
@@ -52,7 +52,7 @@ var removeUTM = (url) => {
     }).join('&')].join('?');
   }
   return url;
-}
+};
 
 var purifyURL = (url) => {
   url = removeUTM(url);
@@ -66,7 +66,7 @@ var purifyURL = (url) => {
     return u;
   }
   return u + g.search;
-}
+};
 
 var getDomain = (url) => {
   if (!isValidURL(url)) {
@@ -74,11 +74,11 @@ var getDomain = (url) => {
   }
   let g = URL.parse(url);
   return g.host;
-}
+};
 
 module.exports = {
   isValidURL: isValidURL,
   purifyURL: purifyURL,
   removeUTM: removeUTM,
   getDomain: getDomain
-}
+};

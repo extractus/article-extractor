@@ -120,6 +120,6 @@ var testOne = (url) => {
 
     });
   });
-}
+};
 
 samples.map(testOne);

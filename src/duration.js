@@ -46,7 +46,7 @@ var getYtid = (lnk) => {
     }
   }
   return vid;
-}
+};
 
 var toSecond = (duration) => {
   let matches = duration.match(/[0-9]+[HMS]/g);
@@ -70,25 +70,25 @@ var toSecond = (duration) => {
   });
 
   return seconds;
-}
+};
 
 var isSoundCloud = (src) => {
   return src.includes('soundcloud.com');
-}
+};
 var isAudioBoom = (src) => {
   return src.includes('audioboom.com');
-}
+};
 var isAudio = (src) => {
   return isSoundCloud(src) || isAudioBoom(src);
-}
+};
 
 
 var isYouTube = (src) => {
   return src.includes('youtube.com') || src.includes('youtu.be/');
-}
+};
 var isVimeo = (src) => {
   return src.includes('vimeo.com');
-}
+};
 
 function isMovie(src) {
   return isYouTube(src) || isVimeo(src);
@@ -112,7 +112,7 @@ var estimateAudio = (src) => {
     }
     return reject(new Error('Not supported ' + src));
   });
-}
+};
 
 var estimateMovie = (src) => {
   return new Promise((resolve, reject) => {
@@ -151,7 +151,7 @@ var estimateMovie = (src) => {
     }
     return reject(new Error('Not supported ' + src));
   });
-}
+};
 
 var estimateArticle = (content) => {
   let text = bella.stripTags(content);
@@ -159,7 +159,7 @@ var estimateArticle = (content) => {
   let minToRead = words / config.wordsPerMinute;
   let secToRead = Math.ceil(minToRead * 60);
   return secToRead;
-}
+};
 
 var estimate = (source) => {
   return new Promise((resolve) => {
@@ -172,7 +172,7 @@ var estimate = (source) => {
     }
     return resolve(estimateArticle(source));
   });
-}
+};
 
 module.exports = {
   estimate: estimate,
@@ -181,4 +181,4 @@ module.exports = {
   isSoundCloud: isSoundCloud,
   isMovie: isMovie,
   isAudio: isAudio
-}
+};

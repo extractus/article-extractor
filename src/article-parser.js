@@ -56,7 +56,7 @@ var configure = (o) => {
       }
     }
   }
-}
+};
 
 var tracer = {};
 
@@ -70,7 +70,7 @@ var parseMeta = (html, url) => {
     image: '',
     author: '',
     source: ''
-  }
+  };
 
   let sourceAttrs = [
     'application-name',
@@ -153,7 +153,7 @@ var parseMeta = (html, url) => {
   }
 
   return entry;
-}
+};
 
 var getArticle = (html) => {
   return new Promise((resolve, reject) => {
@@ -247,7 +247,7 @@ var getArticle = (html) => {
       return resolve(content);
     });
   });
-}
+};
 
 /**
  * Returns the first element that is a descendant of the element
@@ -422,7 +422,7 @@ var extract = (url) => {
           source: source,
           domain: domain,
           duration: duration
-        }
+        };
         next();
       },
       (next) => {
@@ -494,7 +494,7 @@ var extract = (url) => {
       return resolve(article);
     });
   });
-}
+};
 
 module.exports = {
   configure: configure,
@@ -503,4 +503,4 @@ module.exports = {
   getDomain: getDomain,
   parseMeta: parseMeta,
   purifyURL: purifyURL
-}
+};
