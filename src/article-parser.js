@@ -249,15 +249,6 @@ var getArticle = (html) => {
   });
 };
 
-/**
- * Returns the first element that is a descendant of the element
- * on which it is invoked that matches the specified group of selectors.
- * @param {HTMLElement} root parent element to query off of
- * @param {string} selector query string to match on
- *
- * @returns {HTMLElement} first element found matching query
- */
-
 var extract = (url) => {
 
   return new Promise((resolve, reject) => {
