@@ -21,6 +21,12 @@ var isAdsDomain = (url) => {
   });
 };
 
+var isExceptDomain = (url) => {
+  return config.exceptDomain.some((c) => {
+    return url.match(c);
+  });
+};
+
 var isValidURL = (str) => {
   if (!str) {
     return false;
@@ -78,6 +84,8 @@ var getDomain = (url) => {
 
 module.exports = {
   isValidURL: isValidURL,
+  isAdsDomain: isAdsDomain,
+  isExceptDomain: isExceptDomain,
   purifyURL: purifyURL,
   removeUTM: removeUTM,
   getDomain: getDomain

@@ -23,6 +23,7 @@ var purifyURL = urlResolver.purifyURL;
 var removeUTM = urlResolver.removeUTM;
 var getDomain = urlResolver.getDomain;
 var isValidURL = urlResolver.isValidURL;
+var isExceptDomain = urlResolver.isExceptDomain;
 
 var configure = (o) => {
   if (o.wordsPerMinute) {
@@ -155,6 +156,46 @@ var parseMeta = (html, url) => {
   return entry;
 };
 
+var parseWithEmbedly = (url) => {
+  return new Promise((resolve, reject) => {
+    let u = encodeURIComponent(url);
+    let k = config.EmbedlyKey;
+    let target = `http://api.embed.ly/1/extract?key=${k}&url=${u}&format=json`;
+    return fetch(target).then((res) => {
+      return res.json();
+    }).then((o) => {
+      let author = '';
+      let authors = o.author || [];
+      if (authors.length) {
+        author = authors[0].name;
+      }
+      let image = '';
+      let images = o.images || [];
+      if (images.length) {
+        let maxw = 0, maxh = 0;
+        images.forEach((img) => {
+          if (img.width > maxw && img.height > maxh) {
+            image = img.url;
+            maxw = img.width;
+            maxh = img.height;
+          }
+        });
+      }
+      return resolve({
+        url: o.url,
+        title: o.title,
+        description: o.description,
+        author: author,
+        source: o.provider_name || '',
+        image: image,
+        content: o.content
+      });
+    }).catch((e) => {
+      return reject(e);
+    });
+  });
+};
+
 var getArticle = (html) => {
   return new Promise((resolve, reject) => {
 
@@ -174,8 +215,10 @@ var getArticle = (html) => {
 
         let classes = [
           '.post-content noscript',
-          '.post-content',
           '.post-body',
+          '.post-content',
+          '.article-body',
+          '.article-content',
           '.entry-inner',
           '.post',
           'article'
@@ -276,6 +319,25 @@ var extract = (url) => {
 
     async.series([
       (next) => {
+        if (!isExceptDomain(url)) {
+          return next();
+        }
+        parseWithEmbedly(url).then((a) => {
+          resURL = a.url;
+          title = a.title;
+          description = a.description;
+          author = a.author;
+          source = a.source;
+          content = a.content;
+          canonicals.push(resURL);
+        }).catch((e) => {
+          tracer.embedlyError = e;
+        }).finally(next);
+      },
+      (next) => {
+        if (resURL) {
+          return next();
+        }
         fetch(url).then((res) => {
           resURL = purifyURL(res.url);
           if (resURL) {
@@ -306,6 +368,18 @@ var extract = (url) => {
           canonicals.push(meta.canonical);
         }
 
+        title = meta.title || '';
+        description = meta.description || '';
+        image = meta.image || '';
+        author = meta.author || '';
+        domain = domain.replace('www.', '');
+        if (!source) {
+          source = meta.source || '';
+        }
+
+        next();
+      },
+      (next) => {
         canonicals = bella.unique(canonicals);
 
         let curls = canonicals.filter((cano) => {
@@ -330,19 +404,10 @@ var extract = (url) => {
           return next();
         }
 
-        title = meta.title || '';
-
-        if (!title) {
-          msg = 'No title determined';
-          return next();
-        }
-
-        description = meta.description || '';
-        image = meta.image || '';
-        author = meta.author || '';
         domain = domain.replace('www.', '');
-        source = meta.source || domain;
-
+        if (!source) {
+          source = domain;
+        }
         next();
       },
       (next) => {
@@ -381,17 +446,12 @@ var extract = (url) => {
           }).finally(next);
       },
       (next) => {
-        if (!bestURL || !html || !meta || !title || !domain) {
+        if (!bestURL || !domain || !title) {
           return next();
         }
 
         let t = bella.time();
         alias = bella.createAlias(title) + '-' + t;
-
-        let auth = author;
-        if (auth && auth.indexOf(' ') > 0) {
-          author = bella.ucwords(auth);
-        }
 
         let tit = bella.stripTags(title);
         title = bella.truncate(tit, 118);
@@ -399,6 +459,11 @@ var extract = (url) => {
         let desc = bella.stripTags(description);
         if (desc) {
           description = bella.truncate(desc, 156);
+        }
+
+        let auth = author;
+        if (auth && auth.indexOf(' ') > 0) {
+          author = bella.ucwords(auth);
         }
 
         article = {
