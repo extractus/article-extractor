@@ -60,7 +60,13 @@ var removeUTM = (url) => {
   return url;
 };
 
-var purifyURL = (url) => {
+var absolutify = (fullUrl, relativeUrl) => {
+  let parsed = URL.parse(fullUrl);
+  let baseURL = fullUrl.replace(parsed.path, '');
+  return URL.resolve(baseURL, relativeUrl);
+};
+
+var purify = (url) => {
   url = removeUTM(url);
   if (!isValidURL(url)) {
     return false;
@@ -86,7 +92,8 @@ module.exports = {
   isValidURL: isValidURL,
   isAdsDomain: isAdsDomain,
   isExceptDomain: isExceptDomain,
-  purifyURL: purifyURL,
+  absolutify: absolutify,
+  purify: purify,
   removeUTM: removeUTM,
   getDomain: getDomain
 };

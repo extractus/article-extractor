@@ -34,7 +34,6 @@ let samples = [
   'http://www.cbssports.com/nfl/writer/pete-prisco/25461111/super-bowl-2016-broncos-panthers-ride-dominating-defenses-to-title-game'
 ];
 
-
 var testOne = (url) => {
   describe('.extract("' + url + '")', () => {
 

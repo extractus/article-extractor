@@ -19,7 +19,8 @@ var config = require('./config');
 
 var Duration = require('./duration');
 var urlResolver = require('./url-resolver');
-var purifyURL = urlResolver.purifyURL;
+var absolutify = urlResolver.absolutify;
+var purify = urlResolver.purify;
 var removeUTM = urlResolver.removeUTM;
 var getDomain = urlResolver.getDomain;
 var isValidURL = urlResolver.isValidURL;
@@ -292,6 +293,28 @@ var getArticle = (html) => {
   });
 };
 
+var absolutifyContentSrc = (s, url) => {
+  let $ = cheerio.load(s, {
+    normalizeWhitespace: true,
+    decodeEntities: true
+  });
+
+  $('a').each(function(i, elem) {
+    let href = $(elem).attr('href');
+    if (href) {
+      $(elem).attr('href', absolutify(url, href));
+    }
+  });
+
+  $('img').each(function(i, elem) {
+    let src = $(elem).attr('src');
+    if (src) {
+      $(elem).attr('src', absolutify(url, src));
+    }
+  });
+  return $.html();
+};
+
 var extract = (url) => {
 
   return new Promise((resolve, reject) => {
@@ -339,7 +362,7 @@ var extract = (url) => {
           return next();
         }
         fetch(url).then((res) => {
-          resURL = purifyURL(res.url);
+          resURL = purify(res.url);
           if (resURL) {
             canonicals.push(resURL);
           } else {
@@ -386,7 +409,7 @@ var extract = (url) => {
           if (cano.startsWith('//')) {
             cano = 'http:' + cano;
           }
-          cano = purifyURL(cano);
+          cano = purify(cano);
           if (isValidURL(cano)) {
             return true;
           }
@@ -472,7 +495,7 @@ var extract = (url) => {
           canonicals: canonicals,
           title: title,
           description: description,
-          image: image,
+          image: absolutify(bestURL, image),
           content: content,
           author: author,
           source: source,
@@ -498,8 +521,6 @@ var extract = (url) => {
           return next();
         }
 
-        article.content = content;
-
         let desc = article.description;
         if (!desc && content) {
           desc = bella.stripTags(content);
@@ -512,6 +533,8 @@ var extract = (url) => {
         if (!article || !content || duration) {
           return next();
         }
+
+        article.content = absolutifyContentSrc(content, bestURL);
 
         if (Duration.isMovie(bestURL) || Duration.isAudio(bestURL)) {
           Duration.estimate(bestURL).then((d) => {
@@ -558,5 +581,6 @@ module.exports = {
   getOEmbed: oEmbed.extract,
   getDomain: getDomain,
   parseMeta: parseMeta,
-  purifyURL: purifyURL
+  absolutify: absolutify,
+  purify: purify
 };

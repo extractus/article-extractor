@@ -1,5 +1,5 @@
 {
-  "version": "0.3.2",
+  "version": "0.3.3",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "http://techpush.net",
@@ -24,8 +24,7 @@
     "node-fetch": "latest",
     "node-readability": "latest",
     "oembed-auto-es6": "latest",
-    "sanitize-html": "latest",
-    "urijs": "latest"
+    "sanitize-html": "latest"
   },
   "devDependencies": {
     "mocha": "latest",
