@@ -234,13 +234,13 @@ var getArticle = (html) => {
             }
           }
         }
-        next();
+        return next();
       },
       (next) => {
         if (content) {
           return next();
         }
-        read(html, (err, a) => {
+        return read(html, (err, a) => {
           if (err) {
             tracer.error = err;
           }
@@ -254,7 +254,7 @@ var getArticle = (html) => {
         if (content) {
           return next();
         }
-        parse(html, (err, a) => {
+        return parse(html, (err, a) => {
           if (err) {
             tracer.error = err;
           }
@@ -279,7 +279,7 @@ var getArticle = (html) => {
         $('a').attr('target', '_blank');
         content = $.html();
 
-        next();
+        return next();
       }
     ], (err) => {
       if (err) {
@@ -299,14 +299,14 @@ var absolutifyContentSrc = (s, url) => {
     decodeEntities: true
   });
 
-  $('a').each(function(i, elem) {
+  $('a').each(function _each1(i, elem) {
     let href = $(elem).attr('href');
     if (href) {
       $(elem).attr('href', absolutify(url, href));
     }
   });
 
-  $('img').each(function(i, elem) {
+  $('img').each(function _each2(i, elem) {
     let src = $(elem).attr('src');
     if (src) {
       $(elem).attr('src', absolutify(url, src));
@@ -323,7 +323,7 @@ var extract = (url) => {
 
     url = removeUTM(url);
 
-    let canonicals = [url];
+    let canonicals = [ url ];
     let resURL, bestURL;
     let html;
     let meta;
@@ -345,7 +345,7 @@ var extract = (url) => {
         if (!isExceptDomain(url)) {
           return next();
         }
-        parseWithEmbedly(url).then((a) => {
+        return parseWithEmbedly(url).then((a) => {
           resURL = a.url;
           title = a.title;
           description = a.description;
@@ -361,7 +361,7 @@ var extract = (url) => {
         if (resURL) {
           return next();
         }
-        fetch(url).then((res) => {
+        return fetch(url).then((res) => {
           resURL = purify(res.url);
           if (resURL) {
             canonicals.push(resURL);
@@ -400,20 +400,20 @@ var extract = (url) => {
           source = meta.source || '';
         }
 
-        next();
+        return next();
       },
       (next) => {
         canonicals = bella.unique(canonicals);
 
         let curls = canonicals.filter((cano) => {
+          if (!cano) {
+            return false;
+          }
           if (cano.startsWith('//')) {
             cano = 'http:' + cano;
           }
           cano = purify(cano);
-          if (isValidURL(cano)) {
-            return true;
-          }
-          return false;
+          return isValidURL(cano);
         });
 
         canonicals = bella.unique(curls);
@@ -431,14 +431,14 @@ var extract = (url) => {
         if (!source) {
           source = domain;
         }
-        next();
+        return next();
       },
       (next) => {
         if (!bestURL || !html || !meta || !title || !domain) {
           return next();
         }
 
-        oEmbed
+        return oEmbed
           .extract(bestURL)
           .then((oem) => {
             oemb = oem;
@@ -502,14 +502,14 @@ var extract = (url) => {
           domain: domain,
           duration: duration
         };
-        next();
+        return next();
       },
       (next) => {
         if (oemb || !article) {
           return next();
         }
 
-        getArticle(html).then((art) => {
+        return getArticle(html).then((art) => {
           content = art;
         }).catch((e) => {
           tracer.read = e;
@@ -527,7 +527,7 @@ var extract = (url) => {
           article.description = bella.truncate(desc, 156);
         }
 
-        next();
+        return next();
       },
       (next) => {
         if (!article || !content || duration) {
@@ -537,25 +537,28 @@ var extract = (url) => {
         article.content = absolutifyContentSrc(content, bestURL);
 
         if (Duration.isMovie(bestURL) || Duration.isAudio(bestURL)) {
-          Duration.estimate(bestURL).then((d) => {
+          return Duration.estimate(bestURL).then((d) => {
             duration = d;
+            return null;
           }).catch((e) => {
             tracer.estimate = e;
-          }).finally(next);
-        } else {
-          Duration.estimate(content).then((d) => {
-            duration = d;
-          }).catch((e) => {
-            tracer.estimate = e;
+            return e;
           }).finally(next);
         }
+        return Duration.estimate(content).then((d) => {
+          duration = d;
+          return null;
+        }).catch((e) => {
+          tracer.estimate = e;
+          return e;
+        }).finally(next);
       },
       (next) => {
         if (!article || !content) {
           return next();
         }
         article.duration = duration;
-        next();
+        return next();
       }
     ], (err) => {
       if (err) {

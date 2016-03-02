@@ -36,10 +36,10 @@ config.htmlRules = {
     'a'
   ],
   allowedAttributes: {
-    'a': ['href'],
-    'img': ['src', 'alt'],
-    'meta': ['content', 'name', 'property', 'charset', 'viewport'],
-    'link': ['href', 'type']
+    'a': [ 'href' ],
+    'img': [ 'src', 'alt' ],
+    'meta': [ 'content', 'name', 'property', 'charset', 'viewport' ],
+    'link': [ 'href', 'type' ]
   }
 };
 

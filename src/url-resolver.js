@@ -53,9 +53,9 @@ var removeUTM = (url) => {
   let arr = url.split('?');
   if (arr.length > 1) {
     let s = arr[1];
-    return [arr[0], s.split('&').filter((v) => {
+    return [ arr[0], s.split('&').filter((v) => {
       return !/^utm_/.test(v) && !/^pk_/.test(v);
-    }).join('&')].join('?');
+    }).join('&') ].join('?');
   }
   return url;
 };
@@ -72,7 +72,7 @@ var purify = (url) => {
     return false;
   }
   let g = URL.parse(url);
-  let u = [g.protocol, '//', g.host, g.pathname].join('');
+  let u = [ g.protocol, '//', g.host, g.pathname ].join('');
   let isBad = isAdsDomain(url) || !g.search || g.search.indexOf('=') === -1;
   if (isBad) {
     return u;

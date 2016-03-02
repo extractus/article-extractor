@@ -1,60 +1,50 @@
-
 {
-  // ESLint v1.10.3
+  // ESLint v2.0.0
   // http://eslint.org/docs/rules/
   // https://gist.github.com/ndaidong/eb2a2f094e31814b75ac
 
-  "ecmaFeatures": {
-    "binaryLiterals": true,                    // enable binary literals
-    "blockBindings": true,                     // enable let and const (aka block bindings)
-    "defaultParams": true,                     // enable default function parameters
-    "forOf": true,                             // enable for-of loops
-    "generators": true,                        // enable generators
-    "modules": true,                           // enable modules
-    "objectLiteralComputedProperties": true,   // enable computed object literal property names
-    "objectLiteralDuplicateProperties": true,  // enable duplicate object literal properties in strict mode
-    "objectLiteralShorthandMethods": true,     // enable object literal shorthand methods
-    "objectLiteralShorthandProperties": true,  // enable object literal shorthand properties
-    "octalLiterals": true,                     // enable octal literals
-    "regexUFlag": true,                        // enable the regular expression u flag
-    "regexYFlag": true,                        // enable the regular expression y flag
-    "templateStrings": true,                   // enable template strings
-    "unicodeCodePointEscapes": true,           // enable code point escapes
-    "jsx": true                                // enable JSX
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "binaryLiterals": true,                    // enable binary literals
+      "blockBindings": true,                     // enable let and const (aka block bindings)
+      "defaultParams": true,                     // enable default function parameters
+      "forOf": true,                             // enable for-of loops
+      "generators": true,                        // enable generators
+      "modules": true,                           // enable modules
+      "objectLiteralComputedProperties": true,   // enable computed object literal property names
+      "objectLiteralDuplicateProperties": true,  // enable duplicate object literal properties in strict mode
+      "objectLiteralShorthandMethods": true,     // enable object literal shorthand methods
+      "objectLiteralShorthandProperties": true,  // enable object literal shorthand properties
+      "octalLiterals": true,                     // enable octal literals
+      "regexUFlag": true,                        // enable the regular expression u flag
+      "regexYFlag": true,                        // enable the regular expression y flag
+      "templateStrings": true,                   // enable template strings
+      "unicodeCodePointEscapes": true,           // enable code point escapes
+      "jsx": true                                // enable JSX
+    }
   },
 
   "env": {
-    "browser": true,                          //  - browser global variables.
-    "node": true,                             //  - Node.js global variables and Node.js scoping.
-    "commonjs": true,                         //  - CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack).
-    "worker": true,                           //  - web workers global variables.
-    "amd": true,                              //  - defines require() and define() as global variables as per the amd spec.
-    "mocha": true,                            //  - adds all of the Mocha testing global variables.
-    "jasmine": true,                          //  - adds all of the Jasmine testing global variables for version 1.3 and 2.0.
-    "jest": true,                             //  - Jest global variables.
-    "phantomjs": true,                        //  - PhantomJS global variables.
-    "protractor": true,                       //  - Protractor global variables.
-    "qunit": true,                            //  - QUnit global variables.
-    "jquery": true,                           //  - jQuery global variables.
-    "prototypejs": true,                      //  - Prototype.js global variables.
-    "shelljs": true,                          //  - ShellJS global variables.
-    "meteor": true,                           //  - Meteor global variables.
-    "mongo": true,                            //  - MongoDB global variables.
-    "applescript": true,                      //  - AppleScript global variables.
-    "nashorn": true,                          //  - Java 8 Nashorn global variables.
-    "serviceworker": true,                    //  - Service Worker global variables.
-    "embertest": true,                        //  - Ember test helper globals.
-    "webextensions": true,                    //  - WebExtensions globals.
-    "es6": true                               //  - enable all ECMAScript 6 features except for modules.
+    "browser": true,     // browser global variables.
+    "node": true,        // Node.js global variables and Node.js-specific rules.
+    "amd": true,         // defines require() and define() as global variables as per the amd spec.
+    "mocha": true,       // adds all of the Mocha testing global variables.
+    "jasmine": true,     // adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+    "phantomjs": true,   // phantomjs global variables.
+    "jquery": true,      // jquery global variables.
+    "prototypejs": true, // prototypejs global variables.
+    "shelljs": true,     // shelljs global variables.
+    "es6": true          // enabled ES6 syntax
   },
 
   "globals": {
     "SDATA": true,
     "RECONF": true,
-    "requirejs": true,
     "Ractive": true,
-    "Angular": true,
-    "jQuery": true
+    "App": true,
+    "Bella": true
   },
 
   "plugins": [
@@ -66,7 +56,7 @@
 
     "comma-dangle": 2,               // disallow or enforce trailing commas (recommended)
     "no-cond-assign": 2,             // disallow assignment in conditional expressions (recommended)
-    "no-console": 1,                 // disallow use of console in the node environment (recommended)
+    "no-console": 2,                 // disallow use of console in the node environment (recommended)
     "no-constant-condition": 2,      // disallow use of constant expressions in conditions (recommended)
     "no-control-regex": 2,           // disallow control characters in regular expressions (recommended)
     "no-debugger": 2,                // disallow use of debugger (recommended)
@@ -108,13 +98,12 @@
     ],                          // enforces consistent newlines before or after dots
     "dot-notation": 2,          // encourages use of dot notation whenever possible
     "eqeqeq": [2, "smart"],                // require the use of === and !== (fixable)
-    "guard-for-in": 0,          // make sure for-in loops have an if statement
+    "guard-for-in": 2,          // make sure for-in loops have an if statement
     "no-alert": 2,              // disallow the use of alert, confirm, and prompt
     "no-caller": 2,             // disallow use of arguments.caller or arguments.callee
     "no-case-declarations": 0,  // disallow lexical declarations in case clauses
     "no-div-regex": 2,          // disallow division operators explicitly at beginning of regular expression
     "no-else-return": 2,        // disallow else after a return in an if
-    "no-empty-label": 2,        // disallow use of labels for anything other than loops and switches
     "no-empty-pattern": 0,      // disallow use of empty destructuring patterns
     "no-eq-null": 2,            // disallow comparisons to null without a type-checking operator
     "no-eval": 2,               // disallow use of eval()
@@ -206,7 +195,7 @@
 
     "array-bracket-spacing": [
       2,
-      "never"
+      "always"
     ],                                // enforce spacing inside array brackets (fixable)
     "block-spacing": [
       2,
@@ -245,7 +234,7 @@
       "self"
     ],                                // enforces consistent naming when capturing the current execution context
     "eol-last": 2,                    // enforce newline at the end of file, with no multiple empty lines (fixable)
-    "func-names": 0,                  // require function expressions to have a name
+    "func-names": 2,                  // require function expressions to have a name
     "func-style": 0,                  // enforces use of function declarations or expressions
     "id-length": 0,                   // this option enforces minimum and maximum identifier lengths (variable names, property names etc.)
     "id-match": 0,                    // require identifiers to match the provided regular expression
@@ -274,7 +263,7 @@
     ],                                // enforce empty lines around comments
     "max-depth": [2, 10],             // specify the maximum depth that blocks can be nested
     "max-len": [
-      1,
+      2,
       120,
       4,
       {
@@ -339,9 +328,13 @@
       "always"
     ],                                // require or disallow use of semicolons instead of ASI (fixable)
     "sort-vars": 0,                   // sort variables within the same declaration block
-    "space-after-keywords": [
+    "keyword-spacing": [
       2,
-      "always"
+      {
+        "before": true,
+        "after": true,
+        "overrides": {}
+      }
     ],                                // require a space after certain keywords (fixable)
     "space-before-blocks": [
       2,
