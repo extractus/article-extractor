@@ -65,8 +65,8 @@ var absolutify = (fullUrl, relativeUrl) => {
     return '';
   }
   let parsed = URL.parse(fullUrl);
-  let baseURL = fullUrl.replace(parsed.path, '');
-  return URL.resolve(baseURL, relativeUrl);
+  let first = [ parsed.protocol, parsed.host ].join('//');
+  return URL.resolve(first, relativeUrl);
 };
 
 var purify = (url) => {

@@ -61,6 +61,14 @@ Return error message or an object:
 
 ```
 
+##### absolutify(String baseURL, String url)
+
+Return an absolute url.
+
+```
+var imgSrc = absolutify('https://www.awesome.com/articles/hello-world.html', '../images/avatar.png');
+console.log(imgSrc); // https://www.awesome.com/images/avatar.png
+```
 
 ## Test
 

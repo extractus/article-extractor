@@ -578,10 +578,6 @@ var extract = (url) => {
   });
 };
 
-extract('http://zenhabits.net/attachments/').then((a) => {
-  console.log(a);
-});
-
 module.exports = {
   configure: configure,
   extract: extract,
