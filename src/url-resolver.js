@@ -61,6 +61,9 @@ var removeUTM = (url) => {
 };
 
 var absolutify = (fullUrl, relativeUrl) => {
+  if (!relativeUrl || !fullUrl) {
+    return '';
+  }
   let parsed = URL.parse(fullUrl);
   let baseURL = fullUrl.replace(parsed.path, '');
   return URL.resolve(baseURL, relativeUrl);
