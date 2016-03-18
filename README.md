@@ -82,6 +82,7 @@ npm test
 ![Screenshot](http://imgur.com/QnWH8wTl.png)
 
 
+
 # License
 
-Apache License
+The MIT License (MIT)
