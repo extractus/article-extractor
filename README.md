@@ -76,10 +76,8 @@ console.log(imgSrc); // https://www.awesome.com/images/avatar.png
 
 ```
 npm install
-mocha
+npm test
 ```
-
- _* Ensure that you have [mocha](https://mochajs.org/) installed_
 
 ![Screenshot](http://imgur.com/QnWH8wTl.png)
 
