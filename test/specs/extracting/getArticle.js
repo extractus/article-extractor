@@ -28,7 +28,6 @@ let samples = [
   'https://vimeo.com/146753785',
   'http://codecondo.com/5-steps-learn-rock-twitter/',
   'https://googleblog.blogspot.com/2015/12/join-googleorg-to-help-make-education.html',
-  'http://www.usatoday.com/story/sports/ncaaf/2015/12/09/assistant-coach-salary-pay-will-muschamp-kirby-smart/77036724/',
   'http://www.sfgate.com/news/crime/article/At-least-18-killed-in-snowstorm-related-deaths-6780430.php',
   'http://www.nytimes.com/2016/01/25/world/middleeast/egypt-museum-king-tutankhamen-mask.html',
   'http://www.cbssports.com/nfl/writer/pete-prisco/25461111/super-bowl-2016-broncos-panthers-ride-dominating-defenses-to-title-game'
