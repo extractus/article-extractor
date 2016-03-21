@@ -44,9 +44,25 @@ ArticleParser.extract(url).then((article) => {
 }
 ```
 
+Default configurations may work for most case.
+
 ##### extract(String url)
 
-Return error message or an object:
+Extract article data from specified url.
+
+```
+var ArticleParser = require('article-parser');
+
+var url = 'http://yhoo.it/1MJUFov';
+
+ArticleParser.extract(url).then((article) => {
+  console.log(article);
+}).catch((err) => {
+  console.log(err);
+});
+```
+
+Now *article* would be something like this:
 
 ```
 {
@@ -65,6 +81,78 @@ Return error message or an object:
 
 ```
 
+##### parseMeta(String html, String url)
+
+Get meta data from webpage's html.
+
+```
+var ArticleParser = require('article-parser');
+var fetch = require('node-fetch');
+
+var url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+
+fetch(url).then((res) => {
+  return res.text();
+}).then((html) => {
+  let metaData = ArticleParser.parseMeta(html, url);
+  return metaData;
+});
+```
+
+Now *metaData* would be something like this:
+
+```
+{
+  url: 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6',
+  canonical: 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6',
+  title: 'Setup Rocket Chat within 10 minutes',
+  description: 'Do you want to get your own Slack app for your company or your team. Rocket Chat may be what you need.',
+  image: 'https://cdn-images-1.medium.com/max/800/1*9IX5MWrnaCBzzeS3h5N2oA.png',
+  author: '@ndaidong',
+  source: 'Medium'
+}
+```
+
+##### getArticle(String html)
+
+Get main article content from webpage's html:
+
+```
+var ArticleParser = require('article-parser');
+var fetch = require('node-fetch');
+
+var url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+
+fetch(url).then((res) => {
+  return res.text();
+}).then((html) => {
+  let content = ArticleParser.getArticle(html);
+  return content;
+});
+```
+
+Now *content* would be clean text of main article extracted from *url*.
+
+##### getOEmbed(String url)
+
+Get oEmbed data from given url. Use the same API from [oembed-auto-es6](https://www.npmjs.com/package/oembed-auto-es6).
+
+```
+var ArticleParser = require('article-parser');
+var fetch = require('node-fetch');
+
+let url = 'https://www.youtube.com/watch?v=8jPQjjsBbIc';
+
+ArticleParser.getOEmbed(url).then((oEmbedData) => {
+  console.log(oEmbedData);
+}).catch((err) => {
+  console.log(err);
+});
+```
+
+Now *oEmbedData* is oEmbed content of that YouTube link.
+
+
 ##### absolutify(String baseURL, String url)
 
 Return an absolute url.
@@ -74,6 +162,16 @@ var imgSrc = absolutify('https://www.awesome.com/articles/hello-world.html', '..
 console.log(imgSrc); // https://www.awesome.com/images/avatar.png
 ```
 
+##### purify(String url)
+
+Return a purified url.
+
+```
+var fullUrl = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6#.98xbvjtjw?utm_medium=email&utm_source=Newsletter&utm_campaign=Autumn+Newsletter&utm_content=logo+link'
+var goodURL = purify(fullUrl);
+console.log(goodURL); // https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6
+```
+
 ## Test
 
 ```
@@ -81,7 +179,7 @@ npm install
 npm test
 ```
 
-![Screenshot](http://imgur.com/QnWH8wTl.png)
+![Screenshot](http://i.imgur.com/24M0QUq.png)
 
 
 
