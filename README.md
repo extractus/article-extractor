@@ -4,6 +4,7 @@ Extract main article, main image, meta and oEmbed from URL.
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
 ![Travis](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/article-parser?branch=master)
+![devDependency Status](https://david-dm.org/ndaidong/article-parser.svg)
 
 ### Installation
 
@@ -39,6 +40,7 @@ ArticleParser.extract(url).then((article) => {
   SoundCloudKey: String, // use to get audio duration. Get it here https://developers.soundcloud.com/
   YouTubeKey: String, // use to get video duration. Get it here https://console.developers.google.com/,
   EmbedlyKey: String, // use to extract with Embedly API. Refer http://docs.embed.ly/docs/extract
+  ReadabilityToken: String, // use to extract with Readability Parser API. Refer https://www.readability.com/developers/api/parser
 }
 ```
 

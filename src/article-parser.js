@@ -58,6 +58,19 @@ var configure = (o) => {
       }
     }
   }
+
+  if (o.SoundCloudKey) {
+    config.SoundCloudKey = o.SoundCloudKey;
+  }
+  if (o.YouTubeKey) {
+    config.YouTubeKey = o.YouTubeKey;
+  }
+  if (o.EmbedlyKey) {
+    config.EmbedlyKey = o.EmbedlyKey;
+  }
+  if (o.ReadabilityToken) {
+    config.ReadabilityToken = o.ReadabilityToken;
+  }
 };
 
 var tracer = {};
@@ -580,7 +593,11 @@ var extract = (url) => {
 
 module.exports = {
   configure: configure,
+  getConfig: () => {
+    return bella.clone(config);
+  },
   extract: extract,
+  getArticle: getArticle,
   getOEmbed: oEmbed.extract,
   getDomain: getDomain,
   parseMeta: parseMeta,

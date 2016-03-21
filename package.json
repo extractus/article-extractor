@@ -1,5 +1,5 @@
 {
-  "version": "0.3.6",
+  "version": "0.3.7",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "http://techpush.net",
@@ -13,8 +13,8 @@
     "node": ">= 4.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "coverage": "./node_modules/.bin/nyc mocha",
+    "test": "./node_modules/.bin/tape test/start.js | tap-spec",
+    "coverage": "./node_modules/.bin/nyc tape test/start.js | tap-spec",
     "report": "npm run coverage && ./node_modules/.bin/nyc report --reporter=lcov",
     "coveralls": "npm run report && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
@@ -30,10 +30,11 @@
     "sanitize-html": "latest"
   },
   "devDependencies": {
-    "chai": "latest",
+    "chance": "latest",
     "coveralls": "latest",
-    "mocha": "latest",
-    "nyc": "latest"
+    "nyc": "latest",
+    "tap-spec": "latest",
+    "tape": "latest"
   },
   "keywords": [
     "article",
