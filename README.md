@@ -28,7 +28,8 @@ ArticleParser.extract(url).then((article) => {
 
 ### API
 
-##### configure(Object conf)
+
+#### configure(Object conf)
 
 ```
 {
@@ -46,7 +47,8 @@ ArticleParser.extract(url).then((article) => {
 
 Default configurations may work for most case.
 
-##### extract(String url)
+
+#### extract(String url)
 
 Extract article data from specified url.
 
@@ -81,7 +83,8 @@ Now *article* would be something like this:
 
 ```
 
-##### parseMeta(String html, String url)
+
+#### parseMeta(String html, String url)
 
 Get meta data from webpage's html.
 
@@ -113,7 +116,8 @@ Now *metaData* would be something like this:
 }
 ```
 
-##### getArticle(String html)
+
+#### getArticle(String html)
 
 Get main article content from webpage's html:
 
@@ -133,7 +137,8 @@ fetch(url).then((res) => {
 
 Now *content* would be clean text of main article extracted from *url*.
 
-##### getOEmbed(String url)
+
+#### getOEmbed(String url)
 
 Get oEmbed data from given url. Use the same API from [oembed-auto-es6](https://www.npmjs.com/package/oembed-auto-es6).
 
@@ -153,7 +158,7 @@ ArticleParser.getOEmbed(url).then((oEmbedData) => {
 Now *oEmbedData* is oEmbed content of that YouTube link.
 
 
-##### absolutify(String baseURL, String url)
+#### absolutify(String baseURL, String url)
 
 Return an absolute url.
 
@@ -162,7 +167,8 @@ var imgSrc = absolutify('https://www.awesome.com/articles/hello-world.html', '..
 console.log(imgSrc); // https://www.awesome.com/images/avatar.png
 ```
 
-##### purify(String url)
+
+#### purify(String url)
 
 Return a purified url.
 
