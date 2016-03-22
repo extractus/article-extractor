@@ -25,7 +25,15 @@ var sample = {
   SoundCloudKey: 'SOUNDCLOUDKEY',
   YouTubeKey: 'YOUTUBEKEY',
   EmbedlyKey: 'EMBEDLYKEY',
-  ReadabilityToken: 'READABILITYTOKEN'
+  ReadabilityToken: 'READABILITYTOKEN',
+  htmlRules: {
+    allowedTags: [
+      'html', 'body', 'meta', 'link', 'title'
+    ],
+    allowedAttributes: {
+      'a': [ 'href' ]
+    }
+  }
 };
 
 var hasRequiredKeys = (o) => {
@@ -72,6 +80,10 @@ test('Testing "configure" method:', (assert) => {
   let a4 = config.ReadabilityToken;
   let e4 = sample.ReadabilityToken;
   assert.deepEqual(a4, e4, `C.ReadabilityToken must be ${e4}`);
+
+  let a5 = config.htmlRules;
+  let e5 = sample.htmlRules;
+  assert.deepEqual(a5, e5, 'C.htmlRules must be equal to sample.htmlRules');
 
   assert.deepEqual(config.wordsPerMinute, sample.wordsPerMinute, `C.wordsPerMinute must be ${sample.wordsPerMinute}`);
 

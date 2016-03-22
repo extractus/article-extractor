@@ -179,6 +179,11 @@ module.exports = {
   isYouTube: isYouTube,
   isVimeo: isVimeo,
   isSoundCloud: isSoundCloud,
+  isAudioBoom: isAudioBoom,
   isMovie: isMovie,
-  isAudio: isAudio
+  isAudio: isAudio,
+  getYtid: getYtid,
+  toSecond: toSecond,
+  estimateAudio: estimateAudio,
+  estimateMovie: estimateMovie
 };
