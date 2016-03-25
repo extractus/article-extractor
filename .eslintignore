@@ -1,0 +1,8 @@
+coverage/*
+node_modules/*
+**/vendor/*.js
+.nyc_output/*
+LICENSE
+package.json
+README.md
+

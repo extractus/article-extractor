@@ -28,3 +28,5 @@ node_modules
 
 .coveralls.yml
 .nyc_output
+
+.lint.html

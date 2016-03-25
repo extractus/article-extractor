@@ -602,6 +602,5 @@ module.exports = {
   getDomain: getDomain,
   parseMeta: parseMeta,
   absolutify: absolutify,
-  purify: purify,
-  parseWithEmbedly: parseWithEmbedly
+  purify: purify
 };
