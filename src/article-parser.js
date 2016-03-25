@@ -601,6 +601,7 @@ module.exports = {
   getOEmbed: oEmbed.extract,
   getDomain: getDomain,
   parseMeta: parseMeta,
+  parseWithEmbedly: parseWithEmbedly,
   absolutify: absolutify,
   purify: purify
 };
