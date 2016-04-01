@@ -1,7 +1,20 @@
+os:
+  - linux
+sudo: false
 language: node_js
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+install:
+  - export CXX=g++-4.8
+  - $CXX --version
+  - npm i
 node_js:
+  - "5.10"
   - "5.9"
-  - "5.5"
   - "5.0"
   - "4.2"
   - "4.0"
