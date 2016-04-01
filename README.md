@@ -181,6 +181,8 @@ console.log(goodURL); // https://medium.com/@ndaidong/setup-rocket-chat-within-1
 ## Test
 
 ```
+git clone https://github.com/ndaidong/article-parser.git
+cd article-parser
 npm install
 npm test
 ```
