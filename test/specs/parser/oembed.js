@@ -20,7 +20,7 @@ var AP = require(path.join(rootDir, 'article-parser'));
 var getOEmbed = AP.getOEmbed;
 
 var samples = [
-  'https://www.youtube.com/watch?v=klzLdzpPcQw',
+  'https://www.youtube.com/watch?v=CTjB-eK4XF8',
   'https://vimeo.com/146820026',
   'https://soundcloud.com/travisscott-2/wonderful-ftthe-weeknd'
 ];
