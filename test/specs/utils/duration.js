@@ -8,8 +8,6 @@
 /* eslint no-new-func: 0*/
 /* eslint no-console: 0*/
 
-'use strict';
-
 var path = require('path');
 var test = require('tape');
 var bella = require('bellajs');
@@ -38,7 +36,8 @@ test('Testing isYouTube method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isYouTube(url1);
   let r2 = isYouTube(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
@@ -51,7 +50,8 @@ test('Testing isVimeo method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isVimeo(url1);
   let r2 = isVimeo(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
@@ -63,7 +63,8 @@ test('Testing isSoundCloud method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isSoundCloud(url1);
   let r2 = isSoundCloud(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
@@ -75,14 +76,15 @@ test('Testing isAudioBoom method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isAudioBoom(url1);
   let r2 = isAudioBoom(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
 });
 
 var eachURL = (url) => {
-  test(`Testing estimate(${url})`, { timeout: 15000 }, (t) => {
+  test(`Testing estimate(${url})`, {timeout: 15000}, (t) => {
     estimate(url).then((d) => {
       t.ok(bella.isNumber(d), `Duration (${d}) must be a number.`);
       t.ok(d > 0, `Duration (${d}) is greater than 0.`);
@@ -94,7 +96,7 @@ var eachURL = (url) => {
 };
 
 [
-  YtUrl, VmUrl, ScUrl, chance.paragraph({ sentences: 10 })
+  YtUrl, VmUrl, ScUrl, chance.paragraph({sentences: 10})
 ].map(eachURL);
 
 var eachYouTubeMovies = (url) => {
@@ -142,7 +144,7 @@ testFailEstimateMovie();
 var convertOne = (item) => {
   let dur = item.duration;
   let exp = item.second;
-  test(`Testing  toSecond(${dur})`, { timeout: 15000 }, (t) => {
+  test(`Testing  toSecond(${dur})`, {timeout: 15000}, (t) => {
     let act = toSecond(dur);
     t.equal(act, exp, `Result for '${dur}' must be '${exp}'.`);
     t.end();

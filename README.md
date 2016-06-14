@@ -5,6 +5,7 @@ Extract main article, main image, meta and oEmbed from URL.
 ![Travis](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/article-parser?branch=master)
 ![devDependency Status](https://david-dm.org/ndaidong/article-parser.svg)
+[![Known Vulnerabilities](https://snyk.io/test/npm/article-parser/badge.svg)](https://snyk.io/test/npm/article-parser)
 
 ### Installation
 
@@ -41,7 +42,6 @@ ArticleParser.extract(url).then((article) => {
   SoundCloudKey: String, // use to get audio duration. Get it here https://developers.soundcloud.com/
   YouTubeKey: String, // use to get video duration. Get it here https://console.developers.google.com/,
   EmbedlyKey: String, // use to extract with Embedly API. Refer http://docs.embed.ly/docs/extract
-  ReadabilityToken: String, // use to extract with Readability Parser API. Refer https://www.readability.com/developers/api/parser
 }
 ```
 
@@ -136,27 +136,6 @@ fetch(url).then((res) => {
 ```
 
 Now *content* would be clean text of main article extracted from *url*.
-
-
-#### getOEmbed(String url)
-
-Get oEmbed data from given url. Use the same API from [oembed-auto-es6](https://www.npmjs.com/package/oembed-auto-es6).
-
-```
-var ArticleParser = require('article-parser');
-var fetch = require('node-fetch');
-
-let url = 'https://www.youtube.com/watch?v=8jPQjjsBbIc';
-
-ArticleParser.getOEmbed(url).then((oEmbedData) => {
-  console.log(oEmbedData);
-}).catch((err) => {
-  console.log(err);
-});
-```
-
-Now *oEmbedData* is oEmbed content of that YouTube link.
-
 
 #### absolutify(String baseURL, String url)
 
