@@ -3,8 +3,6 @@
  * @ndaidong
  **/
 
-'use strict';
-
 var URL = require('url');
 
 var config = require('./config');
@@ -53,9 +51,9 @@ var removeUTM = (url) => {
   let arr = url.split('?');
   if (arr.length > 1) {
     let s = arr[1];
-    return [ arr[0], s.split('&').filter((v) => {
-      return !/^utm_/.test(v) && !/^pk_/.test(v);
-    }).join('&') ].join('?');
+    return [arr[0], s.split('&').filter((v) => {
+      return !(/^utm_/).test(v) && !(/^pk_/).test(v);
+    }).join('&')].join('?');
   }
   return url;
 };
@@ -65,7 +63,7 @@ var absolutify = (fullUrl, relativeUrl) => {
     return '';
   }
   let parsed = URL.parse(fullUrl);
-  let first = [ parsed.protocol, parsed.host ].join('//');
+  let first = [parsed.protocol, parsed.host].join('//');
   return URL.resolve(first, relativeUrl);
 };
 
@@ -75,7 +73,7 @@ var purify = (url) => {
     return false;
   }
   let g = URL.parse(url);
-  let u = [ g.protocol, '//', g.host, g.pathname ].join('');
+  let u = [g.protocol, '//', g.host, g.pathname].join('');
   let isBad = isAdsDomain(url) || !g.search || g.search.indexOf('=') === -1;
   if (isBad) {
     return u;
@@ -92,12 +90,12 @@ var getDomain = (url) => {
 };
 
 module.exports = {
-  isValidURL: isValidURL,
-  isAdsDomain: isAdsDomain,
-  isExceptDomain: isExceptDomain,
-  isInBlackList: isInBlackList,
-  absolutify: absolutify,
-  purify: purify,
-  removeUTM: removeUTM,
-  getDomain: getDomain
+  isValidURL,
+  isAdsDomain,
+  isExceptDomain,
+  isInBlackList,
+  absolutify,
+  purify,
+  removeUTM,
+  getDomain
 };

@@ -3,17 +3,13 @@
  * @ndaidong
  **/
 
-'use strict';
-
-var async = require('async');
 var bella = require('bellajs');
-var Promise = require('bluebird');
+var Promise = require('promise-wtf');
 var fetch = require('node-fetch');
-var parse = require('node-readability');
-var read = require('read-art');
 var sanitize = require('sanitize-html');
 var cheerio = require('cheerio');
-var oEmbed = require('oembed-auto-es6');
+
+var read = require('./libs/readability');
 
 var config = require('./config');
 
@@ -68,9 +64,6 @@ var configure = (o) => {
   if (o.EmbedlyKey) {
     config.EmbedlyKey = o.EmbedlyKey;
   }
-  if (o.ReadabilityToken) {
-    config.ReadabilityToken = o.ReadabilityToken;
-  }
 };
 
 var tracer = {};
@@ -78,7 +71,7 @@ var tracer = {};
 var parseMeta = (html, url) => {
 
   let entry = {
-    url: url,
+    url,
     canonical: '',
     title: '',
     description: '',
@@ -133,7 +126,10 @@ var parseMeta = (html, url) => {
       let m = doc(link);
       let rel = m.attr('rel');
       if (rel && rel === 'canonical') {
-        entry.canonical = m.attr('href');
+        let href = m.attr('href');
+        if (isValidURL(href)) {
+          entry.canonical = href;
+        }
       }
     });
 
@@ -170,6 +166,28 @@ var parseMeta = (html, url) => {
   return entry;
 };
 
+var absolutifyContentSrc = (s, url) => {
+  let $ = cheerio.load(s, {
+    normalizeWhitespace: true,
+    decodeEntities: true
+  });
+
+  $('a').each((i, elem) => {
+    let href = $(elem).attr('href');
+    if (href) {
+      $(elem).attr('href', absolutify(url, href));
+    }
+  });
+
+  $('img').each((i, elem) => {
+    let src = $(elem).attr('src');
+    if (src) {
+      $(elem).attr('src', absolutify(url, src));
+    }
+  });
+  return $.html();
+};
+
 var parseWithEmbedly = (url) => {
   return new Promise((resolve, reject) => {
     let u = encodeURIComponent(url);
@@ -186,7 +204,8 @@ var parseWithEmbedly = (url) => {
       let image = '';
       let images = o.images || [];
       if (images.length) {
-        let maxw = 0, maxh = 0;
+        let maxw = 0;
+        let maxh = 0;
         images.forEach((img) => {
           if (img.width > maxw && img.height > maxh) {
             image = img.url;
@@ -199,9 +218,9 @@ var parseWithEmbedly = (url) => {
         url: o.url,
         title: o.title,
         description: o.description,
-        author: author,
+        author,
         source: o.provider_name || '',
-        image: image,
+        image,
         content: o.content
       });
     }).catch((e) => {
@@ -215,7 +234,7 @@ var getArticle = (html) => {
 
     let content;
 
-    async.series([
+    Promise.series([
       (next) => {
         if (content) {
           return next();
@@ -250,39 +269,16 @@ var getArticle = (html) => {
         return next();
       },
       (next) => {
-        if (content) {
-          return next();
-        }
-        return read(html, (err, a) => {
-          if (err) {
-            tracer.error = err;
-          }
-          if (a && a.content) {
+        return read(html).then((a) => {
+          if (a && a.content && !content) {
             content = a.content;
           }
-          next();
-        });
-      },
-      (next) => {
-        if (content) {
-          return next();
-        }
-        return parse(html, (err, a) => {
-          if (err) {
-            tracer.error = err;
-          }
-          if (a && a.content) {
-            content = a.content;
-            a.close();
-          }
-          next();
-        });
+        }).finally(next);
       },
       (next) => {
         if (!content) {
           return next();
         }
-
         let s = sanitize(content, config.htmlRules);
         let $ = cheerio.load(s, {
           normalizeWhitespace: true,
@@ -294,38 +290,17 @@ var getArticle = (html) => {
 
         return next();
       }
-    ], (err) => {
-      if (err) {
-        return reject(err);
-      }
+    ]).then(() => {
       if (!content) {
         return reject(new Error('No article determined'));
       }
+      return null;
+    }).catch((err) => {
+      return reject(err);
+    }).finally(() => {
       return resolve(content);
     });
   });
-};
-
-var absolutifyContentSrc = (s, url) => {
-  let $ = cheerio.load(s, {
-    normalizeWhitespace: true,
-    decodeEntities: true
-  });
-
-  $('a').each(function _each1(i, elem) {
-    let href = $(elem).attr('href');
-    if (href) {
-      $(elem).attr('href', absolutify(url, href));
-    }
-  });
-
-  $('img').each(function _each2(i, elem) {
-    let src = $(elem).attr('src');
-    if (src) {
-      $(elem).attr('src', absolutify(url, src));
-    }
-  });
-  return $.html();
 };
 
 var extract = (url) => {
@@ -336,8 +311,9 @@ var extract = (url) => {
 
     url = removeUTM(url);
 
-    let canonicals = [ url ];
-    let resURL, bestURL;
+    let canonicals = [url];
+    let resURL;
+    let bestURL;
     let html;
     let meta;
     let oemb;
@@ -353,7 +329,7 @@ var extract = (url) => {
     let domain = '';
     let duration = 0;
 
-    async.series([
+    Promise.series([
       (next) => {
         if (!isExceptDomain(url)) {
           return next();
@@ -447,41 +423,6 @@ var extract = (url) => {
         return next();
       },
       (next) => {
-        if (!bestURL || !html || !meta || !title || !domain) {
-          return next();
-        }
-
-        return oEmbed
-          .extract(bestURL)
-          .then((oem) => {
-            oemb = oem;
-            if (oem.provider_name) {
-              source = oem.provider_name;
-            }
-            if (oem.html) {
-              content = oem.html;
-            }
-            if (oem.title) {
-              title = oem.title;
-            }
-            if (oem.description) {
-              description = oem.description;
-            }
-            if (oem.author_name) {
-              author = oem.author_name;
-            }
-            if (oem.thumbnail_url) {
-              image = oem.thumbnail_url;
-            }
-            if (oem.duration) {
-              duration = oem.duration;
-            }
-            return oem;
-          }).catch((e) => {
-            tracer.getOEmbed = e;
-          }).finally(next);
-      },
-      (next) => {
         if (!bestURL || !domain || !title) {
           return next();
         }
@@ -503,17 +444,17 @@ var extract = (url) => {
         }
 
         article = {
-          alias: alias,
+          alias,
           url: bestURL,
-          canonicals: canonicals,
-          title: title,
-          description: description,
+          canonicals,
+          title,
+          description,
           image: absolutify(bestURL, image),
-          content: content,
-          author: author,
-          source: source,
-          domain: domain,
-          duration: duration
+          content,
+          author,
+          source,
+          domain,
+          duration
         };
         return next();
       },
@@ -524,9 +465,6 @@ var extract = (url) => {
 
         return getArticle(html).then((art) => {
           content = art;
-        }).catch((e) => {
-          tracer.read = e;
-          msg = 'Parsing article failed';
         }).finally(next);
       },
       (next) => {
@@ -573,35 +511,32 @@ var extract = (url) => {
         article.duration = duration;
         return next();
       }
-    ], (err) => {
-      if (err) {
-        return reject(err);
-      }
-
+    ]).then(() => {
       if (!article) {
         return reject(new Error(msg));
       }
-
+      return null;
+    }).catch((err) => {
+      return reject(err);
+    }).finally(() => {
       if (!article.title || !article.domain || !article.duration) {
         return reject(new Error('Not enough info to build article'));
       }
-
       return resolve(article);
     });
   });
 };
 
 module.exports = {
-  configure: configure,
+  configure,
   getConfig: () => {
     return bella.clone(config);
   },
-  extract: extract,
-  getArticle: getArticle,
-  getOEmbed: oEmbed.extract,
-  getDomain: getDomain,
-  parseMeta: parseMeta,
-  parseWithEmbedly: parseWithEmbedly,
-  absolutify: absolutify,
-  purify: purify
+  extract,
+  getArticle,
+  getDomain,
+  parseMeta,
+  parseWithEmbedly,
+  absolutify,
+  purify
 };

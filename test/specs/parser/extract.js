@@ -8,8 +8,6 @@
 /* eslint no-new-func: 0*/
 /* eslint no-console: 0*/
 
-'use strict';
-
 var path = require('path');
 var test = require('tape');
 var bella = require('bellajs');
@@ -56,7 +54,7 @@ var hasRequiredKeys = (o) => {
 
 var testOne = (url) => {
 
-  test(`Testing with .extract(${url})`, { timeout: 15000 }, (t) => {
+  test(`Testing with .extract(${url})`, {timeout: 15000}, (t) => {
 
     extract(url).then((art) => {
       t.comment('(Call returned result is R, so:)');
@@ -90,7 +88,7 @@ samples.map(testOne);
 
 var testEmbedly = () => {
   var url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
-  test(`Testing with .parseWithEmbedly(${url})`, { timeout: 15000 }, (t) => {
+  test(`Testing with .parseWithEmbedly(${url})`, {timeout: 15000}, (t) => {
 
     parseWithEmbedly(url).then((art) => {
       t.comment('(Call returned result is R, so:)');

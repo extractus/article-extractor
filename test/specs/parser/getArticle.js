@@ -8,8 +8,6 @@
 /* eslint no-new-func: 0*/
 /* eslint no-console: 0*/
 
-'use strict';
-
 var fs = require('fs');
 var path = require('path');
 var test = require('tape');

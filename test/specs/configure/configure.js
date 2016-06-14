@@ -8,8 +8,6 @@
 /* eslint no-new-func: 0*/
 /* eslint no-console: 0*/
 
-'use strict';
-
 var path = require('path');
 var test = require('tape');
 var bella = require('bellajs');
@@ -19,19 +17,18 @@ var AP = require(path.join(rootDir, 'article-parser'));
 
 var sample = {
   wordsPerMinute: 500,
-  blackList: [ 'bing.com', 'yahoo.com' ],
-  exceptDomain: [ 'google.com', 'apple.com' ],
-  adsDomain: [ 'twitter.com', 'facebook.com' ],
+  blackList: ['bing.com', 'yahoo.com'],
+  exceptDomain: ['google.com', 'apple.com'],
+  adsDomain: ['twitter.com', 'facebook.com'],
   SoundCloudKey: 'SOUNDCLOUDKEY',
   YouTubeKey: 'YOUTUBEKEY',
   EmbedlyKey: 'EMBEDLYKEY',
-  ReadabilityToken: 'READABILITYTOKEN',
   htmlRules: {
     allowedTags: [
       'html', 'body', 'meta', 'link', 'title'
     ],
     allowedAttributes: {
-      'a': [ 'href' ]
+      a: ['href']
     }
   }
 };
@@ -45,7 +42,6 @@ var hasRequiredKeys = (o) => {
     'SoundCloudKey',
     'YouTubeKey',
     'EmbedlyKey',
-    'ReadabilityToken',
     'htmlRules'
   ];
 
@@ -76,10 +72,6 @@ test('Testing "configure" method:', (assert) => {
   let a3 = config.EmbedlyKey;
   let e3 = sample.EmbedlyKey;
   assert.deepEqual(a3, e3, `C.EmbedlyKey must be ${e3}`);
-
-  let a4 = config.ReadabilityToken;
-  let e4 = sample.ReadabilityToken;
-  assert.deepEqual(a4, e4, `C.ReadabilityToken must be ${e4}`);
 
   let a5 = config.htmlRules;
   let e5 = sample.htmlRules;

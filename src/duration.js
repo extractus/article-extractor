@@ -3,11 +3,9 @@
  * @ndaidong
  **/
 
-'use strict';
-
 var bella = require('bellajs');
 var fetch = require('node-fetch');
-var Promise = require('bluebird');
+var Promise = require('promise-wtf');
 
 var urlResolver = require('./url-resolver');
 var config = require('./config');
@@ -17,7 +15,8 @@ var getYtid = (lnk) => {
   let x2 = 'youtu.be/';
   let x3 = 'www.youtube.com/v/';
   let x4 = 'www.youtube.com/embed/';
-  let s = '', vid = '';
+  let s = '';
+  let vid = '';
 
   lnk = lnk.replace('http://', '');
   lnk = lnk.replace('https://', '');
@@ -60,11 +59,14 @@ var toSecond = (duration) => {
 
     switch (unit) {
       case 'H':
-        seconds += amount * 60 * 60; break;
+        seconds += amount * 60 * 60;
+        break;
       case 'M':
-        seconds += amount * 60; break;
+        seconds += amount * 60;
+        break;
       case 'S':
-        seconds += amount; break;
+        seconds += amount;
+        break;
       default:
     }
   });
@@ -90,9 +92,9 @@ var isVimeo = (src) => {
   return src.includes('vimeo.com');
 };
 
-function isMovie(src) {
+var isMovie = (src) => {
   return isYouTube(src) || isVimeo(src);
-}
+};
 
 var estimateAudio = (src) => {
   return new Promise((resolve, reject) => {
@@ -175,15 +177,15 @@ var estimate = (source) => {
 };
 
 module.exports = {
-  estimate: estimate,
-  isYouTube: isYouTube,
-  isVimeo: isVimeo,
-  isSoundCloud: isSoundCloud,
-  isAudioBoom: isAudioBoom,
-  isMovie: isMovie,
-  isAudio: isAudio,
-  getYtid: getYtid,
-  toSecond: toSecond,
-  estimateAudio: estimateAudio,
-  estimateMovie: estimateMovie
+  estimate,
+  isYouTube,
+  isVimeo,
+  isSoundCloud,
+  isAudioBoom,
+  isMovie,
+  isAudio,
+  getYtid,
+  toSecond,
+  estimateAudio,
+  estimateMovie
 };

@@ -8,8 +8,6 @@
 /* eslint no-new-func: 0*/
 /* eslint no-console: 0*/
 
-'use strict';
-
 var path = require('path');
 var test = require('tape');
 
@@ -59,7 +57,8 @@ test('Testing isExceptDomain method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isExceptDomain(url1);
   let r2 = isExceptDomain(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
@@ -70,7 +69,8 @@ test('Testing isAdsDomain method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isAdsDomain(url1);
   let r2 = isAdsDomain(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
@@ -81,7 +81,8 @@ test('Testing isValidURL method:', (assert) => {
   let url2 = 'http://abc/xyz';
   let r1 = isValidURL(url1);
   let r2 = isValidURL(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
@@ -92,7 +93,8 @@ test('Testing isInBlackList method:', (assert) => {
   let url2 = 'http://abc.com/xyz';
   let r1 = isInBlackList(url1);
   let r2 = isInBlackList(url2);
-  let e1 = true, e2 = false;
+  let e1 = true;
+  let e2 = false;
   assert.deepEqual(r1, e1, `Result must be ${e1} for ${url1}`);
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();

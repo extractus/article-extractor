@@ -1,38 +1,37 @@
 {
-  "version": "0.4.3",
+  "version": "0.5.10",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "http://techpush.net",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ndaidong/article-parser.git"
+    "url": "https://github.com/ndaidong/article-parser"
   },
   "author": "Dong Nguyen <ndaidong@gmail.com> (https://twitter.com/ndaidong)",
   "main": "./index.js",
   "engines": {
-    "node": ">= 4.0"
+    "node": ">= 6.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/tape test/start.js | tap-spec",
     "coverage": "./node_modules/.bin/nyc tape test/start.js | tap-spec",
     "report": "npm run coverage && ./node_modules/.bin/nyc report --reporter=lcov",
-    "coveralls": "npm run report && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "npm run report && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "snyk": "./node_modules/.bin/snyk wizard"
   },
   "dependencies": {
-    "async": "latest",
     "bellajs": "latest",
-    "bluebird": "latest",
     "cheerio": "latest",
-    "read-art": "latest",
+    "jsdom": "latest",
     "node-fetch": "latest",
-    "node-readability": "latest",
-    "oembed-auto-es6": "latest",
+    "promise-wtf": "latest",
     "sanitize-html": "latest"
   },
   "devDependencies": {
     "chance": "latest",
     "coveralls": "latest",
     "nyc": "latest",
+    "snyk": "latest",
     "tap-spec": "latest",
     "tape": "latest"
   },
