@@ -13,7 +13,7 @@
     "node": ">= 6.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/tape test/start.js | tap-spec",
+    "test": "./node_modules/.bin/snyk test && ./node_modules/.bin/tape test/start.js | tap-spec",
     "coverage": "./node_modules/.bin/nyc tape test/start.js | tap-spec",
     "report": "npm run coverage && ./node_modules/.bin/nyc report --reporter=lcov",
     "coveralls": "npm run report && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
@@ -39,10 +39,7 @@
     "article",
     "extractor",
     "parser",
-    "cleaner",
-    "crawler",
     "readability",
-    "oembed",
     "util"
   ],
   "license": "MIT",
