@@ -1,13 +1,13 @@
 {
-  "version": "0.5.10",
+  "version": "0.5.11",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
-  "homepage": "http://techpush.net",
+  "homepage": "https://www.npmjs.com/package/article-parser",
   "repository": {
     "type": "git",
     "url": "https://github.com/ndaidong/article-parser"
   },
-  "author": "Dong Nguyen <ndaidong@gmail.com> (https://twitter.com/ndaidong)",
+  "author": "@ndaidong",
   "main": "./index.js",
   "engines": {
     "node": ">= 6.0"
@@ -20,12 +20,12 @@
     "snyk": "./node_modules/.bin/snyk wizard"
   },
   "dependencies": {
-    "bellajs": "latest",
-    "cheerio": "latest",
-    "jsdom": "latest",
-    "node-fetch": "latest",
-    "promise-wtf": "latest",
-    "sanitize-html": "latest"
+    "bellajs": "^5.2.2",
+    "cheerio": "^0.20.0",
+    "jsdom": "^9.2.1",
+    "node-fetch": "^1.5.3",
+    "promise-wtf": "^0.1.25",
+    "sanitize-html": "^1.12.0"
   },
   "devDependencies": {
     "chance": "latest",

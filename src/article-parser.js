@@ -188,10 +188,10 @@ var absolutifyContentSrc = (s, url) => {
   return $.html();
 };
 
-var parseWithEmbedly = (url) => {
+var parseWithEmbedly = (url, key = '') => {
   return new Promise((resolve, reject) => {
     let u = encodeURIComponent(url);
-    let k = config.EmbedlyKey;
+    let k = key || config.EmbedlyKey || '';
     let target = `http://api.embed.ly/1/extract?key=${k}&url=${u}&format=json`;
     return fetch(target).then((res) => {
       return res.json();
