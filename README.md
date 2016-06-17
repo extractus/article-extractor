@@ -1,5 +1,5 @@
 # article-parser
-Extract main article, main image, meta and oEmbed from URL.
+Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
 ![Travis](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)
@@ -81,6 +81,24 @@ Now *article* would be something like this:
   duration: 741
 }
 
+```
+
+#### parseWithEmbedly(String url [, String EmbedlyKey])
+
+Extract article data from specified url using [Embedly Extract API](http://embed.ly/extract):
+
+The second parameter is optional. If you've added your Embedly key via configure() method, you can ignore it here.
+
+```
+var ArticleParser = require('article-parser');
+
+var url = 'http://yhoo.it/1MJUFov';
+
+ArticleParser.parseWithEmbedly(url).then((article) => {
+  console.log(article);
+}).catch((err) => {
+  console.log(err);
+});
 ```
 
 
@@ -165,10 +183,6 @@ cd article-parser
 npm install
 npm test
 ```
-
-![Screenshot](http://i.imgur.com/24M0QUq.png)
-
-
 
 # License
 
