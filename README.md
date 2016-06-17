@@ -27,7 +27,15 @@ ArticleParser.extract(url).then((article) => {
 });
 ```
 
-### API
+### APIs
+
+ - configure(Object conf)
+ - extract(String url)
+ - parseWithEmbedly(String url [, String EmbedlyKey])
+ - parseMeta(String html, String url)
+ - getArticle(String html)
+ - absolutify(String baseURL, String url)
+ - purify(String url)
 
 
 #### configure(Object conf)
