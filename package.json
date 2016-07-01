@@ -29,6 +29,7 @@
   "devDependencies": {
     "chance": "latest",
     "coveralls": "latest",
+    "eslint": "latest",
     "nyc": "latest",
     "snyk": "latest",
     "tap-spec": "latest",
