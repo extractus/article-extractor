@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "eslint ./src ./test",
-    "test": "snyk test && eslint ./src/ && tape test/start.js | tap-spec",
+    "test": "npm run lint && snyk test && tape test/start.js | tap-spec",
     "coverage": "nyc tape test/start.js | tap-spec",
     "report": "npm run coverage && nyc report --reporter=lcov",
     "coveralls": "npm run report && cat ./coverage/lcov.info | coveralls"
