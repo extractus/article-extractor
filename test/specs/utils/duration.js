@@ -52,7 +52,7 @@ test('Testing isVimeo method:', (assert) => {
   assert.end();
 });
 
-var ScUrl = 'https://soundcloud.com/travisscott-2/wonderful-ftthe-weeknd';
+var ScUrl = 'https://soundcloud.com/ozan-aliibryamov/summer-sixteen';
 test('Testing isSoundCloud method:', (assert) => {
   let url1 = ScUrl;
   let url2 = 'http://abc.com/xyz';

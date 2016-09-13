@@ -1,3 +1,4 @@
+
 {
   "parserOptions": {
     "sourceType": "module",
@@ -50,6 +51,7 @@
       }
     ],
     "init-declarations": 0,
+    "line-comment-position": 0,
     "max-len": [
       "error",
       {
@@ -62,6 +64,7 @@
     "max-lines": 0,
     "max-params": ["error", 5],
     "max-statements": 0,
+    "multiline-ternary": 0,
     "newline-after-var": 0,
     "newline-before-return": 0,
     "newline-per-chained-call": 0,
@@ -98,6 +101,7 @@
     "space-before-function-paren": [
       "error", "never"
     ],
+    "sort-keys": 0,
     "vars-on-top": 0
   }
 }
