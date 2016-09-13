@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -13,18 +13,19 @@
     "node": ">= 6.0"
   },
   "scripts": {
-    "test": "snyk test && eslint ./src/ && tape test/start.js | tap-spec",
+    "lint": "eslint ./src ./test",
+    "test": "npm run lint && snyk test && tape test/start.js | tap-spec",
     "coverage": "nyc tape test/start.js | tap-spec",
     "report": "npm run coverage && nyc report --reporter=lcov",
     "coveralls": "npm run report && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "bellajs": "^5.2.41",
-    "cheerio": "^0.20.0",
-    "jsdom": "^9.3.0",
-    "node-fetch": "^1.5.3",
-    "promise-wtf": "^0.1.25",
-    "sanitize-html": "^1.12.0"
+    "bellajs": "^5.4.1",
+    "cheerio": "^0.22.0",
+    "jsdom": "^9.5.0",
+    "node-fetch": "^1.6.1",
+    "promise-wtf": "^1.0.2",
+    "sanitize-html": "^1.13.0"
   },
   "devDependencies": {
     "chance": "latest",
