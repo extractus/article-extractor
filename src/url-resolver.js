@@ -4,22 +4,32 @@
  **/
 
 var URL = require('url');
+var bella = require('bellajs');
 
 var config = require('./config');
 
 var isInBlackList = (url) => {
+  if (!bella.isString(url)) {
+    return false;
+  }
   return config.blackList.some((c) => {
     return url.match(c);
   });
 };
 
 var isAdsDomain = (url) => {
+  if (!bella.isString(url)) {
+    return false;
+  }
   return config.adsDomain.some((c) => {
     return url.match(c);
   });
 };
 
 var isExceptDomain = (url) => {
+  if (!bella.isString(url)) {
+    return false;
+  }
   return config.exceptDomain.some((c) => {
     return url.match(c);
   });
@@ -44,6 +54,10 @@ var isValidURL = (str) => {
 };
 
 var removeUTM = (url) => {
+  if (!isValidURL(url)) {
+    return false;
+  }
+
   if (url.includes('#')) {
     let a1 = url.split('#');
     url = a1[0];
@@ -59,7 +73,7 @@ var removeUTM = (url) => {
 };
 
 var absolutify = (fullUrl, relativeUrl) => {
-  if (!relativeUrl || !fullUrl) {
+  if (!isValidURL(fullUrl) || !bella.isString(relativeUrl)) {
     return '';
   }
   let parsed = URL.parse(fullUrl);

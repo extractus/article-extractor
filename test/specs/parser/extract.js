@@ -5,27 +5,14 @@
 
 var path = require('path');
 var test = require('tape');
+var sinon = require('sinon');
 var bella = require('bellajs');
 
 var rootDir = '../../../src/';
 var AP = require(path.join(rootDir, 'article-parser'));
 
 var extract = AP.extract;
-var parseWithEmbedly = AP.parseWithEmbedly;
-
-var samples = [
-  'http://www.onextrapixel.com/2015/12/02/why-and-how-to-liven-up-your-site-animation-in-web-design/',
-  'http://www.smashingapps.com/2015/12/01/8-free-productivity-tools-for-business-owners.html',
-  'http://www.ted.com/talks/tony_robbins_asks_why_we_do_what_we_do',
-  'https://soundcloud.com/wlrn/1104am-local-government-opposed-to-bill-that-would-streamline-elections-1',
-  'https://www.youtube.com/watch?v=CTjB-eK4XF8',
-  'https://vimeo.com/146753785',
-  'http://codecondo.com/5-steps-learn-rock-twitter/',
-  'https://googleblog.blogspot.com/2015/12/join-googleorg-to-help-make-education.html',
-  'http://www.sfgate.com/news/crime/article/At-least-18-killed-in-snowstorm-related-deaths-6780430.php',
-  'http://www.nytimes.com/2016/01/25/world/middleeast/egypt-museum-king-tutankhamen-mask.html',
-  'http://www.cbssports.com/nfl/writer/pete-prisco/25461111/super-bowl-2016-broncos-panthers-ride-dominating-defenses-to-title-game'
-];
+// var parseWithEmbedly = AP.parseWithEmbedly;
 
 var hasRequiredKeys = (o) => {
   var structure = [
@@ -47,7 +34,22 @@ var hasRequiredKeys = (o) => {
   });
 };
 
-var testOne = (url) => {
+sinon.test(() => {
+
+  let url = 'http://sample-article.com/abcdef';
+
+  var server = sinon.fakeServer.create();
+
+  server.respondWith(
+    'GET',
+    `${url}`,
+    [
+      200, {
+        'Content-Type': 'application/json'
+      },
+      '{ "stuff": "is", "awesome": "in here" }'
+    ]
+  );
 
   test(`Testing with .extract(${url})`, {timeout: 15000}, (t) => {
 
@@ -77,10 +79,10 @@ var testOne = (url) => {
     });
   });
 
-};
+});
 
-samples.map(testOne);
 
+/*
 var testEmbedly = () => {
   var url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
   test(`Testing with .parseWithEmbedly(${url})`, {timeout: 15000}, (t) => {
@@ -105,3 +107,4 @@ var testEmbedly = () => {
 };
 
 testEmbedly();
+*/

@@ -9,7 +9,7 @@ var fetch = require('node-fetch');
 var sanitize = require('sanitize-html');
 var cheerio = require('cheerio');
 
-var read = require('./libs/readability');
+var read = require('es6-readability');
 
 var config = require('./config');
 
@@ -113,55 +113,51 @@ var parseMeta = (html, url) => {
     'dc.creator'
   ];
 
-  try {
-    let doc = cheerio.load(html, {
-      lowerCaseTags: true,
-      lowerCaseAttributeNames: true,
-      recognizeSelfClosing: true
-    });
+  let doc = cheerio.load(html, {
+    lowerCaseTags: true,
+    lowerCaseAttributeNames: true,
+    recognizeSelfClosing: true
+  });
 
-    entry.title = doc('title').text();
+  entry.title = doc('title').text();
 
-    doc('link').each((i, link) => {
-      let m = doc(link);
-      let rel = m.attr('rel');
-      if (rel && rel === 'canonical') {
-        let href = m.attr('href');
-        if (isValidURL(href)) {
-          entry.canonical = href;
-        }
+  doc('link').each((i, link) => {
+    let m = doc(link);
+    let rel = m.attr('rel');
+    if (rel && rel === 'canonical') {
+      let href = m.attr('href');
+      if (isValidURL(href)) {
+        entry.canonical = href;
       }
-    });
+    }
+  });
 
-    doc('meta').each((i, meta) => {
+  doc('meta').each((i, meta) => {
 
-      let m = doc(meta);
-      let content = m.attr('content');
-      let property = bella.strtolower(m.attr('property'));
-      let name = bella.strtolower(m.attr('name'));
+    let m = doc(meta);
+    let content = m.attr('content');
+    let property = bella.strtolower(m.attr('property'));
+    let name = bella.strtolower(m.attr('name'));
 
-      if (bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)) {
-        entry.source = content;
-      }
-      if (bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)) {
-        entry.url = content;
-      }
-      if (bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)) {
-        entry.title = content;
-      }
-      if (bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)) {
-        entry.description = content;
-      }
-      if (bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)) {
-        entry.image = content;
-      }
-      if (bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)) {
-        entry.author = content;
-      }
-    });
-  } catch (e) {
-    tracer.parse = e;
-  }
+    if (bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)) {
+      entry.source = content;
+    }
+    if (bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)) {
+      entry.url = content;
+    }
+    if (bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)) {
+      entry.title = content;
+    }
+    if (bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)) {
+      entry.description = content;
+    }
+    if (bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)) {
+      entry.image = content;
+    }
+    if (bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)) {
+      entry.author = content;
+    }
+  });
 
   return entry;
 };
