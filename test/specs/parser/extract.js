@@ -3,10 +3,12 @@
  * @ndaidong
  */
 
+var fs = require('fs');
 var path = require('path');
 var test = require('tape');
-var sinon = require('sinon');
 var bella = require('bellajs');
+
+var nock = require('nock');
 
 var rootDir = '../../../src/';
 var AP = require(path.join(rootDir, 'article-parser'));
@@ -34,22 +36,14 @@ var hasRequiredKeys = (o) => {
   });
 };
 
-sinon.test(() => {
+(() => {
 
-  let url = 'http://sample-article.com/abcdef';
+  var url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+  var html = fs.readFileSync('./test/fetchedData.txt', 'utf8');
 
-  var server = sinon.fakeServer.create();
-
-  server.respondWith(
-    'GET',
-    `${url}`,
-    [
-      200, {
-        'Content-Type': 'application/json'
-      },
-      '{ "stuff": "is", "awesome": "in here" }'
-    ]
-  );
+  nock('https://medium.com')
+    .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
+    .reply(404, '123123');
 
   test(`Testing with .extract(${url})`, {timeout: 15000}, (t) => {
 
@@ -75,11 +69,12 @@ sinon.test(() => {
       t.ok(art.duration > 0, 'R.duration is greater than 0.');
       t.end();
     }).catch((e) => {
-      t.end(e);
+      console.log(e);
+      t.end();
     });
   });
 
-});
+})();
 
 
 /*

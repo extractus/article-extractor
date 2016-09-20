@@ -17,7 +17,7 @@ var url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00
 var html = fs.readFileSync('./test/fetchedData.txt', 'utf8');
 
 var hasRequiredKeys = (o) => {
-  var structure = [
+  let structure = [
     'source',
     'url',
     'title',
@@ -33,8 +33,7 @@ var hasRequiredKeys = (o) => {
 
 test('Testing parseMeta method:', (assert) => {
   let data = parseMeta(html, url);
-  assert.comment('(Call returned result is R, so:)');
-  assert.ok(bella.isObject(data), 'R must be an object.');
-  assert.ok(hasRequiredKeys(data), 'R must have all required keys.');
+  assert.ok(bella.isObject(data), 'Metadata must be an object.');
+  assert.ok(hasRequiredKeys(data), 'Metadata must have all required keys.');
   assert.end();
 });

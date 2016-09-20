@@ -346,6 +346,7 @@ var extract = (url) => {
         if (resURL) {
           return next();
         }
+
         return fetch(url).then((res) => {
           resURL = purify(res.url);
           if (resURL) {
@@ -353,11 +354,14 @@ var extract = (url) => {
           } else {
             msg = 'No URL or URL is in black list';
           }
-          res.text().then((s) => {
+          return res.text().then((s) => {
             html = s;
             next();
-          }).catch(next);
-        }).catch(next);
+          });
+        }).catch((e) => {
+          console.log(e);
+          next();
+        });
       },
       (next) => {
         if (!resURL || !html) {
@@ -461,6 +465,8 @@ var extract = (url) => {
 
         return getArticle(html).then((art) => {
           content = art;
+        }).catch((er) => {
+          console.log(er);
         }).finally(next);
       },
       (next) => {
