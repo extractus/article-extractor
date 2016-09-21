@@ -9,7 +9,7 @@ var fetch = require('node-fetch');
 var sanitize = require('sanitize-html');
 var cheerio = require('cheerio');
 
-var read = require('./libs/readability');
+var read = require('es6-readability');
 
 var config = require('./config');
 
@@ -113,55 +113,51 @@ var parseMeta = (html, url) => {
     'dc.creator'
   ];
 
-  try {
-    let doc = cheerio.load(html, {
-      lowerCaseTags: true,
-      lowerCaseAttributeNames: true,
-      recognizeSelfClosing: true
-    });
+  let doc = cheerio.load(html, {
+    lowerCaseTags: true,
+    lowerCaseAttributeNames: true,
+    recognizeSelfClosing: true
+  });
 
-    entry.title = doc('title').text();
+  entry.title = doc('title').text();
 
-    doc('link').each((i, link) => {
-      let m = doc(link);
-      let rel = m.attr('rel');
-      if (rel && rel === 'canonical') {
-        let href = m.attr('href');
-        if (isValidURL(href)) {
-          entry.canonical = href;
-        }
+  doc('link').each((i, link) => {
+    let m = doc(link);
+    let rel = m.attr('rel');
+    if (rel && rel === 'canonical') {
+      let href = m.attr('href');
+      if (isValidURL(href)) {
+        entry.canonical = href;
       }
-    });
+    }
+  });
 
-    doc('meta').each((i, meta) => {
+  doc('meta').each((i, meta) => {
 
-      let m = doc(meta);
-      let content = m.attr('content');
-      let property = bella.strtolower(m.attr('property'));
-      let name = bella.strtolower(m.attr('name'));
+    let m = doc(meta);
+    let content = m.attr('content');
+    let property = bella.strtolower(m.attr('property'));
+    let name = bella.strtolower(m.attr('name'));
 
-      if (bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)) {
-        entry.source = content;
-      }
-      if (bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)) {
-        entry.url = content;
-      }
-      if (bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)) {
-        entry.title = content;
-      }
-      if (bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)) {
-        entry.description = content;
-      }
-      if (bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)) {
-        entry.image = content;
-      }
-      if (bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)) {
-        entry.author = content;
-      }
-    });
-  } catch (e) {
-    tracer.parse = e;
-  }
+    if (bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)) {
+      entry.source = content;
+    }
+    if (bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)) {
+      entry.url = content;
+    }
+    if (bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)) {
+      entry.title = content;
+    }
+    if (bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)) {
+      entry.description = content;
+    }
+    if (bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)) {
+      entry.image = content;
+    }
+    if (bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)) {
+      entry.author = content;
+    }
+  });
 
   return entry;
 };
@@ -193,6 +189,7 @@ var parseWithEmbedly = (url, key = '') => {
     let u = encodeURIComponent(url);
     let k = key || config.EmbedlyKey || '';
     let target = `http://api.embed.ly/1/extract?key=${k}&url=${u}&format=json`;
+
     return fetch(target).then((res) => {
       return res.json();
     }).then((o) => {
@@ -307,7 +304,7 @@ var extract = (url) => {
 
   return new Promise((resolve, reject) => {
 
-    let msg = 'Unknown error';
+    let error;
 
     url = removeUTM(url);
 
@@ -350,18 +347,24 @@ var extract = (url) => {
         if (resURL) {
           return next();
         }
+
         return fetch(url).then((res) => {
           resURL = purify(res.url);
           if (resURL) {
             canonicals.push(resURL);
           } else {
-            msg = 'No URL or URL is in black list';
+            error = {
+              code: '001',
+              message: 'No URL or URL is in black list'
+            };
           }
-          res.text().then((s) => {
+          return res.text().then((s) => {
             html = s;
             next();
-          }).catch(next);
-        }).catch(next);
+          });
+        }).catch((e) => {
+          next(e);
+        });
       },
       (next) => {
         if (!resURL || !html) {
@@ -412,7 +415,10 @@ var extract = (url) => {
         domain = getDomain(bestURL);
 
         if (!domain) {
-          msg = 'No domain determined';
+          error = {
+            code: '002',
+            message: 'No domain determined'
+          };
           return next();
         }
 
@@ -456,6 +462,7 @@ var extract = (url) => {
           domain,
           duration
         };
+
         return next();
       },
       (next) => {
@@ -465,6 +472,8 @@ var extract = (url) => {
 
         return getArticle(html).then((art) => {
           content = art;
+        }).catch((er) => {
+          error = er;
         }).finally(next);
       },
       (next) => {
@@ -481,6 +490,7 @@ var extract = (url) => {
         return next();
       },
       (next) => {
+
         if (!article || !content || duration) {
           return next();
         }
@@ -492,16 +502,14 @@ var extract = (url) => {
             duration = d;
             return null;
           }).catch((e) => {
-            tracer.estimate = e;
-            return e;
+            error = e;
           }).finally(next);
         }
         return Duration.estimate(content).then((d) => {
           duration = d;
           return null;
         }).catch((e) => {
-          tracer.estimate = e;
-          return e;
+          error = e;
         }).finally(next);
       },
       (next) => {
@@ -512,15 +520,19 @@ var extract = (url) => {
         return next();
       }
     ]).then(() => {
-      if (!article) {
-        return reject(new Error(msg));
+      if (!article || !article.title || !article.domain || !article.duration) {
+        error = {
+          code: '003',
+          message: 'Not enough info to build article',
+          article
+        };
       }
       return null;
     }).catch((err) => {
-      return reject(err);
+      error = err;
     }).finally(() => {
-      if (!article.title || !article.domain || !article.duration) {
-        return reject(new Error('Not enough info to build article'));
+      if (error) {
+        return reject(new Error(error.message || 'Something wrong while extracting article'));
       }
       return resolve(article);
     });
