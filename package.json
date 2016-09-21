@@ -14,6 +14,7 @@
   },
   "scripts": {
     "lint": "eslint ./src ./test",
+    "pretest": "npm run lint && snyk test",
     "test": "nyc tape test/start.js | tap-spec",
     "posttest": "nyc report --reporter=lcov",
     "coveralls": "npm test && cat ./coverage/lcov.info | coveralls"
