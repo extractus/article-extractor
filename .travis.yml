@@ -10,12 +10,12 @@ node_js:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
+      - g++-4.8
 install:
   - export CXX=g++-4.8
   - $CXX --version
   - npm i
-after_script:
+after_success:
   - npm run coveralls
