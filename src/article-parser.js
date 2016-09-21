@@ -189,6 +189,7 @@ var parseWithEmbedly = (url, key = '') => {
     let u = encodeURIComponent(url);
     let k = key || config.EmbedlyKey || '';
     let target = `http://api.embed.ly/1/extract?key=${k}&url=${u}&format=json`;
+
     return fetch(target).then((res) => {
       return res.json();
     }).then((o) => {
@@ -303,7 +304,7 @@ var extract = (url) => {
 
   return new Promise((resolve, reject) => {
 
-    let msg = 'Unknown error';
+    let error;
 
     url = removeUTM(url);
 
@@ -352,15 +353,17 @@ var extract = (url) => {
           if (resURL) {
             canonicals.push(resURL);
           } else {
-            msg = 'No URL or URL is in black list';
+            error = {
+              code: '001',
+              message: 'No URL or URL is in black list'
+            };
           }
           return res.text().then((s) => {
             html = s;
             next();
           });
         }).catch((e) => {
-          console.log(e);
-          next();
+          next(e);
         });
       },
       (next) => {
@@ -412,7 +415,10 @@ var extract = (url) => {
         domain = getDomain(bestURL);
 
         if (!domain) {
-          msg = 'No domain determined';
+          error = {
+            code: '002',
+            message: 'No domain determined'
+          };
           return next();
         }
 
@@ -456,6 +462,7 @@ var extract = (url) => {
           domain,
           duration
         };
+
         return next();
       },
       (next) => {
@@ -466,7 +473,7 @@ var extract = (url) => {
         return getArticle(html).then((art) => {
           content = art;
         }).catch((er) => {
-          console.log(er);
+          error = er;
         }).finally(next);
       },
       (next) => {
@@ -483,6 +490,7 @@ var extract = (url) => {
         return next();
       },
       (next) => {
+
         if (!article || !content || duration) {
           return next();
         }
@@ -494,16 +502,14 @@ var extract = (url) => {
             duration = d;
             return null;
           }).catch((e) => {
-            tracer.estimate = e;
-            return e;
+            error = e;
           }).finally(next);
         }
         return Duration.estimate(content).then((d) => {
           duration = d;
           return null;
         }).catch((e) => {
-          tracer.estimate = e;
-          return e;
+          error = e;
         }).finally(next);
       },
       (next) => {
@@ -514,15 +520,19 @@ var extract = (url) => {
         return next();
       }
     ]).then(() => {
-      if (!article) {
-        return reject(new Error(msg));
+      if (!article || !article.title || !article.domain || !article.duration) {
+        error = {
+          code: '003',
+          message: 'Not enough info to build article',
+          article
+        };
       }
       return null;
     }).catch((err) => {
-      return reject(err);
+      error = err;
     }).finally(() => {
-      if (!article.title || !article.domain || !article.duration) {
-        return reject(new Error('Not enough info to build article'));
+      if (error) {
+        return reject(new Error(error.message || 'Something wrong while extracting article'));
       }
       return resolve(article);
     });
