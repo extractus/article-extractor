@@ -2,9 +2,9 @@
 Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
-![Travis](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)
+[![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
 [![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/article-parser?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/57e8df02bd6fa600316f901e/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57e8df02bd6fa600316f901e)
+[![dependencies Status](https://david-dm.org/ndaidong/article-parser/status.svg)](https://david-dm.org/ndaidong/article-parser)
 [![Known Vulnerabilities](https://snyk.io/test/npm/article-parser/badge.svg)](https://snyk.io/test/npm/article-parser)
 
 ### Installation
