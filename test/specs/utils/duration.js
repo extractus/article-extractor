@@ -39,7 +39,7 @@ test('Testing isYouTube method:', (assert) => {
 });
 
 
-var VmUrl = 'https://vimeo.com/146820026';
+var VmUrl = 'https://vimeo.com/170598656';
 test('Testing isVimeo method:', (assert) => {
   let url1 = VmUrl;
   let url2 = 'http://abc.com/xyz';
