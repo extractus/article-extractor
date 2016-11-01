@@ -3,6 +3,7 @@ os:
 sudo: false
 language: node_js
 node_js:
+  - "7.0"
   - "6.7"
   - "6.4"
   - "6.0"
