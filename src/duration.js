@@ -139,7 +139,7 @@ var estimateMovie = (src) => {
         return reject(e);
       });
     } else if (isVimeo(src)) {
-      return fetch('http://vimeo.com/api/oembed.json?url=' + src).then((res) => {
+      return fetch('https://vimeo.com/api/oembed.json?url=' + src).then((res) => {
         return res.json();
       }).then((ob) => {
         if (ob && ob.duration) {
