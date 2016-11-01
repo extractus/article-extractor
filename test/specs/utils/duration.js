@@ -81,10 +81,6 @@ test('Testing isAudioBoom method:', (assert) => {
 var eachURL = (url) => {
   test(`Testing estimate(${url})`, {timeout: 15000}, (t) => {
     estimate(url).then((d) => {
-
-      if (url === 'https://vimeo.com/146820026') {
-        console.log(d);
-      }
       t.ok(bella.isNumber(d), `Duration (${d}) must be a number.`);
       t.ok(d > 0, `Duration (${d}) is greater than 0.`);
       t.end();
