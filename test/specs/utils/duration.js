@@ -91,7 +91,7 @@ var eachURL = (url) => {
 };
 
 [
-  YtUrl, VmUrl, ScUrl, chance.paragraph({sentences: 10})
+  YtUrl, ScUrl, chance.paragraph({sentences: 10})
 ].map(eachURL);
 
 var eachYouTubeMovies = (url) => {
