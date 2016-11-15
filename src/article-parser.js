@@ -22,6 +22,10 @@ var getDomain = urlResolver.getDomain;
 var isValidURL = urlResolver.isValidURL;
 var isExceptDomain = urlResolver.isExceptDomain;
 
+var strtolower = (s) => {
+  return s ? s.toLowerCase() : '';
+};
+
 var configure = (o) => {
   if (o.wordsPerMinute) {
     let wpm = Number(o.wordsPerMinute);
@@ -136,25 +140,25 @@ var parseMeta = (html, url) => {
 
     let m = doc(meta);
     let content = m.attr('content');
-    let property = bella.strtolower(m.attr('property'));
-    let name = bella.strtolower(m.attr('name'));
+    let property = strtolower(m.attr('property'));
+    let name = strtolower(m.attr('name'));
 
-    if (bella.contains(sourceAttrs, property) || bella.contains(sourceAttrs, name)) {
+    if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
       entry.source = content;
     }
-    if (bella.contains(urlAttrs, property) || bella.contains(urlAttrs, name)) {
+    if (urlAttrs.includes(property) || urlAttrs.includes(name)) {
       entry.url = content;
     }
-    if (bella.contains(titleAttrs, property) || bella.contains(titleAttrs, name)) {
+    if (titleAttrs.includes(property) || titleAttrs.includes(name)) {
       entry.title = content;
     }
-    if (bella.contains(descriptionAttrs, property) || bella.contains(descriptionAttrs, name)) {
+    if (descriptionAttrs.includes(property) || descriptionAttrs.includes(name)) {
       entry.description = content;
     }
-    if (bella.contains(imageAttrs, property) || bella.contains(imageAttrs, name)) {
+    if (imageAttrs.includes(property) || imageAttrs.includes(name)) {
       entry.image = content;
     }
-    if (bella.contains(authorAttrs, property) || bella.contains(authorAttrs, name)) {
+    if (authorAttrs.includes(property) || authorAttrs.includes(name)) {
       entry.author = content;
     }
   });
@@ -395,7 +399,8 @@ var extract = (url) => {
         return next();
       },
       (next) => {
-        canonicals = bella.unique(canonicals);
+        let tmp = bella.stabilize(canonicals);
+        canonicals = tmp.unique();
 
         let curls = canonicals.filter((cano) => {
           if (!cano) {
@@ -408,7 +413,8 @@ var extract = (url) => {
           return isValidURL(cano);
         });
 
-        canonicals = bella.unique(curls);
+        let tmpCurls = bella.stabilize(curls);
+        canonicals = tmpCurls.unique();
 
         bestURL = canonicals[canonicals.length - 1];
 
