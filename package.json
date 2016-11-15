@@ -1,5 +1,5 @@
 {
-  "version": "1.5.27",
+  "version": "1.5.3",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -23,7 +23,7 @@
     "coveralls": "npm test && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "bellajs": "5.x.x",
+    "bellajs": "6.x.x",
     "cheerio": "0.x.x",
     "es6-readability": "0.x.x",
     "node-fetch": "1.x.x",
