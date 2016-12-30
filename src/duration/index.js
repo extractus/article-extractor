@@ -7,8 +7,8 @@ var bella = require('bellajs');
 var fetch = require('node-fetch');
 var Promise = require('promise-wtf');
 
-var urlResolver = require('./url-resolver');
-var config = require('./config');
+var urlResolver = require('../uri');
+var config = require('../config');
 
 var getYtid = (lnk) => {
   let x1 = 'www.youtube.com/watch?';

@@ -4,12 +4,10 @@
  */
 
 var fs = require('fs');
-var path = require('path');
 var test = require('tape');
 var bella = require('bellajs');
 
-var rootDir = '../../../src/';
-var AP = require(path.join(rootDir, 'article-parser'));
+var AP = require('../../../');
 
 var parseMeta = AP.parseMeta;
 

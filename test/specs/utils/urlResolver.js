@@ -7,7 +7,7 @@ var path = require('path');
 var test = require('tape');
 
 var rootDir = '../../../src/';
-var UR = require(path.join(rootDir, 'url-resolver'));
+var UR = require(path.join(rootDir, 'uri'));
 
 var absolutify = UR.absolutify;
 var purify = UR.purify;

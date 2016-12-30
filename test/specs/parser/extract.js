@@ -4,15 +4,12 @@
  */
 
 var fs = require('fs');
-var path = require('path');
 var test = require('tape');
 var bella = require('bellajs');
 
 var nock = require('nock');
 
-var rootDir = '../../../src/';
-
-const AP = require(path.join(rootDir, 'article-parser'));
+var AP = require('../../../');
 const CONF = AP.getConfig();
 
 var extract = AP.extract;
@@ -93,7 +90,6 @@ const JSON = fs.readFileSync('./test/embedlyData.txt', 'utf8');
   });
 
 })();
-
 
 (() => {
 
