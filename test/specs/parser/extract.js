@@ -4,19 +4,16 @@
  */
 
 var fs = require('fs');
-var path = require('path');
 var test = require('tape');
 var bella = require('bellajs');
+var debug = require('debug');
+var error = debug('artparser:error');
 
 var nock = require('nock');
 
-var rootDir = '../../../src/';
-
-const AP = require(path.join(rootDir, 'article-parser'));
-const CONF = AP.getConfig();
-
-var extract = AP.extract;
-var parseWithEmbedly = AP.parseWithEmbedly;
+var {
+  extract
+} = require('../../../');
 
 var hasRequiredKeys = (o) => {
   var structure = [
@@ -40,17 +37,17 @@ var hasRequiredKeys = (o) => {
 
 const URL = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
 const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
-const JSON = fs.readFileSync('./test/embedlyData.txt', 'utf8');
 
 (() => {
 
+  let url = `https://medium.com/well-retrieve-article`;
   nock('https://medium.com')
-    .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
+    .get('/well-retrieve-article')
     .reply(200, HTML);
 
-  test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
+  test(`Testing with .extract(${url})`, {timeout: 5000}, (t) => {
 
-    extract(URL).then((art) => {
+    extract(url).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(bella.isObject(art), 'R must be an object.');
       t.ok(hasRequiredKeys(art), 'R must have all required keys.');
@@ -72,7 +69,7 @@ const JSON = fs.readFileSync('./test/embedlyData.txt', 'utf8');
       t.ok(art.duration > 0, 'R.duration is greater than 0.');
       t.end();
     }).catch((e) => {
-      console.log(e);
+      error(e);
       t.end();
     });
   });
@@ -87,51 +84,23 @@ const JSON = fs.readFileSync('./test/embedlyData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
     extract(URL).catch((e) => {
-      let msg = 'Not enough info to build article';
+      let msg = 'Something wrong while extracting article';
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
 
 })();
 
-
 (() => {
 
-  nock('http://api.embed.ly')
-    .get(`/1/extract?key=${CONF.EmbedlyKey}&url=${encodeURIComponent(URL)}&format=json`)
-    .reply(200, JSON);
+  nock('https://medium.com')
+    .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
+    .reply(200, 'SOMETHING NO HTML<html><b>ASD<</html>');
 
-  test(`Testing with .parseWithEmbedly(${URL})`, {timeout: 5000}, (t) => {
-
-    parseWithEmbedly(URL).then((art) => {
-      t.comment('(Call returned result is R, so:)');
-      t.ok(bella.isObject(art), 'R must be an object.');
-      t.ok(bella.isString(art.url), 'R.url must be a string.');
-      t.ok(art.url.length > 0, 'R.url is not empty.');
-      t.ok(bella.isString(art.title), 'R.title must be a string.');
-      t.ok(art.title.length > 0, 'R.title is not empty.');
-      t.ok(bella.isString(art.description), 'R.description must be a string.');
-      t.ok(bella.isString(art.image), 'R.image must be a string.');
-      t.ok(bella.isString(art.content), 'R.content must be a string.');
-      t.ok(bella.isString(art.author), 'R.author must be a string.');
-      t.ok(bella.isString(art.source), 'R.source must be a string.');
-      t.end();
-    }).catch((e) => {
-      t.end(e);
-    });
-  });
-})();
-
-
-(() => {
-
-  nock('http://api.embed.ly')
-    .get(`/1/extract?key=${CONF.EmbedlyKey}&url=${encodeURIComponent(URL)}&format=json`)
-    .reply(200, '');
-
-  test(`Testing with .parseWithEmbedly(${URL})`, {timeout: 5000}, (t) => {
+  test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
     extract(URL).catch((e) => {
-      t.ok(e instanceof Error, 'It must return an error.');
+      let msg = 'Something wrong while extracting article';
+      t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
 
