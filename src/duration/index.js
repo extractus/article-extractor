@@ -7,6 +7,10 @@ var bella = require('bellajs');
 var fetch = require('node-fetch');
 var Promise = require('promise-wtf');
 
+var debug = require('debug');
+var info = debug('artparser:info');
+var error = debug('artparser:error');
+
 var urlResolver = require('../uri');
 var config = require('../config');
 
@@ -100,6 +104,7 @@ var estimateAudio = (src) => {
   return new Promise((resolve, reject) => {
     if (isSoundCloud(src)) {
       let url = 'http://api.soundcloud.com/resolve.json?url=' + bella.encode(src) + '&client_id=' + config.SoundCloudKey;
+      info(url);
       return fetch(url).then((res) => {
         return res.json();
       }).then((ob) => {

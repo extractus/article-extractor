@@ -15,7 +15,8 @@
   "scripts": {
     "lint": "eslint ./src ./test",
     "snyk": "snyk test",
-    "tape": "DEBUG=*:* nyc tape test/start.js | tap-spec",
+    "tape": "nyc tape test/start.js | tap-spec",
+    "tape:debug": "DEBUG=*:* nyc tape test/start.js | tap-spec",
     "report": "nyc report --reporter=lcov",
     "pretest": "npm run lint && npm run snyk",
     "test": "npm run tape",
@@ -24,11 +25,11 @@
   },
   "dependencies": {
     "bellajs": "6.x.x",
+    "bluebird": "3.x.x",
     "cheerio": "0.x.x",
     "debug": "2.x.x",
     "es6-readability": "0.x.x",
     "node-fetch": "1.x.x",
-    "promise-wtf": "1.x.x",
     "sanitize-html": "1.x.x"
   },
   "devDependencies": {

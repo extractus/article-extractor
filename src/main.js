@@ -4,7 +4,7 @@
  **/
 
 var bella = require('bellajs');
-var Promise = require('promise-wtf');
+var Promise = require('bluebird');
 var fetch = require('node-fetch');
 
 var debug = require('debug');
@@ -27,244 +27,312 @@ var {
 } = require('./uri');
 
 var {
-  parseFromLink,
   parseWithEmbedly,
   parseMeta,
   getArticle
 } = require('./parser');
 
 
-var extract = (link) => {
-
-  let url = removeUTM(link);
-
-  let canonicals = [url];
-  let resURL;
-  let bestURL;
-  let html;
-  let meta;
-  let oemb;
-  let article;
-
-  let alias = '';
-  let title = '';
-  let description = '';
-  let image = '';
-  let author = '';
-  let source = '';
-  let content = '';
-  let domain = '';
-  let duration = 0;
-
-  let parse;
-
-  if (!isExceptDomain(url)) {
-    parse = () => {
-      return parseWithEmbedly(url);
-    };
-  } else {
-    parse = () => {
-      return parseFromLink(url);
-    };
-  }
+var getRemoteContent = (input) => {
 
   return new Promise((resolve, reject) => {
-    Promise.series([
-      (next) => {
-        if (resURL) {
-          return next();
+    let {
+      url
+    } = input;
+
+    info(`Start fetching HTML content from ${url}`);
+
+    let _url = '';
+
+    fetch(url)
+      .then((res) => {
+        if (res.ok && res.status === 200) {
+          info(`Retrieved HTML content from ${url}`);
+          _url = purify(res.url);
+          return res.text();
         }
-
-        return fetch(url).then((res) => {
-          resURL = purify(res.url);
-          if (resURL) {
-            canonicals.push(resURL);
-          } else {
-            error = {
-              code: '001',
-              message: 'No URL or URL is in black list'
-            };
-          }
-          return res.text().then((s) => {
-            html = s;
-            next();
-          });
-        }).catch((e) => {
-          next(e);
-        });
-      },
-      (next) => {
-        if (!resURL || !html) {
-          return next();
+        return reject(new Error(`Fetching failed for ${url}`));
+      })
+      .then((html) => {
+        info(`Finish fetching HTML content from ${url}`);
+        if (!html) {
+          info('Returned HTML is empty. Exit process.');
+          return reject(new Error(`No HTML content retrieved for ${url}`));
         }
+        input.canonicals.push(_url);
+        input.url = _url;
+        input.html = html;
+        return resolve(input);
+      }).catch((err) => {
+        error(`Error while fetching remote data from "${url}"`);
+        error(err);
+        return reject(err);
+      });
+  });
+};
 
-        meta = parseMeta(html, resURL);
+var extractMetaData = (input) => {
 
-        if (!meta || !meta.title || !meta.url) {
-          return next();
-        }
+  let {
+    html,
+    url
+  } = input;
 
-        canonicals.push(meta.url);
+  info(`Start extracting metadata for ${url}`);
 
-        if (meta.canonical) {
-          canonicals.push(meta.canonical);
-        }
+  let meta = parseMeta(html, url);
 
-        title = meta.title || '';
-        description = meta.description || '';
-        image = meta.image || '';
-        author = meta.author || '';
-        domain = domain.replace('www.', '');
-        if (!source) {
-          source = meta.source || '';
-        }
+  let {
+    canonical,
+    title,
+    description,
+    image,
+    author,
+    source
+  } = meta;
 
-        return next();
-      },
-      (next) => {
-        let tmp = bella.stabilize(canonicals);
-        canonicals = tmp.unique();
+  if (meta.url) {
+    let _url = meta.url;
+    let {canonicals} = input;
+    input.canonicals = canonicals.concat([_url, canonical]);
+    input.url = _url;
+  }
 
-        let curls = canonicals.filter((cano) => {
-          if (!cano) {
-            return false;
-          }
-          if (cano.startsWith('//')) {
-            cano = 'http:' + cano;
-          }
-          cano = purify(cano);
-          return isValidURL(cano);
-        });
+  input.title = title;
+  input.description = description;
+  input.image = image;
+  input.author = author;
+  input.source = source;
 
-        let tmpCurls = bella.stabilize(curls);
-        canonicals = tmpCurls.unique();
+  info(`Finish extracting metadata for ${url}`);
 
-        bestURL = canonicals[canonicals.length - 1];
+  return Promise.resolve(input);
+};
 
-        domain = getDomain(bestURL);
+var extractArticle = (input) => {
 
-        if (!domain) {
-          error = {
-            code: '002',
-            message: 'No domain determined'
-          };
-          return next();
-        }
+  return new Promise((resolve, reject) => {
+    let {
+      url,
+      html
+    } = input;
 
-        domain = domain.replace('www.', '');
-        if (!source) {
-          source = domain;
-        }
-        return next();
-      },
-      (next) => {
-        if (!bestURL || !domain || !title) {
-          return next();
-        }
+    info(`Start extracting main article for ${url}`);
 
-        let t = bella.time();
-        alias = bella.createAlias(title) + '-' + t;
-
-        let tit = bella.stripTags(title);
-        title = bella.truncate(tit, 118);
-
-        let desc = bella.stripTags(description);
-        if (desc) {
-          description = bella.truncate(desc, 156);
-        }
-
-        let auth = author;
-        if (auth && auth.indexOf(' ') > 0) {
-          author = bella.ucwords(auth);
-        }
-
-        article = {
-          alias,
-          url: bestURL,
-          canonicals,
-          title,
-          description,
-          image: absolutify(bestURL, image),
-          content,
-          author,
-          source,
-          domain,
-          duration
-        };
-
-        return next();
-      },
-      (next) => {
-        if (oemb || !article) {
-          return next();
-        }
-
-        return getArticle(html).then((art) => {
-          content = art;
-        }).catch((er) => {
-          error = er;
-        }).finally(next);
-      },
-      (next) => {
-        if (!article || !content || oemb) {
-          return next();
-        }
-
-        let desc = article.description;
-        if (!desc && content) {
-          desc = bella.stripTags(content);
-          article.description = bella.truncate(desc, 156);
-        }
-
-        return next();
-      },
-      (next) => {
-
-        if (!article || !content || duration) {
-          return next();
-        }
-
-        article.content = absolutifyContentSrc(content, bestURL);
-
-        if (Duration.isMovie(bestURL) || Duration.isAudio(bestURL)) {
-          return Duration.estimate(bestURL).then((d) => {
-            duration = d;
-            return null;
-          }).catch((e) => {
-            error = e;
-          }).finally(next);
-        }
-        return Duration.estimate(content).then((d) => {
-          duration = d;
-          return null;
-        }).catch((e) => {
-          error = e;
-        }).finally(next);
-      },
-      (next) => {
-        if (!article || !content) {
-          return next();
-        }
-        article.duration = duration;
-        return next();
+    getArticle(html).then((content) => {
+      info(`Finish extracting main article for ${url}`);
+      if (content) {
+        info(`Determined main article for ${url}`);
+        input.content = content;
+        return resolve(input);
       }
-    ]).then(() => {
-      if (!article || !article.title || !article.domain || !article.duration) {
-        error = {
-          code: '003',
-          message: 'Not enough info to build article',
-          article
-        };
-      }
-      return null;
+      return reject(new Error('No article extracted. Cancel process.'));
     }).catch((err) => {
-      error = err;
-    }).finally(() => {
-      if (error) {
-        return reject(new Error(error.message || 'Something wrong while extracting article'));
-      }
-      return resolve(article);
+      error(`Error while extracting main article for ${url}`);
+      error(err);
+      return reject(err);
     });
+  });
+};
+
+var standalizeCanonicals = (input) => {
+
+  let {
+    canonicals
+  } = input;
+
+  info(`Start standalizing canonicals for ${input.url}`);
+
+  let arr = canonicals.filter((url) => {
+    return url && url.length > 10;
+  }).map((url) => {
+    if (url.startsWith('//')) {
+      url = 'http:' + url;
+    }
+    return purify(url);
+  }).filter((url) => {
+    return isValidURL(url);
+  });
+
+  input.canonicals = bella.stabilize(arr).unique();
+
+  info(`Finish standalizing canonicals for ${input.url}`);
+
+  return Promise.resolve(input);
+};
+
+var standalizeContent = (input) => {
+
+  let {
+    url,
+    content
+  } = input;
+
+  info(`Start standalizing content for ${url}`);
+
+  input.content = absolutifyContentSrc(content, url);
+
+  info(`Finish standalizing content for ${url}`);
+  return Promise.resolve(input);
+};
+
+var standalizeDescription = (input) => {
+  let {
+    url,
+    description,
+    content
+  } = input;
+
+  info(`Start standalizing description for ${url}`);
+
+  let s = bella.stripTags(description || content);
+  input.description = bella.truncate(s, 156);
+
+  info(`Finish standalizing description for ${url}`);
+  return Promise.resolve(input);
+};
+
+var standalizeImage = (input) => {
+  let {
+    url,
+    image
+  } = input;
+
+  info(`Start standalizing image for ${url}`);
+
+  if (image) {
+    info(`Before: ${image}`);
+    input.image = absolutify(url, image);
+    info(`After: ${input.image}`);
+  }
+
+  info(`Finish standalizing image for ${url}`);
+
+  return Promise.resolve(input);
+};
+
+var standalizeAuthor = (input) => {
+  let {
+    url,
+    author
+  } = input;
+
+  info(`Start standalizing author name for ${url}`);
+
+  if (author && author.indexOf(' ') > 0) {
+    info(`Before: ${author}`);
+    input.author = bella.ucwords(author);
+    info(`After: ${input.author}`);
+  }
+
+  info(`Finish standalizing author for ${url}`);
+  return Promise.resolve(input);
+};
+
+var standalizeStuff = (input) => {
+  let {
+    url,
+    title,
+    source
+  } = input;
+
+  info(`Fix some stuffs for ${url}`);
+
+  let domain = getDomain(url);
+  input.domain = domain;
+  if (!source) {
+    input.source = domain;
+  }
+
+  let t = bella.time();
+  input.alias = bella.createAlias(title) + '-' + t;
+
+  let tit = bella.stripTags(title);
+  input.title = bella.truncate(tit, 118);
+
+  info(`Almost done with ${url}`);
+
+  return Promise.resolve(input);
+};
+
+var estimateDuration = (input) => {
+  return new Promise((resolve, reject) => {
+    let {
+      url,
+      title,
+      content
+    } = input;
+
+    info(`Start estimating duration for ${url}`);
+
+    let p;
+    if (Duration.isMovie(url) || Duration.isAudio(url)) {
+      p = () => {
+        return Duration.estimate(url);
+      };
+    } else {
+      p = () => {
+        return Duration.estimate(content);
+      };
+    }
+
+    p().then((d) => {
+      input.duration = d;
+      info(`Finish estimating duration for ${url}`);
+      return resolve(input);
+    }).catch((err) => {
+      error(`Error while estimating duration for "${title}"`);
+      return reject(err);
+    });
+  });
+};
+
+var extract = (link) => {
+
+  return new Promise((resolve, reject) => {
+
+    let url = removeUTM(link);
+
+    if (isExceptDomain(url)) {
+      return reject(new Error('This domain is blocked by configuration.'));
+    }
+
+    let article = {
+      url,
+      title: '',
+      alias: '',
+      description: '',
+      canonicals: [url],
+      image: '',
+      content: '',
+      author: '',
+      source: '',
+      domain: '',
+      duration: 0
+    };
+
+    info(`Start extracting article data for ${url}`);
+
+    return getRemoteContent(article)
+      .then(extractMetaData)
+      .then(extractArticle)
+      .then(standalizeCanonicals)
+      .then(standalizeContent)
+      .then(standalizeDescription)
+      .then(standalizeImage)
+      .then(standalizeAuthor)
+      .then(standalizeStuff)
+      .then(estimateDuration)
+      .then((output) => {
+        info(`Finish extracting "${url}"`);
+        output.html = '';
+        delete output.html;
+        return resolve(output);
+      })
+      .catch((err) => {
+        error(err);
+        return reject(new Error(error.message || 'Something wrong while extracting article'));
+      });
   });
 };
 

@@ -3,6 +3,7 @@
  * @ndaidong
 */
 
+var Promise = require('bluebird');
 var cheerio = require('cheerio');
 var sanitize = require('sanitize-html');
 var read = require('es6-readability');
@@ -21,6 +22,11 @@ var extractByClass = (input) => {
     content,
     html
   } = input;
+
+  if (content) {
+    info('Content is already. Cancel extracting by class.');
+    return Promise.resolve(input);
+  }
 
   let $ = cheerio.load(html);
 
@@ -41,8 +47,8 @@ var extractByClass = (input) => {
       let c = $(classes[i]);
       if (c) {
         content = c.html();
-        input.content = content;
         if (content) {
+          input.content = content;
           break;
         }
       }
@@ -57,31 +63,29 @@ var extractByClass = (input) => {
 
 var extractWithReadability = (input) => {
 
-  info('Extracting using es6-readability...');
+  return new Promise((resolve) => {
+    info('Extracting using es6-readability...');
 
-  let {
-    content,
-    html
-  } = input;
-
-  if (!content) {
-    return Promise.resolve(input);
-  }
-
-  return read(html).then((a) => {
-    info('Finish extracting using es6-readability.');
-    if (a && a.content && !content) {
-      info('Use content extracted with es6-readability.');
-      content = a.content;
-    }
-    return Promise.resolve({
+    let {
       content,
       html
+    } = input;
+
+    read(html).then((a) => {
+      info('Finish extracting using es6-readability.');
+      if (a && a.content) {
+        info('Content extracted with es6-readability.');
+        content = a.content;
+      }
+      return resolve({
+        content,
+        html
+      });
+    }).catch((err) => {
+      error('Failed while extracting using es6-readability.');
+      error(err);
+      return resolve(input);
     });
-  }).catch((err) => {
-    error('Failed while extracting using es6-readability.');
-    error(err);
-    return Promise.resolve(input);
   });
 };
 
@@ -104,18 +108,27 @@ var normalize = (input) => {
     input.content = $.html();
   }
 
-  return Promise.resolve(input);
+  return Promise.resolve(input.content);
 };
 
 var getArticle = (html) => {
-  return extractByClass({
-    html,
-    content: ''
-  })
-  .then(extractWithReadability)
-  .then(normalize)
-  .then((input) => {
-    return Promise.resolve(input.content);
+  return new Promise((resolve, reject) => {
+    info('Start extracting article from HTML');
+    extractWithReadability({
+      html,
+      content: ''
+    })
+    .then(extractByClass)
+    .then(normalize)
+    .then((pureContent) => {
+      info('Finish extracting article from HTML');
+      return resolve(pureContent);
+    })
+    .catch((err) => {
+      error('Something wrong when extracting article from HTML');
+      error(err);
+      return reject(err);
+    });
   });
 };
 
