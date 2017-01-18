@@ -86,7 +86,8 @@ Now *article* would be something like this:
   author: 'TED',
   source: 'YouTube',
   domain: 'www.youtube.com',
-  duration: 741
+  duration: 741,
+  publishedTime: '2013-11-12T19:57:40+00:00'
 }
 
 ```
@@ -138,7 +139,8 @@ Now *metaData* would be something like this:
   description: 'Do you want to get your own Slack app for your company or your team. Rocket Chat may be what you need.',
   image: 'https://cdn-images-1.medium.com/max/800/1*9IX5MWrnaCBzzeS3h5N2oA.png',
   author: '@ndaidong',
-  source: 'Medium'
+  source: 'Medium',
+  publishedTime: '2013-11-12T19:57:40+00:00'
 }
 ```
 
