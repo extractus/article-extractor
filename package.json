@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -14,11 +14,11 @@
   },
   "scripts": {
     "lint": "eslint ./src ./test",
-    "snyk": "snyk test",
+    "nsp": "nsp check --output checkstyle",
     "tape": "nyc tape test/start.js | tap-spec",
     "tape:debug": "DEBUG=*:* nyc tape test/start.js | tap-spec",
     "report": "nyc report --reporter=lcov",
-    "pretest": "npm run lint && npm run snyk",
+    "pretest": "npm run lint && npm run nsp",
     "test": "npm run tape",
     "posttest": "npm run report",
     "coveralls": "npm test && cat ./coverage/lcov.info | coveralls"
@@ -37,10 +37,12 @@
     "coveralls": "latest",
     "eslint": "latest",
     "eslint-config-ggc": "latest",
+    "leakage": "0.x.x",
+    "nedb": "1.x.x",
     "nock": "latest",
+    "nsp": "latest",
     "nyc": "latest",
     "sinon": "latest",
-    "snyk": "latest",
     "tap-spec": "latest",
     "tape": "latest"
   },
