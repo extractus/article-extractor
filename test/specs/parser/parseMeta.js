@@ -21,7 +21,8 @@ var hasRequiredKeys = (o) => {
     'title',
     'description',
     'image',
-    'author'
+    'author',
+    'publishedTime'
   ];
 
   return structure.every((k) => {

@@ -22,7 +22,8 @@ var parseMeta = (html, url) => {
     description: '',
     image: '',
     author: '',
-    source: ''
+    source: '',
+    publishedTime: ''
   };
 
   let sourceAttrs = [
@@ -56,6 +57,9 @@ var parseMeta = (html, url) => {
     'og:article:author',
     'twitter:creator',
     'dc.creator'
+  ];
+  let publishedTimeAttrs = [
+    'article:published_time'
   ];
 
   let doc = cheerio.load(html, {
@@ -101,6 +105,9 @@ var parseMeta = (html, url) => {
     }
     if (authorAttrs.includes(property) || authorAttrs.includes(name)) {
       entry.author = content;
+    }
+    if (publishedTimeAttrs.includes(property) || publishedTimeAttrs.includes(name)) {
+      entry.publishedTime = content;
     }
   });
 

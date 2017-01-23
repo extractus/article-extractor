@@ -88,7 +88,8 @@ var extractMetaData = (input) => {
     description,
     image,
     author,
-    source
+    source,
+    publishedTime
   } = meta;
 
   if (meta.url) {
@@ -103,6 +104,7 @@ var extractMetaData = (input) => {
   input.image = image;
   input.author = author;
   input.source = source;
+  input.publishedTime = publishedTime;
 
   info(`Finish extracting metadata for ${url}`);
 

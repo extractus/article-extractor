@@ -27,7 +27,8 @@ var hasRequiredKeys = (o) => {
     'author',
     'source',
     'domain',
-    'duration'
+    'duration',
+    'publishedTime'
   ];
 
   return structure.every((k) => {
@@ -67,6 +68,7 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
       t.ok(art.domain.length > 0, 'R.domain is not empty.');
       t.ok(bella.isNumber(art.duration), 'R.duration must be a number.');
       t.ok(art.duration > 0, 'R.duration is greater than 0.');
+      t.ok(bella.isString(art.publishedTime), 'R.publishedTime must be a string.');
       t.end();
     }).catch((e) => {
       error(e);
