@@ -33,18 +33,16 @@
     "sanitize-html": "1.x.x"
   },
   "devDependencies": {
-    "chance": "latest",
-    "coveralls": "latest",
-    "eslint": "latest",
-    "eslint-config-ggc": "latest",
-    "leakage": "0.x.x",
-    "nedb": "1.x.x",
-    "nock": "latest",
-    "nsp": "latest",
-    "nyc": "latest",
-    "sinon": "latest",
-    "tap-spec": "latest",
-    "tape": "latest"
+    "chance": "1.x.x",
+    "coveralls": "2.x.x",
+    "eslint": "3.x.x",
+    "eslint-config-ggc": "1.x.x",
+    "nock": "9.x.x",
+    "nsp": "2.x.x",
+    "nyc": "10.x.x",
+    "sinon": "1.x.x",
+    "tap-spec": "4.x.x",
+    "tape": "4.x.x"
   },
   "keywords": [
     "article",
