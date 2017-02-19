@@ -160,6 +160,12 @@ fetch(url).then((res) => {
 }).then((html) => {
   let content = ArticleParser.getArticle(html);
   return content;
+})
+.then((article) => {
+  console.log(article);
+})
+.catch((err) => {
+  console.log(err);
 });
 ```
 
