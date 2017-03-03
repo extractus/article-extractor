@@ -12,6 +12,8 @@ var info = debug('artparser:info');
 
 var config = require('../config');
 
+var {FETCH_OPTIONS} = config;
+
 var parseWithEmbedly = (url, key = '') => {
   return new Promise((resolve, reject) => {
 
@@ -22,7 +24,7 @@ var parseWithEmbedly = (url, key = '') => {
     let k = key || config.EmbedlyKey || '';
     let target = `http://api.embed.ly/1/extract?key=${k}&url=${u}&format=json`;
 
-    return fetch(target).then((res) => {
+    return fetch(target, FETCH_OPTIONS).then((res) => {
       info(`Loaded data from Embedly.`);
       return res.json();
     }).then((o) => {
@@ -33,7 +35,6 @@ var parseWithEmbedly = (url, key = '') => {
         author = authors.reduce((prev, curr) => {
           return prev.concat([curr.name]);
         }, []).join(', ');
-        console.log(author);
       }
       let image = '';
       let images = o.images || [];

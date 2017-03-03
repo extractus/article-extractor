@@ -86,7 +86,7 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
     extract(URL).catch((e) => {
-      let msg = 'Something wrong while extracting article';
+      let msg = 'Cannot read property \'startsWith\' of null';
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
@@ -101,7 +101,7 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
     extract(URL).catch((e) => {
-      let msg = 'Something wrong while extracting article';
+      let msg = 'Cannot read property \'startsWith\' of null';
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
