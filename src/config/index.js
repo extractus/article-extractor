@@ -95,8 +95,6 @@ var configure = (o) => {
 };
 
 config.FETCH_OPTIONS = {
-  redirect: 'follow',
-  follow: 30,
   timeout: 20 * 6e4
 };
 

@@ -43,10 +43,13 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
 
   let url = `https://medium.com/well-retrieve-article`;
   nock('https://medium.com')
+    .defaultReplyHeaders({
+      'Content-Type': 'text/html'
+    })
     .get('/well-retrieve-article')
     .reply(200, HTML);
 
-  test(`Testing with .extract(${url})`, {timeout: 5000}, (t) => {
+  test(`Testing with .extract(${url})`, (t) => {
 
     extract(url).then((art) => {
       t.comment('(Call returned result is R, so:)');
@@ -84,7 +87,7 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(200, '');
 
-  test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
+  test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).catch((e) => {
       let msg = 'Cannot read property \'startsWith\' of null';
       t.equals(e.message, msg, 'It must return an error.');
@@ -99,9 +102,45 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(200, 'SOMETHING NO HTML<html><b>ASD<</html>');
 
-  test(`Testing with .extract(${URL})`, {timeout: 5000}, (t) => {
+  test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).catch((e) => {
       let msg = 'Cannot read property \'startsWith\' of null';
+      t.equals(e.message, msg, 'It must return an error.');
+    }).finally(t.end);
+  });
+
+})();
+
+(() => {
+
+  let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+  nock('https://medium.com')
+    .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
+    .reply(500, HTML, {
+      ok: false
+    });
+
+  test(`Testing with .extract(${URL})`, (t) => {
+    extract(URL).catch((e) => {
+      let msg = `Fetching failed for ${url}`;
+      t.equals(e.message, msg, 'It must return an error.');
+    }).finally(t.end);
+  });
+
+})();
+
+(() => {
+
+  let contentType = 'application/json';
+  nock('https://medium.com')
+    .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
+    .reply(200, HTML, {
+      'Content-Type': contentType
+    });
+
+  test(`Testing with .extract(${URL})`, (t) => {
+    extract(URL).catch((e) => {
+      let msg = `Could not handle ${contentType}`;
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
