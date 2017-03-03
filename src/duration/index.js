@@ -10,6 +10,8 @@ var Promise = require('bluebird');
 var urlResolver = require('../uri');
 var config = require('../config');
 
+var {FETCH_OPTIONS} = config;
+
 var getYtid = (lnk) => {
   let x1 = 'www.youtube.com/watch?';
   let x2 = 'youtu.be/';
@@ -100,7 +102,7 @@ var estimateAudio = (src) => {
   return new Promise((resolve, reject) => {
     if (isSoundCloud(src)) {
       let url = 'http://api.soundcloud.com/resolve.json?url=' + bella.encode(src) + '&client_id=' + config.SoundCloudKey;
-      return fetch(url).then((res) => {
+      return fetch(url, FETCH_OPTIONS).then((res) => {
         return res.json();
       }).then((ob) => {
         if (ob && ob.duration) {
@@ -121,7 +123,7 @@ var estimateMovie = (src) => {
     if (isYouTube(src)) {
       let vid = getYtid(src);
       let url = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=' + vid + '&key=' + config.YouTubeKey;
-      return fetch(url).then((res) => {
+      return fetch(url, FETCH_OPTIONS).then((res) => {
         return res.json();
       }).then((ob) => {
         if (ob && ob.items) {
@@ -139,7 +141,7 @@ var estimateMovie = (src) => {
         return reject(e);
       });
     } else if (isVimeo(src)) {
-      return fetch('https://vimeo.com/api/oembed.json?url=' + src).then((res) => {
+      return fetch('https://vimeo.com/api/oembed.json?url=' + src, FETCH_OPTIONS).then((res) => {
         return res.json();
       }).then((ob) => {
         if (ob && ob.duration) {

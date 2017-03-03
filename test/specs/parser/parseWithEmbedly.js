@@ -27,7 +27,7 @@ const JSON = fs.readFileSync('./test/embedlyData.txt', 'utf8');
     .get(`/1/extract?key=${EmbedlyKey}&url=${encodeURIComponent(URL)}&format=json`)
     .reply(200, JSON);
 
-  test(`Testing with .parseWithEmbedly(${URL})`, {timeout: 5000}, (t) => {
+  test(`Testing with .parseWithEmbedly(${URL})`, (t) => {
 
     parseWithEmbedly(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
@@ -56,7 +56,7 @@ const JSON = fs.readFileSync('./test/embedlyData.txt', 'utf8');
     .get(`/1/extract?key=${EmbedlyKey}&url=${encodeURIComponent(URL)}&format=json`)
     .reply(200, '');
 
-  test(`Testing with .parseWithEmbedly(${URL})`, {timeout: 5000}, (t) => {
+  test(`Testing with .parseWithEmbedly(${URL})`, (t) => {
     parseWithEmbedly(URL).catch((e) => {
       error(e);
       t.ok(e instanceof Error, 'It must return an error.');

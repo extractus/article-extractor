@@ -12,7 +12,7 @@ var error = debug('artparser:error');
 var info = debug('artparser:info');
 
 var config = require('./config');
-var {configure} = config;
+var {configure, FETCH_OPTIONS} = config;
 
 var Duration = require('./duration');
 
@@ -44,14 +44,23 @@ var getRemoteContent = (input) => {
 
     let _url = '';
 
-    fetch(url)
+    fetch(url, FETCH_OPTIONS)
       .then((res) => {
-        if (res.ok && res.status === 200) {
-          info(`Retrieved HTML content from ${url}`);
-          _url = purify(res.url);
-          return res.text();
+        let {
+          ok,
+          status,
+          headers
+        } = res;
+        if (!ok || status !== 200) {
+          return reject(new Error(`Fetching failed for ${url}`));
         }
-        return reject(new Error(`Fetching failed for ${url}`));
+        let contentType = headers.get('content-type');
+        if (!contentType.startsWith('text/')) {
+          return reject(new Error(`Could not handle ${contentType}`));
+        }
+        info(`Retrieved HTML content from ${url}`);
+        _url = purify(res.url);
+        return res.text();
       })
       .then((html) => {
         info(`Finish fetching HTML content from ${url}`);
@@ -333,7 +342,7 @@ var extract = (link) => {
       })
       .catch((err) => {
         error(err);
-        return reject(new Error(error.message || 'Something wrong while extracting article'));
+        return reject(new Error(err.message || 'Something wrong while extracting article'));
       });
   });
 };
