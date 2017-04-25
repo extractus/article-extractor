@@ -9,6 +9,7 @@ var bella = require('bellajs');
 var AP = require('../../../');
 
 var sample = {
+  timeout: 10,
   wordsPerMinute: 500,
   blackList: ['bing.com', 'yahoo.com'],
   exceptDomain: ['google.com', 'apple.com'],
@@ -71,6 +72,8 @@ test('Testing "configure" method:', (assert) => {
   assert.deepEqual(a5, e5, 'C.htmlRules must be equal to sample.htmlRules');
 
   assert.deepEqual(config.wordsPerMinute, sample.wordsPerMinute, `C.wordsPerMinute must be ${sample.wordsPerMinute}`);
+
+  assert.deepEqual(config.FETCH_OPTIONS.timeout, sample.timeout, `C.timeout must be ${sample.timeout}`);
 
   assert.end();
 });

@@ -3,6 +3,10 @@ var bella = require('bellajs');
 
 var config = {};
 
+config.FETCH_OPTIONS = {
+  timeout: 20 * 6e4
+};
+
 config.wordsPerMinute = 300;
 
 config.blackList = [
@@ -51,6 +55,13 @@ config.YouTubeKey = 'AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc';
 config.EmbedlyKey = '50a2e9136d504850a9d080b759fd3019';
 
 var configure = (o) => {
+  if (o.timeout) {
+    let fo = o.timeout;
+    if (bella.isNumber(fo) && fo > 0) {
+      config.FETCH_OPTIONS.timeout = fo;
+    }
+  }
+
   if (o.wordsPerMinute) {
     let wpm = Number(o.wordsPerMinute);
     if (bella.isNumber(wpm) && wpm > 100 && wpm < 1000) {
@@ -92,10 +103,6 @@ var configure = (o) => {
   if (o.EmbedlyKey) {
     config.EmbedlyKey = o.EmbedlyKey;
   }
-};
-
-config.FETCH_OPTIONS = {
-  timeout: 20 * 6e4
 };
 
 Object.defineProperty(config, 'configure', {

@@ -42,6 +42,7 @@ ArticleParser.extract(url).then((article) => {
 
 ```
 {
+  timeout: Number, // time to wait for the response from target sites
   wordsPerMinute: Number, // default 300, use to estimate time to read
   blackList: Array, // a set of domain we don't want to parse
   exceptDomain: Array, // a set of domain that will be parsed using Embedly
