@@ -4,12 +4,15 @@
  **/
 
 var bella = require('bellajs');
-var Promise = require('bluebird');
+var {stabilize} = require('stabilize.js');
+
 var fetch = require('node-fetch');
 
 var debug = require('debug');
 var error = debug('artparser:error');
 var info = debug('artparser:info');
+
+global.Promise = require('bluebird');
 
 var config = require('./config');
 var {configure, FETCH_OPTIONS} = config;
@@ -165,7 +168,7 @@ var standalizeCanonicals = (input) => {
     return isValidURL(url);
   });
 
-  input.canonicals = bella.stabilize(arr).unique();
+  input.canonicals = stabilize(arr).unique();
 
   info(`Finish standalizing canonicals for ${input.url}`);
 

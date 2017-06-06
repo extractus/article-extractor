@@ -3,7 +3,6 @@
  * @ndaidong
 */
 
-var Promise = require('bluebird');
 var cheerio = require('cheerio');
 var sanitize = require('sanitize-html');
 var read = require('es6-readability');
