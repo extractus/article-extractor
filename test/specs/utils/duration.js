@@ -13,17 +13,17 @@ var chance = new Chance();
 var rootDir = '../../../src/';
 var Duration = require(path.join(rootDir, 'duration'));
 
-var isYouTube = Duration.isYouTube;
-var isVimeo = Duration.isVimeo;
-var isSoundCloud = Duration.isSoundCloud;
-var isAudioBoom = Duration.isAudioBoom;
-
-var estimateMovie = Duration.estimateMovie;
-var estimateAudio = Duration.estimateAudio;
-var estimate = Duration.estimate;
-
-var getYtid = Duration.getYtid;
-var toSecond = Duration.toSecond;
+var {
+  getYtid,
+  toSecond,
+  isYouTube,
+  isVimeo,
+  isSoundCloud,
+  isAudioBoom,
+  estimateMovie,
+  estimateAudio,
+  estimate
+} = Duration;
 
 var YtUrl = 'https://www.youtube.com/watch?v=klzLdzpPcQw';
 test('Testing isYouTube method:', (assert) => {
@@ -37,7 +37,6 @@ test('Testing isYouTube method:', (assert) => {
   assert.deepEqual(r2, e2, `Result must be ${e2} for ${url2}`);
   assert.end();
 });
-
 
 var VmUrl = 'https://vimeo.com/170598656';
 test('Testing isVimeo method:', (assert) => {
@@ -91,7 +90,7 @@ var eachURL = (url) => {
 };
 
 [
-  YtUrl, ScUrl, chance.paragraph({sentences: 10})
+  YtUrl, VmUrl, ScUrl, chance.paragraph({sentences: 10})
 ].map(eachURL);
 
 var eachYouTubeMovies = (url) => {

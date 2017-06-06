@@ -11,6 +11,10 @@ var debug = require('debug');
 var error = debug('artparser:error');
 var info = debug('artparser:info');
 
+var {
+  stripTags
+} = require('bellajs');
+
 var config = require('../config');
 
 var extractByClass = (input) => {
@@ -18,14 +22,10 @@ var extractByClass = (input) => {
   info('Extracting by class name...');
 
   let {
-    content,
     html
   } = input;
 
-  if (content) {
-    info('Content is already. Cancel extracting by class.');
-    return Promise.resolve(input);
-  }
+  let content = '';
 
   let $ = cheerio.load(html);
 
@@ -47,7 +47,8 @@ var extractByClass = (input) => {
       if (c) {
         content = c.html();
         if (content) {
-          input.content = content;
+          input.contentByClassName = content;
+          info(`Content extracted with class name: ${content.length}`);
           break;
         }
       }
@@ -55,7 +56,6 @@ var extractByClass = (input) => {
   }
 
   info('Finish extracting by class name.');
-  info(`Content length: ${content.length}`);
 
   return Promise.resolve(input);
 };
@@ -66,20 +66,17 @@ var extractWithReadability = (input) => {
     info('Extracting using es6-readability...');
 
     let {
-      content,
       html
     } = input;
 
     read(html).then((a) => {
       info('Finish extracting using es6-readability.');
       if (a && a.content) {
-        info('Content extracted with es6-readability.');
-        content = a.content;
+        let content = a.content;
+        info(`Content extracted with es6-readability: ${content.length}`);
+        input.contentByReadability = content;
       }
-      return resolve({
-        content,
-        html
-      });
+      return resolve(input);
     }).catch((err) => {
       error('Failed while extracting using es6-readability.');
       error(err);
@@ -88,36 +85,50 @@ var extractWithReadability = (input) => {
   });
 };
 
-var normalize = (input) => {
-
-  info('Normalizing article content...');
-
-  let {
-    content
-  } = input;
-
-  if (content) {
-    let s = sanitize(content, config.htmlRules);
+var cleanify = (html = '') => {
+  if (html) {
+    let s = sanitize(html, config.htmlRules);
     let $ = cheerio.load(s, {
       normalizeWhitespace: true,
       decodeEntities: true
     });
 
     $('a').attr('target', '_blank');
-    input.content = $.html();
+    html = $.html().replace('<html><head></head><body>', '')
+                    .replace('</body></html>', '');
   }
+  return html;
+};
 
-  return Promise.resolve(input.content);
+var normalize = (input) => {
+
+  info('Normalizing article content...');
+
+  let {
+    content = '',
+    contentByClassName = '',
+    contentByReadability = ''
+  } = input;
+
+  let c1 = cleanify(contentByClassName);
+  let c2 = cleanify(contentByReadability);
+
+  let s1 = stripTags(c1);
+  let s2 = stripTags(c2);
+
+  content = s1.length < s2.length ? c1 : c2;
+
+  return Promise.resolve(content);
 };
 
 var getArticle = (html) => {
   return new Promise((resolve, reject) => {
     info('Start extracting article from HTML');
-    extractWithReadability({
+    extractByClass({
       html,
       content: ''
     })
-    .then(extractByClass)
+    .then(extractWithReadability)
     .then(normalize)
     .then((pureContent) => {
       info('Finish extracting article from HTML');
