@@ -3,7 +3,7 @@ Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
 [![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
-[![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/article-parser?branch=master)
+[![codecov](https://codecov.io/gh/ndaidong/article-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/ndaidong/article-parser)
 [![Dependency Status](https://gemnasium.com/badges/github.com/ndaidong/article-parser.svg)](https://gemnasium.com/github.com/ndaidong/article-parser)
 [![NSP Status](https://nodesecurity.io/orgs/techpush/projects/d965e951-5bc6-41d3-90da-81e2a3b7e40f/badge)](https://nodesecurity.io/orgs/techpush/projects/d965e951-5bc6-41d3-90da-81e2a3b7e40f)
 
