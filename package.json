@@ -1,5 +1,5 @@
 {
-  "version": "1.6.15",
+  "version": "1.6.2",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -21,16 +21,18 @@
     "pretest": "npm run lint && npm run nsp",
     "test": "NODE_END=test && npm run tape",
     "posttest": "npm run report",
-    "coveralls": "npm test && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm test && cat ./coverage/lcov.info | coveralls",
+    "reset": "node reset"
   },
   "dependencies": {
-    "bellajs": "6.x.x",
+    "bellajs": "7.x.x",
     "bluebird": "3.x.x",
-    "cheerio": "0.x.x",
+    "cheerio": "1.0.0-rc.1",
     "debug": "2.x.x",
     "es6-readability": "0.x.x",
     "node-fetch": "1.x.x",
-    "sanitize-html": "1.x.x"
+    "sanitize-html": "1.x.x",
+    "stabilize.js": "2.x.x"
   },
   "devDependencies": {
     "chance": "1.x.x",
@@ -39,7 +41,7 @@
     "eslint-config-ggc": "1.x.x",
     "nock": "9.x.x",
     "nsp": "2.x.x",
-    "nyc": "10.x.x",
+    "nyc": "11.x.x",
     "sinon": "2.x.x",
     "tap-spec": "4.x.x",
     "tape": "4.x.x"

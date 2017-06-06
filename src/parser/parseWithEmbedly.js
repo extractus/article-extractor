@@ -3,7 +3,6 @@
  * @ndaidong
 */
 
-var Promise = require('bluebird');
 var fetch = require('node-fetch');
 
 var debug = require('debug');

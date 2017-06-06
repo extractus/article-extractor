@@ -5,7 +5,6 @@
 
 var bella = require('bellajs');
 var fetch = require('node-fetch');
-var Promise = require('bluebird');
 
 var urlResolver = require('../uri');
 var config = require('../config');

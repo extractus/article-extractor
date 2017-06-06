@@ -146,3 +146,15 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
   });
 
 })();
+
+
+(() => {
+  let url = 'https://blog.google/products/maps/lets-clear-air-mapping-our-environment-our-health/';
+  test(`Testing with .extract(${url})`, (t) => {
+    extract(url).then((art) => {
+      t.ok(bella.isObject(art), 'Extracted successfully');
+    }).catch((e) => {
+      console.log(e);
+    }).finally(t.end);
+  });
+})();
