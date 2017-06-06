@@ -1,5 +1,5 @@
 {
-  "version": "1.6.2",
+  "version": "1.6.21",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -17,11 +17,10 @@
     "nsp": "nsp check --output checkstyle",
     "tape": "nyc tape test/start.js | tap-spec",
     "tape:debug": "DEBUG=*:* nyc tape test/start.js | tap-spec",
-    "report": "nyc report --reporter=lcov",
+    "report": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "pretest": "npm run lint && npm run nsp",
-    "test": "NODE_END=test && npm run tape",
-    "posttest": "npm run report",
-    "coveralls": "npm test && cat ./coverage/lcov.info | coveralls",
+    "test": "npm run tape",
+    "posttest": "CODECOV_TOKEN=333f996e-e6e9-4104-81c7-dab48dcd5561 npm run report",
     "reset": "node reset"
   },
   "dependencies": {
@@ -36,7 +35,7 @@
   },
   "devDependencies": {
     "chance": "1.x.x",
-    "coveralls": "2.x.x",
+    "codecov": "2.x.x",
     "eslint": "3.x.x",
     "eslint-config-ggc": "1.x.x",
     "nock": "9.x.x",
