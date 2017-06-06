@@ -18,5 +18,3 @@ install:
   - export CXX=g++-4.8
   - $CXX --version
   - npm i
-after_success:
-  - npm run coveralls
