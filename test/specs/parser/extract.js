@@ -158,3 +158,14 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
     }).finally(t.end);
   });
 })();
+
+(() => {
+  let url = 'https://en.wikipedia.org/wiki/Ramen';
+  test(`Testing with .extract(${url})`, (t) => {
+    extract(url).then((art) => {
+      t.ok(bella.isObject(art), 'Extracted successfully');
+    }).catch((e) => {
+      console.log(e); // eslint-disable-line no-console
+    }).finally(t.end);
+  });
+})();

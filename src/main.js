@@ -24,6 +24,7 @@ var {
   purify,
   removeUTM,
   getDomain,
+  isWikipedia,
   isValidURL,
   isExceptDomain,
   absolutifyContentSrc
@@ -111,6 +112,10 @@ var extractMetaData = (input) => {
     input.url = _url;
   }
 
+  if (isWikipedia(input)) {
+    source = 'Wikipedia';
+  }
+
   input.title = title;
   input.description = description;
   input.image = image;
@@ -132,8 +137,7 @@ var extractArticle = (input) => {
     } = input;
 
     info(`Start extracting main article for ${url}`);
-
-    getArticle(html).then((content) => {
+    getArticle(html, url).then((content) => {
       info(`Finish extracting main article for ${url}`);
       if (content) {
         info(`Determined main article for ${url}`);
