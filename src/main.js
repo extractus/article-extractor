@@ -12,7 +12,7 @@ var debug = require('debug');
 var error = debug('artparser:error');
 var info = debug('artparser:info');
 
-global.Promise = require('bluebird');
+global.Promise = require('promise-wtf');
 
 var config = require('./config');
 var {configure, FETCH_OPTIONS} = config;

@@ -154,7 +154,7 @@ const HTML = fs.readFileSync('./test/fetchedData.txt', 'utf8');
     extract(url).then((art) => {
       t.ok(bella.isObject(art), 'Extracted successfully');
     }).catch((e) => {
-      console.log(e);
+      console.log(e); // eslint-disable-line no-console
     }).finally(t.end);
   });
 })();
