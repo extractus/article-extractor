@@ -95,7 +95,7 @@ var cleanify = (html = '') => {
 
     $('a').attr('target', '_blank');
     html = $.html().replace('<html><head></head><body>', '')
-                    .replace('</body></html>', '');
+      .replace('</body></html>', '');
   }
   return html;
 };
@@ -127,18 +127,16 @@ var getArticle = (html) => {
     extractByClass({
       html,
       content: ''
-    })
-    .then(extractWithReadability)
-    .then(normalize)
-    .then((pureContent) => {
-      info('Finish extracting article from HTML');
-      return resolve(pureContent);
-    })
-    .catch((err) => {
-      error('Something wrong when extracting article from HTML');
-      error(err);
-      return reject(err);
-    });
+    }).then(extractWithReadability)
+      .then(normalize)
+      .then((pureContent) => {
+        info('Finish extracting article from HTML');
+        return resolve(pureContent);
+      }).catch((err) => {
+        error('Something wrong when extracting article from HTML');
+        error(err);
+        return reject(err);
+      });
   });
 };
 
