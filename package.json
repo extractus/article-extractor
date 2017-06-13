@@ -1,5 +1,5 @@
 {
-  "version": "1.6.22",
+  "version": "1.6.4",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -15,6 +15,7 @@
   "scripts": {
     "lint": "eslint ./src ./test",
     "nsp": "nsp check --output checkstyle",
+    "start": "DEBUG=*:* node index",
     "tape": "nyc tape test/start.js | tap-spec",
     "tape:debug": "DEBUG=*:* nyc tape test/start.js | tap-spec",
     "report": "nyc report --reporter=lcov > coverage.lcov && codecov",

@@ -28,27 +28,38 @@ config.exceptDomain = [
   'theverge.com'
 ];
 
-config.htmlRules = {
-  allowedTags: [
-    'html', 'body', 'meta', 'link', 'title',
-    'head', 'nav',
-    'h1', 'h2', 'h3', 'h4', 'h5',
-    'u', 'b', 'i', 'em', 'strong',
-    'div', 'span', 'p', 'article', 'blockquote',
-    'ul', 'ol', 'li',
-    'dd', 'dl',
-    'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
-    'img', 'picture',
-    'br',
-    'a'
-  ],
-  allowedAttributes: {
-    a: ['href'],
-    img: ['src', 'alt'],
-    meta: ['content', 'name', 'property', 'charset', 'viewport'],
-    link: ['href', 'type']
+config.article = {
+  htmlRules: {
+    allowedTags: [
+      'h1', 'h2', 'h3', 'h4', 'h5',
+      'u', 'b', 'i', 'em', 'strong',
+      'div', 'span', 'p', 'article', 'blockquote',
+      'ul', 'ol', 'li',
+      'dd', 'dl',
+      'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
+      'img', 'picture',
+      'br',
+      'a'
+    ],
+    allowedAttributes: {
+      a: ['href'],
+      img: ['src', 'alt'],
+      link: ['href', 'type']
+    }
   }
 };
+
+config.htmlRules = bella.clone(config.article.htmlRules);
+config.htmlRules.allowedTags = [].concat(
+  config.htmlRules.allowedTags,
+  [
+    'html', 'body', 'meta', 'link', 'title',
+    'head', 'nav'
+  ]
+);
+config.htmlRules.allowedAttributes.meta = [
+  'content', 'name', 'property', 'charset', 'viewport'
+];
 
 config.SoundCloudKey = 'd5ed9cc54022577fb5bba50f057d261c';
 config.YouTubeKey = 'AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc';

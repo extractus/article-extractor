@@ -16,8 +16,16 @@ var {
 } = require('bellajs');
 
 var config = require('../config');
+var contentOnlyRule = config.article.htmlRules;
+
+var isWiki = require('../uri/isWikipedia');
 
 var extractByClass = (input) => {
+
+  if (isWiki(input)) {
+    info('Found Wikipedia. Stop extracting with class...');
+    return Promise.resolve(input);
+  }
 
   info('Extracting by class name...');
 
@@ -65,6 +73,11 @@ var extractWithReadability = (input) => {
   return new Promise((resolve) => {
     info('Extracting using es6-readability...');
 
+    if (isWiki(input)) {
+      info('Found Wikipedia. Stop extracting with Readability...');
+      return resolve(input);
+    }
+
     let {
       html
     } = input;
@@ -85,17 +98,39 @@ var extractWithReadability = (input) => {
   });
 };
 
+var extractWiki = (input) => {
+  if (isWiki(input)) {
+    info('Extracting Wikipedia...');
+
+    let {
+      html
+    } = input;
+
+    let $ = cheerio.load(html);
+
+    if ($) {
+      let c = $('#mw-content-text');
+      if (c) {
+        let content = c.html();
+        if (content) {
+          input.wikiContent = content;
+          info(`Content extracted as Wikipedia: ${content.length}`);
+        }
+      }
+    }
+
+  }
+  return Promise.resolve(input);
+};
+
+
 var cleanify = (html = '') => {
   if (html) {
-    let s = sanitize(html, config.htmlRules);
-    let $ = cheerio.load(s, {
-      normalizeWhitespace: true,
-      decodeEntities: true
-    });
+    let s = sanitize(html, contentOnlyRule);
+    let $ = cheerio.load(s);
 
     $('a').attr('target', '_blank');
-    html = $.html().replace('<html><head></head><body>', '')
-      .replace('</body></html>', '');
+    html = $.html();
   }
   return html;
 };
@@ -107,27 +142,34 @@ var normalize = (input) => {
   let {
     content = '',
     contentByClassName = '',
-    contentByReadability = ''
+    contentByReadability = '',
+    wikiContent = ''
   } = input;
 
-  let c1 = cleanify(contentByClassName);
-  let c2 = cleanify(contentByReadability);
+  if (wikiContent) {
+    content = cleanify(wikiContent);
+  } else {
+    let c1 = cleanify(contentByClassName);
+    let c2 = cleanify(contentByReadability);
 
-  let s1 = stripTags(c1);
-  let s2 = stripTags(c2);
+    let s1 = stripTags(c1);
+    let s2 = stripTags(c2);
 
-  content = s1.length < s2.length ? c1 : c2;
+    content = s1.length < s2.length ? c1 : c2;
+  }
 
   return Promise.resolve(content);
 };
 
-var getArticle = (html) => {
+var getArticle = (html, url = '') => {
   return new Promise((resolve, reject) => {
     info('Start extracting article from HTML');
     extractByClass({
       html,
-      content: ''
+      content: '',
+      url
     }).then(extractWithReadability)
+      .then(extractWiki)
       .then(normalize)
       .then((pureContent) => {
         info('Finish extracting article from HTML');
