@@ -1,15 +1,6 @@
-/**
- * uri -> remove UTM codes from url
- * @ndaidong
- **/
-
-var isValidURL = require('./isValidURL');
+// utils -> removeUTM
 
 var removeUTM = (url) => {
-  if (!isValidURL(url)) {
-    return false;
-  }
-
   if (url.includes('#')) {
     let a1 = url.split('#');
     url = a1[0];

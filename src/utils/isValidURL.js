@@ -1,15 +1,11 @@
-/**
- * uri -> check if a url is valid
- * @ndaidong
- **/
+// utils -> isValidURL
 
-var isInBlackList = require('./isInBlackList');
+var {
+  isString
+} = require('bellajs');
 
-var isValidURL = (str) => {
-  if (!str) {
-    return false;
-  }
-  if (isInBlackList(str)) {
+var isValidURL = (str = '') => {
+  if (!isString(str)) {
     return false;
   }
 

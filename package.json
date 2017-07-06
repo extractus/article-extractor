@@ -13,7 +13,7 @@
     "node": ">= 6.0"
   },
   "scripts": {
-    "lint": "eslint ./src ./test",
+    "lint": "eslint .",
     "nsp": "nsp check --output checkstyle",
     "start": "DEBUG=*:* node index",
     "tape": "nyc tape test/start.js | tap-spec",
@@ -29,7 +29,9 @@
     "cheerio": "1.0.0-rc.1",
     "debug": "2.x.x",
     "es6-readability": "0.x.x",
+    "lru-cache": "4.x.x",
     "node-fetch": "1.x.x",
+    "oembed-parser": "1.x.x",
     "promise-wtf": "1.x.x",
     "sanitize-html": "1.x.x",
     "stabilize.js": "2.x.x"

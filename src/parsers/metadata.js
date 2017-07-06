@@ -1,13 +1,8 @@
-/*
- * parser -> extract metadata from given link or html
- * @ndaidong
-*/
+// utiles/parseMeta
 
 var cheerio = require('cheerio');
 
-var {
-  isValidURL
-} = require('../uri');
+var isValidURL = require('./isValidURL');
 
 var strtolower = (s) => {
   return s ? s.toLowerCase() : '';

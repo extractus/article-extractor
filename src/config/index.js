@@ -1,32 +1,21 @@
 
-var bella = require('bellajs');
+var {
+  clone,
+  isString,
+  isNumber,
+  isObject,
+  isArray
+} = require('bellajs');
 
 var config = {};
 
-config.FETCH_OPTIONS = {
-  timeout: 20 * 6e4
+config.fetchOptions = {
+  headers: {},
+  timeout: 0,
+  agent: null
 };
 
 config.wordsPerMinute = 300;
-
-config.blackList = [
-  /twitter\.com\/(\S+)\/status\/(\w+)$/,
-  /athlonsports\.com/
-];
-
-config.adsDomain = [
-  'lifehacker.com',
-  'deadspin.com',
-  'gizmodo.com',
-  'stocktwits.com',
-  /dailyjs.com/
-];
-
-config.exceptDomain = [
-  'nytimes.com',
-  'sfgate.com',
-  'theverge.com'
-];
 
 config.article = {
   htmlRules: {
@@ -49,7 +38,7 @@ config.article = {
   }
 };
 
-config.htmlRules = bella.clone(config.article.htmlRules);
+config.htmlRules = clone(config.article.htmlRules);
 config.htmlRules.allowedTags = [].concat(
   config.htmlRules.allowedTags,
   [
@@ -57,49 +46,44 @@ config.htmlRules.allowedTags = [].concat(
     'head', 'nav'
   ]
 );
-config.htmlRules.allowedAttributes.meta = [
-  'content', 'name', 'property', 'charset', 'viewport'
-];
 
 config.SoundCloudKey = 'd5ed9cc54022577fb5bba50f057d261c';
 config.YouTubeKey = 'AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc';
 config.EmbedlyKey = '50a2e9136d504850a9d080b759fd3019';
 
 var configure = (o) => {
-  if (o.timeout) {
-    let fo = o.timeout;
-    if (bella.isNumber(fo) && fo > 0) {
-      config.FETCH_OPTIONS.timeout = fo;
+  if (o.fetchOptions) {
+    let {
+      headers = false,
+      timeout = false,
+      agent = false
+    } = o.fetchOptions;
+
+    if (isNumber(timeout) && timeout >= 0) {
+      config.fetchOptions.timeout = timeout;
+    }
+    if (isObject(headers)) {
+      config.fetchOptions.headers = headers;
+    }
+    if (isString(agent)) {
+      config.fetchOptions.agent = agent;
     }
   }
 
   if (o.wordsPerMinute) {
     let wpm = Number(o.wordsPerMinute);
-    if (bella.isNumber(wpm) && wpm > 100 && wpm < 1000) {
+    if (isNumber(wpm) && wpm > 100 && wpm < 1000) {
       config.wordsPerMinute = wpm;
     }
   }
 
-  if (o.blackList) {
-    let bl = o.blackList;
-    if (bella.isArray(bl)) {
-      config.blackList = bl;
-    }
-  }
-
-  if (o.adsDomain) {
-    let ad = o.adsDomain;
-    if (bella.isArray(ad)) {
-      config.adsDomain = ad;
-    }
-  }
   if (o.htmlRules) {
     let hr = o.htmlRules;
-    if (bella.isObject(hr)) {
-      if (hr.allowedTags && bella.isArray(hr.allowedTags)) {
+    if (isObject(hr)) {
+      if (hr.allowedTags && isArray(hr.allowedTags)) {
         config.htmlRules.allowedTags = hr.allowedTags;
       }
-      if (hr.allowedAttributes && bella.isObject(hr.allowedAttributes)) {
+      if (hr.allowedAttributes && isObject(hr.allowedAttributes)) {
         config.htmlRules.allowedAttributes = hr.allowedAttributes;
       }
     }
@@ -114,6 +98,8 @@ var configure = (o) => {
   if (o.EmbedlyKey) {
     config.EmbedlyKey = o.EmbedlyKey;
   }
+
+  return config;
 };
 
 Object.defineProperty(config, 'configure', {
