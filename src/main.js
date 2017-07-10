@@ -44,6 +44,15 @@ var extract = (url = '') => {
   });
 };
 
+(() => {
+  let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+  extract(url).then((art) => {
+    console.log(art);
+  }).catch((err) => {
+    console.log(err);
+  });
+})();
+
 module.exports = {
   configure,
   extract
