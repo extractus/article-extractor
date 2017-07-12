@@ -15,8 +15,7 @@ var standalize = (input) => {
   } = input;
 
   if (html) {
-    let s = sanitize(html, contentOnlyRule);
-    let $ = cheerio.load(s, {
+    let $ = cheerio.load(html, {
       normalizeWhitespace: true,
       decodeEntities: true
     });
@@ -35,7 +34,9 @@ var standalize = (input) => {
         $(elem).attr('src', absolutifyURL(url, src));
       }
     });
-    input.content = $.html();
+
+    let content = sanitize($.html(), contentOnlyRule);
+    input.content = content;
   }
   return input;
 };

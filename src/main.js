@@ -10,6 +10,7 @@ var {
 } = require('bellajs');
 
 var {
+  fetchOptions,
   configure
 } = require('./config');
 
@@ -34,7 +35,7 @@ var extract = (url = '') => {
       return resolve(stored);
     }
 
-    return loadHTML(_url).then((html) => {
+    return loadHTML(_url, fetchOptions).then((html) => {
       return parse({url: _url, html});
     }).then((article) => {
       return resolve(article);
@@ -45,7 +46,8 @@ var extract = (url = '') => {
 };
 
 (() => {
-  let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+  // let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+  let url = 'https://www.youtube.com/watch?v=dIiwFzFvsmw';
   extract(url).then((art) => {
     console.log(art);
   }).catch((err) => {

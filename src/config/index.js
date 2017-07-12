@@ -26,6 +26,8 @@ config.article = {
       'ul', 'ol', 'li',
       'dd', 'dl',
       'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
+      'label',
+      'fieldset', 'legend',
       'img', 'picture',
       'br',
       'a'

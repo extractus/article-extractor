@@ -2,7 +2,7 @@
 
 var cheerio = require('cheerio');
 
-var isValidURL = require('./isValidURL');
+var isValidURL = require('../utils/isValidURL');
 
 var strtolower = (s) => {
   return s ? s.toLowerCase() : '';

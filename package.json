@@ -31,6 +31,7 @@
     "es6-readability": "0.x.x",
     "lru-cache": "4.x.x",
     "node-fetch": "1.x.x",
+    "oembed-parser": "1.x.x",
     "promise-wtf": "1.x.x",
     "sanitize-html": "1.x.x"
   },
