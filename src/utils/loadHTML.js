@@ -28,27 +28,22 @@ var loadHTML = (url, opts = {}) => {
           headers
         } = res;
         if (!ok || status !== 200) {
-          return reject(new Error(`Fetching failed for "${url}"`));
+          throw new Error(`Fetching failed for "${url}"`);
         }
         let contentType = headers.get('content-type') || '';
         if (!contentType || !contentType.startsWith('text/')) {
-          return reject(new Error(`Could not handle with contentType "${contentType}"`));
+          throw new Error(`Error with contentType "${contentType}"`);
         }
         info(`Loaded remote HTML content: ${url}`);
         return res.text();
       })
       .then((html) => {
         info(`Finish fetching HTML content for ${url}`);
-        if (!html) {
-          info('Returned HTML is empty. Exit process.');
-          return reject(new Error(`No HTML content retrieved for ${url}`));
-        }
         cache.set(url, html);
         return resolve(html);
       }).catch((err) => {
-        let msg = `Error while fetching remote HTML from "${url}"`;
         error(err);
-        return reject(new Error(msg));
+        return reject(err);
       });
   });
 };

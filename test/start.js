@@ -7,7 +7,12 @@ global.Promise = require('promise-wtf');
  * Import specs
  */
 
-var dirs = ['utils', 'config'];
+var dirs = [
+  //'utils', 
+  //'parser',
+  'extensions',
+  //'config'
+];
 dirs.forEach((dir) => {
   let where = './test/specs/' + dir;
   if (fs.existsSync(where)) {

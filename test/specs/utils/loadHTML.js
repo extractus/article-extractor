@@ -58,24 +58,7 @@ test('Testing loadHTML method fail with contentType:', (assert) => {
   loadHTML('http://myblog.com/tech/fail-to-load-article-2').then((html) => {
     return html;
   }).catch((err) => {
-    let msg = 'Could not handle with contentType ""';
-    assert.equals(err.message, msg, 'It must return an error');
-  }).finally(assert.end);
-});
-
-nock('http://myblog.com/')
-  .get('/tech/fail-to-load-article-3')
-  .reply(200, '', {
-    headers: {
-      'content-type': 'text/html'
-    }
-  });
-
-test('Testing loadHTML method fail with content:', (assert) => {
-  loadHTML('http://myblog.com/tech/fail-to-load-article-3').then((html) => {
-    return html;
-  }).catch((err) => {
-    let msg = 'Could not handle with contentType ""';
+    let msg = 'Error with contentType ""';
     assert.equals(err.message, msg, 'It must return an error');
   }).finally(assert.end);
 });

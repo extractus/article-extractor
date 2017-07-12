@@ -12,7 +12,7 @@ var config = {};
 config.fetchOptions = {
   headers: {},
   timeout: 0,
-  agent: null
+  agent: false
 };
 
 config.wordsPerMinute = 300;

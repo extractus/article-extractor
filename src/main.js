@@ -29,7 +29,7 @@ var parse = require('./parsers');
 var extract = (url = '') => {
   return new Promise((resolve, reject) => {
     if (!isValidURL(url)) {
-      return reject(new Error('Invalid URL'));
+      throw new Error('Invalid URL');
     }
     let _url = removeUTM(url);
     let id = md5(_url);
@@ -41,6 +41,7 @@ var extract = (url = '') => {
     return loadHTML(_url, fetchOptions).then((html) => {
       return parse({url: _url, html});
     }).then((article) => {
+      cache.set(id, article);
       return resolve(article);
     }).catch((err) => {
       return reject(err);
