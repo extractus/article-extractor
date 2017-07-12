@@ -1,5 +1,7 @@
 // parser
 
+var URL = require('url');
+
 var debug = require('debug');
 var error = debug('artparser:error');
 
@@ -7,7 +9,10 @@ var {
   stripTags,
   ucwords,
   truncate,
-  copies
+  copies,
+  createAlias,
+  createId,
+  time
 } = require('bellajs');
 
 var {
@@ -20,6 +25,11 @@ var extractWithReadability = require('./extractWithReadability');
 
 var unique = (arr) => {
   return Array.from(new Set(arr));
+};
+
+var getDomainFromURL = (url) => {
+  let parsed = URL.parse(url);
+  return parsed.host.replace('www.', '');
 };
 
 var parse = (input) => {
@@ -50,8 +60,20 @@ var parse = (input) => {
       author = ucwords(author);
     }
 
+    let domain = getDomainFromURL(_url);
+    if (!source) {
+      source = domain;
+    }
+
+    let alias = [
+      createAlias(title),
+      time(),
+      createId(10)
+    ].join('-');
+
     let structure = {
       title,
+      alias,
       url,
       canonicals,
       description,
@@ -59,6 +81,7 @@ var parse = (input) => {
       image,
       author,
       source,
+      domain,
       publishedTime,
       duration: 0
     };
@@ -67,7 +90,9 @@ var parse = (input) => {
     if (ext) {
       return ext.extract(url, html).then((art) => {
         let res = copies(art, structure, true);
-        res.canonicals = art.canonicals;
+        if (art.canonicals) {
+          res.canonicals = art.canonicals;
+        }
         return resolve(res);
       }).catch((err) => {
         return reject(err);

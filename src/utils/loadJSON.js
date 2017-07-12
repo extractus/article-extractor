@@ -37,8 +37,9 @@ var loadJSON = (url, opts = {}) => {
         cache.set(url, json);
         return resolve(json);
       }).catch((err) => {
-        error(`Error while fetching remote JSON from "${url}"`);
-        return reject(err);
+        let msg = `Error while fetching remote JSON from "${url}"`;
+        error(err);
+        return reject(new Error(msg));
       });
   });
 };

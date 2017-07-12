@@ -6,6 +6,7 @@ var sanitize = require('sanitize-html');
 var config = require('../config');
 var contentOnlyRule = config.article.htmlRules;
 
+var getTimeToRead = require('./getTimeToRead');
 var absolutifyURL = require('./absolutifyURL');
 
 var standalize = (input) => {
@@ -37,6 +38,7 @@ var standalize = (input) => {
 
     let content = sanitize($.html(), contentOnlyRule);
     input.content = content;
+    input.duration = getTimeToRead(content);
   }
   return input;
 };

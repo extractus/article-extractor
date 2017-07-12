@@ -111,4 +111,23 @@ Object.defineProperty(config, 'configure', {
   value: configure
 });
 
+var getConfig = () => {
+  return {
+    fetchOptions: clone(config.fetchOptions),
+    article: clone(config.article),
+    htmlRules: clone(config.htmlRules),
+    wordsPerMinute: config.wordsPerMinute,
+    SoundCloudKey: config.SoundCloudKey,
+    YouTubeKey: config.YouTubeKey,
+    EmbedlyKey: config.EmbedlyKey
+  };
+};
+
+Object.defineProperty(config, 'getConfig', {
+  configurable: false,
+  writable: false,
+  enumerable: false,
+  value: getConfig
+});
+
 module.exports = config;

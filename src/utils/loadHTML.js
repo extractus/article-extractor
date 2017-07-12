@@ -28,11 +28,11 @@ var loadHTML = (url, opts = {}) => {
           headers
         } = res;
         if (!ok || status !== 200) {
-          return reject(new Error(`Fetching failed for ${url}`));
+          return reject(new Error(`Fetching failed for "${url}"`));
         }
-        let contentType = headers.get('content-type');
-        if (!contentType.startsWith('text/')) {
-          return reject(new Error(`Could not handle ${contentType}`));
+        let contentType = headers.get('content-type') || '';
+        if (!contentType || !contentType.startsWith('text/')) {
+          return reject(new Error(`Could not handle with contentType "${contentType}"`));
         }
         info(`Loaded remote HTML content: ${url}`);
         return res.text();
@@ -46,8 +46,9 @@ var loadHTML = (url, opts = {}) => {
         cache.set(url, html);
         return resolve(html);
       }).catch((err) => {
-        error(`Error while fetching remote HTML from "${url}"`);
-        return reject(err);
+        let msg = `Error while fetching remote HTML from "${url}"`;
+        error(err);
+        return reject(new Error(msg));
       });
   });
 };

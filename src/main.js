@@ -5,13 +5,16 @@
 
 global.Promise = require('promise-wtf');
 
+var {extract: extractOEmbed} = require('oembed-parser');
+
 var {
   md5
 } = require('bellajs');
 
 var {
   fetchOptions,
-  configure
+  configure,
+  getConfig
 } = require('./config');
 
 var {
@@ -45,17 +48,9 @@ var extract = (url = '') => {
   });
 };
 
-(() => {
-  // let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
-  let url = 'https://www.youtube.com/watch?v=dIiwFzFvsmw';
-  extract(url).then((art) => {
-    console.log(art);
-  }).catch((err) => {
-    console.log(err);
-  });
-})();
-
 module.exports = {
   configure,
+  getConfig,
+  extractOEmbed,
   extract
 };

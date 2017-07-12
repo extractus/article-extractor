@@ -2,6 +2,7 @@ var isValidURL = require('./isValidURL');
 var removeUTM = require('./removeUTM');
 var absolutifyURL = require('./absolutifyURL');
 
+var getTimeToRead = require('./getTimeToRead');
 var getYtid = require('./getYtid');
 var toSecond = require('./toSecond');
 
@@ -16,6 +17,7 @@ module.exports = {
   isValidURL,
   removeUTM,
   absolutifyURL,
+  getTimeToRead,
   getYtid,
   toSecond,
   cache,
