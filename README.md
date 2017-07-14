@@ -16,11 +16,13 @@ npm install article-parser
 ### Usage
 
 ```
-import ArticleParser from 'article-parser';
+var {
+  extract
+} = require('article-parser');
 
 let url = 'https://goo.gl/MV8Tkh';
 
-ArticleParser.extract(url).then((article) => {
+extract(url).then((article) => {
   console.log(article);
 }).catch((err) => {
   console.log(err);
@@ -30,10 +32,9 @@ ArticleParser.extract(url).then((article) => {
 ### APIs
 
  - configure(Object conf)
- - getConfig()
  - extract(String url)
- - extractOEmbed(String url)
  - parseWithEmbedly(String url [, String EmbedlyKey])
+ - getConfig()
 
 
 #### configure(Object conf)
@@ -51,21 +52,19 @@ ArticleParser.extract(url).then((article) => {
 
 Default configurations may work for most case.
 
-#### getConfig()
-
-Returns current configurations.
-
 
 #### extract(String url)
 
 Extract article data from specified url.
 
 ```
-var ArticleParser = require('article-parser');
+var {
+  extract
+} = require('article-parser');
 
-let url = 'https://goo.gl/MV8Tkh';
+let url = 'https://www.youtube.com/watch?v=tRGJj59G1x4';
 
-ArticleParser.extract(url).then((article) => {
+extract(url).then((article) => {
   console.log(article);
 }).catch((err) => {
   console.log(err);
@@ -76,18 +75,22 @@ Now *article* would be something like this:
 
 ```
 {
-  alias: 'how-to-stay-calm-when-you-know-you-ll-be-stressed-daniel-levitin-ted-talks-1449068980884',
-  url: 'https://www.youtube.com/watch?v=8jPQjjsBbIc',
-  canonicals: [ 'https://www.youtube.com/watch?v=8jPQjjsBbIc' ],
-  title: 'How to Stay Calm When You Know You\'ll Be Stressed | Daniel Levitin | TED Talks',
-  description: 'You\'re not at your best when you\'re stressed. In fact, your brain has evolved over millennia to release cortisol in stressful situations, inhibiting...',
-  image: 'https://i.ytimg.com/vi/8jPQjjsBbIc/hqdefault.jpg',
-  content: '<iframe src="https://www.youtube.com/embed/8jPQjjsBbIc?feature=oembed" frameborder="0" allowfullscreen></iframe>',
-  author: 'TED',
+  title: 'Zato ESB - Test demo hosted on company server',
+  alias: 'zato-esb-test-demo-hosted-on-company-server-1500021746537-PAQXw8IYcU',
+  url: 'https://www.youtube.com/watch?v=tRGJj59G1x4',
+  canonicals:
+   [ 'https://www.youtube.com/watch?v=tRGJj59G1x4',
+     'https://youtu.be/tRGJj59G1x4',
+     'https://www.youtube.com/v/tRGJj59G1x4',
+     'https://www.youtube.com/embed/tRGJj59G1x4' ],
+  description: 'Our sample: https://github.com/greenglobal/zato-demo Zato homepage: https://zato.io Tutorial: "Zato — a powerful Python-based ESB solution for your SOA" http...',
+  content: '<iframe src="https://www.youtube.com/embed/tRGJj59G1x4?feature=oembed" frameborder="0" allowfullscreen></iframe>',
+  image: 'https://i.ytimg.com/vi/tRGJj59G1x4/hqdefault.jpg',
+  author: 'Dong Nguyen',
   source: 'YouTube',
   domain: 'youtube.com',
-  duration: 741,
-  publishedTime: '2013-11-12T19:57:40+00:00'
+  publishedTime: '',
+  duration: 292
 }
 
 ```
@@ -99,16 +102,23 @@ Extract article data from specified url using [Embedly Extract API](http://embed
 The second parameter is optional. If you've added your Embedly key via configure() method, you can ignore it here.
 
 ```
-var ArticleParser = require('article-parser');
+var {
+  parseWithEmbedly
+} = require('article-parser');
 
 let url = 'https://goo.gl/MV8Tkh';
 
-ArticleParser.parseWithEmbedly(url).then((article) => {
+parseWithEmbedly(url).then((article) => {
   console.log(article);
 }).catch((err) => {
   console.log(err);
 });
 ```
+
+
+#### getConfig()
+
+Returns current configurations.
 
 
 ## Test
