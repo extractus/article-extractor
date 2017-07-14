@@ -5,8 +5,6 @@
 
 global.Promise = require('promise-wtf');
 
-var {extract: extractOEmbed} = require('oembed-parser');
-
 var {
   md5
 } = require('bellajs');
@@ -23,6 +21,8 @@ var {
   cache,
   loadHTML
 } = require('./utils');
+
+var extractWithEmbedly = require('./parsers/extractWithEmbedly');
 
 var parse = require('./parsers');
 
@@ -52,6 +52,6 @@ var extract = (url = '') => {
 module.exports = {
   configure,
   getConfig,
-  extractOEmbed,
-  extract
+  extract,
+  extractWithEmbedly
 };

@@ -8,10 +8,10 @@ global.Promise = require('promise-wtf');
  */
 
 var dirs = [
-  //'utils', 
-  //'parser',
+  'utils',
+  'parser',
   'extensions',
-  //'config'
+  'config'
 ];
 dirs.forEach((dir) => {
   let where = './test/specs/' + dir;

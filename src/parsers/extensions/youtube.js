@@ -15,9 +15,7 @@ const URL = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&ke
 var getDuration = (vid) => {
   return new Promise((resolve, reject) => {
     let url = `${URL}&id=${vid}`;
-    console.log(url);
     return loadJSON(url).then((ob) => {
-      console.log(ob);
       if (ob && ob.items) {
         let items = ob.items;
         if (items.length > 0) {
@@ -30,7 +28,6 @@ var getDuration = (vid) => {
       }
       return reject(new Error('Invalid format'));
     }).catch((e) => {
-      console.log(e);
       return reject(e);
     });
   });
@@ -50,7 +47,7 @@ var parser = {
           vid,
           title: data.title,
           canonicals: [
-            `https://www.youtube.com/watch?${vid}`,
+            `https://www.youtube.com/watch?v=${vid}`,
             `https://youtu.be/${vid}`,
             `https://www.youtube.com/v/${vid}`,
             `https://www.youtube.com/embed/${vid}`

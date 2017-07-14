@@ -1,5 +1,5 @@
 {
-  "version": "1.6.4",
+  "version": "2.0.0-rc0",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
