@@ -42,11 +42,11 @@ extract(url).then((article) => {
 ```
 {
   fetchOptions: Object,
-  wordsPerMinute: Number, // default 300, use to estimate time to read
-  htmlRules: Object, // options to to clean HTML with [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options)
-  SoundCloudKey: String, // use to get audio duration. Get it here https://developers.soundcloud.com/
-  YouTubeKey: String, // use to get video duration. Get it here https://console.developers.google.com/,
-  EmbedlyKey: String, // use to extract with Embedly API. Refer http://docs.embed.ly/docs/extract
+  wordsPerMinute: Number,
+  htmlRules: Object,
+  SoundCloudKey: String,
+  YouTubeKey: String,
+  EmbedlyKey: String
 }
 ```
 
