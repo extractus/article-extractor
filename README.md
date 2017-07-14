@@ -7,13 +7,13 @@ Extract main article, main image and meta data from URL.
 [![Dependency Status](https://gemnasium.com/badges/github.com/ndaidong/article-parser.svg)](https://gemnasium.com/github.com/ndaidong/article-parser)
 [![NSP Status](https://nodesecurity.io/orgs/techpush/projects/d965e951-5bc6-41d3-90da-81e2a3b7e40f/badge)](https://nodesecurity.io/orgs/techpush/projects/d965e951-5bc6-41d3-90da-81e2a3b7e40f)
 
-### Installation
+### Usage
 
 ```
 npm install article-parser
 ```
 
-### Usage
+Then:
 
 ```
 var {
@@ -31,10 +31,10 @@ extract(url).then((article) => {
 
 ### APIs
 
- - configure(Object conf)
- - extract(String url)
- - parseWithEmbedly(String url [, String EmbedlyKey])
- - getConfig()
+ - [configure(Object conf)](#configureobject-conf)
+ - [extract(String url)](#extractstring-url)
+ - [parseWithEmbedly(String url [, String EmbedlyKey])](#parsewithembedlystring-url--string-embedlykey)
+ - [getConfig()](#getconfig)
 
 
 #### configure(Object conf)

@@ -40,14 +40,22 @@ var parser = {
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
+
+      let vid = getYtid(url);
+
+      if (!vid) {
+        throw new Error('No video ID found');
+      }
+
+      url = `https://www.youtube.com/watch?v=${vid}`;
+
       return extract(url).then((data) => {
 
-        let vid = getYtid(url);
         return {
           vid,
           title: data.title,
           canonicals: [
-            `https://www.youtube.com/watch?v=${vid}`,
+            url,
             `https://youtu.be/${vid}`,
             `https://www.youtube.com/v/${vid}`,
             `https://www.youtube.com/embed/${vid}`
