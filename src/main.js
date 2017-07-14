@@ -49,6 +49,14 @@ var extract = (url = '') => {
   });
 };
 
+let url = 'https://youtu.be/tRGJj59G1x4';
+
+extract(url).then((article) => {
+  console.log(article);
+}).catch((err) => {
+  console.log(err);
+});
+
 module.exports = {
   configure,
   getConfig,
