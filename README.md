@@ -41,7 +41,7 @@ extract(url).then((article) => {
 
 ```
 {
-  fetchOptions: Object, // simple version of [node-fetch options](https://www.npmjs.com/package/node-fetch#options). Only `headers`, `timeout` and `agent` are available.
+  fetchOptions: Object,
   wordsPerMinute: Number, // default 300, use to estimate time to read
   htmlRules: Object, // options to to clean HTML with [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options)
   SoundCloudKey: String, // use to get audio duration. Get it here https://developers.soundcloud.com/
@@ -49,6 +49,13 @@ extract(url).then((article) => {
   EmbedlyKey: String, // use to extract with Embedly API. Refer http://docs.embed.ly/docs/extract
 }
 ```
+
+- fetchOptions: Object, simple version of [node-fetch options](https://www.npmjs.com/package/node-fetch#options). Only `headers`, `timeout` and `agent` are available here.
+- wordsPerMinute: Number, default 300, use to estimate time to read
+- htmlRules: Object, options to to clean HTML with [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options)
+- SoundCloudKey: String, use to get audio duration. Get it [here](https://developers.soundcloud.com/).
+- YouTubeKey: String, use to get video duration. Get it [here](https://console.developers.google.com/).
+- EmbedlyKey: String, use to extract with Embedly API. Refer [here](http://docs.embed.ly/docs/extract).
 
 Default configurations may work for most case.
 
@@ -118,7 +125,7 @@ parseWithEmbedly(url).then((article) => {
 
 #### getConfig()
 
-Returns current configurations.
+Return the current configurations.
 
 
 ## Test
