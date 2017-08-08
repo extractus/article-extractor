@@ -33,7 +33,7 @@ extract(url).then((article) => {
 
  - [configure(Object conf)](#configureobject-conf)
  - [extract(String url)](#extractstring-url)
- - [parseWithEmbedly(String url [, String EmbedlyKey])](#parsewithembedlystring-url--string-embedlykey)
+ - [extractWithEmbedly(String url [, String EmbedlyKey])](#extractwithembedlystring-url--string-embedlykey)
  - [getConfig()](#getconfig)
 
 
@@ -102,7 +102,7 @@ Now *article* would be something like this:
 
 ```
 
-#### parseWithEmbedly(String url [, String EmbedlyKey])
+#### extractWithEmbedly(String url [, String EmbedlyKey])
 
 Extract article data from specified url using [Embedly Extract API](http://embed.ly/extract):
 
@@ -110,12 +110,12 @@ The second parameter is optional. If you've added your Embedly key via configure
 
 ```
 var {
-  parseWithEmbedly
+  extractWithEmbedly
 } = require('article-parser');
 
 let url = 'https://goo.gl/MV8Tkh';
 
-parseWithEmbedly(url).then((article) => {
+extractWithEmbedly(url).then((article) => {
   console.log(article);
 }).catch((err) => {
   console.log(err);
