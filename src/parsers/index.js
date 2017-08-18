@@ -34,13 +34,15 @@ var getDomainFromURL = (url) => {
   return parsed.host.replace('www.', '');
 };
 
-var parse = (input) => {
-  return new Promise((resolve, reject) => {
-    let {
-      _url,
-      url,
-      html
-    } = input;
+var parse = async (input) => {
+
+  let {
+    _url,
+    url,
+    html
+  } = input;
+
+  try {
 
     let {
       url: metaUrl,
@@ -95,33 +97,25 @@ var parse = (input) => {
 
     let ext = findExtension(url);
     if (ext) {
-      return ext.extract(url, html).then((art) => {
-        let res = copies(art, structure, true);
-        if (art.canonicals) {
-          res.canonicals = art.canonicals;
-        }
-        return resolve(res);
-      }).catch((err) => {
-        return reject(err);
-      });
+      let art = await ext.extract(url, html);
+      let res = copies(art, structure, true);
+      if (art.canonicals) {
+        res.canonicals = art.canonicals;
+      }
+      return res;
     }
 
-    return extractWithReadability(html)
-      .then((content) => {
-        structure.content = content;
-        let s = stripTags(description || content);
-        structure.description = truncate(s, 156);
-        return structure;
-      })
-      .then(standalizeArticle)
-      .then((art) => {
-        return resolve(art);
-      })
-      .catch((err) => {
-        error(`Could not extract article from "${url}"`);
-        return reject(err);
-      });
-  });
+    let content = await extractWithReadability(html);
+    structure.content = content;
+    let s = stripTags(description || content);
+    structure.description = truncate(s, 156);
+
+    let art = standalizeArticle(structure);
+    return art;
+  } catch (err) {
+    error(`Could not extract article from "${url}"`);
+    return err;
+  }
 };
 
 module.exports = parse;
