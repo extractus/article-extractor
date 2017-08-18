@@ -26,31 +26,33 @@ var extractWithEmbedly = require('./parsers/extractWithEmbedly');
 
 var parse = require('./parsers');
 
-var extract = (url = '') => {
-  return new Promise((resolve, reject) => {
-    if (!isValidURL(url)) {
-      throw new Error('Invalid URL');
-    }
-    let _url = removeUTM(url);
-    let id = md5(_url);
-    let stored = cache.get(id);
-    if (stored) {
-      return resolve(stored);
+var extract = async (inputURL = '') => {
+  try {
+
+    if (!isValidURL(inputURL)) {
+      throw new Error(`Invalid URL: ${inputURL}`);
     }
 
-    return loadHTML(_url, fetchOptions).then((data) => {
-      let {
-        url,
-        html
-      } = data;
-      return parse({_url, url, html});
-    }).then((article) => {
-      cache.set(id, article);
-      return resolve(article);
-    }).catch((err) => {
-      return reject(err);
-    });
-  });
+    let _url = removeUTM(inputURL);
+    let id = md5(_url);
+
+    let stored = cache.get(id);
+    if (stored) {
+      return stored;
+    }
+
+    let {
+      url,
+      html
+    } = await loadHTML(_url, fetchOptions);
+
+    let article = await parse({_url, url, html});
+    cache.set(id, article);
+
+    return article;
+  } catch (err) {
+    return err;
+  }
 };
 
 module.exports = {
