@@ -13,7 +13,7 @@ var parser = {
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
-      return loadJSON(`${URL}${encodeURIComponent(url)}`).then((data) => {
+      return loadJSON(`${URL}${encodeURIComponent(url)}`).then(({json: data}) => {
         let {
           video_id: vid,
           thumbnail_url: image,

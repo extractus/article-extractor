@@ -21,7 +21,7 @@ var loadHTML = (url, opts = {}) => {
     }
 
     fetch(url, opts)
-      .then((res) => {
+      .then(async (res) => {
         let {
           ok,
           status,
@@ -35,12 +35,15 @@ var loadHTML = (url, opts = {}) => {
           throw new Error(`Error with contentType "${contentType}"`);
         }
         info(`Loaded remote HTML content: ${url}`);
-        return res.text();
+        return {
+          url: res.url,
+          html: await res.text()
+        };
       })
-      .then((html) => {
+      .then((data) => {
         info(`Finish fetching HTML content for ${url}`);
-        cache.set(url, html);
-        return resolve(html);
+        cache.set(url, data);
+        return resolve(data);
       }).catch((err) => {
         error(err);
         return reject(err);

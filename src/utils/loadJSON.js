@@ -21,7 +21,7 @@ var loadJSON = (url, opts = {}) => {
     }
 
     fetch(url, opts)
-      .then((res) => {
+      .then(async (res) => {
         let {
           ok,
           status
@@ -30,12 +30,15 @@ var loadJSON = (url, opts = {}) => {
           return reject(new Error(`Fetching failed for ${url}`));
         }
         info(`Loaded remote JSON content: ${url}`);
-        return res.json();
+        return {
+          url: res.url,
+          json: await res.json()
+        };
       })
-      .then((json) => {
+      .then((data) => {
         info(`Finish fetching JSON content for ${url}`);
-        cache.set(url, json);
-        return resolve(json);
+        cache.set(url, data);
+        return resolve(data);
       }).catch((err) => {
         let msg = `Error while fetching remote JSON from "${url}"`;
         error(err);
