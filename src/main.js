@@ -38,8 +38,12 @@ var extract = (url = '') => {
       return resolve(stored);
     }
 
-    return loadHTML(_url, fetchOptions).then((html) => {
-      return parse({url: _url, html});
+    return loadHTML(_url, fetchOptions).then((data) => {
+      let {
+        url,
+        html
+      } = data;
+      return parse({_url, url, html});
     }).then((article) => {
       cache.set(id, article);
       return resolve(article);

@@ -15,9 +15,9 @@ const URL = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&ke
 var getDuration = (vid) => {
   return new Promise((resolve, reject) => {
     let url = `${URL}&id=${vid}`;
-    return loadJSON(url).then((ob) => {
-      if (ob && ob.items) {
-        let items = ob.items;
+    return loadJSON(url).then(({json: data}) => {
+      if (data && data.items) {
+        let items = data.items;
         if (items.length > 0) {
           let item = items[0].contentDetails || false;
           if (item && item.duration) {

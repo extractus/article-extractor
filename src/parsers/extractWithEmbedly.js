@@ -33,7 +33,9 @@ var extractWithEmbedly = (url, key = '') => {
 
     let target = `http://api.embed.ly/1/extract?key=${k}&url=${u}&format=json`;
 
-    return loadJSON(target).then((o) => {
+    return loadJSON(target).then((data) => {
+      let realUrl = data.url;
+      let o = data.json;
       info(`Standalizing data structure...`);
       let author = '';
       let authors = o.authors || [];
@@ -65,7 +67,8 @@ var extractWithEmbedly = (url, key = '') => {
       } = o;
 
       return resolve({
-        url,
+        _url: url,
+        url: realUrl,
         title,
         description,
         author,

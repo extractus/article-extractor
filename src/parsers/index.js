@@ -17,7 +17,9 @@ var {
 
 var {
   findExtension,
-  standalizeArticle
+  standalizeArticle,
+  chooseBestURL,
+  isValidURL
 } = require('../utils');
 
 var parseMeta = require('./parseMeta');
@@ -35,12 +37,13 @@ var getDomainFromURL = (url) => {
 var parse = (input) => {
   return new Promise((resolve, reject) => {
     let {
+      _url,
       url,
       html
     } = input;
 
     let {
-      url: _url,
+      url: metaUrl,
       title = '',
       canonical = '',
       description = '',
@@ -53,20 +56,24 @@ var parse = (input) => {
     let canonicals = unique([
       canonical,
       _url,
-      url
-    ]);
+      url,
+      metaUrl
+    ].filter(isValidURL));
 
     if (author && author.indexOf(' ') > 0) {
       author = ucwords(author);
     }
 
-    let domain = getDomainFromURL(_url);
+    let hashTitle = createAlias(title);
+    url = chooseBestURL(canonicals, hashTitle);
+
+    let domain = getDomainFromURL(url);
     if (!source) {
       source = domain;
     }
 
     let alias = [
-      createAlias(title),
+      hashTitle,
       time(),
       createId(10)
     ].join('-');

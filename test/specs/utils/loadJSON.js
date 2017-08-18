@@ -14,7 +14,7 @@ nock('http://freegeoip.net')
   .reply(200, JSON);
 
 test('Testing loadJSON method:', (assert) => {
-  loadJSON('http://freegeoip.net/json/github.com').then((json) => {
+  loadJSON('http://freegeoip.net/json/github.com').then(({json}) => {
     assert.ok(isObject(json), 'It must return a JSON object');
   }).catch((err) => {
     return err;
@@ -22,7 +22,7 @@ test('Testing loadJSON method:', (assert) => {
 });
 
 test('Testing loadJSON from cache:', (assert) => {
-  loadJSON('http://freegeoip.net/json/github.com').then((json) => {
+  loadJSON('http://freegeoip.net/json/github.com').then(({json}) => {
     assert.ok(isObject(json), 'It must return a JSON object');
   }).catch((err) => {
     return err;
@@ -34,7 +34,7 @@ nock('http://freegeoip.net')
   .reply(400, JSON);
 
 test('Testing loadJSON method fail with status:', (assert) => {
-  loadJSON('http://freegeoip.net/json/abc.com').then((json) => {
+  loadJSON('http://freegeoip.net/json/abc.com').then(({json}) => {
     return json;
   }).catch((err) => {
     let msg = 'Fetching failed for http://freegeoip.net/json/abc.com';
@@ -47,7 +47,7 @@ nock('http://freegeoip.net')
   .reply(200, '');
 
 test('Testing loadJSON method fail with JSON format:', (assert) => {
-  loadJSON('http://freegeoip.net/json/xyz.com').then((json) => {
+  loadJSON('http://freegeoip.net/json/xyz.com').then(({json}) => {
     return json;
   }).catch((err) => {
     let msg = 'Error while fetching remote JSON from "http://freegeoip.net/json/xyz.com"';
