@@ -6,9 +6,7 @@ var debug = require('debug');
 var error = debug('artparser:error');
 
 var {
-  stripTags,
   ucwords,
-  truncate,
   copies,
   createAlias,
   createId,
@@ -107,11 +105,8 @@ var parse = async (input) => {
 
     let content = await extractWithReadability(html);
     structure.content = content;
-    let s = stripTags(description || content);
-    structure.description = truncate(s, 156);
 
-    let art = standalizeArticle(structure);
-    return art;
+    return standalizeArticle(structure);
   } catch (err) {
     error(`Could not extract article from "${url}"`);
     return err;

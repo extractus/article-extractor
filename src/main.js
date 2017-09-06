@@ -5,6 +5,10 @@
 
 global.Promise = require('promise-wtf');
 
+var debug = require('debug');
+var info = debug('artparser:info');
+var error = debug('artparser:error');
+
 var {
   md5
 } = require('bellajs');
@@ -33,6 +37,8 @@ var extract = async (inputURL = '') => {
       throw new Error(`Invalid URL: ${inputURL}`);
     }
 
+    info(`Start extracting "${inputURL}"`);
+
     let _url = removeUTM(inputURL);
     let id = md5(_url);
 
@@ -48,9 +54,11 @@ var extract = async (inputURL = '') => {
 
     let article = await parse({_url, url, html});
     cache.set(id, article);
+    info(`Finish extracting "${inputURL}"`);
 
     return article;
   } catch (err) {
+    error(err);
     return err;
   }
 };

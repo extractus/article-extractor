@@ -3,6 +3,19 @@
 var cheerio = require('cheerio');
 var sanitize = require('sanitize-html');
 
+var salient = require('salient');
+var tokenizer = new salient.tokenizers.ArticleTokenizer({
+  compressWhitespace: true,
+  cleanHTML: false,
+  cleanNonAlphaNumeric: false,
+  preserveEmoticons: true
+});
+
+var {
+  stripTags,
+  truncate
+} = require('bellajs');
+
 var config = require('../config');
 var contentOnlyRule = config.article.htmlRules;
 
@@ -12,11 +25,15 @@ var absolutifyURL = require('./absolutifyURL');
 var standalize = (input) => {
   let {
     content: html,
+    description,
     url
   } = input;
 
   if (html) {
-    let $ = cheerio.load(html, {
+
+    let cleanHtml = tokenizer.clean(html);
+
+    let $ = cheerio.load(cleanHtml, {
       normalizeWhitespace: true,
       decodeEntities: true
     });
@@ -38,7 +55,12 @@ var standalize = (input) => {
 
     let content = sanitize($.html(), contentOnlyRule);
     input.content = content;
-    input.duration = getTimeToRead(content);
+
+    let text = stripTags(content);
+    let s = description || text;
+    input.description = truncate(s, 156);
+
+    input.duration = getTimeToRead(text);
   }
   return input;
 };
