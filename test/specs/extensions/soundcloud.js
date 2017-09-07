@@ -49,7 +49,7 @@ const JSON = fs.readFileSync('./test/data/soundcloud.json', 'utf8');
 
 (() => {
 
-  nock('http://api.soundcloud.com')
+  nock('https://api.soundcloud.com')
     .defaultReplyHeaders({
       'Content-Type': 'application/json'
     })
