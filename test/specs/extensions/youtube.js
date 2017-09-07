@@ -15,6 +15,8 @@ var {
   isNumber
 } = require('bellajs');
 
+var nock = require('nock');
+
 var {
   extract
 } = require('../../../');
@@ -40,13 +42,21 @@ var hasRequiredKeys = (o) => {
   });
 };
 
+const URL = 'https://www.youtube.com/watch?v=kvGYl8SQBJ0';
+const JSON = require('fs').readFileSync('./test/data/youtube.json', 'utf8');
+
 (() => {
 
-  let url = `https://www.youtube.com/watch?v=dIiwFzFvsmw`;
+  nock('https://www.googleapis.com')
+    .defaultReplyHeaders({
+      'Content-Type': 'application/json'
+    })
+    .get('/youtube/v3/videos?part=contentDetails&key=AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc&id=kvGYl8SQBJ0') // eslint-disable-line
+    .reply(200, JSON);
 
-  test(`Testing with .extract(${url})`, (t) => {
+  test(`Testing with .extract(${URL})`, (t) => {
 
-    extract(url).then((art) => {
+    extract(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
       t.ok(hasRequiredKeys(art), 'R must have all required keys.');
