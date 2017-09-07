@@ -3,6 +3,8 @@
  * @ndaidong
  */
 
+var fs = require('fs');
+
 var test = require('tape');
 var debug = require('debug');
 var error = debug('artparser:error');
@@ -14,6 +16,8 @@ var {
   isArray,
   isNumber
 } = require('bellajs');
+
+var nock = require('nock');
 
 var {
   extract
@@ -40,13 +44,21 @@ var hasRequiredKeys = (o) => {
   });
 };
 
+const URL = 'https://soundcloud.com/rodrigovaz/johann-sebastian-bach-pachelbels-cannon-in-d-major';
+const JSON = fs.readFileSync('./test/data/soundcloud.json', 'utf8');
+
 (() => {
 
-  let url = `https://soundcloud.com/avitalius-vivaldi/noi-nho-mua-dong-beat-le-quyen`;
+  nock('https://api.soundcloud.com')
+    .defaultReplyHeaders({
+      'Content-Type': 'application/json'
+    })
+    .get('/resolve.json?client_id=d5ed9cc54022577fb5bba50f057d261c&url=https%3A%2F%2Fsoundcloud.com%2Frodrigovaz%2Fjohann-sebastian-bach-pachelbels-cannon-in-d-major') // eslint-disable-line
+    .reply(200, JSON);
 
-  test(`Testing with .extract(${url})`, (t) => {
+  test(`Testing with .extract(${URL})`, (t) => {
 
-    extract(url).then((art) => {
+    extract(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
       t.ok(hasRequiredKeys(art), 'R must have all required keys.');

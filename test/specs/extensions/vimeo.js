@@ -40,13 +40,13 @@ var hasRequiredKeys = (o) => {
   });
 };
 
+const URL = 'https://vimeo.com/31179423';
+
 (() => {
 
-  let url = `https://vimeo.com/203494889`;
+  test(`Testing with .extract(${URL})`, (t) => {
 
-  test(`Testing with .extract(${url})`, (t) => {
-
-    extract(url).then((art) => {
+    extract(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
       t.ok(hasRequiredKeys(art), 'R must have all required keys.');

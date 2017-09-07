@@ -6,7 +6,7 @@ var {
   SoundCloudKey
 } = require('../../config');
 
-const URL = `http://api.soundcloud.com/resolve.json?client_id=${SoundCloudKey}&url=`;
+const URL = `https://api.soundcloud.com/resolve.json?client_id=${SoundCloudKey}&url=`;
 
 var parser = {
   schemes: [
