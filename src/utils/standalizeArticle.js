@@ -3,17 +3,12 @@
 var cheerio = require('cheerio');
 var sanitize = require('sanitize-html');
 
-var salient = require('salient');
-var tokenizer = new salient.tokenizers.ArticleTokenizer({
-  compressWhitespace: true,
-  cleanHTML: false,
-  cleanNonAlphaNumeric: false,
-  preserveEmoticons: true
-});
+var htmlmin = require('html-minifier').minify;
 
 var {
   stripTags,
-  truncate
+  truncate,
+  trim
 } = require('bellajs');
 
 var config = require('../config');
@@ -31,9 +26,7 @@ var standalize = (input) => {
 
   if (html) {
 
-    let cleanHtml = tokenizer.clean(html);
-
-    let $ = cheerio.load(cleanHtml, {
+    let $ = cheerio.load(html, {
       normalizeWhitespace: true,
       decodeEntities: true
     });
@@ -53,7 +46,18 @@ var standalize = (input) => {
       }
     });
 
-    let content = sanitize($.html(), contentOnlyRule);
+
+    let cleanHtml = htmlmin($.html(), {
+      removeComments: true,
+      removeEmptyElements: true,
+      removeEmptyAttributes: true,
+      collapseWhitespace: true,
+      conservativeCollapse: false,
+      removeTagWhitespace: true
+    });
+
+    cleanHtml = sanitize(cleanHtml, contentOnlyRule);
+    let content = trim(cleanHtml);
     input.content = content;
 
     let text = stripTags(content);
