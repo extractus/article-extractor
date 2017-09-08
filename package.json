@@ -1,5 +1,5 @@
 {
-  "version": "2.2.1",
+  "version": "2.3.0",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -11,6 +11,9 @@
   "main": "./index.js",
   "engines": {
     "node": ">= 7.6"
+  },
+  "bin": {
+    "extract": "./bin/extract"
   },
   "scripts": {
     "lint": "eslint .",
@@ -31,6 +34,7 @@
     "es6-readability": "0.x.x",
     "html-minifier": "3.x.x",
     "lru-cache": "4.x.x",
+    "minimist": "1.x.x",
     "natural": "0.x.x",
     "node-fetch": "1.x.x",
     "oembed-parser": "1.x.x",
