@@ -1,5 +1,5 @@
 {
-  "version": "2.3.0",
+  "version": "2.3.1",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -13,7 +13,7 @@
     "node": ">= 7.6"
   },
   "bin": {
-    "extract": "./bin/extract"
+    "extract": "bin/extract.js"
   },
   "scripts": {
     "lint": "eslint .",
