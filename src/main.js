@@ -63,11 +63,6 @@ var extract = async (inputURL = '') => {
   }
 };
 
-(async () => {
-  let a = await extract('http://www.theapemachine.com/blog/ai-and-the-reversal-of-our-evolution');
-  info(a);
-})();
-
 module.exports = {
   configure,
   getConfig,
