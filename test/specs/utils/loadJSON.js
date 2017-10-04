@@ -7,7 +7,7 @@ var {
 
 var loadJSON = require('../../../src/utils/loadJSON');
 
-let JSON = require('../../data/geoip');
+const JSON = require('../../data/geoip');
 
 nock('http://freegeoip.net')
   .get('/json/github.com')
