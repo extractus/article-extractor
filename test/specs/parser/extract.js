@@ -23,7 +23,7 @@ var {
 } = require('../../../');
 
 var hasRequiredKeys = (o) => {
-  var structure = [
+  let structure = [
     'alias',
     'url',
     'canonicals',

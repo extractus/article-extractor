@@ -21,7 +21,7 @@ var {
 } = require('../../../');
 
 var hasRequiredKeys = (o) => {
-  var structure = [
+  let structure = [
     'url',
     'title',
     'description',
