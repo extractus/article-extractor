@@ -20,7 +20,7 @@ var {
   isValidURL
 } = require('../utils');
 
-var parseMeta = require('./parseMeta');
+var extractMetaTags = require('./extractMetaTags');
 var extractWithReadability = require('./extractWithReadability');
 
 var unique = (arr) => {
@@ -51,7 +51,7 @@ var parse = async (input) => {
       author = '',
       source = '',
       publishedTime = ''
-    } = parseMeta(html, url);
+    } = extractMetaTags(html, url);
 
     let canonicals = unique([
       canonical,

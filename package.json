@@ -1,5 +1,5 @@
 {
-  "version": "2.3.1",
+  "version": "2.3.2",
   "name": "article-parser",
   "description": "Extract clean article data from given URL.",
   "homepage": "https://www.npmjs.com/package/article-parser",
@@ -49,7 +49,7 @@
     "nock": "9.x.x",
     "nsp": "2.x.x",
     "nyc": "11.x.x",
-    "sinon": "3.x.x",
+    "sinon": "4.x.x",
     "tap-spec": "4.x.x",
     "tape": "4.x.x"
   },
