@@ -1,18 +1,19 @@
 // utils -> loadHTML
 
-var debug = require('debug');
-var error = debug('artparser:error');
-var info = debug('artparser:info');
+const {
+  error,
+  info,
+} = require('./logger');
 
-var fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
-var lru = require('lru-cache');
-var cache = lru({
+const lru = require('lru-cache');
+const cache = lru({
   max: 1000,
-  maxAge: 24 * 60 * 6e4
+  maxAge: 24 * 60 * 6e4,
 });
 
-var loadHTML = (url, opts = {}) => {
+const loadHTML = (url, opts = {}) => {
   return new Promise((resolve, reject) => {
     let stored = cache.get(url);
     if (stored) {
@@ -25,7 +26,7 @@ var loadHTML = (url, opts = {}) => {
         let {
           ok,
           status,
-          headers
+          headers,
         } = res;
         if (!ok || status !== 200) {
           throw new Error(`Fetching failed for "${url}"`);
@@ -37,7 +38,7 @@ var loadHTML = (url, opts = {}) => {
         info(`Loaded remote HTML content: ${url}`);
         return {
           url: res.url,
-          html: await res.text()
+          html: await res.text(),
         };
       })
       .then((data) => {

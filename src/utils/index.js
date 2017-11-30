@@ -1,30 +1,15 @@
-var isValidURL = require('./isValidURL');
-var removeUTM = require('./removeUTM');
-var absolutifyURL = require('./absolutifyURL');
-var chooseBestURL = require('./chooseBestURL');
+exports.isValidURL = require('./isValidURL');
+exports.removeUTM = require('./removeUTM');
+exports.absolutifyURL = require('./absolutifyURL');
+exports.chooseBestURL = require('./chooseBestURL');
 
-var getTimeToRead = require('./getTimeToRead');
-var getYtid = require('./getYtid');
-var toSecond = require('./toSecond');
+exports.getTimeToRead = require('./getTimeToRead');
+exports.getYtid = require('./getYtid');
+exports.toSecond = require('./toSecond');
 
-var cache = require('./cache');
-var loadHTML = require('./loadHTML');
-var loadJSON = require('./loadJSON');
+exports.cache = require('./cache');
+exports.loadHTML = require('./loadHTML');
+exports.loadJSON = require('./loadJSON');
+exports.logger = require('./logger');
 
-var findExtension = require('./findExtension');
-var standalizeArticle = require('./standalizeArticle');
-
-module.exports = {
-  isValidURL,
-  removeUTM,
-  absolutifyURL,
-  chooseBestURL,
-  getTimeToRead,
-  getYtid,
-  toSecond,
-  cache,
-  loadHTML,
-  loadJSON,
-  findExtension,
-  standalizeArticle
-};
+exports.standalizeArticle = require('./standalizeArticle');

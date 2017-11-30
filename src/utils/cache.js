@@ -1,9 +1,9 @@
 // utils -> cache
 
-var lru = require('lru-cache');
-var cache = lru({
+const lru = require('lru-cache');
+const cache = lru({
   max: 500,
-  maxAge: 20 * 6e4
+  maxAge: 20 * 6e4,
 });
 
 module.exports = cache;

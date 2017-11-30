@@ -3,23 +3,24 @@
  * @ndaidong
  */
 
-var test = require('tape');
-var debug = require('debug');
-var error = debug('artparser:error');
+const test = require('tape');
+const {
+  error,
+} = require('../../../src/utils/logger');
 
-var {
+const {
   hasProperty,
   isString,
   isObject,
   isArray,
-  isNumber
+  isNumber,
 } = require('bellajs');
 
-var {
-  extract
+const {
+  extract,
 } = require('../../../');
 
-var hasRequiredKeys = (o) => {
+const hasRequiredKeys = (o) => {
   let structure = [
     'alias',
     'url',
@@ -32,7 +33,7 @@ var hasRequiredKeys = (o) => {
     'source',
     'domain',
     'duration',
-    'publishedTime'
+    'publishedTime',
   ];
 
   return structure.every((k) => {
@@ -43,9 +44,7 @@ var hasRequiredKeys = (o) => {
 const URL = 'https://vimeo.com/31179423';
 
 (() => {
-
   test(`Testing with .extract(${URL})`, (t) => {
-
     extract(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
@@ -73,5 +72,4 @@ const URL = 'https://vimeo.com/31179423';
       t.end();
     });
   });
-
 })();

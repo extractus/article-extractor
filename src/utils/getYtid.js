@@ -1,6 +1,6 @@
 // utils -> getYtid
 
-var getYtid = (lnk) => {
+const getYtid = (lnk) => {
   let x1 = 'www.youtube.com/watch?';
   let x2 = 'youtu.be/';
   let x3 = 'www.youtube.com/v/';

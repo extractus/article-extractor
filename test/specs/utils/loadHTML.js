@@ -1,15 +1,15 @@
-var fs = require('fs');
+const fs = require('fs');
 
-var test = require('tape');
-var nock = require('nock');
+const test = require('tape');
+const nock = require('nock');
 
-var {
-  isString
+const {
+  isString,
 } = require('bellajs');
 
-var loadHTML = require('../../../src/utils/loadHTML');
+const loadHTML = require('../../../src/utils/loadHTML');
 
-var HTML = fs.readFileSync('./test/data/blogContent.txt', 'utf8');
+const HTML = fs.readFileSync('./test/data/blogContent.txt', 'utf8');
 
 nock('http://myblog.com')
   .get('/tech/some-alias')
@@ -37,8 +37,8 @@ nock('http://myblog.com/')
   .get('/tech/fail-to-load-article-1')
   .reply(400, HTML, {
     headers: {
-      'content-type': 'text/html'
-    }
+      'content-type': 'text/html',
+    },
   });
 
 test('Testing loadHTML method fail with status:', (assert) => {

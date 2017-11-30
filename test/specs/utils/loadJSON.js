@@ -1,11 +1,11 @@
-var test = require('tape');
-var nock = require('nock');
+const test = require('tape');
+const nock = require('nock');
 
-var {
-  isObject
+const {
+  isObject,
 } = require('bellajs');
 
-var loadJSON = require('../../../src/utils/loadJSON');
+const loadJSON = require('../../../src/utils/loadJSON');
 
 const JSON = require('../../data/geoip');
 

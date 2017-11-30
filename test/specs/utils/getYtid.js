@@ -1,6 +1,6 @@
-var test = require('tape');
+const test = require('tape');
 
-var getYtid = require('../../../src/utils/getYtid');
+const getYtid = require('../../../src/utils/getYtid');
 
 test('Testing getYtid method:', (assert) => {
   let url1 = 'http://www.youtube.com/watch?v=709157454140';

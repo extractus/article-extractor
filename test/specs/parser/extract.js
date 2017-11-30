@@ -3,26 +3,27 @@
  * @ndaidong
  */
 
-var fs = require('fs');
-var test = require('tape');
-var debug = require('debug');
-var error = debug('artparser:error');
+const fs = require('fs');
+const test = require('tape');
+const {
+  error,
+} = require('../../../src/utils/logger');
 
-var nock = require('nock');
+const nock = require('nock');
 
-var {
+const {
   hasProperty,
   isString,
   isObject,
   isArray,
-  isNumber
+  isNumber,
 } = require('bellajs');
 
-var {
-  extract
+const {
+  extract,
 } = require('../../../');
 
-var hasRequiredKeys = (o) => {
+const hasRequiredKeys = (o) => {
   let structure = [
     'alias',
     'url',
@@ -35,7 +36,7 @@ var hasRequiredKeys = (o) => {
     'source',
     'domain',
     'duration',
-    'publishedTime'
+    'publishedTime',
   ];
 
   return structure.every((k) => {
@@ -47,17 +48,15 @@ const URL = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b
 const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 
 (() => {
-
   let url = `https://medium.com/well-retrieve-article`;
   nock('https://medium.com')
     .defaultReplyHeaders({
-      'Content-Type': 'text/html'
+      'Content-Type': 'text/html',
     })
     .get('/well-retrieve-article')
     .reply(200, HTML);
 
   test(`Testing with .extract(${url})`, (t) => {
-
     extract(url).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
@@ -85,11 +84,9 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
       t.end();
     });
   });
-
 })();
 
 (() => {
-
   nock('https://medium.com')
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(200, '');
@@ -100,11 +97,9 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
-
 })();
 
 (() => {
-
   nock('https://medium.com')
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(200, 'SOMETHING NO HTML<html><b>ASD<</html>');
@@ -115,16 +110,14 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
-
 })();
 
 (() => {
-
   let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
   nock('https://medium.com')
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(500, HTML, {
-      ok: false
+      ok: false,
     });
 
   test(`Testing with .extract(${URL})`, (t) => {
@@ -133,16 +126,14 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
-
 })();
 
 (() => {
-
   let contentType = 'application/json';
   nock('https://medium.com')
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(200, HTML, {
-      'Content-Type': contentType
+      'Content-Type': contentType,
     });
 
   test(`Testing with .extract(${URL})`, (t) => {
@@ -151,7 +142,6 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
-
 })();
 
 (() => {
@@ -173,7 +163,6 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
     }).finally(t.end);
   });
 })();
-
 
 (() => {
   let url = 'https://en.wikipedia.org/wiki/Ramen';

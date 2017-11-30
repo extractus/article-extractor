@@ -3,27 +3,29 @@
  * @ndaidong
  */
 
-var fs = require('fs');
+const fs = require('fs');
 
-var test = require('tape');
-var debug = require('debug');
-var error = debug('artparser:error');
+const test = require('tape');
 
-var {
+const {
+  error,
+} = require('../../../src/utils/logger');
+
+const {
   hasProperty,
   isString,
   isObject,
   isArray,
-  isNumber
+  isNumber,
 } = require('bellajs');
 
-var nock = require('nock');
+const nock = require('nock');
 
-var {
-  extract
+const {
+  extract,
 } = require('../../../');
 
-var hasRequiredKeys = (o) => {
+const hasRequiredKeys = (o) => {
   let structure = [
     'alias',
     'url',
@@ -36,7 +38,7 @@ var hasRequiredKeys = (o) => {
     'source',
     'domain',
     'duration',
-    'publishedTime'
+    'publishedTime',
   ];
 
   return structure.every((k) => {
@@ -48,16 +50,14 @@ const URL = 'https://soundcloud.com/rodrigovaz/johann-sebastian-bach-pachelbels-
 const JSON = fs.readFileSync('./test/data/soundcloud.json', 'utf8');
 
 (() => {
-
   nock('https://api.soundcloud.com')
     .defaultReplyHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     })
     .get('/resolve.json?client_id=d5ed9cc54022577fb5bba50f057d261c&url=https%3A%2F%2Fsoundcloud.com%2Frodrigovaz%2Fjohann-sebastian-bach-pachelbels-cannon-in-d-major') // eslint-disable-line
     .reply(200, JSON);
 
   test(`Testing with .extract(${URL})`, (t) => {
-
     extract(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
@@ -85,5 +85,4 @@ const JSON = fs.readFileSync('./test/data/soundcloud.json', 'utf8');
       t.end();
     });
   });
-
 })();

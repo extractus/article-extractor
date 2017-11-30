@@ -1,13 +1,14 @@
 // utils -> chooseBestURL
 
-var debug = require('debug');
-var error = debug('artparser:error');
+const {
+  error,
+} = require('./logger');
 
-var {
-  JaroWinklerDistance: compare
+const {
+  JaroWinklerDistance: compare,
 } = require('natural');
 
-var chooseBestURL = (candidates = [], titleHashed) => {
+const chooseBestURL = (candidates = [], titleHashed) => {
   let theBest = candidates[0];
   candidates.forEach((url) => {
     if (url.length > theBest.length) {

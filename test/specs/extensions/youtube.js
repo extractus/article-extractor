@@ -3,25 +3,27 @@
  * @ndaidong
  */
 
-var test = require('tape');
-var debug = require('debug');
-var error = debug('artparser:error');
+const test = require('tape');
+const {
+  error,
+} = require('../../../src/utils/logger');
 
-var {
+
+const {
   hasProperty,
   isString,
   isObject,
   isArray,
-  isNumber
+  isNumber,
 } = require('bellajs');
 
-var nock = require('nock');
+const nock = require('nock');
 
-var {
-  extract
+const {
+  extract,
 } = require('../../../');
 
-var hasRequiredKeys = (o) => {
+const hasRequiredKeys = (o) => {
   let structure = [
     'alias',
     'url',
@@ -34,7 +36,7 @@ var hasRequiredKeys = (o) => {
     'source',
     'domain',
     'duration',
-    'publishedTime'
+    'publishedTime',
   ];
 
   return structure.every((k) => {
@@ -46,16 +48,14 @@ const URL = 'https://www.youtube.com/watch?v=kvGYl8SQBJ0';
 const JSON = require('fs').readFileSync('./test/data/youtube.json', 'utf8');
 
 (() => {
-
   nock('https://www.googleapis.com')
     .defaultReplyHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     })
     .get('/youtube/v3/videos?part=contentDetails&key=AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc&id=kvGYl8SQBJ0') // eslint-disable-line
     .reply(200, JSON);
 
   test(`Testing with .extract(${URL})`, (t) => {
-
     extract(URL).then((art) => {
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');

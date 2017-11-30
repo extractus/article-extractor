@@ -5,34 +5,35 @@
 
 global.Promise = require('promise-wtf');
 
-var debug = require('debug');
-var info = debug('artparser:info');
-var error = debug('artparser:error');
-
-var {
-  md5
+const {
+  md5,
 } = require('bellajs');
 
-var {
+const {
   fetchOptions,
   configure,
-  getConfig
+  getConfig,
 } = require('./config');
 
-var {
+const {
   isValidURL,
   removeUTM,
   cache,
-  loadHTML
+  loadHTML,
+  logger,
 } = require('./utils');
 
-var extractWithEmbedly = require('./parsers/extractWithEmbedly');
+const {
+  error,
+  info,
+} = logger;
 
-var parse = require('./parsers');
+const extractWithEmbedly = require('./parsers/extractWithEmbedly');
 
-var extract = async (inputURL = '') => {
+const parse = require('./parsers');
+
+const extract = async (inputURL = '') => {
   try {
-
     if (!isValidURL(inputURL)) {
       throw new Error(`Invalid URL: ${inputURL}`);
     }
@@ -49,7 +50,7 @@ var extract = async (inputURL = '') => {
 
     let {
       url,
-      html
+      html,
     } = await loadHTML(_url, fetchOptions);
 
     let article = await parse({_url, url, html});
@@ -67,5 +68,5 @@ module.exports = {
   configure,
   getConfig,
   extract,
-  extractWithEmbedly
+  extractWithEmbedly,
 };

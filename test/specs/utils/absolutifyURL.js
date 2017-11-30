@@ -1,6 +1,6 @@
-var test = require('tape');
+const test = require('tape');
 
-var absolutifyURL = require('../../../src/utils/absolutifyURL');
+const absolutifyURL = require('../../../src/utils/absolutifyURL');
 
 test('Testing absolutifyURL method:', (assert) => {
   let fullUrl = 'http://abc.com/articles/somewhere/12930';

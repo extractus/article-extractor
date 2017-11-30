@@ -1,6 +1,6 @@
-var test = require('tape');
+const test = require('tape');
 
-var toSecond = require('../../../src/utils/toSecond');
+const toSecond = require('../../../src/utils/toSecond');
 
 test('Testing toSecond method:', (assert) => {
   let t1 = 'PT3M20S';

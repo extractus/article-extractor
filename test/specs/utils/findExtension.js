@@ -1,12 +1,12 @@
-var test = require('tape');
+const test = require('tape');
 
-var {
+const {
   isObject,
   isArray,
-  isFunction
+  isFunction,
 } = require('bellajs');
 
-var findExtension = require('../../../src/utils/findExtension');
+const findExtension = require('../../../src/utils/findExtension');
 
 test('Testing findExtension method:', (assert) => {
   let url = 'https://www.youtube.com/watch?v=okMVc3-aCKQ';

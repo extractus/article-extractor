@@ -1,10 +1,10 @@
 // utils -> isValidURL
 
-var {
-  isString
+const {
+  isString,
 } = require('bellajs');
 
-var isValidURL = (str = '') => {
+const isValidURL = (str = '') => {
   if (!isString(str)) {
     return false;
   }

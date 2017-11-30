@@ -1,9 +1,9 @@
-var test = require('tape');
+const test = require('tape');
 
-var Chance = require('chance');
-var chance = new Chance();
+const Chance = require('chance');
+const chance = new Chance();
 
-var getTimeToRead = require('../../../src/utils/getTimeToRead');
+const getTimeToRead = require('../../../src/utils/getTimeToRead');
 
 test('Testing getTimeToRead method - 1min:', (assert) => {
   let sentence = chance.sentence({words: 300});
