@@ -1,11 +1,12 @@
 // utiles/extractWithReadability
 
-var read = require('es6-readability');
+const read = require('es6-readability');
 
-var debug = require('debug');
-var info = debug('artparser:info');
+const {
+  info,
+} = require('../utils/logger');
 
-var extractWithReadability = (html) => {
+const extractWithReadability = (html) => {
   info('Extracting using es6-readability...');
   return read(html).then((a) => {
     return a.content;

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-var minimist = require('minimist');
+const minimist = require('minimist');
 
-var argv = minimist(process.argv.slice(2));
-var url = argv.url || argv.u;
+const argv = minimist(process.argv.slice(2));
+const url = argv.url || argv.u;
 
-var {
-  extract
+const {
+  extract,
 } = require('../src/main');
 
 (async () => {

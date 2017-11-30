@@ -1,15 +1,15 @@
 // parsers/extensions -> Vimeo
 
-var loadJSON = require('../../utils/loadJSON');
+const {loadJSON} = require('../../utils');
 
 const URL = 'https://vimeo.com/api/oembed.json?url=';
 
-var parser = {
+const parser = {
   schemes: [
     '*vimeo.com/*',
     '*vimeo.com/album/*/video/*',
     '*vimeo.com/channels/*/*',
-    '*player.vimeo.com/video/*'
+    '*player.vimeo.com/video/*',
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
@@ -21,12 +21,12 @@ var parser = {
           description,
           author_name: author,
           provider_name: source,
-          duration
+          duration,
         } = data;
         return resolve({
           canonicals: [
             `https://vimeo.com/${vid}`,
-            `https://player.vimeo.com/video/${vid}`
+            `https://player.vimeo.com/video/${vid}`,
           ],
           image,
           title,
@@ -34,13 +34,13 @@ var parser = {
           author,
           source,
           duration,
-          content: `<iframe src="https://player.vimeo.com/video/${vid}" frameborder="0" allowfullscreen></iframe>`
+          content: `<iframe src="https://player.vimeo.com/video/${vid}" frameborder="0" allowfullscreen></iframe>`,
         });
       }).catch((err) => {
         return reject(err);
       });
     });
-  }
+  },
 };
 
 module.exports = parser;

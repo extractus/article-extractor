@@ -1,14 +1,14 @@
 // utils -> getTimeToRead
 
-let {
-  stripTags
+const {
+  stripTags,
 } = require('bellajs');
 
-var {
-  wordsPerMinute
+const {
+  wordsPerMinute,
 } = require('../config');
 
-var getTimeToRead = (content) => {
+const getTimeToRead = (content) => {
   let text = stripTags(content);
   let words = text.trim().split(/\s+/g).length;
   let minToRead = words / wordsPerMinute;

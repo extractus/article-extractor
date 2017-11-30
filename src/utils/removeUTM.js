@@ -1,6 +1,6 @@
 // utils -> removeUTM
 
-var removeUTM = (url) => {
+const removeUTM = (url) => {
   if (url.includes('#')) {
     let a1 = url.split('#');
     url = a1[0];

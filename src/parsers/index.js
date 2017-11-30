@@ -1,47 +1,48 @@
 // parser
 
-var URL = require('url');
+const URL = require('url');
 
-var debug = require('debug');
-var error = debug('artparser:error');
-
-var {
+const {
   ucwords,
   copies,
   createAlias,
   createId,
-  time
+  time,
 } = require('bellajs');
 
-var {
-  findExtension,
+const {
   standalizeArticle,
   chooseBestURL,
-  isValidURL
+  isValidURL,
+  logger,
 } = require('../utils');
 
-var extractMetaTags = require('./extractMetaTags');
-var extractWithReadability = require('./extractWithReadability');
+const findExtension = require('../utils/findExtension');
 
-var unique = (arr) => {
+const {
+  error,
+} = logger;
+
+const extractMetaTags = require('./extractMetaTags');
+const extractWithReadability = require('./extractWithReadability');
+
+const unique = (arr) => {
   return Array.from(new Set(arr));
 };
 
-var getDomainFromURL = (url) => {
+const getDomainFromURL = (url) => {
   let parsed = URL.parse(url);
   return parsed.host.replace('www.', '');
 };
 
-var parse = async (input) => {
-
+const parse = async (input) => {
   let {
     _url,
     url,
-    html
+    html,
   } = input;
 
   try {
-
     let {
       url: metaUrl,
       title = '',
@@ -50,14 +51,14 @@ var parse = async (input) => {
       image = '',
       author = '',
       source = '',
-      publishedTime = ''
+      publishedTime = '',
     } = extractMetaTags(html, url);
 
     let canonicals = unique([
       canonical,
       _url,
       url,
-      metaUrl
+      metaUrl,
     ].filter(isValidURL));
 
     if (author && author.indexOf(' ') > 0) {
@@ -75,7 +76,7 @@ var parse = async (input) => {
     let alias = [
       hashTitle,
       time(),
-      createId(10)
+      createId(10),
     ].join('-');
 
     let structure = {
@@ -90,7 +91,7 @@ var parse = async (input) => {
       source,
       domain,
       publishedTime,
-      duration: 0
+      duration: 0,
     };
 
     let ext = findExtension(url);

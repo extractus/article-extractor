@@ -1,19 +1,25 @@
 // utils -> findExtension
 
-var fs = require('fs');
-var path = require('path');
+const {
+  readdirSync,
+} = require('fs');
 
-var {
+const {
+  extname,
+  join,
+} = require('path');
+
+const {
   isObject,
   isArray,
-  isFunction
+  isFunction,
 } = require('bellajs');
 
-var extDir = '../parsers/extensions';
-var extensions = [];
+const extDir = '../parsers/extensions';
+const extensions = [];
 
-fs.readdirSync(path.join(__dirname, extDir)).forEach((file) => {
-  if (path.extname(file) === '.js') {
+readdirSync(join(__dirname, extDir)).forEach((file) => {
+  if (extname(file) === '.js') {
     let ext = require(`${extDir}/${file}`);
     if (isObject(ext) && isFunction(ext.extract) && isArray(ext.schemes)) {
       extensions.push(ext);
@@ -21,10 +27,10 @@ fs.readdirSync(path.join(__dirname, extDir)).forEach((file) => {
   }
 });
 
-var extFinder = (url, providers) => {
+const extFinder = (url, providers) => {
   let candidates = providers.filter((provider) => {
     let {
-      schemes
+      schemes,
     } = provider;
 
     return schemes.some((scheme) => {
@@ -35,6 +41,8 @@ var extFinder = (url, providers) => {
   return candidates.length > 0 ? candidates[0] : null;
 };
 
-module.exports = (url) => {
+const findExtension = (url) => {
   return extFinder(url, extensions);
 };
+
+module.exports = findExtension;

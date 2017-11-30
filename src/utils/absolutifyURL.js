@@ -1,14 +1,14 @@
 // utils -> absolutifyURL
 
-var URL = require('url');
+const URL = require('url');
 
-var {
-  isString
+const {
+  isString,
 } = require('bellajs');
 
-var isValidURL = require('./isValidURL');
+const isValidURL = require('./isValidURL');
 
-var absolutify = (fullUrl, relativeUrl) => {
+const absolutify = (fullUrl, relativeUrl) => {
   if (!isValidURL(fullUrl) || !isString(relativeUrl)) {
     return '';
   }

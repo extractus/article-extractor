@@ -1,16 +1,16 @@
 // parsers/extensions -> SoundCloud
 
-var loadJSON = require('../../utils/loadJSON');
+const {loadJSON} = require('../../utils');
 
-var {
-  SoundCloudKey
+const {
+  SoundCloudKey,
 } = require('../../config');
 
 const URL = `https://api.soundcloud.com/resolve.json?client_id=${SoundCloudKey}&url=`;
 
-var parser = {
+const parser = {
   schemes: [
-    '*soundcloud.com/*/*'
+    '*soundcloud.com/*/*',
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ var parser = {
           title,
           description,
           user,
-          duration
+          duration,
         } = data;
 
         let author = user.username || '';
@@ -32,13 +32,13 @@ var parser = {
           author,
           publishedTime,
           duration: Math.round(duration / 1000),
-          content: `<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}"></iframe>`
+          content: `<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}"></iframe>`,
         });
       }).catch((err) => {
         return reject(err);
       });
     });
-  }
+  },
 };
 
 module.exports = parser;

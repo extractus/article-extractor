@@ -1,18 +1,18 @@
 
-var {
+const {
   clone,
   isString,
   isNumber,
   isObject,
-  isArray
+  isArray,
 } = require('bellajs');
 
-var config = {};
+const config = {};
 
 config.fetchOptions = {
   headers: {},
   timeout: 0,
-  agent: false
+  agent: false,
 };
 
 config.wordsPerMinute = 300;
@@ -30,14 +30,14 @@ config.article = {
       'fieldset', 'legend',
       'img', 'picture',
       'br',
-      'a'
+      'a',
     ],
     allowedAttributes: {
       a: ['href'],
       img: ['src', 'alt'],
-      link: ['href', 'type']
-    }
-  }
+      link: ['href', 'type'],
+    },
+  },
 };
 
 config.htmlRules = clone(config.article.htmlRules);
@@ -45,7 +45,7 @@ config.htmlRules.allowedTags = [].concat(
   config.htmlRules.allowedTags,
   [
     'html', 'body', 'meta', 'link', 'title',
-    'head', 'nav'
+    'head', 'nav',
   ]
 );
 
@@ -53,12 +53,24 @@ config.SoundCloudKey = 'd5ed9cc54022577fb5bba50f057d261c';
 config.YouTubeKey = 'AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc';
 config.EmbedlyKey = '50a2e9136d504850a9d080b759fd3019';
 
-var configure = (o) => {
+const getConfig = () => {
+  return {
+    fetchOptions: clone(config.fetchOptions),
+    article: clone(config.article),
+    htmlRules: clone(config.htmlRules),
+    wordsPerMinute: config.wordsPerMinute,
+    SoundCloudKey: config.SoundCloudKey,
+    YouTubeKey: config.YouTubeKey,
+    EmbedlyKey: config.EmbedlyKey,
+  };
+};
+
+const configure = (o) => {
   if (o.fetchOptions) {
     let {
       headers = false,
       timeout = false,
-      agent = false
+      agent = false,
     } = o.fetchOptions;
 
     if (isNumber(timeout) && timeout >= 0) {
@@ -101,33 +113,21 @@ var configure = (o) => {
     config.EmbedlyKey = o.EmbedlyKey;
   }
 
-  return config;
-};
-
-Object.defineProperty(config, 'configure', {
-  configurable: false,
-  writable: false,
-  enumerable: false,
-  value: configure
-});
-
-var getConfig = () => {
-  return {
-    fetchOptions: clone(config.fetchOptions),
-    article: clone(config.article),
-    htmlRules: clone(config.htmlRules),
-    wordsPerMinute: config.wordsPerMinute,
-    SoundCloudKey: config.SoundCloudKey,
-    YouTubeKey: config.YouTubeKey,
-    EmbedlyKey: config.EmbedlyKey
-  };
+  return getConfig();
 };
 
 Object.defineProperty(config, 'getConfig', {
   configurable: false,
   writable: false,
   enumerable: false,
-  value: getConfig
+  value: getConfig,
+});
+
+Object.defineProperty(config, 'configure', {
+  configurable: false,
+  writable: false,
+  enumerable: false,
+  value: configure,
 });
 
 module.exports = config;

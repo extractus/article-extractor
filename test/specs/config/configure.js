@@ -3,21 +3,21 @@
  * @ndaidong
  */
 
-var test = require('tape');
-var {
+const test = require('tape');
+const {
   hasProperty,
-  isObject
+  isObject,
 } = require('bellajs');
 
-var AP = require('../../../');
+const AP = require('../../../');
 
-var sample = {
+const sample = {
   fetchOptions: {
     timeout: 10,
     headers: {
-      accept: 'JSON'
+      accept: 'JSON',
     },
-    agent: 'nodejs/nginx'
+    agent: 'nodejs/nginx',
   },
   wordsPerMinute: 500,
   SoundCloudKey: 'SOUNDCLOUDKEY',
@@ -25,21 +25,21 @@ var sample = {
   EmbedlyKey: 'EMBEDLYKEY',
   htmlRules: {
     allowedTags: [
-      'html', 'body', 'meta', 'link', 'title'
+      'html', 'body', 'meta', 'link', 'title',
     ],
     allowedAttributes: {
-      a: ['href']
-    }
-  }
+      a: ['href'],
+    },
+  },
 };
 
-var hasRequiredKeys = (o) => {
-  var structure = [
+const hasRequiredKeys = (o) => {
+  const structure = [
     'wordsPerMinute',
     'SoundCloudKey',
     'YouTubeKey',
     'EmbedlyKey',
-    'htmlRules'
+    'htmlRules',
   ];
 
   return structure.every((k) => {
@@ -47,10 +47,9 @@ var hasRequiredKeys = (o) => {
   });
 };
 
-var fake = Object.create(AP);
+const fake = Object.create(AP);
 
 test('Testing "configure" method:', (assert) => {
-
   fake.configure(sample);
   let config = fake.getConfig();
 

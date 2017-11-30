@@ -1,15 +1,14 @@
 // utiles/parseMeta
 
-var cheerio = require('cheerio');
+const cheerio = require('cheerio');
 
-var isValidURL = require('../utils/isValidURL');
+const isValidURL = require('../utils/isValidURL');
 
-var strtolower = (s) => {
+const strtolower = (s) => {
   return s ? s.toLowerCase() : '';
 };
 
-var parseMeta = (html, url) => {
-
+const parseMeta = (html, url) => {
   let entry = {
     url,
     canonical: '',
@@ -18,32 +17,32 @@ var parseMeta = (html, url) => {
     image: '',
     author: '',
     source: '',
-    publishedTime: ''
+    publishedTime: '',
   };
 
   let sourceAttrs = [
     'application-name',
     'og:site_name',
-    'dc.title'
+    'dc.title',
   ];
   let urlAttrs = [
     'og:url',
-    'twitter:url'
+    'twitter:url',
   ];
   let titleAttrs = [
     'title',
     'og:title',
-    'twitter:title'
+    'twitter:title',
   ];
   let descriptionAttrs = [
     'description',
     'og:description',
-    'twitter:description'
+    'twitter:description',
   ];
   let imageAttrs = [
     'og:image',
     'twitter:image',
-    'twitter:image:src'
+    'twitter:image:src',
   ];
   let authorAttrs = [
     'author',
@@ -51,16 +50,16 @@ var parseMeta = (html, url) => {
     'og:creator',
     'og:article:author',
     'twitter:creator',
-    'dc.creator'
+    'dc.creator',
   ];
   let publishedTimeAttrs = [
-    'article:published_time'
+    'article:published_time',
   ];
 
   let doc = cheerio.load(html, {
     lowerCaseTags: true,
     lowerCaseAttributeNames: true,
-    recognizeSelfClosing: true
+    recognizeSelfClosing: true,
   });
 
   entry.title = doc('title').text();
@@ -77,7 +76,6 @@ var parseMeta = (html, url) => {
   });
 
   doc('meta').each((i, meta) => {
-
     let m = doc(meta);
     let content = m.attr('content');
     let property = strtolower(m.attr('property'));

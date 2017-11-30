@@ -1,22 +1,23 @@
 // utiles/extractWithEmbedly
 
-var debug = require('debug');
-var error = debug('artparser:error');
-var info = debug('artparser:info');
-
-var {
-  EmbedlyKey
+const {
+  EmbedlyKey,
 } = require('../config');
 
-var {
-  isValidURL
+const {
+  isValidURL,
+  logger,
 } = require('../utils');
 
-var loadJSON = require('../utils/loadJSON');
+const {
+  error,
+  info,
+} = logger;
 
-var extractWithEmbedly = (url, key = '') => {
+const loadJSON = require('../utils/loadJSON');
+
+const extractWithEmbedly = (url, key = '') => {
   return new Promise((resolve, reject) => {
-
     info(`Start parsing with Embedly...`);
     info(url);
 
@@ -63,7 +64,7 @@ var extractWithEmbedly = (url, key = '') => {
         url,
         title,
         content,
-        description
+        description,
       } = o;
 
       return resolve({
@@ -74,7 +75,7 @@ var extractWithEmbedly = (url, key = '') => {
         author,
         source: o.provider_name || '',
         image,
-        content
+        content,
       });
     }).catch((err) => {
       error('Error while parsing with Embedly');

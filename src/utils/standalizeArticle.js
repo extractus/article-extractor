@@ -1,34 +1,33 @@
 // utils -> standalizeArticle
 
-var cheerio = require('cheerio');
-var sanitize = require('sanitize-html');
+const cheerio = require('cheerio');
+const sanitize = require('sanitize-html');
 
-var htmlmin = require('html-minifier').minify;
+const htmlmin = require('html-minifier').minify;
 
-var {
+const {
   stripTags,
   truncate,
-  trim
+  trim,
 } = require('bellajs');
 
-var config = require('../config');
-var contentOnlyRule = config.article.htmlRules;
+const config = require('../config');
+const contentOnlyRule = config.article.htmlRules;
 
-var getTimeToRead = require('./getTimeToRead');
-var absolutifyURL = require('./absolutifyURL');
+const getTimeToRead = require('./getTimeToRead');
+const absolutifyURL = require('./absolutifyURL');
 
-var standalize = (input) => {
+const standalize = (input) => {
   let {
     content: html,
     description,
-    url
+    url,
   } = input;
 
   if (html) {
-
     let $ = cheerio.load(html, {
       normalizeWhitespace: true,
-      decodeEntities: true
+      decodeEntities: true,
     });
 
     $('a').each((i, elem) => {
@@ -53,7 +52,7 @@ var standalize = (input) => {
       removeEmptyAttributes: true,
       collapseWhitespace: true,
       conservativeCollapse: false,
-      removeTagWhitespace: true
+      removeTagWhitespace: true,
     });
 
     cleanHtml = sanitize(cleanHtml, contentOnlyRule);

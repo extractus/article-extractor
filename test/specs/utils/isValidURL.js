@@ -1,6 +1,6 @@
-var test = require('tape');
+const test = require('tape');
 
-var isValidURL = require('../../../src/utils/isValidURL');
+const isValidURL = require('../../../src/utils/isValidURL');
 
 test('Testing isValidURL method:', (assert) => {
   let url1 = 'http://lifehacker.com/hide-your-pin-number-or-password-on-a-fake-business-car-1766054555';

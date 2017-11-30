@@ -1,24 +1,32 @@
-var fs = require('fs');
-var path = require('path');
-
-global.Promise = require('promise-wtf');
-
 /**
  * Import specs
  */
 
-var dirs = [
+const {
+  existsSync,
+  readdirSync,
+} = require('fs');
+
+const {
+  extname,
+  join,
+} = require('path');
+
+global.Promise = require('promise-wtf');
+
+const dirs = [
   'utils',
   'parser',
   'extensions',
-  'config'
+  'config',
 ];
+
 dirs.forEach((dir) => {
   let where = './test/specs/' + dir;
-  if (fs.existsSync(where)) {
-    fs.readdirSync(where).forEach((file) => {
-      if (path.extname(file) === '.js') {
-        require(path.join('.' + where, file));
+  if (existsSync(where)) {
+    readdirSync(where).forEach((file) => {
+      if (extname(file) === '.js') {
+        require(join('.' + where, file));
       }
     });
   }
