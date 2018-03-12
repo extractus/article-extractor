@@ -2,8 +2,8 @@ os:
   - linux
 language: node_js
 node_js:
-  - "9.2"
-  - "8.0"
+  - "9.8"
+  - "8.10"
   - "7.6"
 addons:
   apt:
