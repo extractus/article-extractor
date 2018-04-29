@@ -4,9 +4,7 @@ const {
   error,
 } = require('./logger');
 
-const {
-  JaroWinklerDistance: compare,
-} = require('natural');
+const compare = require('string-jarowinklerdistance');
 
 const chooseBestURL = (candidates = [], titleHashed) => {
   let theBest = candidates[0];
