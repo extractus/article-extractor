@@ -2,6 +2,10 @@
 
 const {loadJSON} = require('../../utils');
 
+const {
+  fetchOptions,
+} = require('../../config');
+
 const URL = 'https://vimeo.com/api/oembed.json?url=';
 
 const parser = {
@@ -13,7 +17,7 @@ const parser = {
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
-      return loadJSON(`${URL}${encodeURIComponent(url)}`).then(({json: data}) => {
+      return loadJSON(`${URL}${encodeURIComponent(url)}`, fetchOptions).then(({json: data}) => {
         let {
           video_id: vid,
           thumbnail_url: image,

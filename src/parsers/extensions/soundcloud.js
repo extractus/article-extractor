@@ -3,6 +3,7 @@
 const {loadJSON} = require('../../utils');
 
 const {
+  fetchOptions,
   SoundCloudKey,
 } = require('../../config');
 
@@ -14,7 +15,7 @@ const parser = {
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
-      return loadJSON(`${URL}${encodeURIComponent(url)}`).then(({json: data}) => {
+      return loadJSON(`${URL}${encodeURIComponent(url)}`, fetchOptions).then(({json: data}) => {
         let {
           id,
           created_at: publishedTime,
