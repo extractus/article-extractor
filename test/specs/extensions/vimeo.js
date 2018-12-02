@@ -41,12 +41,11 @@ const hasRequiredKeys = (o) => {
   });
 };
 
-const URL = 'https://vimeo.com/31179423';
+const URL = 'https://vimeo.com/11355808';
 
 (() => {
   test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).then((art) => {
-      console.log(art); // eslint-disable-line
       t.comment('(Call returned result is R, so:)');
       t.ok(isObject(art), 'R must be an object.');
       t.ok(hasRequiredKeys(art), 'R must have all required keys.');
