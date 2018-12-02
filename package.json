@@ -18,7 +18,7 @@
   "scripts": {
     "start": "DEBUG=*:* node index",
     "lint": "eslint .",
-    "test": "DEBUG=*:* tap test/start.js --coverage --reporter=spec",
+    "test": "tap test/start.js --coverage --reporter=spec",
     "reset": "node reset"
   },
   "dependencies": {

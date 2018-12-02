@@ -5,7 +5,7 @@ stages:
   - test
 
 before_script:
-  - NODE_ENV=test npm i
+  - NODE_ENV=citest npm i
 
 after_script:
   - npm run reset
@@ -18,4 +18,4 @@ linting:
 testing:
   stage: test
   script:
-    - npm test
+    - NODE_ENV=citest npm test
