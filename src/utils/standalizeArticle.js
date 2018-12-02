@@ -12,7 +12,7 @@ const {
 } = require('bellajs');
 
 const config = require('../config');
-const contentOnlyRule = config.article.htmlRules;
+const contentOnlyRule = config.htmlRules;
 
 const getTimeToRead = require('./getTimeToRead');
 const absolutifyURL = require('./absolutifyURL');

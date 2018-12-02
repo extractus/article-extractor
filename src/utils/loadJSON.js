@@ -7,11 +7,7 @@ const {
 
 const fetch = require('node-fetch');
 
-const lru = require('lru-cache');
-const cache = lru({
-  max: 1000,
-  maxAge: 24 * 60 * 6e4,
-});
+const cache = require('./store').contentLoadedCache;
 
 const loadJSON = (url, opts = {}) => {
   return new Promise((resolve, reject) => {
