@@ -49,9 +49,9 @@ const URL = 'https://vimeo.com/56282283';
 (() => {
   test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).then((art) => {
-      t.comment('(Call returned result is R, so:)');
-      t.ok(isObject(art), 'R must be an object.');
       if (ENV !== 'citest') {
+        t.comment('(Call returned result is R, so:)');
+        t.ok(isObject(art), 'R must be an object.');
         t.ok(hasRequiredKeys(art), 'R must have all required keys.');
         t.ok(isString(art.alias), 'R.alias must be a string.');
         t.ok(isString(art.url), 'R.url must be a string.');
