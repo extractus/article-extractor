@@ -1,9 +1,5 @@
 image: node:latest
 
-cache:
-  paths:
-  - node_modules/
-
 stages:
   - lint
   - test
