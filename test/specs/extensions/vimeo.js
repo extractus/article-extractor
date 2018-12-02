@@ -41,7 +41,7 @@ const hasRequiredKeys = (o) => {
   });
 };
 
-const URL = 'https://vimeo.com/11355808';
+const URL = 'https://vimeo.com/56282283';
 
 (() => {
   test(`Testing with .extract(${URL})`, (t) => {

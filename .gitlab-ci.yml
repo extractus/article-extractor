@@ -9,6 +9,9 @@ stages:
   - test
 
 before_script:
+  - sudo apt update
+  - sudo apt install --no-install-recommends -y \
+      software-properties-common ca-certificates build-essential make curl wget
   - NODE_ENV=test npm i
 
 after_script:
