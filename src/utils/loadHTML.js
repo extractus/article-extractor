@@ -24,6 +24,7 @@ const loadHTML = (url, opts = {}) => {
           status,
           headers,
         } = res;
+        info(res);
         if (!ok || status !== 200) {
           throw new Error(`Fetching failed for "${url}"`);
         }
