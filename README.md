@@ -2,10 +2,8 @@
 Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
-[![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
-[![codecov](https://codecov.io/gh/ndaidong/article-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/ndaidong/article-parser)
-![Dependency Status](https://david-dm.org/ndaidong/article-parser.svg)
-[![NSP Status](https://nodesecurity.io/orgs/techpush/projects/d965e951-5bc6-41d3-90da-81e2a3b7e40f/badge)](https://nodesecurity.io/orgs/techpush/projects/d965e951-5bc6-41d3-90da-81e2a3b7e40f)
+[![Build Status](https://gitlab.com/ndaidong/article-parser/badges/dev/build.svg)](https://gitlab.com/ndaidong/article-parser/pipelines)
+
 
 ### Usage
 
@@ -15,8 +13,8 @@ npm install article-parser
 
 Then:
 
-```
-var {
+```js
+const {
   extract
 } = require('article-parser');
 
@@ -39,7 +37,7 @@ extract(url).then((article) => {
 
 #### configure(Object conf)
 
-```
+```js
 {
   fetchOptions: Object,
   wordsPerMinute: Number,
@@ -64,8 +62,8 @@ Default configurations may work for most case.
 
 Extract article data from specified url.
 
-```
-var {
+```js
+const {
   extract
 } = require('article-parser');
 
@@ -80,7 +78,7 @@ extract(url).then((article) => {
 
 Now *article* would be something like this:
 
-```
+```js
 {
   title: 'Zato ESB - Test demo hosted on company server',
   alias: 'zato-esb-test-demo-hosted-on-company-server-1500021746537-PAQXw8IYcU',
@@ -108,8 +106,8 @@ Extract article data from specified url using [Embedly Extract API](http://embed
 
 The second parameter is optional. If you've added your Embedly key via configure() method, you can ignore it here.
 
-```
-var {
+```js
+const {
   extractWithEmbedly
 } = require('article-parser');
 
@@ -130,7 +128,7 @@ Return the current configurations.
 
 ## Test
 
-```
+```bash
 git clone https://github.com/ndaidong/article-parser.git
 cd article-parser
 npm install

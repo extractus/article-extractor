@@ -3,7 +3,7 @@
  * @ndaidong
  */
 
-const test = require('tape');
+const test = require('tap').test;
 const {
   hasProperty,
   isObject,
@@ -13,7 +13,7 @@ const AP = require('../../../');
 
 const sample = {
   fetchOptions: {
-    timeout: 10,
+    timeout: 60,
     headers: {
       accept: 'JSON',
     },

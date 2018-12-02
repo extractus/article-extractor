@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const test = require('tape');
+const test = require('tap').test;
 const nock = require('nock');
 
 const {

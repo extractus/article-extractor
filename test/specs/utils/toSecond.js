@@ -1,4 +1,4 @@
-const test = require('tape');
+const test = require('tap').test;
 
 const toSecond = require('../../../src/utils/toSecond');
 

@@ -3,6 +3,7 @@
 const {extract} = require('oembed-parser');
 
 const {
+  fetchOptions,
   YouTubeKey,
 } = require('../../config');
 
@@ -17,7 +18,7 @@ const URL = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&ke
 const getDuration = (vid) => {
   return new Promise((resolve, reject) => {
     let url = `${URL}&id=${vid}`;
-    return loadJSON(url).then(({json: data}) => {
+    return loadJSON(url, fetchOptions).then(({json: data}) => {
       if (data && data.items) {
         let items = data.items;
         if (items.length > 0) {

@@ -1,4 +1,4 @@
-const test = require('tape');
+const test = require('tap').test;
 
 const Chance = require('chance');
 const chance = new Chance();

@@ -9,19 +9,23 @@ const {
   md5,
 } = require('bellajs');
 
+
+const config = require('./config');
+
 const {
   fetchOptions,
   configure,
-  getConfig,
-} = require('./config');
+} = config;
 
 const {
   isValidURL,
   removeUTM,
-  cache,
   loadHTML,
   logger,
+  store,
 } = require('./utils');
+
+const cache = store.extractedCache;
 
 const {
   error,
@@ -65,8 +69,10 @@ const extract = async (inputURL = '') => {
 };
 
 module.exports = {
+  getConfig: () => {
+    return config;
+  },
   configure,
-  getConfig,
   extract,
   extractWithEmbedly,
 };

@@ -1,0 +1,21 @@
+image: node:latest
+
+stages:
+  - lint
+  - test
+
+before_script:
+  - NODE_ENV=citest npm i
+
+after_script:
+  - npm run reset
+
+linting:
+  stage: lint
+  script:
+    - npm run lint
+
+testing:
+  stage: test
+  script:
+    - NODE_ENV=citest npm test
