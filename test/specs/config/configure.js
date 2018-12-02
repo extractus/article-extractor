@@ -13,7 +13,7 @@ const AP = require('../../../');
 
 const sample = {
   fetchOptions: {
-    timeout: 10,
+    timeout: 60,
     headers: {
       accept: 'JSON',
     },
