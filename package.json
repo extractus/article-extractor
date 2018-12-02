@@ -5,7 +5,7 @@
   "homepage": "https://www.npmjs.com/package/article-parser",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ndaidong/article-parser.git"
+    "url": "git@gitlab.com:ndaidong/article-parser.git"
   },
   "author": "@ndaidong",
   "main": "./index.js",

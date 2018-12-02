@@ -2,7 +2,7 @@
 Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
-[![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
+[![Build Status](https://gitlab.com/ndaidong/article-parser/badges/dev/build.svg)](https://gitlab.com/ndaidong/article-parser/pipelines)
 
 
 ### Usage
