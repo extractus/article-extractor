@@ -9,7 +9,7 @@ const {
   clone,
 } = require('bellajs');
 
-let fetchOptions = {
+const fetchOptions = {
   headers: {},
   timeout: 0,
   agent: false,
@@ -17,7 +17,7 @@ let fetchOptions = {
 
 let wordsPerMinute = 300;
 
-let htmlRules = {
+const htmlRules = {
   allowedTags: [
     'html', 'body', 'meta', 'link', 'title',
     'head', 'nav',
@@ -43,12 +43,11 @@ let htmlRules = {
 
 let SoundCloudKey = 'd5ed9cc54022577fb5bba50f057d261c';
 let YouTubeKey = 'AIzaSyB5phK8ORN9328zFsnYt9Awkortka7-mvc';
-let EmbedlyKey = '50a2e9136d504850a9d080b759fd3019';
 
 
 const configure = (o) => {
   if (o.fetchOptions) {
-    let {
+    const {
       headers = false,
       timeout = false,
       agent = false,
@@ -66,14 +65,14 @@ const configure = (o) => {
   }
 
   if (o.wordsPerMinute) {
-    let wpm = Number(o.wordsPerMinute);
+    const wpm = Number(o.wordsPerMinute);
     if (isNumber(wpm) && wpm > 100 && wpm < 1000) {
       wordsPerMinute = wpm;
     }
   }
 
   if (o.htmlRules) {
-    let hr = o.htmlRules;
+    const hr = o.htmlRules;
     if (isObject(hr)) {
       if (hr.allowedTags && isArray(hr.allowedTags)) {
         htmlRules.allowedTags = unique(hr.allowedTags);
@@ -90,14 +89,11 @@ const configure = (o) => {
   if (o.YouTubeKey) {
     YouTubeKey = o.YouTubeKey;
   }
-  if (o.EmbedlyKey) {
-    EmbedlyKey = o.EmbedlyKey;
-  }
 
   return true;
 };
 
-let config = {
+const config = {
   set configure(props = {}) {
     return props;
   },
@@ -118,9 +114,6 @@ let config = {
   },
   get YouTubeKey() {
     return YouTubeKey;
-  },
-  get EmbedlyKey() {
-    return EmbedlyKey;
   },
 };
 

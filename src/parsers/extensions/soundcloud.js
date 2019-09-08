@@ -16,7 +16,7 @@ const parser = {
   extract: (url) => {
     return new Promise((resolve, reject) => {
       return loadJSON(`${URL}${encodeURIComponent(url)}`, fetchOptions).then(({json: data}) => {
-        let {
+        const {
           id,
           created_at: publishedTime,
           title,
@@ -25,7 +25,7 @@ const parser = {
           duration,
         } = data;
 
-        let author = user.username || '';
+        const author = user.username || '';
 
         return resolve({
           title,

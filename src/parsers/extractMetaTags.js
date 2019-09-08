@@ -9,7 +9,7 @@ const strtolower = (s) => {
 };
 
 const parseMeta = (html, url) => {
-  let entry = {
+  const entry = {
     url,
     canonical: '',
     title: '',
@@ -20,31 +20,31 @@ const parseMeta = (html, url) => {
     publishedTime: '',
   };
 
-  let sourceAttrs = [
+  const sourceAttrs = [
     'application-name',
     'og:site_name',
     'dc.title',
   ];
-  let urlAttrs = [
+  const urlAttrs = [
     'og:url',
     'twitter:url',
   ];
-  let titleAttrs = [
+  const titleAttrs = [
     'title',
     'og:title',
     'twitter:title',
   ];
-  let descriptionAttrs = [
+  const descriptionAttrs = [
     'description',
     'og:description',
     'twitter:description',
   ];
-  let imageAttrs = [
+  const imageAttrs = [
     'og:image',
     'twitter:image',
     'twitter:image:src',
   ];
-  let authorAttrs = [
+  const authorAttrs = [
     'author',
     'creator',
     'og:creator',
@@ -52,11 +52,11 @@ const parseMeta = (html, url) => {
     'twitter:creator',
     'dc.creator',
   ];
-  let publishedTimeAttrs = [
+  const publishedTimeAttrs = [
     'article:published_time',
   ];
 
-  let doc = cheerio.load(html, {
+  const doc = cheerio.load(html, {
     lowerCaseTags: true,
     lowerCaseAttributeNames: true,
     recognizeSelfClosing: true,
@@ -65,10 +65,10 @@ const parseMeta = (html, url) => {
   entry.title = doc('title').text();
 
   doc('link').each((i, link) => {
-    let m = doc(link);
-    let rel = m.attr('rel');
+    const m = doc(link);
+    const rel = m.attr('rel');
     if (rel && rel === 'canonical') {
-      let href = m.attr('href');
+      const href = m.attr('href');
       if (isValidURL(href)) {
         entry.canonical = href;
       }
@@ -76,10 +76,10 @@ const parseMeta = (html, url) => {
   });
 
   doc('meta').each((i, meta) => {
-    let m = doc(meta);
-    let content = m.attr('content');
-    let property = strtolower(m.attr('property'));
-    let name = strtolower(m.attr('name'));
+    const m = doc(meta);
+    const content = m.attr('content');
+    const property = strtolower(m.attr('property'));
+    const name = strtolower(m.attr('name'));
 
     if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
       entry.source = content;

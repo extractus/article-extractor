@@ -31,7 +31,7 @@ const unique = (arr) => {
 };
 
 const getDomainFromURL = (url) => {
-  let parsed = URL.parse(url);
+  const parsed = URL.parse(url);
   return parsed.host.replace('www.', '');
 };
 
@@ -54,7 +54,7 @@ const parse = async (input) => {
       publishedTime = '',
     } = extractMetaTags(html, url);
 
-    let canonicals = unique([
+    const canonicals = unique([
       canonical,
       _url,
       url,
@@ -65,21 +65,21 @@ const parse = async (input) => {
       author = ucwords(author);
     }
 
-    let hashTitle = createAlias(title);
+    const hashTitle = createAlias(title);
     url = chooseBestURL(canonicals, hashTitle);
 
-    let domain = getDomainFromURL(url);
+    const domain = getDomainFromURL(url);
     if (!source) {
       source = domain;
     }
 
-    let alias = [
+    const alias = [
       hashTitle,
       time(),
       createId(10),
     ].join('-');
 
-    let structure = {
+    const structure = {
       title,
       alias,
       url,
@@ -94,17 +94,17 @@ const parse = async (input) => {
       duration: 0,
     };
 
-    let ext = findExtension(url);
+    const ext = findExtension(url);
     if (ext) {
-      let art = await ext.extract(url, html);
-      let res = copies(art, structure, true);
+      const art = await ext.extract(url, html);
+      const res = copies(art, structure, true);
       if (art.canonicals) {
         res.canonicals = art.canonicals;
       }
       return res;
     }
 
-    let content = await extractWithReadability(html);
+    const content = await extractWithReadability(html);
     structure.content = content;
 
     return standalizeArticle(structure);

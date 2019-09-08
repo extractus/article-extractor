@@ -12,8 +12,8 @@ const absolutify = (fullUrl, relativeUrl) => {
   if (!isValidURL(fullUrl) || !isString(relativeUrl)) {
     return '';
   }
-  let parsed = URL.parse(fullUrl);
-  let first = [parsed.protocol, parsed.host].join('//');
+  const parsed = URL.parse(fullUrl);
+  const first = [parsed.protocol, parsed.host].join('//');
   return URL.resolve(first, relativeUrl);
 };
 

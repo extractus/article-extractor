@@ -2,6 +2,7 @@
 Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
+[![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
 [![Build Status](https://gitlab.com/ndaidong/article-parser/badges/master/build.svg)](https://gitlab.com/ndaidong/article-parser/pipelines)
 
 
@@ -31,7 +32,6 @@ extract(url).then((article) => {
 
  - [configure(Object conf)](#configureobject-conf)
  - [extract(String url)](#extractstring-url)
- - [extractWithEmbedly(String url [, String EmbedlyKey])](#extractwithembedlystring-url--string-embedlykey)
  - [getConfig()](#getconfig)
 
 
@@ -43,8 +43,7 @@ extract(url).then((article) => {
   wordsPerMinute: Number,
   htmlRules: Object,
   SoundCloudKey: String,
-  YouTubeKey: String,
-  EmbedlyKey: String
+  YouTubeKey: String
 }
 ```
 
@@ -53,7 +52,7 @@ extract(url).then((article) => {
 - htmlRules: Object, options to to clean HTML with [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options)
 - SoundCloudKey: String, use to get audio duration. Get it [here](https://developers.soundcloud.com/).
 - YouTubeKey: String, use to get video duration. Get it [here](https://console.developers.google.com/).
-- EmbedlyKey: String, use to extract with Embedly API. Refer [here](http://docs.embed.ly/docs/extract).
+
 
 Default configurations may work for most case.
 
@@ -98,26 +97,6 @@ Now *article* would be something like this:
   duration: 292
 }
 
-```
-
-#### extractWithEmbedly(String url [, String EmbedlyKey])
-
-Extract article data from specified url using [Embedly Extract API](http://embed.ly/extract):
-
-The second parameter is optional. If you've added your Embedly key via configure() method, you can ignore it here.
-
-```js
-const {
-  extractWithEmbedly
-} = require('article-parser');
-
-let url = 'https://goo.gl/MV8Tkh';
-
-extractWithEmbedly(url).then((article) => {
-  console.log(article);
-}).catch((err) => {
-  console.log(err);
-});
 ```
 
 

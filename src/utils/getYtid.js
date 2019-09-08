@@ -1,10 +1,10 @@
 // utils -> getYtid
 
 const getYtid = (lnk) => {
-  let x1 = 'www.youtube.com/watch?';
-  let x2 = 'youtu.be/';
-  let x3 = 'www.youtube.com/v/';
-  let x4 = 'www.youtube.com/embed/';
+  const x1 = 'www.youtube.com/watch?';
+  const x2 = 'youtu.be/';
+  const x3 = 'www.youtube.com/v/';
+  const x4 = 'www.youtube.com/embed/';
   let s = '';
   let vid = '';
 
@@ -13,10 +13,10 @@ const getYtid = (lnk) => {
 
   if (lnk.indexOf(x1) === 0) {
     s = lnk.replace(x1, '');
-    let arr = s.split('&');
+    const arr = s.split('&');
     if (arr.length > 0) {
       for (let i = 0; i < arr.length; i++) {
-        let tm = arr[i].split('=');
+        const tm = arr[i].split('=');
         if (tm[0] === 'v') {
           vid = tm[1];
           break;
@@ -29,7 +29,7 @@ const getYtid = (lnk) => {
     vid = lnk.replace(x3, '');
   } else if (lnk.indexOf(x4) === 0) {
     vid = lnk.replace(x4, '');
-    let ques = vid.indexOf('?');
+    const ques = vid.indexOf('?');
     if (ques !== -1) {
       vid = vid.substring(0, ques);
     }

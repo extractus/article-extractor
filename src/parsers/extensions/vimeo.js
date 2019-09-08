@@ -18,7 +18,7 @@ const parser = {
   extract: (url) => {
     return new Promise((resolve, reject) => {
       return loadJSON(`${URL}${encodeURIComponent(url)}`, fetchOptions).then(({json: data}) => {
-        let {
+        const {
           video_id: vid,
           thumbnail_url: image,
           title,

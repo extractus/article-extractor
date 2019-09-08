@@ -45,7 +45,7 @@ test('Testing loadHTML method fail with status:', (assert) => {
   loadHTML('http://myblog.com/tech/fail-to-load-article-1').then(({html}) => {
     return html;
   }).catch((err) => {
-    let msg = 'Fetching failed for "http://myblog.com/tech/fail-to-load-article-1"';
+    const msg = 'Fetching failed for "http://myblog.com/tech/fail-to-load-article-1"';
     assert.equals(err.message, msg, 'It must return an error');
   }).finally(assert.end);
 });
@@ -58,7 +58,7 @@ test('Testing loadHTML method fail with contentType:', (assert) => {
   loadHTML('http://myblog.com/tech/fail-to-load-article-2').then(({html}) => {
     return html;
   }).catch((err) => {
-    let msg = 'Error with contentType ""';
+    const msg = 'Error with contentType ""';
     assert.equals(err.message, msg, 'It must return an error');
   }).finally(assert.end);
 });

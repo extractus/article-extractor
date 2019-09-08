@@ -17,14 +17,14 @@ const URL = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&ke
 
 const getDuration = (vid) => {
   return new Promise((resolve, reject) => {
-    let url = `${URL}&id=${vid}`;
+    const url = `${URL}&id=${vid}`;
     return loadJSON(url, fetchOptions).then(({json: data}) => {
       if (data && data.items) {
-        let items = data.items;
+        const items = data.items;
         if (items.length > 0) {
-          let item = items[0].contentDetails || false;
+          const item = items[0].contentDetails || false;
           if (item && item.duration) {
-            let duration = toSecond(item.duration);
+            const duration = toSecond(item.duration);
             return resolve(duration);
           }
         }
@@ -43,7 +43,7 @@ const parser = {
   ],
   extract: (url) => {
     return new Promise((resolve, reject) => {
-      let vid = getYtid(url);
+      const vid = getYtid(url);
 
       if (!vid) {
         throw new Error('No video ID found');

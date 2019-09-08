@@ -9,8 +9,8 @@ const {
 const findExtension = require('../../../src/utils/findExtension');
 
 test('Testing findExtension method:', (assert) => {
-  let url = 'https://www.youtube.com/watch?v=okMVc3-aCKQ';
-  let result = findExtension(url);
+  const url = 'https://www.youtube.com/watch?v=okMVc3-aCKQ';
+  const result = findExtension(url);
 
   assert.ok(isObject(result), `result must be an object`);
   assert.ok(isArray(result.schemes), `result.schemes must be array`);

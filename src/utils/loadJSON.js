@@ -11,7 +11,7 @@ const cache = require('./store').contentLoadedCache;
 
 const loadJSON = (url, opts = {}) => {
   return new Promise((resolve, reject) => {
-    let stored = cache.get(url);
+    const stored = cache.get(url);
     if (stored) {
       info(`Got JSON from cache: ${url}`);
       return resolve(stored);
@@ -19,7 +19,7 @@ const loadJSON = (url, opts = {}) => {
 
     fetch(url, opts)
       .then(async (res) => {
-        let {
+        const {
           ok,
           status,
         } = res;
@@ -37,7 +37,7 @@ const loadJSON = (url, opts = {}) => {
         cache.set(url, data);
         return resolve(data);
       }).catch((err) => {
-        let msg = `Error while fetching remote JSON from "${url}"`;
+        const msg = `Error while fetching remote JSON from "${url}"`;
         error(err);
         return reject(new Error(msg));
       });

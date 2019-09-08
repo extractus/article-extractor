@@ -24,7 +24,7 @@ const {
 } = require('../../../');
 
 const hasRequiredKeys = (o) => {
-  let structure = [
+  const structure = [
     'alias',
     'url',
     'canonicals',
@@ -84,11 +84,11 @@ const JSON = require('fs').readFileSync('./test/data/youtube.json', 'utf8');
     });
   });
 
-  let badurl = 'https://www.youtube.com/watch?v=';
+  const badurl = 'https://www.youtube.com/watch?v=';
 
   test(`Testing with .extract('${badurl}')`, (t) => {
     extract(badurl).catch((e) => {
-      let msg = `No video ID found`;
+      const msg = `No video ID found`;
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
