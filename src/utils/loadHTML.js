@@ -11,7 +11,7 @@ const cache = require('./store').contentLoadedCache;
 
 const loadHTML = (url, opts = {}) => {
   return new Promise((resolve, reject) => {
-    let stored = cache.get(url);
+    const stored = cache.get(url);
     if (stored) {
       info(`Got HTML from cache: ${url}`);
       return resolve(stored);
@@ -19,7 +19,7 @@ const loadHTML = (url, opts = {}) => {
 
     fetch(url, opts)
       .then(async (res) => {
-        let {
+        const {
           ok,
           status,
           headers,
@@ -28,7 +28,7 @@ const loadHTML = (url, opts = {}) => {
         if (!ok || status !== 200) {
           throw new Error(`Fetching failed for "${url}"`);
         }
-        let contentType = headers.get('content-type') || '';
+        const contentType = headers.get('content-type') || '';
         if (!contentType || !contentType.startsWith('text/')) {
           throw new Error(`Error with contentType "${contentType}"`);
         }

@@ -10,6 +10,6 @@ const {
 } = require('../src/main');
 
 (async () => {
-  let a = await extract(url);
+  const a = await extract(url);
   console.log(a); // eslint-disable-line
 })();

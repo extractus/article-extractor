@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "12.7"
+  - "10.6"
+  - "8.6"
+install:
+  - npm i
+script:
+  - npm run lint
+  - NODE_ENV=citest npm test

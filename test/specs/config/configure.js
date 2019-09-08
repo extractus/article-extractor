@@ -22,7 +22,6 @@ const sample = {
   wordsPerMinute: 500,
   SoundCloudKey: 'SOUNDCLOUDKEY',
   YouTubeKey: 'YOUTUBEKEY',
-  EmbedlyKey: 'EMBEDLYKEY',
   htmlRules: {
     allowedTags: [
       'html', 'body', 'meta', 'link', 'title',
@@ -38,7 +37,6 @@ const hasRequiredKeys = (o) => {
     'wordsPerMinute',
     'SoundCloudKey',
     'YouTubeKey',
-    'EmbedlyKey',
     'htmlRules',
   ];
 
@@ -51,26 +49,22 @@ const fake = Object.create(AP);
 
 test('Testing "configure" method:', (assert) => {
   fake.configure(sample);
-  let config = fake.getConfig();
+  const config = fake.getConfig();
 
   assert.comment('(Call config object is C, so:)');
   assert.ok(isObject(config), 'C must be an object.');
   assert.ok(hasRequiredKeys(config), 'C must have all required keys.');
 
-  let a1 = config.SoundCloudKey;
-  let e1 = sample.SoundCloudKey;
+  const a1 = config.SoundCloudKey;
+  const e1 = sample.SoundCloudKey;
   assert.deepEqual(a1, e1, `C.SoundCloudKey must be ${e1}`);
 
-  let a2 = config.YouTubeKey;
-  let e2 = sample.YouTubeKey;
+  const a2 = config.YouTubeKey;
+  const e2 = sample.YouTubeKey;
   assert.deepEqual(a2, e2, `C.YouTubeKey must be ${e2}`);
 
-  let a3 = config.EmbedlyKey;
-  let e3 = sample.EmbedlyKey;
-  assert.deepEqual(a3, e3, `C.EmbedlyKey must be ${e3}`);
-
-  let a5 = config.htmlRules;
-  let e5 = sample.htmlRules;
+  const a5 = config.htmlRules;
+  const e5 = sample.htmlRules;
   assert.deepEqual(a5, e5, 'C.htmlRules must be equal to sample.htmlRules');
 
   assert.deepEqual(config.wordsPerMinute, sample.wordsPerMinute, `C.wordsPerMinute must be ${sample.wordsPerMinute}`);

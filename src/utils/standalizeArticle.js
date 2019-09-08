@@ -18,20 +18,20 @@ const getTimeToRead = require('./getTimeToRead');
 const absolutifyURL = require('./absolutifyURL');
 
 const standalize = (input) => {
-  let {
+  const {
     content: html,
     description,
     url,
   } = input;
 
   if (html) {
-    let $ = cheerio.load(html, {
+    const $ = cheerio.load(html, {
       normalizeWhitespace: true,
       decodeEntities: true,
     });
 
     $('a').each((i, elem) => {
-      let href = $(elem).attr('href');
+      const href = $(elem).attr('href');
       if (href) {
         $(elem).attr('href', absolutifyURL(url, href));
         $(elem).attr('target', '_blank');
@@ -39,7 +39,7 @@ const standalize = (input) => {
     });
 
     $('img').each((i, elem) => {
-      let src = $(elem).attr('src');
+      const src = $(elem).attr('src');
       if (src) {
         $(elem).attr('src', absolutifyURL(url, src));
       }
@@ -56,11 +56,11 @@ const standalize = (input) => {
     });
 
     cleanHtml = sanitize(cleanHtml, contentOnlyRule);
-    let content = trim(cleanHtml);
+    const content = trim(cleanHtml);
     input.content = content;
 
-    let text = stripTags(content);
-    let s = description || text;
+    const text = stripTags(content);
+    const s = description || text;
     input.description = truncate(s, 156);
 
     input.duration = getTimeToRead(text);

@@ -37,7 +37,7 @@ test('Testing loadJSON method fail with status:', (assert) => {
   loadJSON('http://freegeoip.net/json/abc.com').then(({json}) => {
     return json;
   }).catch((err) => {
-    let msg = 'Fetching failed for http://freegeoip.net/json/abc.com';
+    const msg = 'Fetching failed for http://freegeoip.net/json/abc.com';
     assert.equals(err.message, msg, 'It must return an error');
   }).finally(assert.end);
 });
@@ -50,7 +50,7 @@ test('Testing loadJSON method fail with JSON format:', (assert) => {
   loadJSON('http://freegeoip.net/json/xyz.com').then(({json}) => {
     return json;
   }).catch((err) => {
-    let msg = 'Error while fetching remote JSON from "http://freegeoip.net/json/xyz.com"';
+    const msg = 'Error while fetching remote JSON from "http://freegeoip.net/json/xyz.com"';
     assert.equals(err.message, msg, 'It must return an error');
   }).finally(assert.end);
 });

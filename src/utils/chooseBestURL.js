@@ -18,7 +18,7 @@ const chooseBestURL = (candidates = [], titleHashed) => {
     let g = compare(theBest, titleHashed);
 
     candidates.forEach((url) => {
-      let k = compare(url, titleHashed);
+      const k = compare(url, titleHashed);
       if (k > g) {
         g = k;
         theBest = url;

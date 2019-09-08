@@ -24,7 +24,7 @@ const penv = process.env || {};
 const ENV = penv.NODE_ENV || '';
 
 const hasRequiredKeys = (o) => {
-  let structure = [
+  const structure = [
     'alias',
     'url',
     'canonicals',

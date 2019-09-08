@@ -3,8 +3,6 @@
  * @ndaidong
  **/
 
-global.Promise = require('promise-wtf');
-
 const {
   md5,
 } = require('bellajs');
@@ -32,8 +30,6 @@ const {
   info,
 } = logger;
 
-const extractWithEmbedly = require('./parsers/extractWithEmbedly');
-
 const parse = require('./parsers');
 
 const extract = async (inputURL = '') => {
@@ -44,20 +40,20 @@ const extract = async (inputURL = '') => {
 
     info(`Start extracting "${inputURL}"`);
 
-    let _url = removeUTM(inputURL);
-    let id = md5(_url);
+    const _url = removeUTM(inputURL);
+    const id = md5(_url);
 
-    let stored = cache.get(id);
+    const stored = cache.get(id);
     if (stored) {
       return stored;
     }
 
-    let {
+    const {
       url,
       html,
     } = await loadHTML(_url, fetchOptions);
 
-    let article = await parse({_url, url, html});
+    const article = await parse({_url, url, html});
     cache.set(id, article);
     info(`Finish extracting "${inputURL}"`);
 
@@ -74,5 +70,4 @@ module.exports = {
   },
   configure,
   extract,
-  extractWithEmbedly,
 };

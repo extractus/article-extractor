@@ -26,7 +26,7 @@ const {
 } = require('../../../');
 
 const hasRequiredKeys = (o) => {
-  let structure = [
+  const structure = [
     'alias',
     'url',
     'canonicals',

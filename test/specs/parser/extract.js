@@ -24,7 +24,7 @@ const {
 } = require('../../../');
 
 const hasRequiredKeys = (o) => {
-  let structure = [
+  const structure = [
     'alias',
     'url',
     'canonicals',
@@ -48,7 +48,7 @@ const URL = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b
 const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 
 (() => {
-  let url = `https://medium.com/well-retrieve-article`;
+  const url = `https://medium.com/well-retrieve-article`;
   nock('https://medium.com')
     .defaultReplyHeaders({
       'Content-Type': 'text/html',
@@ -93,7 +93,7 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).catch((e) => {
-      let msg = 'Error with contentType ""';
+      const msg = 'Error with contentType ""';
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
@@ -106,14 +106,14 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).catch((e) => {
-      let msg = 'Error with contentType ""';
+      const msg = 'Error with contentType ""';
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
 })();
 
 (() => {
-  let url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
+  const url = 'https://medium.com/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6';
   nock('https://medium.com')
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(500, HTML, {
@@ -122,14 +122,14 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).catch((e) => {
-      let msg = `Fetching failed for "${url}"`;
+      const msg = `Fetching failed for "${url}"`;
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
 })();
 
 (() => {
-  let contentType = 'application/json';
+  const contentType = 'application/json';
   nock('https://medium.com')
     .get('/@ndaidong/setup-rocket-chat-within-10-minutes-2b00f3366c6')
     .reply(200, HTML, {
@@ -138,7 +138,7 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 
   test(`Testing with .extract(${URL})`, (t) => {
     extract(URL).catch((e) => {
-      let msg = `Error with contentType "application/json"`;
+      const msg = `Error with contentType "application/json"`;
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
@@ -147,14 +147,14 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 (() => {
   test(`Testing with .extract('')`, (t) => {
     extract('').catch((e) => {
-      let msg = `Invalid URL`;
+      const msg = `Invalid URL`;
       t.equals(e.message, msg, 'It must return an error.');
     }).finally(t.end);
   });
 })();
 
 (() => {
-  let url = 'https://blog.google/products/maps/lets-clear-air-mapping-our-environment-our-health/';
+  const url = 'https://blog.google/products/maps/lets-clear-air-mapping-our-environment-our-health/';
   test(`Testing with .extract(${url})`, (t) => {
     extract(url).then((art) => {
       t.ok(isObject(art), 'Extracted successfully');
@@ -165,7 +165,7 @@ const HTML = fs.readFileSync('./test/data/fetchedData.txt', 'utf8');
 })();
 
 (() => {
-  let url = 'https://en.wikipedia.org/wiki/Ramen';
+  const url = 'https://en.wikipedia.org/wiki/Ramen';
   test(`Testing with .extract(${url})`, (t) => {
     extract(url).then((art) => {
       t.ok(isObject(art), 'Extracted successfully');

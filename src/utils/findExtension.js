@@ -20,7 +20,7 @@ const extensions = [];
 
 readdirSync(join(__dirname, extDir)).forEach((file) => {
   if (extname(file) === '.js') {
-    let ext = require(`${extDir}/${file}`);
+    const ext = require(`${extDir}/${file}`);
     if (isObject(ext) && isFunction(ext.extract) && isArray(ext.schemes)) {
       extensions.push(ext);
     }
@@ -28,13 +28,13 @@ readdirSync(join(__dirname, extDir)).forEach((file) => {
 });
 
 const extFinder = (url, providers) => {
-  let candidates = providers.filter((provider) => {
-    let {
+  const candidates = providers.filter((provider) => {
+    const {
       schemes,
     } = provider;
 
     return schemes.some((scheme) => {
-      let reg = new RegExp(scheme.replace(/\*/g, '(.*)'), 'i');
+      const reg = new RegExp(scheme.replace(/\*/g, '(.*)'), 'i');
       return url.match(reg);
     });
   });
