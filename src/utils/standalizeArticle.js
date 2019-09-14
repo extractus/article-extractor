@@ -8,7 +8,6 @@ const htmlmin = require('html-minifier').minify;
 const {
   stripTags,
   truncate,
-  trim,
 } = require('bellajs');
 
 const config = require('../config');
@@ -56,7 +55,7 @@ const standalize = (input) => {
     });
 
     cleanHtml = sanitize(cleanHtml, contentOnlyRule);
-    const content = trim(cleanHtml);
+    const content = cleanHtml.trim();
     input.content = content;
 
     const text = stripTags(content);

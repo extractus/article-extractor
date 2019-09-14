@@ -5,8 +5,8 @@ const URL = require('url');
 const {
   ucwords,
   copies,
-  createAlias,
-  createId,
+  slugify,
+  genid,
   time,
 } = require('bellajs');
 
@@ -65,7 +65,7 @@ const parse = async (input) => {
       author = ucwords(author);
     }
 
-    const hashTitle = createAlias(title);
+    const hashTitle = slugify(title);
     url = chooseBestURL(canonicals, hashTitle);
 
     const domain = getDomainFromURL(url);
@@ -76,7 +76,7 @@ const parse = async (input) => {
     const alias = [
       hashTitle,
       time(),
-      createId(10),
+      genid(10),
     ].join('-');
 
     const structure = {
