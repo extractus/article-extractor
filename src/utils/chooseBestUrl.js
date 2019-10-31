@@ -6,6 +6,8 @@ import {
 
 import stringComparision from 'string-comparison';
 
+import {getParserOptions} from '../config';
+
 import {
   error,
 } from './logger';
@@ -17,12 +19,15 @@ export default (candidates = [], title) => {
   }, candidates[0]);
 
   try {
-    const ls = stringComparision.levenshtein;
+    const opts = getParserOptions();
+    const alg = opts['urlsCompareAlgorithm'];
+    const comparer = stringComparision[alg];
+
     const titleHashed = slugify(title);
-    let g = ls.similarity(theBest, titleHashed);
+    let g = comparer.similarity(theBest, titleHashed);
 
     candidates.forEach((url) => {
-      const k = ls.similarity(url, titleHashed);
+      const k = comparer.similarity(url, titleHashed);
       if (k > g) {
         g = k;
         theBest = url;
