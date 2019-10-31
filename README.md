@@ -32,12 +32,13 @@ extract(url).then((article) => {
 
 Since v4, `article-parser` will focus only on its main mission: extract main readable content from given webpages, such as blog posts or news entries. Although it is still able to get other kinds of content like YouTube movies, SoundCloud media, etc, they are just additions.
 
+
 #### extract(String url | String html)
 
 Extract data from specified url or full HTML page content.
-Return: an article object
+Return: a Promise
 
-Example:
+Here is how we can use `article-parser`:
 
 ```js
 import {
@@ -53,28 +54,24 @@ const getArticle = async (url) => {
   }
 };
 
-const url = 'https://ghost.org/blog/3-0/';
-const article = getArticle(url);
 ```
 
-Now *article* would be something like this:
+In comparison to v3, the `article` object structure has been changed too. Now it looks like below:
 
 ```json
 {
-  "url": "https://ghost.org/blog/3-0/",
-  "links": [
-    "https://some.where/blog/ghost-3-0",
-    "https://ghost.org/blog/3-0/"
-  ],
-  "title": "Announcing Ghost 3.0 – The story behind raising $5m",
-  "description": "15,000 commits later - we just launched Ghost 3.0 and we've raised $5m in funding from the most forward thinking investors: our customers! Read our story.",
-  "image": "https://mainframe.ghost.io/content/images/2019/10/3.0-blog-feature-img.png",
-  "author": "@ghost",
-  "content": "<div><p>Today we released the third major version of Ghost, representing a total of more than 15,000 commits across almost 300 releases. The product is as fast and stable as it has ever been, and now it also has support for memberships, subscription revenue, and API driven modern site architectures.</p><p>But you might be wondering about...",
-  "source": "Ghost",
-  "published": "2019-10-22T10:35:14.000+00:00"
+  "url": URI String,
+  "links": Array,
+  "title": String,
+  "description": String,
+  "image": URI String,
+  "author": String,
+  "content": Long HTML String,
+  "source": String,
+  "published": Date String
 }
 ```
+
 
 #### Configuration methods
 
