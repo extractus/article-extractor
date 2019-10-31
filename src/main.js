@@ -78,7 +78,6 @@ export const extract = async (input) => {
     }
     const links = [trimmedUrl, normalizedUrl];
     article.url = normalizedUrl;
-    console.log(hasProvider(normalizedUrl))
     if (hasProvider(normalizedUrl)) {
       info('Provider found, loading as oEmbed data...');
       const json = await parseOEmbed(normalizedUrl);

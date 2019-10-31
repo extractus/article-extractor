@@ -39,7 +39,7 @@ test('Testing .isValidUrl() method', (assert) => {
     'http://abc.com/path/link/article?id=123&q=p',
     'https://abc.com:8080/path/link/article',
     'https://abc.com/path/link/article',
-    'https://abc.com/path/link/article?id=123&q=p'
+    'https://abc.com/path/link/article?id=123&q=p',
   ];
 
   goodUrls.map(testGoodUrls);

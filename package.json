@@ -17,6 +17,7 @@
   "scripts": {
     "start": "DEBUG=*:* node index",
     "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "tap tests/start.js --coverage --reporter=spec",
     "reset": "node reset"
   },

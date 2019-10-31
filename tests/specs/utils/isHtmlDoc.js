@@ -3,7 +3,7 @@
  * @ndaidong
  */
 
-import {readFileSync, writeFileSync} from 'fs';
+import {readFileSync} from 'fs';
 
 import {test} from 'tap';
 

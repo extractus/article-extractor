@@ -17,32 +17,32 @@ test('Testing .absolutifyUrl() method', (assert) => {
     {
       fullUrl: 'http://some.where/article/abc-xyz',
       relativeUrl: '/assets/images/ok.png',
-      expected: 'http://some.where/assets/images/ok.png'
+      expected: 'http://some.where/assets/images/ok.png',
     },
     {
       fullUrl: 'http://some.where/article/abc-xyz',
       relativeUrl: '../images/ok.png',
-      expected: 'http://some.where/images/ok.png'
+      expected: 'http://some.where/images/ok.png',
     },
     {
       fullUrl: 'http://some.where/article/abc-xyz',
       relativeUrl: '../../ok.png',
-      expected: 'http://some.where/ok.png'
+      expected: 'http://some.where/ok.png',
     },
     {
       fullUrl: 'http://some.where/article/abc-xyz',
       relativeUrl: '../../../../images/ok.png',
-      expected: 'http://some.where/images/ok.png'
+      expected: 'http://some.where/images/ok.png',
     },
     {
       fullUrl: 'http://some.where/article/abc-xyz',
       relativeUrl: 'http://some.where/assets/images/ok.png',
-      expected: 'http://some.where/assets/images/ok.png'
+      expected: 'http://some.where/assets/images/ok.png',
     },
     {
       fullUrl: 'http://some.where/article/abc-xyz',
       relativeUrl: 'http://here.is/assets/images/ok.png',
-      expected: 'http://here.is/assets/images/ok.png'
+      expected: 'http://here.is/assets/images/ok.png',
     },
   ];
 

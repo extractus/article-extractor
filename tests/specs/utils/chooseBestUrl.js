@@ -3,8 +3,6 @@
  * @ndaidong
  */
 
-import {readFileSync} from 'fs';
-
 import {test} from 'tap';
 
 import chooseBestUrl from '../../../src/utils/chooseBestUrl.js';
