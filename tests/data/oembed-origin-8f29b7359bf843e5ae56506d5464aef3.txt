@@ -1,0 +1,15 @@
+{
+  "thumbnail_url": "https://i.ytimg.com/vi/s1zYQZ7ysyg/hqdefault.jpg",
+  "width": 480,
+  "height": 270,
+  "author_url": "https://www.youtube.com/channel/UC1VAL4j9yiPQVKMtIS1yUOA",
+  "author_name": "TV HUB",
+  "html": "<iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/s1zYQZ7ysyg?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+  "title": "Shark Tank Việt Nam Tập 14 | Mùa 3 | Startup Tiên Phong Quyết Định Chuyển Đổi Số Và Cái Kết Bất Ngờ",
+  "thumbnail_height": 360,
+  "provider_name": "YouTube",
+  "thumbnail_width": 480,
+  "provider_url": "https://www.youtube.com/",
+  "type": "video",
+  "version": "1.0"
+}

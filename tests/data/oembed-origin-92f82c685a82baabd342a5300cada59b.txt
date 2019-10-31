@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "type": "rich",
+  "width": "480",
+  "height": "320",
+  "thumbnail_url": "https://cmc.byzart.eu/files/original/default_audio_thumb.jpg",
+  "thumbnail_height": "460",
+  "thumbnail_width": "251",
+  "html": "<iframe frameborder=\"0\" width=\"500\" height=\"340\" src=\"https://cmc.byzart.eu/oembed/?url=https%3A%2F%2Fcmc.byzart.eu%2Ffiles%2Foriginal%2Funibo%2Funibo_bovini_archive%2F003_010_128629_01.jpg&type=rich\"></iframe>",
+  "provider_name": "BYZART",
+  "provider_url": "https://cmc.byzart.eu/"
+}

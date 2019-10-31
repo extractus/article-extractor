@@ -1,0 +1,206 @@
+<div class="post-content__sticky-social">
+                                                    <div class="addthis_inline_share_toolbox sticky-container">
+
+                                                    </div>
+                                                </div>
+                                                <div class="hsg-rich-text">
+
+
+                                                    <div class="hsg-rich-text__wrapper post-content__wrapper blog-postPage-content">
+
+
+
+
+
+
+ <span id="hs_cos_wrapper_post_body" class="hs_cos_wrapper hs_cos_wrapper_meta_field hs_cos_wrapper_type_rich_text" style data-hs-cos-general-type="meta_field" data-hs-cos-type="rich_text"><p>Sometimes, when I tell people that I blog for a living, they roll their eyes. &quot;That&apos;s so easy,&quot; they say. &quot;You get a paycheck for sitting on the internet all day and writing. A monkey could do your job!&quot;</p>
+<p>That&apos;s when<em> I</em> roll my eyes. See, people are quick to deem blogging as a no-brainer job. But when they actually sit down to write their first couple of posts, it hits them: <em>This is way harder than I thought</em>.<!--more--> Like any person starting a new job, they mess things up.</p>
+<p>That&apos;s okay -- it happens to pretty much every new blogger. Luckily, it&apos;s pretty easy to avoid these roadblocks if you know they&apos;re coming.</p>
+<p><!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-ccc95db5-9007-49cf-b69c-94bb5c46b366"><span class="hs-cta-node hs-cta-ccc95db5-9007-49cf-b69c-94bb5c46b366" id="hs-cta-ccc95db5-9007-49cf-b69c-94bb5c46b366"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/53/ccc95db5-9007-49cf-b69c-94bb5c46b366" target="_blank"><img class="hs-cta-img" id="hs-cta-img-ccc95db5-9007-49cf-b69c-94bb5c46b366" style="border-width:0px;margin: 0 auto; display: block; margin-top: 20px; margin-bottom: 20px" src="https://no-cache.hubspot.com/cta/default/53/ccc95db5-9007-49cf-b69c-94bb5c46b366.png" alt="Download Now: 6 Free Blog Post Templates" align="middle"></a></span><script charset="utf-8" src="/hs/cta/cta/current.js"></script><script type="text/javascript"> hbspt.cta._relativeUrls=true;hbspt.cta.load(53, 'ccc95db5-9007-49cf-b69c-94bb5c46b366', {}); </script></span><!-- end HubSpot Call-to-Action Code --></p>
+<p>So for all of you beginner bloggers out there who are looking to get up-to-speed quickly, keep on reading. Below are 12 common mistakes most beginners make and some tips on how to avoid them.</p>
+<h2>What is a blog?</h2>
+<p>Simply put, a blog is a tool that can help develop an online presence, attract leads, and engage with an audience. It&apos;s often a series of editorial content centered around a central topic that demonstrates industry expertise -- for instance, a catering company might write blog posts like &quot;The 11 Best Appetizers to Serve to a Crowd&quot; or &quot;Stress-Free Dinner Parties: Recipes that are Prepared Ahead of Time&quot;.</p>
+<p>Blogs can help drive traffic to your website, convert that traffic into leads, establish authority in your industry, and <a href="/marketing/what-is-a-blog?_ga=2.117054918.1559363486.1561986372-527251855.1560789477" rel="noopener" target="_blank">ultimately grow your business</a>. In fact, organizations are <a href="https://www.hubspot.com/marketing-statistics?_ga=2.222693727.558674788.1561985800-983944916.1546275206" rel="noopener" target="_blank">13x more likely to see positive ROI</a> by prioritizing blogging.&#xA0;</p>
+<p>Most of a blog&apos;s traffic is driven organically -- in other words, consumers will search for something on a search engine and click on your blog if it matches their intended topic. However, there are a lot of organizations competing for your audience&apos;s attention, so it&apos;s important to avoid common blog mistakes to stand out.&#xA0;&#xA0;</p>
+<div class="hsg-featured-snippet">
+<h2>Blogging Tips for Beginners</h2>
+<ol>
+<li>Create blog posts that serve your larger company goals.</li>
+<li>Write like you talk.</li>
+<li>Show your personality; don&apos;t tell it.</li>
+<li>Make your point again and again.</li>
+<li>Start with a very specific working title.</li>
+<li>Use a specific post type, create an outline, and use headers.</li>
+<li>Use data and research to back up the claims you make in your posts.</li>
+<li>When drawing from others&apos; ideas, cite them.</li>
+<li>Take 30 minutes to edit your post.</li>
+<li>At a certain point, just publish it.</li>
+<li>Blog consistently with the help of an editorial calendar.</li>
+<li>Focus on the long-term benefits of organic traffic.</li>
+<li>Add a subscription CTA to your blog and set up an email newsletter.</li>
+</ol>
+</div>
+<h3>1. Create blog posts that serve your larger company goals.</h3>
+<h4>Mistake: You think of ideas that only interest you.</h4>
+<p>As much as you might read and re-read your blog posts after you publish them, you&apos;re not the only reader, or the intended reader.</p>
+<p>When you start blogging, ideas will come to you at random times -- in the shower, on a run, while on the phone with your mom. While the ideas may come at random moments, the ideas themselves should never be random. Just because it&apos;s a good idea in general -- or something that interests you personally -- doesn&apos;t mean it&apos;s a good idea for your company.</p>
+<h4>Solution: Align your blog posts with company growth goals.</h4>
+<p>The reason you&apos;re blogging is to solve problems for your audience and, ultimately, to grow your business. So, all of your blog post ideas should <a href="//blog.hubspot.com/blog/tabid/6307/bid/33898/How-to-Set-SMART-Marketing-Goals-for-2013-TEMPLATE.aspx" target="_blank" rel="noopener">help serve those growth goals</a>. They should have natural tie-ins to issues in your industry and address specific questions and concerns your prospects have.</p>
+<p>Need help figuring out what those goals are and how to address them? Chat with your manager about the larger company goals, and then <a href="https://www.hubspot.com/products/sales/schedule-meeting" target="_blank" rel="noopener">schedule a meeting</a> with someone on the sales team to hear what questions they get asked most often. After both meetings, you should know which goals you need to achieve and have some ideas on how to achieve them.</p>
+<h3>2. Write like you talk.</h3>
+<h4>Mistake: Your writing is too stiff.</h4>
+<p>Writing a blog post is much different than writing a term paper. But when bloggers first start out, they usually only have experience with the latter. The problem? The style of writing from a term paper is <em>not</em> the style of writing people enjoy reading.</p>
+<p>Let&apos;s be honest: Most of the people who see your post aren&apos;t going to read the whole thing. If you want to keep them interested, you have to compel them to keep reading by <a href="//blog.hubspot.com/marketing/hard-to-read-blog-posts" target="_blank" rel="noopener">writing in a style that&apos;s effortless to read</a>.</p>
+<h4>Solution: Try to write blogs that feel personable.&#xA0;</h4>
+<p>It&apos;s okay to be more conversational in your writing -- in fact, we encourage it. The <a href="//blog.hubspot.com/marketing/how-to-write-interesting-content" target="_blank" rel="noopener">more approachable your writing is</a>, the more people will enjoy reading it. People want to feel like they&apos;re doing business with real people, not robots.</p>
+<p>So loosen up your writing. Throw in contractions. Get rid of the jargon. Make a pun or two. That&apos;s how real people talk -- and that&apos;s what real people like to read.</p>
+<h3>3. Show your personality; don&apos;t tell it.</h3>
+<h4>Mistake: You think people care about <em>you</em> as a writer.</h4>
+<p>It sounds harsh, but it&apos;s the truth: When people first start out blogging, they think that their audience will be inherently interested in <em>their </em>stories and <em>their</em> interests ... but that&apos;s not the case. It&apos;s no knock against them as a person -- it&apos;s just that when you&apos;re new, no one is interested in you and your experiences. People care way more about what you can teach them.</p>
+<h4>Solution: Infuse your personality without eclipsing the topic.</h4>
+<p>Even though people don&apos;t really care that it&apos;s <em>you</em> that&apos;s writing the post, you can infuse parts of your personality in your writing to make them feel more comfortable with you. How you do that is entirely up to you. Some people like to crack jokes, some like to make pop culture references, and others have a way with vivid descriptions.</p>
+<p>HubSpot&apos;s Director of Content <a href="https://www.linkedin.com/in/coreyeridon" target="_blank" rel="noopener">Corey Wainwright</a> is particularly good at this. Here&apos;s an example from the introduction <a href="//blog.hubspot.com/marketing/how-to-crowdsource-blog-post-google-docs" target="_blank" rel="noopener">of one of her posts</a>:</p>
+<p style="text-align: center;"><img class="alignCenter shadow" src="https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=600&amp;name=show-personality-in-blog-post.png" alt="show-personality-in-blog-post.png" width="600" style="width: 600px; margin: 0px auto;" srcset="https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=300&amp;name=show-personality-in-blog-post.png 300w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=600&amp;name=show-personality-in-blog-post.png 600w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=900&amp;name=show-personality-in-blog-post.png 900w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=1200&amp;name=show-personality-in-blog-post.png 1200w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=1500&amp;name=show-personality-in-blog-post.png 1500w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=1800&amp;name=show-personality-in-blog-post.png 1800w" sizes="(max-width: 600px) 100vw, 600px"></p>
+<p>To infuse personality into your own writing, try looking for ways to relate to your readers on the topic you&apos;re writing about -- then write in the first person as if you&apos;re hanging out with them and chatting about it. Make your tone personal, approachable, and engaging, just like you would in a face-to-face conversation.</p>
+<h3>4. Make your point again and again.</h3>
+<h4>Mistake: You digress.</h4>
+<p>Although you are encouraged to let your own personality shine through in your writing, don&apos;t abuse the privilege. It&apos;s one thing to be yourself in the topic you&apos;re covering, but it&apos;s another thing to bring up too many personal experiences that bury the point you&apos;re trying to make.</p>
+<p>Don&apos;t digress into these personal anecdotes and analogies too much -- your readers aren&apos;t sitting in front of you, which means you can&apos;t guarantee that you have their undivided attention. They can (and will) bounce from your article if they lose patience.&#xA0;</p>
+<h4>Solution: Repeatedly assert your argument.&#xA0;</h4>
+<p>To prevent your writing from losing its audience, restate your point in every section of the article. The best blog posts commit to an overarching message and then deliver it gradually, expressing it multiple times in small ways from beginning to end.</p>
+<p>If you&apos;re writing about how much water a potted plant needs, for example, don&apos;t spend three paragraphs telling a story of how you came home to a dead fern after returning from a two-week vacation. This story offers real evidence of your point, but what&#xA0;<em>is</em> your point? Certain plants can&apos;t go without water for more than 14 days. That&apos;s one possible point, and it should be stated upfront.</p>
+<h3>5. Start with a very specific working title.</h3>
+<h4>Mistake: Your topics are too broad.</h4>
+<p>When people start blogging, they generally want to write on really big topics like:</p>
+<ul>
+<li>&quot;How to Do Social Media Marketing&quot;</li>
+<li>&quot;Business Best Practices&quot;</li>
+<li>&quot;How to Make Money on the Internet&quot;</li>
+</ul>
+<p>Topics like these are far too broad. Because there are so many details and nuances in these topics, it&apos;s really hard to do a good job answering them. Plus, more specific topics tend to attract smaller, more targeted audiences, <a href="//blog.hubspot.com/marketing/definition-long-tail-keyword-100-words-sr" target="_blank" rel="noopener">which tend to be higher quality</a> and more likely to convert into leads and customers.</p>
+<p>So, to get the most short-term and long-term benefits of blogging, you&apos;ll need to get way more specific.</p>
+<h4 id="last">Solution: Begin with a clear, concise idea.</h4>
+<p>Nailing really specific blog topics is crucial to knocking your first few posts out of the park. Let us help you brainstorm with our <a href="https://www.hubspot.com/blog-topic-generator" rel="noopener" target="_blank">Blog Ideas Generator</a>. This tool allows you to enter basic terms you know you want to cover, and then produces five sample blog titles that work for business blogs.</p>
+<p>Keep in mind that a working title isn&apos;t final -- it&apos;s just a concrete angle you can use to keep your writing on track. Once you nail this stage of the ideation process, it&apos;s much easier to write your blog posts.</p>
+<h3>6. Use a specific post type, create an outline, and use headers.</h3>
+<h4 id="last">Mistake: Your writing is a brain dump.</h4>
+<p>Sometimes when I get a great idea I&apos;m excited about, it&apos;s really tempting to just sit down and let it flow out of me. But what I get is usually a sub-par blog post.</p>
+<p>Why? The stream-of-consciousness style of writing isn&apos;t really a good style for blog posts. Most people are going to scan your blog posts, not read them, so it needs to be organized really well for that to happen.</p>
+<h4>Solution: Structure your blog with a template, outline, and section headers.</h4>
+<p>The first thing you should do is choose what <em>type </em>of blog post you&apos;re going to write. Is it a how-to post? A list-based post? A curated collection post? A SlideShare presentation? For help on this, <strong><a href="//offers.hubspot.com/blog-post-templates" target="_blank" rel="noopener">download our free templates for creating five different types of blog posts</a>. </strong>Once you have a template down, it&apos;ll be easier to write your outline.</p>
+<p>Writing an outline makes a big difference. If you put in the time up front to organize your thoughts and create a logical flow in your post, the rest becomes easy -- you&apos;re basically just filling in the blanks.</p>
+<p>To write a blog post outline, first come up with a list of the top takeaways you want your readers to get from your post. Then, break up those takeaways into larger section headers. When you put in a section header every few paragraphs, your blog post becomes easier and more enjoyable to read. (And plus, <a href="//blog.hubspot.com/marketing/seo-friendly-blog-post-checklist-ht" target="_blank" rel="noopener">header text with keywords is good for SEO</a>.) When you finally get to writing, all you&apos;ll have to do is fill in those sections.</p>
+<h3>7. Use data and research to back up the claims you make in your posts.</h3>
+<h4>Mistake: You don&apos;t use data as evidence.</h4>
+<p>Let&apos;s say I&apos;m writing a blog post about why businesses should consider using Instagram for marketing. When I&apos;m making that argument, which is more convincing?</p>
+<ol>
+<li>&quot;It seems like more people are using Instagram nowadays.&quot;</li>
+<li>&quot;Instagram&#x2019;s user base is growing far faster than social network usage in general in the U.S. <a href="http://www.emarketer.com/Article/Instagram-Continues-Double-Digit-Growth/1013612#sthash.jucUQgyf.dpuf" target="_blank" rel="noopener">Instagram will grow 15.1% this year</a>, compared to just 3.1% growth for the social network sector as a whole.&quot;</li>
+</ol>
+<p>The second, of course. Arguments and claims are much more compelling when rooted in data and research. As marketers, we don&#x2019;t just have to convince people to be on our side about an issue -- we need to convince them to <em>take action.</em> Data-driven content catches people&apos;s attention in a way that fluffy arguments do not.</p>
+<h4>Solution: Use data to support your arguments.&#xA0;</h4>
+<p>In any good story, you&#x2019;ll offer a main argument, establish proof, and then end with a takeaway for the audience. You can <a href="//blog.hubspot.com/marketing/how-to-use-data-in-marketing-content" target="_blank" rel="noopener">use data in blog posts</a> to introduce your main argument and show why it&apos;s relevant to your readers, or as proof of it throughout the body of the post.</p>
+<p>Some great places to find compelling data include:</p>
+<ul>
+<li><a href="https://research.hubspot.com/" target="_blank" rel="noopener">HubSpot Research</a></li>
+<li><a href="http://www.pewresearch.org/" target="_blank" rel="noopener">Pew Research Center</a></li>
+<li><a href="http://www.marketingsherpa.com/freestuff.html" target="_blank" rel="noopener">MarketingSherpa</a></li>
+<li><a href="//www.stateofinbound.com/" target="_blank" rel="noopener">HubSpot&apos;s <em>State of Inbound</em> report</a></li>
+</ul>
+<h3>8. When drawing from others&apos; ideas, cite them.</h3>
+<h4>Mistake: Your content borders on plagiarism.</h4>
+<p>Plagiarism didn&apos;t work in school, and it certainly doesn&apos;t work on your company&apos;s blog. But for some reason, many beginner bloggers think they can get away with the old copy-and-paste technique.</p>
+<p>You can&apos;t. Editors and readers can usually tell when something&apos;s been copied from somewhere else. Your voice suddenly doesn&apos;t sound like you, or maybe there are a few words in there that are incorrectly used. It just sounds ... off.</p>
+<p>Plus, if you get caught <a href="//blog.hubspot.com/marketing/internet-content-theft" target="_blank" rel="noopener">stealing other people&apos;s content</a>, you could get your site penalized by Google -- which could be a big blow to your company blog&apos;s organic growth.</p>
+<h4><strong>Solution: Give credit where credit is due.&#xA0;</strong></h4>
+<p>Instead, take a few minutes to <a href="//blog.hubspot.com/blog/tabid/6307/bid/33098/How-Not-to-Steal-People-s-Content-on-the-Web.aspx" target="_blank" rel="noopener">understand how to cite other people&apos;s content in your blog posts</a>. It&apos;s not super complicated, but it&apos;s an essential thing to learn when you&apos;re first starting out.</p>
+<h3>9. Take 30 minutes to edit your post.</h3>
+<h4>Mistake: You think you&apos;re done once the writing&apos;s done.</h4>
+<p>Most people make the mistake of not editing their writing. It sounded so fluid in their head when they were writing that it <em>must</em> be great to read ... right?</p>
+<p>Nope -- it still needs editing. And maybe a lot of it.</p>
+<h4>Solution: You&apos;ll never regret time spent proofreading.&#xA0;</h4>
+<p>Everyone needs to edit their writing -- even the most experienced writers. Most times, our first drafts aren&apos;t all that great. So take the time you need to shape up your post. Fix typos, run-on sentences, and accidental its/it&apos;s mistakes. Make sure your story flows just as well as it did in your outline.</p>
+<p>To help you remember all the little things to check before publishing, <a href="//blog.hubspot.com/marketing/ultimate-editing-checklist" target="_blank" rel="noopener">check out our checklist for editing and proofreading a blog post</a>.</p>
+<h3>10. At a certain point, just publish it.</h3>
+<h4>Mistake: You try to make every post perfect.</h4>
+<p>I hate to break it to you, but <strong>your blog post is</strong> <strong>never</strong> <strong>going to be perfect. </strong>Ever.</p>
+<p>There will <em>always</em> be more things you can do to make your posts better. More images. Better phrasing. Wittier jokes. The best writers I know, know when to stop obsessing and just hit &quot;publish.&quot;</p>
+<h4>Solution: Better to publish and update than postpone for perfection.&#xA0;</h4>
+<p><a href="//blog.hubspot.com/marketing/good-enough-content-creation-design" target="_blank" rel="noopener">There&apos;s a point</a> at which there are diminishing returns for getting closer to &quot;perfect&quot; -- and you&apos;re really never going to reach &quot;perfect&quot; anyway. So while you don&apos;t want to publish a post filled with factual inaccuracies and grammatical errors, it&apos;s not the end of the world if a typo slips through. It most likely won&apos;t affect how many views and leads it brings in.</p>
+<p>Plus, if you (or your readers) find the mistake, all of you have to do is update the post. No biggie. So give yourself a break once and a while -- perfect is the enemy of done.</p>
+<h3>11. Blog consistently with the help of an editorial calendar.</h3>
+<h4>Mistake: You don&apos;t blog consistently.</h4>
+<p>By now, you&apos;ve probably heard that <a href="//blog.hubspot.com/marketing/blogging-frequency-benchmarks?_ga=1.30446463.1733063552.1465306056#sm.0001ralmokx9oe96wpl15ahh67v4e" target="_blank" rel="noopener">the more often you blog</a>, the more traffic you&apos;ll get to your website -- and the more subscribers and leads you&apos;ll generate from your posts. But as important as volume is, it&apos;s actually more important that you&apos;re blogging <em>consistently</em> when you&apos;re just getting started. If you publish five posts in one week and then only one or two in the next few weeks, it&apos;ll be hard to form a consistent habit. And inconsistency could really confuse your subscribers.</p>
+<p>Instead, it&apos;s the companies that make a commitment to regularly publishing quality content to their blogs that tend to reap the biggest rewards in terms of website traffic and leads -- and those results continue to pay out over time.</p>
+<p>To help establish consistency, you&apos;ll need a more concrete planning strategy.</p>
+<h4>Solution: Schedule and publish blogs consistently.&#xA0;</h4>
+<p>Use it to get into the habit of planning your blog post topics ahead of time, publishing consistently, and even scheduling posts in advance if you&apos;re finding yourself having a particularly productive week.</p>
+<p>Here at HubSpot, we typically use good ol&apos; Google Calendar as our blog editorial calendar, which <a href="//blog.hubspot.com/marketing/create-robust-editorial-calendar-ht" target="_blank" rel="noopener">you can learn how to set up step-by-step here</a>. Or, you can <a href="//offers.hubspot.com/blog-editorial-calendar" target="_blank" rel="noopener">click here to download our free editorial calendar templates</a> for Excel, Google Sheets, and Google Calendar, along with instructions on how to set them up.</p>
+<h3>12. Focus on the long-term benefits of organic traffic.</h3>
+<h4>Mistake: You concentrate your analytics on immediate traffic.</h4>
+<p>Both beginner bloggers and advanced bloggers are guilty of this blogging mistake. If you concentrate your analysis on immediate traffic (traffic from email subscribers, RSS feeds, and social shares), then it&apos;s going to be hard to prove the enduring value of your blog. After all, the half-life for those sources is very brief -- usually a day or two.</p>
+<p>When marketers who are just starting their business blogs see that their blog posts aren&apos;t generating any new traffic after a few days, many of them get frustrated. They think their blog is failing, and they <a href="//blog.hubspot.com/marketing/blog-failing-change-perspective">end up abandoning it prematurely</a>.</p>
+<h4>Solution: The ROI of your blog is the aggregation of organic traffic over time.</h4>
+<p>Instead of focusing on the sudden decay of short-term traffic, focus instead on the cumulative potential of organic traffic. Over time, given <em>enough </em>time, the traffic from day three and beyond of a single blog post will eclipse that big spike on days one and two <a href="//blog.hubspot.com/marketing/seo-friendly-blog-post-checklist-ht#sm.0000o5c3iom8gdkipdw2l236rj19q" target="_blank" rel="noopener">thanks to being found on search engine results pages through organic search</a>. You just have to give it a while.</p>
+<p>To help drive this long-term traffic, make sure you&apos;re writing blog posts that have durable relevance on a consistent basis. These posts <a href="//blog.hubspot.com/blog/tabid/6307/bid/31501/Why-Every-Business-Blog-Needs-Evergreen-Content.aspx" target="_blank" rel="noopener">are called &quot;evergreen&quot; blog posts</a>: They&apos;re relevant year after year with little or no upkeep, valuable, and high quality.</p>
+<p>Over time, as you write more evergreen content and build search authority, those posts <a href="//blog.hubspot.com/marketing/hubspot-blog-compounding-posts" target="_blank" rel="noopener">will end up being responsible for a large percentage of your blog traffic</a>. It all starts with a slight shift in perspective from daily traffic to cumulative traffic so you can reframe the way you view your blog and its ROI entirely.</p>
+<h3>13. Add a subscription CTA to your blog and set up an email newsletter.</h3>
+<h4>Mistake: You aren&apos;t growing subscribers.</h4>
+<p>Once you start blogging, it&apos;s easy to forget that blogging isn&apos;t just about getting <em>new</em> visitors to your blog. One of <a href="//blog.hubspot.com/marketing/the-benefits-of-business-blogging-ht" target="_blank" rel="noopener">the biggest benefits of blogging</a> is that it helps you steadily grow an email list of subscribers you can share your new content with. Each time you publish a new blog post, your subscribers will give you that initial surge of traffic -- which, in turn, will propel those posts&apos; long-term success.</p>
+<p>The key to getting significant business results (traffic, leads, and eventually customers) <a href="//blog.hubspot.com/marketing/grow-blog-subscribers-grow-traffic" target="_blank" rel="noopener">all starts with growing subscribers</a>.</p>
+<h4><span class="hs-cta-wrapper" id="hs-cta-wrapper-7925d2df-4129-4a61-a296-d814fb00ea18"><span class="hs-cta-node hs-cta-7925d2df-4129-4a61-a296-d814fb00ea18" id="hs-cta-7925d2df-4129-4a61-a296-d814fb00ea18" data-hs-drop="true"></span></span>Solution: How to set up a subscription CTA and email newsletter:</h4>
+<p>First, use your email marketing tool to set up a welcome email for new subscribers, as well as a regular email that pulls in your most recent blog posts. (HubSpot customers: You can <a href="https://knowledge.hubspot.com/blog-user-guide-v2/how-to-configure-your-blogs-subscription-options?_ga=1.173330083.1866822358.1456501228" target="_blank" rel="noopener">use HubSpot&apos;s email tool to easily set up these regular email sends</a>, as well as <a href="https://knowledge.hubspot.com/articles/kcs_article/cos-blog/how-do-i-send-a-blog-welcome-email" target="_blank" rel="noopener">set up a welcome email for new subscribers</a>.)</p>
+<p>Next, add subscription CTAs to your blog (and elsewhere, like the footer of your website) to make it easy for people to opt in. These CTAs should be simple, one-field <a href="https://www.hubspot.com/products/marketing/forms" rel="noopener" target="_blank">email opt-in forms</a> near the top of your blog, above the fold. As for <a href="//blog.hubspot.com/marketing/types-ctas-blog" target="_blank" rel="noopener">where to put these CTAs</a>, we typically place our blog CTAs at the bottom of our blog posts or add a slide-in, which you can <a href="/marketing/how-to-add-a-slide-in-call-to-action-to-your-blog-posts?_ga=2.221654492.558674788.1561985800-983944916.1546275206" target="_blank" rel="noopener">learn how to do using a free tool called Leadin here</a>.</p>
+<p>You can also <a href="//blog.hubspot.com/customers/bid/109514/Why-You-Need-A-Blog-Subscription-Landing-Page" target="_blank" rel="noopener">create a dedicated landing page for subscribers</a> that you can direct people to via other channels such as social media, other pages on your website, PPC, or email. (For a list of more simple ways to attract subscribers, <a href="//blog.hubspot.com/blog/tabid/6307/bid/32703/20-Simple-Ways-to-Boost-Blog-Subscribers.aspx">read this blog post</a>; for more advanced ideas, <a href="//blog.hubspot.com/marketing/get-subscribers-blog-ideas" target="_blank" rel="noopener">read this one</a>.)</p>
+<p>Don&apos;t worry if you read through this list and are now thinking to yourself, <em>Well this is awkward ... I&apos;ve made literally every single one of these mistakes. </em>Remember: I used the word &quot;common&quot; to describe these mistakes for a reason. The more you blog, the better you&apos;ll get at it -- and you&apos;ll reap the benefits in terms of traffic and leads in the process.</p>
+<p>We hope you&apos;ll use this list of mistakes as fuel for the fire to step up your blogging game. After all, the <a href="//blog.hubspot.com/marketing/the-benefits-of-business-blogging-ht" target="_blank" rel="noopener">benefits of keeping up a healthy business blog</a> will be well worth the time and effort.</p>
+<p><em><!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-648420ad-1760-40e2-994f-7833315a7b7d"><span class="hs-cta-node hs-cta-648420ad-1760-40e2-994f-7833315a7b7d" id="hs-cta-648420ad-1760-40e2-994f-7833315a7b7d"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/53/648420ad-1760-40e2-994f-7833315a7b7d" target="_blank"><img class="hs-cta-img" id="hs-cta-img-648420ad-1760-40e2-994f-7833315a7b7d" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/53/648420ad-1760-40e2-994f-7833315a7b7d.png" alt=" "></a></span><script charset="utf-8" src="/hs/cta/cta/current.js"></script><script type="text/javascript"> hbspt.cta._relativeUrls=true;hbspt.cta.load(53, '648420ad-1760-40e2-994f-7833315a7b7d', {}); </script></span><!-- end HubSpot Call-to-Action Code --></em></p>
+<p><em>
+
+     </em></p><div id="slidebox"><em><a class="close">&#xA0;</a><!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-4516aacd-27e3-4683-9ab9-09620f91d7a0"><span class="hs-cta-node hs-cta-4516aacd-27e3-4683-9ab9-09620f91d7a0" id="hs-cta-4516aacd-27e3-4683-9ab9-09620f91d7a0"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/53/4516aacd-27e3-4683-9ab9-09620f91d7a0" target="_blank"><img class="hs-cta-img" id="hs-cta-img-4516aacd-27e3-4683-9ab9-09620f91d7a0" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/53/4516aacd-27e3-4683-9ab9-09620f91d7a0.png" alt=" blog post templates"></a></span><script charset="utf-8" src="/hs/cta/cta/current.js"></script><script type="text/javascript"> hbspt.cta._relativeUrls=true;hbspt.cta.load(53, '4516aacd-27e3-4683-9ab9-09620f91d7a0', {}); </script></span><!-- end HubSpot Call-to-Action Code --></em></div><em>
+</em><p></p></span>
+
+
+
+
+
+
+                                                        <p class="post-content__publish-date">Originally published Jul 2, 2019 1:08:00 PM, updated April 24 2019</p>
+
+
+
+
+
+                                                        <div class="post-content__topic-container blog-postPage-topic">
+
+
+
+
+
+
+                                                                    <p>Topics:</p>
+
+
+
+                                                                      <a href="https://blog.hubspot.com/marketing/beginner-blogger-mistakes" class="post-content__topic">Blogging Mistakes</a>
+
+
+
+                                                        </div>
+
+                                                        <div class="post-content__social-share-container">
+                                                            <span id="hs_cos_wrapper_End_of_Post_CTA" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_custom_widget" style data-hs-cos-general-type="widget" data-hs-cos-type="custom_widget">
+
+
+
+<div class="wt-blog__post__cta post-content__bottom-cta">
+
+        <div class="wt-blog__post__cta__content">
+            <h3>Don&apos;t forget to share this post!</h3>
+            <div class="addthis_inline_share_toolbox"></div>
+        </div>
+
+</div></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
