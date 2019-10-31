@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0rc1",
+  "version": "4.0.0rc2",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://www.npmjs.com/package/article-parser",
