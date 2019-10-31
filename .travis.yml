@@ -8,5 +8,4 @@ git:
 before_script:
   - npm i
 script:
-  - npm list
   - npm test
