@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og=https://ogp.me/ns#" itemType="https://schema.org/WebPage" data-reactroot="">
+
+<head>
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/vendors-0a0067f554623a8cb5e3.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/commons-3691dd28ab900fda6904.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/global-0484bfe6e17e1420280f.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/acorns-513a1b990ed00e7e1909.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/cnbc-8ba956b7acbc3cc7cdbb.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/dealornodeal-8f9f7b2faf45c9ab02a8.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/makeit-0f9f1a23d3084e4ce4c7.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/select-e02dbbe8556bdd40b7d2.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/26-38378c98b806ba010ac6.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/23-da5255c31af5cf36fc67.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/13-31e0f2ec5666cf2acc91.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/88-a05df72f9fafc51e1d5b.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/commons-3691dd28ab900fda6904.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/12-452490a509e4c34c2f1d.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/25-8551e2cb7d4bf86ff787.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/66-6e6e59b0f7e14ab6f819.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/8-4c9e5600188f29c72809.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/14-53be76e6e7bcb00decfe.js" />
+    <link rel="preload" as="script" href="https://static-redesign.cnbcfm.com/dist/main-3641db84d9755b67a9cd.js" />
+    <title itemProp="name">Jim Cramer: JEDI contract means a lot more for Microsoft than for Amazon</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta property="AssetType" content="cnbcnewsstory" />
+    <meta property="pageNodeId" content="106207879" />
+    <meta itemProp="description" name="description" content="&quot;The Pentagon&#x27;s basically saying that Microsoft&#x27;s cloud platform is just as good as Amazon&#x27;s, or at least close enough for government work,&quot; &quot;Mad Money&quot; host Jim Cramer says."
+    />
+    <link itemProp="url" rel="canonical" href="https://www.cnbc.com/2019/10/28/jim-cramer-jedi-contract-means-a-lot-more-for-microsoft-than-for-amazon.html" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JEDI contract means a lot more for Microsoft than for Amazon, Jim Cramer says" />
+    <meta property="og:description" content="&quot;The Pentagon&#x27;s basically saying that Microsoft&#x27;s cloud platform is just as good as Amazon&#x27;s, or at least close enough for government work,&quot; &quot;Mad Money&quot; host Jim Cramer says."
+    />
+    <meta property="og:url" content="https://www.cnbc.com/2019/10/28/jim-cramer-jedi-contract-means-a-lot-more-for-microsoft-than-for-amazon.html" />
+    <meta property="og:site_name" content="CNBC" />
+    <meta http-equiv="pics-label" content="(pics-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true for &quot;http://www.msnbc.msn.com&quot; r (nz 1vz 1lz 1oz 1cz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true for &quot;http://www.msnbc.msn.com&quot; r (l 0n 0s 0v 0))"
+    />
+    <meta itemProp="dateCreated" content="2019-10-28T23:13:47+0000" />
+    <meta itemProp="dateModified" content="2019-10-28T23:13:47+0000" />
+    <meta itemProp="lastReviewed" content="2019-10-28T23:13:47+0000" />
+    <meta itemProp="inLanguage" content="en-US" />
+    <meta itemProp="sourceOrganization" content="CNBC" />
+    <meta property="og:image" itemProp="image" content="https://image.cnbcfm.com/api/v1/image/106208340-1572296956035gettyimages-697919724.jpeg?v=1572296980" />
+    <meta name="twitter:image:src" content="https://image.cnbcfm.com/api/v1/image/106208340-1572296956035gettyimages-697919724.jpeg?v=1572296980" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@CNBC" />
+    <meta name="twitter:url" content="https://www.cnbc.com/2019/10/28/jim-cramer-jedi-contract-means-a-lot-more-for-microsoft-than-for-amazon.html" />
+    <meta name="twitter:title" content="JEDI contract means a lot more for Microsoft than for Amazon, Jim Cramer says" />
+    <meta name="twitter:description" content="&quot;The Pentagon&#x27;s basically saying that Microsoft&#x27;s cloud platform is just as good as Amazon&#x27;s, or at least close enough for government work,&quot; &quot;Mad Money&quot; host Jim Cramer says."
+    />
+    <meta name="twitter:creator" content="_TylerTheTyler_" />
+    <meta property="article:publisher" content="https://www.facebook.com/cnbc" />
+    <meta property="article:published_time" content="2019-10-28T23:13:47+0000" />
+    <meta property="article:modified_time" content="2019-10-28T23:13:47+0000" />
+    <meta itemProp="contentRating" content="NR" />
+    <meta name="news_keywords" content="Donald Trump,Jeff Bezos,James Mattis,Defense,Technology,Alphabet Class A,Oracle Corp,International Business Machines Corp,Microsoft Corp,Amazon.com Inc,Business,Investment strategy,Jim Cramer,Investment strategy,Personal investing,Stock markets,Markets,business news"
+    />
+    <meta itemProp="keywords" name="keywords" content="Donald Trump,Jeff Bezos,James Mattis,Defense,Technology,Alphabet Class A,Oracle Corp,International Business Machines Corp,Microsoft Corp,Amazon.com Inc,Business,Investment strategy,Jim Cramer,Investment strategy,Personal investing,Stock markets,Markets,business news"
+    />
+    <meta itemProp="specialty" content="Donald Trump,Jeff Bezos,James Mattis,Defense,Technology,Alphabet Class A,Oracle Corp,International Business Machines Corp,Microsoft Corp,Amazon.com Inc,Business,Investment strategy,Jim Cramer,Investment strategy,Personal investing,Stock markets,Markets"
+    />
+    <meta name="tp:PreferredRuntimes" content="universal" />
+    <meta name="tp:PreferredFormats" content="M3U,MPEG4" />
+    <meta name="tp:initialize" content="false" />
+    <meta name="apple-itunes-app" content="app-id=398018310" app-argument="//www.cnbc.com/id/104671274" />
+    <meta property="al:ios:app_name" content="CNBC Business News and Finance" />
+    <meta property="al:ios:app_store_id" content="398018310" />
+    <meta itemProp="primaryImageOfPage" content="https://image.cnbcfm.com/api/v1/image/106208340-1572296956035gettyimages-697919724.jpeg?v=1572296980" />
+    <meta name="parsely-metadata" content="{&quot;nodeid&quot;:106207879,&quot;originalImage&quot;:&quot;https://image.cnbcfm.com/api/v1/image/106208340-1572296956035gettyimages-697919724.jpeg?v=1572296980&quot;}" />
+    <script type="application/ld+json" charSet="UTF-8">
+        {"@context":"https://schema.org","@type":"NewsArticle","description":"\"The Pentagon's basically saying that Microsoft's cloud platform is just as good as Amazon's, or at least close enough for government work,\" \"Mad Money\" host Jim Cramer says.","speakable":{"@type":"SpeakableSpecification","xpath":["/html/head/title","/html/head/meta[@name=\"description\"]/@content","//div[contains(@class, \"group\")][1]/p"]},"mainEntityOfPage":"https://www.cnbc.com/2019/10/28/jim-cramer-jedi-contract-means-a-lot-more-for-microsoft-than-for-amazon.html","url":"https://www.cnbc.com/2019/10/28/jim-cramer-jedi-contract-means-a-lot-more-for-microsoft-than-for-amazon.html","headline":"JEDI contract means a lot more for Microsoft than for Amazon, Jim Cramer says","dateCreated":"2019-10-28T23:13:47+0000","datePublished":"2019-10-28T23:13:47+0000","dateModified":"2019-10-28T23:13:47+0000","author":{"@type":"Person","name":"Tyler Clifford"},"creator":["Tyler Clifford"],"publisher":{"@type":"Organization","name":"CNBC","url":"https://www.cnbc.com/","logo":{"@type":"ImageObject","url":"http://sc.cnbcfm.com/applications/cnbc.com/staticcontent/img/cnbc-hdr-logo2.png","width":360,"height":60},"sameAs":["https://www.facebook.com/cnbc","https://www.instagram.com/cnbc","https://www.linkedin.com/company/cnbc","https://twitter.com/cnbc"]},"articleSection":"Mad Money with Jim Cramer","keywords":["cnbc","Articles","Donald Trump","Jeff Bezos","James Mattis","Defense","Technology","Alphabet Class A","Oracle Corp","International Business Machines Corp","Jim Cramer","Microsoft Corp","Amazon.com Inc","Business","Investment strategy","Personal investing","Stock markets","Markets","Investing","Business News","U.S. Business Day","U.S. Markets","S&P 500","Stocks","Stock Picks","Investment Strategy","Government Agencies","Defense Contractors","CNBC TV","Mad Money","source:tagname:CNBC US Source"],"image":{"@type":"ImageObject","url":"https://image.cnbcfm.com/api/v1/image/106208340-1572296956035gettyimages-697919724.jpeg?v=1572296980","width":3000,"height":2000},"thumbnailUrl":"https://image.cnbcfm.com/api/v1/image/106208340-1572296956035gettyimages-697919724.jpeg?v=1572296980&w=720&h=405","video":{"@type":"VideoObject","name":"Jim Cramer says JEDI contract means more for Microsoft than Amazon","thumbnailURL":"https://image.cnbcfm.com/api/v1/image/106208497-15723034862ED2-MM-Block-C-SHORT-102819.jpg?v=1572303486","description":"\"The Pentagon's basically saying that Microsoft's cloud platform is just as good as Amazon's, or at least close enough for government work,\" \"Mad Money's\" Jim Cramer says.","contentURL":"https://www.cnbc.com/video/2019/10/28/jim-cramer-says-jedi-contract-means-more-for-microsoft-than-amazon.html","duration":"PT3M40S","uploadDate":"2019-10-28T22:19:02+0000"}}
+    </script>
+    <meta property="article:section" content="Mad Money" />
+    <link rel="amphtml" href="https://www.cnbc.com/amp/2019/10/28/jim-cramer-jedi-contract-means-a-lot-more-for-microsoft-than-for-amazon.html" />
+    <meta property="article:author" content="https://www.facebook.com/CNBC" />
+    <meta name="author" content="Tyler Clifford" />
+    <meta property="article:opinion" content="false" />
+    <meta property="article:tag" content="Donald Trump" />
+    <meta property="article:tag" content="Jeff Bezos" />
+    <meta property="article:tag" content="James Mattis" />
+    <meta property="article:tag" content="Defense" />
+    <meta property="article:tag" content="Technology" />
+    <meta property="article:tag" content="Alphabet Class A" />
+    <meta property="article:tag" content="Oracle Corp" />
+    <meta property="article:tag" content="International Business Machines Corp" />
+    <meta property="article:tag" content="Jim Cramer" />
+    <meta property="article:tag" content="Microsoft Corp" />
+    <meta property="article:tag" content="Amazon.com Inc" />
+    <meta property="article:tag" content="Business" />
+    <meta property="article:tag" content="Investment strategy" />
+    <meta property="article:tag" content="Jim Cramer" />
+    <meta property="article:tag" content="Investment strategy" />
+    <meta property="article:tag" content="Personal investing" />
+    <meta property="article:tag" content="Stock markets" />
+    <meta property="article:tag" content="Markets" />
+</head>
+
+<body>
+    <div>
+        <!-- Comscore Identifier: comscorekw=CNBC_TV|Mad_Money -->
+    </div>
+    <div id="root">
+        <div class="App-containerClick">
+            <div id="BrandPageWrapper" class="cnbcBrand">
+                <div class="JumpLink-container"><a href="#MainContent" alt="" class="JumpLink-link" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Skip Navigation</a></div>
+                <div>
+                    <div class="SurfComponent-surfPopupBackground" style="display:none">
+                        <div id="surfContainer" class="SurfComponent-surfContainer">
+                            <div class="SurfComponent-logoContainer">
+                                <div class="SurfComponent-logo"><img src="//sc.cnbcfm.com/applications/cnbc.com/staticcontent/img/login-cnbc-logo.png" alt="CNBC logo" /></div><a class="SurfComponent-surfCloseBtn" role="button" tabindex="0">×</a></div>
+                            <div class="SurfComponent-SignInSignUp">
+                                <ul class="SurfComponent-tab">
+                                    <li class="SurfComponent-selected"><a role="button" tabindex="0">LOG IN</a></li>
+                                    <li><a role="button" tabindex="0">SIGN UP</a></li>
+                                </ul>
+                                <div id="surfWrapper" class="SurfComponent-surfWrapper"></div>
+                                <p><input type="checkbox" />Keep Me Logged In</p>
+                            </div>
+                            <div class="SurfComponent-Footer"></div>
+                        </div>
+                    </div>
+                </div>
+                <header class="GlobalNavigation-container" id="GlobalNavigation">
+                    <div class="CountdownClock-countdownContainer">
+                        <div id="GlobalNavigation-CountdownClock" class="CountdownClock-container" data-module="mps-slot"></div>
+                    </div>
+                    <div class="GlobalNavigation-globalNavigation">
+                        <div class="GlobalNavigation-gridContainer">
+                            <div class="GlobalNavigation-wrapper">
+                                <div class="branding-menu-brandingMenu"><a class="branding-menu-logo" href="//www.cnbc.com/world/"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMjMgMzQuMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjIzIDM0LjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojRkZGRkZGO30KCS5zdDF7ZmlsbDojNjQ1RkE5O30KCS5zdDJ7ZmlsbDojQzgyMzRBO30KCS5zdDN7ZmlsbDojMDA4OENGO30KCS5zdDR7ZmlsbDojRjI2RjIxO30KCS5zdDV7ZmlsbDojMERCMDRCO30KCS5zdDZ7ZmlsbDojRkNCODEzO30KPC9zdHlsZT4KPGcgaWQ9IkxheWVyXzMiPgoJPGc+CgkJPGc+CgkJCTxnPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI2LjgsNC44YzAuNy0xLjIsMS44LTIuMywzLjItM2MyLjItMSw1LjEtMC41LDcsMWMxLjcsMS41LDIuNywzLjcsMi4yLDYuMWMwLjUsMCwwLjgtMC4zLDEuMy0wLjUKCQkJCQljMi43LTAuOCw1LjUsMCw3LjMsMi4zYzEuMywxLjcsMS43LDQuMiwwLjgsNi4xYy0wLjMsMS0xLDEuOC0xLjgsMi43bDAuMiwwLjJjMi41LDAuMiw1LDIsNS44LDQuNXMwLjIsNS0xLjcsNi44CgkJCQkJYy0xLjUsMS41LTMuMywyLTUuMywxLjhIOC4yYy0zLjIsMC01LjUtMS4zLTYuNi00Yy0xLTIuMy0wLjUtNS4zLDEuMy03LjFjMS4yLTEuMiwyLjctMS43LDQuMy0yYy0xLjgtMS43LTIuNy00LTIuMi02LjUKCQkJCQljMC4yLTEuOCwxLjgtNCwzLjgtNC43YzEuNy0wLjcsNC0wLjUsNS42LDAuM2wwLDBjLTAuNS0yLjcsMC43LTUuMSwzLTYuNmMyLTEuMyw1LjEtMS4zLDcuMSwwLjJDMjUuNSwzLDI2LjMsNCwyNi44LDQuOHoiLz4KCQkJCTxnPgoJCQkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zNy40LDUuOEMzNy4xLDUuMSwzNi42LDQuNSwzNiw0Yy0xLjUtMS4zLTQtMS41LTUuOC0wLjVjLTEuNywwLjgtMi43LDIuNy0yLjcsNC41bDAsMGgyLjIKCQkJCQkJYzAuMiwwLjIsMC4zLDAuMiwwLjUsMC4zQzI5LjMsOSwyNy42LDkuNiwyOCwxMWwyLjMsMTQuOGwwLDBsNi41LTE0LjZDMzcuOCw5LjUsMzguMyw3LjUsMzcuNCw1Ljh6Ii8+CgkJCQkJPHBhdGggY2xhc3M9InN0MiIgZD0iTTIzLjUsMjUuNmwyLjctMTYuOWMwLjItMS4yLTAuMi0yLjMtMC43LTMuM0MyNSw0LjMsMjQsMy42LDIzLDMuMWMtMS44LTAuOC00LjItMC4zLTUuNSwxcy0yLDMuMy0xLjMsNS4zCgkJCQkJCWw2LjYsMTQuOEwyMy41LDI1LjZMMjMuNSwyNS42eiIvPgoJCQkJCTxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik00Ny4xLDEyLjRjMC44LDEuNSwwLjcsMy44LTAuMyw1LjFjLTAuNywxLTEuNywxLjUtMi41LDIuMmwtMTMuOCw5LjVsMCwwbDAuMi0wLjVsNy4zLTE2LjQKCQkJCQkJYzEuMi0yLDMuMi0zLDUuMy0yLjdDNDQuOCwxMCw0Ni4zLDExLDQ3LjEsMTIuNHoiLz4KCQkJCQk8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNOC4xLDE4LjZsMTUuMywxMC41aDAuMmwtNy42LTE2LjhjLTEuMy0yLjItNC0zLjItNi41LTIuM2MtMS41LDAuNy0yLjcsMi0zLDMuNQoJCQkJCQlDNS43LDE1LjQsNi40LDE3LjQsOC4xLDE4LjZ6Ii8+CgkJCQkJPHBhdGggY2xhc3M9InN0NSIgZD0iTTUwLjQsMjkuNmMxLjItMS4zLDEuMy0zLjcsMC43LTUuMWMtMC41LTEuMi0xLjUtMi4yLTIuNy0yLjdjLTEuNS0wLjctMy41LTAuNS00LjgsMC4zTDMwLDMxLjVoMTYuMwoJCQkJCQlDNDcuOSwzMS41LDQ5LjIsMzAuOSw1MC40LDI5LjZ6Ii8+CgkJCQkJPHBhdGggY2xhc3M9InN0NiIgZD0iTTIzLjgsMzEuNWwtMTMuNi05LjZjLTEuMy0wLjgtMy4zLTEtNC44LTAuM2MtMS4yLDAuNS0yLjIsMS41LTIuNywyLjdjLTAuOCwxLjctMC41LDMuOCwwLjcsNS4xCgkJCQkJCWMxLDEuMywyLjUsMiw0LjIsMkwyMy44LDMxLjV6Ii8+CgkJCQk8L2c+CgkJCTwvZz4KCQk8L2c+CgkJPGc+CgkJCTxnPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTg0LjgsMTMuNGMtMC43LTMtMy0zLjgtNS44LTRjLTguOC0wLjgtMTAuMyw1LjgtMTAuMyw4LjZjMCw0LjgsMS4zLDguNiwxMCw4LjZjMS43LDAsNi0xLjcsNi00LjNoMTIuNQoJCQkJCWMtMC41LDgtMTMuOCw5LjgtMTkuNiw5LjhjLTEyLDAtMjIuMy0yLjItMjEuOC0xNC4xYzAuMy04LjUsOC4zLTE0LjQsMjQuMi0xNGM4LjgsMC4yLDE3LjMsMywxNy4zLDkuM0g4NC44eiIvPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIwOS40LDEzLjRjLTAuNy0zLTMtMy44LTUuOC00Yy04LjgtMC44LTEwLjMsNS44LTEwLjMsOC41YzAsNC44LDEuMyw4LjYsMTAsOC42YzEuNywwLDYtMS43LDYtNC4zaDEyLjUKCQkJCQljLTAuNSw4LTEzLjgsOS44LTE5LjYsOS44Yy0xMiwwLTIyLjMtMi4yLTIxLjgtMTQuMWMwLjMtOC41LDguMy0xNC40LDI0LjItMTRjOC44LDAuMiwxNy40LDMsMTcuNCw5LjNoLTEyLjZWMTMuNHoiLz4KCQkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik05OS42LDQuNmgxNi4xbDEzLjgsMTkuM2gwLjJWNC42SDE0MHYyNi43aC0xNS40bC0xNC40LTE5LjNoLTAuMnYxOS4zSDk5LjZDOTkuNiwzMS40LDk5LjYsNC42LDk5LjYsNC42eiIKCQkJCQkvPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE0My4xLDQuNmgxOS42YzkuNSwwLDE0LjksMi43LDE0LjksNi42YzAsMi4zLTIuMyw1LjMtNy41LDYuMWwwLDBjNi4xLDAuMyw4LjUsNC4zLDguNSw2LjYKCQkJCQljMCw0LjgtNS4zLDcuMy0xNS45LDcuM2gtMTkuNlY0LjZ6IE0xNTQuNiwxNS4xaDMuM2M1LDAsNy42LTAuMyw3LjYtMi41cy0yLjItMy02LjYtM2gtNC4ydjUuNUgxNTQuNnogTTE1NC42LDI1LjloMy4zCgkJCQkJYzYsMCw4LjMtMC43LDguMy0yLjdjMC0yLjItMi44LTMtNy4zLTNoLTQuMnY1LjZIMTU0LjZ6Ii8+CgkJCTwvZz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" alt="logo"/></a>
+                                    <div
+                                        class="account-menu-accountMenu">
+                                        <ul class="undefined">
+                                            <li><a href="#">SIGN IN</a></li>
+                                            <li><a href="/pro/" title="pro_subscriber">Pro</a></li>
+                                            <li><a href="//www.cnbc.com/watchlist/" title="watchlist">Watchlist</a></li>
+                                            <li class="SignInMenu-makeit"><a href="/make-it/" title="makeit">Make It<span class="icon-offsite-arrow"></span></a></li>
+                                            <li><a href="/select/" title="select">Select<span class="icon-offsite-arrow"></span></a></li>
+                                        </ul>
+                                        <ul class="account-menu-editionMenu">
+                                            <li><a alt="us_edition" href="/?region=usa">USA</a></li>
+                                            <li><a alt="international_edition" href="/world/" class="account-menu-underlineLabel">INTL</a></li>
+                                        </ul>
+                                </div>
+                            </div>
+                            <div class="GlobalNavigation-desktopNavMenu">
+                                <div class="nav-menu-navMenu " id="nav-menu"><button class="nav-menu-desktopHamburger nav-menu-button"><span class="icon-menu"></span></button><a href="/" class="nav-menu-logoContainer"><img src="https://static-redesign.cnbcfm.com/dist/ab46d9201403df870243f3484a78c975.svg" class="nav-menu-logo" alt="logo"/></a>
+                                    <div
+                                        class="nav-menu-mainLinks">
+                                        <div class="nav-menu-mainLinksWrapperStart nav-menu-mainLinksWrapper">
+                                            <div class=" nav-menu-navLinks">
+                                                <div class="nav-menu-primaryLink markets"><a href="https://www.cnbc.com/markets/" class="nav-menu-button"><span class="icon-markets"></span><span class="nav-menu-buttonText">Markets</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu"
+                                                        style="display:none">
+                                                        <li data-text="Pre-Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/pre-markets/">Pre-Markets</a></li>
+                                                        <li data-text="U.S. Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/us-markets/">U.S. Markets</a></li>
+                                                        <li data-text="Europe Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/markets-europe/">Europe Markets</a></li>
+                                                        <li data-text="China Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/china-markets/">China Markets</a></li>
+                                                        <li data-text="Asia Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/markets-asia-pacific/">Asia Markets</a></li>
+                                                        <li data-text="World Markets"><a class="nav-menu-subLink" tabindex="-1" href="/world-markets/">World Markets</a></li>
+                                                        <li data-text="Currencies"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/currencies/">Currencies</a></li>
+                                                        <li data-text="Cryptocurrency"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/cryptocurrency/">Cryptocurrency</a></li>
+                                                        <li data-text="Futures &amp; Commodities"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/futures-and-commodities/">Futures &amp; Commodities</a></li>
+                                                        <li data-text="Bonds"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/bonds/">Bonds</a></li>
+                                                        <li data-text="Funds &amp; ETFs"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/funds-and-etfs/">Funds &amp; ETFs</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="nav-menu-primaryLink watchlist"><a href="//www.cnbc.com/watchlist/" class="nav-menu-button"><span class="icon-watchlist"></span><span class="nav-menu-buttonText">Watchlist</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu"
+                                                        style="display:none"></ul>
+                                                </div>
+                                                <div class="nav-menu-primaryLink business_news"><a href="https://www.cnbc.com/business/" class="nav-menu-button"><span class="icon-news"></span><span class="nav-menu-buttonText">Business</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu"
+                                                        style="display:none">
+                                                        <li data-text="Economy"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/economy/">Economy</a></li>
+                                                        <li data-text="Finance"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/finance/">Finance</a></li>
+                                                        <li data-text="Health &amp; Science"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/health-and-science/">Health &amp; Science</a></li>
+                                                        <li data-text="Media"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/media/">Media</a></li>
+                                                        <li data-text="Real Estate"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/real-estate/">Real Estate</a></li>
+                                                        <li data-text="Energy"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/energy/">Energy</a></li>
+                                                        <li data-text="Transportation"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/transportation/">Transportation</a></li>
+                                                        <li data-text="Industrials"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/industrials/">Industrials</a></li>
+                                                        <li data-text="Retail"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/retail/">Retail</a></li>
+                                                        <li data-text="Wealth"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/wealth/">Wealth</a></li>
+                                                        <li data-text="Small Business"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/small-business/">Small Business</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="nav-menu-primaryLink investing"><a href="https://www.cnbc.com/investing/" class="nav-menu-button"><span class="icon-investing"></span><span class="nav-menu-buttonText">Investing</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu"
+                                                        style="display:none">
+                                                        <li data-text="Invest In You"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/invest-in-you/">Invest In You</a></li>
+                                                        <li data-text="Personal Finance"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/personal-finance/">Personal Finance</a></li>
+                                                        <li data-text="Financial Advisors"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/financial-advisors/">Financial Advisors</a></li>
+                                                        <li data-text="Trading Nation"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/trading-nation/">Trading Nation</a></li>
+                                                        <li data-text="Options Action"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/options-action/">Options Action</a></li>
+                                                        <li data-text="ETF Street"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/etf-street/">ETF Street</a></li>
+                                                        <li data-text="Buffett Archive"><a class="nav-menu-subLink" tabindex="-1" href="https://buffett.cnbc.com">Buffett Archive</a></li>
+                                                        <li data-text="Earnings"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/earnings/">Earnings</a></li>
+                                                        <li data-text="Trader Talk"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/trader-talk/">Trader Talk</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="nav-menu-primaryLink tech"><a href="https://www.cnbc.com/technology/" class="nav-menu-button"><span class="icon-tech"></span><span class="nav-menu-buttonText">Tech</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu"
+                                                        style="display:none">
+                                                        <li data-text="Cybersecurity"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/cybersecurity/">Cybersecurity</a></li>
+                                                        <li data-text="Enterprise"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/enterprise/">Enterprise</a></li>
+                                                        <li data-text="Internet"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/internet/">Internet</a></li>
+                                                        <li data-text="Media"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/media/">Media</a></li>
+                                                        <li data-text="Mobile"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/mobile/">Mobile</a></li>
+                                                        <li data-text="Social Media"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/social-media/">Social Media</a></li>
+                                                        <li data-text="Venture Capital"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/venture-capital/">Venture Capital</a></li>
+                                                        <li data-text="Tech Guide"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/tech-guide/">Tech Guide</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="nav-menu-primaryLink politics"><a href="https://www.cnbc.com/politics/" class="nav-menu-button"><span class="icon-politics"></span><span class="nav-menu-buttonText">Politics</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu"
+                                                        style="display:none">
+                                                        <li data-text="White House"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/white-house/">White House</a></li>
+                                                        <li data-text="Policy"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/policy/">Policy</a></li>
+                                                        <li data-text="Defense"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/defense/">Defense</a></li>
+                                                        <li data-text="Congress"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/congress/">Congress</a></li>
+                                                        <li data-text="2020 Elections"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/2020-elections/">2020 Elections</a></li>
+                                                        <li data-text="Europe Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/europe-politics/">Europe Politics</a></li>
+                                                        <li data-text="China Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/china-politics/">China Politics</a></li>
+                                                        <li data-text="Asia Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/asia-politics/">Asia Politics</a></li>
+                                                        <li data-text="World Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/world-politics/">World Politics</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="nav-menu-primaryLink cnbc_tv"><a href="https://www.cnbc.com/tv/" class="nav-menu-button"><span class="icon-cnbctv"></span><span class="nav-menu-buttonText">CNBC TV</span></a>
+                                                    <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                                        <li data-text="Live Audio"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/live-audio/">Live Audio</a></li>
+                                                        <li data-text="Latest Video"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/video/">Latest Video</a></li>
+                                                        <li data-text="Top Video"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/top-video/">Top Video</a></li>
+                                                        <li data-text="CEO Interviews"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/video-ceo-interviews/">CEO Interviews</a></li>
+                                                        <li data-text="Europe TV"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/europe-television/">Europe TV</a></li>
+                                                        <li data-text="Asia TV"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/asia-business-day/">Asia TV</a></li>
+                                                        <li data-text="Digital Originals"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/digital-original/">Digital Originals</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div aria-hidden="true" class="nav-menu-navUnderline"></div>
+                                                <div aria-hidden="true" class="nav-menu-navDropdownWrap"></div>
+                                                <div class="nav-menu-primaryLink hamburger"><button class="nav-menu-hamburger nav-menu-button"><span class="icon-menu"></span><span class="nav-menu-buttonText">Menu</span></button></div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="nav-menu-progressBarContainer"></div>
+                            </div>
+                        </div><button class="SearchToggle-button searchToggler analyticsSearchButton"><span class="searchToggler analyticsSearchButton">SEARCH QUOTES</span><i class="icon-search searchToggler analyticsSearchButton" aria-hidden="true" data-analytics-id="cnbc-search-icon"></i></button><span></span></div>
+            </div>
+        </div><span></span></header>
+        <div class="GlobalNavigation-mobileNavMenu">
+            <div class="nav-menu-navMenu " id="nav-menu"><button class="nav-menu-desktopHamburger nav-menu-button"><span class="icon-menu"></span></button><a href="/" class="nav-menu-logoContainer"><img src="https://static-redesign.cnbcfm.com/dist/ab46d9201403df870243f3484a78c975.svg" class="nav-menu-logo" alt="logo"/></a>
+                <div
+                    class="nav-menu-mainLinks">
+                    <div class="nav-menu-mainLinksWrapperStart nav-menu-mainLinksWrapper">
+                        <div class=" nav-menu-navLinks">
+                            <div class="nav-menu-primaryLink markets"><a href="https://www.cnbc.com/markets/" class="nav-menu-button"><span class="icon-markets"></span><span class="nav-menu-buttonText">Markets</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                    <li data-text="Pre-Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/pre-markets/">Pre-Markets</a></li>
+                                    <li data-text="U.S. Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/us-markets/">U.S. Markets</a></li>
+                                    <li data-text="Europe Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/markets-europe/">Europe Markets</a></li>
+                                    <li data-text="China Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/china-markets/">China Markets</a></li>
+                                    <li data-text="Asia Markets"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/markets-asia-pacific/">Asia Markets</a></li>
+                                    <li data-text="World Markets"><a class="nav-menu-subLink" tabindex="-1" href="/world-markets/">World Markets</a></li>
+                                    <li data-text="Currencies"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/currencies/">Currencies</a></li>
+                                    <li data-text="Cryptocurrency"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/cryptocurrency/">Cryptocurrency</a></li>
+                                    <li data-text="Futures &amp; Commodities"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/futures-and-commodities/">Futures &amp; Commodities</a></li>
+                                    <li data-text="Bonds"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/bonds/">Bonds</a></li>
+                                    <li data-text="Funds &amp; ETFs"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/funds-and-etfs/">Funds &amp; ETFs</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-menu-primaryLink watchlist"><a href="//www.cnbc.com/watchlist/" class="nav-menu-button"><span class="icon-watchlist"></span><span class="nav-menu-buttonText">Watchlist</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none"></ul>
+                            </div>
+                            <div class="nav-menu-primaryLink business_news"><a href="https://www.cnbc.com/business/" class="nav-menu-button"><span class="icon-news"></span><span class="nav-menu-buttonText">Business</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                    <li data-text="Economy"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/economy/">Economy</a></li>
+                                    <li data-text="Finance"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/finance/">Finance</a></li>
+                                    <li data-text="Health &amp; Science"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/health-and-science/">Health &amp; Science</a></li>
+                                    <li data-text="Media"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/media/">Media</a></li>
+                                    <li data-text="Real Estate"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/real-estate/">Real Estate</a></li>
+                                    <li data-text="Energy"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/energy/">Energy</a></li>
+                                    <li data-text="Transportation"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/transportation/">Transportation</a></li>
+                                    <li data-text="Industrials"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/industrials/">Industrials</a></li>
+                                    <li data-text="Retail"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/retail/">Retail</a></li>
+                                    <li data-text="Wealth"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/wealth/">Wealth</a></li>
+                                    <li data-text="Small Business"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/small-business/">Small Business</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-menu-primaryLink investing"><a href="https://www.cnbc.com/investing/" class="nav-menu-button"><span class="icon-investing"></span><span class="nav-menu-buttonText">Investing</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                    <li data-text="Invest In You"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/invest-in-you/">Invest In You</a></li>
+                                    <li data-text="Personal Finance"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/personal-finance/">Personal Finance</a></li>
+                                    <li data-text="Financial Advisors"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/financial-advisors/">Financial Advisors</a></li>
+                                    <li data-text="Trading Nation"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/trading-nation/">Trading Nation</a></li>
+                                    <li data-text="Options Action"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/options-action/">Options Action</a></li>
+                                    <li data-text="ETF Street"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/etf-street/">ETF Street</a></li>
+                                    <li data-text="Buffett Archive"><a class="nav-menu-subLink" tabindex="-1" href="https://buffett.cnbc.com">Buffett Archive</a></li>
+                                    <li data-text="Earnings"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/earnings/">Earnings</a></li>
+                                    <li data-text="Trader Talk"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/trader-talk/">Trader Talk</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-menu-primaryLink tech"><a href="https://www.cnbc.com/technology/" class="nav-menu-button"><span class="icon-tech"></span><span class="nav-menu-buttonText">Tech</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                    <li data-text="Cybersecurity"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/cybersecurity/">Cybersecurity</a></li>
+                                    <li data-text="Enterprise"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/enterprise/">Enterprise</a></li>
+                                    <li data-text="Internet"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/internet/">Internet</a></li>
+                                    <li data-text="Media"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/media/">Media</a></li>
+                                    <li data-text="Mobile"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/mobile/">Mobile</a></li>
+                                    <li data-text="Social Media"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/social-media/">Social Media</a></li>
+                                    <li data-text="Venture Capital"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/venture-capital/">Venture Capital</a></li>
+                                    <li data-text="Tech Guide"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/tech-guide/">Tech Guide</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-menu-primaryLink politics"><a href="https://www.cnbc.com/politics/" class="nav-menu-button"><span class="icon-politics"></span><span class="nav-menu-buttonText">Politics</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                    <li data-text="White House"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/white-house/">White House</a></li>
+                                    <li data-text="Policy"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/policy/">Policy</a></li>
+                                    <li data-text="Defense"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/defense/">Defense</a></li>
+                                    <li data-text="Congress"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/congress/">Congress</a></li>
+                                    <li data-text="2020 Elections"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/2020-elections/">2020 Elections</a></li>
+                                    <li data-text="Europe Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/europe-politics/">Europe Politics</a></li>
+                                    <li data-text="China Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/china-politics/">China Politics</a></li>
+                                    <li data-text="Asia Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/asia-politics/">Asia Politics</a></li>
+                                    <li data-text="World Politics"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/world-politics/">World Politics</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-menu-primaryLink cnbc_tv"><a href="https://www.cnbc.com/tv/" class="nav-menu-button"><span class="icon-cnbctv"></span><span class="nav-menu-buttonText">CNBC TV</span></a>
+                                <ul class="nav-menu-subLinks" id="nav-menu-dropdownMenu" style="display:none">
+                                    <li data-text="Live Audio"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/live-audio/">Live Audio</a></li>
+                                    <li data-text="Latest Video"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/video/">Latest Video</a></li>
+                                    <li data-text="Top Video"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/top-video/">Top Video</a></li>
+                                    <li data-text="CEO Interviews"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/video-ceo-interviews/">CEO Interviews</a></li>
+                                    <li data-text="Europe TV"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/europe-television/">Europe TV</a></li>
+                                    <li data-text="Asia TV"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/asia-business-day/">Asia TV</a></li>
+                                    <li data-text="Digital Originals"><a class="nav-menu-subLink" tabindex="-1" href="https://www.cnbc.com/digital-original/">Digital Originals</a></li>
+                                </ul>
+                            </div>
+                            <div aria-hidden="true" class="nav-menu-navUnderline"></div>
+                            <div aria-hidden="true" class="nav-menu-navDropdownWrap"></div>
+                            <div class="nav-menu-primaryLink hamburger"><button class="nav-menu-hamburger nav-menu-button"><span class="icon-menu"></span><span class="nav-menu-buttonText">Menu</span></button></div>
+                        </div>
+                    </div>
+            </div>
+            <div class="nav-menu-progressBarContainer"></div>
+        </div>
+    </div>
+    <div id="MainContent" class="BrandPageWrapper-contentWrapper">
+        <div style="display:none"></div>
+        <div>
+            <div class="News Show Article PageBuilder-page">
+                <div class="PageBuilder-pageWrapper">
+                    <div class="PageBuilder-pageRow PageBuilder-containerWidth100">
+                        <div class="PageBuilder-col-full PageBuilder-col PageBuilder-article">
+                            <div id="dart_wrapper_topbanner-AdTopBanner-1" class="TopBanner-container" data-module="mps-slot"></div>
+                        </div>
+                    </div>
+                    <div class="PageBuilder-pageRow PageBuilder-containerWidth100">
+                        <div class="PageBuilder-col-full PageBuilder-col PageBuilder-article">
+                            <header id="NewsShowArticle-PageHeader-2" class="PageHeader-container undefined">
+                                <div class="PageHeader-main PageHeader-backgroundImage PageHeader-background" style="background-image:url(https://image.cnbcfm.com/api/v1/image/105455305-1537202159438banner-cnbc-default.png?v=1537202238);border-color:#bc3019"></div>
+                                <div class="PageHeader-textWrapper PageHeader-logoAndSponsorWrapper">
+                                    <div class="PageHeader-logoOrTitle">
+                                        <a href="https://www.cnbc.com/mad-money/" alt="" class="" rel="" target="" style="color:#bc3019" title="" role="" tabindex="" data-type="" aria-label="">
+                                            <div class="PageHeader-title" style="color:#bc3019">Mad Money</div>
+                                        </a>
+                                    </div>
+                                    <div class="PageHeader-sponsorLogo" style="border-top-color:#bc3019">
+                                        <div id="dart_wrapper_sponsorlogo" class="SponsorLogo-container" data-module="mps-slot"></div>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                    </div>
+                    <div class="PageBuilder-pageRow PageBuilder-containerWidth100">
+                        <div class="PageBuilder-col-full PageBuilder-col PageBuilder-article">
+                            <div id="ArticleHeader-3">
+                                <div>
+                                    <header class="ArticleHeader-articleHeader ArticleHeader-specialReport" id="main-article-header">
+                                        <div class="ArticleHeader-headerContentContainer">
+                                            <div class="ArticleHeader-wrapperHeroNoImage ArticleHeader-wrapperHero ArticleHeader-wrapper ArticleHeader-wrapperNoImage">
+                                                <h1 class="ArticleHeader-headline">JEDI contract means a lot more for Microsoft than for Amazon, Jim Cramer says</h1>
+                                                <div class="ArticleHeader-time"><time data-testid="published-timestamp">Published Mon, Oct 28 2019<span class="ArticleHeader-datetimeDivider"></span>7:13 PM EDT</time></div>
+                                            </div>
+                                            <div class="ArticleHeader-authorAndShareInline">
+                                                <div class="ArticleHeader-authorContainer">
+                                                    <div class="ArticleHeader-author">
+                                                        <div class="Author-author">
+                                                            <div class="Author-authorInfo">
+                                                                <div style="height:100%" class="lazyload-placeholder"></div>
+                                                                <div class="Author-authorNameAndSocial"><a href="https://www.cnbc.com/tyler-clifford/" alt="" class="Author-authorName" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Tyler Clifford<span class="Author-authorUnderline"></span></a>
+                                                                    <a
+                                                                        href="https://twitter.com/_TylerTheTyler_" alt="" class="Author-authorTwitter" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">@_TylerTheTyler_</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="Share-share" id="social-buttons"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </header>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="PageBuilder-pageRow PageBuilder-containerFluidWidths">
+                        <div class="PageBuilder-col-9 PageBuilder-col PageBuilder-article">
+                            <div class="RenderKeyPoints-keyPoints" id="KeyPoints-5">
+                                <div class="RenderKeyPoints-wrapper" style="border-top-color:#bc3019">
+                                    <div class="RenderKeyPoints-header">Key Points</div>
+                                    <div class="RenderKeyPoints-list">
+                                        <div>
+                                            <div class="group">
+                                                <ul>
+                                                    <li>&quot;The Pentagon&#x27;s basically saying that Microsoft&#x27;s cloud platform is just as good as Amazon&#x27;s, or at least close enough for government work&quot; in awarding the company a $10 billion
+                                                        defense contract, CNBC&#x27;s Jim Cramer says.</li>
+                                                    <li>&quot;We already know Microsoft was firing on all cylinders. This JEDI contract simply confirms it,&quot; the &quot;Mad Money&quot; host says.</li>
+                                                    <li>&quot;If Amazon won the JEDI contract, then AWS would have been the Department of Defense&#x27;s default cloud infrastructure for the next 10 years. Now, though, the smaller players have more of a chance
+                                                        to win business,&quot; he says.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ArticleBody-articleBody" id="ArticleBody-6" data-module="ArticleBody"><span class="HighlightShare-hidden" style="top:0;left:0"></span>
+                                <div role="button" tabindex="0" id="Placeholder-ArticleBody-Video-106208453" class="PlaceHolder-wrapper vilynx_enabled" data-vilynx-id="7000105773">
+                                    <div class="InlineVideo-videoEmbed" id="InlineVideo-0">
+                                        <div class="InlineVideo-wrapper">
+                                            <div style="height:100%" class="lazyload-placeholder"></div>
+                                            <div class="InlineVideo-videoFooter">
+                                                <div class="InlineVideo-videoDurationContainer"><span class="InlineVideo-videoLabel">VIDEO</span><span class="InlineVideo-videoDurationWithLeading0">3:40</span><span class="InlineVideo-videoDuration InlineVideo-videoLabel">03:40</span></div>
+                                                <div class="InlineVideo-title">Jim Cramer says JEDI contract means more for Microsoft than Amazon</div>
+                                                <div class="InlineVideo-section"><a href="https://www.cnbc.com/mad-money/" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Mad Money with Jim Cramer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="PlaceHolder-endCard PlaceHolder-inactive"></div>
+                                </div>
+                                <div class="group">
+                                    <p>The U.S. Defense Department gave <a href="/quotes/?symbol=MSFT" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Microsoft</a> &quot;the best possible validation they could get&quot;
+                                        in awarding a multibillion-dollar defense deal to the company&#x27;s cloud platform over <a href="/quotes/?symbol=AMZN" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Amazon</a>,
+                                        CNBC&#x27;s <a href="https://www.cnbc.com/jim-cramer/" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Jim Cramer</a> said Monday.</p>
+                                    <p>On the other end of the spectrum, losing out on the potential $10 billion contract is not a &quot;big deal for Amazon,&quot; the <a href="https://www.cnbc.com/mad-money/" alt="" class="" rel="" target="" title="" role=""
+                                            tabindex="" data-type="" aria-label="">&quot;Mad Money&quot;</a> host said. The request for proposals came down to two of the most valuable companies by market cap.</p>
+                                    <div class="BoxInline-container  ">
+                                        <div id="BoxInline-ArticleBody-6" class="BoxInline-container" data-module="mps-slot"></div>
+                                    </div>
+                                    <p>&quot;The Pentagon&#x27;s basically saying that Microsoft&#x27;s cloud platform is just as good as Amazon&#x27;s, or at least close enough for government work,&quot; said Cramer, adding that it&#x27;s a &quot;much more
+                                        significant win for Microsoft Azure than it would be for Amazon Web Services.&quot;</p>
+                                    <p>Azure, the cloud computing service from Microsoft, topped Amazon Web Services, <a href="/quotes/?symbol=IBM" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">IBM</a> Cloud and
+                                        <a href="/quotes/?symbol=ORCL" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Oracle</a> Cloud in the <a href="https://www.cnbc.com/2019/10/25/microsoft-wins-major-defense-cloud-contract-beating-out-amazon.html"
+                                            alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">competition for the agreement</a> worth as much as $10 billion through late 2029, the Pentagon announced Friday. Under the
+                                        Joint Enterprise Defense Infrastructure deal, aka JEDI, the company will build an enterprise cloud infrastructure that will support the Defense Department&#x27;s business and mission operations.</p>
+                                    <p>Microsoft reported in its fiscal first-quarter results, which beat Wall Street estimates, that its Azure public cloud business grew 59%, though the company does not break down Azure&#x27;s revenue in dollar figures.
+                                        The Intelligent Cloud segment, which includes Azure and Windows Server, among other services, drew a combined $10.85 billion in revenue.</p>
+                                    <p>&quot;We already know Microsoft was firing on all cylinders. This JEDI contract simply confirms it,&quot; Cramer said.</p>
+                                    <p>As for Amazon, AWS is still the top cloud infrastructure provider, though it may not have been given a fair shot at the contract, Cramer said. Former Secretary of Defense James Mattis <a href="https://www.cnbc.com/2019/10/26/trump-mattis-screw-amazon-10-billion-pentagon-cloud-contract-jedi.html"
+                                            alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">reportedly said President Donald Trump instructed him</a> to &quot;screw Amazon&quot; out of the deal.</p>
+                                    <div id="MidResponsive-8"
+                                        class="" data-module="mps-slot"></div>
+                                    <p>Trump on multiple occasions has aired his grievances with Jeff Bezos, the billionaire Amazon founder and CEO and Washington Post owner. Amazon was considered a favorite for the deal after it was awarded a CIA contract
+                                        in 2013.</p>
+                                    <p>&quot;It wouldn&#x27;t shock me if he, or someone in his orbit, put their thumb on the scales in favor of Microsoft,&quot; Cramer said, though he says it&#x27;s not a big worry for Amazon.</p>
+                                    <p>&quot;You&#x27;ve got to understand: AWS did $9 billion in the quarter in revenue,&quot; he said. &quot;They&#x27;re not weeping over losing what could have been a $10 billion deal over the course of 10 years.&quot;</p>
+                                    <p>The deal means a lot to Microsoft, whose stock surged 2.46% to $144.19 a piece in Monday&#x27;s session. Amazon&#x27;s stock barely nudged since the news broke. But Amazon&#x27;s loss could be seen as a win for <a href="/quotes/?symbol=IBM"
+                                            alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">IBM</a> and <a href="/quotes/?symbol=GOOGL" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Alphabet</a>,
+                                        Cramer suggested.</p>
+                                    <p>He said &quot;it means Amazon won&#x27;t be able to monopolize all of our government&#x27;s cloud-related&quot; defense spending. &quot;If Amazon won the JEDI contract, then AWS would have been the Department of Defense&#x27;s
+                                        default cloud infrastructure for the next 10 years. Now, though, the smaller players have more of a chance to win business.&quot;</p>
+                                    <p>&quot;While the stock had a big run here, I think Microsoft remains attractive,&quot; the host said. &quot;As for Amazon, losing this business is no skin off their back. The real issue is that they&#x27;ve spent so
+                                        heavily to grow the business, and while I&#x27;m okay with that, it might give you more opportunities to buy the stock into weakness down the road because of Wall Street&#x27;s inherent shortsightedness.&quot;</p>
+                                </div>
+                                <div role="button" tabindex="0" id="Placeholder-ArticleBody-Video-106207891" class="PlaceHolder-wrapper vilynx_enabled" data-vilynx-id="7000105774">
+                                    <div class="InlineVideo-videoEmbed" id="InlineVideo-0">
+                                        <div class="InlineVideo-wrapper">
+                                            <div style="height:100%" class="lazyload-placeholder"></div>
+                                            <div class="InlineVideo-videoFooter">
+                                                <div class="InlineVideo-videoDurationContainer"><span class="InlineVideo-videoLabel">VIDEO</span><span class="InlineVideo-videoDurationWithLeading0">10:21</span><span class="InlineVideo-videoDuration InlineVideo-videoLabel">10:21</span></div>
+                                                <div class="InlineVideo-title">JEDI contract means a lot more for Microsoft than Amazon, Jim Cramer says</div>
+                                                <div class="InlineVideo-section"><a href="https://www.cnbc.com/mad-money/" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Mad Money with Jim Cramer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="PlaceHolder-endCard PlaceHolder-inactive"></div>
+                                </div>
+                                <div class="group">
+                                    <p><em>Disclosure: Cramer&#x27;s charitable trust owns shares of Amazon, Microsoft and Alphabet.</em></p>
+                                    <p><a href="https://www.cnbc.com/id/100000935" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Disclaimer</a></p>
+                                    <div class="ArticleBody-blockquote">
+                                        <p>Questions for Cramer?<br/> Call Cramer: 1-800-743-CNBC</p>
+                                        <p>Want to take a deep dive into Cramer&#x27;s world? Hit him up!<br/> <a href="https://twitter.com/MadMoneyOnCNBC" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Mad Money Twitter</a>                                            - <a href="https://twitter.com/jimcramer" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Jim Cramer Twitter</a> - <a href="https://www.facebook.com/madmoney?ref=aymt_homepage_panel"
+                                                alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Facebook</a> - <a href="http://instagram.com/jimcramer" alt="" class="" rel="" target="" title="" role="" tabindex=""
+                                                data-type="" aria-label="">Instagram</a></p>
+                                        <p>Questions, comments, suggestions for the &quot;Mad Money&quot; website? madcap@cnbc.com</p>
+                                    </div>
+                                </div>
+                                <div id="ArticleBody-MobileAdhesion" class="MobileAdhesion-container" data-module="mps-slot"></div>
+                            </div>
+                            <div class="RelatedTags-relatedTags" id="RelatedTags-7" data-module="RelatedTags">
+                                <div class="RelatedTags-wrapper" style="border-color:#bc3019">
+                                    <div class="RelatedTags-header">Related Tags</div>
+                                    <ul class="RelatedTags-tags">
+                                        <li><a href="https://www.cnbc.com/search/?query=Donald%20Trump">Donald Trump</a></li>
+                                        <li><a href="https://www.cnbc.com/search/?query=Jeff%20Bezos">Jeff Bezos</a></li>
+                                        <li><a href="https://www.cnbc.com/search/?query=James%20Mattis">James Mattis</a></li>
+                                        <li><a href="https://www.cnbc.com/search/?query=Defense">Defense</a></li>
+                                        <li><a href="https://www.cnbc.com/search/?query=Technology">Technology</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SidebarArticle-sidebar PageBuilder-sidebar">
+                            <div class="SidebarArticle-sticky" style="top:70px">
+                                <div class="SidebarArticle-ad" style="margin-top:0px">
+                                    <div class="BoxRail-container-right">
+                                        <div>
+                                            <div class="BoxRail-ad">
+                                                <div id="dart_wrapper_boxrail_8" class="BoxRail-container" data-module="mps-slot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="MostPopular-mostPopular" id="MostPopular-9">
+                                        <div class="MostPopular-wrapper MostPopular-taboolaContainer ">
+                                            <div class="MostPopular-header" style="border-color:#B9C7D5">Trending Now
+                                                <div class="MostPopular-headerDivider"></div>
+                                            </div>
+                                            <div class="MostPopular-slide">
+                                                <ol class="MostPopular-list">
+                                                    <li class="MostPopular-addIndex"><a href="https://www.cnbc.com/2019/10/29/chuck-schumer-worries-trump-will-shut-down-government-amid-impeachment.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type=""
+                                                            aria-label=""><img class="MostPopular-thumbnail" src="https://image.cnbcfm.com/api/v1/image/106211083-1572382203792rts2tep7.jpg?v=1572382290&amp;w=100&amp;h=75" alt="Senate Minority Leader Chuck Schumer (D-NY) talks to reporters after the weekly Senate policy lunches at the U.S. Capitol in Washington, October 29, 2019."/></a>
+                                                        <a
+                                                            href="https://www.cnbc.com/2019/10/29/chuck-schumer-worries-trump-will-shut-down-government-amid-impeachment.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type=""
+                                                            aria-label="">Schumer says he is worried Trump will shut down the government to distract from impeachment</a>
+                                                            <div class="MostPopular-divider"></div>
+                                                    </li>
+                                                    <li class="MostPopular-addIndex"><a href="https://www.cnbc.com/2019/10/25/americas-sex-recession-could-lead-to-an-economic-depression.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type="" aria-label=""><img class="MostPopular-thumbnail" src="https://image.cnbcfm.com/api/v1/image/106204067-1572015356064gettyimages-968442708.jpeg?v=1572015405&amp;w=100&amp;h=75"/></a>
+                                                        <a
+                                                            href="https://www.cnbc.com/2019/10/25/americas-sex-recession-could-lead-to-an-economic-depression.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type=""
+                                                            aria-label="">America&#x27;s sex recession could lead to an economic depression</a>
+                                                            <div class="MostPopular-divider"></div>
+                                                    </li>
+                                                    <li class="MostPopular-addIndex"><a href="https://www.cnbc.com/2019/10/29/the-wrong-kind-of-stocks-are-leading-the-stock-market-to-records.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type=""
+                                                            aria-label=""><img class="MostPopular-thumbnail" src="https://image.cnbcfm.com/api/v1/image/102352995-455722516.jpg?v=1421788644&amp;w=100&amp;h=75" alt="Traders work the floor of the New York Stock Exchange."/></a>
+                                                        <a
+                                                            href="https://www.cnbc.com/2019/10/29/the-wrong-kind-of-stocks-are-leading-the-stock-market-to-records.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type=""
+                                                            aria-label="">The wrong kind of stocks are leading the stock market to records</a>
+                                                            <div class="MostPopular-divider"></div>
+                                                    </li>
+                                                    <li class="MostPopular-addIndex"><a href="https://www.cnbc.com/2019/10/29/ncaa-allows-athletes-to-be-compensated-for-names-images.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type="" aria-label=""><img class="MostPopular-thumbnail" src="https://image.cnbcfm.com/api/v1/image/106211214-1572385460395trevor.jpg?v=1572385623&amp;w=100&amp;h=75" alt="Clemson Tigers Quarterback Trevor Lawrence (16) fakes a handoff to Clemson Tigers Running Back Travis Etienne (9) during the first quarter of the game between the Clemson Tigers and the Syracuse Orange on September 14, 2019, at the Carrier Dome in Syracuse, NY."/></a>
+                                                        <a
+                                                            href="https://www.cnbc.com/2019/10/29/ncaa-allows-athletes-to-be-compensated-for-names-images.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">The NCAA will allow athletes to profit from their name, image and likeness</a>
+                                                            <div class="MostPopular-divider"></div>
+                                                    </li>
+                                                    <li class="MostPopular-addIndex"><a href="https://www.cnbc.com/2019/10/29/amazon-is-making-two-hour-grocery-delivery-free-for-all-prime-members.html" alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type=""
+                                                            aria-label=""><img class="MostPopular-thumbnail" src="https://image.cnbcfm.com/api/v1/image/102106427-AmazonFresh_005.jpg?v=1413900500&amp;w=100&amp;h=75"/></a><a href="https://www.cnbc.com/2019/10/29/amazon-is-making-two-hour-grocery-delivery-free-for-all-prime-members.html"
+                                                            alt="" class="MostPopular-link" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Amazon is making two-hour grocery delivery free for all Prime members</a>
+                                                        <div class="MostPopular-divider"></div>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="PageBuilder-pageRow PageBuilder-containerWidth100">
+                        <div class="PageBuilder-col-full PageBuilder-col PageBuilder-article"></div>
+                    </div>
+                    <div class="PageBuilder-pageRow PageBuilder-containerFluidWidths">
+                        <div class="PageBuilder-col-9 PageBuilder-col PageBuilder-article"></div>
+                    </div>
+                    <div class="PageBuilder-pageRow PageBuilder-containerFluidWidths">
+                        <div class="PageBuilder-col-12 PageBuilder-col PageBuilder-article"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MobileAdhesion-Homepage" class="MobileAdhesion-container" data-module="mps-slot"></div>
+    <div class="Footer-container" id="GlobalFooter">
+        <div class="Footer-gridContainer">
+            <div class="Footer-wrapper">
+                <div class="Footer-header"><a href="//www.cnbc.com"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMjMgMzQuMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjIzIDM0LjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojRkZGRkZGO30KCS5zdDF7ZmlsbDojNjQ1RkE5O30KCS5zdDJ7ZmlsbDojQzgyMzRBO30KCS5zdDN7ZmlsbDojMDA4OENGO30KCS5zdDR7ZmlsbDojRjI2RjIxO30KCS5zdDV7ZmlsbDojMERCMDRCO30KCS5zdDZ7ZmlsbDojRkNCODEzO30KPC9zdHlsZT4KPGcgaWQ9IkxheWVyXzMiPgoJPGc+CgkJPGc+CgkJCTxnPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI2LjgsNC44YzAuNy0xLjIsMS44LTIuMywzLjItM2MyLjItMSw1LjEtMC41LDcsMWMxLjcsMS41LDIuNywzLjcsMi4yLDYuMWMwLjUsMCwwLjgtMC4zLDEuMy0wLjUKCQkJCQljMi43LTAuOCw1LjUsMCw3LjMsMi4zYzEuMywxLjcsMS43LDQuMiwwLjgsNi4xYy0wLjMsMS0xLDEuOC0xLjgsMi43bDAuMiwwLjJjMi41LDAuMiw1LDIsNS44LDQuNXMwLjIsNS0xLjcsNi44CgkJCQkJYy0xLjUsMS41LTMuMywyLTUuMywxLjhIOC4yYy0zLjIsMC01LjUtMS4zLTYuNi00Yy0xLTIuMy0wLjUtNS4zLDEuMy03LjFjMS4yLTEuMiwyLjctMS43LDQuMy0yYy0xLjgtMS43LTIuNy00LTIuMi02LjUKCQkJCQljMC4yLTEuOCwxLjgtNCwzLjgtNC43YzEuNy0wLjcsNC0wLjUsNS42LDAuM2wwLDBjLTAuNS0yLjcsMC43LTUuMSwzLTYuNmMyLTEuMyw1LjEtMS4zLDcuMSwwLjJDMjUuNSwzLDI2LjMsNCwyNi44LDQuOHoiLz4KCQkJCTxnPgoJCQkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zNy40LDUuOEMzNy4xLDUuMSwzNi42LDQuNSwzNiw0Yy0xLjUtMS4zLTQtMS41LTUuOC0wLjVjLTEuNywwLjgtMi43LDIuNy0yLjcsNC41bDAsMGgyLjIKCQkJCQkJYzAuMiwwLjIsMC4zLDAuMiwwLjUsMC4zQzI5LjMsOSwyNy42LDkuNiwyOCwxMWwyLjMsMTQuOGwwLDBsNi41LTE0LjZDMzcuOCw5LjUsMzguMyw3LjUsMzcuNCw1Ljh6Ii8+CgkJCQkJPHBhdGggY2xhc3M9InN0MiIgZD0iTTIzLjUsMjUuNmwyLjctMTYuOWMwLjItMS4yLTAuMi0yLjMtMC43LTMuM0MyNSw0LjMsMjQsMy42LDIzLDMuMWMtMS44LTAuOC00LjItMC4zLTUuNSwxcy0yLDMuMy0xLjMsNS4zCgkJCQkJCWw2LjYsMTQuOEwyMy41LDI1LjZMMjMuNSwyNS42eiIvPgoJCQkJCTxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik00Ny4xLDEyLjRjMC44LDEuNSwwLjcsMy44LTAuMyw1LjFjLTAuNywxLTEuNywxLjUtMi41LDIuMmwtMTMuOCw5LjVsMCwwbDAuMi0wLjVsNy4zLTE2LjQKCQkJCQkJYzEuMi0yLDMuMi0zLDUuMy0yLjdDNDQuOCwxMCw0Ni4zLDExLDQ3LjEsMTIuNHoiLz4KCQkJCQk8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNOC4xLDE4LjZsMTUuMywxMC41aDAuMmwtNy42LTE2LjhjLTEuMy0yLjItNC0zLjItNi41LTIuM2MtMS41LDAuNy0yLjcsMi0zLDMuNQoJCQkJCQlDNS43LDE1LjQsNi40LDE3LjQsOC4xLDE4LjZ6Ii8+CgkJCQkJPHBhdGggY2xhc3M9InN0NSIgZD0iTTUwLjQsMjkuNmMxLjItMS4zLDEuMy0zLjcsMC43LTUuMWMtMC41LTEuMi0xLjUtMi4yLTIuNy0yLjdjLTEuNS0wLjctMy41LTAuNS00LjgsMC4zTDMwLDMxLjVoMTYuMwoJCQkJCQlDNDcuOSwzMS41LDQ5LjIsMzAuOSw1MC40LDI5LjZ6Ii8+CgkJCQkJPHBhdGggY2xhc3M9InN0NiIgZD0iTTIzLjgsMzEuNWwtMTMuNi05LjZjLTEuMy0wLjgtMy4zLTEtNC44LTAuM2MtMS4yLDAuNS0yLjIsMS41LTIuNywyLjdjLTAuOCwxLjctMC41LDMuOCwwLjcsNS4xCgkJCQkJCWMxLDEuMywyLjUsMiw0LjIsMkwyMy44LDMxLjV6Ii8+CgkJCQk8L2c+CgkJCTwvZz4KCQk8L2c+CgkJPGc+CgkJCTxnPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTg0LjgsMTMuNGMtMC43LTMtMy0zLjgtNS44LTRjLTguOC0wLjgtMTAuMyw1LjgtMTAuMyw4LjZjMCw0LjgsMS4zLDguNiwxMCw4LjZjMS43LDAsNi0xLjcsNi00LjNoMTIuNQoJCQkJCWMtMC41LDgtMTMuOCw5LjgtMTkuNiw5LjhjLTEyLDAtMjIuMy0yLjItMjEuOC0xNC4xYzAuMy04LjUsOC4zLTE0LjQsMjQuMi0xNGM4LjgsMC4yLDE3LjMsMywxNy4zLDkuM0g4NC44eiIvPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIwOS40LDEzLjRjLTAuNy0zLTMtMy44LTUuOC00Yy04LjgtMC44LTEwLjMsNS44LTEwLjMsOC41YzAsNC44LDEuMyw4LjYsMTAsOC42YzEuNywwLDYtMS43LDYtNC4zaDEyLjUKCQkJCQljLTAuNSw4LTEzLjgsOS44LTE5LjYsOS44Yy0xMiwwLTIyLjMtMi4yLTIxLjgtMTQuMWMwLjMtOC41LDguMy0xNC40LDI0LjItMTRjOC44LDAuMiwxNy40LDMsMTcuNCw5LjNoLTEyLjZWMTMuNHoiLz4KCQkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik05OS42LDQuNmgxNi4xbDEzLjgsMTkuM2gwLjJWNC42SDE0MHYyNi43aC0xNS40bC0xNC40LTE5LjNoLTAuMnYxOS4zSDk5LjZDOTkuNiwzMS40LDk5LjYsNC42LDk5LjYsNC42eiIKCQkJCQkvPgoJCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE0My4xLDQuNmgxOS42YzkuNSwwLDE0LjksMi43LDE0LjksNi42YzAsMi4zLTIuMyw1LjMtNy41LDYuMWwwLDBjNi4xLDAuMyw4LjUsNC4zLDguNSw2LjYKCQkJCQljMCw0LjgtNS4zLDcuMy0xNS45LDcuM2gtMTkuNlY0LjZ6IE0xNTQuNiwxNS4xaDMuM2M1LDAsNy42LTAuMyw3LjYtMi41cy0yLjItMy02LjYtM2gtNC4ydjUuNUgxNTQuNnogTTE1NC42LDI1LjloMy4zCgkJCQkJYzYsMCw4LjMtMC43LDguMy0yLjdjMC0yLjItMi44LTMtNy4zLTNoLTQuMnY1LjZIMTU0LjZ6Ii8+CgkJCTwvZz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" alt="logo"/></a></div>
+                <div
+                    class="Footer-content">
+                    <ul class="Footer-menu">
+                        <li>
+                            <a href="https://www.cnbc.com/application/pro/?__source=pro|display|cnbc|house|PRO_Footer_MktgPg/">
+                                <div>Subscribe to CNBC PRO</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/cnbc-reprints/">
+                                <div>Licensing &amp; Reprints</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbcinsights.com/c/a/5bz17E1ICrI1gVk4ZBAbCA">
+                                <div>Join the CNBC Panel</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://corporate.comcast.com/values/integrity">
+                                <div>Supply Chain Values</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/advertising-and-partnerships/">
+                                <div>Advertise With Us</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/closed-captioning/">
+                                <div>Closed Captioning</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/digital-products/">
+                                <div>Digital Products</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/nbcuniversal-terms-of-service/">
+                                <div>Terms of Service</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.nbcuniversal.com/privacy/">
+                                <div>Privacy Policy</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/cnbc-news-releases/">
+                                <div>News Releases</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/cnbc-internship-program/">
+                                <div>Internships</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/corrections/">
+                                <div>Corrections</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/about-cnbc-international/">
+                                <div>About CNBC</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://info.evidon.com/pub_info/16924?v=1">
+                                <div>AdChoices</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/site-map/">
+                                <div>Site Map</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://help.cnbc.com/contact/">
+                                <div>Contact</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnbc.com/cnbc-careers-and-employment/">
+                                <div>Careers</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://help.cnbc.com/">
+                                <div>Help</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="Footer-share">
+                        <li><a href="https://www.facebook.com/cnbcinternational/c/" alt="facebook" target="_blank" aria-label="facebook"><span class="icon-social_facebook"></span></a></li>
+                        <li><a href="https://www.twitter.com/cnbci?lang=en/" alt="twitter" target="_blank" aria-label="twitter"><span class="icon-social_twitter"></span></a></li>
+                        <li><a href="https://www.linkedin.com/showcase/cnbc-international/" alt="linkedin" target="_blank" aria-label="linkedin"><span class="icon-social_linkedin"></span></a></li>
+                        <li><a href="https://www.instagram.com/cnbcinternational/?hl=en/" alt="instagram" target="_blank" aria-label="instagram"><span class="icon-social_instagram"></span></a></li>
+                        <li><a href="https://www.youtube.com/user/CNBCInternational/" alt="youtube" target="_blank" aria-label="youtube"><span class="icon-social_youtube"></span></a></li>
+                        <li><a href="https://apple.news/T3OtoXcxtRkuHRkM7SpFP_Q" alt="apple_news" target="_blank" aria-label="apple_news"><span class="icon-social_apple_news"></span></a></li>
+                        <li><a href="https://www.cnbc.com/rss-feeds/" alt="rss" target="_blank" aria-label="rss"><span class="icon-social_rss"></span></a></li>
+                    </ul>
+                    <div class="Footer-info">
+                        <div class="Footer-section">
+                            <h4>News Tips</h4>
+                            <p class="Footer-sectionInfo">Got a confidential news tip? We want to hear from you.</p><a href="//www.cnbc.com/news-tips/"><button>Get In Touch</button></a></div>
+                        <div class="Footer-section">
+                            <h4 class="Footer-newsletter"><span class="icon-newsletter"></span>
+                                <div>CNBC Newsletters</div>
+                            </h4>
+                            <p class="Footer-sectionInfo">Sign up for free newsletters and get more CNBC delivered to your inbox</p><a href="//www.cnbc.com/sign-up-for-cnbc-newsletters/"><button>Sign Up Now</button></a>
+                            <p class="Footer-copyright">Get this delivered to your inbox, and more info about our products and services. <a href="https://www.nbcuniversal.com/privacy/">Privacy Policy.</a></p>
+                        </div>
+                    </div>
+                    <div class="Footer-disclaimer">
+                        <p class="Footer-copyright">©
+                            <!-- -->2019
+                            <!-- -->CNBC LLC. All Rights Reserved.
+                            <!-- --><a href="http://www.nbcuni.com/">A Division of NBCUniversal</a></p>
+                        <p class="Footer-copyright">Data is a real-time snapshot *Data is delayed at least 15 minutes. Global Business and Financial News, Stock Quotes, and Market Data and Analysis.</p>
+                        <p class="Footer-copyright">Data also provided by
+                            <!-- --><a href="//www.cnbc.com/market-data-terms-of-service/"><img class="Footer-reutersLogo" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NjIuNTIgMjIxLjkzIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6bm9uZTt9LmNscy0ye2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPlJlZmluaXRpdl9oX3RtX3c8L3RpdGxlPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjY2Mi41MiIgaGVpZ2h0PSIyMjEuOTMiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik02MDcuNDIsMTY2LjgySDU4OS42OWwtNjItNjJoNzAuODh2MTIuNDFINTU3LjgyWk01OTguNTYsNTUuMUg0ODYuODRWMTY2LjgyaDEyLjQxVjY3LjUxaDk5LjMxWk00NDEuMzUsODQuMjV2OC4wN2gtMVY4NC4yNUg0MzcuN3YtLjg0SDQ0NHYuODRabTExLjU0LDguMDdWODQuMThoMGwtMi41LDguMTRoLS43NmwtMi41LTguMTRoMHY4LjE0aC0uODlWODMuNDFoMS41M2wyLjI3LDcuMmgwbDIuMjQtNy4yaDEuNTV2OC45MVpNODUuMzYsMTM4LjUxaDExTDg0LjE1LDExMy43NWwuNDEtLjEyYzYuNC0xLjgyLDEwLTYuOTMsMTAtMTRDOTQuNDIsODkuMzEsODgsODMuNDEsNzcsODMuNDFINTUuMXY1NS4xaDkuOTVWMTE1Ljc4aDkuNzlaTTY1LjA1LDEwNy44NFY5MS4zNWgxMC4xYzYuMTYsMCw5LjQxLDIuODUsOS40MSw4LjI1LDAsNS44NS0zLjI2LDguMjQtMTEuMjYsOC4yNFptNzEuOSw2LjA5di04LjI1SDExNy44NnYtMTRoMjYuMjhWODMuNDFIMTA3LjkxdjU1LjFIMTQ1di04LjI1SDExNy44NlYxMTMuOTNabTUwLjE4LTguMjVIMTY4LjV2LTE0aDI0Ljg5VjgzLjQxSDE1OC41NXY1NS4xaDkuOTVWMTEzLjkzaDE4LjYzWm0xOC4xOS0yMi4yN3Y1NS4xaDEwVjgzLjQxWm04Ni4yMSwwdjU1LjFoMTBWODMuNDFabTYxLjI5LDBIMzEzLjY0djguMjVoMTQuNjF2NDYuODVoOS45NVY5MS42NmgxNC42MlptMTIuMDgsMHY1NS4xaDEwVjgzLjQxWm0tOTkuNSwwdjM5LjA1aC0uMTVsLTIyLjUzLTM5SDIzMi4xNXY1NS4xaDkuMzNWOTcuNzZoLjE1bDEyLjMsMjEuNDVoMEwyNjUsMTM4LjUxaDkuNzJWODMuNDFabTE1Ni41OCwwLTEyLjkxLDQ0LjY2SDQwOWwtMTIuOS00NC42NmgtOS43NmwxNyw1NS4xaDExLjM3bDE3LTU1LjFaIi8+PC9zdmc+" alt="Reuters"/></a></p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="UniversalVideoPlayer-videoContainer  paused   " style="top:-3000px;bottom:;left:-3000px;transform:;transform-origin:;transition:;position:"></div>
+    </div>
+    </div>
+</body>
+
+</html>

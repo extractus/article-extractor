@@ -3,10 +3,10 @@ Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
 [![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
-[![Build Status](https://gitlab.com/ndaidong/article-parser/badges/master/build.svg)](https://gitlab.com/ndaidong/article-parser/pipelines)
+[![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/article-parser?branch=master)
 
 
-### Usage
+## Usage
 
 ```
 npm install article-parser
@@ -19,7 +19,7 @@ const {
   extract
 } = require('article-parser');
 
-let url = 'https://goo.gl/MV8Tkh';
+const url = 'https://goo.gl/MV8Tkh';
 
 extract(url).then((article) => {
   console.log(article);
@@ -28,81 +28,118 @@ extract(url).then((article) => {
 });
 ```
 
-### APIs
+## APIs
 
- - [configure(Object conf)](#configureobject-conf)
- - [extract(String url)](#extractstring-url)
- - [getConfig()](#getconfig)
+Since v4, `article-parser` will focus only on its main mission: extract main readable content from given webpages, such as blog posts or news entries. Although it is still able to get other kinds of content like YouTube movies, SoundCloud media, etc, they are just additions.
 
+#### extract(String url | String html)
 
-#### configure(Object conf)
+Extract data from specified url or full HTML page content.
+Return: an article object
 
-```js
-{
-  fetchOptions: Object,
-  wordsPerMinute: Number,
-  htmlRules: Object,
-  SoundCloudKey: String,
-  YouTubeKey: String
-}
-```
-
-- fetchOptions: Object, simple version of [node-fetch options](https://www.npmjs.com/package/node-fetch#options). Only `headers`, `timeout` and `agent` are available here.
-- wordsPerMinute: Number, default 300, use to estimate time to read
-- htmlRules: Object, options to to clean HTML with [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options)
-- SoundCloudKey: String, use to get audio duration. Get it [here](https://developers.soundcloud.com/).
-- YouTubeKey: String, use to get video duration. Get it [here](https://console.developers.google.com/).
-
-
-Default configurations may work for most case.
-
-
-#### extract(String url)
-
-Extract article data from specified url.
+Example:
 
 ```js
-const {
+import {
   extract
-} = require('article-parser');
+} from 'article-parser';
 
-let url = 'https://www.youtube.com/watch?v=tRGJj59G1x4';
+const getArticle = async (url) => {
+  try {
+    const article = await extract(url);
+    return article;
+  } catch (err) {
+    console.trace(err);
+  }
+};
 
-extract(url).then((article) => {
-  console.log(article);
-}).catch((err) => {
-  console.log(err);
-});
+const url = 'https://ghost.org/blog/3-0/';
+const article = getArticle(url);
 ```
 
 Now *article* would be something like this:
 
-```js
+```json
 {
-  title: 'Zato ESB - Test demo hosted on company server',
-  alias: 'zato-esb-test-demo-hosted-on-company-server-1500021746537-PAQXw8IYcU',
-  url: 'https://www.youtube.com/watch?v=tRGJj59G1x4',
-  canonicals:
-   [ 'https://www.youtube.com/watch?v=tRGJj59G1x4',
-     'https://youtu.be/tRGJj59G1x4',
-     'https://www.youtube.com/v/tRGJj59G1x4',
-     'https://www.youtube.com/embed/tRGJj59G1x4' ],
-  description: 'Our sample: https://github.com/greenglobal/zato-demo Zato homepage: https://zato.io Tutorial: "Zato — a powerful Python-based ESB solution for your SOA" http...',
-  content: '<iframe src="https://www.youtube.com/embed/tRGJj59G1x4?feature=oembed" frameborder="0" allowfullscreen></iframe>',
-  image: 'https://i.ytimg.com/vi/tRGJj59G1x4/hqdefault.jpg',
-  author: 'Dong Nguyen',
-  source: 'YouTube',
-  domain: 'youtube.com',
-  publishedTime: '',
-  duration: 292
+  "url": "https://ghost.org/blog/3-0/",
+  "links": [
+    "https://some.where/blog/ghost-3-0",
+    "https://ghost.org/blog/3-0/"
+  ],
+  "title": "Announcing Ghost 3.0 – The story behind raising $5m",
+  "description": "15,000 commits later - we just launched Ghost 3.0 and we've raised $5m in funding from the most forward thinking investors: our customers! Read our story.",
+  "image": "https://mainframe.ghost.io/content/images/2019/10/3.0-blog-feature-img.png",
+  "author": "@ghost",
+  "content": "<div><p>Today we released the third major version of Ghost, representing a total of more than 15,000 commits across almost 300 releases. The product is as fast and stable as it has ever been, and now it also has support for memberships, subscription revenue, and API driven modern site architectures.</p><p>But you might be wondering about...",
+  "source": "Ghost",
+  "published": "2019-10-22T10:35:14.000+00:00"
 }
-
 ```
 
+#### Configuration methods
 
-#### getConfig()
+In addition, this lib provides some methods to customize default settings. Don't touch them unless you have reason to do that.
 
-Return the current configurations.
+- setParserOptions(Object parserOptions)
+- getParserOptions()
+- setNodeFetchOptions(Object nodeFetchOptions)
+- getNodeFetchOptions()
+- setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
+- getSanitizeHtmlOptions()
+
+Here are default properties/values:
+
+#### Object `parserOptions`:
+
+```js
+{
+  wordsPerMinute: 300,
+  urlsCompareAlgorithm: 'levenshtein',
+}
+```
+
+Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs for more info about `urlsCompareAlgorithm`.
+
+
+#### Object `nodeFetchOptions`:
+
+```js
+{
+  headers: {
+    'user-agent': 'article-parser/4.0.0',
+  },
+  timeout: 30000,
+  redirect: 'follow',
+  compress: true,
+  agent: false,
+}
+```
+Read [node-fetch](https://www.npmjs.com/package/node-fetch#options) docs for more info.
+
+#### Object `sanitizeHtmlOptions`:
+
+```js
+{
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5',
+    'u', 'b', 'i', 'em', 'strong',
+    'div', 'span', 'p', 'article', 'blockquote', 'section',
+    'ul', 'ol', 'li', 'dd', 'dl',
+    'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
+    'label',
+    'fieldset', 'legend',
+    'img', 'picture',
+    'br', 'p',
+    'a',
+  ],
+  allowedAttributes: {
+    a: ['href'],
+    img: ['src', 'alt'],
+  },
+}
+```
+
+Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
 
 
 ## Test

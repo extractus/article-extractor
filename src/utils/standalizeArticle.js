@@ -1,70 +1,43 @@
 // utils -> standalizeArticle
 
-const cheerio = require('cheerio');
-const sanitize = require('sanitize-html');
+import cheerio from 'cheerio';
+import sanitize from 'sanitize-html';
 
-const htmlmin = require('html-minifier').minify;
+import {minify as htmlmin} from 'html-minifier';
 
-const {
-  stripTags,
-  truncate,
-} = require('bellajs');
+import absolutifyUrl from './absolutifyUrl';
+import {getSanitizeHtmlOptions} from '../config';
 
-const config = require('../config');
-const contentOnlyRule = config.htmlRules;
+export default (htmlArticle, url) => {
+  const $ = cheerio.load(htmlArticle, {
+    normalizeWhitespace: true,
+    decodeEntities: true,
+  });
 
-const getTimeToRead = require('./getTimeToRead');
-const absolutifyURL = require('./absolutifyURL');
+  $('a').each((i, elem) => {
+    const href = $(elem).attr('href');
+    if (href) {
+      $(elem).attr('href', absolutifyUrl(url, href));
+      $(elem).attr('target', '_blank');
+    }
+  });
 
-const standalize = (input) => {
-  const {
-    content: html,
-    description,
-    url,
-  } = input;
+  $('img').each((i, elem) => {
+    const src = $(elem).attr('src');
+    if (src) {
+      $(elem).attr('src', absolutifyUrl(url, src));
+    }
+  });
 
-  if (html) {
-    const $ = cheerio.load(html, {
-      normalizeWhitespace: true,
-      decodeEntities: true,
-    });
+  const minifiedHtml = htmlmin($.html(), {
+    removeComments: true,
+    removeEmptyElements: true,
+    removeEmptyAttributes: true,
+    collapseWhitespace: true,
+    conservativeCollapse: false,
+    removeTagWhitespace: true,
+  });
 
-    $('a').each((i, elem) => {
-      const href = $(elem).attr('href');
-      if (href) {
-        $(elem).attr('href', absolutifyURL(url, href));
-        $(elem).attr('target', '_blank');
-      }
-    });
-
-    $('img').each((i, elem) => {
-      const src = $(elem).attr('src');
-      if (src) {
-        $(elem).attr('src', absolutifyURL(url, src));
-      }
-    });
-
-
-    let cleanHtml = htmlmin($.html(), {
-      removeComments: true,
-      removeEmptyElements: true,
-      removeEmptyAttributes: true,
-      collapseWhitespace: true,
-      conservativeCollapse: false,
-      removeTagWhitespace: true,
-    });
-
-    cleanHtml = sanitize(cleanHtml, contentOnlyRule);
-    const content = cleanHtml.trim();
-    input.content = content;
-
-    const text = stripTags(content);
-    const s = description || text;
-    input.description = truncate(s, 156);
-
-    input.duration = getTimeToRead(text);
-  }
-  return input;
+  const cleanHtml = sanitize(minifiedHtml, getSanitizeHtmlOptions());
+  return cleanHtml.trim();
 };
-
-module.exports = standalize;

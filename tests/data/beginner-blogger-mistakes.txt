@@ -1,0 +1,2802 @@
+
+<!-- start coded_template: id:6247100313 path:Custom/blog/2018/hubspot_blog_2018_2.html --><!doctype html><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-us" > <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en-us" >        <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en-us" >               <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en-us"><!--<![endif]--><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Lindsay Kolowich">
+    <meta name="description" content="Learn about 13 common mistakes beginning bloggers make, and take some tips to get off on the right foot.">
+    <meta name="generator" content="HubSpot">
+
+
+
+    <title>13 Blogging Mistakes Most Beginner Bloggers Make</title>
+    <!-- exclude_hsg -->
+    <link rel="shortcut icon" href="https://blog.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png">
+
+
+    <script src="/hs/hsstatic/jquery-libs/static-1.1/jquery/jquery-1.7.1.js"></script>
+<script>hsjQuery = window['jQuery'];</script>
+    <meta property="og:description" content="Learn about 13 common mistakes beginning bloggers make, and take some tips to get off on the right foot.">
+    <meta property="og:title" content="13 Blogging Mistakes Most Beginner Bloggers Make">
+    <meta name="twitter:description" content="Learn about 13 common mistakes beginning bloggers make, and take some tips to get off on the right foot.">
+    <meta name="twitter:title" content="13 Blogging Mistakes Most Beginner Bloggers Make">
+
+
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+<link rel="stylesheet" href="/hs/hsstatic/AsyncSupport/static-1.64/sass/rss_post_listing.css">
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Domain Settings Code -->
+<meta name="apple-itunes-app" content="app-id=587068814">
+<meta name="twitter:app:name:iphone" content="HubSpot">
+<meta name="twitter:app:id:iphone" content="534167981">
+<meta name="twitter:app:name:ipad" content="Inbound Marketing">
+<meta name="twitter:app:id:ipad" content="587068814">
+<meta name="p:domain_verify" content="7f4fa0f1fccc171fd4d5af64f062521c">
+<meta http-equiv="”content-language”" content="”en-US”">
+
+<meta name="google-site-verification" content="2IEWx1p87YR79mLbeeSi-osUja8cJtEvdo_CvCgzMtc">
+
+<!-- start coded_template: id:4498951407 path:Custom/page/Web_Team/hsg-head.html -->
+
+
+<meta name="theme-color" content="#FF7A59">
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+
+
+
+
+
+
+    <style>.async-hide { opacity: 0 !important;} </style>
+      <script>(function (a, s, y, n, c, h, i, d, e) {s.className += ' ' + y; h.start = 1 * new Date;
+      h.end = i = function () { s.className = s.className.replace(RegExp(' ?' + y), '') };
+      (a[n] = a[n] || []).hide = h; setTimeout(function () { i(); h.end = null }, c); h.timeout = c;
+      })(window, document.documentElement, 'async-hide', 'dataLayer', 3000,
+    { 'GTM-T7FPMN': true });</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <link href="https://blog.hubspot.com/wt-assets/static-files/1891/blog-rebuild/styles.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- HREFLANG MACRO -->
+
+
+
+
+
+
+
+
+
+<!-- Social Sharing -->
+
+
+
+
+
+    <!-- End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- end coded_template: id:4498951407 path:Custom/page/Web_Team/hsg-head.html -->
+
+
+<meta class="swiftype" name="last-updated" data-type="date" content="Wed Apr 24 18:34:33 GMT 2019">
+
+<meta class="swiftype" name="meta-description" data-type="text" content="Learn about 13 common mistakes beginning bloggers make, and take some tips to get off on the right foot.">
+
+<!--Meta tag for Facebook Instant Articles-->
+<meta property="fb:pages" content="6039999393">
+
+
+<!-- DOMAIN LEVEL GTM: Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T7FPMN');</script>
+<!-- End Google Tag Manager -->
+<!-- End Domain Settings Code -->
+<meta property="og:image" content="https://blog.hubspot.com/hubfs/blogging-for-beginners.jpg#keepProtocol">
+<meta property="og:image:width" content="598">
+<meta property="og:image:height" content="398">
+<meta name="twitter:image" content="https://blog.hubspot.com/hubfs/blogging-for-beginners.jpg#keepProtocol">
+
+<meta property="og:url" content="https://blog.hubspot.com/marketing/beginner-blogger-mistakes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@lkolow">
+
+<link rel="canonical" href="https://blog.hubspot.com/marketing/beginner-blogger-mistakes">
+
+<meta property="og:type" content="article">
+<link rel="alternate" type="application/rss+xml" href="https://blog.hubspot.com/marketing/rss.xml">
+<meta name="twitter:domain" content="blog.hubspot.com">
+<meta name="twitter:site" content="@HubSpot">
+
+<meta http-equiv="content-language" content="en-us">
+
+<link rel="stylesheet" href="https://blog.hubspot.com/hs-fs/hub/53/hub_generated/template_assets/2218656526/1569507752635/Custom/page/css/Hubspot-default-no-style.min.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- AMP Analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
+
+
+
+
+
+
+
+
+
+        <meta name="twitter:label1" value="Reading time">
+        <meta name="twitter:data1" value="13 min read">
+
+
+
+
+
+
+
+    <link href="//static2cdn.hubspot.com/hubspot.com/static-1.4334/_hsg-ss/build/icons/hsg-icons.css" rel="stylesheet">
+
+
+</head>
+<body class="wt-blog wt-blog__subpages   hs-content-id-1154548304 hs-blog-post hs-content-path-marketing-beginner-blogger-mistakes hs-content-name-13-blogging-mistakes-most-beginner-bloggers-make hs-blog-name-marketing hs-blog-id-58774" style="">
+    <div class="header-container-wrapper">
+        <div class="header-container container-fluid">
+            <div class="row-fluid-wrapper row-depth-1 row-number-1">
+                <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-global_group " style="" data-widget-type="global_group" data-x="0" data-w="12">
+                        <!-- start coded_template: id:4062488789 path:generated_global_groups/4062488779.html -->
+<div class="" data-global-widget-path="generated_global_groups/4062488779.html"><div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_html " style="" data-widget-type="raw_html" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_147866345644391969" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"><span id="hs_cos_wrapper_global_svg_icons" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html" data-global-widget-id="4473595317"><!--?xml version="1.0" encoding="utf-8"?--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><symbol viewbox="0 0 60 23.7" id="add-on-label"><path fill="#CECECE" d="M60 1.4c.1-.3-.1-.6-.4-.6h-.4l-3.4 10.5v.3l3.4 10.7c.1.3-.1.6-.4.6H.8v.3c0 .2.2.4.4.4h58.3c.3 0 .5-.3.4-.6l-3.4-10.7V12L60 1.4z" /><path fill="#F7751F" d="M11.3 12.4h2l-1-3z" /><path fill="#F7751F" d="M4.1 22.9h54.7c.3 0 .5-.3.4-.6l-3.4-10.7v-.3L59.2.8l.1-.2c0-.3-.2-.6-.5-.6H4.1v22.9zm10.1-7.8l-.4-1.1h-3l-.4 1.1H8.3l2.8-7.3h2.4l2.8 7.3h-2.1zm5.7 0h-3.1V7.8h3.1c2.3 0 4 1.4 4 3.7s-1.8 3.6-4 3.6zm7.9 0h-3.1V7.8h3.1c2.3 0 4 1.4 4 3.7s-1.7 3.6-4 3.6zm7-3.1h-2.1v-1.1h2.1V12zm4.8 3.2c-2.2 0-3.9-1.6-3.9-3.8s1.7-3.8 3.9-3.8 3.9 1.6 3.9 3.8-1.7 3.8-3.9 3.8zm11.6-.1h-1.8l-3.1-4.4v4.4h-1.9V7.8h1.9l3 4.2V7.8h1.9v7.3z" /><path fill="#F7751F" d="M19.9 9.4h-1.2v4h1.2c1.3 0 2-.9 2-2s-.7-2-2-2zM39.6 9.3c-1.2 0-2 .9-2 2.1 0 1.2.8 2.1 2 2.1s2-.9 2-2.1c0-1.1-.8-2.1-2-2.1zM27.8 9.4h-1.2v4h1.2c1.3 0 2-.9 2-2 .1-1.1-.6-2-2-2z" /><path fill="#3B3F3F" d="M4.1 0H.4C.2 0 0 .2 0 .4v22c0 .2.2.4.4.4H4V0z" /><path fill="#FFF" d="M11.1 7.8l-2.8 7.3h2.1l.4-1.1h3l.4 1.1h2.1l-2.8-7.3h-2.4zm.2 4.6l1-3 1 3h-2zM19.8 7.8h-3.1v7.3h3.1c2.3 0 4-1.4 4-3.7s-1.7-3.6-4-3.6zm0 5.7h-1.2v-4h1.2c1.3 0 2 .9 2 2 .1 1-.7 2-2 2zM27.8 7.8h-3.1v7.3h3.1c2.3 0 4-1.4 4-3.7s-1.7-3.6-4-3.6zm0 5.7h-1.2v-4h1.2c1.3 0 2 .9 2 2 .1 1-.7 2-2 2zM32.7 10.9h2.1V12h-2.1zM39.6 7.7c-2.2 0-3.9 1.6-3.9 3.8s1.7 3.8 3.9 3.8 3.9-1.6 3.9-3.8-1.7-3.8-3.9-3.8zm0 5.9c-1.2 0-2-.9-2-2.1 0-1.2.8-2.1 2-2.1s2 .9 2 2.1c0 1.1-.8 2.1-2 2.1zM49.3 12l-2.9-4.2h-2v7.3h1.9v-4.4l3.1 4.4h1.8V7.8h-1.9z" /></symbol><symbol viewbox="0 0 20 20" id="facebook-icon"><path fill="#FFF" d="M18.9 0H1.1C.5 0 0 .5 0 1.1v17.8c0 .6.5 1.1 1.1 1.1h9.6v-7.7H8.1v-3h2.6V7c0-2.6 1.6-4 3.9-4 1.1 0 2.1.1 2.3.1v2.7h-1.6c-1.3 0-1.5.6-1.5 1.5v1.9h3l-.4 3h-2.6V20h5.1c.6 0 1.1-.5 1.1-1.1V1.1c0-.6-.5-1.1-1.1-1.1z" /></symbol><symbol viewbox="0 0 18 18" id="grey-search-icon"><circle fill="none" cx="7.5" cy="7.5" r="4" /><path fill="#555" d="M7.5 13.5c1.3 0 2.5-.4 3.5-1.1l3.8 3.8c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L12.4 11c.7-1 1.1-2.2 1.1-3.5 0-3.3-2.7-6-6-6s-6 2.7-6 6 2.7 6 6 6zm0-10c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4z" /></symbol><symbol viewbox="0 0 75.9 22" id="hubspot-grey-logo-footer"><g fill="#B3B3B3"><path d="M8.2 10H2.6V4.1H0v14.4h2.6v-6h5.6v6h2.7V4.1H8.2zM19.3 13.8c0 1.2-1 2.2-2.2 2.2s-2.2-1-2.2-2.2V7.6h-2.5v6.2c0 2.6 2.1 4.7 4.7 4.7s4.7-2.1 4.7-4.7V7.6h-2.5v6.2zM28.8 7.7c-1.2 0-2.1.4-3 1.2V4.1h-2.5v8.8c0 3.3 2.4 5.6 5.1 5.6 3 0 5.6-2.3 5.6-5.4s-2.4-5.4-5.2-5.4zm0 8.5c-1.7 0-3-1.4-3-3.1s1.3-3.1 3-3.1c1.4 0 2.8 1.4 2.8 3.1 0 1.7-1.3 3.1-2.8 3.1zM38.2 8.3c0-1.3.8-1.7 1.8-1.7.7 0 1.7.6 2.4 1.2L44 6c-.8-1.1-2.5-1.9-3.9-1.9-2.7 0-4.7 1.6-4.7 4.2 0 4.9 6 3.3 6 6.1 0 .8-.8 1.6-1.8 1.6-1.5 0-2-.7-2.6-1.5l-1.8 1.9c1.2 1.4 2.6 2.1 4.3 2.1 2.6 0 4.7-1.6 4.7-4.1 0-5.4-6-3.7-6-6.1zM50.9 7.5c-2.7 0-5.1 2.3-5.1 5.6V22h2.5v-4.8c.8.8 1.7 1.2 3 1.2 2.8 0 5.2-2.3 5.2-5.4 0-3.1-2.7-5.5-5.6-5.5zm.4 8.6c-1.7 0-3-1.4-3-3.1s1.3-3.1 3-3.1c1.4 0 2.8 1.4 2.8 3.1 0 1.6-1.4 3.1-2.8 3.1zM75 16.2c-1.5 0-1.9-.6-1.9-1.6v-4.4h2.3V8h-2.3V5.1l-2.5 1.1v8.9c0 2.3 1.6 3.4 3.7 3.4.3 0 .8 0 1-.1l.6-2.3c-.3.1-.6.1-.9.1z" /><path d="M68.4 10.3c-.5-.8-1.2-1.5-2-2-.6-.4-1.3-.6-2-.7V5c.7-.3 1.2-1 1.2-1.8 0-1.1-.9-2-2-2s-2 .9-2 2c-.1.8.4 1.5 1.1 1.8v2.6c-.7.1-1.2.3-1.8.6-1.1-.9-4.9-3.7-7.1-5.4.1-.2.1-.4.1-.6 0-1.2-1-2.2-2.2-2.2s-2.2 1-2.2 2.2 1 2.2 2.2 2.2c.4 0 .8-.1 1.1-.3l.5.4 6.4 4.6c-.3.3-.6.7-.9 1.1-.5.8-.8 1.7-.8 2.7v.2c0 .7.1 1.3.3 1.9.2.5.5 1 .8 1.4L57 18.5c-.2-.1-.4-.1-.6-.1-.5 0-.9.2-1.2.5s-.5.8-.5 1.2c0 .5.2.9.5 1.2.3.3.8.5 1.2.5.5 0 .9-.2 1.2-.5s.5-.8.5-1.2c0-.2 0-.4-.1-.5l2.2-2.2c.3.2.6.4 1 .5.7.3 1.4.5 2.3.5h.2c.9 0 1.8-.2 2.6-.7.9-.5 1.5-1.1 2-1.9.5-.8.8-1.7.8-2.7 0-1-.3-1.9-.7-2.8zm-2.7 4.6c-.6.7-1.3 1-2 1h-.1c-.4 0-.9-.1-1.3-.3-.5-.2-.8-.6-1.1-1s-.5-.9-.5-1.4V13c0-.5.1-1 .3-1.4.3-.5.6-.9 1.1-1.2.4-.3.9-.4 1.5-.4.5 0 .9.1 1.4.3.4.2.8.6 1.1 1 .3.4.4.9.5 1.4v.3c-.1.7-.4 1.3-.9 1.9z" /></g></symbol><symbol viewbox="0 0 101 29.3" id="hubspot-main-logo"><path fill="none" d="M87.8 15.1c-.4-.6-.9-1-1.4-1.3-.6-.3-1.2-.4-1.8-.4h-.1c-.7 0-1.4.2-2 .6-.6.4-1.1.9-1.4 1.5-.3.6-.5 1.2-.5 1.9v.2c0 .7.2 1.3.6 1.8.4.6.9 1 1.5 1.4.6.3 1.1.4 1.7.4h.2c1 0 1.9-.5 2.7-1.4.7-.8 1-1.6 1-2.5v-.4c.1-.6-.1-1.2-.5-1.8zM68.3 13.1c-2.3 0-4 1.9-4 4.1s1.7 4.1 4 4.1c1.9 0 3.7-1.9 3.7-4.1-.1-2.2-1.8-4.1-3.7-4.1zM38.4 13.3c-2.3 0-4 1.9-4 4.1s1.7 4.1 4 4.1c1.9 0 3.7-1.9 3.7-4.1-.1-2.2-1.8-4.1-3.7-4.1z" /><path fill="#4F4F4F" d="M11 13.3H3.5V5.5H0v19.2h3.5v-8H11v8h3.5V5.5H11zM25.6 18.4c0 1.6-1.3 2.9-2.9 2.9s-2.9-1.3-2.9-2.9v-8.3h-3.3v8.3c0 3.4 2.8 6.3 6.3 6.3 3.4 0 6.3-2.8 6.3-6.3v-8.3h-3.3v8.3h-.2zM38.3 10.2c-1.7 0-2.8.5-3.9 1.6V5.5H31v11.8c0 4.4 3.2 7.4 6.8 7.4 4 0 7.5-3.1 7.5-7.2s-3.3-7.3-7-7.3zm.1 11.4c-2.3 0-4-1.9-4-4.1s1.7-4.1 4-4.1c1.9 0 3.7 1.9 3.7 4.1-.1 2.2-1.8 4.1-3.7 4.1zM50.9 11.1c0-1.7 1.1-2.2 2.4-2.2 1 0 2.3.7 3.2 1.7L58.6 8c-1.1-1.5-3.3-2.5-5.1-2.5-3.6 0-6.3 2.1-6.3 5.6 0 6.5 8 4.4 8 8.1 0 1.1-1.1 2.1-2.4 2.1-2 0-2.6-1-3.5-2l-2.4 2.5c1.6 1.9 3.5 2.9 5.8 2.9 3.4 0 6.2-2.1 6.2-5.5 0-7.2-8-5-8-8.1zM75.2 17.3c0-4.1-3.5-7.2-7.5-7.2-3.6 0-6.8 3-6.8 7.4v11.8h3.4v-6.4c1.1 1.1 2.3 1.6 3.9 1.6 3.7 0 7-3.1 7-7.2zm-6.9 4.1c-2.3 0-4-1.9-4-4.1s1.7-4.1 4-4.1c1.9 0 3.7 1.9 3.7 4.1-.1 2.2-1.8 4.1-3.7 4.1zM99.8 21.6c-2 0-2.5-.9-2.5-2.2v-5.8h3.1v-2.9h-3.1V6.8l-3.4 1.5v11.8c0 3 2.1 4.5 4.9 4.5.4 0 1 0 1.3-.1l.8-3c-.3 0-.7.1-1.1.1z" /><path fill="#F37622" d="M88.3 11.1c-.8-.5-1.7-.8-2.7-.9V6.7c1-.4 1.6-1.3 1.6-2.4 0-1.5-1.2-2.7-2.7-2.7s-2.6 1.2-2.6 2.7c0 1.1.6 2 1.6 2.4v3.5c-.9.1-1.6.4-2.4.7-1.5-1.2-6.5-5-9.5-7.2.1-.3.1-.5.1-.8 0-1.6-1.3-3-3-3-1.6 0-3 1.3-3 3 0 1.6 1.3 3 3 3 .6 0 1.1-.2 1.5-.4l.6.5 8.5 6.1c-.4.4-.8.9-1.2 1.4-.7 1.1-1.1 2.3-1.1 3.5v.3c0 .9.1 1.8.4 2.6.3.7.6 1.3 1.1 1.9l-2.8 2.8c-.2-.1-.5-.1-.8-.1-.6 0-1.2.2-1.6.7-.4.4-.7 1-.7 1.6s.2 1.2.7 1.6c.4.4 1 .7 1.6.7s1.2-.2 1.6-.7c.4-.4.7-1 .7-1.6 0-.2 0-.5-.1-.7l2.9-2.9c.4.3.8.5 1.3.7.9.4 1.9.6 3 .6h.2c1.2 0 2.4-.3 3.5-.9s2-1.5 2.7-2.5c.7-1.1 1.1-2.3 1.1-3.6v-.1c0-1.3-.3-2.5-.9-3.6-.5-1.1-1.4-2-2.6-2.7zm-.9 8.7c-.8.9-1.7 1.4-2.7 1.4h-.2c-.6 0-1.2-.1-1.7-.4-.6-.3-1.1-.8-1.5-1.4s-.6-1.2-.6-1.8v-.2c0-.7.1-1.3.5-1.9.3-.6.8-1.1 1.4-1.5s1.2-.6 2-.6h.1c.6 0 1.3.1 1.8.4.6.3 1.1.7 1.4 1.3.4.6.6 1.2.6 1.8v.4c0 1-.4 1.8-1.1 2.5z" /></symbol><symbol viewbox="0 0 21 10.4" id="inboundorg-icon"><path fill="#FFF" d="M20.9 4c0-.1 0-.2-.1-.3 0-.1 0-.1-.1-.2 0-.1 0-.1-.1-.2 0-.1-.1-.2-.1-.3 0-.1-.1-.2-.1-.2s0-.1-.1-.1c-.2-.4-.5-.8-.9-1.2l-.1-.1c-.1-.2-.3-.4-.6-.6-.5-.3-1.1-.6-1.8-.7-.3-.1-.7-.1-1.1-.1h-.6-.1c-.2 0-.3 0-.5.1h-.1c-1.1.3-2.1.8-3 1.7l-.4.4c-.2.2-.4.4-.6.7L8.8 5.2c-.2.3-.3.5-.5.7l-.2.2c-.1.1-.2.2-.2.3-.9.8-1.8 1.2-2.6 1.2-.5 0-1-.1-1.4-.4l-.3-.3-.1-.1c-.4-.7 0-1.5.3-1.5-.4-.2-.8-1-.2-1.8l.1-.1c.4-.4 1-.6 1.6-.6.8 0 2.1.8 3 1.7 0 0 .1-.1.1-.2l1.5-1.9v-.1c0-.1.1-.1.1-.1C8.9 1 7.3.2 5.8 0h-.5C2.4 0 .1 2.3 0 5.1v.1c0 .4 0 .8.1 1.2 0 .1 0 .2.1.3 0 .1 0 .1.1.2 0 .1 0 .1.1.2 0 .1.1.2.1.3 0 .1.1.2.1.2s0 .1.1.1c.2.4.5.8.9 1.2l.1.1c.1.2.3.4.6.6.4.2.8.4 1.3.6.5.2 1.1.3 1.6.3h.2c.2 0 .3 0 .4-.1h.1c.2 0 .3 0 .5-.1h.1c1.1-.3 2.1-.8 3-1.7.2-.2.3-.4.4-.6.2-.2.4-.4.6-.7l1.7-2.2c.2-.2.3-.5.5-.7.1-.1.1-.2.2-.2s.1-.1.2-.2c.9-.8 1.8-1.3 2.6-1.3.5 0 1 .1 1.4.4l.3.3c.1.1.1.1.1.2.4.7 0 1.5-.3 1.5.4.1.8 1 .2 1.7l-.1.1c-.4.4-1 .6-1.6.6-.8 0-2.1-.8-3-1.7 0 0 0 .1-.1.2l-1.5 1.9V8l-.1.1c1.2 1.2 2.8 2 4.3 2.2h.6c.8 0 1.6-.1 2.2-.4.1 0 .2-.1.3-.1h.1c.1 0 .1-.1.2-.1.4-.2.7-.4 1-.7.5-.5.8-1 1.1-1.6v-.1c0-.1.1-.2.1-.2 0-.1.1-.2.1-.2v-.1c-.1-.7 0-1.1 0-1.6 0-.4 0-.8-.1-1.2z" /></symbol><symbol viewbox="0 0 20 20" id="instagram-icon"><g fill="#FFF"><path d="M10 1.8c2.7 0 3 0 4 .1 1 0 1.5.2 1.9.3.5.2.8.4 1.1.8.3.3.6.7.7 1.1.2.4.4.9.4 1.9 0 1.1.1 1.4.1 4s0 3-.1 4c0 1-.2 1.5-.3 1.9-.2.5-.4.8-.7 1.1-.3.3-.7.6-1.1.7s-.9.3-1.9.3c-1.1 0-1.4.1-4 .1s-3 0-4-.1c-1 0-1.5-.2-1.9-.3-.6-.1-.9-.3-1.2-.7-.3-.3-.6-.7-.7-1.1-.2-.4-.4-.9-.4-1.9 0-1.1-.1-1.4-.1-4s0-3 .1-4c0-1 .2-1.5.3-1.9.2-.5.4-.8.8-1.1.3-.3.7-.6 1.1-.7.4-.2.9-.4 1.9-.4 1-.1 1.3-.1 4-.1M10 0C7.3 0 6.9 0 5.9.1 4.8.1 4.1.3 3.5.6c-.7.2-1.3.5-1.8 1.1-.6.5-.9 1.1-1.2 1.7-.2.7-.4 1.4-.4 2.5C0 6.9 0 7.3 0 10s0 3.1.1 4.1c0 1.1.2 1.8.5 2.4.3.7.6 1.2 1.2 1.8.6.6 1.1.9 1.8 1.2.6.2 1.4.4 2.4.5h4c2.7 0 3.1 0 4.1-.1 1.1 0 1.8-.2 2.4-.5.7-.3 1.2-.6 1.8-1.2.6-.6.9-1.1 1.2-1.8.2-.6.4-1.4.5-2.4 0-1.1.1-1.4.1-4.1s0-3.1-.1-4.1c0-1.1-.2-1.8-.5-2.4-.3-.7-.6-1.2-1.2-1.8S17.2.7 16.5.4c-.6-.2-1.4-.4-2.4-.5-1 .1-1.4.1-4.1.1z" /><path d="M10 4.9c-2.8 0-5.1 2.3-5.1 5.1s2.3 5.1 5.1 5.1 5.1-2.3 5.1-5.1-2.3-5.1-5.1-5.1zm0 8.4c-1.8 0-3.3-1.5-3.3-3.3S8.2 6.7 10 6.7s3.3 1.5 3.3 3.3-1.5 3.3-3.3 3.3z" /><circle cx="15.3" cy="4.7" r="1.2" /></g></symbol><symbol viewbox="0 0 20 20" id="linkedin-icon"><path fill="#FFF" d="M18.5 0h-17C.7 0 0 .6 0 1.4v17.1c0 .9.7 1.5 1.5 1.5h17c.8 0 1.5-.6 1.5-1.4V1.4c0-.8-.7-1.4-1.5-1.4zM5.9 17H3V7.5h3L5.9 17zM4.4 6.2c-1 0-1.7-.8-1.7-1.7s.8-1.7 1.7-1.7 1.7.8 1.7 1.7c.1.9-.7 1.7-1.7 1.7zM17 17h-3v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.5V17h-3V7.5h2.8v1.3c.4-.8 1.4-1.5 2.8-1.5 3 0 3.6 2 3.6 4.5V17h.1z" /></symbol><symbol viewbox="0 0 18.9 16" id="medium-icon"><g fill="#FFF"><path d="M18.8 2.9L13.1 0H12.8c-.2 0-.4.1-.6.3L9 5.6l4.1 6.7 5.7-9.4c.1.1.1 0 0 0zM7.2 4.4v6.1l5.4 2.7zM13.4 13.6l4.4 2.2c.6.3 1 .1 1-.5V4.7l-5.4 8.9zM6.3 2.9L.7.2C.6.1.5.1.4.1.2.1 0 .3 0 .6v12c0 .3.2.7.5.8l4.9 2.5c.2.1.3.1.4.1.3 0 .5-.2.5-.6V2.9c0 .1 0 0 0 0z" /></g></symbol><symbol viewbox="0 0 18 18" id="orange-globe-icon"><path fill="#F7751F" d="M9 .6c4.6 0 8.4 3.8 8.4 8.4s-3.8 8.4-8.4 8.4S.6 13.6.6 9 4.4.6 9 .6M9 0C4 0 0 4 0 9s4 9 9 9 9-4 9-9-4-9-9-9z" /><defs><circle id="ja" cx="9" cy="9" r="8.4" /></defs><clippath id="jb"><use xlink:href="#ja" overflow="visible" /></clippath><g clip-path="url(#jb)" fill="#F7751F"><path d="M18.3 9v0zM18.3 8.9v-.2.2c0 .1 0 0 0 0zM18.3 9.7v0zM7.6-.2h0zM9.7-.3h.3-.3zM6.8 0zM6.4.1zM7.2-.1c.1 0 0 0 0 0zM6 .2zM18.2 7.4zM18.2 10.1v0zM12 .2zM10.6-.2h.2c-.1.1-.1.1-.2 0zM11.1-.1h.1c0 .1-.1 0-.1 0zM9-.3h.4H9zM8.5-.3h.4-.4zM10.2-.2h.2-.2zM-.1 7.1c0-.1 0-.1 0 0 0-.1 0-.1 0 0zM8.1-.3h.2-.2zM12.4.3zM18 6.5zM11.5.1c.1 0 .1 0 0 0 .1 0 .1 0 0 0zM18.2 7.7v0zM11.2 18c-.1 0-.2 0-.3.1.1 0 .2 0 .3-.1zM-.3 8.4v-.3.3zM11.6 17.9h-.1.1zM-.3 9v-.4.4zM9.9 18.3h-.3.3zM9.4 18.3H9h.4zM-.2 7.9v-.2.2zM-.2 7.5v-.2.2zM10.8 18.1h-.2c0 .1.1 0 .2 0zM10.4 18.2H10h.4zM18.2 10.6v0zM12 17.8c-.1 0-.1 0 0 0-.1 0-.1 0 0 0zM8.3-.3h0zM-.1 7.3V7v.3zM9.5-.3h.2-.2zM11.9 17.8c-.1 0-.2.1-.2.1s.1 0 .2-.1zM10.9 18.1h-.2.2zM10.5 18.2h-.2.2zM11.5 18c-.1 0-.2.1-.3.1.1-.1.2-.1.3-.1zM-.2 7.7v-.2.2zM6.9-.1c.1 0 .2-.1.3-.1-.1.1-.2.1-.3.1zM6 .2c.1 0 .3-.1.4-.1-.2 0-.3.1-.4.1zM-.3 8.1v-.2c.1.1 0 .2 0 .2zM6.4.1c.1-.1.3-.1.4-.1-.1 0-.3 0-.4.1zM-.3 8.6v-.2.2zM7.8-.2h.3-.3zM9.5 18.3h-.1.1zM10 18.3h-.1.1zM7.3-.2c.1 0 .2 0 .3-.1-.1.1-.2.1-.3.1zM10.8-.1c.1 0 .2 0 .3.1-.1-.1-.2-.1-.3-.1zM4.5 3.1v-.2h-.2L4 3l.1.1h.4zM5.5 4.5l-.2.1v.1H6v-.1h-.1v-.1zM1.8 4.4c-.1.2-.2.4-.4.6l.4-.4v-.2zM5.2 3.9L5 3.8l-.2.1.1.3.2-.1z" /><path d="M16.5 5.9l-.2-.2v-.4l-.3.1-.1.5-.3-.4v-.3l-.3-.3-.1-.1h-.4l.1.3.4.2.1.1h-.1v.3l-.2.1h-.2l-.1-.2h.3l.1-.1-.7-.5-.1-.2-.3.2-.3-.1-.4.5-.1.2h-.7l-.2-.1-.1-.5.1-.2.5.2.4.1.1-.2h-.2l.1-.4.4-.1.3-.5.3-.1h.4l-.1-.4-.3.1-.1-.3H14V3l.2-.2.4-.2.1-.2C13.1 1.3 11.2.5 9 .5c-1.9 0-3.6.6-5 1.6h.4l.2.1.4.1v.1h.6l-.1-.1-.5-.1.1-.1V2h-.5l.5-.4h.5l.2.3h.4l.2-.2.2.1-.3.3h-.4v.3h.5l.1-.1h.4v-.2L6.7 2l.1-.2.2-.1h.6l-.4.4.1.2h.3v-.4l.3-.2.6-.1.8.4v.3l.3.1-.3.3h-.4l-.1.3-.8-.2.7-.3-.3-.3-.5.1v.1l-.3.1h-.3v.1h.1-.2v.1l-.2.2v-.3l-.4.2-.7.4.1.3.2.1.4.1v.5h.2l.2-.4.5-.1v-.6l.3-.2.5.1v.4h.2l.4-.2v.5l.3.2v.3l-.3.1v.1l.4.2v.2h-.1l-.5-.2v-.2l.1-.1h-.1v.1h-.4l-.1-.1h-.4v.2h.4l-.3.2v-.1h-.1l-.4.3-.6.4-.5.5V6l-.5.4-.3.3v.5L5.2 7v-.3h-1l-.6.3-.2.4-.1.3.1.3.4.1.7-.4.1.2-.2.4.5.1.1.8.7.1.4-.5.5.1.2.3h.5v-.1l.3.1.3.5h.5l.2.3v.4l.6.2h.8l.2.4.3.1-.1.3-.4.5-.1 1-.3.3h-.5l-.1.1.1.5-.5.7-.2.3-.5.2-.3.1v.1l.2.1v.2l-.2.2.1.2H8v.2l-.1.2v.2l.4.3v.2h-.5l-.5-.4-.4-.7.1-.7-.3-.4-.1-.8h-.2v-1.5l-.5-.4-.3-.1-.1-.3L5 11l.1-.3v-.5l.4-.3v-.5h-.7l-.5-.6-.4-.1h-.2v-.2h-.3v.1l-.7-.3-.3-.5.1-.2-.5-.7v-.5h-.2l.1.5.3.5v.2h-.3L1.5 7v-.7l-.4-.2v-.4c.1-.3.2-.5.3-.7-.1.2-.2.4-.3.7C.7 6.7.5 7.8.5 9c0 4.7 3.8 8.5 8.5 8.5 2.7 0 5.1-1.2 6.6-3.2h-.3v-.6l-.3-.3v-.7l-.2-.2v-.3l.3-.6-.6-1.1.1-.7-.6-.1-.2-.2h-.4l-.2.2h-.6v.1h-.4l-.8-.9v-.7l.1-.1.1-.3h-.2l-.1-.3.9-.7v-.5l.5-.3H13.3l.3-.2 1-.1v.5l.8.2.1.1h.1v-.1h.4l.4.3h.7c0-.3-.1-.6-.1-.8h-.5zm-3.6-2.4l.1-.1.3-.1.1.3.1.2.1.2.2.1-.2.2H13V4h.2v-.1l-.2-.1-.1-.1v-.2zm-.4.5l.2-.3.2-.1.1.2V4l-.4.2h-.2l.1-.2zM7.8 5.1h-.2V5l.1-.1.1.2zm.7-.2h-.1V5H8.1v-.1H8h.2l.1-.1.2.1z" /><path d="M16.8 5.5c-.1-.1-.1-.3-.2-.4l-.1.1v.4l.3-.1zM15.5 3.9l.2-.3c-.1-.2-.3-.3-.4-.5v.4l-.4.2v.1l.6.1zM4.5 2.6v-.1H4v.2h.4zM6 4.5v.2h.2zM6.3 5V5.3h.3v-.2zM6.4 4.8v.1h.2zM17.3 7.1l.1.1-.1-.1zM17.3 13.2c-1.1 2.1-3 3.8-5.3 4.6 3.2-1.1 5.6-3.8 6.2-7.1 0 .2-.1.3-.1.5-.2.7-.5 1.4-.8 2zM5.9 5.1h.2l.1-.1v-.2h-.3zM5.9 5.2h-.1l-.1.2H6l.1-.1v-.2zM5.2 5.2l.2.1.3-.5h-.2l-.2.2zM18.3 9.9v.3c-.1-.2 0-.2 0-.3zM18.2 7.5v0zM18.3 9.4v0zM18 6.5c.1.3.1.6.2.9-.1-.3-.2-.6-.2-.9zM9.9-.3h.2c0 .1-.1.1-.2 0zM18.2 10.3v0zM11.2 0c.1 0 .2.1.3.1-.1-.1-.2-.1-.3-.1zM12 .2c.1 0 .2.1.4.1-.1 0-.2-.1-.4-.1zM10.4-.2h.3-.3zM11.6.1c.1 0 .2.1.3.1 0-.1-.2-.1-.3-.1zM-.3 9c0 5.1 4.2 9.3 9.3 9.3-5.1 0-9.3-4.2-9.3-9.3zM18.3 8.7c0-.3 0-.6-.1-.9V8c.1.3.1.5.1.7zM9-.3zM2.7 2.2c.9-.9 2-1.5 3.3-2C3 1.2.6 3.8-.1 7c.3-1.4.9-2.6 1.7-3.7.4-.4.7-.8 1.1-1.1zM18.3 9z" /><path d="M15.7 2.5c0 .1.1.1.1.2.7.8 1.3 1.7 1.7 2.7 0 .1 0 .1.1.2l.3.9C17.1 3.7 15 1.4 12.4.4c1.1.4 2 1 2.8 1.8.2.1.3.2.5.3z" /></g></symbol><symbol viewbox="0 0 18 18" id="orange-telephone-icon"><path fill="none" d="M9 10.9c-1.3 0-2.3 1-2.3 2.3s1 2.3 2.3 2.3 2.2-1 2.2-2.3c.1-1.3-.9-2.3-2.2-2.3z" /><path fill="#F7751F" d="M0 7l1.6 2.3 2.9-1.6c.6-.3.6-1.6.6-1.6 1.6-1 6.1-1 7.7 0 0 0 0 1.3.6 1.6l2.9 1.6L18 7C13.8 2.2 4.2 2.2 0 7z" /><path fill="#F7751F" d="M1.3 17.7c0 .3 0 .3.3.3h14.8c.3 0 .3 0 .3-.3.7-12.3-16.1-12.3-15.4 0zM9 15.4c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.2 1 2.2 2.3c.1 1.3-.9 2.3-2.2 2.3z" /></symbol><symbol viewbox="0 0 16 16" id="pinterest-icon"><path fill="#FFF" d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 15.1c-.7 0-1.4-.1-2.1-.3.3-.5.7-1.2.9-1.9.1-.3.4-1.7.4-1.7.2.4.9.8 1.6.8 2.1 0 3.7-2 3.7-4.4 0-2.3-1.9-4.1-4.4-4.1-3.1 0-4.7 2.1-4.7 4.3 0 1 .6 2.3 1.4 2.8.1.1.2 0 .2-.1s.1-.6.2-.8v-.2c-.2-.4-.5-1-.5-1.6 0-1.6 1.2-3.1 3.2-3.1 1.7 0 3 1.2 3 2.9 0 1.9-1 3.3-2.2 3.3-.7 0-1.2-.6-1.1-1.3.2-.8.6-1.8.6-2.4 0-.5-.3-1-.9-1C6.6 6.3 6 7 6 8c0 .6.3 1 .3 1s-.7 3-.8 3.5c-.1.6-.1 1.5 0 2C2.8 13.6.9 11 .9 8 .9 4.1 4.1.9 8 .9s7.1 3.2 7.1 7.1c0 3.9-3.2 7.1-7.1 7.1z" /></symbol><symbol viewbox="0 0 18 20.6" id="podcast-icon"><path fill="none" d="M8.5 10.3h1.1c1 0 1.8.6 1.8 1.4 1-.7 1.7-2 1.7-3.3 0-2.2-1.8-4.1-4.1-4.1S4.9 6.1 4.9 8.4c0 1.4.7 2.6 1.8 3.3 0-.8.7-1.4 1.8-1.4zM9 5.8c1.2 0 2.1 1 2.1 2.1S10.1 10 9 10s-2.1-.8-2.1-2S7.8 5.8 9 5.8z" /><path fill="none" d="M9 1.3C4.8 1.3 1.3 4.8 1.3 9c0 3.6 2.4 6.5 5.7 7.4l-.2-3.2c-1.9-.8-3.2-2.7-3.2-4.9C3.6 5.4 6 3 9 3s5.4 2.4 5.4 5.4c0 2.2-1.3 4-3.2 4.9l-.2 3.1c3.3-.9 5.7-3.8 5.7-7.4 0-4.2-3.5-7.7-7.7-7.7z" /><path fill="#FFF" d="M9 0C4 0 0 4 0 9c0 4.3 3.1 8 7.2 8.8l.1 1.3c.1.8.7 1.5 1.4 1.5h.7c.7 0 1.3-.7 1.4-1.5l.1-1.3c4-.8 7.1-4.5 7.1-8.8 0-5-4-9-9-9zM4.9 8.4c0-2.2 1.8-4.1 4.1-4.1s4.1 1.8 4.1 4.1c0 1.4-.7 2.6-1.7 3.3 0-.8-.8-1.4-1.8-1.4H8.5c-1 0-1.8.6-1.8 1.4-1.1-.7-1.8-2-1.8-3.3zm6.1 8l.2-3.1c1.9-.8 3.2-2.7 3.2-4.9C14.4 5.4 12 3 9 3S3.6 5.4 3.6 8.4c0 2.2 1.3 4 3.2 4.9l.2 3.1c-3.2-.9-5.7-3.8-5.7-7.4 0-4.2 3.4-7.7 7.7-7.7s7.7 3.4 7.7 7.7c0 3.6-2.5 6.5-5.7 7.4z" /><circle fill="#FFF" cx="9" cy="8" r="2.1" /></symbol><symbol viewbox="0 0 125.1 125.1" id="slack-icon"><g fill="#FFF"><path d="M51.444 57.35l16.689-5.59 5.399 16.119-16.689 5.59z" /><path d="M51.444 57.35l16.689-5.59 5.399 16.119-16.689 5.59z" /><path d="M119.8 45.3c-12.9-43-31.5-53-74.5-40.1s-53 31.5-40.1 74.5 31.5 53 74.5 40.1 53-31.5 40.1-74.5zM98.1 73.2L90 75.9l2.8 8.4c1.1 3.4-.7 7.1-4.1 8.2-.7.2-1.5.4-2.2.3-2.6-.1-5.1-1.8-6-4.4L77.7 80 61 85.6l2.8 8.4c1.1 3.4-.7 7.1-4.1 8.2-.7.2-1.5.4-2.2.3-2.6-.1-5.1-1.8-6-4.4l-2.8-8.4-8.1 2.7c-.7.2-1.5.4-2.2.3-2.6-.1-5.1-1.8-6-4.4-1.1-3.4.7-7.1 4.1-8.2l8.1-2.7-5.4-16.1-8.1 2.7c-.7.2-1.5.4-2.2.3-2.6-.1-5.1-1.8-6-4.4-1.1-3.4.7-7.1 4.1-8.2l8.1-2.7-2.8-8.4c-1.1-3.4.7-7.1 4.1-8.2s7.1.7 8.2 4.1l2.8 8.4 16.7-5.6-2.8-8.4c-1.1-3.4.7-7.1 4.1-8.2 3.4-1.1 7.1.7 8.2 4.1l2.8 8.4 8.1-2.7c3.4-1.1 7.1.7 8.2 4.1 1.1 3.4-.7 7.1-4.1 8.2l-8.1 2.7 5.4 16.1 8.1-2.7c3.4-1.1 7.1.7 8.2 4.1 1.1 3.4-.7 7.1-4.1 8.2z" /></g></symbol><symbol viewbox="0 0 17 17.3" id="slideshare-icon"><g fill="#FFF"><path d="M16.3 8.2c-.1 0-.1.1-.2.1V1.7c0-.9-.7-1.7-1.6-1.7H2.4C1.6 0 .9.8.9 1.7v6.7c-.1 0-.1-.1-.2-.1-.6-.4-.9.1-.6.5.6.8 1.8 1.7 3.6 2.4-1.9 6.5 4.6 7.5 4.5 4.2v-3.3c.2 0 .3.1.5.1v3.2c-.1 3.3 6.5 2.3 4.5-4.2 1.8-.7 3-1.7 3.6-2.4.4-.4.1-.9-.5-.6zM9.9 9.9c-.8 0-1.1.3-1.1.8-.2-.1-.4-.3-.6-.5l-.1-.1c-.2-.1-.5-.2-1-.2-1.1 0-3 .2-5.3-1V2.4c0-1.2.3-1.5 1.4-1.5h10.7c1 0 1.4.4 1.4 1.5v6.4C13 10.2 11 9.9 9.9 9.9z" /><path d="M11 5.2c-1.1 0-2 .9-2 2s.9 2 2.1 2c1.2 0 2.1-.9 2.1-2s-1-2-2.2-2z" /><ellipse cx="6.2" cy="7.2" rx="2.1" ry="2" /></g></symbol><symbol viewbox="0 0 18 18" id="solid-orange-email-icon"><g fill="#F7751F"><path d="M0 5.8v8.3c0 .5.4.9.9.9h16.2c.5 0 .9-.5.9-.9V5.9l-8.9 4.9-9.1-5z" /><path d="M17.1 2.9H.9c-.5 0-.9.3-.9.8v.8l9.1 4.9L18 4.6v-.9c0-.5-.4-.8-.9-.8z" /></g></symbol><symbol viewbox="0 0 20 20" id="twitter-icon"><path fill="#FFF" d="M20 5.7c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-.7-.8-1.8-1.3-3-1.3-2.3 0-4.1 1.8-4.1 4.1 0 .3 0 .6.1.9C6.4 8.6 3.4 7 1.4 4.5 1 5.1.8 5.8.8 6.6c0 1.4.8 2.6 1.9 3.4-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.8 2.8-1.4 1.1-3.2 1.8-5.1 1.8-.3 0-.7 0-1-.1C1.8 19.3 4 20 6.3 20 13.8 20 18 13.7 18 8.3v-.5c.8-.6 1.4-1.3 2-2.1z" /></symbol><symbol viewbox="0 0 20 20" id="youtube-icon"><path fill="#FFF" d="M19.8 9s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.8-2.8-.2-7-.2-7-.2s-4.2 0-7 .2c-.4 0-1.2 0-2 .8-.6.6-.8 2-.8 2S0 10.6 0 12.2v1.5c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.2.9 1.6.1 6.8.1 6.8.1s4.2 0 7-.2c.4 0 1.2-.1 2-.8.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.7-.2-3.3-.2-3.3zM7.9 15.6V10l5.4 2.8-5.4 2.8z" /></symbol></svg></span></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_jinja " style="" data-widget-type="raw_jinja" data-x="0" data-w="12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FIXME: need i18n paths -->
+
+
+
+
+
+
+
+
+
+    <div id="hsg-nav-2016" class="hsg-nav__wrapper ">
+        <div class="hsg-nav__product-nav-bar">
+            <div id="hs-nav-v4" class="nav-width-flex placeholder-nav">
+                <div class="hs-nav-section main-nav"></div>
+            </div>
+        </div>
+
+        <div data-fixed-element="placeholder">
+            <nav class="hsg-nav-bar hsg-nav-top-bar" data-fixed-element="target" data-cx="009219321729865762236:z9gsnksfc30">
+                <div class="hsg-page-width-normal">
+                    <div class="hsg-nav__inner">
+              <span id="hs_cos_wrapper_global_language_dropdown" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html" data-global-widget-id="5404198577">
+
+
+
+
+
+
+
+
+
+
+
+        <!-- LANGUAGE SWITCHER LINKSSSS
+
+        [{lang=jp, langString=日本語, url=null}, {lang=de, langString=Deutsch, url=null}, {lang=en, langString=English, url=null}, {lang=es, langString=Español, url=null}, {lang=pt, langString=Português, url=null}, {lang=fr, langString=Français, url=null}]
+
+        <ul class="hsg-nav__dropdown-list">
+            {lang=jp, langString=日本語, url=null}
+
+
+                generated path: blog.hubspot.com/marketing
+                currentDomain: https://blog.hubspot.com/marketing/
+
+
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link"  href="
+
+  " >日本語</a>
+            </li>
+
+            {lang=de, langString=Deutsch, url=null}
+
+
+                generated path: blog.hubspot.com/marketing
+                currentDomain: https://blog.hubspot.com/marketing/
+
+
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link"  href="
+
+  " >Deutsch</a>
+            </li>
+
+            {lang=en, langString=English, url=null}
+
+
+                generated path: blog.hubspot.com/marketing
+                currentDomain: https://blog.hubspot.com/marketing/
+
+
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link"  href="
+
+  " >English</a>
+            </li>
+
+            {lang=es, langString=Español, url=null}
+
+
+                generated path: blog.hubspot.com/marketing
+                currentDomain: https://blog.hubspot.com/marketing/
+
+
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link"  href="
+
+  " >Español</a>
+            </li>
+
+            {lang=pt, langString=Português, url=null}
+
+
+                generated path: blog.hubspot.com/marketing
+                currentDomain: https://blog.hubspot.com/marketing/
+
+
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link"  href="
+
+  " >Português</a>
+            </li>
+
+            {lang=fr, langString=Français, url=null}
+
+
+                generated path: blog.hubspot.com/marketing
+                currentDomain: https://blog.hubspot.com/marketing/
+
+
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link"  href="
+
+  " >Français</a>
+            </li>
+        </ul>
+        -->
+  <ul class="hsg-nav__group">
+    <li class="hsg-nav__group-item hsg-nav__group-item--has-dropdown">
+      <div id="nav-main-link" class="hsg-nav__link-wrapper">
+        <a href="https://blog.hubspot.com/marketing/beginner-blogger-mistakes" class="hsg-nav__link">
+          <span class="hsg-nav__link-label hsg-nav__link-label--globe"><span class="hsg-icon hsg-nav__globe-icon"></span>English</span>
+        </a>
+      </div>
+      <ul class="hsg-nav__dropdown-list">
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link disabled ">日本語</a>
+            </li>
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link disabled ">Deutsch</a>
+            </li>
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link disabled ">English</a>
+            </li>
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link disabled ">Español</a>
+            </li>
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link disabled ">Português</a>
+            </li>
+
+            <li class="hsg-nav__dropdown-item">
+                <a class="hsg-nav__dropdown-country-link disabled ">Français</a>
+            </li>
+        </ul>
+
+
+    </li>
+
+    <span id="hs_cos_wrapper_global_phone_number_dropdown" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html" data-global-widget-id="4424339074">
+
+
+
+
+
+
+
+
+
+<li class="hsg-nav__group-item">
+  <div class="hsg-nav__link-wrapper">
+      <a href="//offers.hubspot.com/contact-sales" class="hsg-nav__link">
+        <span class="hsg-nav__link-label hsg-nav__link-label--contact-us">Contact Us</span>
+      </a>
+    </div>
+    </li></span>
+  </ul></span>
+
+
+
+                        <ul class="hsg-nav__group">
+                            <li class="hsg-nav__group-item hsg-nav__group-item--search">
+
+
+
+  <!-- pageLang: en -->
+  <input type="search" class="blog-sticky-navigation__search-input" data-id="hsg-nav__search-input" placeholder="search..." data-config="{&quot;contexts&quot;:[{&quot;selected&quot;:false,&quot;id&quot;:&quot;website&quot;,&quot;cx&quot;:&quot;009219321729865762236:z9gsnksfc30&quot;,&quot;label&quot;:&quot;Search HubSpot.com&quot;},{&quot;selected&quot;:true,&quot;id&quot;:&quot;blog&quot;,&quot;cx&quot;:&quot;009219321729865762236:fzizmixjdmi&quot;,&quot;label&quot;:&quot;Search the blog&quot;}],&quot;loadMoreButton&quot;:&quot;Load More Results&quot;,&quot;noResults&quot;:[&quot;That's odd...&quot;,&quot;couldn't find quite the right match.&quot;,&quot;Don't worry, try searching again up top.&quot;]}">
+
+
+                            </li>
+                            <li class="hsg-nav__group-item hsg-nav__group-item--login">
+
+
+
+
+
+                    <a class="cta--secondary cta--small" data-logged-in-text="Go To My Account" data-logged-in-href="//app.hubspot.com/myaccounts" href="//app.hubspot.com/login">Log in</a>
+
+                            </li>
+
+                            <li class="hsg-nav__group-item hsg-nav__group-item--cta">
+
+
+
+
+
+                                        <a class="cta cta--small cta--primary homepage-nav" href="//www.hubspot.com/products/get-started">Get HubSpot free</a>
+
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <nav class="hsg-nav-menu">
+            <div class="hsg-page-width-normal">
+
+                <div class="hsg-nav__inner">
+
+              <a href="/" id="hsg-nav__logo">
+
+
+
+                        <!-- pageType: marketing -->
+
+                        <img src="https://blog.hubspot.com/hubfs/HubSpot_Logos/HSLogo_color.svg" alt="HubSpot Logo">
+
+
+
+
+                    </a>
+
+                    <div class="hsg-nav__burger-wrapper">
+                        <div class="hsg-nav__burger">
+                          <span class="hsg-nav__burger-label"></span>
+                        </div>
+                    </div>
+
+                    <div class="hsg-nav__groups-wrapper">
+                        <ul class="hsg-nav__group hsg-nav__group--nav-bar">
+                            <li class="hsg-nav__group-item">
+                                <div class="hsg-nav__link-wrapper">
+
+                    <a href="//offers.hubspot.com/contact-sales" class="hsg-nav__link">
+                      <span class="hsg-nav__link-label hsg-nav__link-label--contact-us"><span class="hsg-icon hsg-icon-email"></span>Contact Us</span>
+                    </a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="hsg-nav__group hsg-nav__group--primary">
+
+                            <li class="hsg-nav__group-item hsg-nav__group-item--order-1  hsg-nav__group-item--has-dropdown ">
+                                <div class="hsg-nav__link-wrapper">
+                                    <a href="//www.hubspot.com/products/get-started" class="hsg-nav__link">
+                                        <span class="hsg-nav__link-label">Software</span>
+                                    </a>
+                                </div>
+
+
+                                 <!-- Software -->
+                                        <ul class="hsg-nav__dropdown-list hsg-nav__dropdown-list--3-col-wide">
+                                            <li class="hsg-nav__dropdown-row hsg-nav__dropdown-row--links">
+                                                <div class="hsg-nav__dropdown-column">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        <a href="//www.hubspot.com/products/crm" class="hsg-nav__box-link">
+                                                            <span><h3 class="hsg-nav__header hsg-nav__header">Free HubSpot CRM</h3></span>
+                                                            <p class="hsg-nav__subheader" gtm="crm"><span class="hsg-visible-gt-mobile">All your contacts and companies, <strong>100% free.</strong></span></p>
+                                                        </a>
+
+
+
+
+                                                </div>
+                                            </li>
+                                            <li class="hsg-nav__dropdown-row">
+
+                                                <a href="//www.hubspot.com/products/marketing" class="hsg-nav__box-link" gtm="marketing">
+                                                    <h4 class="hsg-nav__header" gtm="marketing">Marketing Hub</h4>
+                                                    <p class="hsg-nav__subheader" gtm="marketing"><span class="hsg-visible-gt-mobile">All-in-one marketing software, starting at <strong>$0/month.</strong></span></p>
+                                                </a>
+
+                                                <a href="//www.hubspot.com/products/sales" class="hsg-nav__box-link" gtm="sales">
+                                                    <h4 class="hsg-nav__header" gtm="sales">Sales Hub</h4>
+                                                    <p class="hsg-nav__subheader" gtm="sales"><span class="hsg-visible-gt-mobile">All-in-one sales software, starting at <strong>$0/month.</strong></span></p>
+                                                </a>
+
+                                                <a href="//www.hubspot.com/products/service" class="hsg-nav__box-link" gtm="service">
+                                                    <h4 class="hsg-nav__header" gtm="service">Service Hub</h4>
+                                                    <p class="hsg-nav__subheader" gtm="service"><span class="hsg-visible-gt-mobile">All-in-one customer service software, starting at <strong>$0/month.</strong></span></p>
+                                                </a>
+
+                                            </li>
+                                            <li class="hsg-nav__dropdown-row hsg-nav__dropdown-row--links hsg-nav__dropdown-row--links-horizontal">
+                                                <div class="hsg-nav__dropdown-column">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        <a href="//www.hubspot.com/integrations" class="hsg-nav__box-link">
+                                                            <span class="hsg-nav__dropdown-column-container">
+                                                        <span class="hsg-nav__ribbon">New</span>
+                                                                <h3 class="hsg-nav__header hsg-nav__header">App Marketplace</h3>
+                                                                <p class="hsg-nav__subheader" gtm="app"><span class="hsg-visible-gt-mobile">Find HubSpot apps for the tools and software you use to run your business.</span></p>
+                                                            </span>
+                                                        </a>
+
+
+                                                </div>
+                                            </li>
+                                        </ul>
+
+
+                            </li>
+
+                            <li class="hsg-nav__group-item hsg-nav__group-item--order-2 ">
+                                <div class="hsg-nav__link-wrapper">
+                                    <a href="//www.hubspot.com/pricing/marketing" class="hsg-nav__link">
+                                        <span class="hsg-nav__link-label">Pricing</span>
+                                    </a>
+                                </div>
+
+
+                            </li>
+
+                            <li class="hsg-nav__group-item hsg-nav__group-item--order-3  hsg-nav__group-item--has-dropdown ">
+                                <div class="hsg-nav__link-wrapper">
+                                    <a href="//blog.hubspot.com" class="hsg-nav__link">
+                                        <span class="hsg-nav__link-label">Resources</span>
+                                    </a>
+                                </div>
+
+
+                                 <!-- Resources -->
+
+                                <ul class="hsg-nav__dropdown-list hsg-nav__dropdown-list--3-col-wide">
+                                             <li class="hsg-nav__dropdown-row hsg-nav__dropdown-row--links">
+
+
+                                            <a href="//blog.hubspot.com" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Blog</h4>
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Read marketing, sales, agency, and customer success blog content.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//www.hubspot.com/case-studies" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Customer Stories</h4>
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Hear from the businesses that use HubSpot to grow better every day.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//developers.hubspot.com/" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Developers <span class="hsg-nav__ribbon">New</span></h4>
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Create apps and custom integrations for businesses using HubSpot.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </li>
+                                  <li class="hsg-nav__dropdown-row hsg-nav__dropdown-row--links">
+
+
+
+
+
+
+
+
+                                            <a href="//www.hubspot.com/resources/" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Ebooks, Guides &amp; More</h4>
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Get access to HubSpot’s most popular marketing resources.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//www.hubspot.com/services" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Onboarding &amp; Services</h4>
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Find training and consulting services to help you thrive with HubSpot.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//blog.hubspot.com/news-trends/tag/research" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Research &amp; Reports</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Get up-to-date research and data on hot business trends.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </li>
+                                  <li class="hsg-nav__dropdown-row hsg-nav__dropdown-row--links">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <a href="//academy.hubspot.com/courses" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Free Courses &amp; Certifications</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Take courses on the latest business trends, taught by industry experts.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//www.hubspot.com/inbound-marketing" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">What Is Inbound?</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Get a primer on how inbound helps your business grow better.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//help.hubspot.com" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Customer Support</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm=""><span class="hsg-visible-gt-mobile">Get help if you have questions about using HubSpot software.</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </li>
+                                </ul>
+
+
+
+
+                            </li>
+
+                            <li class="hsg-nav__group-item hsg-nav__group-item--order-4  hsg-nav__group-item--has-dropdown ">
+                                <div class="hsg-nav__link-wrapper">
+                                    <a href="//www.hubspot.com/partners" class="hsg-nav__link">
+                                        <span class="hsg-nav__link-label">Partners</span>
+                                    </a>
+                                </div>
+
+
+                                 <!-- Partners -->
+                                <ul class="hsg-nav__dropdown-list hsg-nav__dropdown-list--2-col">
+                                    <li class="hsg-nav__dropdown-row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <a href="//www.hubspot.com/agencies" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Hire a Partner</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm="">Find a partner in our global community of service providers who can help you grow.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+                                            <a href="//www.hubspot.com/partners" class="hsg-nav__box-link" gtm="">
+                                                <h4 class="hsg-nav__header" gtm="">Partner With Us</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <p class="hsg-nav__subheader" gtm="">Explore our sales, agency, and app partnership programs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </li>
+                                </ul>
+
+
+                            </li>
+
+                            <li class="hsg-nav__group-item hsg-nav__group-item--order-5  hsg-nav__group-item--has-dropdown ">
+                                <div class="hsg-nav__link-wrapper">
+                                    <a href="//www.hubspot.com/our-story" class="hsg-nav__link">
+                                        <span class="hsg-nav__link-label">About</span>
+                                    </a>
+                                </div>
+
+
+                                 <!-- About -->
+                                <ul class="hsg-nav__dropdown-list hsg-nav__dropdown-list--3-col">
+                                    <li class="hsg-nav__dropdown-row hsg-nav__dropdown-row--links">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <div class="hsg-nav__dropdown-column">
+                                                <h4 class="hsg-nav__header">Company</h4>
+                                                <ul class="hsg-nav__link-group">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/our-story"><span>About Us</span></a>
+                                                            </li>
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/company/contact"><span>Contact Us</span></a>
+                                                            </li>
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/company/management"><span>Management Team</span></a>
+                                                            </li>
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/company/board-of-directors"><span>Board of Directors</span></a>
+                                                            </li>
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/jobs"><span>Careers</span></a>
+                                                            </li>
+
+
+
+
+
+
+
+
+
+
+
+                                                </ul>
+                                            </div>
+
+
+
+                                            <div class="hsg-nav__dropdown-column">
+                                                <h4 class="hsg-nav__header">News</h4>
+                                                <ul class="hsg-nav__link-group">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/company-news"><span>HubSpot News</span></a>
+                                                            </li>
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/newsroom"><span>Press Resources</span></a>
+                                                            </li>
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//www.hubspot.com/speaker-program"><span>Speakers</span></a>
+                                                            </li>
+
+
+
+
+
+                                                </ul>
+                                            </div>
+
+
+
+                                            <div class="hsg-nav__dropdown-column">
+                                                <h4 class="hsg-nav__header">Investors</h4>
+                                                <ul class="hsg-nav__link-group">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                            <li>
+                                                                <a href="//ir.hubspot.com"><span>Investor Relations</span></a>
+                                                            </li>
+
+
+
+                                                </ul>
+                                            </div>
+
+
+
+
+
+
+                                    </li>
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+
+                        <ul class="hsg-nav__group hsg-nav__group--search">
+                            <li class="hsg-nav__group-item hsg-nav__group-item--cta">
+
+
+                    <a class="cta cta--primary cta--small homepage-nav" href="//www.hubspot.com/products/get-started">Get HubSpot free</a>
+
+                            </li>
+                            <li class="hsg-nav__group-item hsg-nav__group-item--search">
+
+
+
+  <!-- pageLang: en -->
+  <input type="search" class="blog-sticky-navigation__search-input" data-id="hsg-nav__search-input" placeholder="Search HubSpot.com" data-config="{&quot;contexts&quot;:[{&quot;selected&quot;:false,&quot;id&quot;:&quot;website&quot;,&quot;cx&quot;:&quot;009219321729865762236:z9gsnksfc30&quot;,&quot;label&quot;:&quot;Search HubSpot.com&quot;},{&quot;selected&quot;:true,&quot;id&quot;:&quot;blog&quot;,&quot;cx&quot;:&quot;009219321729865762236:fzizmixjdmi&quot;,&quot;label&quot;:&quot;Search the blog&quot;}],&quot;loadMoreButton&quot;:&quot;Load More Results&quot;,&quot;noResults&quot;:[&quot;That's odd...&quot;,&quot;couldn't find quite the right match.&quot;,&quot;Don't worry, try searching again up top.&quot;]}">
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <span id="hs_cos_wrapper_international_search_en_version" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html" data-global-widget-id="4168891968"><script data-template-name="hsgDefaultSearchWrapper" type="text/template">
+  <section class="hsg-search__modal-header">
+  <div class="hs-page-width-normal">
+    <input class="hsg-search__modal-input"
+      name="searchModal"
+      type="search"
+      placeholder="search...">
+    <div class="hsg-search__modal-search-options">
+      <label for="searchOptionWeb">
+                <input id="searchOptionWeb" value="009219321729865762236:z9gsnksfc30"
+                  name="searchOption" type="radio" class="hsg-search__modal-radio" />Search hubspot.com</label>
+      <label for="searchOptionBlog">
+                <input id="searchOptionBlog" value="009219321729865762236:fzizmixjdmi"
+                  name="searchOption" type="radio" class="hsg-search__modal-radio" />Search blog</label>
+    </div>
+  </div>
+</section>
+
+  <section class="hsg-search__results">
+      <div class="hs-page-width-normal">
+          <span class="hsg-search__container hsg-search__default-state">
+            <h6>Enter a search term above and press Enter.</h6>
+          </span>
+      </div>
+  </section>
+  </script>
+
+<script data-template-name="hsgSearchResultsWrapper" type="text/template">
+    <section class="hsg-search__modal-header">
+  <div class="hs-page-width-normal">
+    <input class="hsg-search__modal-input"
+      name="searchModal"
+      type="search"
+      placeholder="search...">
+    <div class="hsg-search__modal-search-options">
+      <label for="searchOptionWeb">
+                <input id="searchOptionWeb" value="009219321729865762236:z9gsnksfc30"
+                  name="searchOption" type="radio" class="hsg-search__modal-radio" />Search hubspot.com</label>
+      <label for="searchOptionBlog">
+                <input id="searchOptionBlog" value="009219321729865762236:fzizmixjdmi"
+                  name="searchOption" type="radio" class="hsg-search__modal-radio" />Search blog</label>
+    </div>
+  </div>
+</section>
+
+    <section class="hsg-search__results">
+        <div class="hs-page-width-normal">
+            <% _.each(items, function(items) { %>
+            <div class="hsg-search-item" data-link="<%- items.link %>">
+                <div class="title">
+                    <a href="<%- items.link %>" target="_blank"><%- items.title %></a>
+                    <p><%- items.link %></p>
+                </div>
+                <div class="snippet">
+                    <p><%- items.snippet %></p>
+                </div>
+            </div>
+            <% }); %>
+            <span class="hsg-search__container"><a class="hsg-search__more cta cta--blue" href="#">Load more results</a></span>
+        </div>
+    </section>
+</script>
+
+<script data-template-name="hsgNoResults" type="text/template">
+    <section class="hsg-search__modal-header">
+  <div class="hs-page-width-normal">
+    <input class="hsg-search__modal-input"
+      name="searchModal"
+      type="search"
+      placeholder="search...">
+    <div class="hsg-search__modal-search-options">
+      <label for="searchOptionWeb">
+                <input id="searchOptionWeb" value="009219321729865762236:z9gsnksfc30"
+                  name="searchOption" type="radio" class="hsg-search__modal-radio" />Search hubspot.com</label>
+      <label for="searchOptionBlog">
+                <input id="searchOptionBlog" value="009219321729865762236:fzizmixjdmi"
+                  name="searchOption" type="radio" class="hsg-search__modal-radio" />Search blog</label>
+    </div>
+  </div>
+</section>
+
+    <section class="hsg-search__results no-results">
+      <h6>That’s odd...</h6>
+<p><strong>Couldn’t find quite the right match.</strong></p>
+<p>Don’t worry, try searching again up top.</p>
+    </section>
+</script>
+
+<script data-template-name="hsgMoreResults" type="text/template">
+    <% _.each(items, function(items){ %>
+    <div class="hsg-search-item" data-link="<%- items.link %>">
+        <div class="title">
+            <a href="<%- items.link %>" target="_blank"><%- items.title %></a>
+            <p><%- items.link %></p>
+        </div>
+        <div class="snippet">
+            <p><%- items.snippet %></p>
+        </div>
+    </div>
+    <% }); %>
+</script>
+
+</span>
+
+</div><!--end widget-span -->
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_jinja " style="" data-widget-type="raw_jinja" data-x="0" data-w="12">
+
+
+
+
+
+
+
+
+
+
+
+    <nav class="blog-sticky-navigation" id="blog-sticky-nav">
+        <div class="hsg-page-width-normal">
+            <section class="blog-sticky-navigation__blog-navigation">
+                <ul>
+
+
+                        <li><a href="//blog.hubspot.com/marketing" class=" active">Marketing</a></li>
+
+                        <li><a href="//blog.hubspot.com/sales" class="">Sales</a></li>
+
+                        <li><a href="//blog.hubspot.com/service" class="">Service</a></li>
+
+                        <li><a href="//blog.hubspot.com/news-trends" class="">News &amp; Trends</a></li>
+
+                </ul>
+            </section>
+            <section class="blog-sticky-navigation__ctas">
+                <div class="blog-sticky-navigation__search">
+
+  <!-- pageLang: en -->
+  <input type="search" class="blog-sticky-navigation__search-input" data-id="hsg-nav__search-input" placeholder="Search the blog..." data-config="{&quot;contexts&quot;:[{&quot;selected&quot;:false,&quot;id&quot;:&quot;website&quot;,&quot;cx&quot;:&quot;009219321729865762236:z9gsnksfc30&quot;,&quot;label&quot;:&quot;Search HubSpot.com&quot;},{&quot;selected&quot;:true,&quot;id&quot;:&quot;blog&quot;,&quot;cx&quot;:&quot;009219321729865762236:fzizmixjdmi&quot;,&quot;label&quot;:&quot;Search the blog&quot;}],&quot;loadMoreButton&quot;:&quot;Load More Results&quot;,&quot;noResults&quot;:[&quot;That's odd...&quot;,&quot;couldn't find quite the right match.&quot;,&quot;Don't worry, try searching again up top.&quot;]}">
+  <button class="blog-sticky-navigation__search-button"></button>
+
+                </div>
+                <div class="blog-sticky-navigation__subscribe">
+
+                    <button class="cta cta--primary cta--small dropdown-button">
+                        Subscribe
+                    </button>
+                    <div class="blog-sticky-navigation__dropdown-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article data-background="gradient6-vertical" class="blog-subscribe-form  blog-subscribe-form--dropdown blog-card--no-hover">
+    <div class="blog-subscribe-form__error-text"></div>
+    <div class="blog-subscribe-form__overflow">
+      <div class="blog-subscribe-form__container" style="">
+
+
+        <section class="blog-subscribe-form__options show" data-slide="1">
+          <h2>Subscribe to Our Blog</h2>
+          <p>Stay up to date with the latest marketing, sales, and service tips and news.</p>
+          <ul>
+
+
+                    <li><button class="cta cta--medium cta--secondary blog-subscribe-form__button" data-slideto="2">Subscribe via Email</button></li>
+
+
+
+
+
+                        <li><a href="https://offers.hubspot.com/hubspot-blog-on-slack" class="cta cta--medium cta--secondary-light blog-subscribe-form__button blog-dropdownSubscribe-slack" target="_blank">Subscribe on Slack</a></li>
+
+
+
+          </ul>
+        </section>
+
+
+
+
+
+            <section class="blog-subscribe-form__email " data-slide="2">
+                <div class="blog-subscribe-form__thanks-positioning">
+                    <h3 class="blog-subscribe-form__heading">Subscribe via Email</h3>
+
+                    <form data-formid="4ea5f424-2d32-44c7-b603-887d06d6bde0" novalidate>
+                        <input type="hidden" name="lifecyclestage" value="subscriber">
+                        <input type="hidden" name="content_language" value="English">
+                        <ul class="blog-subscribe-form__blog-list">
+
+
+                                <li style="display: none;">
+                                  <input class="frequency" name="blog_default_blog_subscription" data-frequency="daily">
+                                </li>
+                                <li style="">
+                                    <input type="checkbox" id="hs-marketing-blog-sticky" name="marketing_blog_subscribe_check_box_via_comments" data-frequency="daily" data-frequency-field="blog_default_blog_subscription">
+                                    <label for="hs-marketing-blog-sticky" class="blog-subscribe-form__checkbox">Marketing</label>
+                                </li>
+
+                                <li style="display: none;">
+                                  <input class="frequency" name="blog_hubspots_inbound_sales_blog_subscription" data-frequency="daily">
+                                </li>
+                                <li style="">
+                                    <input type="checkbox" id="hs-sales-blog-sticky" name="sales_blog_subscribe_check_box_via_comments" data-frequency="daily" data-frequency-field="blog_hubspots_inbound_sales_blog_subscription">
+                                    <label for="hs-sales-blog-sticky" class="blog-subscribe-form__checkbox">Sales</label>
+                                </li>
+
+                                <li style="display: none;">
+                                  <input class="frequency" name="customer_success_subscription" data-frequency="weekly">
+                                </li>
+                                <li style="">
+                                    <input type="checkbox" id="hs-service-blog-sticky" name="success_blog_subscribe_check_box_general_use_" data-frequency="weekly" data-frequency-field="customer_success_subscription">
+                                    <label for="hs-service-blog-sticky" class="blog-subscribe-form__checkbox">Service</label>
+                                </li>
+
+                                <li style="display: none;">
+                                  <input class="frequency" name="blog_inbound_hub_the_agency_post_subscription" data-frequency="weekly">
+                                </li>
+                                <li style="">
+                                    <input type="checkbox" id="hs-agency-blog-sticky" name="agency_blog_subscribe_check_box_general_use_" data-frequency="weekly" data-frequency-field="blog_inbound_hub_the_agency_post_subscription">
+                                    <label for="hs-agency-blog-sticky" class="blog-subscribe-form__checkbox">Agency</label>
+                                </li>
+
+                        </ul>
+                        <ul class="hs-error-msgs inputs-list" role="alert">
+                            <li data-reactid=".hbspt-forms-0.1:$1.1:$email.3.$0">
+                                <label class="validation blog-list-validation"></label>
+                            </li>
+                        </ul>
+                        <div class="blog-subscribe-form__email-input-container">
+                            <div class="blog-subscribe-form__email-input">
+                                <label for="email-address">Email Address</label>
+                              <input type="email" placeholder="" id="email-address" name="email" value="" required>
+                            </div>
+
+                        </div>
+                        <ul class="hs-error-msgs inputs-list" role="alert">
+                            <li data-reactid=".hbspt-forms-0.1:$1.1:$email.3.$0">
+                                <label class="validation email-validation"></label>
+                            </li>
+                         </ul>
+                        <p class="blog-subscribe-form__gdpr-notice">We're committed to your privacy. HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. You may unsubscribe from these communications at any time. For more information, check out our <a href="https://legal.hubspot.com/privacy-policy" target="_blank">privacy policy</a>.</p>
+
+
+                            <input type="submit" value="Subscribe" class="blog-subscribe-form__button cta cta--primary-light cta--medium">
+
+                    </form>
+
+                </div>
+
+
+
+
+
+                        <button class="blog-subscribe-form__back-button" data-slideto="1">Back to other options</button>
+
+
+            </section>
+
+
+
+
+
+
+            <section class="blog-subscribe-form__thank-you" data-slide="3">
+                <div class="blog-subscribe-form__lockup">
+                    <img src="https://blog.hubspot.com/hubfs/assets/blog.hubspot.com/images/white-checkmark.png" alt="Thank You!">
+                    <h4>Thank You!</h4>
+                </div>
+            </section>
+
+      </div>
+    </div>
+  </article>
+
+                    </div>
+                </div>
+                <div class="blog-sticky-navigation__site-cta">
+
+                        <a href="//www.hubspot.com/products/get-started?hubs_campaign=blog-sticky-nav&amp;hubs_content=blog-posts&amp;hubs_cta=blog-posts-blog-sticky-nav-cta" class="cta cta--primary cta--small homepage-nav blog-sticky-nav">Get HubSpot free</a>
+
+                </div>
+            </section>
+        </div>
+        <progress value="0" id="blog-progress-bar" class="blog-progress-bar"></progress>
+    </nav>
+
+
+
+</div><!--end widget-span -->
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-5 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_jinja " style="" data-widget-type="raw_jinja" data-x="0" data-w="12">
+<!--[if lte IE 10]>
+<a href="http://outdatedbrowser.com" class="browser-upgrade-notification" style="width: 100%; text-align: center; color: #FFF; background-color: #11434c; display: block;">
+    <p style="font-size: .875em; color: #FFF; padding: 15px 0px; margin: 0px;"><img class="browser-upgrade-notification__emoji" src="https://www.hubspot.com/hubfs/assets/hubspot.com/icons/Sad_Face_Emoji_large.png?t=1494954070529" alt="" style="max-height: 1.3em; position: relative; top: 4px; right: 3px;"> Looks like your browser is stuck in the past. Update to the latest version for a better, faster, stronger (and safer) browsing experience. <img class="browser-upgrade-notification__arrow" src="https://cdn2.hubspot.net/hubfs/53/assets/hubspot.com/icons/Arrow.png" style="position: relative; left: 0%;"></p>
+</a>
+<![endif]--></div><!--end widget-span -->
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+</div><!-- end coded_template: id:4062488789 path:generated_global_groups/4062488779.html -->
+
+                    </div><!--end widget-span -->
+                </div><!--end row-->
+            </div><!--end row-wrapper -->
+        </div><!--end header -->
+    </div><!--end header wrapper -->
+
+    <div class="body-container-wrapper">
+        <div class="body-container container-fluid">
+            <div class="row-fluid-wrapper row-depth-1 row-number-1">
+                <div class="row-fluid ">
+                    <main class="blog">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="hsg-page-width-normal">
+                                    <section class="post-header">
+                                        <div class="post-header__text">
+                                            <div class="post-header__meta">
+
+                                                <span>
+    <div class="blog-post__meta">
+        <a href="https://blog.hubspot.com/marketing">Marketing</a> | 13 min read
+    </div>
+</span>
+                                            </div>
+                                            <h1 class="post-header__title"><span id="hs_cos_wrapper_name" class="hs_cos_wrapper hs_cos_wrapper_meta_field hs_cos_wrapper_type_text" style="" data-hs-cos-general-type="meta_field" data-hs-cos-type="text">13 Blogging Mistakes Most Beginner Bloggers Make</span></h1>
+                                            <div class="post-author-tag">
+                                                <div class="post-author-tag__image-container">
+                                                    <div class="post-author-tag__image">
+                                                        <a href="https://blog.hubspot.com/marketing/author/lindsay-kolowich" target="_blank">
+                                                            <img alt="Lindsay Kolowich" src="https://blog.hubspot.com/hubfs/lindsay%20kolowich%20headshot.jpg">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="post-author-tag__text">
+                                                    <p>Written by  <a href="https://blog.hubspot.com/marketing/author/lindsay-kolowich">Lindsay Kolowich</a></p>
+                                                    <a target="_blank" href="https://twitter.com/lkolow" class="post-author-tag__twitter">
+
+
+
+                                                        @lkolow
+
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-author-cta">
+                                                <p class="author-cta__description">Get started with 6 free blog post templates. </p><a href="https://offers.hubspot.com/blog-post-templates?hubs_post-cta=author" class="cta cta--primary cta--medium">Download Now</a>
+                                            </div>
+
+                                        </div>
+                                        <div class="post-header__image">
+                                            <img src="https://blog.hubspot.com/hubfs/blogging-for-beginners.jpg" alt="blogging-for-beginners">
+                                        </div>
+                                    </section>
+                                </div>
+
+
+                            <div class="hsg-page-width-normal">
+                                <section class="blog-post-content">
+                                    <main class="post-body">
+                                        <main class="post-body__content">
+                                            <div class="post-content">
+                                                <div class="post-content__sticky-social">
+                                                    <div class="addthis_inline_share_toolbox sticky-container">
+
+                                                    </div>
+                                                </div>
+                                                <div class="hsg-rich-text">
+
+
+                                                    <div class="hsg-rich-text__wrapper post-content__wrapper blog-postPage-content">
+
+
+
+
+
+
+ <span id="hs_cos_wrapper_post_body" class="hs_cos_wrapper hs_cos_wrapper_meta_field hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="meta_field" data-hs-cos-type="rich_text"><p>Sometimes, when I tell people that I blog for a living, they roll their eyes. "That's so easy," they say. "You get a paycheck for sitting on the internet all day and writing. A monkey could do your job!"</p>
+<p>That's when<em> I</em> roll my eyes. See, people are quick to deem blogging as a no-brainer job. But when they actually sit down to write their first couple of posts, it hits them: <em>This is way harder than I thought</em>.<!--more--> Like any person starting a new job, they mess things up.</p>
+<p>That's okay -- it happens to pretty much every new blogger. Luckily, it's pretty easy to avoid these roadblocks if you know they're coming.</p>
+<p><!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-ccc95db5-9007-49cf-b69c-94bb5c46b366"><span class="hs-cta-node hs-cta-ccc95db5-9007-49cf-b69c-94bb5c46b366" id="hs-cta-ccc95db5-9007-49cf-b69c-94bb5c46b366"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/53/ccc95db5-9007-49cf-b69c-94bb5c46b366" target="_blank"><img class="hs-cta-img" id="hs-cta-img-ccc95db5-9007-49cf-b69c-94bb5c46b366" style="border-width:0px;margin: 0 auto; display: block; margin-top: 20px; margin-bottom: 20px" src="https://no-cache.hubspot.com/cta/default/53/ccc95db5-9007-49cf-b69c-94bb5c46b366.png" alt="Download Now: 6 Free Blog Post Templates" align="middle"></a></span><script charset="utf-8" src="/hs/cta/cta/current.js"></script><script type="text/javascript"> hbspt.cta._relativeUrls=true;hbspt.cta.load(53, 'ccc95db5-9007-49cf-b69c-94bb5c46b366', {}); </script></span><!-- end HubSpot Call-to-Action Code --></p>
+<p>So for all of you beginner bloggers out there who are looking to get up-to-speed quickly, keep on reading. Below are 12 common mistakes most beginners make and some tips on how to avoid them.</p>
+<h2>What is a blog?</h2>
+<p>Simply put, a blog is a tool that can help develop an online presence, attract leads, and engage with an audience. It's often a series of editorial content centered around a central topic that demonstrates industry expertise -- for instance, a catering company might write blog posts like "The 11 Best Appetizers to Serve to a Crowd" or "Stress-Free Dinner Parties: Recipes that are Prepared Ahead of Time".</p>
+<p>Blogs can help drive traffic to your website, convert that traffic into leads, establish authority in your industry, and <a href="/marketing/what-is-a-blog?_ga=2.117054918.1559363486.1561986372-527251855.1560789477" rel="noopener" target="_blank">ultimately grow your business</a>. In fact, organizations are <a href="https://www.hubspot.com/marketing-statistics?_ga=2.222693727.558674788.1561985800-983944916.1546275206" rel="noopener" target="_blank">13x more likely to see positive ROI</a> by prioritizing blogging.&nbsp;</p>
+<p>Most of a blog's traffic is driven organically -- in other words, consumers will search for something on a search engine and click on your blog if it matches their intended topic. However, there are a lot of organizations competing for your audience's attention, so it's important to avoid common blog mistakes to stand out.&nbsp;&nbsp;</p>
+<div class="hsg-featured-snippet">
+<h2>Blogging Tips for Beginners</h2>
+<ol>
+<li>Create blog posts that serve your larger company goals.</li>
+<li>Write like you talk.</li>
+<li>Show your personality; don't tell it.</li>
+<li>Make your point again and again.</li>
+<li>Start with a very specific working title.</li>
+<li>Use a specific post type, create an outline, and use headers.</li>
+<li>Use data and research to back up the claims you make in your posts.</li>
+<li>When drawing from others' ideas, cite them.</li>
+<li>Take 30 minutes to edit your post.</li>
+<li>At a certain point, just publish it.</li>
+<li>Blog consistently with the help of an editorial calendar.</li>
+<li>Focus on the long-term benefits of organic traffic.</li>
+<li>Add a subscription CTA to your blog and set up an email newsletter.</li>
+</ol>
+</div>
+<h3>1. Create blog posts that serve your larger company goals.</h3>
+<h4>Mistake: You think of ideas that only interest you.</h4>
+<p>As much as you might read and re-read your blog posts after you publish them, you're not the only reader, or the intended reader.</p>
+<p>When you start blogging, ideas will come to you at random times -- in the shower, on a run, while on the phone with your mom. While the ideas may come at random moments, the ideas themselves should never be random. Just because it's a good idea in general -- or something that interests you personally -- doesn't mean it's a good idea for your company.</p>
+<h4>Solution: Align your blog posts with company growth goals.</h4>
+<p>The reason you're blogging is to solve problems for your audience and, ultimately, to grow your business. So, all of your blog post ideas should <a href="//blog.hubspot.com/blog/tabid/6307/bid/33898/How-to-Set-SMART-Marketing-Goals-for-2013-TEMPLATE.aspx" target="_blank" rel="noopener">help serve those growth goals</a>. They should have natural tie-ins to issues in your industry and address specific questions and concerns your prospects have.</p>
+<p>Need help figuring out what those goals are and how to address them? Chat with your manager about the larger company goals, and then <a href="https://www.hubspot.com/products/sales/schedule-meeting" target="_blank" rel="noopener">schedule a meeting</a> with someone on the sales team to hear what questions they get asked most often. After both meetings, you should know which goals you need to achieve and have some ideas on how to achieve them.</p>
+<h3>2. Write like you talk.</h3>
+<h4>Mistake: Your writing is too stiff.</h4>
+<p>Writing a blog post is much different than writing a term paper. But when bloggers first start out, they usually only have experience with the latter. The problem? The style of writing from a term paper is <em>not</em> the style of writing people enjoy reading.</p>
+<p>Let's be honest: Most of the people who see your post aren't going to read the whole thing. If you want to keep them interested, you have to compel them to keep reading by <a href="//blog.hubspot.com/marketing/hard-to-read-blog-posts" target="_blank" rel="noopener">writing in a style that's effortless to read</a>.</p>
+<h4>Solution: Try to write blogs that feel personable.&nbsp;</h4>
+<p>It's okay to be more conversational in your writing -- in fact, we encourage it. The <a href="//blog.hubspot.com/marketing/how-to-write-interesting-content" target="_blank" rel="noopener">more approachable your writing is</a>, the more people will enjoy reading it. People want to feel like they're doing business with real people, not robots.</p>
+<p>So loosen up your writing. Throw in contractions. Get rid of the jargon. Make a pun or two. That's how real people talk -- and that's what real people like to read.</p>
+<h3>3. Show your personality; don't tell it.</h3>
+<h4>Mistake: You think people care about <em>you</em> as a writer.</h4>
+<p>It sounds harsh, but it's the truth: When people first start out blogging, they think that their audience will be inherently interested in <em>their </em>stories and <em>their</em> interests ... but that's not the case. It's no knock against them as a person -- it's just that when you're new, no one is interested in you and your experiences. People care way more about what you can teach them.</p>
+<h4>Solution: Infuse your personality without eclipsing the topic.</h4>
+<p>Even though people don't really care that it's <em>you</em> that's writing the post, you can infuse parts of your personality in your writing to make them feel more comfortable with you. How you do that is entirely up to you. Some people like to crack jokes, some like to make pop culture references, and others have a way with vivid descriptions.</p>
+<p>HubSpot's Director of Content <a href="https://www.linkedin.com/in/coreyeridon" target="_blank" rel="noopener">Corey Wainwright</a> is particularly good at this. Here's an example from the introduction <a href="//blog.hubspot.com/marketing/how-to-crowdsource-blog-post-google-docs" target="_blank" rel="noopener">of one of her posts</a>:</p>
+<p style="text-align: center;"><img class="alignCenter shadow" src="https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=600&amp;name=show-personality-in-blog-post.png" alt="show-personality-in-blog-post.png" width="600" style="width: 600px; margin: 0px auto;" srcset="https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=300&amp;name=show-personality-in-blog-post.png 300w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=600&amp;name=show-personality-in-blog-post.png 600w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=900&amp;name=show-personality-in-blog-post.png 900w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=1200&amp;name=show-personality-in-blog-post.png 1200w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=1500&amp;name=show-personality-in-blog-post.png 1500w, https://blog.hubspot.com/hs-fs/hubfs/show-personality-in-blog-post.png?width=1800&amp;name=show-personality-in-blog-post.png 1800w" sizes="(max-width: 600px) 100vw, 600px"></p>
+<p>To infuse personality into your own writing, try looking for ways to relate to your readers on the topic you're writing about -- then write in the first person as if you're hanging out with them and chatting about it. Make your tone personal, approachable, and engaging, just like you would in a face-to-face conversation.</p>
+<h3>4. Make your point again and again.</h3>
+<h4>Mistake: You digress.</h4>
+<p>Although you are encouraged to let your own personality shine through in your writing, don't abuse the privilege. It's one thing to be yourself in the topic you're covering, but it's another thing to bring up too many personal experiences that bury the point you're trying to make.</p>
+<p>Don't digress into these personal anecdotes and analogies too much -- your readers aren't sitting in front of you, which means you can't guarantee that you have their undivided attention. They can (and will) bounce from your article if they lose patience.&nbsp;</p>
+<h4>Solution: Repeatedly assert your argument.&nbsp;</h4>
+<p>To prevent your writing from losing its audience, restate your point in every section of the article. The best blog posts commit to an overarching message and then deliver it gradually, expressing it multiple times in small ways from beginning to end.</p>
+<p>If you're writing about how much water a potted plant needs, for example, don't spend three paragraphs telling a story of how you came home to a dead fern after returning from a two-week vacation. This story offers real evidence of your point, but what&nbsp;<em>is</em> your point? Certain plants can't go without water for more than 14 days. That's one possible point, and it should be stated upfront.</p>
+<h3>5. Start with a very specific working title.</h3>
+<h4>Mistake: Your topics are too broad.</h4>
+<p>When people start blogging, they generally want to write on really big topics like:</p>
+<ul>
+<li>"How to Do Social Media Marketing"</li>
+<li>"Business Best Practices"</li>
+<li>"How to Make Money on the Internet"</li>
+</ul>
+<p>Topics like these are far too broad. Because there are so many details and nuances in these topics, it's really hard to do a good job answering them. Plus, more specific topics tend to attract smaller, more targeted audiences, <a href="//blog.hubspot.com/marketing/definition-long-tail-keyword-100-words-sr" target="_blank" rel="noopener">which tend to be higher quality</a> and more likely to convert into leads and customers.</p>
+<p>So, to get the most short-term and long-term benefits of blogging, you'll need to get way more specific.</p>
+<h4 id="last">Solution: Begin with a clear, concise idea.</h4>
+<p>Nailing really specific blog topics is crucial to knocking your first few posts out of the park. Let us help you brainstorm with our <a href="https://www.hubspot.com/blog-topic-generator" rel="noopener" target="_blank">Blog Ideas Generator</a>. This tool allows you to enter basic terms you know you want to cover, and then produces five sample blog titles that work for business blogs.</p>
+<p>Keep in mind that a working title isn't final -- it's just a concrete angle you can use to keep your writing on track. Once you nail this stage of the ideation process, it's much easier to write your blog posts.</p>
+<h3>6. Use a specific post type, create an outline, and use headers.</h3>
+<h4 id="last">Mistake: Your writing is a brain dump.</h4>
+<p>Sometimes when I get a great idea I'm excited about, it's really tempting to just sit down and let it flow out of me. But what I get is usually a sub-par blog post.</p>
+<p>Why? The stream-of-consciousness style of writing isn't really a good style for blog posts. Most people are going to scan your blog posts, not read them, so it needs to be organized really well for that to happen.</p>
+<h4>Solution: Structure your blog with a template, outline, and section headers.</h4>
+<p>The first thing you should do is choose what <em>type </em>of blog post you're going to write. Is it a how-to post? A list-based post? A curated collection post? A SlideShare presentation? For help on this, <strong><a href="//offers.hubspot.com/blog-post-templates" target="_blank" rel="noopener">download our free templates for creating five different types of blog posts</a>. </strong>Once you have a template down, it'll be easier to write your outline.</p>
+<p>Writing an outline makes a big difference. If you put in the time up front to organize your thoughts and create a logical flow in your post, the rest becomes easy -- you're basically just filling in the blanks.</p>
+<p>To write a blog post outline, first come up with a list of the top takeaways you want your readers to get from your post. Then, break up those takeaways into larger section headers. When you put in a section header every few paragraphs, your blog post becomes easier and more enjoyable to read. (And plus, <a href="//blog.hubspot.com/marketing/seo-friendly-blog-post-checklist-ht" target="_blank" rel="noopener">header text with keywords is good for SEO</a>.) When you finally get to writing, all you'll have to do is fill in those sections.</p>
+<h3>7. Use data and research to back up the claims you make in your posts.</h3>
+<h4>Mistake: You don't use data as evidence.</h4>
+<p>Let's say I'm writing a blog post about why businesses should consider using Instagram for marketing. When I'm making that argument, which is more convincing?</p>
+<ol>
+<li>"It seems like more people are using Instagram nowadays."</li>
+<li>"Instagram’s user base is growing far faster than social network usage in general in the U.S. <a href="http://www.emarketer.com/Article/Instagram-Continues-Double-Digit-Growth/1013612#sthash.jucUQgyf.dpuf" target="_blank" rel="noopener">Instagram will grow 15.1% this year</a>, compared to just 3.1% growth for the social network sector as a whole."</li>
+</ol>
+<p>The second, of course. Arguments and claims are much more compelling when rooted in data and research. As marketers, we don’t just have to convince people to be on our side about an issue -- we need to convince them to <em>take action.</em> Data-driven content catches people's attention in a way that fluffy arguments do not.</p>
+<h4>Solution: Use data to support your arguments.&nbsp;</h4>
+<p>In any good story, you’ll offer a main argument, establish proof, and then end with a takeaway for the audience. You can <a href="//blog.hubspot.com/marketing/how-to-use-data-in-marketing-content" target="_blank" rel="noopener">use data in blog posts</a> to introduce your main argument and show why it's relevant to your readers, or as proof of it throughout the body of the post.</p>
+<p>Some great places to find compelling data include:</p>
+<ul>
+<li><a href="https://research.hubspot.com/" target="_blank" rel="noopener">HubSpot Research</a></li>
+<li><a href="http://www.pewresearch.org/" target="_blank" rel="noopener">Pew Research Center</a></li>
+<li><a href="http://www.marketingsherpa.com/freestuff.html" target="_blank" rel="noopener">MarketingSherpa</a></li>
+<li><a href="//www.stateofinbound.com/" target="_blank" rel="noopener">HubSpot's <em>State of Inbound</em> report</a></li>
+</ul>
+<h3>8. When drawing from others' ideas, cite them.</h3>
+<h4>Mistake: Your content borders on plagiarism.</h4>
+<p>Plagiarism didn't work in school, and it certainly doesn't work on your company's blog. But for some reason, many beginner bloggers think they can get away with the old copy-and-paste technique.</p>
+<p>You can't. Editors and readers can usually tell when something's been copied from somewhere else. Your voice suddenly doesn't sound like you, or maybe there are a few words in there that are incorrectly used. It just sounds ... off.</p>
+<p>Plus, if you get caught <a href="//blog.hubspot.com/marketing/internet-content-theft" target="_blank" rel="noopener">stealing other people's content</a>, you could get your site penalized by Google -- which could be a big blow to your company blog's organic growth.</p>
+<h4><strong>Solution: Give credit where credit is due.&nbsp;</strong></h4>
+<p>Instead, take a few minutes to <a href="//blog.hubspot.com/blog/tabid/6307/bid/33098/How-Not-to-Steal-People-s-Content-on-the-Web.aspx" target="_blank" rel="noopener">understand how to cite other people's content in your blog posts</a>. It's not super complicated, but it's an essential thing to learn when you're first starting out.</p>
+<h3>9. Take 30 minutes to edit your post.</h3>
+<h4>Mistake: You think you're done once the writing's done.</h4>
+<p>Most people make the mistake of not editing their writing. It sounded so fluid in their head when they were writing that it <em>must</em> be great to read ... right?</p>
+<p>Nope -- it still needs editing. And maybe a lot of it.</p>
+<h4>Solution: You'll never regret time spent proofreading.&nbsp;</h4>
+<p>Everyone needs to edit their writing -- even the most experienced writers. Most times, our first drafts aren't all that great. So take the time you need to shape up your post. Fix typos, run-on sentences, and accidental its/it's mistakes. Make sure your story flows just as well as it did in your outline.</p>
+<p>To help you remember all the little things to check before publishing, <a href="//blog.hubspot.com/marketing/ultimate-editing-checklist" target="_blank" rel="noopener">check out our checklist for editing and proofreading a blog post</a>.</p>
+<h3>10. At a certain point, just publish it.</h3>
+<h4>Mistake: You try to make every post perfect.</h4>
+<p>I hate to break it to you, but <strong>your blog post is</strong> <strong>never</strong> <strong>going to be perfect. </strong>Ever.</p>
+<p>There will <em>always</em> be more things you can do to make your posts better. More images. Better phrasing. Wittier jokes. The best writers I know, know when to stop obsessing and just hit "publish."</p>
+<h4>Solution: Better to publish and update than postpone for perfection.&nbsp;</h4>
+<p><a href="//blog.hubspot.com/marketing/good-enough-content-creation-design" target="_blank" rel="noopener">There's a point</a> at which there are diminishing returns for getting closer to "perfect" -- and you're really never going to reach "perfect" anyway. So while you don't want to publish a post filled with factual inaccuracies and grammatical errors, it's not the end of the world if a typo slips through. It most likely won't affect how many views and leads it brings in.</p>
+<p>Plus, if you (or your readers) find the mistake, all of you have to do is update the post. No biggie. So give yourself a break once and a while -- perfect is the enemy of done.</p>
+<h3>11. Blog consistently with the help of an editorial calendar.</h3>
+<h4>Mistake: You don't blog consistently.</h4>
+<p>By now, you've probably heard that <a href="//blog.hubspot.com/marketing/blogging-frequency-benchmarks?_ga=1.30446463.1733063552.1465306056#sm.0001ralmokx9oe96wpl15ahh67v4e" target="_blank" rel="noopener">the more often you blog</a>, the more traffic you'll get to your website -- and the more subscribers and leads you'll generate from your posts. But as important as volume is, it's actually more important that you're blogging <em>consistently</em> when you're just getting started. If you publish five posts in one week and then only one or two in the next few weeks, it'll be hard to form a consistent habit. And inconsistency could really confuse your subscribers.</p>
+<p>Instead, it's the companies that make a commitment to regularly publishing quality content to their blogs that tend to reap the biggest rewards in terms of website traffic and leads -- and those results continue to pay out over time.</p>
+<p>To help establish consistency, you'll need a more concrete planning strategy.</p>
+<h4>Solution: Schedule and publish blogs consistently.&nbsp;</h4>
+<p>Use it to get into the habit of planning your blog post topics ahead of time, publishing consistently, and even scheduling posts in advance if you're finding yourself having a particularly productive week.</p>
+<p>Here at HubSpot, we typically use good ol' Google Calendar as our blog editorial calendar, which <a href="//blog.hubspot.com/marketing/create-robust-editorial-calendar-ht" target="_blank" rel="noopener">you can learn how to set up step-by-step here</a>. Or, you can <a href="//offers.hubspot.com/blog-editorial-calendar" target="_blank" rel="noopener">click here to download our free editorial calendar templates</a> for Excel, Google Sheets, and Google Calendar, along with instructions on how to set them up.</p>
+<h3>12. Focus on the long-term benefits of organic traffic.</h3>
+<h4>Mistake: You concentrate your analytics on immediate traffic.</h4>
+<p>Both beginner bloggers and advanced bloggers are guilty of this blogging mistake. If you concentrate your analysis on immediate traffic (traffic from email subscribers, RSS feeds, and social shares), then it's going to be hard to prove the enduring value of your blog. After all, the half-life for those sources is very brief -- usually a day or two.</p>
+<p>When marketers who are just starting their business blogs see that their blog posts aren't generating any new traffic after a few days, many of them get frustrated. They think their blog is failing, and they <a href="//blog.hubspot.com/marketing/blog-failing-change-perspective">end up abandoning it prematurely</a>.</p>
+<h4>Solution: The ROI of your blog is the aggregation of organic traffic over time.</h4>
+<p>Instead of focusing on the sudden decay of short-term traffic, focus instead on the cumulative potential of organic traffic. Over time, given <em>enough </em>time, the traffic from day three and beyond of a single blog post will eclipse that big spike on days one and two <a href="//blog.hubspot.com/marketing/seo-friendly-blog-post-checklist-ht#sm.0000o5c3iom8gdkipdw2l236rj19q" target="_blank" rel="noopener">thanks to being found on search engine results pages through organic search</a>. You just have to give it a while.</p>
+<p>To help drive this long-term traffic, make sure you're writing blog posts that have durable relevance on a consistent basis. These posts <a href="//blog.hubspot.com/blog/tabid/6307/bid/31501/Why-Every-Business-Blog-Needs-Evergreen-Content.aspx" target="_blank" rel="noopener">are called "evergreen" blog posts</a>: They're relevant year after year with little or no upkeep, valuable, and high quality.</p>
+<p>Over time, as you write more evergreen content and build search authority, those posts <a href="//blog.hubspot.com/marketing/hubspot-blog-compounding-posts" target="_blank" rel="noopener">will end up being responsible for a large percentage of your blog traffic</a>. It all starts with a slight shift in perspective from daily traffic to cumulative traffic so you can reframe the way you view your blog and its ROI entirely.</p>
+<h3>13. Add a subscription CTA to your blog and set up an email newsletter.</h3>
+<h4>Mistake: You aren't growing subscribers.</h4>
+<p>Once you start blogging, it's easy to forget that blogging isn't just about getting <em>new</em> visitors to your blog. One of <a href="//blog.hubspot.com/marketing/the-benefits-of-business-blogging-ht" target="_blank" rel="noopener">the biggest benefits of blogging</a> is that it helps you steadily grow an email list of subscribers you can share your new content with. Each time you publish a new blog post, your subscribers will give you that initial surge of traffic -- which, in turn, will propel those posts' long-term success.</p>
+<p>The key to getting significant business results (traffic, leads, and eventually customers) <a href="//blog.hubspot.com/marketing/grow-blog-subscribers-grow-traffic" target="_blank" rel="noopener">all starts with growing subscribers</a>.</p>
+<h4><span class="hs-cta-wrapper" id="hs-cta-wrapper-7925d2df-4129-4a61-a296-d814fb00ea18"><span class="hs-cta-node hs-cta-7925d2df-4129-4a61-a296-d814fb00ea18" id="hs-cta-7925d2df-4129-4a61-a296-d814fb00ea18" data-hs-drop="true"></span></span>Solution: How to set up a subscription CTA and email newsletter:</h4>
+<p>First, use your email marketing tool to set up a welcome email for new subscribers, as well as a regular email that pulls in your most recent blog posts. (HubSpot customers: You can <a href="https://knowledge.hubspot.com/blog-user-guide-v2/how-to-configure-your-blogs-subscription-options?_ga=1.173330083.1866822358.1456501228" target="_blank" rel="noopener">use HubSpot's email tool to easily set up these regular email sends</a>, as well as <a href="https://knowledge.hubspot.com/articles/kcs_article/cos-blog/how-do-i-send-a-blog-welcome-email" target="_blank" rel="noopener">set up a welcome email for new subscribers</a>.)</p>
+<p>Next, add subscription CTAs to your blog (and elsewhere, like the footer of your website) to make it easy for people to opt in. These CTAs should be simple, one-field <a href="https://www.hubspot.com/products/marketing/forms" rel="noopener" target="_blank">email opt-in forms</a> near the top of your blog, above the fold. As for <a href="//blog.hubspot.com/marketing/types-ctas-blog" target="_blank" rel="noopener">where to put these CTAs</a>, we typically place our blog CTAs at the bottom of our blog posts or add a slide-in, which you can <a href="/marketing/how-to-add-a-slide-in-call-to-action-to-your-blog-posts?_ga=2.221654492.558674788.1561985800-983944916.1546275206" target="_blank" rel="noopener">learn how to do using a free tool called Leadin here</a>.</p>
+<p>You can also <a href="//blog.hubspot.com/customers/bid/109514/Why-You-Need-A-Blog-Subscription-Landing-Page" target="_blank" rel="noopener">create a dedicated landing page for subscribers</a> that you can direct people to via other channels such as social media, other pages on your website, PPC, or email. (For a list of more simple ways to attract subscribers, <a href="//blog.hubspot.com/blog/tabid/6307/bid/32703/20-Simple-Ways-to-Boost-Blog-Subscribers.aspx">read this blog post</a>; for more advanced ideas, <a href="//blog.hubspot.com/marketing/get-subscribers-blog-ideas" target="_blank" rel="noopener">read this one</a>.)</p>
+<p>Don't worry if you read through this list and are now thinking to yourself, <em>Well this is awkward ... I've made literally every single one of these mistakes. </em>Remember: I used the word "common" to describe these mistakes for a reason. The more you blog, the better you'll get at it -- and you'll reap the benefits in terms of traffic and leads in the process.</p>
+<p>We hope you'll use this list of mistakes as fuel for the fire to step up your blogging game. After all, the <a href="//blog.hubspot.com/marketing/the-benefits-of-business-blogging-ht" target="_blank" rel="noopener">benefits of keeping up a healthy business blog</a> will be well worth the time and effort.</p>
+<p><em><!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-648420ad-1760-40e2-994f-7833315a7b7d"><span class="hs-cta-node hs-cta-648420ad-1760-40e2-994f-7833315a7b7d" id="hs-cta-648420ad-1760-40e2-994f-7833315a7b7d"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/53/648420ad-1760-40e2-994f-7833315a7b7d" target="_blank"><img class="hs-cta-img" id="hs-cta-img-648420ad-1760-40e2-994f-7833315a7b7d" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/53/648420ad-1760-40e2-994f-7833315a7b7d.png" alt=" "></a></span><script charset="utf-8" src="/hs/cta/cta/current.js"></script><script type="text/javascript"> hbspt.cta._relativeUrls=true;hbspt.cta.load(53, '648420ad-1760-40e2-994f-7833315a7b7d', {}); </script></span><!-- end HubSpot Call-to-Action Code --></em></p>
+<p><em>
+
+     </em></p><div id="slidebox"><em><a class="close">&nbsp;</a><!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-4516aacd-27e3-4683-9ab9-09620f91d7a0"><span class="hs-cta-node hs-cta-4516aacd-27e3-4683-9ab9-09620f91d7a0" id="hs-cta-4516aacd-27e3-4683-9ab9-09620f91d7a0"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/53/4516aacd-27e3-4683-9ab9-09620f91d7a0" target="_blank"><img class="hs-cta-img" id="hs-cta-img-4516aacd-27e3-4683-9ab9-09620f91d7a0" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/53/4516aacd-27e3-4683-9ab9-09620f91d7a0.png" alt=" blog post templates"></a></span><script charset="utf-8" src="/hs/cta/cta/current.js"></script><script type="text/javascript"> hbspt.cta._relativeUrls=true;hbspt.cta.load(53, '4516aacd-27e3-4683-9ab9-09620f91d7a0', {}); </script></span><!-- end HubSpot Call-to-Action Code --></em></div><em>
+</em><p></p></span>
+
+
+
+
+
+
+                                                        <p class="post-content__publish-date">Originally published Jul 2, 2019 1:08:00 PM, updated April 24 2019</p>
+
+
+
+
+
+                                                        <div class="post-content__topic-container blog-postPage-topic">
+
+
+
+
+
+
+                                                                    <p>Topics:</p>
+
+
+
+                                                                      <a href="https://blog.hubspot.com/marketing/beginner-blogger-mistakes" class="post-content__topic">Blogging Mistakes</a>
+
+
+
+                                                        </div>
+
+                                                        <div class="post-content__social-share-container">
+                                                            <span id="hs_cos_wrapper_End_of_Post_CTA" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_custom_widget" style="" data-hs-cos-general-type="widget" data-hs-cos-type="custom_widget">
+
+
+
+<div class="wt-blog__post__cta post-content__bottom-cta">
+
+        <div class="wt-blog__post__cta__content">
+            <h3>Don't forget to share this post!</h3>
+            <div class="addthis_inline_share_toolbox"></div>
+        </div>
+
+</div></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+    <section class="blog-section-header  blog-section-header--border-top    blog-section-header--arrow-down ">
+        <h3 class="blog-section-header__heading">Related Articles</h3>
+    </section>
+
+
+
+
+                                            <div class="posts-by-topic">
+                                              <!-- rss_url: https://blog.hubspot.com/marketing/rss.xml -->
+
+<h3></h3>
+
+
+    <div class="hs-rss-module feedreader_box hs-hash-2018006338"></div>
+
+
+                                            </div>
+
+
+                                        </main>
+                                    </main>
+                                </section>
+                            </div>
+
+                            <div data-modal="downloadForLater" data-exit="0" class="hsg-modal-container">
+                                <div class="hsg-modal-contents">
+                                    <div data-background="secondary4" class="hsg-modal-header">
+                                        <span class="hsg-icon hsg-icon-close"></span>
+                                    </div>
+                                    <div class="hsg-modal-text" style="text-align: left">
+                                        <span id="hs_cos_wrapper_download_for_later" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" style="" data-hs-cos-general-type="widget" data-hs-cos-type="form"><h3 id="hs_cos_wrapper_download_for_later_title" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text">Download for Later</h3>
+
+<div id="hs_form_target_download_for_later"></div>
+
+
+
+
+
+
+
+
+</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container-wrapper">
+        <div class="footer-container container-fluid">
+            <div class="row-fluid-wrapper row-depth-1 row-number-1">
+                <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-global_group " style="" data-widget-type="global_group" data-x="0" data-w="12">
+                        <!-- start coded_template: id:4255443460 path:generated_global_groups/4255443445.html -->
+<div class="" data-global-widget-path="generated_global_groups/4255443445.html"><div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_jinja " style="" data-widget-type="raw_jinja" data-x="0" data-w="12">
+
+
+
+<footer class="hsg-footer">
+  <div class="hsg-footer__layout">
+    <nav class="hsg-footer__nav">
+      <ul>
+        <li class="hsg-footer__nav-column">
+            <input type="checkbox" id="hsg-footer-column-1" name="hsg-footer-column-1">
+            <label for="hsg-footer-column-1">Increase Your Traffic</label>
+            <ul>
+              <li class="hsg-footer__nav-item" data-order="0">
+                    <a href="https://www.hubspot.com/products/marketing/ads" data-order="0" data-linkorder="0">Ad Software</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="1">
+                    <a href="https://www.hubspot.com/products/marketing/blog" data-order="1" data-linkorder="1">Blog Software</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="2">
+                    <a href="https://www.hubspot.com/products/marketing/seo" data-order="2" data-linkorder="2">SEO Software</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="3">
+                    <a href="https://www.hubspot.com/products/marketing/social-inbox" data-order="3" data-linkorder="3">Social Media Software</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="4">
+                    <a href="https://www.hubspot.com/products/marketing/content-management-system" data-order="4" data-linkorder="4">Content Management System</a>
+                  </li>
+
+                </ul>
+          </li>
+          <li class="hsg-footer__nav-column">
+            <input type="checkbox" id="hsg-footer-column-2" name="hsg-footer-column-2">
+            <label for="hsg-footer-column-2">Connect With Leads</label>
+            <ul>
+              <li class="hsg-footer__nav-item" data-order="0">
+                    <a href="https://www.hubspot.com/products/sales/sales-leads" data-order="0" data-linkorder="0">Find New Prospects</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="1">
+                    <a href="https://www.hubspot.com/products/sales/email-tracking" data-order="1" data-linkorder="1">Email Tracking</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="2">
+                    <a href="https://www.hubspot.com/products/sales/email-templates-sales" data-order="2" data-linkorder="2">Sales Email Templates</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="3">
+                    <a href="https://www.hubspot.com/products/sales/click-to-call" data-order="3" data-linkorder="3">Click to Call Your Leads</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="4">
+                    <a href="https://www.hubspot.com/products/marketing/email" data-order="4" data-linkorder="4">Email Marketing</a>
+                  </li>
+
+                </ul>
+          </li>
+          <li class="hsg-footer__nav-column">
+            <input type="checkbox" id="hsg-footer-column-3" name="hsg-footer-column-3">
+            <label for="hsg-footer-column-3">Close and Manage Leads</label>
+            <ul>
+              <li class="hsg-footer__nav-item" data-order="0">
+                    <a href="https://www.hubspot.com/products/sales/document-tracking" data-order="0" data-linkorder="0">Document Tracking Tool</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="1">
+                    <a href="https://www.hubspot.com/products/sales/schedule-meeting" data-order="1" data-linkorder="1">Meeting Schedule Tool</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="2">
+                    <a href="https://www.hubspot.com/products/sales/sales-automation" data-order="2" data-linkorder="2">Sales Automation Tool</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="3">
+                    <a href="https://www.hubspot.com/products/crm/lead-management" data-order="3" data-linkorder="3">Lead Management Tool</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="4">
+                    <a href="https://www.hubspot.com/products/crm/pipeline-management" data-order="4" data-linkorder="4">Pipeline Management Tool</a>
+                  </li>
+
+                </ul>
+          </li>
+          <li class="hsg-footer__nav-column">
+            <input type="checkbox" id="hsg-footer-column-4" name="hsg-footer-column-4">
+            <label for="hsg-footer-column-4">Support and Tools</label>
+            <ul>
+              <li class="hsg-footer__nav-item" data-order="0">
+                    <a href="https://www.hubspot.com/agencies" data-order="0" data-linkorder="0">HubSpot Partners </a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="2">
+                    <a href="https://academy.hubspot.com/hubspot-user-groups" data-order="2" data-linkorder="1">Join a Local User Group</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="3">
+                    <a href="https://website.grader.com/?__hstc=20629287.e4e046660731447bf82affe18aa75831.1482962870986.1487962165415.1487964870240.141&amp;__hssc=20629287.1.1487964870240&amp;__hsfp=3218882972" data-order="3" data-linkorder="2">Get a Free Website Report</a>
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="4">
+                    <div class="hsg-footer__dropdown" data-order="4" data-linkorder="3">
+                      <input type="checkbox" id="hsg-footer-dropdown-3-20" name="hsg-footer-dropdown-3-20">
+                      <label for="hsg-footer-dropdown-3-20">Free Tools &amp; Generators</label>
+                      <span>
+                        <a href="https://www.hubspot.com/invoice-template-generator">Invoice Template Generator</a>
+                        <a href="https://www.hubspot.com/email-signature-generator">Email Signature Generator             </a>
+                        <a href="https://www.hubspot.com/marketing-plan-template-generator">Marketing Plan Template Generator</a>
+                        <a href="https://www.hubspot.com/blog-topic-generator">Blog Ideas Generator</a>
+                        <a href="https://www.hubspot.com/make-my-persona">Make My Persona</a>
+                        <a href="https://www.hubspot.com/business-templates">Business Templates</a>
+                        </span>
+                    </div>
+
+                  </li>
+
+                <li class="hsg-footer__nav-item" data-order="3">
+                    <a href="https://marketplace.hubspot.com/products" data-order="3" data-linkorder="4">HubSpot Templates</a>
+                  </li>
+                  <li class="hsg-footer__nav-item--contact-links">
+                    <div class="hsg-footer__cta">
+                      <a href="https://help.hubspot.com/" target="_blank" class="cta cta--primary-light cta--small">Contact HubSpot Support</a>
+                    </div>
+                    <ul class="hsg-footer__social">
+                      <li>
+                        <a href="https://www.facebook.com/hubspot" target="_blank" class="hstc_facebook">
+                          <i class="hsg-icon hsg-icon-facebook"></i><span class="hidden-social">Facebook</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.instagram.com/hubspot" target="_blank" class="hstc_instagram">
+                          <i class="hsg-icon hsg-icon-instagram"></i><span class="hidden-social">Instagram</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://youtube.com/user/HubSpot" target="_blank" class="hstc_youtube">
+                          <i class="hsg-icon hsg-icon-youtube"></i><span class="hidden-social">Youtube</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/HubSpot" target="_blank" class="hstc_twitter">
+                          <i class="hsg-icon hsg-icon-twitter"></i><span class="hidden-social">Twitter</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.linkedin.com/company/hubspot" target="_blank" class="hstc_linkedin">
+                          <i class="hsg-icon hsg-icon-linkedin"></i><span class="hidden-social">Linkedin</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://thinkgrowth.org" target="_blank" class="hstc_medium">
+                          <i class="hsg-icon hsg-icon-medium"></i><span class="hidden-social">Medium</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+          </li>
+          </ul>
+    </nav>
+
+    <section class="hsg-footer__contact-links">
+      <div class="hsg-footer__cta">
+        <a href="https://help.hubspot.com/" target="_blank" class="cta cta--primary-light cta--small">Contact HubSpot Support</a>
+      </div>
+      <ul class="hsg-footer__social">
+        <li>
+            <a href="https://www.facebook.com/hubspot" target="_blank" class="hstc_facebook">
+              <i class="hsg-icon hsg-icon-facebook"></i><span class="hidden-social">Facebook</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/hubspot" target="_blank" class="hstc_instagram">
+              <i class="hsg-icon hsg-icon-instagram"></i><span class="hidden-social">Instagram</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://youtube.com/user/HubSpot" target="_blank" class="hstc_youtube">
+              <i class="hsg-icon hsg-icon-youtube"></i><span class="hidden-social">Youtube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/HubSpot" target="_blank" class="hstc_twitter">
+              <i class="hsg-icon hsg-icon-twitter"></i><span class="hidden-social">Twitter</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/company/hubspot" target="_blank" class="hstc_linkedin">
+              <i class="hsg-icon hsg-icon-linkedin"></i><span class="hidden-social">Linkedin</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://thinkgrowth.org" target="_blank" class="hstc_medium">
+              <i class="hsg-icon hsg-icon-medium"></i><span class="hidden-social">Medium</span>
+            </a>
+        </li>
+        </ul>
+    </section>
+
+    <section class="hsg-footer__languages">
+      <ul>
+        <li><a href="//www.hubspot.com">English</a></li>
+        <li><a href="//www.hubspot.de">Deutsch</a></li>
+        <li><a href="//www.hubspot.jp">日本語</a></li>
+        <li><a href="//www.hubspot.es">Español</a></li>
+        <li><a href="//br.hubspot.com">Português</a></li>
+        <li><a href="//www.hubspot.fr">Français</a></li>
+      </ul>
+    </section>
+
+    <section class="hsg-footer__bottom">
+      <div class="hsg-footer__logo">
+        <a href="//www.hubspot.com"><img src="https://blog.hubspot.com/hubfs/HubSpot_Logos/HSLogo_gray.svg" alt="HubSpot Logo"></a>
+        <p>Copyright © 2019 HubSpot, Inc.</p>
+        </div>
+      <div class="hsg-footer__copyright">
+        <ul>
+
+            <li><a href="https://legal.hubspot.com/legal-stuff">Legal Stuff</a></li>
+
+            <li><a href="https://legal.hubspot.com/privacy-policy">Privacy Policy</a></li>
+            </ul>
+      </div>
+    </section>
+  </div>
+</footer>
+
+<!--Product Toolbar requirements-->
+<script src="https://app.hubspot.com/unified-nav/loader.js"></script>
+</div><!--end widget-span -->
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+</div><!-- end coded_template: id:4255443460 path:generated_global_groups/4255443445.html -->
+
+                    </div><!--end widget-span -->
+                </div><!--end row-->
+            </div><!--end row-wrapper -->
+            <div class="row-fluid-wrapper row-depth-1 row-number-2">
+                <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-raw_html " style="" data-widget-type="raw_html" data-x="0" data-w="12">
+                        <div class="cell-wrapper layout-widget-wrapper">
+
+                            <span id="hs_cos_wrapper_module_1497301113455132" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"><!-- prev 4208 -->
+<script src="https://blog.hubspot.com/wt-assets/static-files/1891/blog-rebuild/scripts.js"></script></span>
+                        </div><!--end layout-widget-wrapper -->
+                    </div><!--end widget-span -->
+                </div><!--end row-->
+            </div><!--end row-wrapper -->
+        </div><!--end footer -->
+    </div><!--end footer wrapper -->
+
+<script type="text/javascript" src="/hs/hsstatic/HubspotToolsMenu/static-1.41/js/index.js"></script>
+<script>
+(function () {
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/_hcms/perf', true /*async*/);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () {
+                // do nothing.
+            };
+            var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            function populateNetworkInfo(name, connection, info) {
+                if (name in connection) {
+                    info[name] = connection[name];
+                }
+            }
+            var networkInfo = {};
+            if (connection) {
+                ['type', 'effectiveType', 'downlink', 'rtt'].forEach(function(name) {
+                    populateNetworkInfo(name, connection, networkInfo);
+                });
+            }
+            var perfData = {
+                url: location.href,
+                portal: 53,
+                content: 1154548304,
+                group: -1,
+                connection: networkInfo,
+                timing: performance.timing
+            };
+            xhr.send(JSON.stringify(perfData));
+        }, 3000);  // Execute this 3 seconds after onload.
+    });
+})();
+</script>
+
+<script src="/hs/hsstatic/AsyncSupport/static-1.64/js/rss_listing_asset.js"></script>
+<script>
+  function hsOnReadyPopulateRssFeed_2018006338() {
+    var options = {
+      'id': "2018006338",
+      'rss_hcms_url': "/_hcms/rss/feed?feedId=NTM6NTg3NzQ6MA%3D%3D&limit=5&dateLanguage=ZW5fVVM%3D&dateFormat=RUVFRSwgTU1NTSBkLCB5eXl5IGg6bW0gYQ%3D%3D&zone=QW1lcmljYS9EZXRyb2l0&clickThrough=UmVhZCBtb3Jl&maxChars=200&property=link&property=title&property=date&property=published&property=summary&property=author&hs-expires=1603868140&hs-version=2&hs-signature=AJ2IBuFdhnDkLB1LauCAwB5DH3tc8ogzLw",
+      'show_author': true,
+      'show_date': true,
+      'include_featured_image': false,
+      'show_detail' : true,
+      'attribution_text': "by ",
+      'publish_date_text': "posted at",
+      'item_title_tag' : "span",
+      'click_through_text': "Read more",
+      'limit_to_chars': 200,
+    };
+    window.hsPopulateRssFeed(options);
+  }
+
+  if (document.readyState === "complete" ||
+      (document.readyState !== "loading" && !document.documentElement.doScroll)
+  ) {
+    hsOnReadyPopulateRssFeed_2018006338();
+  } else {
+    document.addEventListener("DOMContentLoaded", hsOnReadyPopulateRssFeed_2018006338);
+  }
+
+</script>
+
+
+    <!--[if lte IE 8]>
+    <script charset="utf-8" src="https://js.hsforms.net/forms/v2-legacy.js"></script>
+    <![endif]-->
+
+<script src="/_hcms/forms/v2.js"></script>
+
+    <script>
+        var options = {
+            formsBaseUrl: '/_hcms/forms/',
+            portalId: '53',
+            formId: 'f3507b84-ad3e-4df5-97a5-72550ac2860c',
+            formInstanceId: '6211',
+            pageId: '1154548304',
+
+
+
+
+            pageName: "13 Blogging Mistakes Most Beginner Bloggers Make",
+
+
+
+
+
+
+            css: '',
+            target: '#hs_form_target_download_for_later',
+
+
+
+
+
+            contentType: "blog-post",
+
+            formData: {
+                cssClass: 'hs-form stacked hs-custom-form'
+            }
+        };
+
+        options.getExtraMetaDataBeforeSubmit = function() {
+            var metadata = {};
+
+
+            if (hbspt.targetedContentMetadata) {
+                var count = hbspt.targetedContentMetadata.length;
+                var targetedContentData = [];
+                for (var i = 0; i < count; i++) {
+                    var tc = hbspt.targetedContentMetadata[i];
+                     if ( tc.length !== 3) {
+                        continue;
+                     }
+                     targetedContentData.push({
+                        definitionId: tc[0],
+                        criterionId: tc[1],
+                        smartTypeId: tc[2]
+                     });
+                }
+                metadata["targetedContentMetadata"] = JSON.stringify(targetedContentData);
+            }
+
+            return metadata;
+        };
+
+        hbspt.forms.create(options);
+    </script>
+
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "blog-post"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/blog.hubspot.com\/marketing\/beginner-blogger-mistakes"]);
+_hsq.push(["setPageId", "1154548304"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 1154548304,
+    "legacyPageId": "1154548304",
+    "contentFolderId": null,
+    "contentGroupId": 58774,
+    "abTestId": null,
+    "languageVariantId": 1154548304,
+    "languageCode": "en-us",
+
+}]);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="/hs/scriptloader/53.js"></script>
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    ticks: 1572332020678,
+    page_id: 1154548304,
+    content_group_id: 58774,
+    portal_id: 53,
+    app_hs_base_url: "https://app.hubspot.com",
+    language: "en",
+    analytics_page_type: "blog-post",
+    category_id: 3,
+    folder_id: 0,
+    is_hubspot_user: false
+}
+</script>
+
+
+
+<!-- Begin Domain Settings Code -->
+<!--[if lt IE 9]>
+<div style="position:absolute;top:42px;left:0;width:100%;padding:5px 0 5px  15px;color:#b94a48;background:#f2dede";font-size:14px;>Please note: HubSpot no longer supports Internet Explorer version 8 or older. You are using an outdated browser, we recommend you <a href="http://knowledge.hubspot.com/update-browser">upgrade your browser</a> for a better and safer experience.</a></div>
+<![endif]-->
+
+<!-- start coded_template: id:4941906428 path:Custom/page/Web_Team/hsg-footer.html -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- start coded_template: id:5652591807 path:Custom/page/affiliate/referral_script.html -->
+
+<script type="text/javascript" src="https://static.hsappstatic.net/affiliates-landing-embed/ex/referral.js"></script><!-- end coded_template: id:5652591807 path:Custom/page/affiliate/referral_script.html -->
+
+<!-- end coded_template: id:4941906428 path:Custom/page/Web_Team/hsg-footer.html -->
+
+
+<!-- End Domain Settings Code -->
+
+
+
+
+
+
+
+
+<!-- end coded_template: id:6247100313 path:Custom/blog/2018/hubspot_blog_2018_2.html -->
+</body></html>

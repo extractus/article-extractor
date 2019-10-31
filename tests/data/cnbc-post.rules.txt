@@ -1,0 +1,66 @@
+<span class="HighlightShare-hidden" style="top:0;left:0"></span>
+                                <div role="button" tabindex="0" id="Placeholder-ArticleBody-Video-106208453" class="PlaceHolder-wrapper vilynx_enabled" data-vilynx-id="7000105773">
+                                    <div class="InlineVideo-videoEmbed" id="InlineVideo-0">
+                                        <div class="InlineVideo-wrapper">
+                                            <div style="height:100%" class="lazyload-placeholder"></div>
+                                            <div class="InlineVideo-videoFooter">
+                                                <div class="InlineVideo-videoDurationContainer"><span class="InlineVideo-videoLabel">VIDEO</span><span class="InlineVideo-videoDurationWithLeading0">3:40</span><span class="InlineVideo-videoDuration InlineVideo-videoLabel">03:40</span></div>
+                                                <div class="InlineVideo-title">Jim Cramer says JEDI contract means more for Microsoft than Amazon</div>
+                                                <div class="InlineVideo-section"><a href="https://www.cnbc.com/mad-money/" alt class rel target title role tabindex data-type aria-label>Mad Money with Jim Cramer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="PlaceHolder-endCard PlaceHolder-inactive"></div>
+                                </div>
+                                <div class="group">
+                                    <p>The U.S. Defense Department gave <a href="/quotes/?symbol=MSFT" alt class rel target title role tabindex data-type aria-label>Microsoft</a> &quot;the best possible validation they could get&quot;
+                                        in awarding a multibillion-dollar defense deal to the company&apos;s cloud platform over <a href="/quotes/?symbol=AMZN" alt class rel target title role tabindex data-type aria-label>Amazon</a>,
+                                        CNBC&apos;s <a href="https://www.cnbc.com/jim-cramer/" alt class rel target title role tabindex data-type aria-label>Jim Cramer</a> said Monday.</p>
+                                    <p>On the other end of the spectrum, losing out on the potential $10 billion contract is not a &quot;big deal for Amazon,&quot; the <a href="https://www.cnbc.com/mad-money/" alt class rel target title role tabindex data-type aria-label>&quot;Mad Money&quot;</a> host said. The request for proposals came down to two of the most valuable companies by market cap.</p>
+                                    <div class="BoxInline-container  ">
+                                        <div id="BoxInline-ArticleBody-6" class="BoxInline-container" data-module="mps-slot"></div>
+                                    </div>
+                                    <p>&quot;The Pentagon&apos;s basically saying that Microsoft&apos;s cloud platform is just as good as Amazon&apos;s, or at least close enough for government work,&quot; said Cramer, adding that it&apos;s a &quot;much more
+                                        significant win for Microsoft Azure than it would be for Amazon Web Services.&quot;</p>
+                                    <p>Azure, the cloud computing service from Microsoft, topped Amazon Web Services, <a href="/quotes/?symbol=IBM" alt class rel target title role tabindex data-type aria-label>IBM</a> Cloud and
+                                        <a href="/quotes/?symbol=ORCL" alt class rel target title role tabindex data-type aria-label>Oracle</a> Cloud in the <a href="https://www.cnbc.com/2019/10/25/microsoft-wins-major-defense-cloud-contract-beating-out-amazon.html" alt class rel target title role tabindex data-type aria-label>competition for the agreement</a> worth as much as $10 billion through late 2029, the Pentagon announced Friday. Under the
+                                        Joint Enterprise Defense Infrastructure deal, aka JEDI, the company will build an enterprise cloud infrastructure that will support the Defense Department&apos;s business and mission operations.</p>
+                                    <p>Microsoft reported in its fiscal first-quarter results, which beat Wall Street estimates, that its Azure public cloud business grew 59%, though the company does not break down Azure&apos;s revenue in dollar figures.
+                                        The Intelligent Cloud segment, which includes Azure and Windows Server, among other services, drew a combined $10.85 billion in revenue.</p>
+                                    <p>&quot;We already know Microsoft was firing on all cylinders. This JEDI contract simply confirms it,&quot; Cramer said.</p>
+                                    <p>As for Amazon, AWS is still the top cloud infrastructure provider, though it may not have been given a fair shot at the contract, Cramer said. Former Secretary of Defense James Mattis <a href="https://www.cnbc.com/2019/10/26/trump-mattis-screw-amazon-10-billion-pentagon-cloud-contract-jedi.html" alt class rel target title role tabindex data-type aria-label>reportedly said President Donald Trump instructed him</a> to &quot;screw Amazon&quot; out of the deal.</p>
+                                    <div id="MidResponsive-8" class data-module="mps-slot"></div>
+                                    <p>Trump on multiple occasions has aired his grievances with Jeff Bezos, the billionaire Amazon founder and CEO and Washington Post owner. Amazon was considered a favorite for the deal after it was awarded a CIA contract
+                                        in 2013.</p>
+                                    <p>&quot;It wouldn&apos;t shock me if he, or someone in his orbit, put their thumb on the scales in favor of Microsoft,&quot; Cramer said, though he says it&apos;s not a big worry for Amazon.</p>
+                                    <p>&quot;You&apos;ve got to understand: AWS did $9 billion in the quarter in revenue,&quot; he said. &quot;They&apos;re not weeping over losing what could have been a $10 billion deal over the course of 10 years.&quot;</p>
+                                    <p>The deal means a lot to Microsoft, whose stock surged 2.46% to $144.19 a piece in Monday&apos;s session. Amazon&apos;s stock barely nudged since the news broke. But Amazon&apos;s loss could be seen as a win for <a href="/quotes/?symbol=IBM" alt class rel target title role tabindex data-type aria-label>IBM</a> and <a href="/quotes/?symbol=GOOGL" alt class rel target title role tabindex data-type aria-label>Alphabet</a>,
+                                        Cramer suggested.</p>
+                                    <p>He said &quot;it means Amazon won&apos;t be able to monopolize all of our government&apos;s cloud-related&quot; defense spending. &quot;If Amazon won the JEDI contract, then AWS would have been the Department of Defense&apos;s
+                                        default cloud infrastructure for the next 10 years. Now, though, the smaller players have more of a chance to win business.&quot;</p>
+                                    <p>&quot;While the stock had a big run here, I think Microsoft remains attractive,&quot; the host said. &quot;As for Amazon, losing this business is no skin off their back. The real issue is that they&apos;ve spent so
+                                        heavily to grow the business, and while I&apos;m okay with that, it might give you more opportunities to buy the stock into weakness down the road because of Wall Street&apos;s inherent shortsightedness.&quot;</p>
+                                </div>
+                                <div role="button" tabindex="0" id="Placeholder-ArticleBody-Video-106207891" class="PlaceHolder-wrapper vilynx_enabled" data-vilynx-id="7000105774">
+                                    <div class="InlineVideo-videoEmbed" id="InlineVideo-0">
+                                        <div class="InlineVideo-wrapper">
+                                            <div style="height:100%" class="lazyload-placeholder"></div>
+                                            <div class="InlineVideo-videoFooter">
+                                                <div class="InlineVideo-videoDurationContainer"><span class="InlineVideo-videoLabel">VIDEO</span><span class="InlineVideo-videoDurationWithLeading0">10:21</span><span class="InlineVideo-videoDuration InlineVideo-videoLabel">10:21</span></div>
+                                                <div class="InlineVideo-title">JEDI contract means a lot more for Microsoft than Amazon, Jim Cramer says</div>
+                                                <div class="InlineVideo-section"><a href="https://www.cnbc.com/mad-money/" alt class rel target title role tabindex data-type aria-label>Mad Money with Jim Cramer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="PlaceHolder-endCard PlaceHolder-inactive"></div>
+                                </div>
+                                <div class="group">
+                                    <p><em>Disclosure: Cramer&apos;s charitable trust owns shares of Amazon, Microsoft and Alphabet.</em></p>
+                                    <p><a href="https://www.cnbc.com/id/100000935" alt class rel target title role tabindex data-type aria-label>Disclaimer</a></p>
+                                    <div class="ArticleBody-blockquote">
+                                        <p>Questions for Cramer?<br> Call Cramer: 1-800-743-CNBC</p>
+                                        <p>Want to take a deep dive into Cramer&apos;s world? Hit him up!<br> <a href="https://twitter.com/MadMoneyOnCNBC" alt class rel target title role tabindex data-type aria-label>Mad Money Twitter</a>                                            - <a href="https://twitter.com/jimcramer" alt class rel target title role tabindex data-type aria-label>Jim Cramer Twitter</a> - <a href="https://www.facebook.com/madmoney?ref=aymt_homepage_panel" alt class rel target title role tabindex data-type aria-label>Facebook</a> - <a href="http://instagram.com/jimcramer" alt class rel target title role tabindex data-type aria-label>Instagram</a></p>
+                                        <p>Questions, comments, suggestions for the &quot;Mad Money&quot; website? madcap@cnbc.com</p>
+                                    </div>
+                                </div>
+                                <div id="ArticleBody-MobileAdhesion" class="MobileAdhesion-container" data-module="mps-slot"></div>

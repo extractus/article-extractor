@@ -1,0 +1,15 @@
+{
+  "width": 480,
+  "version": "1.0",
+  "author_url": "https://www.youtube.com/user/ndaidong",
+  "html": "<iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/lexE3NR0n34?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+  "provider_name": "YouTube",
+  "type": "video",
+  "provider_url": "https://www.youtube.com/",
+  "thumbnail_url": "https://i.ytimg.com/vi/lexE3NR0n34/hqdefault.jpg",
+  "thumbnail_width": 480,
+  "title": "At the end of a battle in 0 A.D.",
+  "thumbnail_height": 360,
+  "author_name": "Dong Nguyen",
+  "height": 270
+}

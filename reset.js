@@ -18,6 +18,7 @@ const dirs = [
 
 const files = [
   'yarn.lock',
+  'pnpm-lock.yaml',
   'package-lock.json',
   'coverage.lcov',
 ];

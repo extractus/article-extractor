@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-  - "12.7"
-  - "10.6"
+  - "13.0"
+  - "12.13"
   - "8.6"
-install:
+git:
+  depth: 1
+before_script:
   - npm i
 script:
-  - npm run lint
-  - NODE_ENV=citest npm test
+  - npm test

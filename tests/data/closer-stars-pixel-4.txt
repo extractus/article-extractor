@@ -1,0 +1,1892 @@
+
+
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 glue-app-ready" xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en' > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 glue-app-ready" xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en' > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 glue-app-ready" xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en' > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js glue-flexbox " xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en' > <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Closer to the stars with Pixel 4</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta http-equiv='cache-control' content='no-cache'>
+        <meta http-equiv='expires' content='0'>
+        <meta http-equiv='pragma' content='no-cache'>
+
+
+
+
+
+
+
+
+<!--Article Specific Metadata-->
+<meta name="description" content="Google encouraged the residents of Star, U.K., to use Pixel 4’s astrophotography mode for a unique stargazing experience."/>
+<meta name="keywords" content="None"/>
+<meta name="article-author" content=""/>
+
+<!--Open Graph Metadata-->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Closer to the stars with Pixel 4"/>
+<meta property="og:description" content="Google encouraged the residents of Star, U.K., to use Pixel 4’s astrophotography mode for a unique stargazing experience." />
+<meta property="og:image" content="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/00100trPORTRAIT_00100_BURST201910231818156.max-1300x1300.jpg" />
+<meta property="og:site_name" content="Google" />
+<meta property="og:url" content="https://migration-dot-gweb-uniblog-publish-prod.appspot.com/products/pixel/closer-stars-pixel-4/" />
+<meta property="article:publisher" content="https://www.facebook.com/Google/" />
+<meta property="article:published_time" content="2019-10-24" />
+
+<!--Twitter Card Metadata-->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://migration-dot-gweb-uniblog-publish-prod.appspot.com/products/pixel/closer-stars-pixel-4/" />
+<meta name="twitter:title" content="Closer to the stars with Pixel 4"/>
+<meta name="twitter:description" content="Google encouraged the residents of Star, U.K., to use Pixel 4’s astrophotography mode for a unique stargazing experience." />
+<meta name="twitter:image:src" content="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/00100trPORTRAIT_00100_BURST201910231818156.max-1300x1300.jpg" />
+<meta name="twitter:site" content="@google" />
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://migration-dot-gweb-uniblog-publish-prod.appspot.com/products/pixel/closer-stars-pixel-4/",
+        "headline": "Closer to the stars with Pixel 4",
+        "datePublished": "2019-10-24T05:00:00+00:00",
+        "dateModified": "",
+        "description": "Google encouraged the residents of Star, U.K., to use Pixel 4’s astrophotography mode for a unique stargazing experience.",
+        "author": {
+            "@type": "Person",
+            "name": "Nick Clark"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Google",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://migration-dot-gweb-uniblog-publish-prod.appspot.com/static/blogv2/images/google-200x200.png",
+                "width": "200",
+                "height": "200"
+            }
+        },
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/00100trPORTRAIT_00100_BURST201910231818156.max-1300x1300.jpg",
+            "width": "1440",
+            "height": "810"
+        }
+    }
+</script>
+
+  <link rel="amphtml" href="https://migration-dot-gweb-uniblog-publish-prod.appspot.com/products/pixel/closer-stars-pixel-4/amp/">
+
+
+
+
+
+        <link rel="stylesheet" type="text/css" href="/static/blogv2/css/blog.min.css" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Google+Sans:400,500|Product+Sans:400&amp;lang=en">
+        <link rel="stylesheet" type="text/css" href="/static/blogv2/css/print.min.css" media="print" />
+
+
+
+
+        <meta property="gtm-tag" content="GTM-TRV24V">
+
+
+    </head>
+
+    <body class="template-articlepage uni-scroll-tracker" uni-external-links>
+
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRV24V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+
+
+<div class="uni-page-analytics-data" data-analytics='
+    {
+
+            "slug": "closer-stars-pixel-4",
+
+
+            "contentType": "article page",
+
+
+
+            "author": "nick clark",
+
+
+            "primaryTag": "products - pixel",
+
+
+            "secondaryTags": "topics - google in europe",
+
+
+            "publishDate": "2019-10-24|05:00",
+
+
+
+            "tags": "topics - google in europe",
+
+
+
+            "goLiveDateTime": "2019-10-24|05:00",
+
+
+
+            "wordCount": "medium 300-599",
+
+
+
+            "contentCategory": "Announcement",
+
+    }'>
+  </div>
+
+
+        <svg class="svg-assets h-u-visually-hidden" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="mi-arrow-forward">
+    <path d="M9 1.5C4.8 1.5 1.5 4.8 1.5 9s3.3 7.5 7.5 7.5 7.5-3.3 7.5-7.5S13.2 1.5 9 1.5zm0 13l-1-1 3.8-3.8H3.5V8.3h8.4L8.1 4.5l.9-1L14.5 9 9 14.5z"></path>
+  </symbol>
+
+  <symbol id="mi-help" viewBox="0 0 48 48">
+    <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z" fill="currentColor"></path>
+  </symbol>
+
+  <symbol id="mi-arrow-sort">
+    <path d="M0 0h48v48H0z" fill="none"></path>
+    <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></path>
+  </symbol>
+
+  <symbol id="mi-arrow-reply-right" viewBox="0 0 24 24">
+    <path fill="none" d="M-1-1h582v402H-1z"/>
+    <g>
+      <path stroke="null" d="M14.164 8.219V3.67l7.032 7.958-7.032 7.959v-4.662c-5.022 0-8.538 1.82-11.049 5.799C4.12 15.04 7.133 9.355 14.165 8.219z"/>
+    </g>
+  </symbol>
+
+  <symbol id="drop-down" viewBox="0 0 22 12">
+    <polyline fill="none" fill-rule="evenodd" stroke="#454545" stroke-width="2" points="21 1 11 11 1 1" transform="matrix(-1 0 0 1 22 0)"/>
+  </symbol>
+
+  <symbol id="mi-arrow-forward-no-bg" viewBox="0 0 32 32">
+    <polygon points="16,0 13.2,2.8 24.3,14 0,14 0,18 24.3,18 13.2,29.2 16,32 32,16"></polygon>
+  </symbol>
+
+  <symbol id="mi-thin-chevron" viewBox="0 0 33 18">
+    <g id="R6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+      <g id="Large---1" transform="translate(-55.000000, -4860.000000)" stroke="#545454" stroke-width="2">
+        <g id="arrows" transform="translate(30.000000, 4823.000000)">
+          <g id="arrow" transform="translate(41.500000, 46.000000) rotate(-90.000000) translate(-41.500000, -46.000000) translate(33.000000, 31.000000)">
+            <path d="M1.12321429,0.277777778 L15.6267506,15.0235664"></path>
+            <path d="M1.12321429,14.7222222 L15.6267506,29.4680108" transform="translate(8.500000, 22.222222) rotate(-90.000000) translate(-8.500000, -22.222222) "></path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="mi-arrow-circle" viewBox="0 0 16 16">
+    <path d="M0,8c0,4.4,3.6,8,8,8s8-3.6,8-8s-3.6-8-8-8S0,3.6,0,8z M4.2,6.1L8,9.9l3.8-3.8L13,7.3 l-5,5l-5-5L4.2,6.1z"></path>
+  </symbol>
+
+  <symbol id="mi-arrow-item" width="16px" height="10px" viewBox="0 0 16 10">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g transform="translate(-1520.000000, -756.000000)">
+        <rect fill="#FFFFFF" x="0" y="-6" width="4666.05585" height="2012"></rect>
+        <g transform="translate(727.000000, 672.000000)" fill="#4071D9">
+          <polygon id="arrow-item" transform="translate(800.767793, 88.796612) rotate(-270.000000) translate(-800.767793, -88.796612) " points="795.971181 94.7389731 801.900596 88.7966119 795.971181 82.8542506 797.796612 81.0288194 805.564404 88.7966119 797.796612 96.5644044"></polygon>
+        </g>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="mi-clear" viewBox="0 0 24 24">
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+  </symbol>
+
+  <symbol id="mi-keyboard-arrow-right" viewBox="0 0 24 24">
+    <path stroke-width="2" d="M9.546 6.5l5.443 5.532L9.5 17.5" fill="none" fill-rule="evenodd"/>
+  </symbol>
+
+  <symbol id="mi-chevron" viewBox="0 0 12 8"><path fill-rule="evenodd" d="M12 6.6L10.6 8 6 3.4 1.4 8 0 6.6l6-6"/></symbol>
+
+  <symbol id="mi-youtube-icon" viewBox="0 0 28 20">
+    <path d="M11.2,14.1V5.9l7.5,4.3L11.2,14.1z M27.7,4.2c0,0-0.3-1.9-1.1-2.8c-1.1-1.1-2.3-1.1-2.8-1.2
+      C19.9,0,14,0,14,0S8.1,0,4.2,0.2C3.7,0.3,2.5,0.3,1.4,1.4C0.6,2.3,0.3,4.2,0.3,4.2S0,6.5,0,8.8v2.4c0,2.3,0.3,4.6,0.3,4.6
+      s0.3,1.9,1.1,2.8c1.1,1.1,2.5,1.1,3.1,1.2C6.7,20,13.8,20,14,20c0,0,5.9,0,9.8-0.3c0.5-0.1,1.7-0.1,2.8-1.2c0.8-0.8,1.1-2.8,1.1-2.8
+      s0.3-2.3,0.3-4.6V8.8C28,6.5,27.7,4.2,27.7,4.2L27.7,4.2z"></path>
+  </symbol>
+
+  <symbol id="mi-arrow-dropdown" viewBox="0 0 24 24">
+    <path d="M7 10l5 5 5-5z"></path>
+  </symbol>
+
+  <symbol id="mi-search" viewBox="0 0 24 22">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+  </symbol>
+
+  <symbol id="mi-expand">
+    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+  </symbol>
+
+  <symbol id="mi-hamburger">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-4292.000000, -2740.000000)" fill="#757575">
+            <g transform="translate(616.000000, 2662.000000)">
+                <g transform="translate(3657.000000, 0.000000)">
+                    <g transform="translate(28.000000, 84.000000) scale(1, -1) translate(-28.000000, -84.000000) translate(16.000000, 72.000000)">
+                        <path d="M3,6 L21,6 L21,8 L3,8 L3,6 L3,6 Z M3,11 L21,11 L21,13 L3,13 L3,11 L3,11 Z M3,18 L3,16 L21,16 L21,18 L3,18 L3,18 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+  </symbol>
+
+  <symbol id="mi-mail" viewBox="0 0 24 24">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"></path>
+  </symbol>
+
+  <symbol id="social-blogger" viewBox="0 0 18 18">
+    <path d="M10.5,9.8h-3c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h3c0.4,0,0.8-0.3,0.8-0.8S10.9,9.8,10.5,9.8z M7.5,7.5h2 c0.4,0,0.8-0.3,0.8-0.8S9.8,6,9.4,6h-2C7,6,6.7,6.3,6.7,6.8S7.1,7.5,7.5,7.5z M12,6.8v0.8c0,0.4,0.3,0.8,0.8,0.8s0.8,0.3,0.8,0.8 v2.2c0,1.2-1,2.2-2.2,2.2H6.8c-1.2,0-2.2-1-2.2-2.2V6c0-1.2,1-2.2,2.2-2.2h3C11,3.8,12,4.8,12,6V6.8z M15,1.5H3 C2.2,1.5,1.5,2.2,1.5,3l0,12c0,0.8,0.7,1.5,1.5,1.5h12c0.8,0,1.5-0.7,1.5-1.5V3C16.5,2.2,15.8,1.5,15,1.5z"></path>
+  </symbol>
+
+  <symbol id="social-facebook" viewBox="0 0 18 18">
+    <path d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z"></path>
+  </symbol>
+
+  <symbol id="social-gplus" viewBox="0 0 18 18">
+    <path d="M6.4,8.1v2h2.8c-0.2,1.2-1.3,2.1-2.8,2.1c-1.7,0-3.1-1.5-3.1-3.2s1.4-3.2,3.1-3.2c0.8,0,1.5,0.3,2,0.8v0 l1.5-1.5C9,4.3,7.8,3.8,6.4,3.8C3.5,3.8,1.1,6.1,1.1,9s2.4,5.2,5.2,5.2c3,0,5-2.1,5-5.1c0-0.4,0-0.7-0.1-1.1H6.4z"></path>
+    <polygon points="15.4,8.2 15.4,6.8 14.2,6.8 14.2,8.2 12.8,8.2 12.8,9.4 14.2,9.4 14.2,10.9 15.4,10.9 15.4,9.4 16.9,9.4 16.9,8.2"></polygon>
+  </symbol>
+
+  <symbol id="social-instagram" viewBox="0 0 18 18">
+    <path d="M9,2.9c2,0,2.2,0,3,0c0.7,0,1.1,0.2,1.4,0.3c0.4,0.1,0.6,0.3,0.9,0.6c0.3,0.3,0.4,0.5,0.6,0.9c0.1,0.3,0.2,0.7,0.3,1.4 c0,0.8,0,1,0,3s0,2.2,0,3c0,0.7-0.2,1.1-0.3,1.4c-0.1,0.4-0.3,0.6-0.6,0.9c-0.3,0.3-0.5,0.4-0.9,0.6c-0.3,0.1-0.7,0.2-1.4,0.3 c-0.8,0-1,0-3,0s-2.2,0-3,0c-0.7,0-1.1-0.2-1.4-0.3c-0.4-0.1-0.6-0.3-0.9-0.6c-0.3-0.3-0.4-0.5-0.6-0.9c-0.1-0.3-0.2-0.7-0.3-1.4 c0-0.8,0-1,0-3s0-2.2,0-3c0-0.7,0.2-1.1,0.3-1.4C3.3,4.2,3.5,4,3.7,3.7C4,3.5,4.2,3.3,4.6,3.2C4.8,3.1,5.2,2.9,6,2.9 C6.8,2.9,7,2.9,9,2.9 M9,1.5c-2,0-2.3,0-3.1,0c-0.8,0-1.3,0.2-1.8,0.3C3.6,2.1,3.2,2.3,2.8,2.8C2.3,3.2,2.1,3.6,1.9,4.1 c-0.2,0.5-0.3,1-0.3,1.8c0,0.8,0,1.1,0,3.1c0,2,0,2.3,0,3.1c0,0.8,0.2,1.3,0.3,1.8c0.2,0.5,0.4,0.9,0.9,1.3c0.4,0.4,0.8,0.7,1.3,0.9 c0.5,0.2,1,0.3,1.8,0.3c0.8,0,1.1,0,3.1,0s2.3,0,3.1,0c0.8,0,1.3-0.2,1.8-0.3c0.5-0.2,0.9-0.4,1.3-0.9c0.4-0.4,0.7-0.8,0.9-1.3 c0.2-0.5,0.3-1,0.3-1.8c0-0.8,0-1.1,0-3.1s0-2.3,0-3.1c0-0.8-0.2-1.3-0.3-1.8c-0.2-0.5-0.4-0.9-0.9-1.3c-0.4-0.4-0.8-0.7-1.3-0.9 c-0.5-0.2-1-0.3-1.8-0.3C11.3,1.5,11,1.5,9,1.5L9,1.5z"></path>
+    <path d="M9,5.1C6.9,5.1,5.1,6.9,5.1,9s1.7,3.9,3.9,3.9s3.9-1.7,3.9-3.9S11.1,5.1,9,5.1z M9,11.5c-1.4,0-2.5-1.1-2.5-2.5 S7.6,6.5,9,6.5s2.5,1.1,2.5,2.5S10.4,11.5,9,11.5z"></path>
+    <circle cx="13" cy="5" r="0.9"></circle>
+  </symbol>
+
+  <symbol id="social-link" viewBox="0 0 18 18">
+    <path d="M12.8,5.2h-3v1.4h3c1.3,0,2.3,1,2.3,2.3s-1,2.3-2.3,2.3h-3v1.4h3c2.1,0,3.8-1.7,3.8-3.8S14.8,5.2,12.8,5.2z M6,9.8h6V8.2H6V9.8z M2.9,9c0-1.3,1-2.3,2.3-2.3h3V5.2h-3C3.2,5.2,1.5,6.9,1.5,9s1.7,3.8,3.8,3.8h3v-1.4h-3C4,11.3,2.9,10.3,2.9,9z">
+    </path>
+  </symbol>
+
+  <symbol id="social-linkedin" viewBox="0 0 18 18">
+    <path d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z"></path>
+  </symbol>
+
+  <symbol id="social-mail" viewBox="0 0 18 18">
+    <path d="M9,8.2L3,4.5h12L9,8.2z M15,13.5H3V6l6,3.8L15,6V13.5z M15,3H3C2.2,3,1.5,3.7,1.5,4.5l0,9C1.5,14.3,2.2,15,3,15 h12c0.8,0,1.5-0.7,1.5-1.5v-9C16.5,3.7,15.8,3,15,3z"></path>
+  </symbol>
+
+  <symbol id="social-twitter" viewBox="0 0 18 18">
+    <path d="M16.5,4.3c-0.6,0.2-1.1,0.4-1.8,0.5c0.6-0.4,1.1-1,1.4-1.7c-0.6,0.4-1.3,0.6-2,0.8c-0.6-0.6-1.4-1-2.2-1 c-1.7,0-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7C6.3,6.5,4.1,5.3,2.5,3.4C2.3,3.9,2.1,4.4,2.1,5c0,1.1,0.5,2,1.4,2.6 c-0.5,0-1-0.2-1.4-0.4c0,0,0,0,0,0c0,1.5,1.1,2.8,2.5,3.1c-0.3,0.1-0.5,0.1-0.8,0.1c-0.2,0-0.4,0-0.6-0.1c0.4,1.2,1.5,2.1,2.9,2.2 c-1.1,0.8-2.4,1.3-3.8,1.3c-0.2,0-0.5,0-0.7,0c1.4,0.9,3,1.4,4.7,1.4c5.7,0,8.8-4.7,8.8-8.9c0-0.1,0-0.3,0-0.4 C15.6,5.5,16.1,4.9,16.5,4.3"></path>
+  </symbol>
+
+  <symbol id="social-youtube" viewBox="0 0 18 18">
+    <path d="M7.2,11.6V6.4L12,9.1L7.2,11.6z M17.8,5.3c0,0-0.2-1.2-0.7-1.8c-0.7-0.7-1.4-0.7-1.8-0.8C12.8,2.6,9,2.6,9,2.6 s-3.8,0-6.3,0.2c-0.3,0-1.1,0-1.8,0.8C0.4,4.1,0.2,5.3,0.2,5.3S0,6.8,0,8.2v1.5c0,1.5,0.2,2.9,0.2,2.9s0.2,1.2,0.7,1.8 c0.7,0.7,1.6,0.7,2,0.8c1.4,0.1,5.9,0.2,6.1,0.2c0,0,3.8,0,6.3-0.2c0.3,0,1.1,0,1.8-0.8c0.5-0.5,0.7-1.8,0.7-1.8S18,11.2,18,9.8V8.2 C18,6.8,17.8,5.3,17.8,5.3z"></path>
+  </symbol>
+
+  <symbol id="google-logo" viewBox="0 0 396 130">
+    <path d="M51.0745265,101.038701 C23.3283097,101.038701 9.65724009e-07,78.4212338 9.65724009e-07,50.645974 C-0.00548030982,22.8707143 23.3228284,0.253246753 51.0745265,0.253246753 C66.4220981,0.253246753 77.3517615,6.27798701 85.5736748,14.1408766 L75.8718171,23.8528896 C69.9794459,18.3219805 61.9987087,14.0201623 51.0690452,14.0201623 C30.8102508,14.0201623 14.9693645,30.365974 14.9693645,50.645974 C14.9693645,70.925974 30.8102508,87.2717857 51.0690452,87.2717857 C64.2076627,87.2717857 71.6950851,81.9877922 76.48572,77.1921429 C80.4157945,73.2579545 82.991994,67.6063312 83.9731424,59.8641558 L51.0745265,59.8641558 L51.0745265,46.1027273 L97.3638985,46.1027273 C97.8572133,48.5609091 98.0983894,51.5129221 98.0983894,54.7063636 C98.0983894,65.0329221 95.2755325,77.8121753 86.1875777,86.9096429 C77.3462802,96.1223377 66.0548526,101.038701 51.0745265,101.038701 L51.0745265,101.038701 Z"></path>
+    <path d="M167.573556,68.369026 C167.573556,87.0523052 152.965957,100.813734 135.036704,100.813734 C117.112933,100.813734 102.499853,87.0468182 102.499853,68.369026 C102.499853,49.5650325 117.112933,35.9188312 135.036704,35.9188312 C152.965957,35.9188312 167.573556,49.5650325 167.573556,68.369026 L167.573556,68.369026 Z M153.333202,68.369026 C153.333202,56.6926623 144.85915,48.7035714 135.036704,48.7035714 C125.214259,48.7035714 116.740207,56.6926623 116.740207,68.369026 C116.740207,79.9191883 125.214259,88.0344805 135.036704,88.0344805 C144.85915,88.0344805 153.333202,79.9191883 153.333202,68.369026 L153.333202,68.369026 Z"></path>
+    <path d="M238.282011,68.369026 C238.282011,87.0523052 223.674411,100.813734 205.745159,100.813734 C187.821388,100.813734 173.208307,87.0468182 173.208307,68.369026 C173.208307,49.5650325 187.821388,35.9188312 205.745159,35.9188312 C223.674411,35.9188312 238.282011,49.5650325 238.282011,68.369026 L238.282011,68.369026 Z M224.041657,68.369026 C224.041657,56.6926623 215.567605,48.7035714 205.745159,48.7035714 C195.922713,48.7035714 187.448661,56.6926623 187.448661,68.369026 C187.448661,79.9191883 195.922713,88.0344805 205.745159,88.0344805 C215.567605,88.0344805 224.041657,79.9191883 224.041657,68.369026 L224.041657,68.369026 Z"></path>
+    <path d="M306.04702,37.943539 L306.04702,96.1442857 C306.04702,120.111558 291.927254,129.944286 275.231289,129.944286 C259.516472,129.944286 250.061272,119.376299 246.498443,110.772662 L258.897088,105.609383 C261.106042,110.893377 266.51058,117.159545 275.225808,117.159545 C285.908814,117.159545 292.535676,110.52026 292.535676,98.1086364 L292.535676,93.4391883 L292.047842,93.4391883 C288.85774,97.3733766 282.71323,100.813734 274.97915,100.813734 C258.771019,100.813734 243.916762,86.6791883 243.916762,68.4897403 C243.916762,50.1740909 258.771019,35.9188312 274.97915,35.9188312 C282.71323,35.9188312 288.852259,39.3591883 292.047842,43.1726623 L292.535676,43.1726623 L292.535676,37.943539 L306.04702,37.943539 L306.04702,37.943539 Z M293.522306,68.4897403 C293.522306,57.0602922 285.908814,48.7035714 276.212437,48.7035714 C266.389992,48.7035714 258.162597,57.0602922 258.162597,68.4897403 C258.162597,79.798474 266.389992,88.0344805 276.212437,88.0344805 C285.908814,88.0344805 293.522306,79.798474 293.522306,68.4897403 L293.522306,68.4897403 Z"></path>
+    <path d="M329.961825,3.54545455 L329.961825,98.9207143 L315.721472,98.9207143 L315.721472,3.54545455 L329.961825,3.54545455 L329.961825,3.54545455 Z"></path>
+    <path d="M383.755064,79.0577273 L394.805315,86.4322727 C391.242486,91.7162662 382.647846,100.813734 367.793589,100.813734 C349.376503,100.813734 336.002191,86.558474 336.002191,68.369026 C336.002191,49.0712013 349.497091,35.9188312 366.198538,35.9188312 C383.020573,35.9188312 391.247967,49.3181169 393.944755,56.566461 L395.419218,60.2537338 L352.078772,78.1962662 C355.394944,84.7093506 360.552824,88.0289935 367.793589,88.0289935 C375.039836,88.0289935 380.071647,84.4624351 383.755064,79.0577273 L383.755064,79.0577273 Z M349.743749,67.3813636 L378.717771,55.3373701 C377.12272,51.2824675 372.332085,48.4566558 366.686372,48.4566558 C359.445607,48.4511688 349.376503,54.843539 349.743749,67.3813636 L349.743749,67.3813636 Z"></path>
+  </symbol>
+
+  <symbol id="social-twitter-retweet" width="18px" height="20px" viewBox="0 0 18 20" fill-rule="nonzero" fill="#414141">
+    <g transform="translate(-543.000000, -751.000000)">
+      <g transform="translate(519.000000, 342.000000)">
+        <path d="M28,414 L38,414 L38,417 L42,413 L38,409 L38,412 L26,412 L26,418 L28,418 L28,414 Z M38,424 L28,424 L28,421 L24,425 L28,429 L28,426 L40,426 L40,420 L38,420 L38,424 Z" id="socialTwitter"></path>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="mi-close" viewBox="0 0 24 24">
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+  </symbol>
+
+  <symbol id="social-twitter-in_reply_to" width="17px" height="14px" viewBox="0 0 17 14" stroke="none" stroke-width="1" fill-rule="nonzero" fill="#414141">
+    <g  transform="translate(-617.000000, -754.000000)" >
+      <g transform="translate(519.000000, 342.000000)">
+        <path d="M104.611111,415.733333 L104.611111,412 L98,418.533333 L104.611111,425.066667 L104.611111,421.24 C109.333333,421.24 112.638889,422.733333 115,426 C114.055556,421.333333 111.222222,416.666667 104.611111,415.733333 Z" id="socialTwitterInReplyTo"></path>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="social-twitter-like" width="16px" height="15px" viewBox="0 0 16 15" >
+    <g id="Working" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="Twitter-Feed-(Large)" transform="translate(-581.000000, -755.000000)" fill-rule="nonzero" fill="#414141">
+        <g id="Group-19-Copy" transform="translate(519.000000, 342.000000)">
+          <path d="M69.8201635,427.35 L68.6862398,426.317738 C64.6588556,422.665722 62,420.257112 62,417.30109 C62,414.89248 63.8924796,413 66.3010899,413 C67.6617984,413 68.9677657,413.633433 69.8201635,414.634414 C70.6725613,413.633433 71.9785286,413 73.3392371,413 C75.7478474,413 77.640327,414.89248 77.640327,417.30109 C77.640327,420.257112 74.9814714,422.665722 70.9540872,426.325559 L69.8201635,427.35 Z" id="socialTwitterLike"></path>
+        </g>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol height="24" id="h-color-google-logo" viewbox="0 0 74 24" width="74">
+    <path d=
+    "M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"
+    fill="#4285F4"></path>
+    <path d=
+    "M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"
+    fill="#EA4335"></path>
+    <path d=
+    "M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.5 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"
+    fill="#4285F4"></path>
+    <path d=
+    "M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"
+    fill="#FBBC05"></path>
+    <path d="M58 .24h2.51v17.57H58z" fill="#34A853"></path>
+    <path d=
+    "M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z"
+    fill="#EA4335"></path>
+  </symbol>
+
+  <symbol height="24" id="h-burger" viewbox="0 0 24 24" width="24">
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+  </symbol>
+
+  <symbol id="google-logo-color">
+    <g>
+      <path class="st0" fill="#4285F4" d="M64.7,109.6c0-28.9,24.3-52.5,53.3-52.5c16,0,27.4,6.3,36,14.5l-10.1,10.1c-6.1-5.8-14.5-10.2-25.9-10.2
+        c-21.1,0-37.6,17-37.6,38.1c0,21.1,16.5,38.1,37.6,38.1c13.7,0,21.5-5.5,26.5-10.5c4.1-4.1,6.8-10,7.8-18H118v-14.3h48.3
+        c0.5,2.6,0.8,5.6,0.8,9c0,10.8-2.9,24.1-12.4,33.5c-9.2,9.6-21,14.7-36.6,14.7C89,162,64.7,138.5,64.7,109.6z"/>
+      <path class="st1" fill="#EA4335" d="M206,94.5c-18.7,0-33.9,14.2-33.9,33.8c0,19.5,15.2,33.8,33.9,33.8c18.7,0,33.9-14.3,33.9-33.8
+        C239.9,108.7,224.7,94.5,206,94.5z M206,148.7c-10.2,0-19.1-8.4-19.1-20.5c0-12.2,8.8-20.5,19.1-20.5c10.2,0,19.1,8.3,19.1,20.5
+        C225.1,140.3,216.2,148.7,206,148.7z"/>
+      <path class="st2" fill="#FBBC05" d="M280,94.5c-18.7,0-33.9,14.2-33.9,33.8c0,19.5,15.2,33.8,33.9,33.8c18.7,0,33.9-14.3,33.9-33.8
+        C313.9,108.7,298.7,94.5,280,94.5z M280,148.7c-10.2,0-19.1-8.4-19.1-20.5c0-12.2,8.8-20.5,19.1-20.5s19.1,8.3,19.1,20.5
+        C299.1,140.3,290.2,148.7,280,148.7z"/>
+      <path class="st0" fill="#4285F4" d="M370.8,96.5v5.5h-0.5c-3.3-4-9.7-7.6-17.8-7.6c-16.9,0-32.4,14.8-32.4,33.9c0,18.9,15.5,33.7,32.4,33.7
+        c8.1,0,14.5-3.6,17.8-7.7h0.5v4.9c0,12.9-6.9,19.8-18,19.8c-9.1,0-14.7-6.5-17-12l-12.9,5.4c3.7,9,13.6,20,30,20
+        c17.4,0,32.1-10.2,32.1-35.2V96.5H370.8z M353.8,148.7c-10.2,0-18.8-8.6-18.8-20.4c0-11.9,8.6-20.6,18.8-20.6
+        c10.1,0,18,8.7,18,20.6C371.9,140.2,363.9,148.7,353.8,148.7z"/>
+      <rect x="395.2" y="60.7" class="st3" fill="34A853" width="14.8" height="99.3"/>
+      <path class="st1" fill="#EA4335" d="M450.7,148.7c-7.6,0-12.9-3.5-16.4-10.2l45.2-18.7L478,116c-2.8-7.6-11.4-21.5-28.9-21.5
+        c-17.4,0-31.9,13.7-31.9,33.8c0,18.9,14.3,33.8,33.5,33.8c15.5,0,24.4-9.5,28.2-15l-11.5-7.7C463.5,145,458.3,148.7,450.7,148.7z
+         M449.6,107.5c5.9,0,10.9,2.9,12.5,7.2l-30.2,12.5C431.5,114.2,442,107.5,449.6,107.5z"/>
+      <g>
+        <g>
+          <path class="st4" fill="#757575" d="M489.1,152.1c0-4.9,3.8-8.7,8.7-8.7s8.7,3.8,8.7,8.7s-3.8,8.7-8.7,8.7S489.1,156.9,489.1,152.1z"/>
+        </g>
+        <g>
+          <path class="st4" fill="#757575" d="M580.8,128.6c0,19.1-13.4,33.4-32.3,33.4s-32.3-14.3-32.3-33.4c0-19.1,13.4-33.4,32.3-33.4
+            S580.8,109.6,580.8,128.6z M569,128.6c0-14.3-10-22.7-20.5-22.7s-20.5,8.3-20.5,22.7s10,22.7,20.5,22.7S569,143,569,128.6z"/>
+        </g>
+        <g>
+          <path class="st4" fill="#757575" d="M590.3,160V97.3h11.3v10.2h0.5c2.6-7.2,11.6-11.8,18.2-11.8c3.8,0,6.4,0.5,8.8,1.5l-4.5,11
+            c-1.7-0.6-3.7-0.9-6.3-0.9c-8.1,0-16.3,6.8-16.3,18.3V160H590.3z"/>
+        </g>
+        <g>
+          <path class="st4" fill="#757575" d="M633.1,171.4l10.8-4.5c2.3,6.7,9.1,12,17.5,12c13.1,0,20.9-8.4,20.9-21.6v-6h-0.5
+            c-3.8,5.8-11.4,10.8-21.4,10.8c-16,0-29.8-14.2-29.8-33.4s13.8-33.4,29.8-33.4c10,0,17.5,5,21.4,10.8h0.5v-8.7h11.3v59.5
+            c0,22.8-15.6,32.9-32.1,32.9S636.3,178.9,633.1,171.4z M682.3,128.6c0-14.3-9.5-22.7-20-22.7s-20,8.6-20,22.7
+            c0,14.1,9.5,22.7,20,22.7S682.3,143,682.3,128.6z"/>
+        </g>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="mi-rss-feed" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+  </symbol>
+
+  <symbol id="mi-more-vert" height="24" viewBox="0 0 24 24" width="24">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+  </symbol>
+
+  <symbol id="social-medium" height="24" viewBox="0 0 40 40" width="24">
+    <path d="M34.781,11.876l-9.503-4.752c-0.043-0.022-0.09-0.032-0.137-0.033c-0.003,0-0.006-0.001-0.009-0.001
+    c-0.116,0-0.231,0.058-0.293,0.159l-5.858,9.519l6.539,10.625l9.352-15.198C34.941,12.083,34.899,11.935,34.781,11.876z"/>
+    <polygon points="15.884,13.422 15.884,23.678 25.001,28.237  "/>
+    <path d="M25.797,28.629l8.372,4.186C34.626,33.043,35,32.812,35,32.301V13.674L25.797,28.629z"/>
+    <path d="M14.877,11.924L6.108,7.54L5.554,7.263c-0.08-0.04-0.156-0.059-0.225-0.059c-0.098,0-0.181,0.038-0.239,0.109
+      C5.033,7.381,5,7.481,5,7.605v20.012c0,0.341,0.249,0.744,0.554,0.896l8.616,4.308c0.12,0.06,0.234,0.088,0.337,0.088
+      c0.29,0,0.494-0.225,0.494-0.602V12.124C15,12.039,14.953,11.962,14.877,11.924z"/>
+  </symbol>
+
+  <symbol version="1.1" id="social-pinterest" viewBox="0 0 40 40">
+    <path d="M19.979,2.996c-8.284,0-15,6.716-15,15c0,6.355,3.954,11.782,9.534,13.968c-0.131-1.187-0.25-3.007,0.052-4.303
+    c0.273-1.171,1.759-7.456,1.759-7.456s-0.449-0.899-0.449-2.227c0-2.086,1.209-3.643,2.714-3.643c1.28,0,1.898,0.961,1.898,2.113
+    c0,1.287-0.819,3.211-1.242,4.994c-0.353,1.493,0.749,2.711,2.221,2.711c2.666,0,4.715-2.811,4.715-6.869
+    c0-3.591-2.581-6.103-6.266-6.103c-4.268,0-6.773,3.201-6.773,6.51c0,1.289,0.497,2.672,1.116,3.423
+    c0.123,0.149,0.141,0.279,0.104,0.43c-0.114,0.474-0.367,1.493-0.417,1.701c-0.065,0.275-0.217,0.333-0.502,0.201
+    c-1.874-0.872-3.045-3.611-3.045-5.811c0-4.732,3.438-9.077,9.911-9.077c5.203,0,9.247,3.708,9.247,8.663
+    c0,5.17-3.26,9.33-7.784,9.33c-1.52,0-2.949-0.79-3.438-1.722c0,0-0.752,2.864-0.934,3.566c-0.339,1.303-1.253,2.936-1.864,3.932
+    c1.404,0.434,2.895,0.669,4.441,0.669c8.284,0,15-6.716,15-15C34.979,9.712,28.263,2.996,19.979,2.996z"/>
+  </symbol>
+
+  <symbol id="social-tumblr" viewBox="0 0 40 40" >
+    <g>
+      <path class="st2" d="M23.983,27.01c0.354,0,0.736-0.052,1.113-0.143v-6.358h4.813v-5.545h-2.959v3.069h-4.813v7.007
+        C22.166,26.805,23.163,27.01,23.983,27.01z M25.116,8.432h-2.959v4.056h2.959V8.432z M29.425,28.818
+        c-0.549,0.305-1.248,0.537-1.912,0.627l0.493,1.46c-0.884,1.163-3.083,1.964-5.095,1.998c-0.068,0.001-0.135,0.002-0.203,0.002
+        c0,0,0,0,0,0c-1.402,0-2.568-0.246-3.534-0.659c1.131,1.728,3.139,3.134,6.493,3.135c0,0,0,0,0,0c0.067,0,0.134-0.001,0.203-0.002
+        c2.013-0.034,4.212-0.835,5.095-1.998L29.425,28.818z"/>
+      <path d="M21.799,33.466c2.81,0,5.595-1,6.516-2.213l0.184-0.243l-1.742-5.163c-0.016-0.048-0.061-0.08-0.111-0.08h-0.329h-0.149
+        l-3.414,0c-0.053,0-0.1-0.034-0.114-0.085c-0.045-0.172-0.072-0.383-0.077-0.643v-6.315c0-0.065,0.053-0.117,0.117-0.117h4.578
+        c0.065,0,0.117-0.053,0.117-0.117v-6.46c0-0.065-0.053-0.117-0.117-0.117h-4.559c-0.065,0-0.117-0.053-0.117-0.117V5.499
+        c0-0.065-0.053-0.117-0.117-0.117H18.9h-1.246h-3.182c-0.572,0-1.231,0.424-1.328,1.21c-0.399,3.25-1.89,5.2-4.691,6.136
+        L8.14,12.832c-0.048,0.016-0.08,0.061-0.08,0.111v5.547c0,0.065,0.053,0.117,0.117,0.117h2.176h0h0.685c0,0,0,5.178,0,6.832
+        C11.038,30.893,14.815,33.466,21.799,33.466z M27.154,30.83c-0.877,0.843-2.677,1.47-4.402,1.499
+        c-0.065,0.001-0.129,0.002-0.193,0.002h-0.001c-5.674,0-7.188-4.331-7.188-6.891v-7.864c0-0.065-0.053-0.117-0.117-0.117h-2.744
+        c-0.065,0-0.117-0.053-0.117-0.117v-3.583c0-0.048,0.03-0.091,0.075-0.108c2.932-1.141,4.57-3.41,5.001-6.918
+        c0.024-0.195,0.185-0.2,0.186-0.2h3.662c0.065,0,0.117,0.053,0.117,0.117v6.297c0,0.065,0.053,0.117,0.117,0.117h4.559
+        c0.065,0,0.117,0.053,0.117,0.117v4.16c0,0.065-0.053,0.117-0.117,0.117h-4.578c-0.065,0-0.117,0.053-0.117,0.117l0,7.474
+        c0.027,1.683,0.841,2.536,2.421,2.536c0.636,0,1.365-0.148,2.031-0.402c0.062-0.024,0.131,0.008,0.152,0.071l1.165,3.452
+        C27.197,30.75,27.187,30.798,27.154,30.83z"/>
+    </g>
+    </symbol>
+
+    <symbol id="social-vine" viewBox="0 0 40 40">
+      <path d="M30.776,20.171c-3.785,0-6.699-2.643-6.699-7.24c0-2.253,0.871-3.425,2.103-3.425c1.172,0,1.953,1.051,1.953,3.184
+      c0,1.213-0.325,2.542-0.564,3.328c0,0,1.167,2.035,4.356,1.41c0.677-1.504,1.045-3.451,1.045-5.159c0-4.596-2.343-7.27-6.639-7.27
+      c-4.416,0-7,3.395-7,7.871c0,4.434,2.073,8.241,5.491,9.975c-1.437,2.875-3.266,5.408-5.174,7.316
+      c-3.461-4.183-6.59-9.765-7.873-20.656H6.669c2.359,18.14,9.389,23.915,11.247,25.024c1.051,0.631,1.957,0.601,2.918,0.06
+      c1.509-0.858,6.041-5.389,8.552-10.696c1.155-0.003,2.566-0.145,3.945-0.493v-3.574C32.43,20.072,31.553,20.171,30.776,20.171z"/>
+    </symbol>
+
+    <symbol id="social-vk" viewBox="0 0 40 40">
+    <path d="M30.377,5H9.623C7.07,5,5,7.07,5,9.623v20.754C5,32.93,7.07,35,9.623,35h20.754C32.93,35,35,32.93,35,30.377V9.623
+      C35,7.07,32.93,5,30.377,5z M29.297,26.001l-2.742,0.038c0,0-0.589,0.117-1.365-0.416c-1.025-0.704-1.993-2.534-2.746-2.295
+      c-0.764,0.243-0.74,1.889-0.74,1.889s0.006,0.352-0.169,0.539c-0.189,0.204-0.56,0.245-0.56,0.245h-1.227
+      c0,0-2.708,0.163-5.092-2.32C12.055,20.973,9.759,15.6,9.759,15.6s-0.132-0.352,0.011-0.523c0.162-0.191,0.602-0.204,0.602-0.204
+      l2.934-0.019c0,0,0.276,0.046,0.474,0.191c0.163,0.12,0.254,0.344,0.254,0.344s0.474,1.199,1.102,2.284
+      c1.226,2.118,1.796,2.581,2.212,2.354c0.606-0.331,0.425-2.994,0.425-2.994s0.011-0.966-0.305-1.397
+      c-0.245-0.333-0.707-0.431-0.911-0.458c-0.165-0.022,0.106-0.405,0.457-0.577c0.528-0.259,1.46-0.273,2.562-0.262
+      c0.858,0.009,1.105,0.062,1.441,0.143c1.011,0.244,0.668,1.187,0.668,3.449c0,0.724-0.131,1.743,0.392,2.081
+      c0.225,0.145,0.774,0.022,2.149-2.313c0.651-1.106,1.14-2.407,1.14-2.407s0.106-0.232,0.272-0.331c0.17-0.102,0.399-0.07,0.399-0.07
+      l3.087-0.019c0,0,0.928-0.111,1.078,0.308c0.158,0.44-0.347,1.466-1.608,3.147c-2.071,2.76-2.301,2.502-0.582,4.098
+      c1.643,1.525,1.983,2.267,2.039,2.359C30.731,25.912,29.297,26.001,29.297,26.001z"/>
+    </symbol>
+</svg>
+
+
+
+
+
+
+<div class="hercules-header h-c-header h-c-header--corporate-initiative
+  ">
+  <div class="h-c-header__bar">
+
+    <div class="h-c-header__lockup">
+      <div class="h-c-header__company-logo">
+        <div class="h-c-header__company-logo-link" title="Google">
+          <svg role="img" aria-label="Google" class="h-c-header__company-logo-img
+              h-c-header__company-logo-img--standard">
+            <use xlink:href="#h-color-google-logo"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="h-c-header__product-logo">
+        <div class="h-c-header__product-logo-link">
+          <span class="h-c-header__product-logo-text"> The Keyword</span>
+        </div>
+      </div>
+
+      <a href="#jump-content" class="h-c-header__jump-to-content"
+          data-glue-jump-link>
+        <span class="h-c-header__jump-to-content-text">Skip to Main Content</span>
+      </a>
+    </div>
+
+    <div class="h-c-header__hamburger h-c-header__hamburger--second-tier">
+      <div class="h-c-header__hamburger-wrapper">
+        <button type="button"
+            class="h-js-header__hamburger-link h-c-header__hamburger-link"
+            aria-controls="h-js-header__drawer"
+            aria-expanded="false"
+            aria-label="Open the navigation drawer"
+            ng-click="$broadcast('openSearchBar', 'mobile')">
+          <svg role="img" class="h-c-header__hamburger-img
+              h-c-header__hamburger-img--standard events-off">
+            <use xlink:href="#h-burger"></use>
+          </svg>
+
+          <svg role="img" class="h-c-header__hamburger-img
+              h-c-header__hamburger-img--reversed events-off">
+            <use xlink:href="#h-burger"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="h-c-header__initiative-logo h-c-header__initiative-logo--no-margin">
+      <a href="/"
+          data-analytics='{
+                      "category": "navigation",
+                      "action": "header",
+                      "label": "navlink: home"
+                      }'
+          class="h-c-header__initiative-logo-link uni-click-tracker">
+        <span class="h-c-header__initiative-logo-text"> The Keyword</span>
+      </a>
+    </div>
+
+
+
+
+
+
+<nav class="h-c-header__nav uni-click-tracker"
+  data-analytics='{
+    "category": "navigation",
+    "action": "header",
+    "label": "{name}"
+  }'>
+  <ul class="h-c-header__nav-list h-no-bullet">
+
+      <li class="h-c-header__nav-li" aria-level="1">
+        <a href="/" class="h-c-header__nav-li-link
+
+          "
+
+          aria-selected="true">
+            Latest Stories
+        </a>
+
+      </li>
+
+      <li class="h-c-header__nav-li" aria-level="1">
+        <a href="/products/" class="h-c-header__nav-li-link
+
+          "
+
+          aria-selected="true">
+            Product Updates
+        </a>
+
+      </li>
+
+      <li class="h-c-header__nav-li" aria-level="1">
+        <a href="/outreach-initiatives/" class="h-c-header__nav-li-link
+
+          "
+
+          >
+            Company News
+        </a>
+
+          <ul class="h-c-header__nested-nav-list">
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/outreach-initiatives/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Outreach &amp; Initiatives
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/technology/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Technology
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/inside-google/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Inside Google
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/around-the-globe/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Around the Globe
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/perspectives/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Perspectives
+                </a>
+              </li>
+
+          </ul>
+
+      </li>
+
+
+  </ul>
+</nav>
+
+
+
+
+<div class="search-bar desktop"
+  data-sitespace=""
+  ng-controller="SearchBar as searchBar"
+  ng-init="searchBar.breakpoint = 'desktop'"
+  uni-click-outside="searchBar.closeSearchBar('desktop')"
+  ng-cloak>
+  <form class="search-bar__form"
+    ng-submit="searchBar.onSubmit()">
+    <input type="text" class="search-bar__input desktop"
+      placeholder="Find an article..."
+      aria-label="Find an article..."
+      ng-model='searchBar.searchInput.model'
+      ng-model-options='{ debounce: 200 }'
+      ng-change='searchBar.onSearchChange(searchBar.searchInput.model)'
+      ng-keydown='searchBar.onKeyDown($event)'
+      ng-focus='searchBar.onInputFocus()'
+      ng-blur='searchBar.onInputBlur()'
+      />
+    <div class="uni-type-ahead desktop">
+      <a href="{[ result.url ]}" class="type-ahead-list-item"
+        ng-repeat="result in searchBar.searchResults"
+        ng-keydown='searchBar.onKeyDown($event)'
+        ng-click="searchBar.closeSearchBar()"
+        ng-focus="searchBar.onItemFocus($index)"
+        >
+        <span class="h-c-eyebrow events-off" ng-bind-html="result.client_eyebrow | safe"></span>
+        <h4 class="events-off">{[ result.headline ]}</h4>
+      </a>
+    </div>
+    <button type="submit" value="Submit" class="search-bar__button search-bar__button--search" aria-label="Search">
+      <svg role="img" class="h-c-icon h-c-icon--color-text events-off">
+        <use xlink:href="#mi-search"></use>
+      </svg>
+    </button>
+    <button type="button" class="search-bar__button search-bar__button--close" ng-click="searchBar.closeSearchBar()" aria-label="Close search">
+      <svg role="img" class="h-c-icon h-c-icon--color-text events-off">
+        <use xlink:href="#mi-clear"></use>
+      </svg>
+    </button>
+  </form>
+</div>
+
+
+    <div class="h-c-header__cta">
+      <ul class="h-c-header__cta-list">
+        <li class="h-c-header__cta-li">
+          <button class="uni-header-search-button" aria-label="Search" tabindex="0" ng-click="$broadcast('openSearchBar', 'desktop')">
+            <svg role="img" class="h-c-icon h-c-icon--color-text uni-header-search-button__icon events-off">
+              <use xlink:href="#mi-search"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="h-c-header__cta-li">
+          <div class="nav-kebab">
+            <div glue-popover>
+              <p class="glue-c-popover__trigger nav-kebab-popover__trigger h-c-header__cta-li-link" title="More options menu" area-label="More options menu" aria-expanded="false" role="button">
+                <svg role="img" class="h-c-icon h-c-icon--color-text nav-kebab__icon events-off">
+                  <use xlink:href="#mi-more-vert"></use>
+                </svg>
+              </p>
+              <div class="glue-c-popover__dialog nav-kebab-popover__dialog">
+                <ul id="secondary-nav-list" class="h-no-bullet uni-click-tracker"
+                    data-analytics='{
+                                "category": "navigation",
+                                "action": "header",
+                                "label": "navlink: {name}"
+                              }'>
+                  <li><a href="/inside-google/company-announcements/about/">About</a></li>
+                  <li><a href="/press/">Press Corner</a></li>
+                  <li>
+                    <a href="/rss/">
+                      RSS Feed
+                      <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--no-padding h-c-icon--18px" viewBox="0 0 24 24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mi-rss-feed"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+                <div class="glue-c-popover__close-btn h-u-visually-hidden" aria-label="Close">×</div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="h-c-header__bar-underside"></div>
+  </div>
+
+  <div id="h-js-header__drawer" class="h-c-header__drawer"
+      aria-label="Navigation drawer" tabindex="0">
+    <div class="h-c-header__drawer-content">
+      <div class="h-c-header__drawer-bar">
+        <div class="h-c-header__drawer-lockup">
+          <div class="h-c-header__drawer-company-logo">
+            <div class="h-c-header__drawer-company-logo-link" title="Google">
+              <svg role="img" aria-label="Google" class="h-c-header__drawer-company-logo-img">
+                <use xlink:href="#h-color-google-logo" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="h-c-header__drawer-product-logo">
+            <div class="h-c-header__drawer-product-logo-link">
+              <span class="h-c-header__drawer-product-logo-text"> The Keyword</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-c-header__drawer-initiative-logo">
+          <div class="h-c-header__drawer-initiative-logo-link">
+            <span class="h-c-header__drawer-initiative-logo-text"> The Keyword</span>
+          </div>
+        </div>
+      </div>
+
+
+
+<div class="search-bar mobile"
+  data-sitespace=""
+  ng-controller="SearchBar as searchBar"
+  ng-init="searchBar.breakpoint = 'mobile'"
+  uni-click-outside="searchBar.closeSearchBar('mobile')"
+  ng-cloak>
+  <form class="search-bar__form"
+    ng-submit="searchBar.onSubmit()">
+    <input type="text" class="search-bar__input mobile"
+      placeholder="Find an article..."
+      aria-label="Find an article..."
+      ng-model='searchBar.searchInput.model'
+      ng-model-options='{ debounce: 200 }'
+      ng-change='searchBar.onSearchChange(searchBar.searchInput.model)'
+      ng-keydown='searchBar.onKeyDown($event)'
+      ng-focus='searchBar.onInputFocus()'
+      ng-blur='searchBar.onInputBlur()'
+      />
+    <div class="uni-type-ahead mobile">
+      <a href="{[ result.url ]}" class="type-ahead-list-item"
+        ng-repeat="result in searchBar.searchResults"
+        ng-keydown='searchBar.onKeyDown($event)'
+        ng-click="searchBar.closeSearchBar()"
+        ng-focus="searchBar.onItemFocus($index)"
+        >
+        <span class="h-c-eyebrow events-off" ng-bind-html="result.client_eyebrow | safe"></span>
+        <h4 class="events-off">{[ result.headline ]}</h4>
+      </a>
+    </div>
+    <button type="submit" value="Submit" class="search-bar__button search-bar__button--search" aria-label="Search">
+      <svg role="img" class="h-c-icon h-c-icon--color-text events-off">
+        <use xlink:href="#mi-search"></use>
+      </svg>
+    </button>
+    <button type="button" class="search-bar__button search-bar__button--close" ng-click="searchBar.closeSearchBar()" aria-label="Close search">
+      <svg role="img" class="h-c-icon h-c-icon--color-text events-off">
+        <use xlink:href="#mi-clear"></use>
+      </svg>
+    </button>
+  </form>
+</div>
+
+
+
+
+
+
+
+<nav class="h-c-header__drawer-nav uni-click-tracker"
+  data-analytics='{
+    "category": "navigation",
+    "action": "header",
+    "label": "{name}"
+  }'>
+  <ul class="h-c-header__drawer-nav-list h-no-bullet">
+
+      <li class="h-c-header__drawer-nav-li" aria-level="1">
+        <a href="/" class="h-c-header__drawer-nav-li-link
+
+          "
+
+          aria-selected="true">
+            Latest Stories
+        </a>
+
+      </li>
+
+      <li class="h-c-header__drawer-nav-li" aria-level="1">
+        <a href="/products/" class="h-c-header__drawer-nav-li-link
+
+          "
+
+          aria-selected="true">
+            Product Updates
+        </a>
+
+      </li>
+
+      <li class="h-c-header__drawer-nav-li" aria-level="1">
+        <a href="/outreach-initiatives/" class="h-c-header__drawer-nav-li-link
+
+          "
+
+          >
+            Company News
+        </a>
+
+          <ul class="h-c-header__nested-nav-list">
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/outreach-initiatives/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Outreach &amp; Initiatives
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/technology/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Technology
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/inside-google/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Inside Google
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/around-the-globe/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Around the Globe
+                </a>
+              </li>
+
+              <li class="h-c-header__nested-nav-li" aria-level="2">
+                <a href="/perspectives/" class="h-c-header__nested-nav-li-link
+                  ">
+                    Perspectives
+                </a>
+              </li>
+
+          </ul>
+
+      </li>
+
+
+      <li class="h-c-header__drawer-nav-li" aria-level="1">
+        <a href="/about/" class="h-c-header__drawer-nav-li-link
+          ">
+          About
+        </a>
+      </li>
+      <li class="h-c-header__drawer-nav-li" aria-level="1">
+        <a href="/press/" class="h-c-header__drawer-nav-li-link
+          ">
+          Press Corner
+        </a>
+      </li>
+      <li class="h-c-header__drawer-nav-li" aria-level="1">
+        <a href="/rss/" class="h-c-header__drawer-nav-li-link
+          ">
+          RSS Feed
+        </a>
+      </li>
+
+  </ul>
+</nav>
+
+
+    </div>
+
+  </div>
+
+  <div id="h-js-header__drawer-backdrop" class="h-c-header__drawer-backdrop"></div>
+  <div class="h-js-header__drawer-backdrop--desktop"></div>
+</div>
+
+<div class="loader-mask">
+  <div class="loader-mask__loader"></div>
+</div>
+
+
+
+        <main id="jump-content" class="site-content">
+
+  <article ng-init="drawerToggle = {'open': true}">
+
+
+
+<section class="h-c-page article-hero">
+  <div class="h-c-grid">
+    <div class="h-c-grid__col h-c-grid__col--10 h-c-grid__col--offset-1">
+
+        <a class="h-c-eyebrow h-u-mb-std article-hero__primary-tag article-hero__primary-tag--link uni-click-tracker"
+           href="/products/pixel/"
+           data-analytics='{
+            "category" : "landing page lead",
+            "action" : "eyebrow topic link",
+            "label" : "product Pixel"
+          }'>Pixel</a>
+
+      <h1>Closer to the stars with Pixel 4</h1>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<div class="article-sticky-share glue-app-ready ">
+  <div class="article-sticky-share__wrap glue-sticky" glue-sticky-offset="170" glue-sticky-end="share-sticky-end">
+    <nav class="article-sticky-share__nav">
+
+
+<a aria-label="Share on Twitter"
+    class="article-share__link uni-click-tracker"
+    href="https://twitter.com/intent/tweet?text=Closer%20to%20the%20stars%20with%20Pixel%204%20%40google&url=https://blog.google/products/pixel/closer-stars-pixel-4/"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "twitter"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-twitter"></use>
+  </svg>
+</a>
+
+<a aria-label="Share on Facebook"
+    class="article-share__link uni-click-tracker"
+    href="https://www.facebook.com/sharer/sharer.php?caption=Closer%20to%20the%20stars%20with%20Pixel%204&u=https://blog.google/products/pixel/closer-stars-pixel-4/"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "facebook"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-facebook"></use>
+  </svg>
+</a>
+
+<a aria-label="Share on LinkedIn"
+    class="article-share__link uni-click-tracker"
+    href="https://www.linkedin.com/shareArticle?mini=true&url=https://blog.google/products/pixel/closer-stars-pixel-4/&title=Closer%20to%20the%20stars%20with%20Pixel%204"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "linkedin"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-linkedin"></use>
+  </svg>
+</a>
+
+<a aria-label="Share with Email"
+    class="article-share__link uni-click-tracker"
+    href="mailto:?subject=Closer%20to%20the%20stars%20with%20Pixel%204&body=Check out this article on the Keyword:%0A%0ACloser%20to%20the%20stars%20with%20Pixel%204%0A%0AGoogle encouraged the residents of Star, U.K., to use Pixel 4’s astrophotography mode for a unique stargazing experience.%0A%0Ahttps://blog.google/products/pixel/closer-stars-pixel-4/"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "email"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-mail"></use>
+  </svg>
+</a>
+
+
+
+<div class="copy-link " uni-select-link>
+  <div class="copy-link__popover" glue-popover>
+    <a class="glue-c-popover__trigger copy-link__trigger">
+      <svg role="img" class="h-c-icon h-c-icon--color-text" title="Share" id="copy-popover-icon">
+        <use xlink:href="#social-link"></use>
+      </svg>
+    </a>
+    <div class="glue-c-popover__dialog copy-link__content" aria-labelledby="copy-popover-icon" ng-cloak>
+      <input class="h-c-copy  copy-link__url" value="https://blog.google/products/pixel/closer-stars-pixel-4/" id="copy-link" readonly="readonly" type="text" />
+      <button class="copy-link__copy-btn cta" glue-copy="copy-link" glue-copy-success="Copied to clipboard" glue-copy-fail="Press Ctrl+C or ⌘+C to copy">Copy link</button>
+      <div class="glue-c-popover__close-btn h-u-visually-hidden" aria-label="Close">×</div>
+    </div>
+  </div>
+</div>
+
+    </nav>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="h-c-page h-c-page--mobile-full-bleed">
+  <div class="h-c-grid">
+    <div class="h-c-grid__col h-c-grid__col-l--10 h-c-grid__col-l--offset-1">
+      <figure class="article-image--full-aspect article-module">
+        <div class="article-image__thin-aspect-image"
+          style="background-image: url(https://storage.googleapis.com/gweb-uniblog-publish-prod/images/00100trPORTRAIT_00100_BURST201910231818156.max-1000x1000.jpg);">
+          <span class="h-u-visually-hidden">Pixel 4 at sunset</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="h-c-page article-meta__page">
+  <div class="h-c-grid">
+    <div class="article-meta__content h-c-grid__col
+          h-c-grid__col--8 h-c-grid__col--offset-2
+          h-c-grid__col-l--2 h-c-grid__col-l--offset-1">
+
+
+          <div class="article-meta__author">
+
+
+            <div class="article-meta__author-name">Nick Clark</div>
+
+
+              <div class="article-meta__author-title">
+                Product Manager, Pixel
+              </div>
+
+
+          </div>
+
+
+
+      <span class="article-meta__published-at">Published Oct 24, 2019</span>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="h-c-page article-share__page mobile">
+  <div class="h-c-grid">
+    <nav class="article-share h-c-grid__col
+          h-c-grid__col--8 h-c-grid__col--offset-2
+          h-c-grid__col-l--1 h-c-grid__col-l--offset-11">
+
+
+
+<a aria-label="Share on Twitter"
+    class="article-share__link uni-click-tracker"
+    href="https://twitter.com/intent/tweet?text=Closer%20to%20the%20stars%20with%20Pixel%204%20%40google&url=https://blog.google/products/pixel/closer-stars-pixel-4/"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "twitter"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-twitter"></use>
+  </svg>
+</a>
+
+<a aria-label="Share on Facebook"
+    class="article-share__link uni-click-tracker"
+    href="https://www.facebook.com/sharer/sharer.php?caption=Closer%20to%20the%20stars%20with%20Pixel%204&u=https://blog.google/products/pixel/closer-stars-pixel-4/"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "facebook"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-facebook"></use>
+  </svg>
+</a>
+
+<a aria-label="Share on LinkedIn"
+    class="article-share__link uni-click-tracker"
+    href="https://www.linkedin.com/shareArticle?mini=true&url=https://blog.google/products/pixel/closer-stars-pixel-4/&title=Closer%20to%20the%20stars%20with%20Pixel%204"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "linkedin"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-linkedin"></use>
+  </svg>
+</a>
+
+<a aria-label="Share with Email"
+    class="article-share__link uni-click-tracker"
+    href="mailto:?subject=Closer%20to%20the%20stars%20with%20Pixel%204&body=Check out this article on the Keyword:%0A%0ACloser%20to%20the%20stars%20with%20Pixel%204%0A%0AGoogle encouraged the residents of Star, U.K., to use Pixel 4’s astrophotography mode for a unique stargazing experience.%0A%0Ahttps://blog.google/products/pixel/closer-stars-pixel-4/"
+    target="_blank"
+    data-analytics='{
+      "category": "social",
+      "action": "share",
+      "label": "email"
+    }'>
+  <svg aria-hidden="true" class="h-c-icon h-c-icon--social h-c-icon--30px" viewBox="0 0 30 30">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-mail"></use>
+  </svg>
+</a>
+
+
+
+<div class="copy-link mobile" uni-select-link>
+  <div class="copy-link__popover" glue-popover>
+    <a class="glue-c-popover__trigger copy-link__trigger">
+      <svg role="img" class="h-c-icon h-c-icon--color-text" title="Share" id="copy-popover-icon">
+        <use xlink:href="#social-link"></use>
+      </svg>
+    </a>
+    <div class="glue-c-popover__dialog copy-link__content" aria-labelledby="copy-popover-icon" ng-cloak>
+      <input class="h-c-copy  copy-link__url" value="https://blog.google/products/pixel/closer-stars-pixel-4/" id="mobile-copy-link" readonly="readonly" type="text" />
+      <button class="copy-link__copy-btn cta" glue-copy="mobile-copy-link" glue-copy-success="Copied to clipboard" glue-copy-fail="Press Ctrl+C or ⌘+C to copy">Copy link</button>
+      <div class="glue-c-popover__close-btn h-u-visually-hidden" aria-label="Close">×</div>
+    </div>
+  </div>
+</div>
+
+    </nav>
+  </div>
+</div>
+
+
+
+    <section class="uni-container">
+      <div class="uni-wrapper">
+
+        <div class="uni-content uni-blog-article-container uni-tombstone">
+
+
+<!--article text-->
+
+
+    <div class="module--text h-c-page">
+      <div class="h-c-grid">
+        <div class="uni-paragraph
+          h-c-grid__col h-c-grid__col--8 h-c-grid__col-m--6 h-c-grid__col-l--6
+          h-c-grid__col--offset-2 h-c-grid__col-m--offset-3 h-c-grid__col-l--offset-3">
+          <div class="rich-text"><p>On a clear, cool late October evening, the residents of the village of Star, U.K., turned off their lights, left their homes, and gathered together in a field. The mayor of the tiny Welsh hamlet was already there, serving everyone tea and coffee, and people grouped together around deck chairs set up for the occasion—which was quite unusual for the 70 or so inhabitants. Because despite having one of the clearest night skies in all of the U.K., it turns out that residents of Wales are the least likely to pause and look up at the stars.</p><br/><p>We thought the launch of astrophotography on Pixel 4’s Night Sight mode was a great opportunity to try and change that, and where better to start than the aptly named Star? Photos of the night sky have traditionally been best left to the experts, but Pixel 4 makes it easy for anyone to snap a stunning shot of the Milky Way. So we brought a handful of new phones, along with some chairs and tripods, to give the people of Star a new way to stargaze. Here are a few shots from the night, taken on Pixel 4.</p></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+<div class="h-c-page article-module">
+  <div class="article-module glue-pagination h-c-carousel h-c-carousel--simple h-c-carousel--dark ng-cloak" data-glue-pagination-config="{cyclical: true}">
+
+    <div class="h-c-carousel__wrap">
+      <ul class="glue-carousel ng-cloak" data-glue-carousel-options="{pointerTypes: ['touch', 'mouse'], jump: true}">
+
+
+          <li class="h-c-carousel__item article-carousel__slide">
+            <figure>
+
+
+
+                  <div class="article-carousel__slide-img" style="background-image: url(https://storage.googleapis.com/gweb-uniblog-publish-prod/images/00100trPORTRAIT_00100_BURST201910231804234.max-2000x2000.jpg);"><span class="h-u-visually-hidden">Star, UK</span></div>
+
+
+
+
+                <figcaption class="article-carousel__caption h-c-copy  h-u-mt-std"><div class="rich-text"><p>Star, UK in the daylight</p></div></figcaption>
+
+            </figure>
+          </li>
+
+          <li class="h-c-carousel__item article-carousel__slide">
+            <figure>
+
+
+
+                  <div class="article-carousel__slide-img" style="background-image: url(https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IMG_20191023_180227.max-2000x2000.jpg);"><span class="h-u-visually-hidden">Pixel 4 set up at sunset</span></div>
+
+
+
+
+                <figcaption class="article-carousel__caption h-c-copy  h-u-mt-std"><div class="rich-text"><p>As the sun goes down, getting ready to take photos.</p></div></figcaption>
+
+            </figure>
+          </li>
+
+          <li class="h-c-carousel__item article-carousel__slide">
+            <figure>
+
+
+
+                  <div class="article-carousel__slide-img" style="background-image: url(https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Pixel_4_Astrophotography.max-2000x2000.jpg);"><span class="h-u-visually-hidden">Pixel 4 Astrophotography.jpg</span></div>
+
+
+
+
+                <figcaption class="article-carousel__caption h-c-copy  h-u-mt-std"><div class="rich-text"><p>Left: a Pixel 4 photographer admires his Night Sight Shot. Right: another shot of the night sky in Star.</p></div></figcaption>
+
+            </figure>
+          </li>
+
+
+      </ul>
+
+      <div class="h-c-carousel__paginate glue-pagination-previous" data-glue-pagination-label="Previous" data-glue-pagination-update-model="false">
+        <div class="h-c-carousel__paginate-wrap">
+          <svg role="img" class="h-c-icon h-c-icon--keyboard-arrow-left">
+            <use xlink:href="#mi-keyboard-arrow-right"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="h-c-carousel__paginate glue-pagination-next" data-glue-pagination-label="Next" data-glue-pagination-update-model="false">
+        <div class="h-c-carousel__paginate-wrap">
+          <svg role="img" class="h-c-icon h-c-icon--keyboard-arrow-right">
+            <use xlink:href="#mi-keyboard-arrow-right"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-c-carousel__navigation">
+      <div class="glue-pagination-page-list"></div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+    <div class="module--text h-c-page">
+      <div class="h-c-grid">
+        <div class="uni-paragraph
+          h-c-grid__col h-c-grid__col--8 h-c-grid__col-m--6 h-c-grid__col-l--6
+          h-c-grid__col--offset-2 h-c-grid__col-m--offset-3 h-c-grid__col-l--offset-3">
+          <div class="rich-text"><p>If you’re looking to try your hand at astrophotography, our photography lead engineer Marc Levoy has a few tips for you.</p><p></p><ol><li><p><b>Hold your phone still. </b>Use two hands to hold your device. Tuck your elbows into your sides, and hold the phone close to your chest.  Spread your feet apart to create a stable base. Lean against a wall or solid object to prevent you from swaying back and forth.<br/></p></li><li><p><b>Use a makeshift tripod. </b>When the Pixel is held still against against anything stable—a tree trunk, a big rock, a car hood—the camera enters a “braced” mode. It will use longer exposures, and give you even more detail and less noise than when you hand-hold it.  </p></li><li><p><b>Be patient.</b> In very dark environments, the Pixel 4 may need some time to gather enough light. The phone tips you off to that with a countdown timer, which may be up to four minutes if you’re using a tripod. But if you’re about to get interrupted—say a car headlamp is about to come into the picture—you can end the capture early with the stop button. </p></li><li><p><b>Let autofocus do its thing. </b>For best results, we recommend just letting the camera do the work and using autofocus. But if you’re determined to strike out on your own, select a manual focus mode (“near” or “far”) on the toolbar. “Far” is what you’ll want for astro shots. If your subject is close to you (within six feet), choose “near.”</p></li><li><p><b>Play around with the exposure compensation slider. </b>Take a night sky photo that was too bright or too dark? Try again and adjust the exposure compensation slider: Tap on your subject, move the exposure slider up or down, and take a photo. Tap again to reset it.</p></li></ol><p></p><br/><br/><br/><br/><br/></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="uni-blog-article-tags">
+  <div class="h-c-page">
+    <div class="h-c-grid">
+      <div class="h-c-grid__col h-c-grid__col--8 h-c-grid__col-m--6 h-c-grid__col-l--6
+            h-c-grid__col--offset-2 h-c-grid__col-m--offset-3 h-c-grid__col-l--offset-3">
+        <span class="uni-blog-article-tags__label">Posted in:</span>
+        <nav class="uni-blog-article-tags__container uni-click-tracker"
+             data-analytics='{
+                         "category": "landing page lead",
+                         "action": "article tag"
+                       }'>
+          <ul class="uni-blog-article-tags__tags-list">
+
+              <li>
+
+  <a class="uni-blog-article-tags-value uni-link-active"
+     href="/products/pixel/"
+
+     >
+
+
+Pixel
+
+
+  </a>
+
+
+              </li>
+
+
+
+              <li>
+
+  <a class="uni-blog-article-tags-value uni-link-active"
+     href="/topics/google-europe/"
+
+     >
+
+
+Google in Europe
+
+
+  </a>
+
+
+              </li>
+
+
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          <div class="share-sticky-end"></div>
+
+
+
+<div class="related-articles " ng-cloak>
+  <h3 class="h-c-eyebrow related-articles__title">Related Articles</h3>
+
+  <div class="module glue-pagination h-c-carousel h-c-carousel--simple h-c-carousel--dark" data-glue-pagination-config="{center: false, cyclical: true}">
+    <div class="h-c-carousel__wrap related-articles__wrap">
+      <ul class="glue-carousel uni-click-tracker" data-glue-carousel-options="{pointerTypes: ['touch', 'mouse'], jump: true, center: false}"
+        data-analytics='{
+                        "event": "page interaction",
+                        "category": "article lead",
+                        "action": "related article - footer/carousel"
+                      }'>
+
+
+          <li class="h-c-carousel__item related-articles__item">
+            <a href="/products/google-fi/better-coverage-with-fis-dual-connect-technology/" class="related-articles__link" data-analytics='{"label": "article: better-coverage-with-fis-dual-connect-technology"}'>
+
+
+    <figure class="">
+        <picture>
+
+
+
+
+
+
+        <source media="(max-resolution: 1.5dppx)"
+                sizes="120px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/fi_blog_starburst.max-200x200.png 120w">
+
+        <source media="(min-resolution: 1.5dppx)"
+                sizes="240px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/fi_blog_starburst.max-300x300.png 240w">
+
+
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/fi_blog_starburst.max-300x300.png"
+
+
+            alt="fi_blog_starburst.png"
+
+
+         sizes=" 120px,  240px"
+         srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/fi_blog_starburst.max-200x200.png 120w, https://storage.googleapis.com/gweb-uniblog-publish-prod/images/fi_blog_starburst.max-300x300.png 240w">
+
+
+
+
+        </picture>
+    </figure>
+
+
+
+
+              <h4 class="h-c-copy ">Better coverage with Fi’s dual connect technology</h4>
+            </a>
+          </li>
+
+          <li class="h-c-carousel__item related-articles__item">
+            <a href="/products/pixel/on-device-ai-with-pixel4/" class="related-articles__link" data-analytics='{"label": "article: on-device-ai-with-pixel4"}'>
+
+
+    <figure class="">
+        <picture>
+
+
+
+
+
+
+        <source media="(max-resolution: 1.5dppx)"
+                sizes="120px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Just_Black_Pixel_4_Front_Back.max-200x200.jpg 120w">
+
+        <source media="(min-resolution: 1.5dppx)"
+                sizes="240px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Just_Black_Pixel_4_Front_Back.max-300x300.jpg 240w">
+
+
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Just_Black_Pixel_4_Front_Back.max-300x300.jpg"
+
+
+            alt="Just Black Pixel 4"
+
+
+         sizes=" 120px,  240px"
+         srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Just_Black_Pixel_4_Front_Back.max-200x200.jpg 120w, https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Just_Black_Pixel_4_Front_Back.max-300x300.jpg 240w">
+
+
+
+
+        </picture>
+    </figure>
+
+
+
+
+              <h4 class="h-c-copy ">Record a lecture, name that song: Pixel 4 uses on-device AI</h4>
+            </a>
+          </li>
+
+          <li class="h-c-carousel__item related-articles__item">
+            <a href="/products/pixel/annie-leibovitz/" class="related-articles__link" data-analytics='{"label": "article: annie-leibovitz"}'>
+
+
+    <figure class="">
+        <picture>
+
+
+
+
+
+
+        <source media="(max-resolution: 1.5dppx)"
+                sizes="120px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pasted_image_0.max-200x200.png 120w">
+
+        <source media="(min-resolution: 1.5dppx)"
+                sizes="240px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pasted_image_0.max-300x300.png 240w">
+
+
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pasted_image_0.max-300x300.png"
+
+
+            alt="pasted image 0.png"
+
+
+         sizes=" 120px,  240px"
+         srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pasted_image_0.max-200x200.png 120w, https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pasted_image_0.max-300x300.png 240w">
+
+
+
+
+        </picture>
+    </figure>
+
+
+
+
+              <h4 class="h-c-copy ">Annie Leibovitz unveils photo series with Google Pixel</h4>
+            </a>
+          </li>
+
+          <li class="h-c-carousel__item related-articles__item">
+            <a href="/products/pixel/latest-pixel-4-accessories/" class="related-articles__link" data-analytics='{"label": "article: latest-pixel-4-accessories"}'>
+
+
+    <figure class="">
+        <picture>
+
+
+
+
+
+
+        <source media="(max-resolution: 1.5dppx)"
+                sizes="120px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MfG-Blog-Hero-Image-10-4-19.max-200x200.jpg 120w">
+
+        <source media="(min-resolution: 1.5dppx)"
+                sizes="240px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MfG-Blog-Hero-Image-10-4-19.max-300x300.jpg 240w">
+
+
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MfG-Blog-Hero-Image-10-4-19.max-300x300.jpg"
+
+
+            alt="MfG-Blog-Hero-Image-10-4-19.jpg"
+
+
+         sizes=" 120px,  240px"
+         srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MfG-Blog-Hero-Image-10-4-19.max-200x200.jpg 120w, https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MfG-Blog-Hero-Image-10-4-19.max-300x300.jpg 240w">
+
+
+
+
+        </picture>
+    </figure>
+
+
+
+
+              <h4 class="h-c-copy ">The latest Pixel 4 accessories</h4>
+            </a>
+          </li>
+
+          <li class="h-c-carousel__item related-articles__item">
+            <a href="/products/pixel/pixel-4/" class="related-articles__link" data-analytics='{"label": "article: pixel-4"}'>
+
+
+    <figure class="">
+        <picture>
+
+
+
+
+
+
+        <source media="(max-resolution: 1.5dppx)"
+                sizes="120px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Pixel4.gif 120w">
+
+        <source media="(min-resolution: 1.5dppx)"
+                sizes="240px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Pixel4.gif 240w">
+
+
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Pixel4.gif"
+
+
+            alt="Pixel4.gif"
+
+
+         sizes=" 120px,  240px"
+         srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Pixel4.gif 120w, https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Pixel4.gif 240w">
+
+
+
+
+        </picture>
+    </figure>
+
+
+
+
+              <h4 class="h-c-copy ">Pixel 4 is here to help</h4>
+            </a>
+          </li>
+
+          <li class="h-c-carousel__item related-articles__item">
+            <a href="/products/pixel/new-pixel-buds/" class="related-articles__link" data-analytics='{"label": "article: new-pixel-buds"}'>
+
+
+    <figure class="">
+        <picture>
+
+
+
+
+
+
+        <source media="(max-resolution: 1.5dppx)"
+                sizes="120px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Pixel_Buds_keyframe.max-200x200.png 120w">
+
+        <source media="(min-resolution: 1.5dppx)"
+                sizes="240px"
+                srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Pixel_Buds_keyframe.max-300x300.png 240w">
+
+
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Pixel_Buds_keyframe.max-300x300.png"
+
+
+            alt="Google Pixel Buds keyframe.png"
+
+
+         sizes=" 120px,  240px"
+         srcset="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Pixel_Buds_keyframe.max-200x200.png 120w, https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Pixel_Buds_keyframe.max-300x300.png 240w">
+
+
+
+
+        </picture>
+    </figure>
+
+
+
+
+              <h4 class="h-c-copy ">Meet the new Google Pixel Buds</h4>
+            </a>
+          </li>
+
+      </ul>
+    </div>
+
+    <div class="h-c-carousel__paginate glue-pagination-previous related-articles__arrow" data-glue-pagination-label="Previous" data-glue-pagination-update-model="false">
+      <div class="h-c-carousel__paginate-wrap">
+        <svg role="img" class="h-c-icon h-c-icon--keyboard-arrow-left">
+          <use xlink:href="#mi-keyboard-arrow-right"></use>
+        </svg>
+      </div>
+    </div>
+
+    <div class="h-c-carousel__paginate glue-pagination-next related-articles__arrow" data-glue-pagination-label="Next" data-glue-pagination-update-model="false">
+      <div class="h-c-carousel__paginate-wrap">
+        <svg role="img" class="h-c-icon h-c-icon--keyboard-arrow-right">
+          <use xlink:href="#mi-keyboard-arrow-right"></use>
+        </svg>
+      </div>
+    </div>
+
+    <div class="h-c-carousel__navigation">
+      <div class="glue-pagination-page-list"></div>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+    </section>
+  </article>
+
+        </main>
+
+
+
+
+<footer class="h-c-footer h-c-footer--topmargin h-c-footer--standard h-has-social" id="footer-standard">
+
+    <section class="h-c-footer__upper">
+        <section class="h-c-social">
+          <div class="h-c-social__group">
+            <p class="h-c-social__title h-c-social__title--inline">
+              Follow Us
+            </p>
+            <ul class="h-c-social__list h-no-bullet">
+
+              <li class="h-c-social__item">
+                <a class="h-c-social__link uni-click-tracker"
+                  data-analytics='{
+                    "category": "social",
+                    "action": "follow - footer",
+                    "label": "facebook"
+                  }'
+                  aria-label="Facebook"
+                  href="https://www.facebook.com/Google">
+                  <svg aria-hidden="true" class="h-c-icon h-c-icon--24px h-c-icon--social" viewBox="0 0 18 18">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+
+
+
+              <li class="h-c-social__item">
+                <a class="h-c-social__link uni-click-tracker"
+                  data-analytics='{
+                    "category": "social",
+                    "action": "follow - footer",
+                    "label": "twitter"
+                  }'
+                  aria-label="Twitter"
+                  href="https://twitter.com/google">
+                  <svg aria-hidden="true" class="h-c-icon h-c-icon--24px h-c-icon--social" viewBox="0 0 18 18">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+
+
+
+              <li class="h-c-social__item">
+                <a class="h-c-social__link uni-click-tracker"
+                  data-analytics='{
+                    "category": "social",
+                    "action": "follow - footer",
+                    "label": "youtube"
+                  }'
+                  aria-label="Youtube"
+                  href="https://www.youtube.com/google">
+                  <svg aria-hidden="true" class="h-c-icon h-c-icon--24px h-c-icon--social" viewBox="0 0 18 18">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-youtube"></use>
+                  </svg>
+                </a>
+              </li>
+
+
+
+              <li class="h-c-social__item">
+                <a class="h-c-social__link uni-click-tracker"
+                  data-analytics='{
+                    "category": "social",
+                    "action": "follow - footer",
+                    "label": "linkedin"
+                  }'
+                  aria-label="Linkedin"
+                  href="https://www.linkedin.com/company/google">
+                  <svg aria-hidden="true" class="h-c-icon h-c-icon--24px h-c-icon--social" viewBox="0 0 18 18">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </section>
+    </section>
+
+    <section class="h-c-footer__global">
+        <div class="h-c-footer__logo">
+          <a class="uni-click-tracker" href="https://www.google.com" title="Google"
+            data-analytics='{
+              "category": "navigation",
+              "action": "footer",
+              "label": "navlink: logo"
+            }'>
+            <svg aria-hidden="true" class="h-c-footer__logo-img" viewBox="0 0 396 130">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#google-logo"></use>
+            </svg>
+          </a>
+        </div>
+        <ul class="h-c-footer__global-links h-no-bullet">
+          <li class="h-c-footer__global-links-list-item">
+            <a class="h-c-footer__link uni-click-tracker" href="https://www.google.com/policies/privacy/"
+              data-analytics='{
+                "category": "navigation",
+                "action": "footer",
+                "label": "navlink: Privacy"
+              }'>Privacy
+            </a>
+          </li>
+          <li class="h-c-footer__global-links-list-item">
+            <a class="h-c-footer__link uni-click-tracker" href="https://www.google.com/policies/terms/"
+              data-analytics='{
+                "category": "navigation",
+                "action": "footer",
+                "label": "navlink: Terms"
+              }'>Terms
+            </a>
+          </li>
+          <li class="h-c-footer__global-links-list-item">
+            <a class="h-c-footer__link uni-click-tracker" href="https://about.google/"
+              data-analytics='{
+                "category": "navigation",
+                "action": "footer",
+                "label": "navlink: About"
+              }'>About Google
+            </a>
+          </li>
+          <li class="h-c-footer__global-links-list-item">
+            <a class="h-c-footer__link uni-click-tracker" href="https://about.google/products/"
+              data-analytics='{
+                "category": "navigation",
+                "action": "footer",
+                "label": "navlink: Products"
+              }'>Google Products
+            </a>
+          </li>
+        </ul>
+        <ul class="h-c-footer__global-links h-c-footer__global-links--extra h-no-bullet">
+          <li class="h-c-footer__global-links-list-item h-c-footer__global-links-list-item--extra">
+            <a class="h-c-footer__link uni-click-tracker" href="https://support.google.com"
+              data-analytics='{
+                "category": "navigation",
+                "action": "footer",
+                "label": "navlink: Help"
+              }'>
+              <svg aria-hidden="true" class="h-c-icon h-c-icon--24px h-c-icon--footer">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mi-help"></use>
+              </svg>
+              Help
+            </a>
+          </li>
+        </ul>
+    </section>
+</footer>
+
+
+
+        <div id="base-scripts" data-scripts='[
+              { "url": "/static/angularjs/1.6.4/angular.min.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/angularjs/1.6.4/angular-animate.min.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/angularjs/1.6.4/angular-touch.min.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/blogv2/js/soy-templates.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/blogv2/js/blogv2.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/blogv2/js/csp/gtm.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/blogv2/js/csp/reloadCachedPage.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/blogv2/js/glue-app.min.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              },
+              { "url": "/static/blogv2/js/vendors.js",
+                "options": {
+                  "async": false,
+                  "defer": false
+                }
+              }
+            ]'></div>
+        <div id="extra-scripts"
+             data-scripts=''>
+        </div>
+        <script type="text/javascript">
+            var base_scripts = document.querySelector("#base-scripts").getAttribute('data-scripts');
+            base_scripts = JSON.parse(base_scripts);
+            var extra_scripts = document.querySelector("#extra-scripts").getAttribute('data-scripts');
+            if (extra_scripts) {
+              extra_scripts = JSON.parse(extra_scripts);
+            } else {
+              extra_scripts = [];
+            }
+            var scripts = base_scripts.concat(extra_scripts);
+            scripts.forEach(function(scriptObj) {
+              var s = document.createElement('script');
+              s.async = scriptObj.options.async;
+              s.defer = scriptObj.options.defer;
+              s.src = scriptObj.url;
+              document.head.appendChild(s);
+            });
+        </script>
+        <!--[if gt IE 9]><!-->
+        <!--<script async type="text/javascript" src="/static/blogv2/js/vendors.js"></script>-->
+        <!--<![endif]-->
+    </body>
+</html>

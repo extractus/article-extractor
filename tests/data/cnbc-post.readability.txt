@@ -1,0 +1,41 @@
+<div class="ArticleBody-articleBody" id="ArticleBody-6" data-module="ArticleBody"><span class="HighlightShare-hidden"></span><span>
+                                </span><span>
+                                </span><div class="group"><span>
+                                    </span><p>The U.S. Defense Department gave <a href="/quotes/?symbol=MSFT" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Microsoft</a> "the best possible validation they could get"
+                                        in awarding a multibillion-dollar defense deal to the company's cloud platform over <a href="/quotes/?symbol=AMZN" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Amazon</a>,
+                                        CNBC's <a href="https://www.cnbc.com/jim-cramer/" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Jim Cramer</a> said Monday.</p><span>
+                                    </span><p>On the other end of the spectrum, losing out on the potential $10 billion contract is not a "big deal for Amazon," the <a href="https://www.cnbc.com/mad-money/" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">"Mad Money"</a> host said. The request for proposals came down to two of the most valuable companies by market cap.</p><span>
+                                    </span><span>
+                                    </span><p>"The Pentagon's basically saying that Microsoft's cloud platform is just as good as Amazon's, or at least close enough for government work," said Cramer, adding that it's a "much more
+                                        significant win for Microsoft Azure than it would be for Amazon Web Services."</p><span>
+                                    </span><p>Azure, the cloud computing service from Microsoft, topped Amazon Web Services, <a href="/quotes/?symbol=IBM" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">IBM</a> Cloud and
+                                        <a href="/quotes/?symbol=ORCL" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Oracle</a> Cloud in the <a href="https://www.cnbc.com/2019/10/25/microsoft-wins-major-defense-cloud-contract-beating-out-amazon.html" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">competition for the agreement</a> worth as much as $10 billion through late 2029, the Pentagon announced Friday. Under the
+                                        Joint Enterprise Defense Infrastructure deal, aka JEDI, the company will build an enterprise cloud infrastructure that will support the Defense Department's business and mission operations.</p><span>
+                                    </span><p>Microsoft reported in its fiscal first-quarter results, which beat Wall Street estimates, that its Azure public cloud business grew 59%, though the company does not break down Azure's revenue in dollar figures.
+                                        The Intelligent Cloud segment, which includes Azure and Windows Server, among other services, drew a combined $10.85 billion in revenue.</p><span>
+                                    </span><p>"We already know Microsoft was firing on all cylinders. This JEDI contract simply confirms it," Cramer said.</p><span>
+                                    </span><p>As for Amazon, AWS is still the top cloud infrastructure provider, though it may not have been given a fair shot at the contract, Cramer said. Former Secretary of Defense James Mattis <a href="https://www.cnbc.com/2019/10/26/trump-mattis-screw-amazon-10-billion-pentagon-cloud-contract-jedi.html" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">reportedly said President Donald Trump instructed him</a> to "screw Amazon" out of the deal.</p><span>
+                                    </span><span>
+                                    </span><p>Trump on multiple occasions has aired his grievances with Jeff Bezos, the billionaire Amazon founder and CEO and Washington Post owner. Amazon was considered a favorite for the deal after it was awarded a CIA contract
+                                        in 2013.</p><span>
+                                    </span><p>"It wouldn't shock me if he, or someone in his orbit, put their thumb on the scales in favor of Microsoft," Cramer said, though he says it's not a big worry for Amazon.</p><span>
+                                    </span><p>"You've got to understand: AWS did $9 billion in the quarter in revenue," he said. "They're not weeping over losing what could have been a $10 billion deal over the course of 10 years."</p><span>
+                                    </span><p>The deal means a lot to Microsoft, whose stock surged 2.46% to $144.19 a piece in Monday's session. Amazon's stock barely nudged since the news broke. But Amazon's loss could be seen as a win for <a href="/quotes/?symbol=IBM" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">IBM</a> and <a href="/quotes/?symbol=GOOGL" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Alphabet</a>,
+                                        Cramer suggested.</p><span>
+                                    </span><p>He said "it means Amazon won't be able to monopolize all of our government's cloud-related" defense spending. "If Amazon won the JEDI contract, then AWS would have been the Department of Defense's
+                                        default cloud infrastructure for the next 10 years. Now, though, the smaller players have more of a chance to win business."</p><span>
+                                    </span><p>"While the stock had a big run here, I think Microsoft remains attractive," the host said. "As for Amazon, losing this business is no skin off their back. The real issue is that they've spent so
+                                        heavily to grow the business, and while I'm okay with that, it might give you more opportunities to buy the stock into weakness down the road because of Wall Street's inherent shortsightedness."</p><span>
+                                </span></div><span>
+                                </span><span>
+                                </span><div class="group"><span>
+                                    </span><p><em>Disclosure: Cramer's charitable trust owns shares of Amazon, Microsoft and Alphabet.</em></p><span>
+                                    </span><p><a href="https://www.cnbc.com/id/100000935" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Disclaimer</a></p><span>
+                                    </span><div class="ArticleBody-blockquote"><span>
+                                        </span><p>Questions for Cramer?<br>Call Cramer: 1-800-743-CNBC</p><span>
+                                        </span><p>Want to take a deep dive into Cramer's world? Hit him up!<br><a href="https://twitter.com/MadMoneyOnCNBC" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Mad Money Twitter</a>                                            - <a href="https://twitter.com/jimcramer" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Jim Cramer Twitter</a> - <a href="https://www.facebook.com/madmoney?ref=aymt_homepage_panel" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Facebook</a> - <a href="http://instagram.com/jimcramer" alt="" class="" rel="" target="" title="" role="" tabindex="" data-type="" aria-label="">Instagram</a></p><span>
+                                        </span><p>Questions, comments, suggestions for the "Mad Money" website? madcap@cnbc.com</p><span>
+                                    </span></div><span>
+                                </span></div><span>
+                                </span><span>
+                            </span></div>

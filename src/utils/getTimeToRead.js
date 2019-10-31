@@ -1,15 +1,16 @@
 // utils -> getTimeToRead
 
-const {
+import {
   stripTags,
-} = require('bellajs');
+} from 'bellajs';
 
+import {
+  getParserOptions,
+} from '../config';
 
-const {
-  wordsPerMinute,
-} = require('../config');
+const {wordsPerMinute} = getParserOptions();
 
-const getTimeToRead = (content) => {
+export default (content) => {
   const text = stripTags(content);
   const words = text.trim().split(/\s+/g).length;
   const minToRead = words / wordsPerMinute;
@@ -17,4 +18,3 @@ const getTimeToRead = (content) => {
   return secToRead;
 };
 
-module.exports = getTimeToRead;
