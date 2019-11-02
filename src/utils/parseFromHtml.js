@@ -66,7 +66,7 @@ export default (html, links, article) => {
   article.url = bestUrl;
 
   info('Normalizing content');
-  const normalizedContent = standalizeArticle(mainText);
+  const normalizedContent = standalizeArticle(mainText, bestUrl);
   const textContent = stripTags(normalizedContent);
   if (!article.description) {
     article.description = truncate(textContent, MAX_DESC_LENGTH);
