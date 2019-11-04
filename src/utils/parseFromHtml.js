@@ -8,6 +8,7 @@ import {
 
 import extractMetaData from './extractMetaData';
 import chooseBestUrl from './chooseBestUrl';
+import absolutifyUrl from './absolutifyUrl';
 import standalizeArticle from './standalizeArticle';
 import extractWithRules from './extractWithRules';
 import extractWithReadability from './extractWithReadability';
@@ -66,6 +67,9 @@ export default (html, links, article) => {
   article.url = bestUrl;
 
   info('Normalizing content');
+  if (article.image) {
+    article.image = absolutifyUrl(bestUrl, article.image);
+  }
   const normalizedContent = standalizeArticle(mainText, bestUrl);
   const textContent = stripTags(normalizedContent);
   if (!article.description) {
