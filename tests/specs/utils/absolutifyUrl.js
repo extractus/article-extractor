@@ -44,6 +44,11 @@ test('Testing .absolutifyUrl() method', (assert) => {
       relativeUrl: 'http://here.is/assets/images/ok.png',
       expected: 'http://here.is/assets/images/ok.png',
     },
+    {
+      fullUrl: 'https://eslint.org/blog/2019/01/future-typescript-eslint',
+      relativeUrl: '/assets/img/favicon.512x512.png',
+      expected: 'https://eslint.org/assets/img/favicon.512x512.png',
+    },
   ];
 
   entries.map(testOne);

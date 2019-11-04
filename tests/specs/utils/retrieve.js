@@ -71,5 +71,6 @@ test('Testing .retrieve() method', async (assert) => {
   const result500 = await retrieve(url500);
   assert.equal(result500, null, `retrieve('${url500}') must return null`);
 
+  nock.cleanAll();
   assert.end();
 });

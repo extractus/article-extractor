@@ -57,5 +57,6 @@ test('Testing .parseOEmbed() method', async (assert) => {
 
   await Promise.all(urls.map(testOne));
 
+  nock.cleanAll();
   assert.end();
 });
