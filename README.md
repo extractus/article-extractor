@@ -8,7 +8,7 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-[Please give it a try!](https://article-parser-demo.ctdtmnhnlcndt.com/)
+[Give it a try now!](https://article-parser-demo.ctdtmnhnlcndt.com/)
 
 
 
