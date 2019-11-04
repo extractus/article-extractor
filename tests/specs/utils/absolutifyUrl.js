@@ -49,6 +49,21 @@ test('Testing .absolutifyUrl() method', (assert) => {
       relativeUrl: '/assets/img/favicon.512x512.png',
       expected: 'https://eslint.org/assets/img/favicon.512x512.png',
     },
+    {
+      fullUrl: '/article/abc-xyz',
+      relativeUrl: '/assets/images/ok.png',
+      expected: '',
+    },
+    {
+      fullUrl: 'abcxyz1902',
+      relativeUrl: '/assets/images/ok.png',
+      expected: '',
+    },
+    {
+      fullUrl: 'http://some.where/article/abc-xyz',
+      relativeUrl: 1866,
+      expected: '',
+    },
   ];
 
   entries.map(testOne);
