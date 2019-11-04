@@ -26,6 +26,7 @@ export default (html) => {
       '.blog-post-content',
       '.ArticleBody-articleBody',
       'article',
+      '#content',
     ];
 
     for (let i = 0; i < potentialClasses.length; i++) {

@@ -24,7 +24,13 @@ import {
 import {name, version} from '../../package.json';
 
 
-test('Testing .extract() method', async (assert) => {
+const hasProps = (obj, props) => {
+  return props.every((prop) => {
+    return Object.prototype.hasOwnProperty.call(obj, prop);
+  });
+};
+
+test('Testing .extract() method (using mocking data)', async (assert) => {
   const {env} = getParserOptions();
 
   const baseUrl = 'https://some.where';
@@ -80,6 +86,55 @@ test('Testing .extract() method', async (assert) => {
   };
 
   await Promise.all(samples.map(testOne));
+
+  nock.cleanAll();
+  assert.end();
+});
+
+
+test('Testing .extract() method (live data)', async (assert) => {
+  const urls = [
+    'https://medium.com/@ndaidong/setup-a-simple-environment-for-deep-learning-dc05c81c4914',
+    'https://www.youtube.com/watch?v=lexE3NR0n34',
+    'https://kipalog.com/posts/Functional-Programming---Phan-1---Con-duong-sang',
+  ];
+
+  const props = [
+    'url', 'title', 'author',
+    'description', 'content', 'image',
+    'published', 'links',
+  ];
+
+  const testOne = async (url) => {
+    const article = await extract(url);
+    assert.type(article, 'object', 'Article must be an object');
+    assert.ok(
+      hasProps(article, props),
+      'Article must have all required properties'
+    );
+    assert.ok(
+      article.url !== '',
+      'Article `url` must be not empty'
+    );
+    assert.ok(
+      article.title !== '',
+      'Article `title` must be not empty'
+    );
+    assert.ok(
+      article.content !== '',
+      'Article `content` must be not empty'
+    );
+    assert.ok(
+      article.image !== '',
+      'Article `image` must be not empty'
+    );
+    assert.ok(
+      article.links.length > 0,
+      'Article `links` must be not empty'
+    );
+  };
+
+  await Promise.all(urls.map(testOne));
 
   assert.end();
 });

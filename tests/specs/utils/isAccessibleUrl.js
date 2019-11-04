@@ -37,5 +37,6 @@ test('Testing .isAccessibleUrl() method', async (assert) => {
   const result500 = await isAccessibleUrl(url500);
   assert.notOk(result500, `isAccessibleUrl('${url500}') must return false`);
 
+  nock.cleanAll();
   assert.end();
 });
