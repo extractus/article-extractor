@@ -9,6 +9,7 @@ import {
 import extractMetaData from './extractMetaData';
 import chooseBestUrl from './chooseBestUrl';
 import absolutifyUrl from './absolutifyUrl';
+import isValidUrl from './isValidUrl';
 import standalizeArticle from './standalizeArticle';
 import extractWithRules from './extractWithRules';
 import extractWithReadability from './extractWithReadability';
@@ -62,7 +63,7 @@ export default (html, links, article) => {
   }
 
   info('Finding the best link...');
-  article.links = unique(links);
+  article.links = unique(links.filter(isValidUrl));
   const bestUrl = chooseBestUrl(article.links, article.title);
   article.url = bestUrl;
 
