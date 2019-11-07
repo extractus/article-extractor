@@ -13,6 +13,8 @@ import isValidUrl from './isValidUrl';
 import standalizeArticle from './standalizeArticle';
 import extractWithRules from './extractWithRules';
 import extractWithReadability from './extractWithReadability';
+import getTimeToRead from './getTimeToRead';
+
 import {
   info,
 } from './logger';
@@ -77,6 +79,7 @@ export default (html, links, article) => {
     article.description = truncate(textContent, MAX_DESC_LENGTH);
   }
   article.content = normalizedContent;
+  article.ttr = getTimeToRead(normalizedContent);
   info('Finish parsing process');
   return article;
 };

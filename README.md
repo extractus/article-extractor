@@ -8,7 +8,7 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-[Give it a try now!](https://article-parser-demo.ctdtmnhnlcndt.com/)
+[Give it a try!](https://article-parser-demo.ctdtmnhnlcndt.com/)
 
 
 
@@ -67,14 +67,15 @@ In comparison to v3, the `article` object structure has been changed too. Now it
 ```json
 {
   "url": URI String,
-  "links": Array,
   "title": String,
   "description": String,
   "image": URI String,
   "author": String,
-  "content": Long HTML String,
-  "source": String,
-  "published": Date String
+  "content": HTML String,
+  "published": Date String,
+  "source": String, // original publisher
+  "links": Array, // list of alternative links
+  "ttr": Number, // time to read in second, 0 = unknown
 }
 ```
 

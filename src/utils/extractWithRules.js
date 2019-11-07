@@ -23,10 +23,19 @@ export default (html) => {
       '.rich-text',
       '.post-content',
       '.post-body',
+      '.post-entry',
       '.blog-post-content',
       '.ArticleBody-articleBody',
+      '.articleBody',
+      '.article-content',
+      '.post',
       'article',
+      '.article',
+      '#article',
+      '.content',
+      '.page-content',
       '#content',
+      '#main',
     ];
 
     for (let i = 0; i < potentialClasses.length; i++) {

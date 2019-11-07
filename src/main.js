@@ -29,6 +29,9 @@ export {
   setParserOptions,
   setNodeFetchOptions,
   setSanitizeHtmlOptions,
+  getParserOptions,
+  getNodeFetchOptions,
+  getSanitizeHtmlOptions,
 } from './config';
 
 
@@ -56,6 +59,7 @@ export const extract = async (input) => {
     content: '',
     source: '',
     published: '',
+    ttr: 0,
   };
 
   if (isHtmlDoc(input)) {
