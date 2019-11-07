@@ -9,6 +9,7 @@ import {
 import extractMetaData from './extractMetaData';
 import chooseBestUrl from './chooseBestUrl';
 import absolutifyUrl from './absolutifyUrl';
+import normalizeUrl from './normalizeUrl';
 import isValidUrl from './isValidUrl';
 import standalizeArticle from './standalizeArticle';
 import extractWithRules from './extractWithRules';
@@ -50,7 +51,7 @@ export default (html, links, article) => {
     }
   });
 
-  if (!article.title || !article.url) {
+  if (!article.title || links.length === 0) {
     info('No `title` or `url`, stop processing');
     info(article);
     return null;
@@ -65,7 +66,7 @@ export default (html, links, article) => {
   }
 
   info('Finding the best link...');
-  article.links = unique(links.filter(isValidUrl));
+  article.links = unique(links.filter(isValidUrl).map(normalizeUrl));
   const bestUrl = chooseBestUrl(article.links, article.title);
   article.url = bestUrl;
 

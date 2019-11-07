@@ -140,6 +140,45 @@ test('Testing .extract() method (live data)', async (assert) => {
 });
 
 
+test('Testing .extract() method (using preload HTML)', async (assert) => {
+  const {env} = getParserOptions();
+  const samples = [
+    'ghost-3-0',
+    'closer-stars-pixel-4',
+    'google-cloud-kubernetes',
+    'beginner-blogger-mistakes',
+    'golden-rule-of-freelancing',
+    'cnbc-post',
+  ];
+
+  const testOne = async (fname) => {
+    const html = readFileSync(`./tests/data/${fname}.txt`, 'utf8');
+    const result = await extract(html);
+    if (env === 'gen') {
+      writeFileSync(
+        `./tests/data/${fname}.article-preload.txt`,
+        JSON.stringify(result, null, '  '),
+        'utf8'
+      );
+    }
+    const expected = readFileSync(
+      `./tests/data/${fname}.article-preload.txt`,
+      'utf8'
+    );
+    assert.same(
+      result,
+      JSON.parse(expected),
+      `extract(${fname}) must be done`
+    );
+  };
+
+  await Promise.all(samples.map(testOne));
+
+  nock.cleanAll();
+  assert.end();
+});
+
+
 test('Testing setParserOptions/getParserOptions methods', (assert) => {
   const expectedWPM = 400;
 
