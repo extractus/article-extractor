@@ -102,7 +102,7 @@ test('Testing .extract() method (live data)', async (assert) => {
   const props = [
     'url', 'title', 'author',
     'description', 'content', 'image',
-    'published', 'links',
+    'published', 'links', 'ttr',
   ];
 
   const testOne = async (url) => {
