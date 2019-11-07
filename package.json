@@ -1,8 +1,8 @@
 {
-  "version": "4.0.1",
+  "version": "4.0.2",
   "name": "article-parser",
   "description": "To extract main article from given URL",
-  "homepage": "https://www.npmjs.com/package/article-parser",
+  "homepage": "https://article-parser-demo.ctdtmnhnlcndt.com",
   "repository": {
     "type": "git",
     "url": "git@github.com:ndaidong/article-parser.git"

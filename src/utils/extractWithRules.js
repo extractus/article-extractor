@@ -32,6 +32,7 @@ export default (html) => {
       'article',
       '.article',
       '#article',
+      '.message-body',
       '.content',
       '.page-content',
       '#content',
