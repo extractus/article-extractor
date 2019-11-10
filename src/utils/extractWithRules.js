@@ -29,18 +29,12 @@ export default (html) => {
       '.articleBody',
       '.article-content',
       '.article_content',
+      '.textArticle',
       '.main-content-body',
-      '.content_detail',
       '.entry-content',
       '.c-post-content',
       '.art-v2-body',
-      '.knc-content',
-      '.cms-body',
       '.post',
-      'article',
-      '.article',
-      '#article',
-      '#abody',
       '#post-detail',
       '#contentdetail',
       '.contentdetail',
@@ -48,6 +42,29 @@ export default (html) => {
       '.content',
       '.page-content',
       '.entry',
+      '.detail-content',
+      '.contentbody',
+      '.node-article', // thehill.com
+      '#article-body', // dev.to
+      '.body', // dev.to
+      '.content-news-detail', // nld.com.vn
+      '.news-content', // soha.vn
+      '.content_detail', // vnexpress.net
+      '#divNewsContent', // dantri.com.vn
+      '#article-content', // voatiengviet.com
+      '#ArticleContent', // vietnamnet.vn
+      '.ArticleContent', // vietnamnet.vn
+      '#abody', // thanhnien.vn, plo.vn
+      '.cms-body', // thanhnien.vn, plo.vn
+      '.the-article-body', // news.zing.vn
+      '#main-detail-body', // tuoitre.vn
+      '.div-content', // voh.com.vn
+      '#baiviet-container', // eva.vn
+      '.nwsCt', // eva.vn
+      '.knc-content', // kenh14.vn
+      'article',
+      '.article',
+      '#article',
       '#content',
       '#main',
     ];
