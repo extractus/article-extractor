@@ -8,8 +8,10 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-[Give it a try!](https://article-parser-demo.ctdtmnhnlcndt.com/)
+- [Give it a try!](https://article-parser-demo.ctdtmnhnlcndt.com/)
+- [Example FaaS](https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=)
 
+View [screenshots](#screenshots) for more info.
 
 
 ## Usage
@@ -145,6 +147,16 @@ Read [node-fetch](https://www.npmjs.com/package/node-fetch#options) docs for mor
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
+
+## Screenshots
+
+- Article Parser demo:
+
+![Screenshot_2019-11-29_14-21-30.png](https://i.loli.net/2019/11/29/X3uP9aeTnq5Diwz.png)
+
+- Example FasS with Google Cloud Function
+
+![Screenshot_2019-11-29_14-38-32.png](https://i.loli.net/2019/11/29/upCFlkicESdy3Af.png)
 
 
 ## Test
