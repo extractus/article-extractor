@@ -149,7 +149,12 @@ Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-de
 
 ## Screenshots
 
+- Article Parser demo:
+
 ![Screenshot_2019-11-29_14-21-30.png](https://i.loli.net/2019/11/29/X3uP9aeTnq5Diwz.png)
+
+- Example FasS with Google Cloud Function
+
 ![Screenshot_2019-11-29_14-38-32.png](https://i.loli.net/2019/11/29/upCFlkicESdy3Af.png)
 
 
