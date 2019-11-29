@@ -39,7 +39,7 @@
     "eslint-config-goes": "^1.1.8",
     "gcc-min": "^7.1.5",
     "nock": "^11.7.0",
-    "tap": "^14.10.2"
+    "tap": "14.9.2"
   },
   "keywords": [
     "article",
