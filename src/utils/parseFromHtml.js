@@ -20,11 +20,12 @@ import extractWithRules from './extractWithRules';
 import extractWithReadability from './extractWithReadability';
 import getTimeToRead from './getTimeToRead';
 
+import {getParserOptions} from '../config';
+
 import {
   info,
 } from './logger';
 
-const MAX_DESC_LENGTH = 156;
 
 const cleanify = (html) => {
   return sanitize(html, {
@@ -33,6 +34,16 @@ const cleanify = (html) => {
   });
 };
 
+const summarize = (desc, txt, threshold, maxlen) => {
+  return desc.length < threshold ? truncate(txt, maxlen) : desc;
+};
+
+const getSource = (source, uri) => {
+  return source ? source : (() => {
+    const {hostname} = parse(uri);
+    return hostname;
+  })();
+};
 
 export default async (input, links) => {
   info('Start parsing from HTML...');
@@ -78,29 +89,30 @@ export default async (input, links) => {
   const bestUrl = chooseBestUrl(ulinks, title);
 
   info('Normalizing content');
+  const {
+    descriptionLengthThreshold,
+    descriptionTruncateLen,
+    contentLengthThreshold,
+  } = getParserOptions();
+
   const normalizedContent = standalizeArticle(mainText, bestUrl);
   const textContent = stripTags(normalizedContent);
-  if (textContent < 300) {
+  if (textContent.split(' ').length < contentLengthThreshold) {
     info('Main article is too short!');
     return null;
   }
 
-  const summarize = (desc, txt) => {
-    return desc.length < 40 ? truncate(txt, MAX_DESC_LENGTH) : desc;
-  };
-
-  const getSource = (source, uri) => {
-    return source ? source : (() => {
-      const {hostname} = parse(uri);
-      return hostname;
-    })();
-  };
 
   info('Finish parsing process');
   return {
     url: bestUrl,
     title,
-    description: summarize(description, textContent),
+    description: summarize(
+      description,
+      textContent,
+      descriptionLengthThreshold,
+      descriptionTruncateLen
+    ),
     links: ulinks,
     image: image ? absolutifyUrl(bestUrl, image) : '',
     content: normalizedContent,
