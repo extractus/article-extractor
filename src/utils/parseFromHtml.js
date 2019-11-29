@@ -1,10 +1,14 @@
 // utils -> parseFromHtml
 
+import {parse} from 'url';
+
 import {
   unique,
   stripTags,
   truncate,
 } from 'bellajs';
+
+import sanitize from 'sanitize-html';
 
 import extractMetaData from './extractMetaData';
 import chooseBestUrl from './chooseBestUrl';
@@ -16,29 +20,45 @@ import extractWithRules from './extractWithRules';
 import extractWithReadability from './extractWithReadability';
 import getTimeToRead from './getTimeToRead';
 
+import {getParserOptions} from '../config';
+
 import {
   info,
 } from './logger';
 
-const MAX_DESC_LENGTH = 156;
 
-
-export default (html, links, article) => {
-  info('Start parsing from HTML...');
-  const meta = extractMetaData(html);
-  article.title = meta.title || '';
-  article.description = meta.description || '';
-
-  [
-    'title',
-    'description',
-    'image',
-    'author',
-    'source',
-    'published',
-  ].forEach((p) => {
-    article[p] = meta[p] || '';
+const cleanify = (html) => {
+  return sanitize(html, {
+    allowedTags: false,
+    allowedAttributes: false,
   });
+};
+
+const summarize = (desc, txt, threshold, maxlen) => {
+  return desc.length < threshold ? truncate(txt, maxlen) : desc;
+};
+
+const getSource = (source, uri) => {
+  return source ? source : (() => {
+    const {hostname} = parse(uri);
+    return hostname;
+  })();
+};
+
+export default async (input, links) => {
+  info('Start parsing from HTML...');
+  const html = cleanify(input);
+  const meta = extractMetaData(html);
+
+  const {
+    title = '',
+    description = '',
+    image = '',
+    author = '',
+    source = '',
+    published = '',
+  } = meta;
+
 
   [
     'url',
@@ -51,14 +71,13 @@ export default (html, links, article) => {
     }
   });
 
-  if (!article.title || links.length === 0) {
+  if (!title || links.length === 0) {
     info('No `title` or `url`, stop processing');
-    info(article);
     return null;
   }
 
   info('Extracting main article...');
-  const mainText = extractWithRules(html) || extractWithReadability(html);
+  const mainText = extractWithRules(html) || await extractWithReadability(html);
 
   if (!mainText) {
     info('Could not extract main article, stop processing');
@@ -66,21 +85,40 @@ export default (html, links, article) => {
   }
 
   info('Finding the best link...');
-  article.links = unique(links.filter(isValidUrl).map(normalizeUrl));
-  const bestUrl = chooseBestUrl(article.links, article.title);
-  article.url = bestUrl;
+  const ulinks = unique(links.filter(isValidUrl).map(normalizeUrl));
+  const bestUrl = chooseBestUrl(ulinks, title);
 
   info('Normalizing content');
-  if (article.image) {
-    article.image = absolutifyUrl(bestUrl, article.image);
-  }
+  const {
+    descriptionLengthThreshold,
+    descriptionTruncateLen,
+    contentLengthThreshold,
+  } = getParserOptions();
+
   const normalizedContent = standalizeArticle(mainText, bestUrl);
   const textContent = stripTags(normalizedContent);
-  if (!article.description) {
-    article.description = truncate(textContent, MAX_DESC_LENGTH);
+  if (textContent.split(' ').length < contentLengthThreshold) {
+    info('Main article is too short!');
+    return null;
   }
-  article.content = normalizedContent;
-  article.ttr = getTimeToRead(normalizedContent);
+
+
   info('Finish parsing process');
-  return article;
+  return {
+    url: bestUrl,
+    title,
+    description: summarize(
+      description,
+      textContent,
+      descriptionLengthThreshold,
+      descriptionTruncateLen
+    ),
+    links: ulinks,
+    image: image ? absolutifyUrl(bestUrl, image) : '',
+    content: normalizedContent,
+    author,
+    source: getSource(source, bestUrl),
+    published,
+    ttr: getTimeToRead(textContent),
+  };
 };

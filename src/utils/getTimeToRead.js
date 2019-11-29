@@ -1,16 +1,11 @@
 // utils -> getTimeToRead
 
 import {
-  stripTags,
-} from 'bellajs';
-
-import {
   getParserOptions,
 } from '../config';
 
 
-export default (content) => {
-  const text = stripTags(content);
+export default (text) => {
   const words = text.trim().split(/\s+/g).length;
   const {wordsPerMinute} = getParserOptions();
   const minToRead = words / wordsPerMinute;

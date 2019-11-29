@@ -1,5 +1,5 @@
 {
-  "version": "4.0.5",
+  "version": "4.0.7",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://article-parser-demo.ctdtmnhnlcndt.com",
@@ -19,6 +19,7 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "tap tests/start.js --coverage --reporter=spec",
+    "eval": "DEBUG=*:* node -r esm tests/run",
     "reset": "node reset"
   },
   "dependencies": {
@@ -38,7 +39,7 @@
     "eslint-config-goes": "^1.1.8",
     "gcc-min": "^7.1.5",
     "nock": "^11.7.0",
-    "tap": "^14.9.1"
+    "tap": "14.9.2"
   },
   "keywords": [
     "article",

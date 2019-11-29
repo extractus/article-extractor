@@ -38,8 +38,11 @@ const sanitizeHtmlOptions = {
 
 const parserOptions = {
   env: env.ENV || 'dev',
-  wordsPerMinute: 300,
-  urlsCompareAlgorithm: 'levenshtein',
+  wordsPerMinute: 300, // to estimate "time to read"
+  urlsCompareAlgorithm: 'levenshtein', // to find best url from list
+  descriptionLengthThreshold: 40, // min num of chars allowed in description
+  descriptionTruncateLen: 156, // max num of chars generated for description
+  contentLengthThreshold: 200, // min num of chars allowed in content
 };
 
 export const getParserOptions = () => {
