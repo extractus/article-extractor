@@ -63,7 +63,7 @@ export const extract = async (input) => {
   };
 
   if (isHtmlDoc(input)) {
-    return parseFromHtml(input, [], article);
+    return parseFromHtml(input, []);
   }
 
   const trimmedUrl = input.trim();
@@ -111,7 +111,7 @@ export const extract = async (input) => {
     } = res;
 
     links.concat([url, resUrl]);
-    const result = parseFromHtml(html, links, article);
+    const result = parseFromHtml(html, links);
     if (result) {
       setCache(result);
       return result;
