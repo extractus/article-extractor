@@ -97,7 +97,7 @@ export default async (input, links) => {
 
   const normalizedContent = standalizeArticle(mainText, bestUrl);
   const textContent = stripTags(normalizedContent);
-  if (textContent.split(' ').length < contentLengthThreshold) {
+  if (textContent.length < contentLengthThreshold) {
     info('Main article is too short!');
     return null;
   }
