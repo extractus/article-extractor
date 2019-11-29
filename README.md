@@ -11,7 +11,8 @@ Extract main article, main image and meta data from URL.
 - [Give it a try!](https://article-parser-demo.ctdtmnhnlcndt.com/)
 - [Example FaaS](https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=)
 
-(View [screenshots](#screenshots))
+View [screenshots](#screenshots) for more info.
+
 
 ## Usage
 
