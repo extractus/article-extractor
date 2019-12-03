@@ -39,9 +39,7 @@ export default (html) => {
       '#contentdetail',
       '.contentdetail',
       '.message-body',
-      '.content',
       '.page-content',
-      '.entry',
       '.detail-content',
       '.contentbody',
       '.node-article', // thehill.com
@@ -65,8 +63,6 @@ export default (html) => {
       'article',
       '.article',
       '#article',
-      '#content',
-      '#main',
     ];
 
     for (let i = 0; i < potentialClasses.length; i++) {
