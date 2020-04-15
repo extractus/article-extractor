@@ -67,7 +67,7 @@ export const setNodeFetchOptions = (opts) => {
 
 export const setSanitizeHtmlOptions = (opts) => {
   copies(opts, sanitizeHtmlOptions);
-  if (opts.allowedTags && opts.allowedTags.length > 0) {
+  if (Array.isArray(opts.allowedTags)) {
     sanitizeHtmlOptions.allowedTags = [...opts.allowedTags];
   }
 };

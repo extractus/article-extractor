@@ -261,5 +261,15 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', (assert) =
     'getSanitizeHtmlOptions() must work correctly'
   );
 
+  setSanitizeHtmlOptions({
+    allowedTags: [],
+  });
+
+  assert.same(
+    getSanitizeHtmlOptions().allowedTags,
+    [],
+    'getSanitizeHtmlOptions() accepts empty tags'
+  );
+
   assert.end();
 });
