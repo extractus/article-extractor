@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "eslint-config-goes": "^1.1.8",
-    "nock": "^12.0.3",
+    "nock": "^11.7.0",
     "tap": "14.10.7"
   },
   "keywords": [
