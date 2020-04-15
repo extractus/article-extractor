@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "13.3"
-  - "12.13"
+  - "13.13"
+  - "12.16"
   - "8.6"
 git:
   depth: 1
