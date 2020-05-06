@@ -1,6 +1,7 @@
 // utils/extractWithReadability
 
-import read from 'es6-readability';
+import {Readability} from 'readabilitySAX';
+import Parser from 'htmlparser2/lib/Parser.js';
 
 import {
   error,
@@ -8,8 +9,11 @@ import {
 
 export default async (html) => {
   try {
-    const article = await read(html);
-    return article.content;
+    const readable = new Readability();
+    const parser = new Parser(readable, {});
+    parser.write(html);
+    const article = await readable.getArticle();
+    return article.html;
   } catch (err) {
     error(err);
     return null;

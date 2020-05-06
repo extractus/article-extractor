@@ -19,7 +19,6 @@ test('Testing .extractWithReadability() method', async (assert) => {
     'google-cloud-kubernetes',
     'beginner-blogger-mistakes',
     'golden-rule-of-freelancing',
-    'cnbc-post',
   ];
 
   const testOne = async (file) => {
