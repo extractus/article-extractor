@@ -1,12 +1,12 @@
 // utils/extractWithReadability
 
-import {extract} from 'oembed-parser';
+const {extract} = require('oembed-parser');
 
-import {
+const {
   error,
-} from '../utils/logger';
+} = require('../utils/logger');
 
-export default async (url) => {
+module.exports = async (url) => {
   try {
     const oembed = await extract(url);
     return oembed;

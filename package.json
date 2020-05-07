@@ -14,31 +14,28 @@
     "node": ">= 8.6"
   },
   "scripts": {
-    "start": "DEBUG=*:* node index",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "tap tests/start.js --coverage --reporter=spec",
-    "eval": "DEBUG=*:* node -r esm tests/run",
-    "purify": "node -r esm run.js",
+    "test": "jest --coverage=true --passWithNoTests --unhandled-rejections=strict",
+    "eval": "DEBUG=*:* node run",
     "reset": "node reset"
   },
   "dependencies": {
     "bellajs": "^8.0.2",
     "cheerio": "^1.0.0-rc.3",
     "debug": "^4.1.1",
-    "esm": "^3.2.25",
     "html-minifier": "^4.0.0",
-    "lru-cache": "^5.1.1",
     "node-fetch": "^2.6.0",
-    "oembed-parser": "^1.3.7",
+    "oembed-parser": "^1.3.8",
     "readabilitySAX": "^1.6.1",
     "sanitize-html": "^1.23.0",
-    "string-comparison": "^1.0.7",
-    "tap": "^14.10.7"
+    "string-comparison": "^1.0.7"
   },
   "devDependencies": {
     "eslint-config-goes": "^1.1.8",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "nock": "^12.0.3",
+    "tap": "^14.10.7"
   },
   "keywords": [
     "article",

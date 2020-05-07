@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:addthis="http://www.addthis.com/help/api-spec"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:addthis="http://www.addthis.com/help/api-spec"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:addthis="http://www.addthis.com/help/api-spec"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"> <!--<![endif]-->
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE6" />
+    <meta http-equiv="cleartype" content="on">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Alphabet misses profit estimates as Google investigations loom | VentureBeat</title>
+
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="alternate" type="application/rss+xml" title="VentureBeat Feed" href="//feeds.feedburner.com/venturebeat/SZYF" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://venturebeat.com/wp-content/themes/vb-news/js/ie/html5shiv.js"></script>
+        <script src="https://venturebeat.com/wp-content/themes/vb-news/js/ie/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v12.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Google parent Alphabet missed analysts’ estimates for quarterly profit on Monday as it reported its highest-ever quarterly expenses, sending shares down."/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://venturebeat.com/2019/10/28/alphabet-earnings-q3-2019/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Alphabet misses profit estimates as Google investigations loom" />
+<meta property="og:description" content="Google parent Alphabet missed analysts’ estimates for quarterly profit on Monday as it reported its highest-ever quarterly expenses, sending shares down." />
+<meta property="og:url" content="https://venturebeat.com/2019/10/28/alphabet-earnings-q3-2019/" />
+<meta property="og:site_name" content="VentureBeat" />
+<meta property="article:publisher" content="https://www.facebook.com/venturebeat/" />
+<meta property="article:section" content="Business" />
+<meta property="article:published_time" content="2019-10-28T22:10:17+00:00" />
+<meta property="article:modified_time" content="2019-10-28T22:16:41+00:00" />
+<meta property="og:updated_time" content="2019-10-28T22:16:41+00:00" />
+<meta property="og:image" content="https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=1200&#038;strip=all" />
+<meta property="og:image:secure_url" content="https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=1200&#038;strip=all" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="600" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Google parent Alphabet missed analysts’ estimates for quarterly profit on Monday as it reported its highest-ever quarterly expenses, sending shares down." />
+<meta name="twitter:title" content="Alphabet misses profit estimates as Google investigations loom" />
+<meta name="twitter:site" content="@venturebeat" />
+<meta name="twitter:image" content="https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=1200&#038;strip=all" />
+<meta name="twitter:creator" content="@venturebeat" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="VentureBeat &raquo; Alphabet misses profit estimates as Google investigations loom Comments Feed" href="https://venturebeat.com/2019/10/28/alphabet-earnings-q3-2019/feed/" />
+<link rel='stylesheet' id='all-css-0' href='https://venturebeat.com/_static/??/wp-content/themes/vb-news/styles/bootstrap-base.article.css,/wp-includes/css/dist/block-library/style.min.css?m=1572002635' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://venturebeat.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://venturebeat.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://venturebeat.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.2.4" />
+<link rel='shortlink' href='https://wp.me/p8wLEc-aFFR' />
+<link rel="alternate" type="application/json+oembed" href="https://venturebeat.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fventurebeat.com%2F2019%2F10%2F28%2Falphabet-earnings-q3-2019%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://venturebeat.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fventurebeat.com%2F2019%2F10%2F28%2Falphabet-earnings-q3-2019%2F&#038;format=xml" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<link rel="shortcut icon" type="image/x-icon" href="https://venturebeat.com/wp-content/themes/vb-news/img/favicon.ico" />
+            <link rel="amphtml" href="https://venturebeat.com/2019/10/28/alphabet-earnings-q3-2019/amp/">
+            </head>
+<body class="post-template-default single single-post postid-2543479 single-format-standard singular category-AI">
+                        <div id="a1-p2-s0" data-sizes="[1000,1]" class="adslot" style="display:none; min-height: 100px">
+            </div>
+
+<nav id="global-nav" class="GlobalNav">
+    <a class="main-nav-home-link GlobalNav__site-logo" href="/">
+        <svg class="SiteLogo SiteLogo--classic" id="SiteLogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.75 100"><title>VentureBeat Homepage</title><path d="M140,0c10.06.29,22.25.72,29.6,8.36,4.26,4.53,6.67,11.9,6.67,18.41,0,8.79-4,13.74-6.24,15.87-2.83,2.83-6.52,4.67-10.05,6.37,4.1,1.29,8.36,2.55,12.17,6.24,4.12,4.1,6.94,11.18,6.94,18.69a24.19,24.19,0,0,1-6.94,17.56c-7.92,8.07-18.41,8.22-29.74,8.5h-46V79.6l8.92.14V20.26l-8.92.14V0Zm-8.64,40.22c8.08.15,9.21.15,11.2-.27A9.65,9.65,0,0,0,150.23,30c0-5.24-3-8.21-5.09-9.21s-3.69-1.13-13.75-1.27Zm0,39.38h7.8c5.52,0,13.31-.13,13.31-9.62,0-5-2.69-8.36-6.1-9.64-2.4-1-3.53-1-15-1Z" transform="translate(-1.37)" class="SiteLogo--red"/><polygon points="0 0 42.92 0 42.92 20.4 34.13 20.26 48.72 77.48 64.45 20.26 55.67 20.4 55.67 0 95.04 0 95.04 20.4 88.38 20.26 63.6 100 31.3 100 6.23 20.26 0 20.4 0 0" class="SiteLogo--black"/></svg>
+    </a>
+    <ul id="main-nav-link-list" class="GlobalNav__main-items">
+        <li class="GlobalNav__main-item GlobalNav__main-item--dropdown GlobalNav__text">
+            Channels
+            <div class="GlobalNav__dropdown-content">
+                <ul class="GlobalNav__dropdown-content-main">
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/games/">GamesBeat</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/ai/">AI</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/arvr/">AR/VR</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/big-data/">Big Data</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/business/">Business</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/cloud/">Cloud</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/commerce/">Commerce</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/dev/">Dev</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/enterprise/">Enterprise</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/entrepreneur/">Entrepreneur</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/esports/">Esports</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/marketing/">Marketing</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/media/">Media</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/mobile/">Mobile</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/pc-gaming/">PC Gaming</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/security/">Security</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/social/">Social</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item">
+                        <a class="GlobalNav__text" href="/category/transportation/">Transportation</a>
+                    </li>
+                </ul>
+                <ul class="GlobalNav__dropdown-footer--desktop">
+                    <li class="">
+                        <a class="GlobalNav__text" href="/contact/">Got a news tip?</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="/tag/business-sponsored-company-news/">Press Releases</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="/webinars/">Webinars</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="/advertise/">Advertise</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="https://vblab.venturebeat.com">VB Lab</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="GlobalNav__main-item GlobalNav__main-item--dropdown GlobalNav__text">
+            Events
+            <div class="GlobalNav__dropdown-content GlobalNav__dropdown-content--events">
+                <ul class="GlobalNav__dropdown-content-main GlobalNav__dropdown-content-main--events">
+                    <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--events">
+                        <a class="GlobalNav__text" href="/events/">Upcoming</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--events">
+                        <a class="GlobalNav__text" href="//vbevents.venturebeat.com/sponsorpage">Sponsor</a>
+                    </li>
+                    <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--events">
+                        <a class="GlobalNav__text" href="mailto:partners@venturebeat.com">Media Partner</a>
+                    </li>
+                </ul>
+                <ul class="GlobalNav__dropdown-footer--desktop">
+                    <li class="">
+                        <a class="GlobalNav__text" href="/contact/">Got a news tip?</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="/tag/business-sponsored-company-news/">Press Releases</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="/webinars/">Webinars</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="/advertise/">Advertise</a>
+                    </li>
+                    <li class="">
+                        <a class="GlobalNav__text" href="https://vblab.venturebeat.com">VB Lab</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="GlobalNav__main-item  GlobalNav__main-item--newsletters">
+            <a href="/newsletters/" class="GlobalNav__text">Newsletters</a>
+        </li>
+        <li class="GlobalNav__main-item GlobalNav__main-item--desktop">
+            <a href="https://jobs.venturebeat.com/" class="GlobalNav__text">Job Board</a>
+        </li>
+        <li class="GlobalNav__main-item GlobalNav__search">
+            <form method="get" action="https://venturebeat.com/" class="Search">
+    <input
+        id="search-input"
+        class="Search__input GlobalNav__text"
+        type="text"
+        placeholder="Search"
+        name="s"
+        aria-label="Search"
+        required />
+    <button type="submit" class="Search__submit">
+        <svg id="SearchIcon" class="Search__icon" data-name="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><title>Search Icon</title><circle class="Search__icon Search__icon-circle" cx="25" cy="25" r="18"/><line class="Search__icon Search__icon-handle" x1="39.16" y1="36.71" x2="49.39" y2="46.95"/></svg>
+    </button>
+</form>
+        </li>
+        <li class="GlobalNav__main-item GlobalNav__main-item--dropdown GlobalNav__text GlobalNav__dropdown-footer--mobile">
+            Helpful Links
+            <ul class="GlobalNav__dropdown-content-main GlobalNav__dropdown-content-main--mobile-footer">
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/contact/">Got a news tip?</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/tag/business-sponsored-company-news/">Press Releases</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="https://vblab.venturebeat.com">VB Lab</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/contact/">Contact</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="https://jobs.venturebeat.com/">Job Board</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/webinars/">Webinars</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/about/">About Us</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/privacy-policy/">Privacy</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/advertise/">Advertise</a></li>
+                <li class="GlobalNav__dropdown-item GlobalNav__dropdown-item--mobile "><a class="GlobalNav__text" href="/careers/">Careers</a></li>
+            </ul>
+        </li>
+        <li class="GlobalNav_social-links--mobile">
+            <ul class="GlobalNav__social-widget">
+                <li>
+                    <a href="https://www.facebook.com/venturebeat/">
+                        <svg class="GlobalNav__social-icon" data-name="Facebook Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.17 49.85"><title>Follow VentureBeat on Facebook</title><path d="M50.83,39.89h-7v24.9H33.5V39.89H28.57v-8.8H33.5V25.4C33.5,21.32,35.43,15,43.94,15l7.67,0v8.54H46a2.11,2.11,0,0,0-2.19,2.4v5.17h7.89Z" transform="translate(-28.57 -14.95)"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/venturebeat">
+                        <svg class="GlobalNav__social-icon" data-name="Twitter Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79 64.2"><title>Follow VentureBeat on Twitter</title><path d="M71.74,25.06c0,.69.05,1.39.05,2.09,0,21.42-16.3,46.12-46.12,46.12A45.85,45.85,0,0,1,.83,66a35.24,35.24,0,0,0,3.86.22,32.48,32.48,0,0,0,20.13-6.94A16.21,16.21,0,0,1,9.69,48a16.85,16.85,0,0,0,3,.29A16.18,16.18,0,0,0,17,47.74,16.23,16.23,0,0,1,4,31.85v-.21a16.18,16.18,0,0,0,7.34,2A16.22,16.22,0,0,1,6.33,12,46,46,0,0,0,39.74,29a16,16,0,0,1-.42-3.69,16.22,16.22,0,0,1,28-11.09,32.56,32.56,0,0,0,10.29-3.94,16.21,16.21,0,0,1-7.13,9,32.24,32.24,0,0,0,9.31-2.54A32.92,32.92,0,0,1,71.74,25.06Z" transform="translate(-0.83 -9.07)"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/venturebeat/">
+                        <svg class="GlobalNav__social-icon" data-name="Instagram Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><title>Follow VentureBeat on Instagram</title><path d="M56.09,21.58a4.36,4.36,0,0,1,4.38-4.42,4.44,4.44,0,0,1,0,8.87A4.36,4.36,0,0,1,56.09,21.58Z"/><path d="M20.91,40.65a19.28,19.28,0,0,1,12.25-18,18.64,18.64,0,0,1,20.77,5.19,18.6,18.6,0,0,1,4.4,17,18.45,18.45,0,0,1-13,14.35,18.81,18.81,0,0,1-22.95-11A18.6,18.6,0,0,1,20.91,40.65Zm29.89,0A11,11,0,1,0,40,51.82,11,11,0,0,0,50.8,40.6Z"/><path d="M40,78.74c-5.69-.09-11.4,0-17.08-.3-6.33-.32-11.86-2.61-16.06-7.56a21.34,21.34,0,0,1-4.27-8.5,43.29,43.29,0,0,1-1.13-9,266.69,266.69,0,0,1,0-27.56,52.74,52.74,0,0,1,1-8.34A18.77,18.77,0,0,1,13.64,3.72,28.92,28.92,0,0,1,23,1.5c9.14-.77,18.28-.44,27.43-.38a70.26,70.26,0,0,1,9,.69C65,2.56,69.85,4.68,73.51,9.07a18.38,18.38,0,0,1,4.07,8.72,68.18,68.18,0,0,1,.91,7.94,268.57,268.57,0,0,1,0,28.09,50.74,50.74,0,0,1-1,8.27,19.43,19.43,0,0,1-12,14.44,28,28,0,0,1-11.07,2c-4.83,0-9.66,0-14.49,0Zm.5-69.12c-4.72,0-9.43,0-14.15,0a26.67,26.67,0,0,0-8.42,1.18,11,11,0,0,0-7.33,7A22.68,22.68,0,0,0,9.51,25c-.16,7.65-.27,15.31-.24,23a57.12,57.12,0,0,0,.93,12,10.63,10.63,0,0,0,5.17,7.27,19,19,0,0,0,9.1,2.25q15.47.51,30.92,0a22.55,22.55,0,0,0,7-1.23A10.91,10.91,0,0,0,69.12,62a21.22,21.22,0,0,0,1.34-7.78c.16-7.7.27-15.4.24-23.1a56.71,56.71,0,0,0-.89-11.7A11,11,0,0,0,62,10.81a26.86,26.86,0,0,0-8.35-1.18C49.28,9.59,44.9,9.62,40.51,9.62Z"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/venturebeat">
+                        <svg class="GlobalNav__social-icon" data-name="LinkedIn Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 47.79"><title>Follow VentureBeat on LinkedIn</title><path d="M43,35.33v-.11l-.07.11Z" transform="translate(-15 -15.11)"/><path d="M26.35,62.9H15.63V30.66H26.35ZM21,26.25h-.07A5.55,5.55,0,0,1,15,20.68c0-3.16,2.4-5.57,6.06-5.57s5.93,2.41,6,5.57S24.73,26.25,21,26.25ZM65,62.9H54.28V45.65c0-4.34-1.55-7.3-5.43-7.3a5.89,5.89,0,0,0-5.5,3.93A7.37,7.37,0,0,0,43,44.89v18H32.28s.14-29.22,0-32.24H43v4.56a10.63,10.63,0,0,1,9.66-5.32C59.71,29.9,65,34.5,65,44.41Z" transform="translate(-15 -15.11)"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://flipboard.com/@venturebeat">
+                        <svg class="GlobalNav__social-icon" data-name="Flipboard Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><title>Follow VentureBeat on Flipboard</title><path d="M65,31.67H48.33V48.33H31.67V65H15V15H65Z" transform="translate(-15 -15)"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://feeds.feedburner.com/venturebeat/SZYF">
+                        <svg class="GlobalNav__social-icon" data-name="RSS Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><defs><clipPath><rect x="1.29" y="-3.95" width="42.51" height="42.51" style="fill:none"/></clipPath></defs><title>Follow VentureBeat on RSS</title><g style="clip-path:url(#clip-path)"><circle cx="6.5" cy="33.6" r="4.9"/><path d="M-.6,8.48A33.48,33.48,0,0,1,32.84,41.92,33.48,33.48,0,0,1-.6,75.36,33.48,33.48,0,0,1-34,41.92,33.48,33.48,0,0,1-.6,8.48m0-5.77A39.21,39.21,0,0,0-39.81,41.92,39.2,39.2,0,0,0-.6,81.13,39.21,39.21,0,0,0,38.61,41.92,39.22,39.22,0,0,0-.6,2.71Z"/><path d="M.33,19.56a20.51,20.51,0,1,1,0,41,20.51,20.51,0,0,1,0-41m0-5.77A26.29,26.29,0,0,0-25.95,40.07,26.28,26.28,0,0,0,.33,66.35,26.28,26.28,0,0,0,26.62,40.07,26.29,26.29,0,0,0,.33,13.79Z"/></g></svg>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="GlobalNav__widgets">
+        <ul class="GlobalNav__widget GlobalNav__social-widget">
+            <li class="">
+                <a href="https://www.facebook.com/venturebeat/">
+                    <svg class="GlobalNav__social-icon" data-name="Facebook Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.17 49.85"><title>Follow VentureBeat on Facebook</title><path d="M50.83,39.89h-7v24.9H33.5V39.89H28.57v-8.8H33.5V25.4C33.5,21.32,35.43,15,43.94,15l7.67,0v8.54H46a2.11,2.11,0,0,0-2.19,2.4v5.17h7.89Z" transform="translate(-28.57 -14.95)"/></svg>
+                </a>
+            </li>
+            <li class="">
+                <a href="https://twitter.com/venturebeat">
+                    <svg class="GlobalNav__social-icon" data-name="Twitter Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79 64.2"><title>Follow VentureBeat on Twitter</title><path d="M71.74,25.06c0,.69.05,1.39.05,2.09,0,21.42-16.3,46.12-46.12,46.12A45.85,45.85,0,0,1,.83,66a35.24,35.24,0,0,0,3.86.22,32.48,32.48,0,0,0,20.13-6.94A16.21,16.21,0,0,1,9.69,48a16.85,16.85,0,0,0,3,.29A16.18,16.18,0,0,0,17,47.74,16.23,16.23,0,0,1,4,31.85v-.21a16.18,16.18,0,0,0,7.34,2A16.22,16.22,0,0,1,6.33,12,46,46,0,0,0,39.74,29a16,16,0,0,1-.42-3.69,16.22,16.22,0,0,1,28-11.09,32.56,32.56,0,0,0,10.29-3.94,16.21,16.21,0,0,1-7.13,9,32.24,32.24,0,0,0,9.31-2.54A32.92,32.92,0,0,1,71.74,25.06Z" transform="translate(-0.83 -9.07)"/></svg>
+                </a>
+            </li>
+            <li class="">
+                <a href="https://www.instagram.com/venturebeat/">
+                    <svg class="GlobalNav__social-icon" id="Instagram_Logo" data-name="Instagram Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><title>Follow VentureBeat on Instagram</title><path d="M56.09,21.58a4.36,4.36,0,0,1,4.38-4.42,4.44,4.44,0,0,1,0,8.87A4.36,4.36,0,0,1,56.09,21.58Z"/><path d="M20.91,40.65a19.28,19.28,0,0,1,12.25-18,18.64,18.64,0,0,1,20.77,5.19,18.6,18.6,0,0,1,4.4,17,18.45,18.45,0,0,1-13,14.35,18.81,18.81,0,0,1-22.95-11A18.6,18.6,0,0,1,20.91,40.65Zm29.89,0A11,11,0,1,0,40,51.82,11,11,0,0,0,50.8,40.6Z"/><path d="M40,78.74c-5.69-.09-11.4,0-17.08-.3-6.33-.32-11.86-2.61-16.06-7.56a21.34,21.34,0,0,1-4.27-8.5,43.29,43.29,0,0,1-1.13-9,266.69,266.69,0,0,1,0-27.56,52.74,52.74,0,0,1,1-8.34A18.77,18.77,0,0,1,13.64,3.72,28.92,28.92,0,0,1,23,1.5c9.14-.77,18.28-.44,27.43-.38a70.26,70.26,0,0,1,9,.69C65,2.56,69.85,4.68,73.51,9.07a18.38,18.38,0,0,1,4.07,8.72,68.18,68.18,0,0,1,.91,7.94,268.57,268.57,0,0,1,0,28.09,50.74,50.74,0,0,1-1,8.27,19.43,19.43,0,0,1-12,14.44,28,28,0,0,1-11.07,2c-4.83,0-9.66,0-14.49,0Zm.5-69.12c-4.72,0-9.43,0-14.15,0a26.67,26.67,0,0,0-8.42,1.18,11,11,0,0,0-7.33,7A22.68,22.68,0,0,0,9.51,25c-.16,7.65-.27,15.31-.24,23a57.12,57.12,0,0,0,.93,12,10.63,10.63,0,0,0,5.17,7.27,19,19,0,0,0,9.1,2.25q15.47.51,30.92,0a22.55,22.55,0,0,0,7-1.23A10.91,10.91,0,0,0,69.12,62a21.22,21.22,0,0,0,1.34-7.78c.16-7.7.27-15.4.24-23.1a56.71,56.71,0,0,0-.89-11.7A11,11,0,0,0,62,10.81a26.86,26.86,0,0,0-8.35-1.18C49.28,9.59,44.9,9.62,40.51,9.62Z"/></svg>
+                </a>
+            </li>
+            <li class="">
+                <a href="https://www.linkedin.com/company/venturebeat">
+                    <svg class="GlobalNav__social-icon" data-name="LinkedIn Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 47.79"><title>Follow VentureBeat on LinkedIn</title><path d="M43,35.33v-.11l-.07.11Z" transform="translate(-15 -15.11)"/><path d="M26.35,62.9H15.63V30.66H26.35ZM21,26.25h-.07A5.55,5.55,0,0,1,15,20.68c0-3.16,2.4-5.57,6.06-5.57s5.93,2.41,6,5.57S24.73,26.25,21,26.25ZM65,62.9H54.28V45.65c0-4.34-1.55-7.3-5.43-7.3a5.89,5.89,0,0,0-5.5,3.93A7.37,7.37,0,0,0,43,44.89v18H32.28s.14-29.22,0-32.24H43v4.56a10.63,10.63,0,0,1,9.66-5.32C59.71,29.9,65,34.5,65,44.41Z" transform="translate(-15 -15.11)"/></svg>
+                </a>
+            </li>
+            <li class="">
+                <a href="https://flipboard.com/@venturebeat">
+                    <svg class="GlobalNav__social-icon GlobalNav__social-icon--flipboard" data-name="Flipboard Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><title>Follow VentureBeat on Flipboard</title><path d="M65,31.67H48.33V48.33H31.67V65H15V15H65Z" transform="translate(-15 -15)"/></svg>
+                </a>
+            </li>
+            <li class="">
+                <a href="https://feeds.feedburner.com/venturebeat/SZYF">
+                    <svg class="GlobalNav__social-icon" data-name="Rss Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><defs><clipPath><rect x="1.29" y="-3.95" width="42.51" height="42.51" style="fill:none"/></clipPath></defs><title>Follow VentureBeat on RSS</title><g style="clip-path:url(#clip-path)"><circle cx="6.5" cy="33.6" r="4.9"/><path d="M-.6,8.48A33.48,33.48,0,0,1,32.84,41.92,33.48,33.48,0,0,1-.6,75.36,33.48,33.48,0,0,1-34,41.92,33.48,33.48,0,0,1-.6,8.48m0-5.77A39.21,39.21,0,0,0-39.81,41.92,39.2,39.2,0,0,0-.6,81.13,39.21,39.21,0,0,0,38.61,41.92,39.22,39.22,0,0,0-.6,2.71Z"/><path d="M.33,19.56a20.51,20.51,0,1,1,0,41,20.51,20.51,0,0,1,0-41m0-5.77A26.29,26.29,0,0,0-25.95,40.07,26.28,26.28,0,0,0,.33,66.35,26.28,26.28,0,0,0,26.62,40.07,26.29,26.29,0,0,0,.33,13.79Z"/></g></svg>
+                </a>
+            </li>
+        </ul>
+        <div class="GlobalNav__widget ColorWidget">
+            <p class="ColorWidget__copy">Support independent journalism</p>
+            <a href="/contribute/" class="ColorWidget__cta">Contribute</a>
+        </div>
+    </div>
+    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" id="hamburger-icon" class="GlobalNav__hamburger Hamburger">
+        <rect width="38" height="5" rx="2" class="Hamburger-line-one"/>
+        <rect y="10" width="38" height="5" rx="2" class="Hamburger-line-two"/>
+        <rect y="20" width="38" height="5" rx="2" class="Hamburger-line-three"/>
+    </svg>
+</nav>
+
+        <div class="skin-wrapper">
+            <div id="" class="vb-ad-leaderboard article-page">
+                                <div id="a1-p1-s1" data-sizes="[[728,90],[970,90],[970,250]]" class="adslot adslot-leaderboard" >
+                </div>
+
+            </div>
+
+        <div id="sticky-wrapper">
+    <div class="social-shares">
+        <div class="social-buttons">
+            <!-- Facebook share button -->
+            <div class="share-button share-facebook">
+                <a class="share" data-share-site="facebook"></a>
+            </div>
+            <!-- Twitter share button -->
+            <div class="share-button share-twitter">
+                <a class="share" data-share-site="twitter"></a>
+            </div>
+            <!-- LinkedIn share button -->
+            <div class="share-button share-linkedin">
+                <a class="share" data-share-site="linkedin"></a>
+            </div>
+            <!-- Reddit share button -->
+            <div class="share-button share-reddit">
+                <a class="share" data-share-site="reddit"></a>
+            </div>
+            <!-- Hacker News share button -->
+            <div class="share-button share-stumbleupon">
+                <a class="share" data-share-site="hacker-news"></a>
+            </div>
+            <!-- Flipboard share button -->
+            <div class="share-button share-flipboard">
+                <a class="share" data-flip-widget="shareflip" href="https://flipboard.com" data-share-site="flipboard"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Set up hero image if page css requires one -->
+
+                    <div class="body-container container clearfix MainBlock
+                MainBlock--article">
+                <header class="article-header">
+                            <a class="Label Label--single Label--brand Label__link--brand" href="https://venturebeat.com/category/business" id="article-category-business">Business</a>
+
+                        <h1 class="article-title">Alphabet misses profit estimates as Google investigations loom</h1>
+            <div class="article-byline">
+                <a href="https://venturebeat.com/author/reuters/" title="Posts by Reuters" class="author url fn" rel="author">Reuters</a>               <time class="the-time" title="2019-10-28T22:10:17+00:00" datetime="2019-10-28T22:10:17+00:00">October 28, 2019 3:10 PM</time>
+            </div><!-- .article-byline -->
+
+        </header><!-- .article-header -->
+        <div id="primary">
+            <div id="article-masthead">
+
+                                <div class="article-media-header">
+                    <img width="578" height="289" src="https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?fit=578%2C289&amp;strip=all" class="attachment-single-feed size-single-feed wp-post-image" alt="" srcset="https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=1200&amp;strip=all 1200w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=300&amp;strip=all 300w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=768&amp;strip=all 768w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=800&amp;strip=all 800w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=100&amp;strip=all 100w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=350&amp;strip=all 350w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=400&amp;strip=all 400w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=780&amp;strip=all 780w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=578&amp;strip=all 578w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=930&amp;strip=all 930w, https://venturebeat.com/wp-content/uploads/2017/10/alphabet_logo.jpg?w=700&amp;strip=all 700w" sizes="(max-width: 578px) 100vw, 578px" /><div class="wp-caption"><div class="vb_image_source">Image Credit: Alphabet</div></div>              </div><!-- .article-media-header -->
+
+            </div><!-- #article-masthead -->
+
+
+            <div id="content" role="main">
+
+            <article id="post-2543479" class="border-top clearfix article-wrapper post-2543479 post type-post status-publish format-standard has-post-thumbnail category-ai category-business category-cloud category-marketing category-media category-mobile tag-alphabet tag-alphabet-earnings tag-category-business-industrial tag-category-news tag-google vb_post_designations-homepage has-thumbnail">
+
+                <div class="article-content">
+                    <p>(<em>Reuters</em>) &#8212; Google parent Alphabet missed analysts&#8217; estimates for quarterly profit on Monday as it reported its highest-ever quarterly expenses, sending shares down about 1.2% even though revenue growth topped expectations.</p>
+<p>The world&#8217;s dominant provider of internet search, advertising and video services has increased spending in recent years on areas including cloud computing and consumer electronics that it views as essential to maintaining its industry leadership in the face of stiff competition from <a href="https://venturebeat.com/2019/10/24/amazon-earnings-q3-2019/">Amazon</a> and <a href="https://venturebeat.com/2019/10/23/microsoft-earnings-q1-2020/">Microsoft</a>.</p>
+<p>Google, however, provides limited product-level financial disclosures compared with some peers, leaving investors increasingly uncertain about how pressures including regulatory scrutiny, advertiser boycotts, and global trade tensions are affecting operations.</p>
+<p>As a result, analysts say Alphabet shares have underperformed relative to rivals, rising 17% in the last 12 months entering Monday, compared with a 33% gain for Microsoft and 29% for Facebook, the internet&#8217;s No. 2 seller of advertising.</p>
+<p>Alphabet shares on Monday fell 1.2% in after-hours trade to $1,274.00.</p>
+<p>Google has tried to demonstrate that its cloud-computing business is roaring, <a href="https://venturebeat.com/2019/07/25/alphabet-earnings-q2-2019/">disclosing last quarter about $2 billion in revenue</a> and saying that plans continued to hire thousands for that unit to stoke growth.</p>
+<p>Haris Anwar, analyst at financial markets platform Investing.com, said the quarterly results cast a cloud. &#8220;An earnings miss at a time when the big tech companies are being probed for their business practices adds to the uncertainty and creates a hint of pessimism around the company,&#8221; he said in an email to Reuters.</p>
+<p>In hardware, Google&#8217;s debut in May of the <a href="https://venturebeat.com/2019/05/07/google-unveils-the-pixel-3a-and-pixel-3a-xl/">Pixel 3a</a>, its most affordable smartphone yet, went well, according to technology analysts. It boosted Google&#8217;s overall smartphone sales this summer in a typically slow quarter.</p>
+<p>Google also has tried to reassure investors that there is no weakness in its YouTube video unit, while expressing confidence in its business overall through share buybacks.</p>
+<p>But cash continues to be spent and higher costs loom as Google deals with clashes with regulators. Total expenses in the third quarter reached $31.3 billion, about 25% higher than a year ago and topping the previous high of $31.1 billion in the 2018 fourth quarter.</p>
+<p>Google in the third quarter acknowledged investigations by the U.S. Congress, <a href="https://venturebeat.com/2019/06/03/u-s-moving-toward-major-antitrust-probe-of-amazon-apple-facebook-and-google/">Department of Justice</a>, and <a href="https://venturebeat.com/2019/09/09/u-s-states-launch-antitrust-investigation-into-google/">48 states into the company&#8217;s competitive practices</a>. It settled a privacy investigation by the Federal Trade Commission. It also got an additional 90-day reprieve from an export ban that would restrict its relationship with Chinese smartphone maker Huawei, one of its top partners in distributing mobile apps.</p>
+<p>Google has said it is cooperating with the increased scrutiny, while saying that it has survived calls for increased regulation many times.</p>
+<p>Alphabet, which generates about 85% of its revenue from sales of ad space and ad technology, reported total third-quarter revenue of $40.5 billion. That was up 20% over last year and compared with 19% growth in the second quarter. Analysts on average estimated 19.52% growth and $40.325 billion in revenue, according to IBES data from Refinitiv.</p>
+<p>Net income for the third quarter rose to $7.1 billion, or $10.12 per share, compared with analysts&#8217; estimates of $8.811 billion, or $12.44 per share.</p>
+<p>The operating margin was 23%, down from 24% in the second quarter.</p>
+<p>Shares of Google closed 1.95% higher in regular trade on Monday. The shares earlier had risen about 2% after Reuters, citing sources, reported <a href="https://venturebeat.com/2019/10/28/alphabet-has-made-an-offer-to-buy-fitbit/">Google had made an offer to acquire U.S. wearable device maker Fitbit</a>.</p>
+<div id='pressboard-ad-sponsorship-msg'></div>
+                </div><!-- .article-content -->
+
+            </article><!-- #post-2543479 .article-wrapper -->
+
+            </div><!-- #content -->
+        </div><!-- #primary -->
+
+
+<aside id="" class="MainBlock__sidebar">
+            <div class="SideBar__widget dfp-placeholder SideBar__ad">
+                        <div id="a1-p1-s2" data-sizes="[[300,250],[300,600],[300,1050]]" class="adslot adslot-medrec">
+            </div>
+                    </div>
+
+                    <div class="SideBar__widget">
+                <h2 class="Label Label--brand">Most Read</h2>
+                <ul class="MostRead SideBar__widget-items">
+                                                        <li class="MostRead__article SideBar__widget-item">
+                                                <a class="MostRead__image" href="https://venturebeat.com/2019/10/28/apples-ipad-pro-is-only-an-ipados-update-away-from-replacing-a-laptop/">
+                                <img width="350" height="175" src="https://venturebeat.com/wp-content/uploads/2019/10/IMG_1871-e1572270152342.jpeg?resize=350%2C175&amp;strip=all" class="MostRead__image wp-post-image" alt="" />                          </a>
+                                                <a class="MostRead__title" href="https://venturebeat.com/2019/10/28/apples-ipad-pro-is-only-an-ipados-update-away-from-replacing-a-laptop/">
+                                Apple's iPad Pro is only an iPadOS update away from replacing a laptop                          </a>
+                    </li>
+                                                        <li class="MostRead__article SideBar__widget-item">
+                                                <a class="MostRead__image" href="https://venturebeat.com/2019/10/28/apple-reveals-249-airpods-pro-with-in-ear-tips-and-noise-cancellation/">
+                                <img width="350" height="175" src="https://venturebeat.com/wp-content/uploads/2019/10/airpodsprox-e1572281375563.jpg?resize=350%2C175&amp;strip=all" class="MostRead__image wp-post-image" alt="" />                            </a>
+                                                <a class="MostRead__title" href="https://venturebeat.com/2019/10/28/apple-reveals-249-airpods-pro-with-in-ear-tips-and-noise-cancellation/">
+                                Apple reveals $249 AirPods Pro with in-ear tips and noise cancellation                          </a>
+                    </li>
+                                                        <li class="MostRead__article SideBar__widget-item">
+                                                <a class="MostRead__image" href="https://venturebeat.com/2019/10/28/micron-why-a-memory-chip-maker-is-moving-into-ai-processing/">
+                                <img width="350" height="175" src="https://venturebeat.com/wp-content/uploads/2019/10/micron2.jpg?resize=350%2C175&amp;strip=all" class="MostRead__image wp-post-image" alt="Micron makes memory devices like 3D Xpoint memory." />                         </a>
+                                                <a class="MostRead__title" href="https://venturebeat.com/2019/10/28/micron-why-a-memory-chip-maker-is-moving-into-ai-processing/">
+                                Micron: Why a memory chip maker is moving into AI processing                            </a>
+                    </li>
+                                                        <li class="MostRead__article SideBar__widget-item">
+                                                <a class="MostRead__image" href="https://venturebeat.com/2019/10/28/microsoft-furthers-5-billion-iot-plan-with-new-azure-features/">
+                                <img width="350" height="175" src="https://venturebeat.com/wp-content/uploads/2019/07/Microsoft-e1571247232545.jpg?resize=350%2C175&amp;strip=all" class="MostRead__image wp-post-image" alt="" />                          </a>
+                                                <a class="MostRead__title" href="https://venturebeat.com/2019/10/28/microsoft-furthers-5-billion-iot-plan-with-new-azure-features/">
+                                Microsoft furthers $5 billion IoT plan with new Azure features                          </a>
+                    </li>
+                                                        <li class="MostRead__article SideBar__widget-item">
+                                                <a class="MostRead__image" href="https://venturebeat.com/2019/10/28/nvidia-launches-shield-set-top-boxes-with-tegra-x1-processor-dolby-tech-and-ai-upscaling/">
+                                <img width="350" height="175" src="https://venturebeat.com/wp-content/uploads/2019/10/SHIELD_TV_Family.jpg?resize=350%2C175&amp;strip=all" class="MostRead__image wp-post-image" alt="The Shield TV" />                         </a>
+                                                <a class="MostRead__title" href="https://venturebeat.com/2019/10/28/nvidia-launches-shield-set-top-boxes-with-tegra-x1-processor-dolby-tech-and-ai-upscaling/">
+                                Nvidia launches Shield set-top boxes with Tegra X1+ processor, Dolby tech, and AI upscaling                         </a>
+                    </li>
+                                </ul>
+            </div>
+                    <div class="SideBar__widget dfp-placeholder SideBar__ad">
+                        <div id="a0-p2-s2" data-sizes="[300,250]" class="adslot adslot-medrec">
+            </div>
+                    </div>
+
+                <div class="SideBar__widget EventsWidget">
+                        <h2 class="Label Label--brand">
+                <a href="/events/" class="sidebar-widget-events-title-link">UPCOMING EVENTS</a>
+            </h2>
+                        <ul class="recent-posts-list SideBar__widget-items">
+                                <li class="sidebar-event SideBar__widget-item EventsWidget__event">
+                    <a href="https://vbevents.venturebeat.com/events/BlueprintGreenBay" class="EventsWidget__title">BLUEPRINT</a>
+                    <span class="EventsWidget__date">Mar. 3-5</span>
+                                        </li>
+                                <li class="sidebar-event SideBar__widget-item EventsWidget__event">
+                    <a href="https://www.gamesbeatsummit.com/" class="EventsWidget__title">GamesBeat Summit</a>
+                    <span class="EventsWidget__date">Apr. 28-29</span>
+                                    </li>
+                                <li class="sidebar-event SideBar__widget-item EventsWidget__event">
+                    <a href="https://vbtransform.com" class="EventsWidget__title">Transform</a>
+                    <span class="EventsWidget__date">Jul. 15-16</span>
+                                    </li>
+                            </ul>
+        </div>
+                <div class="SideBar__widget dfp-placeholder SideBar__ad">
+                        <div id="a0-p4-s2" data-sizes="[[300,250],[300,600]]" class="adslot adslot-medrec">
+            </div>
+                    </div>
+
+        </aside><!-- #secondary .widget-area -->
+
+
+
+
+    </div><!-- END .body-container -->
+    </div><!-- END .skin-wrapper -->
+
+
+
+                    <div id="ROS_Skin" class="adslot adslot-custom adslot-skin" data-sizes="[1,1]"></div>
+            <div id="ROS_HB" class="adslot adslot-custom" data-sizes="[1,1]"></div>
+
+
+                    <div id="ROS_BP" class="adslot adslot-custom" data-sizes="[1,1]"></div>
+            <div id="ROS_Zedo" class="adslot adslot-custom" data-sizes="[1,1]"></div>
+</body>
+</html>

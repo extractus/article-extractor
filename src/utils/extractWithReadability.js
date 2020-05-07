@@ -1,13 +1,13 @@
 // utils/extractWithReadability
 
-import {Readability} from 'readabilitySAX';
-import Parser from 'htmlparser2/lib/Parser.js';
+const {Readability} = require('readabilitySAX');
+const Parser = require('htmlparser2/lib/Parser.js');
 
-import {
+const {
   error,
-} from '../utils/logger';
+} = require('../utils/logger');
 
-export default async (html) => {
+module.exports = async (html) => {
   try {
     const readable = new Readability();
     const parser = new Parser(readable, {});
@@ -16,6 +16,6 @@ export default async (html) => {
     return article.html;
   } catch (err) {
     error(err);
-    return null;
   }
+  return null;
 };

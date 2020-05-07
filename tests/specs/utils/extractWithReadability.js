@@ -42,6 +42,7 @@ test('Testing .extractWithReadability() method', async (assert) => {
 
 test('Testing .extractWithReadability() method fails', async (assert) => {
   const result1 = await extractWithReadability('');
+  console.log(result1);
   assert.ok(!result1, 'extractWithReadability() must return null');
   const result2 = await extractWithReadability('this is not HTML data');
   assert.ok(!result2, 'extractWithReadability() must return null');

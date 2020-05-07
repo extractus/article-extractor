@@ -1,12 +1,12 @@
 // utils -> isValidUrl
 
-import {parse} from 'url';
+const {parse} = require('url');
 
-import {
+const {
   isString,
-} from 'bellajs';
+} = require('bellajs');
 
-export default (url = '') => {
+module.exports = (url = '') => {
   if (!isString(url)) {
     return false;
   }
@@ -18,9 +18,5 @@ export default (url = '') => {
     hostname,
   } = parse(url);
 
-  if (!host || !hostname || !pros.includes(protocol)) {
-    return false;
-  }
-
-  return true;
+  return (!host || !hostname || !pros.includes(protocol)) ? false : true;
 };

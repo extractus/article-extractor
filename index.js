@@ -1,13 +1,6 @@
 // start
 
-const include = require('esm')(module, {
-  cjs: true,
-  mode: 'auto',
-  cache: false,
-  sourceMap: false,
-});
-
-const main = include('./src/main');
-main.version = include('./package').version;
+const main = require('./src/main');
+main.version = require('./package').version;
 
 module.exports = main;

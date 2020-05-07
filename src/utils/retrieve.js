@@ -1,26 +1,16 @@
 // utils -> loadHTML
 
-import fetch from 'node-fetch';
-import {md5} from 'bellajs';
+const fetch = require('node-fetch');
 
-import {
+const {
   error,
   info,
-} from './logger';
+} = require('./logger');
 
-import {getNodeFetchOptions} from '../config';
+const {getNodeFetchOptions} = require('../config');
 
-import {contentLoadedCache as cache} from './store';
-
-export default async (url) => {
+module.exports = async (url) => {
   try {
-    const key = md5(url);
-    const stored = cache.get(key);
-    if (stored) {
-      info(`Load HTML from cache: ${url}`);
-      return stored;
-    }
-
     const res = await fetch(url, getNodeFetchOptions());
     if (res.status !== 200) {
       error(`Got ${res.status} error code from "${url}"`);
@@ -43,12 +33,10 @@ export default async (url) => {
       html,
     };
 
-    cache.set(key, Object.assign({fromCache: true}, result));
-
-    return Object.assign({fromCache: false}, result);
+    return result;
   } catch (err) {
     error(`Could not fetch HTML content from "${url}"`);
     error(err);
-    return null;
   }
+  return null;
 };

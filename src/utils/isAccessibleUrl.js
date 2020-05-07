@@ -1,11 +1,11 @@
 // utils -> isValidURL
 
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
-import {error} from './logger';
-import {getNodeFetchOptions} from '../config';
+const {error} = require('./logger');
+const {getNodeFetchOptions} = require('../config');
 
-export default async (url = '') => {
+module.exports = async (url = '') => {
   try {
     const opts = getNodeFetchOptions();
     opts.method = 'HEAD';

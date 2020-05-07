@@ -1,12 +1,12 @@
 // utils -> absolutifyUrl
 
-import {parse, resolve} from 'url';
+const {parse, resolve} = require('url');
 
-import {isString} from 'bellajs';
+const {isString} = require('bellajs');
 
-import isValidUrl from './isValidUrl';
+const isValidUrl = require('./isValidUrl');
 
-export default (fullUrl, relativeUrl) => {
+module.exports = (fullUrl, relativeUrl) => {
   if (!isValidUrl(fullUrl) || !isString(relativeUrl)) {
     return '';
   }

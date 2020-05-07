@@ -1,8 +1,8 @@
 // configs
 
-import {clone, copies} from 'bellajs';
+const {clone, copies} = require('bellajs');
 
-import {name, version} from '../package.json';
+const {name, version} = require('../package.json');
 
 const env = process.env || {}; // eslint-disable-line no-process-env
 
@@ -45,30 +45,26 @@ const parserOptions = {
   contentLengthThreshold: 200, // min num of chars allowed in content
 };
 
-export const getParserOptions = () => {
-  return clone(parserOptions);
+module.exports = {
+  getParserOptions: () => {
+    return clone(parserOptions);
+  },
+  getNodeFetchOptions: () => {
+    return clone(nodeFetchOptions);
+  },
+  getSanitizeHtmlOptions: () => {
+    return clone(sanitizeHtmlOptions);
+  },
+  setParserOptions: (opts) => {
+    copies(opts, parserOptions);
+  },
+  setNodeFetchOptions: (opts) => {
+    copies(opts, nodeFetchOptions);
+  },
+  setSanitizeHtmlOptions: (opts) => {
+    copies(opts, sanitizeHtmlOptions);
+    if (Array.isArray(opts.allowedTags)) {
+      sanitizeHtmlOptions.allowedTags = [...opts.allowedTags];
+    }
+  },
 };
-
-export const getNodeFetchOptions = () => {
-  return clone(nodeFetchOptions);
-};
-
-export const getSanitizeHtmlOptions = () => {
-  return clone(sanitizeHtmlOptions);
-};
-
-export const setParserOptions = (opts) => {
-  copies(opts, parserOptions);
-};
-
-export const setNodeFetchOptions = (opts) => {
-  copies(opts, nodeFetchOptions);
-};
-
-export const setSanitizeHtmlOptions = (opts) => {
-  copies(opts, sanitizeHtmlOptions);
-  if (Array.isArray(opts.allowedTags)) {
-    sanitizeHtmlOptions.allowedTags = [...opts.allowedTags];
-  }
-};
-

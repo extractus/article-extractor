@@ -1,12 +1,12 @@
 // utils -> isHtmlDoc
 
-import cheerio from 'cheerio';
+const cheerio = require('cheerio');
 
-import {
+const {
   isString,
-} from 'bellajs';
+} = require('bellajs');
 
-export default (input = '') => {
+module.exports = (input = '') => {
   if (!isString(input)) {
     return false;
   }

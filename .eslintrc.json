@@ -1,3 +1,6 @@
 {
-  "extends": "eslint-config-goes"
+  "extends": "eslint-config-goes",
+  "env": {
+    "jest": true
+  }
 }
