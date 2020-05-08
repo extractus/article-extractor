@@ -78,8 +78,7 @@ module.exports = async (input, links) => {
 
   info('Extracting main article...');
   const mainText = extractWithRules(html) || await extractWithReadability(html);
-
-  if (!mainText) {
+  if (!mainText || !stripTags(mainText)) {
     info('Could not extract main article, stop processing');
     return null;
   }

@@ -1,12 +1,12 @@
 language: node_js
 node_js:
-  - "13.13"
-  - "12.16"
-  - "8.6"
+  - 14
+  - 13
+  - 10.14.2
 git:
   depth: 1
 before_script:
   - npm i
 script:
-  - npm list || true
   - npm test
+  - cat coverage/lcov.info | coveralls

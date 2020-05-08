@@ -4,7 +4,7 @@ const {clone, copies} = require('bellajs');
 
 const {name, version} = require('../package.json');
 
-const env = process.env || {}; // eslint-disable-line no-process-env
+const env = process.env;
 
 const nodeFetchOptions = {
   headers: {

@@ -1,13 +1,9 @@
-/**
- * Testing
- * @ndaidong
- */
+// chooseBestUrl.test
 
-import {test} from 'tap';
+const chooseBestUrl = require('./chooseBestUrl');
 
-import chooseBestUrl from '../../../src/utils/chooseBestUrl.js';
 
-test('Testing .chooseBestUrl() method', (assert) => {
+test(`test chooseBestUrl an actual case`, () => {
   const title = 'Google đã ra giá mua Fitbit';
   const urls = [
     'https://vnreview.vn/tin-tuc-kinh-doanh/-/view_content/content/2965950/google-da-ra-gia-mua-fitbit',
@@ -16,10 +12,6 @@ test('Testing .chooseBestUrl() method', (assert) => {
     'https://rv.vn/read/google-da-ra-gia-mua-fitbit',
     'https://rv.vn/read/2965950/907893219797',
   ];
-
-  const actual = chooseBestUrl(urls, title);
-  const expected = urls[3];
-  assert.equal(actual, expected, `chooseBestUrl("${title}") must return ${expected}`);
-
-  assert.end();
+  const result = chooseBestUrl(urls, title);
+  expect(result).toBe(urls[3]);
 });

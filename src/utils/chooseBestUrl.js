@@ -8,34 +8,25 @@ const stringComparision = require('string-comparison');
 
 const {getParserOptions} = require('../config');
 
-const {
-  error,
-} = require('./logger');
-
-
 module.exports = (candidates = [], title) => {
   let theBest = candidates.reduce((prev, curr) => {
     return curr.length < prev.length ? curr : prev;
   }, candidates[0]);
 
-  try {
-    const opts = getParserOptions();
-    const alg = opts['urlsCompareAlgorithm'];
-    const comparer = stringComparision[alg];
+  const opts = getParserOptions();
+  const alg = opts['urlsCompareAlgorithm'];
+  const comparer = stringComparision[alg];
 
-    const titleHashed = slugify(title);
-    let g = comparer.similarity(theBest, titleHashed);
+  const titleHashed = slugify(title);
+  let g = comparer.similarity(theBest, titleHashed);
 
-    candidates.forEach((url) => {
-      const k = comparer.similarity(url, titleHashed);
-      if (k > g) {
-        g = k;
-        theBest = url;
-      }
-    });
-  } catch (err) {
-    error(err);
-  }
+  candidates.forEach((url) => {
+    const k = comparer.similarity(url, titleHashed);
+    if (k > g) {
+      g = k;
+      theBest = url;
+    }
+  });
 
   return theBest;
 };

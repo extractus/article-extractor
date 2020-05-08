@@ -5,8 +5,16 @@ const {parse} = require('url');
 
 const nock = require('nock');
 
+const {name, version} = require('../package.json');
+
 const {
   extract,
+  setParserOptions,
+  setNodeFetchOptions,
+  setSanitizeHtmlOptions,
+  getParserOptions,
+  getNodeFetchOptions,
+  getSanitizeHtmlOptions,
 } = require('./main');
 
 
@@ -43,10 +51,8 @@ test(`test extract a bad link`, async () => {
 test(`test extract a fake link`, async () => {
   const url = 'http://somewhere.xyz';
   const {baseUrl, path} = parseUrl(url);
-  nock(baseUrl).head(path).reply(200, '');
-  nock(baseUrl).get(path).reply(404, 'Content not found', {
-    'Content-Type': 'text/html',
-  });
+  nock(baseUrl).head(path).reply(404);
+  nock(baseUrl).get(path).reply(404);
   const fn = async () => {
     const re = await extract(url);
     return re;
@@ -54,6 +60,14 @@ test(`test extract a fake link`, async () => {
   expect(fn()).rejects.toThrow(Error);
 });
 
+test(`test extract an error endpoint`, async () => {
+  const url = 'http://bad-endpoint-somewhere-do-not.exist';
+  const fn = async () => {
+    const re = await extract(url);
+    return re;
+  };
+  expect(fn()).rejects.toThrow(Error);
+});
 
 test(`test extract a good link`, async () => {
   const url = 'https://medium.com/swlh/the-golden-rule-of-freelancing-d02a35c73baa';
@@ -89,9 +103,73 @@ test(`test extract oembed`, async () => {
   nock(baseUrl).get(path).reply(200, json, {
     'Content-Type': 'application/json',
   });
-  const result = await extract(url);
+  const result = await extract(link);
   expect(result).toBeInstanceOf(Object);
   keys.forEach((k) => {
     expect(hasProperty(result, k)).toBe(true);
   });
+});
+
+
+test('Testing setParserOptions/getParserOptions methods', () => {
+  const expectedWPM = 400;
+  const expectedAlgorithm = 'levenshtein';
+
+  setParserOptions({
+    wordsPerMinute: expectedWPM,
+  });
+
+  const actual = getParserOptions();
+
+  expect(actual.wordsPerMinute).toEqual(expectedWPM);
+  expect(actual.urlsCompareAlgorithm).toEqual(expectedAlgorithm);
+});
+
+
+test('Testing setNodeFetchOptions/getNodeFetchOptions methods', () => {
+  setNodeFetchOptions({
+    headers: {
+      authorization: 'bearer <token>',
+    },
+    timeout: 20,
+    somethingElse: 1000,
+  });
+
+  const actual = getNodeFetchOptions();
+  const expectedHeader = {
+    'authorization': 'bearer <token>',
+    'user-agent': `${name}/${version}`,
+  };
+
+  expect(actual.headers).toEqual(expectedHeader);
+  expect(actual.timeout).toEqual(20);
+});
+
+
+test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
+  setSanitizeHtmlOptions({
+    allowedTags: ['div', 'span'],
+    allowedAttributes: {
+      a: ['href', 'title'],
+    },
+  });
+
+  const actual = getSanitizeHtmlOptions();
+  const actualAllowedAttributes = actual.allowedAttributes;
+  const expectedAllowedAttributes = {
+    a: ['href', 'title'],
+    img: ['src', 'alt'],
+  };
+
+  expect(actualAllowedAttributes).toEqual(expectedAllowedAttributes);
+
+  const actualAllowedTags = actual.allowedTags;
+  const expectedAllowedTags = ['div', 'span'];
+  expect(actualAllowedTags).toEqual(expectedAllowedTags);
+
+  setSanitizeHtmlOptions({
+    allowedTags: [],
+  });
+
+  expect(getSanitizeHtmlOptions().allowedTags).toEqual([]);
 });

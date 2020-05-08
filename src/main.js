@@ -8,13 +8,11 @@ const {
   unique,
 } = require('bellajs');
 
-const {hasProvider} = require('oembed-parser');
+const {hasProvider, extract: extractOembed} = require('oembed-parser');
 
 const retrieve = require('./utils/retrieve');
-const parseOEmbed = require('./utils/parseOEmbed');
 const isHtmlDoc = require('./utils/isHtmlDoc');
 const isValidUrl = require('./utils/isValidUrl');
-const isAccessibleUrl = require('./utils/isAccessibleUrl');
 const normalizeUrl = require('./utils/normalizeUrl');
 const parseFromHtml = require('./utils/parseFromHtml');
 
@@ -57,15 +55,11 @@ const extract = async (input) => {
 
   if (isValidUrl(trimmedUrl)) {
     const normalizedUrl = normalizeUrl(trimmedUrl);
-
-    if (!isAccessibleUrl(normalizedUrl)) {
-      throw new Error(`Could not access to "${normalizedUrl}"!`);
-    }
     const links = [trimmedUrl, normalizedUrl];
     article.url = normalizedUrl;
     if (hasProvider(normalizedUrl)) {
       info('Provider found, loading as oEmbed data...');
-      const json = await parseOEmbed(normalizedUrl);
+      const json = await extractOembed(normalizedUrl);
       if (json) {
         article.title = json.title || '';
         article.content = json.html || '';

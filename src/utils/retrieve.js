@@ -1,4 +1,4 @@
-// utils -> loadHTML
+// utils -> retrieve
 
 const fetch = require('node-fetch');
 
