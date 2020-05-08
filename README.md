@@ -8,8 +8,8 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-- [Give it a try!](https://article-parser-demo.ctdtmnhnlcndt.com/)
-- [Example FaaS](https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=)
+- [Give it a try!](https://ndaidong.github.io/article-parser-demo)
+- [Example FaaS](https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=https://devblogs.nvidia.com/training-custom-pretrained-models-using-tlt/)
 
 View [screenshots](#screenshots) for more info.
 
