@@ -1,18 +1,9 @@
-/**
- * Testing
- * @ndaidong
- */
+// normalizeUrl.test
 
-import {test} from 'tap';
+const normalizeUrl = require('./normalizeUrl');
 
-import normalizeUrl from '../../../src/utils/normalizeUrl.js';
 
-test('Testing .normalizeUrl() method', (assert) => {
-  const testOne = ({url, expected}) => {
-    const actual = normalizeUrl(url);
-    assert.equal(actual, expected, `normalizeUrl('${url}') must return ${expected}`);
-  };
-
+test(`test normalizeUrl in detailt`, () => {
   const entries = [
     {
       url: 'http://some.where/article/abc-xyz',
@@ -39,8 +30,12 @@ test('Testing .normalizeUrl() method', (assert) => {
       expected: 'http://some.where/article/abc-xyz?q=3',
     },
   ];
-
-  entries.map(testOne);
-
-  assert.end();
+  entries.forEach((entry) => {
+    const {
+      url,
+      expected,
+    } = entry;
+    const result = normalizeUrl(url);
+    expect(result).toEqual(expected);
+  });
 });

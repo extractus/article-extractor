@@ -1,11 +1,11 @@
 // utils -> getTimeToRead
 
-import {
+const {
   getParserOptions,
-} from '../config';
+} = require('../config');
 
 
-export default (text) => {
+module.exports = (text) => {
   const words = text.trim().split(/\s+/g).length;
   const {wordsPerMinute} = getParserOptions();
   const minToRead = words / wordsPerMinute;

@@ -1,16 +1,16 @@
 // utils/extractWithRules
 
-import cheerio from 'cheerio';
+const cheerio = require('cheerio');
 
-import {
+const {
   stripTags,
-} from 'bellajs';
+} = require('bellajs');
 
-import {
+const {
   error,
-} from '../utils/logger';
+} = require('../utils/logger');
 
-export default (html) => {
+module.exports = (html) => {
   try {
     const doc = cheerio.load(html, {
       lowerCaseTags: true,
@@ -86,9 +86,8 @@ export default (html) => {
         }
       }
     }
-    return null;
   } catch (err) {
     error(err);
-    return null;
   }
+  return null;
 };

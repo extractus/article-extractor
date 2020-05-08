@@ -3,49 +3,34 @@
  * @ndaidong
  **/
 
-import {
-  md5,
+const {
   isString,
   unique,
-} from 'bellajs';
+} = require('bellajs');
 
-import {hasProvider} from 'oembed-parser';
+const {hasProvider, extract: extractOembed} = require('oembed-parser');
 
-import retrieve from './utils/retrieve';
-import parseOEmbed from './utils/parseOEmbed';
-import isHtmlDoc from './utils/isHtmlDoc';
-import isValidUrl from './utils/isValidUrl';
-import isAccessibleUrl from './utils/isAccessibleUrl';
-import normalizeUrl from './utils/normalizeUrl';
-import parseFromHtml from './utils/parseFromHtml';
+const retrieve = require('./utils/retrieve');
+const isHtmlDoc = require('./utils/isHtmlDoc');
+const isValidUrl = require('./utils/isValidUrl');
+const normalizeUrl = require('./utils/normalizeUrl');
+const parseFromHtml = require('./utils/parseFromHtml');
 
-import {
+const {
   info,
-} from './utils/logger';
+} = require('./utils/logger');
 
-import {extractedCache as cache} from './utils/store';
-
-export {
+const {
   setParserOptions,
   setNodeFetchOptions,
   setSanitizeHtmlOptions,
   getParserOptions,
   getNodeFetchOptions,
   getSanitizeHtmlOptions,
-} from './config';
+} = require('./config');
 
 
-const setCache = (data) => {
-  const {links = []} = data;
-  if (links.length > 0) {
-    links.forEach((link) => {
-      const key = md5(link);
-      cache.set(key, data);
-    });
-  }
-};
-
-export const extract = async (input) => {
+const extract = async (input) => {
   if (!isString(input)) {
     throw new Error('Input must be a string');
   }
@@ -70,21 +55,11 @@ export const extract = async (input) => {
 
   if (isValidUrl(trimmedUrl)) {
     const normalizedUrl = normalizeUrl(trimmedUrl);
-    const key = md5(normalizedUrl);
-    const stored = cache.get(key);
-    if (stored) {
-      info(`Load article data from cache: ${normalizedUrl}`);
-      return stored;
-    }
-
-    if (!isAccessibleUrl(normalizedUrl)) {
-      throw new Error(`Could not access to "${normalizedUrl}"!`);
-    }
     const links = [trimmedUrl, normalizedUrl];
     article.url = normalizedUrl;
     if (hasProvider(normalizedUrl)) {
       info('Provider found, loading as oEmbed data...');
-      const json = await parseOEmbed(normalizedUrl);
+      const json = await extractOembed(normalizedUrl);
       if (json) {
         article.title = json.title || '';
         article.content = json.html || '';
@@ -96,7 +71,6 @@ export const extract = async (input) => {
           links.push(json.url);
         }
         article.links = unique(links);
-        setCache(article);
         return article;
       }
     }
@@ -113,9 +87,18 @@ export const extract = async (input) => {
     links.concat([url, resUrl]);
     const result = parseFromHtml(html, links);
     if (result) {
-      setCache(result);
       return result;
     }
   }
   return null;
+};
+
+module.exports = {
+  setParserOptions,
+  setNodeFetchOptions,
+  setSanitizeHtmlOptions,
+  getParserOptions,
+  getNodeFetchOptions,
+  getSanitizeHtmlOptions,
+  extract,
 };

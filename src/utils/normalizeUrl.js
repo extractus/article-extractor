@@ -1,8 +1,8 @@
 // utils -> removeUTM
 
-import {parse} from 'url';
+const {parse} = require('url');
 
-export default (url) => {
+module.exports = (url) => {
   const {
     protocol,
     host,

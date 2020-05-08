@@ -1,30 +1,30 @@
 // utils -> parseFromHtml
 
-import {parse} from 'url';
+const {parse} = require('url');
 
-import {
+const {
   unique,
   stripTags,
   truncate,
-} from 'bellajs';
+} = require('bellajs');
 
-import sanitize from 'sanitize-html';
+const sanitize = require('sanitize-html');
 
-import extractMetaData from './extractMetaData';
-import chooseBestUrl from './chooseBestUrl';
-import absolutifyUrl from './absolutifyUrl';
-import normalizeUrl from './normalizeUrl';
-import isValidUrl from './isValidUrl';
-import standalizeArticle from './standalizeArticle';
-import extractWithRules from './extractWithRules';
-import extractWithReadability from './extractWithReadability';
-import getTimeToRead from './getTimeToRead';
+const extractMetaData = require('./extractMetaData');
+const chooseBestUrl = require('./chooseBestUrl');
+const absolutifyUrl = require('./absolutifyUrl');
+const normalizeUrl = require('./normalizeUrl');
+const isValidUrl = require('./isValidUrl');
+const standalizeArticle = require('./standalizeArticle');
+const extractWithRules = require('./extractWithRules');
+const extractWithReadability = require('./extractWithReadability');
+const getTimeToRead = require('./getTimeToRead');
 
-import {getParserOptions} from '../config';
+const {getParserOptions} = require('../config');
 
-import {
+const {
   info,
-} from './logger';
+} = require('./logger');
 
 
 const cleanify = (html) => {
@@ -45,7 +45,7 @@ const getSource = (source, uri) => {
   })();
 };
 
-export default async (input, links) => {
+module.exports = async (input, links) => {
   info('Start parsing from HTML...');
   const html = cleanify(input);
   const meta = extractMetaData(html);
@@ -78,8 +78,7 @@ export default async (input, links) => {
 
   info('Extracting main article...');
   const mainText = extractWithRules(html) || await extractWithReadability(html);
-
-  if (!mainText) {
+  if (!mainText || !stripTags(mainText)) {
     info('Could not extract main article, stop processing');
     return null;
   }

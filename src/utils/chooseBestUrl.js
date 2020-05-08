@@ -1,41 +1,32 @@
 // utils -> chooseBestURL
 
-import {
+const {
   slugify,
-} from 'bellajs';
+} = require('bellajs');
 
-import stringComparision from 'string-comparison';
+const stringComparision = require('string-comparison');
 
-import {getParserOptions} from '../config';
+const {getParserOptions} = require('../config');
 
-import {
-  error,
-} from './logger';
-
-
-export default (candidates = [], title) => {
+module.exports = (candidates = [], title) => {
   let theBest = candidates.reduce((prev, curr) => {
     return curr.length < prev.length ? curr : prev;
   }, candidates[0]);
 
-  try {
-    const opts = getParserOptions();
-    const alg = opts['urlsCompareAlgorithm'];
-    const comparer = stringComparision[alg];
+  const opts = getParserOptions();
+  const alg = opts['urlsCompareAlgorithm'];
+  const comparer = stringComparision[alg];
 
-    const titleHashed = slugify(title);
-    let g = comparer.similarity(theBest, titleHashed);
+  const titleHashed = slugify(title);
+  let g = comparer.similarity(theBest, titleHashed);
 
-    candidates.forEach((url) => {
-      const k = comparer.similarity(url, titleHashed);
-      if (k > g) {
-        g = k;
-        theBest = url;
-      }
-    });
-  } catch (err) {
-    error(err);
-  }
+  candidates.forEach((url) => {
+    const k = comparer.similarity(url, titleHashed);
+    if (k > g) {
+      g = k;
+      theBest = url;
+    }
+  });
 
   return theBest;
 };

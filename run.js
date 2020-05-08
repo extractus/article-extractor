@@ -1,4 +1,4 @@
-import {extract} from '../index';
+const {extract} = require('./index');
 
 
 const run = async (url) => {
