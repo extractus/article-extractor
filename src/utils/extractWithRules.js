@@ -10,6 +10,11 @@ const {
   error,
 } = require('../utils/logger');
 
+function WordCount(text) {
+  text = text.trim();
+  return text.length > 0 ? text.split(/\s+/).length : 0;
+}
+
 module.exports = (html) => {
   try {
     const doc = cheerio.load(html, {
@@ -73,7 +78,7 @@ module.exports = (html) => {
         els.each((i, el) => {
           const section = doc(el);
           const html = section.html().trim();
-          if (html.length > 30) {
+          if (WordCount(html) >= 400) {
             parts.push(html);
           }
         });
