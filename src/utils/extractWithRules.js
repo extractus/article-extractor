@@ -10,10 +10,11 @@ const {
   error,
 } = require('../utils/logger');
 
-function WordCount(text) {
-  text = text.trim();
+const MIN_SECTION_LENGTH = 200;
+
+const countWord = (text) => {
   return text.length > 0 ? text.split(/\s+/).length : 0;
-}
+};
 
 module.exports = (html) => {
   try {
@@ -78,7 +79,7 @@ module.exports = (html) => {
         els.each((i, el) => {
           const section = doc(el);
           const html = section.html().trim();
-          if (WordCount(html) >= 400) {
+          if (countWord(html) >= MIN_SECTION_LENGTH) {
             parts.push(html);
           }
         });
