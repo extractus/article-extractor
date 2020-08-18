@@ -20,21 +20,21 @@
     "reset": "node reset"
   },
   "dependencies": {
-    "bellajs": "^8.0.2",
+    "bellajs": "^9.2.0",
     "cheerio": "^1.0.0-rc.3",
     "debug": "^4.1.1",
     "html-minifier": "^4.0.0",
     "node-fetch": "^2.6.0",
-    "oembed-parser": "^1.3.9",
+    "oembed-parser": "^1.4.0",
     "readabilitySAX": "^1.6.1",
-    "sanitize-html": "^1.23.0",
+    "sanitize-html": "^1.27.3",
     "string-comparison": "^1.0.7"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
     "eslint-config-goes": "^1.1.8",
-    "jest": "^26.0.1",
-    "nock": "^12.0.3"
+    "jest": "^26.4.0",
+    "nock": "^13.0.4"
   },
   "keywords": [
     "article",
