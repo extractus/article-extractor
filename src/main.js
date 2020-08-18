@@ -11,7 +11,6 @@ const {
 const {hasProvider, extract: extractOembed} = require('oembed-parser');
 
 const retrieve = require('./utils/retrieve');
-const isHtmlDoc = require('./utils/isHtmlDoc');
 const isValidUrl = require('./utils/isValidUrl');
 const normalizeUrl = require('./utils/normalizeUrl');
 const parseFromHtml = require('./utils/parseFromHtml');
@@ -47,7 +46,7 @@ const extract = async (input) => {
     ttr: 0,
   };
 
-  if (isHtmlDoc(input)) {
+  if (!isValidUrl(input)) {
     return parseFromHtml(input, []);
   }
 
