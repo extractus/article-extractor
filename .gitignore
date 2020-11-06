@@ -11,6 +11,9 @@ node_modules
 coverage
 .nyc_output
 
+dist
+
 yarn.lock
 coverage.lcov
 package-lock.json
+pnpm-lock.yaml
