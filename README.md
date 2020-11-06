@@ -2,8 +2,8 @@
 Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
-[![Build Status](https://travis-ci.org/ndaidong/article-parser.svg?branch=master)](https://travis-ci.org/ndaidong/article-parser)
-[![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg?branch=master&updated=3)](https://coveralls.io/github/ndaidong/article-parser?branch=master)
+[![Build Status](https://travis-ci.org/ndaidong/article-parser.svg)](https://travis-ci.org/ndaidong/article-parser)
+[![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg)](https://coveralls.io/github/ndaidong/article-parser)
 
 
 ## Demo
