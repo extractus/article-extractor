@@ -1,5 +1,5 @@
 {
-  "version": "4.2.4",
+  "version": "4.2.4rc1",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -9,13 +9,14 @@
   },
   "author": "@ndaidong",
   "main": "./index.js",
+  "types": "./index.d.ts",
   "engines": {
     "node": ">= 10.14.2"
   },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
+    "test": "jest --verbose --coverage=true --unhandled-rejections=strict",
     "eval": "DEBUG=*:* node run",
     "reset": "node reset"
   },
