@@ -76,11 +76,11 @@ module.exports = (html) => {
       const els = doc(selector);
       if (els) {
         const parts = [];
-        els.each((i, el) => {
+        els.each((_, el) => {
           const section = doc(el);
-          const html = section.html().trim();
-          if (countWord(html) >= MIN_SECTION_LENGTH) {
-            parts.push(html);
+          const text = section.html().trim();
+          if (countWord(text) >= MIN_SECTION_LENGTH) {
+            parts.push(text);
           }
         });
         if (parts.length > 0) {

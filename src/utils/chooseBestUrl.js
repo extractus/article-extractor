@@ -8,7 +8,7 @@ const stringComparision = require('string-comparison');
 
 const {getParserOptions} = require('../config');
 
-module.exports = (candidates = [], title) => {
+module.exports = (candidates = [], title = '') => {
   let theBest = candidates.reduce((prev, curr) => {
     return curr.length < prev.length ? curr : prev;
   }, candidates[0]);
