@@ -1,5 +1,5 @@
 {
-  "version": "4.2.4rc1",
+  "version": "4.2.4rc2",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -17,7 +17,6 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "jest --verbose --coverage=true --unhandled-rejections=strict",
-    "citest": "jest --ci --coverage && codecov --disable=gcov",
     "eval": "DEBUG=*:* node run",
     "reset": "node reset"
   },
@@ -33,7 +32,6 @@
     "string-comparison": "^1.0.9"
   },
   "devDependencies": {
-    "codecov": "^3.8.1",
     "eslint-config-goes": "^1.1.8",
     "jest": "^26.6.3",
     "nock": "^13.0.4"
