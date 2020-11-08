@@ -21,10 +21,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node_version }}
-      - run: npm install
-      - run: npm run lint
-      - run: npm run build --if-present
-      - run: npm run test
+
+    - name: npm script
+      run: |
+        npm install
+        npm run lint
+        npm run build --if-present
+        npm run test
 
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.1.2
