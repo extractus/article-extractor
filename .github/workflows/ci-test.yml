@@ -29,25 +29,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: Setup timezone
-      uses: zcong1993/setup-timezone@master
-      with:
-        timezone: ${{ secrets.TZ }}
-
     - run: npm install
     - run: npm run lint
     - run: npm run build --if-present
     - run: npm run citest
-
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
