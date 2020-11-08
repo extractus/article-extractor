@@ -22,14 +22,17 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
 
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v1.1.2
+
     - uses: actions/cache@v2
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-
+    
     - run: npm install
     - run: npm run lint
     - run: npm run build --if-present
-    - run: npm run citest
+    - run: npm run test
