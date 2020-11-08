@@ -83,8 +83,7 @@ const extract = async (input) => {
       resUrl,
     } = res;
 
-    links.concat([url, resUrl]);
-    const result = parseFromHtml(html, links);
+    const result = parseFromHtml(html, [...links, url, resUrl]);
     if (result) {
       return result;
     }
