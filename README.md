@@ -166,7 +166,7 @@ Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-de
 ```bash
 git clone https://github.com/ndaidong/article-parser.git
 cd article-parser
-npm install
+npm install  // or `yarn install` or `pnpm install`
 npm test
 ```
 
