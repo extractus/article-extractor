@@ -1,0 +1,43 @@
+# GitHub actions
+# https://docs.github.com/en/free-pro-team@latest/actions
+
+name: ci-test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node_version: [10.14.2, 14.x, 15.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Setup timezone
+      uses: zcong1993/setup-timezone@master
+      with:
+        timezone: ${{ secrets.TZ }}
+
+    - run: npm install
+    - run: npm run lint
+    - run: npm run build --if-present
+    - run: npm run citest
