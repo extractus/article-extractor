@@ -3,10 +3,7 @@
 
 name: ci-test
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   test:
