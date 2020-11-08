@@ -40,6 +40,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: ls -la
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v1.1.2
         with:
