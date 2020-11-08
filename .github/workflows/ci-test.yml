@@ -22,11 +22,6 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
 
-    - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@v1.1.2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-
     - uses: actions/cache@v2
       with:
         path: ~/.npm
@@ -38,3 +33,14 @@ jobs:
     - run: npm run lint
     - run: npm run build --if-present
     - run: npm run test
+
+  coverage:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
