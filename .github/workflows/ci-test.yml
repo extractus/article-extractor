@@ -8,7 +8,7 @@ on: [push, pull_request]
 jobs:
   test:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     strategy:
       matrix:
@@ -17,24 +17,25 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node_version }}
+    - name: setup Node.js v${{ matrix.node_version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node_version }}
 
-    - name: npm script
+    - name: run npm scripts
       run: |
         npm install
         npm run lint
         npm run build --if-present
         npm run test
 
-    - name: Coveralls GitHub Action
+    - name: sync to coveralls
       uses: coverallsapp/github-action@v1.1.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: actions/cache@v2
+    - name: cache node modules
+      uses: actions/cache@v2
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
