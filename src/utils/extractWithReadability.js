@@ -1,7 +1,7 @@
 // utils/extractWithReadability
 
 const {Readability} = require('readabilitySAX');
-const Parser = require('htmlparser2/lib/Parser.js');
+const {Parser} = require('htmlparser2');
 
 module.exports = async (html) => {
   const readable = new Readability();
