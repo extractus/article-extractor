@@ -25,6 +25,7 @@
     "cheerio": "^1.0.0-rc.3",
     "debug": "^4.2.0",
     "html-minifier": "^4.0.0",
+    "htmlparser2": "^6.0.0",
     "node-fetch": "^2.6.1",
     "oembed-parser": "^1.4.2",
     "readabilitySAX": "^1.6.1",
