@@ -110,7 +110,7 @@ module.exports = async (input, links) => {
       description,
       textContent,
       descriptionLengthThreshold,
-      descriptionTruncateLen
+      descriptionTruncateLen,
     ),
     links: ulinks,
     image: image ? absolutifyUrl(bestUrl, image) : '',
