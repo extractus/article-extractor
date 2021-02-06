@@ -26,6 +26,7 @@ module.exports = (html) => {
 
     const potentialClasses = [
       '.tdb-block-inner', // defence-blog.com
+      '.wysiwyg--all-content', // aljazeera.com
       '.post-full-content',
       '.rich-text',
       '.post-content',
