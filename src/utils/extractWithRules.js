@@ -25,6 +25,7 @@ module.exports = (html) => {
     });
 
     const potentialClasses = [
+      '.tdb-block-inner', // defence-blog.com
       '.post-full-content',
       '.rich-text',
       '.post-content',
