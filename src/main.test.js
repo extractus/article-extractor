@@ -146,6 +146,27 @@ test('Testing setNodeFetchOptions/getNodeFetchOptions methods', () => {
 });
 
 
+test('Testing with custom user agent string', () => {
+  const myUserAgent = 'Googlebot/2.1 (+http://www.google.com/bot.html)';
+  setNodeFetchOptions({
+    headers: {
+      'authorization': 'bearer <token>',
+      'user-agent': myUserAgent,
+    },
+    timeout: 20,
+    somethingElse: 1000,
+  });
+
+  const actual = getNodeFetchOptions();
+  const expectedHeader = {
+    'authorization': 'bearer <token>',
+    'user-agent': myUserAgent,
+  };
+
+  expect(actual.headers).toEqual(expectedHeader);
+  expect(actual.timeout).toEqual(20);
+});
+
 test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   setSanitizeHtmlOptions({
     allowedTags: ['div', 'span'],
