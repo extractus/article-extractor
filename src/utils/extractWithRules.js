@@ -11,6 +11,7 @@ const {
 } = require('../utils/logger');
 
 const MIN_SECTION_LENGTH = 200;
+const MIN_TEXT_LENGTH = 20;
 
 const countWord = (text) => {
   return text.length > 0 ? text.split(/\s+/).length : 0;
@@ -24,7 +25,17 @@ module.exports = (html) => {
       recognizeSelfClosing: true,
     });
 
-    const potentialClasses = [
+    const filterElements = [
+      '.tb-c-comments-box', // thebureauinvestigates.com
+      '.share-buttons', // codecondo.com
+      '.sidebar-widget', // hongkiat.com
+    ];
+    for (let j = 0; j < filterElements.length; j++) {
+      doc(filterElements[j]).empty();
+    }
+
+    const potentialElements = [
+      '.tb-o-story-section__body', // thebureauinvestigates.com
       '.tdb-block-inner', // defence-blog.com
       '.wysiwyg--all-content', // aljazeera.com
       '.post-full-content',
@@ -73,8 +84,8 @@ module.exports = (html) => {
       '#article',
     ];
 
-    for (let i = 0; i < potentialClasses.length; i++) {
-      const selector = potentialClasses[i];
+    for (let i = 0; i < potentialElements.length; i++) {
+      const selector = potentialElements[i];
       const els = doc(selector);
       if (els) {
         const parts = [];
@@ -88,8 +99,8 @@ module.exports = (html) => {
         if (parts.length > 0) {
           return parts.reduce((prev, curr) => {
             return prev.concat([curr]);
-          }, []).filter((section) => {
-            return stripTags(section).length > 20;
+          }, []).filter((sect) => {
+            return stripTags(sect).length > MIN_TEXT_LENGTH;
           }).join('');
         }
       }
