@@ -35,6 +35,7 @@ module.exports = (html) => {
     }
 
     const potentialElements = [
+      '.articleContainer__content', // people.com
       '.tb-o-story-section__body', // thebureauinvestigates.com
       '.tdb-block-inner', // defence-blog.com
       '.wysiwyg--all-content', // aljazeera.com
