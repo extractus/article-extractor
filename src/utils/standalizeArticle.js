@@ -3,7 +3,7 @@
 const cheerio = require('cheerio');
 const sanitize = require('sanitize-html');
 
-const {minify: htmlmin} = require('html-minifier');
+const {minify: htmlmin} = require('html-minifier-terser');
 
 const absolutifyUrl = require('./absolutifyUrl');
 const {getSanitizeHtmlOptions} = require('../config');
@@ -34,6 +34,7 @@ module.exports = (htmlArticle, url) => {
     removeEmptyElements: true,
     removeEmptyAttributes: true,
     collapseWhitespace: true,
+    collapseBooleanAttributes: true,
     conservativeCollapse: false,
     removeTagWhitespace: true,
   });
