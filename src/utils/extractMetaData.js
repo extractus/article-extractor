@@ -62,7 +62,7 @@ module.exports = (html) => {
     recognizeSelfClosing: true,
   });
 
-  entry.title = doc('title').text();
+  entry.title = doc('head > title').text();
 
   doc('link').each((i, link) => {
     const m = doc(link);

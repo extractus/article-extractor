@@ -1,0 +1,1181 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Python AI: How to Build a Neural Network &amp; Make Predictions – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this step-by-step tutorial, you&#x27;ll build a neural network from scratch as an introduction to the world of artificial intelligence (AI) in Python. You&#x27;ll learn how to train your neural network and make accurate predictions based on a given dataset.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.cf7b43925672.css">
+<link rel="canonical" href="https://realpython.com/python-ai-neural-network/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Python AI: How to Build a Neural Network &amp; Make Predictions – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/python-ai-neural-network/">
+<meta property="og:description" content="In this step-by-step tutorial, you&#x27;ll build a neural network from scratch as an introduction to the world of artificial intelligence (AI) in Python. You&#x27;ll learn how to train your neural network and make accurate predictions based on a given dataset.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+
+
+
+
+
+
+  ga('set', {
+    dimension1: false,
+    dimension2: false
+  });
+
+
+  ga('send', 'pageview');
+
+</script>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column nav-message">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse navbar-nav-scroll" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+ <a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/cpython-internals-book/">CPython Internals Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<a class="js-search-form-submit position-absolute" href="/search" title="Search"><i class="fa fa-search fa-fw text-muted pl-2"></i></a>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="flex-row w-100" style="border-top: 1px dashed #ffc107 !important;">
+<div class="container">
+<a class="link-unstyled mx-auto" href="https://realpython.com/free-courses-march-2020"><p class="my-1 small"><span class="text-warning">😷 <strong>Stuck at home?</strong> Enjoy free courses, on&nbsp;us&nbsp;→</span></p></a>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-11 col-lg-8 article with-headerlinks">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python AI: How to Build a Neural Network &amp; Make Predictions" src="https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg&amp;w=480&amp;sig=ceb2c8415f9a7173a7fb8ae203fdd7588a518dc1 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg&amp;w=960&amp;sig=a6eb39f3467907da05d7c8eefa6339206ac154d4 960w, https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg 1920w" sizes="75vw">
+</figure>
+<h1>Python AI: How to Build a Neural Network &amp; Make Predictions</h1>
+<p class="mb-0">
+<span class="text-muted">by <a class="text-muted" href="#author">Déborah Mesquita</a>
+<span class="ml-2 fa fa-clock-o"></span> Mar 17, 2021
+<span class="ml-2 mr-1 fa fa-comments"></span><a class="text-muted" href="#reader-comments"><span class="disqus-comment-count" data-disqus-identifier="https://realpython.com/python-ai-neural-network/"></span></a>
+<span class="ml-2 fa fa-tags"></span>
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+<div class="d-sm-flex flex-row justify-content-between my-2">
+<div class="jsCompletionStatusWidget btn-group mb-0">
+<button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right " style="border-top-right-radius: 0; border-bottom-right-radius: 0;" disabled>Mark as Completed</button>
+<button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left" disabled><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+<div class="align-self-center">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Python%20AI%3A%20How%20to%20Build%20a%20Neural%20Network%20%26%20Make%20Predictions by @realpython&url=https%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0APython%20AI%3A%20How%20to%20Build%20a%20Neural%20Network%20%26%20Make%20Predictions%0A%0Ahttps%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+</div>
+</p>
+<div class="article-body">
+<div class="bg-light sidebar-module sidebar-module-inset" id="toc">
+<p class="h3 mb-2 text-muted">Table of Contents</p>
+<div class="toc">
+<ul>
+<li><a href="#artificial-intelligence-overview">Artificial Intelligence Overview</a><ul>
+<li><a href="#machine-learning">Machine Learning</a></li>
+<li><a href="#feature-engineering">Feature Engineering</a></li>
+<li><a href="#deep-learning">Deep Learning</a></li>
+</ul>
+</li>
+<li><a href="#neural-networks-main-concepts">Neural Networks: Main Concepts</a><ul>
+<li><a href="#the-process-to-train-a-neural-network">The Process to Train a Neural Network</a></li>
+<li><a href="#vectors-and-weights">Vectors and Weights</a></li>
+<li><a href="#the-linear-regression-model">The Linear Regression Model</a></li>
+</ul>
+</li>
+<li><a href="#python-ai-starting-to-build-your-first-neural-network">Python AI: Starting to Build Your First Neural Network</a><ul>
+<li><a href="#wrapping-the-inputs-of-the-neural-network-with-numpy">Wrapping the Inputs of the Neural Network With NumPy</a></li>
+<li><a href="#making-your-first-prediction">Making Your First Prediction</a></li>
+</ul>
+</li>
+<li><a href="#train-your-first-neural-network">Train Your First Neural Network</a><ul>
+<li><a href="#computing-the-prediction-error">Computing the Prediction Error</a></li>
+<li><a href="#understanding-how-to-reduce-the-error">Understanding How to Reduce the Error</a></li>
+<li><a href="#applying-the-chain-rule">Applying the Chain Rule</a></li>
+<li><a href="#adjusting-the-parameters-with-backpropagation">Adjusting the Parameters With Backpropagation</a></li>
+<li><a href="#creating-the-neural-network-class">Creating the Neural Network Class</a></li>
+<li><a href="#training-the-network-with-more-data">Training the Network With More Data</a></li>
+<li><a href="#adding-more-layers-to-the-neural-network">Adding More Layers to the Neural Network</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:12.5%;"></div>
+<div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+<a class="small text-muted" href="/account/join/" rel="nofollow"> <i class="fa fa-info-circle" aria-hidden="true"> </i> Remove ads</a>
+</div>
+<p>If you&rsquo;re just starting out in the artificial intelligence (AI) world, then Python is a great language to learn since most of the tools are built using it. <strong>Deep learning</strong> is a technique used to make predictions using data, and it heavily relies on <a href="https://en.wikipedia.org/wiki/Neural_network">neural networks</a>. Today, you&rsquo;ll learn how to build a neural network from scratch.</p>
+<p>In a production setting, you would use a deep learning framework like <a href="https://www.tensorflow.org/">TensorFlow</a> or <a href="https://pytorch.org/">PyTorch</a> instead of building your own neural network. That said, having some knowledge of how neural networks work is helpful because you can use it to better architect your deep learning models.</p>
+<p><strong>In this tutorial, you&rsquo;ll learn:</strong></p>
+<ul>
+<li>What <strong>artificial intelligence</strong> is</li>
+<li>How both <strong>machine learning</strong> and <strong>deep learning</strong> play a role in AI</li>
+<li>How a <strong>neural network</strong> functions internally</li>
+<li>How to <strong>build a neural network</strong> from scratch using Python</li>
+</ul>
+<p>Let&rsquo;s get started!</p>
+<div class="alert alert-warning" role="alert"><p><strong>Free Bonus:</strong> <a href="#" class="alert-link" data-toggle="modal" data-target="#modal-numpy-learning-guide" data-focus="false">Click here to get access to a free NumPy Resources Guide</a> that points you to the best tutorials, videos, and books for improving your NumPy skills.</p></div>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div><section class="section2" id="artificial-intelligence-overview"><h2>Artificial Intelligence Overview<a class="headerlink" href="#artificial-intelligence-overview" title="Permanent link"></a></h2>
+<p>In basic terms, the goal of using AI is to make computers think as humans do. This may seem like something new, but the field was born in the 1950s.</p>
+<p>Imagine that you need to write a Python program that uses AI to <a href="https://realpython.com/python-practice-problems/#python-practice-problem-5-sudoku-solver">solve a sudoku problem</a>. A way to accomplish that is to write <a href="https://realpython.com/python-conditional-statements/">conditional statements</a> and check the constraints to see if you can place a number in each position. Well, this Python script is already an application of AI because you programmed a computer to solve a problem! </p>
+<p><strong>Machine learning (ML)</strong> and <strong>deep learning (DL)</strong> are also approaches to solving problems. The difference between these techniques and a Python script is that ML and DL use <strong>training data</strong> instead of hard-coded rules, but all of them can be used to solve problems using AI. In the next sections, you&rsquo;ll learn more about what differentiates these two techniques.</p>
+<section class="section3" id="machine-learning"><h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Permanent link"></a></h3>
+<p>Machine learning is a technique in which you train the system to solve a problem instead of explicitly programming the rules. Getting back to the sudoku example in the previous section, to solve the problem using machine learning, you would gather data from solved sudoku games and train a <strong>statistical model</strong>. <a href="https://en.wikipedia.org/wiki/Statistical_model">Statistical models</a> are mathematically formalized ways to approximate the behavior of a phenomenon. </p>
+<p>A common machine learning task is <a href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a>, in which you have a dataset with inputs and known outputs. The task is to use this dataset to train a model that predicts the correct outputs based on the inputs. The image below presents the workflow to train a model using supervised learning:</p>
+<figure><a href="https://files.realpython.com/media/ML_workflow.8620ebb656aa.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block " src="https://files.realpython.com/media/ML_workflow.8620ebb656aa.png" width="2315" height="1400" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/ML_workflow.8620ebb656aa.png&amp;w=578&amp;sig=8f7c580fcfd80f7930a29f660ae926da04548b31 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/ML_workflow.8620ebb656aa.png&amp;w=1157&amp;sig=e5b87d878cd33fb9e00cb512e2819f271535cf40 1157w, https://files.realpython.com/media/ML_workflow.8620ebb656aa.png 2315w" sizes="75vw" alt="Supervised Learning Workflow" data-asset="3412" /></a><figcaption class="figure-caption text-center">Workflow to train a machine learning model</figcaption></figure>
+<p>The combination of the training data with the machine learning algorithm creates the model. Then, with this model, you can make predictions for new data.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> <a href="https://scikit-learn.org">scikit-learn</a> is a popular Python machine learning library that provides many supervised and unsupervised learning algorithms. To learn more about it, check out <a href="https://realpython.com/train-test-split-python-data/">Split Your Dataset With scikit-learn&rsquo;s train_test_split()</a>.</p>
+</div>
+<p>The goal of supervised learning tasks is to make predictions for new, unseen data. To do that, you assume that this unseen data follows a <a href="https://en.wikipedia.org/wiki/Probability_distribution">probability distribution</a> similar to the distribution of the training dataset. If in the future this distribution changes, then you need to train your model again using the new training dataset.</p>
+</section><section class="section3" id="feature-engineering"><h3>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permanent link"></a></h3>
+<p>Prediction problems become harder when you use different kinds of data as inputs. The sudoku problem is relatively straightforward because you&rsquo;re dealing directly with numbers. What if you want to train a model to predict the sentiment in a sentence? Or what if you have an image, and you want to know whether it depicts a cat? </p>
+<p>Another name for input data is <strong>feature</strong>, and <strong>feature engineering</strong> is the process of extracting features from raw data. When dealing with different kinds of data, you need to figure out ways to represent this data in order to extract meaningful information from it.</p>
+<p>An example of a feature engineering technique is <a href="https://realpython.com/sentiment-analysis-python/#normalizing-words">lemmatization</a>, in which you remove the inflection from words in a sentence. For example, inflected forms of the verb &ldquo;watch,&rdquo; like &ldquo;watches,&rdquo; &ldquo;watching,&rdquo; and &ldquo;watched,&rdquo; would be reduced to their <strong>lemma</strong>, or base form: &ldquo;watch.&rdquo; </p>
+<p>If you&rsquo;re using arrays to store each word of a corpus, then by applying lemmatization, you end up with a less-sparse matrix. This can increase the performance of some machine learning algorithms. The following image presents the process of lemmatization and representation using a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">bag-of-words model</a>:</p>
+<figure><a href="https://files.realpython.com/media/Features_from_text.9296775db229.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block " src="https://files.realpython.com/media/Features_from_text.9296775db229.png" width="2315" height="1400" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Features_from_text.9296775db229.png&amp;w=578&amp;sig=e9ad1f6d0eac4221c5776dd41aae18f76d7dd0ae 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Features_from_text.9296775db229.png&amp;w=1157&amp;sig=bc00742cf912e073b0527552089ae1f443ab9c49 1157w, https://files.realpython.com/media/Features_from_text.9296775db229.png 2315w" sizes="75vw" alt="Feature engineering from text to numeric array" data-asset="3417" /></a><figcaption class="figure-caption text-center">Creating features using a bag-of-words model</figcaption></figure>
+<p>First, the inflected form of every word is reduced to its lemma. Then, the number of occurrences of that word is computed. The result is an array containing the number of occurrences of every word in the text.</p>
+</section><section class="section3" id="deep-learning"><h3>Deep Learning<a class="headerlink" href="#deep-learning" title="Permanent link"></a></h3>
+<p>Deep learning is a technique in which you let the neural network figure out by itself which features are important instead of applying feature engineering techniques. This means that, with deep learning, you can bypass the feature engineering process.</p>
+<p>Not having to deal with feature engineering is good because the process gets harder as the datasets become more complex. For example, how would you extract the data to predict the mood of a person given a picture of her face? With neural networks, you don&rsquo;t need to worry about it because the networks can learn the features by themselves. In the next sections, you&rsquo;ll dive deep into neural networks to better understand how they work.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section></section><section class="section2" id="neural-networks-main-concepts"><h2>Neural Networks: Main Concepts<a class="headerlink" href="#neural-networks-main-concepts" title="Permanent link"></a></h2>
+<p>A neural network is a system that learns how to make predictions by following these steps:</p>
+<ol>
+<li>Taking the input data</li>
+<li>Making a prediction</li>
+<li>Comparing the prediction to the desired output</li>
+<li>Adjusting its internal state to predict correctly the next time</li>
+</ol>
+<p><strong>Vectors</strong>, <strong>layers</strong>, and <strong>linear regression</strong> are some of the building blocks of neural networks. The data is stored as vectors, and with Python you store these vectors in <a href="https://realpython.com/numpy-array-programming/">arrays</a>. Each layer transforms the data that comes from the previous layer. You can think of each layer as a feature engineering step, because each layer extracts some representation of the data that came previously.</p>
+<p>One cool thing about neural network layers is that the same computations can extract information from <em>any</em> kind of data. This means that it doesn&rsquo;t matter if you&rsquo;re using image data or text data. The process to extract meaningful information and train the deep learning model is the same for both scenarios.</p>
+<p>In the image below, you can see an example of a network architecture with two layers:</p>
+<figure><a href="https://files.realpython.com/media/neural_network_layers.c8fe82979288.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block " src="https://files.realpython.com/media/neural_network_layers.c8fe82979288.png" width="2315" height="1400" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/neural_network_layers.c8fe82979288.png&amp;w=578&amp;sig=7f0c0470dae716a936d80dbd4268f381f371544b 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/neural_network_layers.c8fe82979288.png&amp;w=1157&amp;sig=60d767eafe683e49248b3d0e1c151af10f4844dc 1157w, https://files.realpython.com/media/neural_network_layers.c8fe82979288.png 2315w" sizes="75vw" alt="Diagram showing a Neural Network with two layers" data-asset="3110" /></a><figcaption class="figure-caption text-center">A neural network with two layers</figcaption></figure>
+<p>Each layer transforms the data that came from the previous layer by applying some mathematical operations.</p>
+<section class="section3" id="the-process-to-train-a-neural-network"><h3>The Process to Train a Neural Network<a class="headerlink" href="#the-process-to-train-a-neural-network" title="Permanent link"></a></h3>
+<p>Training a neural network is similar to the process of trial and error. Imagine you&rsquo;re playing darts for the first time. In your first throw, you try to hit the central point of the dartboard. Usually, the first shot is just to get a sense of how the height and speed of your hand affect the result. If you see the dart is higher than the central point, then you adjust your hand to throw it a little lower, and so on.</p>
+<p>These are the steps for trying to hit the center of a dartboard:</p>
+<figure><a href="https://files.realpython.com/media/infographic.3276fe49eff4.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block " src="https://files.realpython.com/media/infographic.3276fe49eff4.png" width="2315" height="1400" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/infographic.3276fe49eff4.png&amp;w=578&amp;sig=99121825a0dcf2e705c6ba9bad8ab70b0c12e943 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/infographic.3276fe49eff4.png&amp;w=1157&amp;sig=4904897e048d51a7f0c3379d8d7f18c7f1c3fa75 1157w, https://files.realpython.com/media/infographic.3276fe49eff4.png 2315w" sizes="75vw" alt="The steps to throwing dart" data-asset="3418" /></a><figcaption class="figure-caption text-center">Steps to hit the center of a dartboard</figcaption></figure>
+<p>Notice that you keep assessing the error by observing where the dart landed (step 2). You go on until you finally hit the center of the dartboard.</p>
+<p>With neural networks, the process is very similar: you start with some random <strong>weights</strong> and <strong>bias</strong> vectors, make a prediction, compare it to the desired output, and adjust the vectors to predict more accurately the next time. The process continues until the difference between the prediction and the correct targets is minimal.</p>
+<p>Knowing when to stop the training and what accuracy target to set is an important aspect of training neural networks, mainly because of <a href="https://realpython.com/linear-regression-in-python/#underfitting-and-overfitting">overfitting and underfitting</a> scenarios.</p>
+</section><section class="section3" id="vectors-and-weights"><h3>Vectors and Weights<a class="headerlink" href="#vectors-and-weights" title="Permanent link"></a></h3>
+<p>Working with neural networks consists of doing operations with vectors. You represent the vectors as multidimensional arrays. Vectors are useful in deep learning mainly because of one particular operation: the <strong>dot product</strong>. The dot product of two vectors tells you how similar they are in terms of direction and is scaled by the magnitude of the two vectors.</p>
+<p>The main vectors inside a neural network are the weights and bias vectors. Loosely, what you want your neural network to do is to check if an input is similar to other inputs it&rsquo;s already seen. If the new input is similar to previously seen inputs, then the outputs will also be similar. That&rsquo;s how you get the result of a prediction.</p>
+</section><section class="section3" id="the-linear-regression-model"><h3>The Linear Regression Model<a class="headerlink" href="#the-linear-regression-model" title="Permanent link"></a></h3>
+<p><strong>Regression</strong> is used when you need to estimate the relationship between a <strong>dependent variable</strong> and two or more <strong>independent variables</strong>. <a href="https://realpython.com/linear-regression-in-python/">Linear regression</a> is a method applied when you approximate the relationship between the variables as linear. The method dates back to the nineteenth century and is the most popular regression method.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> A <strong>linear</strong> relationship is one where there&rsquo;s a direct relationship between an independent variable and a dependent variable. </p>
+</div>
+<p>By modeling the relationship between the variables as linear, you can express the dependent variable as a <strong>weighted sum</strong> of the independent variables. So, each independent variable will be multiplied by a vector called <code>weight</code>. Besides the weights and the independent variables, you also add another vector: the <strong>bias</strong>. It sets the result when all the other independent variables are equal to zero.</p>
+<p>As a real-world example of how to build a linear regression model, imagine you want to train a model to predict the price of houses based on the area and how old the house is. You decide to model this relationship using linear regression. The following code block shows how you can write a linear regression model for the stated problem in pseudocode:</p>
+<div class="highlight"><pre><span></span><code>price = (weights_area * area) + (weights_age * age) + bias
+</code></pre></div>
+<p>In the above example, there are two weights: <code>weights_area</code> and <code>weights_age</code>. The training process consists of adjusting the weights and the bias so the model can predict the correct price value. To accomplish that, you&rsquo;ll need to compute the prediction error and update the weights accordingly.</p>
+<p>These are the basics of how the neural network mechanism works. Now it&rsquo;s time to see how to apply these concepts using Python.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section></section><section class="section2" id="python-ai-starting-to-build-your-first-neural-network"><h2>Python AI: Starting to Build Your First Neural Network<a class="headerlink" href="#python-ai-starting-to-build-your-first-neural-network" title="Permanent link"></a></h2>
+<p>The first step in building a neural network is generating an output from input data. You&rsquo;ll do that by creating a weighted sum of the variables. The first thing you&rsquo;ll need to do is represent the inputs with Python and <a href="https://realpython.com/numpy-tutorial/">NumPy</a>.</p>
+<section class="section3" id="wrapping-the-inputs-of-the-neural-network-with-numpy"><h3>Wrapping the Inputs of the Neural Network With NumPy<a class="headerlink" href="#wrapping-the-inputs-of-the-neural-network-with-numpy" title="Permanent link"></a></h3>
+<p>You&rsquo;ll use NumPy to represent the input vectors of the network as arrays. But before you use NumPy, it&rsquo;s a good idea to play with the vectors in pure Python to better understand what&rsquo;s going on. </p>
+<p>In this first example, you have an input vector and the other two weight vectors. The goal is to find which of the weights is more similar to the input, taking into account the direction and the magnitude. This is how the vectors look if you plot them:</p>
+<figure><a href="https://files.realpython.com/media/three_vectors_2d.9d220456ff49.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-100" src="https://files.realpython.com/media/three_vectors_2d.9d220456ff49.png" width="2315" height="1400" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/three_vectors_2d.9d220456ff49.png&amp;w=578&amp;sig=3a4cef7d1d1122b9e1caac391a9af6267b5170b0 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/three_vectors_2d.9d220456ff49.png&amp;w=1157&amp;sig=5a61f94103a60b2796df80612804d2bb5db36771 1157w, https://files.realpython.com/media/three_vectors_2d.9d220456ff49.png 2315w" sizes="75vw" alt="Three vectors in a cartesian coordinate plane" data-asset="3111" /></a><figcaption class="figure-caption text-center">Three vectors in a cartesian coordinate plane</figcaption></figure>
+<p><code>weights_2</code> is more similar to the input vector since it&rsquo;s pointing in the same direction and the magnitude is also similar. So how do you figure out which vectors are similar using Python?</p>
+<p>First, you define the three vectors, one for the input and the other two for the weights. Then you compute how similar <code>input_vector</code> and <code>weights_1</code> are. To do that, you&rsquo;ll apply the <a href="https://en.wikipedia.org/wiki/Dot_product"><strong>dot product</strong></a>. Since all the vectors are two-dimensional vectors, these are the steps to do it:</p>
+<ol>
+<li>Multiply the first index of <code>input_vector</code> by the first index of <code>weights_1</code>. </li>
+<li>Multiply the second index of <code>input_vector</code> by the second index of <code>weights_2</code>.</li>
+<li>Sum the results of both multiplications.</li>
+</ol>
+<p>You can use an IPython console or a <a href="https://realpython.com/jupyter-notebook-introduction/">Jupyter Notebook</a> to follow along. It&rsquo;s a good practice to create a new <a href="https://realpython.com/python-virtual-environments-a-primer/">virtual environment</a> every time you start a new Python project, so you should do that first. <a href="https://docs.python.org/3/library/venv.html"><code>venv</code></a> ships with Python versions 3.3 and above, and it&rsquo;s handy for creating a virtual environment:</p>
+<div class="highlight sh"><pre><span></span><code><span class="gp">$ </span>python -m venv ~/.my-env
+<span class="gp">$ </span><span class="nb">source</span> ~/.my-env/bin/activate
+</code></pre></div>
+<p>Using the above commands, you first create the virtual environment, then you activate it. Now it&rsquo;s time to install the IPython console using <code>pip</code>. Since you&rsquo;ll also need NumPy and <a href="https://realpython.com/python-matplotlib-guide/">Matplotlib</a>, it&rsquo;s a good idea install them too:</p>
+<div class="highlight sh"><pre><span></span><code><span class="gp gp-VirtualEnv">(my-env)</span> <span class="gp">$ </span>python -m pip install ipython numpy matplotlib
+<span class="gp gp-VirtualEnv">(my-env)</span> <span class="gp">$ </span>ipython
+</code></pre></div>
+<p>Now you&rsquo;re ready to start coding. This is the code for computing the dot product of <code>input_vector</code> and <code>weights_1</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [1]: </span><span class="n">input_vector</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.72</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">]</span>
+<span class="gp">In [2]: </span><span class="n">weights_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.26</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">In [3]: </span><span class="n">weights_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.17</span><span class="p">,</span> <span class="mf">0.32</span><span class="p">]</span>
+
+<span class="gp">In [4]: </span><span class="c1"># Computing the dot product of input_vector and weights_1</span>
+<span class="gp">In [5]: </span><span class="n">first_indexes_mult</span> <span class="o">=</span> <span class="n">input_vector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">weights_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">In [6]: </span><span class="n">second_indexes_mult</span> <span class="o">=</span> <span class="n">input_vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">weights_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">In [7]: </span><span class="n">dot_product_1</span> <span class="o">=</span> <span class="n">first_indexes_mult</span> <span class="o">+</span> <span class="n">second_indexes_mult</span>
+
+<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The dot product is: </span><span class="si">{</span><span class="n">dot_product_1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go">The dot product is: 2.1672</span>
+</code></pre></div>
+<p>The result of the dot product is <code>2.1672</code>. Now that you know how to compute the dot product, it&rsquo;s time to use <code>np.dot()</code> from NumPy. Here&rsquo;s how to compute <code>dot_product_1</code> using <code>np.dot()</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [9]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="hll"><span class="gp">In [10]: </span><span class="n">dot_product_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights_1</span><span class="p">)</span>
+</span>
+<span class="gp">In [11]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The dot product is: </span><span class="si">{</span><span class="n">dot_product_1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">The dot product is: 2.1672</span>
+</code></pre></div>
+<p><code>np.dot()</code> does the same thing you did before, but now you just need to specify the two arrays as arguments. Now let&rsquo;s compute the dot product of <code>input_vector</code> and <code>weights_2</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="hll"><span class="gp">In [10]: </span><span class="n">dot_product_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights_2</span><span class="p">)</span>
+</span>
+<span class="gp">In [11]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The dot product is: </span><span class="si">{</span><span class="n">dot_product_2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">The dot product is: 4.1259</span>
+</code></pre></div>
+<p>This time, the result is <code>4.1259</code>. As a different way of thinking about the dot product, you can treat the similarity between the vector coordinates as an on-off switch. If the multiplication result is <code>0</code>, then you&rsquo;ll say that the coordinates are <em>not</em> similar. If the result is something other than <code>0</code>, then you&rsquo;ll say that they <em>are</em> similar. </p>
+<p>This way, you can view the dot product as a loose measurement of similarity between the vectors. Every time the multiplication result is <code>0</code>, the final dot product will have a lower result. Getting back to the vectors of the example, since the dot product of <code>input_vector</code> and <code>weights_2</code> is <code>4.1259</code>, and <code>4.1259</code> is greater than <code>2.1672</code>, it means that <code>input_vector</code> is more similar to <code>weights_2</code>. You&rsquo;ll use this same mechanism in your neural network.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Click the prompt (&gt;&gt;&gt;) at the top right of each code block if you need to copy and paste it. </p>
+</div>
+<p>In this tutorial, you&rsquo;ll train a model to make predictions that have only two possible outcomes. The output result can be either <code>0</code> or <code>1</code>. This is a <strong>classification problem</strong>, a subset of supervised learning problems in which you have a dataset with the inputs and the known targets. These are the inputs and the outputs of the dataset:</p>
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Input Vector</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1.66, 1.56]</td>
+<td>1</td>
+</tr>
+<tr>
+<td>[2, 1.5]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <strong>target</strong> is the variable you want to predict. In this example, you&rsquo;re dealing with a dataset that consists of numbers. This isn&rsquo;t common in a real production scenario. Usually, when there&rsquo;s a need for a deep learning model, the data is presented in files, such as images or text.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="making-your-first-prediction"><h3>Making Your First Prediction<a class="headerlink" href="#making-your-first-prediction" title="Permanent link"></a></h3>
+<p>Since this is your very first neural network, you&rsquo;ll keep things straightforward and build a network with only two layers. So far, you&rsquo;ve seen that the only two operations used inside the neural network were the dot product and a sum. Both are <strong>linear operations</strong>.</p>
+<p>If you add more layers but keep using only linear operations, then adding more layers would have no effect because each layer will always have some correlation with the input of the previous layer. This implies that, for a network with multiple layers, there would always be a network with fewer layers that predicts the same results. </p>
+<p>What you want is to find an operation that makes the middle layers sometimes correlate with an input and sometimes not correlate. </p>
+<p>You can achieve this behavior by using nonlinear functions. These nonlinear functions are called <strong>activation functions</strong>. There are many types of activation functions. The <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU (rectified linear unit)</a>, for example, is a function that converts all negative numbers to zero. This means that the network can &ldquo;turn off&rdquo; a weight if it&rsquo;s negative, adding nonlinearity.</p>
+<p>The network you&rsquo;re building will use the <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid activation function</a>. You&rsquo;ll use it in the last layer, <code>layer_2</code>. The only two possible outputs in the dataset are <code>0</code> and <code>1</code>, and the sigmoid function limits the output to a range between <code>0</code> and <code>1</code>. This is the formula to express the sigmoid function:</p>
+<figure><a href="https://files.realpython.com/media/sigmoid_function.f966c820f8c3.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-33" src="https://files.realpython.com/media/sigmoid_function.f966c820f8c3.png" width="2315" height="752" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/sigmoid_function.f966c820f8c3.png&amp;w=578&amp;sig=559e58b0e39bc1d37841223862ceabbd6ae8be22 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/sigmoid_function.f966c820f8c3.png&amp;w=1157&amp;sig=d8b6e4166c8b82a649d3b0a3d4bc3b943942e7ad 1157w, https://files.realpython.com/media/sigmoid_function.f966c820f8c3.png 2315w" sizes="75vw" alt="Sigmoid function formula" data-asset="3114" /></a><figcaption class="figure-caption text-center">Sigmoid function formula</figcaption></figure>
+<p>The <em>e</em> is a mathematical constant called <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler&rsquo;s number</a>, and you can use <code>np.exp(x)</code> to calculate <em>eˣ</em>. </p>
+<p>Probability functions give you the probability of occurrence for possible outcomes of an event. The only two possible outputs of the dataset are <code>0</code> and <code>1</code>, and the <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli distribution</a> is a distribution that has two possible outcomes as well. The sigmoid function is a good choice if your problem follows the Bernoulli distribution, so <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.476.1842&amp;rep=rep1&amp;type=pdf">that&rsquo;s why you&rsquo;re using it</a> in the last layer of your neural network.</p>
+<p>Since the function limits the output to a range of <code>0</code> to <code>1</code>, you&rsquo;ll use it to predict probabilities. If the output is greater than <code>0.5</code>, then you&rsquo;ll say the prediction is <code>1</code>. If it&rsquo;s below <code>0.5</code>, then you&rsquo;ll say the prediction is <code>0</code>. This is the flow of the computations inside the network you&rsquo;re building:</p>
+<figure><a href="https://files.realpython.com/media/network_architecture.406cfcc68417.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-66" src="https://files.realpython.com/media/network_architecture.406cfcc68417.png" width="1400" height="2315" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/network_architecture.406cfcc68417.png&amp;w=350&amp;sig=05ac208e22407f51f13c55d5dbf4ea7ca631856f 350w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/network_architecture.406cfcc68417.png&amp;w=700&amp;sig=ce1ed03252df1cdbaa626424ffbb9084ab2b7b5e 700w, https://files.realpython.com/media/network_architecture.406cfcc68417.png 1400w" sizes="75vw" alt="The architecture of a neural network with two layers" data-asset="3109" /></a><figcaption class="figure-caption text-center">The flow of computations inside your neural network</figcaption></figure>
+<p>The yellow hexagons represent the functions, and the blue rectangles represent the intermediate results. Now it&rsquo;s time to turn all this knowledge into code. You&rsquo;ll also need to wrap the vectors with NumPy arrays. This is the code that applies the functions presented in the image above:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [12]: </span><span class="c1"># Wrapping the vectors in NumPy arrays</span>
+<span class="gp">In [13]: </span><span class="n">input_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.66</span><span class="p">,</span> <span class="mf">1.56</span><span class="p">])</span>
+<span class="gp">In [14]: </span><span class="n">weights_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.66</span><span class="p">])</span>
+<span class="gp">In [15]: </span><span class="n">bias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])</span>
+
+<span class="gp">In [16]: </span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+<span class="hll"><span class="gp">In [17]: </span><span class="k">def</span> <span class="nf">make_prediction</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">bias</span><span class="p">):</span>
+</span><span class="hll"><span class="gp">   ...: </span>     <span class="n">layer_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias</span>
+</span><span class="hll"><span class="gp">   ...: </span>     <span class="n">layer_2</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">layer_1</span><span class="p">)</span>
+</span><span class="hll"><span class="gp">   ...: </span>     <span class="k">return</span> <span class="n">layer_2</span>
+</span>
+<span class="hll"><span class="gp">In [18]: </span><span class="n">prediction</span> <span class="o">=</span> <span class="n">make_prediction</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights_1</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
+</span>
+<span class="gp">In [19]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The prediction result is: </span><span class="si">{</span><span class="n">prediction</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[19]: </span><span class="go">The prediction result is: [0.7985731]</span>
+</code></pre></div>
+<p>The raw prediction result is <code>0.79</code>, which is higher than <code>0.5</code>, so the output is <code>1</code>. The network made a correct prediction. Now try it with another input vector, <code>np.array([2, 1.5])</code>. The correct result for this input is <code>0</code>. You&rsquo;ll only need to change the <code>input_vector</code> variable since all the other parameters remain the same:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [20]: </span><span class="c1"># Changing the value of input_vector</span>
+<span class="hll"><span class="gp">In [21]: </span><span class="n">input_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+</span>
+<span class="hll"><span class="gp">In [22]: </span><span class="n">prediction</span> <span class="o">=</span> <span class="n">make_prediction</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights_1</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
+</span>
+<span class="gp">In [23]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The prediction result is: </span><span class="si">{</span><span class="n">prediction</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[23]: </span><span class="go">The prediction result is: [0.87101915]</span>
+</code></pre></div>
+<p>This time, the network made a wrong prediction. The result should be less than <code>0.5</code> since the target for this input is <code>0</code>, but the raw result was <code>0.87</code>. It made a wrong guess, but how bad was the mistake? The next step is to find a way to assess that.</p>
+</section></section><section class="section2" id="train-your-first-neural-network"><h2>Train Your First Neural Network<a class="headerlink" href="#train-your-first-neural-network" title="Permanent link"></a></h2>
+<p>In the process of training the neural network, you first assess the error and then adjust the weights accordingly. To adjust the weights, you&rsquo;ll use the <strong>gradient descent</strong> and <strong>backpropagation</strong> algorithms. Gradient descent is applied to find the direction and the rate to update the parameters. </p>
+<p>Before making any changes in the network, you need to compute the error. That&rsquo;s what you&rsquo;ll do in the next section.</p>
+<section class="section3" id="computing-the-prediction-error"><h3>Computing the Prediction Error<a class="headerlink" href="#computing-the-prediction-error" title="Permanent link"></a></h3>
+<p>To understand the magnitude of the error, you need to choose a way to measure it. The function used to measure the error is called the <strong>cost function</strong>, or <strong>loss function</strong>. In this tutorial, you&rsquo;ll use the <a href="https://en.wikipedia.org/wiki/Mean_squared_error">mean squared error (MSE)</a> as your cost function. You compute the MSE in two steps:</p>
+<ol>
+<li>Compute the difference between the prediction and the target.</li>
+<li>Multiply the result by itself.</li>
+</ol>
+<p>The network can make a mistake by outputting a value that&rsquo;s higher or lower than the correct value. Since the MSE is the <em>squared</em> difference between the prediction and the correct result, with this metric you&rsquo;ll always end up with a positive value.</p>
+<p>This is the complete expression to compute the error for the last previous prediction: </p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [24]: </span><span class="n">target</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="gp">In [25]: </span><span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span>
+
+<span class="gp">In [26]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediction: </span><span class="si">{</span><span class="n">prediction</span><span class="si">}</span><span class="s2">; Error: </span><span class="si">{</span><span class="n">mse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go">Prediction: [0.87101915]; Error: [0.7586743596667225]</span>
+</code></pre></div>
+<p>In the example above, the error is <code>0.75</code>. One implication of multiplying the difference by itself is that bigger errors have an even larger impact, and smaller errors keep getting smaller as they decrease.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="understanding-how-to-reduce-the-error"><h3>Understanding How to Reduce the Error<a class="headerlink" href="#understanding-how-to-reduce-the-error" title="Permanent link"></a></h3>
+<p>The goal is to change the weights and bias variables so you can reduce the error. To understand how this works, you&rsquo;ll change only the weights variable and leave the bias fixed for now. You can also get rid of the sigmoid function and use only the result of <code>layer_1</code>. All that&rsquo;s left is to figure out how you can modify the weights so that the error goes down.</p>
+<p>You compute the MSE by doing <code>error = np.square(prediction - target)</code>. If you treat <code>(prediction - target)</code> as a single variable <code>x</code>, then you have <code>error = np.square(x)</code>, which is a <a href="https://en.wikipedia.org/wiki/Quadratic_function">quadratic function</a>. Here&rsquo;s how the function looks if you plot it:</p>
+<figure><a href="https://files.realpython.com/media/quatratic_function.002729dea332.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block " src="https://files.realpython.com/media/quatratic_function.002729dea332.png" width="2315" height="1400" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/quatratic_function.002729dea332.png&amp;w=578&amp;sig=1df4f5711e982f821d54ab9634ac28bd9cd0312d 578w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/quatratic_function.002729dea332.png&amp;w=1157&amp;sig=e3c84e169a18689ec5d0a91e1db257826c80f167 1157w, https://files.realpython.com/media/quatratic_function.002729dea332.png 2315w" sizes="75vw" alt="A plot of a quadratic function with two dots" data-asset="3112" /></a><figcaption class="figure-caption text-center">Plot of a quadratic function</figcaption></figure>
+<p>The error is given by the y-axis. If you&rsquo;re in point <code>A</code> and want to reduce the error toward 0, then you need to bring the <code>x</code> value down. On the other hand, if you&rsquo;re in point <code>B</code> and want to reduce the error, then you need to bring the <code>x</code> value up. To know which direction you should go to reduce the error, you&rsquo;ll use the <strong>derivative</strong>. A derivative <a href="https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative/">explains exactly how a pattern will change</a>. </p>
+<p>Another word for the derivative is <strong>gradient</strong>. <strong>Gradient descent</strong> is the name of the algorithm used to find the direction and the rate to update the network parameters. </p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> To learn more about the math behind gradient descent, check out <a href="https://realpython.com/gradient-descent-algorithm-python/">Stochastic Gradient Descent Algorithm With Python and NumPy</a>. </p>
+</div>
+<p>In this tutorial, you won&rsquo;t focus on the theory behind derivatives, so you&rsquo;ll simply apply the <a href="https://www.mathsisfun.com/calculus/derivatives-rules.html">derivative rules</a> for each function you&rsquo;ll encounter. The <a href="https://en.wikipedia.org/wiki/Power_rule">power rule</a> states that the derivative of <em>xⁿ</em> is <em>nx</em>⁽<em>ⁿ</em>⁻¹⁾. So the derivative of <code>np.square(x)</code> is <code>2 * x</code>, and the derivative of <code>x</code> is <code>1</code>.</p>
+<p>Remember that the error expression is <code>error = np.square(prediction - target)</code>. When you treat <code>(prediction - target)</code> as a single variable <code>x</code>, the derivative of the error is <code>2 * x</code>. By taking the derivative of this function, you want to know in what direction should you change <code>x</code> to bring the result of <code>error</code> to zero, thereby reducing the error.</p>
+<p>When it comes to your neural network, the derivative will tell you the direction you should take to update the weights variable. If it&rsquo;s a positive number, then you predicted too high, and you need to decrease the weights. If it&rsquo;s a negative number, then you predicted too low, and you need to increase the weights.</p>
+<p>Now it&rsquo;s time to write the code to figure out how to update <code>weights_1</code> for the previous wrong prediction. If the mean squared error is <code>0.75</code>, then should you increase or decrease the weights? Since the derivative is <code>2 * x</code>, you just need to multiply the difference between the prediction and the target by <code>2</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [27]: </span><span class="n">derivative</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span>
+
+<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The derivative is </span><span class="si">{</span><span class="n">derivative</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[28]: </span><span class="go">The derivative is: [1.7420383]</span>
+</code></pre></div>
+<p>The result is <code>1.74</code>, a positive number, so you need to decrease the weights. You do that by subtracting the derivative result of the weights vector. Now you can update <code>weights_1</code> accordingly and predict again to see how it affects the prediction result:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [29]: </span><span class="c1"># Updating the weights</span>
+<span class="hll"><span class="gp">In [30]: </span><span class="n">weights_1</span> <span class="o">=</span> <span class="n">weights_1</span> <span class="o">-</span> <span class="n">derivative</span>
+</span>
+<span class="gp">In [31]: </span><span class="n">prediction</span> <span class="o">=</span> <span class="n">make_prediction</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights_1</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
+
+<span class="hll"><span class="gp">In [32]: </span><span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span>
+<span class="gp">In [33]: </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediction: </span><span class="si">{</span><span class="n">prediction</span><span class="si">}</span><span class="s2">; Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gh">Out[33]: </span><span class="go">Prediction: [0.01496248]; Error: [0.00022388]</span>
+</code></pre></div>
+<p>The error dropped down to almost <code>0</code>! Beautiful, right? In this example, the derivative result was small, but there are some cases where the derivative result is too high. Take the image of the quadratic function as an example. High increments aren&rsquo;t ideal because you could keep going from point <code>A</code> straight to point <code>B</code>, never getting close to zero. To cope with that, you update the weights with a fraction of the derivative result. </p>
+<p>To define a fraction for updating the weights, you use the <strong>alpha</strong> parameter, also called the <strong>learning rate</strong>. If you decrease the learning rate, then the increments are smaller. If you increase it, then the steps are higher. How do you know what&rsquo;s the best learning rate value? By making a guess and experimenting with it. </p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Traditional default learning rate values are <code>0.1</code>, <code>0.01</code>, and <code>0.001</code>.</p>
+</div>
+<p>If you take the new weights and make a prediction with the first input vector, then you&rsquo;ll see that now it makes a wrong prediction for that one. If your neural network makes a correct prediction for every instance in your training set, then you probably have an <a href="https://en.wikipedia.org/wiki/Overfitting">overfitted model</a>, where the model simply remembers how to classify the examples instead of learning to notice features in the data. </p>
+<p>There are techniques to avoid that, including <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a> the <a href="https://realpython.com/gradient-descent-algorithm-python/#stochastic-gradient-descent-algorithms">stochastic gradient descent</a>. In this tutorial you&rsquo;ll use the <a href="https://realpython.com/gradient-descent-algorithm-python/#stochastic-gradient-descent-algorithms">online stochastic gradient descent</a>.</p>
+<p>Now that you know how to compute the error and how to adjust the weights accordingly, it&rsquo;s time to get back continue building your neural network.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="applying-the-chain-rule"><h3>Applying the Chain Rule<a class="headerlink" href="#applying-the-chain-rule" title="Permanent link"></a></h3>
+<p>In your neural network, you need to update both the weights <em>and</em> the bias vectors. The function you&rsquo;re using to measure the error depends on two independent variables, the weights and the bias. Since the weights and the bias are <a href="https://en.wikipedia.org/wiki/Dependent_and_independent_variables">independent variables</a>, you can change and adjust them to get the result you want. </p>
+<p>The network you&rsquo;re building has two layers, and since each layer has its own functions, you&rsquo;re dealing with a <a href="https://en.wikipedia.org/wiki/Function_composition">function composition</a>. This means that the error function is still <code>np.square(x)</code>, but now <code>x</code> is the result of another function.</p>
+<p>To restate the problem, now you want to know how to change <code>weights_1</code> and <code>bias</code> to reduce the error. You already saw that you can use derivatives for this, but instead of a function with only a sum inside, now you have a function that produces its result using other functions.</p>
+<p>Since now you have this function composition, to take the derivative of the error concerning the parameters, you&rsquo;ll need to use the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> from calculus. With the chain rule, you take the partial derivatives of each function, evaluate them, and multiply all the partial derivatives to get the derivative you want. </p>
+<p>Now you can start updating the weights. You want to know how to change the weights to decrease the error. This implies that you need to compute the derivative of the error with respect to weights. Since the error is computed by combining different functions, you need to take the partial derivatives of these functions. </p>
+<p>Here&rsquo;s a visual representation of how you apply the chain rule to find the derivative of the error with respect to the weights:</p>
+<figure><a href="https://files.realpython.com/media/partial_derivative_weights_2.c792633559c3.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-66" src="https://files.realpython.com/media/partial_derivative_weights_2.c792633559c3.png" width="1500" height="2000" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/partial_derivative_weights_2.c792633559c3.png&amp;w=375&amp;sig=4d3e10447b2bdb16809433244967b72250b01f62 375w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/partial_derivative_weights_2.c792633559c3.png&amp;w=750&amp;sig=77881b051de83d0af835c87b5abc82dbd340bef5 750w, https://files.realpython.com/media/partial_derivative_weights_2.c792633559c3.png 1500w" sizes="75vw" alt="A diagram showing the partial derivatives inside a Neural Network" data-asset="3113" /></a><figcaption class="figure-caption text-center">A diagram showing the partial derivatives inside the neural network</figcaption></figure>
+<p>The bold red arrow shows the derivative you want, <code>derror_dweights</code>. You&rsquo;ll start from the red hexagon, taking the inverse path of making a prediction and computing the <a href="https://en.wikipedia.org/wiki/Partial_derivative">partial derivatives</a> at each function. </p>
+<p>In the image above, each function is represented by the yellow hexagons, and the partial derivatives are represented by the gray arrows on the left. Applying the chain rule, the value of <code>derror_dweights</code> will be the following:</p>
+<div class="highlight python"><pre><span></span><code><span class="n">derror_dweights</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">derror_dprediction</span> <span class="o">*</span> <span class="n">dprediction_dlayer1</span> <span class="o">*</span> <span class="n">dlayer1_dweights</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>To calculate the derivative, you multiply all the partial derivatives that follow the path from the error hexagon (the red one) to the hexagon where you find the weights (the leftmost green one). </p>
+<p>You can say that the derivative of <code>y = f(x)</code> is the derivative of <code>f</code> with respect to <code>x</code>. Using this nomenclature, for <code>derror_dprediction</code>, you want to know the derivative of the function that computes the error with respect to the prediction value.</p>
+<p>This reverse path is called a <strong>backward pass</strong>. In each backward pass, you compute the partial derivatives of each function, substitute the variables by their values, and finally multiply everything. </p>
+<p>This &ldquo;take the partial derivatives, evaluate, and multiply&rdquo; part is how you apply the <strong>chain rule</strong>. This algorithm to update the neural network parameters is called <strong>backpropagation</strong>.</p>
+</section><section class="section3" id="adjusting-the-parameters-with-backpropagation"><h3>Adjusting the Parameters With Backpropagation<a class="headerlink" href="#adjusting-the-parameters-with-backpropagation" title="Permanent link"></a></h3>
+<p>In this section, you&rsquo;ll walk through the backpropagation process step by step, starting with how you update the bias. You want to take the derivative of the error function with respect to the bias, <code>derror_dbias</code>. Then you&rsquo;ll keep going backward, taking the partial derivatives until you find the <code>bias</code> variable. </p>
+<p>Since you are starting from the end and going backward, you first need to take the partial derivative of the error with respect to the prediction. That&rsquo;s the <code>derror_dprediction</code> in the image below:</p>
+<figure><a href="https://files.realpython.com/media/partial_derivative_bias_2.177c16a60b9d.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-66" src="https://files.realpython.com/media/partial_derivative_bias_2.177c16a60b9d.png" width="1500" height="2000" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/partial_derivative_bias_2.177c16a60b9d.png&amp;w=375&amp;sig=f8d36aba269bb4df6789f1e79dbbc099340932b3 375w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/partial_derivative_bias_2.177c16a60b9d.png&amp;w=750&amp;sig=72cd2e7882a87d1ef09e678d9cfa9517e0ae63c8 750w, https://files.realpython.com/media/partial_derivative_bias_2.177c16a60b9d.png 1500w" sizes="75vw" alt="A diagram showing the partial derivatives to calculate how to change the bias" data-asset="3451" /></a><figcaption class="figure-caption text-center">A diagram showing the partial derivatives to compute the bias gradient</figcaption></figure>
+<p>The function that produces the error is a square function, and the derivative of this function is <code>2 * x</code>, as you saw earlier. You applied the first partial derivative (<code>derror_dprediction</code>) and still didn&rsquo;t get to the bias, so you need to take another step back and take the derivative of the prediction with respect to the previous layer, <code>dprediction_dlayer1</code>.</p>
+<p>The prediction is the result of the sigmoid function. You can take the derivative of the sigmoid function by multiplying <code>sigmoid(x)</code> and <code>1 - sigmoid(x)</code>. This derivative formula is very handy because you can use <a href="https://beckernick.github.io/sigmoid-derivative-neural-network/">the sigmoid result that has already been computed</a> to compute the derivative of it. You then take this partial derivative and continue going backward.</p>
+<p>Now you&rsquo;ll take the derivative of <code>layer_1</code> with respect to the bias. There it is&mdash;you finally got to it! The <code>bias</code> variable is an independent variable, so the result after applying the power rule is <code>1</code>. Cool, now that you&rsquo;ve completed this backward pass, you can put everything together and compute <code>derror_dbias</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [36]: </span><span class="k">def</span> <span class="nf">sigmoid_deriv</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="gp">In [37]: </span><span class="n">derror_dprediction</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span>
+<span class="gp">In [38]: </span><span class="n">layer_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="n">weights_1</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias</span>
+<span class="gp">In [39]: </span><span class="n">dprediction_dlayer1</span> <span class="o">=</span> <span class="n">sigmoid_deriv</span><span class="p">(</span><span class="n">layer_1</span><span class="p">)</span>
+<span class="gp">In [40]: </span><span class="n">dlayer1_dbias</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="hll">
+</span><span class="hll"><span class="gp">In [41]: </span><span class="n">derror_dbias</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class="hll"><span class="gp">   ...: </span>    <span class="n">derror_dprediction</span> <span class="o">*</span> <span class="n">dprediction_dlayer1</span> <span class="o">*</span> <span class="n">dlayer1_dbias</span>
+</span><span class="gp">   ...: </span><span class="p">)</span>
+</code></pre></div>
+<p>To update the weights, you follow the same process, going backward and taking the partial derivatives until you get to the weights variable. Since you&rsquo;ve already computed some of the partial derivatives, you&rsquo;ll just need to compute <code>dlayer1_dweights</code>. The derivative of the dot product is the derivative of the first vector multiplied by the second vector, plus the derivative of the second vector multiplied by the first vector.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="creating-the-neural-network-class"><h3>Creating the Neural Network Class<a class="headerlink" href="#creating-the-neural-network-class" title="Permanent link"></a></h3>
+<p>Now you know how to write the expressions to update both the weights and the bias. It&rsquo;s time to create a <strong>class</strong> for the neural network. Classes are the main building blocks of <a href="https://realpython.com/python3-object-oriented-programming/">object-oriented programming (OOP)</a>. The <code>NeuralNetwork</code> class generates random start values for the weights and bias variables. </p>
+<p>When instantiating a <code>NeuralNetwork</code> object, you need to pass the <code>learning_rate</code> parameter. You&rsquo;ll use <code>predict()</code> to make a prediction. The methods <code>_compute_derivatives()</code> and <code>_update_parameters()</code> have the computations you learned in this section. This is the final <code>NeuralNetwork</code> class:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">class</span> <span class="nc">NeuralNetwork</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+
+    <span class="k">def</span> <span class="nf">_sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_sigmoid_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_vector</span><span class="p">):</span>
+        <span class="n">layer_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+        <span class="n">layer_2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sigmoid</span><span class="p">(</span><span class="n">layer_1</span><span class="p">)</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">layer_2</span>
+        <span class="k">return</span> <span class="n">prediction</span>
+<span class="hll">
+</span><span class="hll">    <span class="k">def</span> <span class="nf">_compute_gradients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_vector</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">layer_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input_vector</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+</span><span class="hll">        <span class="n">layer_2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sigmoid</span><span class="p">(</span><span class="n">layer_1</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">prediction</span> <span class="o">=</span> <span class="n">layer_2</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="n">derror_dprediction</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">dprediction_dlayer1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sigmoid_deriv</span><span class="p">(</span><span class="n">layer_1</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">dlayer1_dbias</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class="hll">        <span class="n">dlayer1_dweights</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="n">input_vector</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="n">derror_dbias</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class="hll">            <span class="n">derror_dprediction</span> <span class="o">*</span> <span class="n">dprediction_dlayer1</span> <span class="o">*</span> <span class="n">dlayer1_dbias</span>
+</span><span class="hll">        <span class="p">)</span>
+</span><span class="hll">        <span class="n">derror_dweights</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class="hll">            <span class="n">derror_dprediction</span> <span class="o">*</span> <span class="n">dprediction_dlayer1</span> <span class="o">*</span> <span class="n">dlayer1_dweights</span>
+</span><span class="hll">        <span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="k">return</span> <span class="n">derror_dbias</span><span class="p">,</span> <span class="n">derror_dweights</span>
+</span>
+    <span class="k">def</span> <span class="nf">_update_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">derror_dbias</span><span class="p">,</span> <span class="n">derror_dweights</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">-</span> <span class="p">(</span><span class="n">derror_dbias</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">-</span> <span class="p">(</span>
+            <span class="n">derror_dweights</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span>
+        <span class="p">)</span>
+</code></pre></div>
+<p>There you have it: That&rsquo;s the code of your first neural network. Congratulations! This code just puts together all the pieces you&rsquo;ve seen so far. If you want to make a prediction, first you create an instance of <code>NeuralNetwork()</code>, and then you call <code>.predict()</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [42]: </span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="gp">In [43]: </span><span class="n">neural_network</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
+
+<span class="gp">In [44]: </span><span class="n">neural_network</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_vector</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go">array([0.79412963])</span>
+</code></pre></div>
+<p>The above code makes a prediction, but now you need to learn how to train the network. The goal is to make the network <em>generalize</em> over the training dataset. This means that you want it to adapt to new, unseen data that follow the same probability distribution as the training dataset. That&rsquo;s what you&rsquo;ll do in the next section.</p>
+</section><section class="section3" id="training-the-network-with-more-data"><h3>Training the Network With More Data<a class="headerlink" href="#training-the-network-with-more-data" title="Permanent link"></a></h3>
+<p>You&rsquo;ve already adjusted the weights and the bias for one data instance, but the goal is to make the network generalize over an entire dataset. <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic gradient descent</a> is a technique in which, at every iteration, the model makes a prediction based on a randomly selected piece of training data, calculates the error, and updates the parameters.</p>
+<p>Now it&rsquo;s time to create the <code>train()</code> method of your <code>NeuralNetwork</code> class. You&rsquo;ll save the error over all data points every 100 iterations because you want to plot a chart showing how this metric changes as the number of iterations increases. This is the final <code>train()</code> method of your neural network:</p>
+<div class="highlight python"><pre><span></span><code><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">NeuralNetwork</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="c1"># ...</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_vectors</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">iterations</span><span class="p">):</span>
+<span class="linenos"> 5</span>        <span class="n">cumulative_errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 6</span>        <span class="k">for</span> <span class="n">current_iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+<span class="linenos"> 7</span>            <span class="c1"># Pick a data instance at random</span>
+<span class="linenos"> 8</span><span class="hll">            <span class="n">random_data_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_vectors</span><span class="p">))</span>
+</span><span class="linenos"> 9</span>
+<span class="linenos">10</span>            <span class="n">input_vector</span> <span class="o">=</span> <span class="n">input_vectors</span><span class="p">[</span><span class="n">random_data_index</span><span class="p">]</span>
+<span class="linenos">11</span>            <span class="n">target</span> <span class="o">=</span> <span class="n">targets</span><span class="p">[</span><span class="n">random_data_index</span><span class="p">]</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>            <span class="c1"># Compute the gradients and update the weights</span>
+<span class="linenos">14</span><span class="hll">            <span class="n">derror_dbias</span><span class="p">,</span> <span class="n">derror_dweights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_gradients</span><span class="p">(</span>
+</span><span class="linenos">15</span><span class="hll">                <span class="n">input_vector</span><span class="p">,</span> <span class="n">target</span>
+</span><span class="linenos">16</span><span class="hll">            <span class="p">)</span>
+</span><span class="linenos">17</span><span class="hll">
+</span><span class="linenos">18</span><span class="hll">            <span class="bp">self</span><span class="o">.</span><span class="n">_update_parameters</span><span class="p">(</span><span class="n">derror_dbias</span><span class="p">,</span> <span class="n">derror_dweights</span><span class="p">)</span>
+</span><span class="linenos">19</span><span class="hll">
+</span><span class="linenos">20</span>            <span class="c1"># Measure the cumulative error for all the instances</span>
+<span class="linenos">21</span><span class="hll">            <span class="k">if</span> <span class="n">current_iteration</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="linenos">22</span>                <span class="n">cumulative_error</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">23</span>                <span class="c1"># Loop through all the instances to measure the error</span>
+<span class="linenos">24</span><span class="hll">                <span class="k">for</span> <span class="n">data_instance_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_vectors</span><span class="p">)):</span>
+</span><span class="linenos">25</span>                    <span class="n">data_point</span> <span class="o">=</span> <span class="n">input_vectors</span><span class="p">[</span><span class="n">data_instance_index</span><span class="p">]</span>
+<span class="linenos">26</span>                    <span class="n">target</span> <span class="o">=</span> <span class="n">targets</span><span class="p">[</span><span class="n">data_instance_index</span><span class="p">]</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="hll">                    <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_point</span><span class="p">)</span>
+</span><span class="linenos">29</span><span class="hll">                    <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span>
+</span><span class="linenos">30</span>
+<span class="linenos">31</span><span class="hll">                    <span class="n">cumulative_error</span> <span class="o">=</span> <span class="n">cumulative_error</span> <span class="o">+</span> <span class="n">error</span>
+</span><span class="linenos">32</span><span class="hll">                <span class="n">cumulative_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cumulative_error</span><span class="p">)</span>
+</span><span class="linenos">33</span>
+<span class="linenos">34</span>        <span class="k">return</span> <span class="n">cumulative_errors</span>
+</code></pre></div>
+<p>There&rsquo;s a lot going on in the above code block, so here&rsquo;s a line-by-line breakdown:</p>
+<ul>
+<li>
+<p><strong>Line 8</strong> picks a random instance from the dataset.</p>
+</li>
+<li>
+<p><strong>Lines 14 to 16</strong> calculate the partial derivatives and return the derivatives for the bias and the weights. They use <code>_compute_gradients()</code>, which you defined earlier.</p>
+</li>
+<li>
+<p><strong>Line 18</strong> updates the bias and the weights using <code>_update_parameters()</code>, which you defined in the previous code block.</p>
+</li>
+<li>
+<p><strong>Line 21</strong> checks if the current iteration index is a multiple of <code>100</code>. You do this to observe how the error changes every <code>100</code> iterations. </p>
+</li>
+<li>
+<p><strong>Line 24</strong> starts the loop that goes through all the data instances.</p>
+</li>
+<li>
+<p><strong>Line 28</strong> computes the <code>prediction</code> result. </p>
+</li>
+<li>
+<p><strong>Line 29</strong> computes the <code>error</code> for every instance. </p>
+</li>
+<li>
+<p><strong>Line 31</strong> is where you accumulate the sum of the errors using the <code>cumulative_error</code> variable. You do this because you want to plot a point with the error for <em>all</em> the data instances. Then, on line 32, you append the <code>error</code> to <code>cumulative_errors</code>, the array that stores the errors. You&rsquo;ll use this array to plot the graph.</p>
+</li>
+</ul>
+<p>In short, you pick a random instance from the dataset, compute the gradients, and update the weights and the bias. You also compute the cumulative error every 100 iterations and save those results in an array. You&rsquo;ll plot this array to visualize how the error changes during the training process.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> If you&rsquo;re running the code in a Jupyter Notebook, then you need to restart the kernel after adding <code>train()</code> to the <code>NeuralNetwork</code> class.</p>
+</div>
+<p>To keep things less complicated, you&rsquo;ll use a dataset with just eight instances, the <code>input_vectors</code> array. Now you can call <code>train()</code> and use Matplotlib to plot the cumulative error for each iteration:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">In [45]: </span><span class="c1"># Paste the NeuralNetwork class code here</span>
+<span class="gp">   ...: </span><span class="c1"># (and don&#39;t forget to add the train method to the class)</span>
+
+<span class="gp">In [46]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">In [47]: </span><span class="n">input_vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">   ...: </span>    <span class="p">[</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ...: </span>    <span class="p">]</span>
+<span class="gp">   ...: </span><span class="p">)</span>
+
+<span class="gp">In [48]: </span><span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="gp">In [49]: </span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="gp">In [50]: </span><span class="n">neural_network</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
+
+<span class="gp">In [51]: </span><span class="n">training_error</span> <span class="o">=</span> <span class="n">neural_network</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">input_vectors</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="gp">In [52]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">training_error</span><span class="p">)</span>
+<span class="gp">In [53]: </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Iterations&quot;</span><span class="p">)</span>
+<span class="gp">In [54]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Error for all training instances&quot;</span><span class="p">)</span>
+<span class="gp">In [54]: </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;cumulative_error.png&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>You instantiate the <code>NeuralNetwork</code> class again and call <code>train()</code> using the <code>input_vectors</code> and the <code>target</code> values. You specify that it should run <code>10000</code> times. This is the graph showing the error for an instance of a neural network:</p>
+<figure><a href="https://files.realpython.com/media/cumulative_error.93469c3cd4e3.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-70" src="https://files.realpython.com/media/cumulative_error.93469c3cd4e3.png" width="640" height="480" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/cumulative_error.93469c3cd4e3.png&amp;w=160&amp;sig=1dc6ac48cf31125c0ef727eaff9bd28a610d9b16 160w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/cumulative_error.93469c3cd4e3.png&amp;w=320&amp;sig=a952d09dc54eafbb6b8057fc71e262a6a6ac7705 320w, https://files.realpython.com/media/cumulative_error.93469c3cd4e3.png 640w" sizes="75vw" alt="Line graph showing the cumulative neural network error decreasing" data-asset="3493" /></a><figcaption class="figure-caption text-center">Graph showing the cumulative training error</figcaption></figure>
+<p>The overall error is decreasing, which is what you want. The image is generated in the same directory where you&rsquo;re running IPython. After the largest decrease, the error keeps going up and down quickly from one interaction to another. That&rsquo;s because the dataset is <a href="https://realpython.com/python-random/">random</a> and very small, so it&rsquo;s hard for the neural network to extract any features.</p>
+<p>But it&rsquo;s not a good idea to evaluate the performance using this metric because you&rsquo;re evaluating it using data instances that the network already saw. This can lead to <a href="https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting">overfitting</a>, when the model fits the training dataset so well that it doesn&rsquo;t generalize to new data. </p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="adding-more-layers-to-the-neural-network"><h3>Adding More Layers to the Neural Network<a class="headerlink" href="#adding-more-layers-to-the-neural-network" title="Permanent link"></a></h3>
+<p>The dataset in this tutorial was kept small for learning purposes. Usually, deep learning models need a large amount of data because the datasets are more complex and have a lot of nuances.</p>
+<p>Since these datasets have more complex information, using only one or two layers isn&rsquo;t enough. That&rsquo;s why deep learning models are called &ldquo;deep.&rdquo; They usually have a large number of layers. </p>
+<p>By adding more layers and using activation functions, you increase the network&rsquo;s expressive power and can make very high-level predictions. An example of these types of predictions is <a href="https://realpython.com/face-recognition-with-python/">face recognition</a>, such as when you take a photo of your face with your phone, and the phone unlocks if it recognizes the image as you.</p>
+</section></section><section class="section2" id="conclusion"><h2>Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
+<p>Congratulations! Today, you built a neural network from scratch using NumPy. With this knowledge, you&rsquo;re ready to dive deeper into the world of artificial intelligence in Python.</p>
+<p><strong>In this tutorial, you learned:</strong></p>
+<ul>
+<li>What <strong>deep learning</strong> is and what differentiates it from <strong>machine learning</strong></li>
+<li>How to represent <strong>vectors</strong> with NumPy</li>
+<li>What <strong>activation functions</strong> are and why they&rsquo;re used inside a neural network</li>
+<li>What the <strong>backpropagation algorithm</strong> is and how it works</li>
+<li>How to train a <strong>neural network</strong> and make <strong>predictions</strong></li>
+</ul>
+<p>The process of training a neural network mainly consists of applying operations to vectors. Today, you did it from scratch using only NumPy as a dependency. This isn&rsquo;t recommended in a production setting because the whole process can be unproductive and error-prone. That&rsquo;s one of the reasons why deep learning frameworks like <a href="https://realpython.com/python-keras-text-classification/">Keras</a>, <a href="https://realpython.com/pytorch-vs-tensorflow/">PyTorch, and TensorFlow</a> are so popular.</p>
+</section><section class="section2" id="further-reading"><h2>Further Reading<a class="headerlink" href="#further-reading" title="Permanent link"></a></h2>
+<p>For additional information on topics covered in this tutorial, check out these resources:</p>
+<ul>
+<li><a href="https://realpython.com/numpy-array-programming/">Look Ma, No For-Loops: Array Programming With NumPy</a></li>
+<li><a href="https://realpython.com/linear-regression-in-python/">Linear Regression in Python</a></li>
+<li><a href="https://realpython.com/python-keras-text-classification/">Practical Text Classification With Python and Keras</a></li>
+<li><a href="https://realpython.com/numpy-tensorflow-performance/">Pure Python vs NumPy vs TensorFlow Performance Comparison</a></li>
+<li><a href="https://realpython.com/pytorch-vs-tensorflow/">PyTorch vs TensorFlow for Your Python Deep Learning Project</a></li>
+</ul>
+</section>
+<div class="text-center my-3">
+<div class="jsCompletionStatusWidget btn-group mb-0">
+<button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right " style="border-top-right-radius: 0; border-bottom-right-radius: 0;" disabled>Mark as Completed</button>
+<button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left" disabled><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+</div>
+</div>
+<div class="card mt-4 mb-4 bg-secondary">
+<p class="card-header h3 text-center bg-light">🐍 Python Tricks 💌</p>
+<div class="card-body">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-7">
+<p>Get a short &amp; sweet <strong>Python Trick</strong> delivered to your inbox every couple of days. No spam ever. Unsubscribe any time. Curated by the Real Python team.</p>
+</div>
+<div class="col-xs-12 col-sm-5">
+<img class="img-fluid rounded mb-3" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge">
+</div>
+</div>
+<div class="row mb-3">
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="SMUckqeUU5Rk99MRmyNeYlEBn9ShlyAGaAONNIjV3NOmZQIuPlx4sGbBNEA6OfRU">
+<input type="hidden" name="slug" value="static-python-tricks-footer">
+<div class="form-group">
+<input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required>
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Send Me Python Tricks »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="card mt-3" id="author">
+<p class="card-header h3">About <strong>Déborah Mesquita</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="/team/dmesquita/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=7b7e3b52f0049e955f4e0434ed79543ca6e0926d" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=fb1116b867e8fde97a298982635aec2b2e8942c3 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=2f46fe7354c39a9b85d6ed91ca6e2f3511128966 400w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=7b7e3b52f0049e955f4e0434ed79543ca6e0926d 800w" sizes="25vw" width="800" height="800" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Déborah Mesquita"></a>
+<a href="/team/dmesquita/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=7b7e3b52f0049e955f4e0434ed79543ca6e0926d" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=fb1116b867e8fde97a298982635aec2b2e8942c3 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=2f46fe7354c39a9b85d6ed91ca6e2f3511128966 400w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/0BECB59D-6AF9-4F1E-B71C-5026A0954DCA.71b19fd1ee7f.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=7b7e3b52f0049e955f4e0434ed79543ca6e0926d 800w" sizes="25vw" width="800" height="800" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Déborah Mesquita"></a>
+</div>
+<div class="col mt-3">
+<p>Déborah is a data scientist who loves to explain concepts in comprehensive ways.</p>
+<a href="/team/dmesquita/" class="card-link">» More about Déborah</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/asantos/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=700&amp;h=700&amp;mode=crop&amp;sig=be17609cd7f6a4cd249ff61e186b3ad1aece949c" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=175&amp;h=175&amp;mode=crop&amp;sig=30253487c673fd67bb45ea6bef95b3c57e115e46 175w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=350&amp;h=350&amp;mode=crop&amp;sig=a43bd9ea30a6f61a4fc2451ab9abfc6faec8a2c0 350w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=700&amp;h=700&amp;mode=crop&amp;sig=be17609cd7f6a4cd249ff61e186b3ad1aece949c 700w" sizes="10vw" width="800" height="800" class="rounded-circle img-fluid w-100" alt="Aldren Santos"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/asantos/" class="card-link small"><p>Aldren</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/damos/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/me-small.f5f49f1c48e1.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=522ebc378492fd2228f8a9980bf89544b51aba2c" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/me-small.f5f49f1c48e1.jpg&amp;w=100&amp;h=100&amp;mode=crop&amp;sig=4e832705873c990ccc3fe2459dcd2b081613ecb1 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/me-small.f5f49f1c48e1.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=ecc773a7a56114ed2831d281156669f0d7f1ab68 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/me-small.f5f49f1c48e1.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=522ebc378492fd2228f8a9980bf89544b51aba2c 400w" sizes="10vw" width="800" height="800" class="rounded-circle img-fluid w-100" alt="David Amos"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/damos/" class="card-link small"><p>David</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/gahjelle/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=e9b761c6cf1359953014dba05554f5424eb116e1" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=c6390201e73d3e09429d73da5bb29c17ab10403a 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=fcea459ee24a7b320573cadee324cf75509dc1d6 400w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=e9b761c6cf1359953014dba05554f5424eb116e1 800w" sizes="10vw" width="800" height="800" class="rounded-circle img-fluid w-100" alt="Geir Arne Hjelle"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/gahjelle/" class="card-link small"><p>Geir Arne</p></a>
+</div>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jjablonski/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=c363b704eeccb35f2247db13baff3d4383459858" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=706b16de3cb88a8f353f4a98d7c7bc7234229bd0 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=6d7aa672ca3f1ac5f7cd62ed1641b60f98d04d8b 400w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=c363b704eeccb35f2247db13baff3d4383459858 800w" sizes="10vw" width="800" height="800" class="rounded-circle img-fluid w-100" alt="Joanna Jablonski"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jjablonski/" class="card-link small"><p>Joanna</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jschmitt/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-small_js.2f4d0d8da1ca.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=d10d9fc35ba4a6608969e71b4c24c1e61176ee2d" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-small_js.2f4d0d8da1ca.jpg&amp;w=100&amp;h=100&amp;mode=crop&amp;sig=ef40d1115d3b4c306b16314b5555d5dc55361da9 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-small_js.2f4d0d8da1ca.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=e1df2f238effe79f5750fc75258642036de498c3 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-small_js.2f4d0d8da1ca.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=d10d9fc35ba4a6608969e71b4c24c1e61176ee2d 400w" sizes="10vw" width="800" height="800" class="rounded-circle img-fluid w-100" alt="Jacob Schmitt"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jschmitt/" class="card-link small"><p>Jacob</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-light rounded py-4 my-4 shadow shadow-sm mx-n2">
+<div class="col-12 text-center d-block d-md-none">
+<p class="h2 mb-3">Master <u><span class="marker-highlight">Real-World Python Skills</mark></u> With Unlimited Access to Real&nbsp;Python</p>
+ <p class="mb-1"><img class="w-75" src="/static/videos/lesson-locked.f5105cfd26db.svg"></p>
+<p class="mx-auto w-75 mb-3 small"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert&nbsp;Pythonistas:</strong></p>
+<p class="mb-0"><a href="/account/join/?utm_source=rp_article_footer&utm_content=python-ai-neural-network" class="btn btn-primary btn-sm px-4 mb-0">Level Up Your Python Skills »</a>
+</div>
+<div class="col-12 text-center d-none d-md-block">
+<p class="h2 mb-2">Master <u><span class="marker-highlight">Real-World Python Skills</span></u><br>With Unlimited Access to Real&nbsp;Python</p>
+<p class="mb-2"><img class="w-50 mb-2" src="/static/videos/lesson-locked.f5105cfd26db.svg"></p>
+<p class="mx-auto w-50 mb-3"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+<p><a href="/account/join/?utm_source=rp_article_footer&utm_content=python-ai-neural-network" class="btn btn-primary btn-lg px-4">Level Up Your Python Skills »</a>
+</div>
+</div>
+<div class="card mt-4" id="reader-comments">
+<p class="card-header h3">What Do You Think?</p>
+<div class="text-center mt-3 mb-0 p-0">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Python%20AI%3A%20How%20to%20Build%20a%20Neural%20Network%20%26%20Make%20Predictions by @realpython&url=https%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0APython%20AI%3A%20How%20to%20Build%20a%20Neural%20Network%20%26%20Make%20Predictions%0A%0Ahttps%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+<div class="card-body">
+<div class="alert alert-dark">
+<p class="mb-0"><strong>Real Python Comment Policy:</strong> The most useful comments are those written with the goal of learning from or helping out other readers—after reading the whole article and all the earlier comments. Complaints and insults generally won’t make the cut here.</p>
+</div>
+<p>What’s your #1 takeaway or favorite thing you learned? How are you going to put your newfound skills to use? Leave a comment below and let us know.</p>
+<div class="mb-4" id="disqus_thread">
+</div>
+</div>
+</div>
+<div class="card mt-4 mb-4">
+<p class="card-header h3">Keep Learning</p>
+<div class="card-body">
+<p class="mb-0">Related Tutorial Categories:
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+</p>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="rpvc">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header border-0 mt-3">
+<div class="col-12 modal-title text-center">
+<h2 class="my-0 mx-5">Master <u>Real-World Python Skills</u> With Unlimited Access to Real Python</h2>
+<p class="text-center text-muted mt-2 mb-1">Already a member? <a href="/account/login/">Sign-In</a></p>
+</div>
+</div>
+<div class="modal-body bg-light">
+<div class="col-12 text-center">
+<p class="mb-2 mt-3"><a href="/account/join/?utm_source=rp&utm_medium=web&utm_campaign=pwn&utm_content=v2"><img class="w-50 mb-2" src="/static/videos/lesson-locked.f5105cfd26db.svg"></a></p>
+<p class="mx-auto w-66 mb-3"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+<p><a href="/account/join/?utm_source=rp&utm_medium=web&utm_campaign=pwn&utm_content=v2" class="btn btn-primary btn-lg px-4"><i class="fa fa-unlock mr-2"></i>Unlock All Content »</a></a>
+</div>
+</div>
+<div class="modal-footer border-0">
+<button class="text-muted btn" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="col-md-7 col-lg-4">
+<div class="card mb-3 bg-secondary">
+<form class="card-body" action="/optins/process/" method="post">
+<div class="form-group">
+<p class="h5 text-muted text-center">— FREE Email Series —</p>
+<p class="h3 text-center">🐍 Python Tricks 💌</p>
+<p><img class="img-fluid rounded" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
+</div>
+<div class="form-group">
+<input type="hidden" name="csrfmiddlewaretoken" value="SMUckqeUU5Rk99MRmyNeYlEBn9ShlyAGaAONNIjV3NOmZQIuPlx4sGbBNEA6OfRU">
+<input type="hidden" name="slug" value="static-python-tricks-sidebar">
+<input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
+</div>
+<button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+<p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+</form>
+</div>
+<div class="sidebar-module sidebar-module-inset border">
+<p class="h4"><a class="link-unstyled" href="/tutorials/all/">All Tutorial Topics</a></p>
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+<a href="/tutorials/api/" class="badge badge-light text-muted">api</a>
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+<a href="/tutorials/django/" class="badge badge-light text-muted">django</a>
+<a href="/tutorials/docker/" class="badge badge-light text-muted">docker</a>
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+<a href="/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a>
+<a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+<a href="/tutorials/testing/" class="badge badge-light text-muted">testing</a>
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+<a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:100%;"></div>
+<div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<div class="sidebar-sticky sidebar-nav-message">
+<div class="bg-light sidebar-module sidebar-module-inset" id="sidebar-toc">
+<p class="h4 text-muted"><a class="link-unstyled" href="#toc">Table of Contents</a></p>
+<div class="toc">
+<ul>
+<li><a href="#artificial-intelligence-overview">Artificial Intelligence Overview</a><ul>
+<li><a href="#machine-learning">Machine Learning</a></li>
+<li><a href="#feature-engineering">Feature Engineering</a></li>
+<li><a href="#deep-learning">Deep Learning</a></li>
+</ul>
+</li>
+<li><a href="#neural-networks-main-concepts">Neural Networks: Main Concepts</a><ul>
+<li><a href="#the-process-to-train-a-neural-network">The Process to Train a Neural Network</a></li>
+<li><a href="#vectors-and-weights">Vectors and Weights</a></li>
+<li><a href="#the-linear-regression-model">The Linear Regression Model</a></li>
+</ul>
+</li>
+<li><a href="#python-ai-starting-to-build-your-first-neural-network">Python AI: Starting to Build Your First Neural Network</a><ul>
+<li><a href="#wrapping-the-inputs-of-the-neural-network-with-numpy">Wrapping the Inputs of the Neural Network With NumPy</a></li>
+<li><a href="#making-your-first-prediction">Making Your First Prediction</a></li>
+</ul>
+</li>
+<li><a href="#train-your-first-neural-network">Train Your First Neural Network</a><ul>
+<li><a href="#computing-the-prediction-error">Computing the Prediction Error</a></li>
+<li><a href="#understanding-how-to-reduce-the-error">Understanding How to Reduce the Error</a></li>
+<li><a href="#applying-the-chain-rule">Applying the Chain Rule</a></li>
+<li><a href="#adjusting-the-parameters-with-backpropagation">Adjusting the Parameters With Backpropagation</a></li>
+<li><a href="#creating-the-neural-network-class">Creating the Neural Network Class</a></li>
+<li><a href="#training-the-network-with-more-data">Training the Network With More Data</a></li>
+<li><a href="#adding-more-layers-to-the-neural-network">Adding More Layers to the Neural Network</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+<div class="jsCompletionStatusWidget btn-group mb-0">
+<button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right " style="border-top-right-radius: 0; border-bottom-right-radius: 0;" disabled>Mark as Completed</button>
+<button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left" disabled><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Python%20AI%3A%20How%20to%20Build%20a%20Neural%20Network%20%26%20Make%20Predictions by @realpython&url=https%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0APython%20AI%3A%20How%20to%20Build%20a%20Neural%20Network%20%26%20Make%20Predictions%0A%0Ahttps%3A//realpython.com/python-ai-neural-network/" class="mr-1 badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:25%;"></div>
+<div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<div class="modal fade" id="modal-numpy-learning-guide" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header bg-light pt-3 pb-2">
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<div class="progress" style="height: .5rem;">
+<div class="progress-bar progress-bar-striped progress-bar-animated w-50" role="progressbar"></div>
+</div>
+</div>
+<div class="col-12">
+<p class="text-muted text-center mb-0 mt-2">Almost there! Complete this form and click the button below to gain instant access:</p>
+</div>
+</div>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body m-4">
+<div class="container-fluid">
+<div class="row align-items-center">
+<div class="col-12 col-lg-4 mb-4">
+<img class="img-fluid rounded" src="https://files.realpython.com/media/numpy-learning-guide.71182b4d845c.jpg" width="700" height="494" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/numpy-learning-guide.71182b4d845c.jpg&amp;w=175&amp;sig=3b73bcdd0c2a8928222686a9a1b44bcc770e722b 175w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/numpy-learning-guide.71182b4d845c.jpg&amp;w=350&amp;sig=207a8a83e872fd56c8040cf13b4d903beecb2249 350w, https://files.realpython.com/media/numpy-learning-guide.71182b4d845c.jpg 700w" sizes="50vw" alt="NumPy Learning Resources Guide">
+</div>
+<div class="col">
+<p class="text-center h3 mb-4">NumPy: The Best Learning Resources (A Free PDF Guide)</p>
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="SMUckqeUU5Rk99MRmyNeYlEBn9ShlyAGaAONNIjV3NOmZQIuPlx4sGbBNEA6OfRU">
+<input type="hidden" name="slug" value="numpy-learning-guide">
+<div class="form-group">
+<input type="email" name="email" class="form-control" placeholder="Email Address" required autofocus>
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-block text-wrap">Send My NumPy Guide »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted w-75 mx-auto">© 2012–2021 Real Python&nbsp;⋅ <a href="/newsletter/">Newsletter</a>&nbsp;⋅ <a href="/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="/search">Search</a>&nbsp;⋅ <a href="/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="/energy-policy/" class="text-success active">Energy Policy</a>&nbsp;⋅ <a href="/sponsorships/">Advertise</a>&nbsp;⋅ <a href="/contact/">Contact</a><br>❤️ Happy Pythoning!</p>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.8fb8fee4fcc3.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.f0c2bcf5ef0c.js"></script>
+<script>
+    (function() {
+      document.querySelectorAll(".js-search-form-submit").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.currentTarget.parentElement.submit();
+        })
+      });
+    })();
+    </script>
+<script src="/static/frontend/reader/repl-toggle.71b73a938a7f.js"></script>
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="https://srv.realpython.net/tag.js" async></script>
+<script src="/static/frontend/reader/toc-refresh.76a102c7d921.js" async></script>
+<script id="js-context" type="application/json">{"is_completed": false, "is_bookmarked": false, "api_article_bookmark_url": "/api/v1/articles/python-ai-neural-network/bookmark/", "api_article_completion_status_url": "/api/v1/articles/python-ai-neural-network/completion_status/"}</script>
+<script src="/static/frontend/reader/completion-status.942e497c32e4.js" async></script>
+<script id="dsq-count-scr" src="https://realpython.disqus.com/count.js" async></script>
+<script>
+      var disqus_config = function () {
+        this.page.url = 'https://realpython.com/python-ai-neural-network/';
+        this.page.identifier = 'https://realpython.com/python-ai-neural-network/';
+        this.callbacks.onReady = [function() {
+          if (window.onDisqusReady) {
+            window.onDisqusReady();
+          }
+        }];
+      };
+      var disqus_script_url = 'https://realpython.disqus.com/embed.js';
+    </script>
+<script src="/static/frontend/reader/lazy-disqus.07ee9079f4a3.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "c0081e20-a523-42bb-b0ac-04c5a9e8bf40"
+      });
+    });
+  </script>
+<script src="/static/frontend/reader/articlevc.2fbd5158a355.js" defer></script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Python AI: How to Build a Neural Network \u0026 Make Predictions",
+
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.68fe2ddda7ae.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://realpython.com/python-ai-neural-network/"
+    },
+    "datePublished": "2021-03-17T14:00:00+00:00",
+    "dateModified": "2021-02-27T01:26:04.424161+00:00",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://realpython.com/static/real-python-logo-square-tiny.b2452b6d3823.png",
+        "width": 60,
+        "height": 60
+      }
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "url": "https://realpython.com",
+      "logo": "https://realpython.com/static/real-python-logo-square.146e987bf77c.png"
+    },
+    "description": "In this step\u002Dby\u002Dstep tutorial, you\u0027ll build a neural network from scratch as an introduction to the world of artificial intelligence (AI) in Python. You\u0027ll learn how to train your neural network and make accurate predictions based on a given dataset."
+  }
+  </script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'65a08b768cfc170c',m:'2cb62a47e6663b14bd3f39e6835e5091d77fdb51-1622803245-1800-AZ0mwAwRRXpVp8jnVevOoukj1vD3ZCPskZ/1OR7kckDGBMSd36ey3UhE9jH2vQGeOz4dqQSvaa7zwjmJwz2Us+4JLNPHbj4rojqtpc2jBNChZ/0HgmyhDEZXoYBvAQpYEHX6B9YwuXAeqv5pY9BiNec=',s:[0x648035d5df,0xcaed96cca9],}})();</script></body>
+</html>

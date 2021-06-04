@@ -45,7 +45,7 @@ const getSource = (source, uri) => {
   })();
 };
 
-module.exports = async (input, links) => {
+module.exports = async (input, links = []) => {
   info('Start parsing from HTML...');
   const html = cleanify(input);
   const meta = extractMetaData(html);
@@ -59,7 +59,6 @@ module.exports = async (input, links) => {
     published = '',
   } = meta;
 
-
   [
     'url',
     'shortlink',
@@ -72,7 +71,7 @@ module.exports = async (input, links) => {
   });
 
   if (!title || links.length === 0) {
-    info('No `title` or `url`, stop processing');
+    info('No `title` or `url` detected, stop processing');
     return null;
   }
 
@@ -100,7 +99,6 @@ module.exports = async (input, links) => {
     info('Main article is too short!');
     return null;
   }
-
 
   info('Finish parsing process');
   return {

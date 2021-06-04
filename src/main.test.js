@@ -93,6 +93,15 @@ test(`test extract from html content`, async () => {
   });
 });
 
+test(`test extract from actual html content`, async () => {
+  const html = readFileSync('./test-data/regular-article.html', 'utf8');
+  const result = await extract(html);
+  expect(result).toBeInstanceOf(Object);
+  keys.forEach((k) => {
+    expect(hasProperty(result, k)).toBe(true);
+  });
+});
+
 test(`test extract oembed`, async () => {
   const link = 'https://twitter.com/ndaidong/status/1173592062878314497';
   const url = 'https://publish.twitter.com/oembed?format=json&url=' + encodeURIComponent(link);
