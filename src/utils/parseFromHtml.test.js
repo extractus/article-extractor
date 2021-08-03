@@ -31,3 +31,11 @@ test(`test parseFromHtml a webpage with article but no source`, async () => {
   const result = await parseFromHtml(html, ['abcd']);
   expect(result).toBeInstanceOf(Object);
 });
+
+test(`test parseFromHtml replace src with data-src in img tag`, async () => {
+  const html = readFileSync('./test-data/html-article-with-data-src.html', 'utf8');
+  const result = await parseFromHtml(html, ['abcd']);
+
+  expect(result.content).toContain('<img src="https://somewhere.any/image1.jpg" />');
+  expect(result.content).toContain('<img src="https://somewhere.any/image2.jpg" />');
+});
