@@ -23,7 +23,7 @@ module.exports = (htmlArticle, url) => {
   });
 
   $('img').each((i, elem) => {
-    const src = $(elem).attr('src');
+    const src = $(elem).attr('data-src') || $(elem).attr('src');
     if (src) {
       $(elem).attr('src', absolutifyUrl(url, src));
     }
