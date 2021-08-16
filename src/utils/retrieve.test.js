@@ -22,6 +22,9 @@ test(`test retrieve from bad source`, async () => {
   nock(baseUrl).get(path).reply(200, '', {
     'Content-Type': 'something/strange',
   });
-  const result = await retrieve(url);
-  expect(result).toBe(null);
+  const fn = async () => {
+    const result = await retrieve(url);
+    return result;
+  };
+  expect(fn()).rejects.toThrow(Error);
 });
