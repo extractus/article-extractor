@@ -1,37 +1,37 @@
 // utils/extractWithRules
 
-const cheerio = require('cheerio');
+const cheerio = require('cheerio')
 
 const {
-  stripTags,
-} = require('bellajs');
+  stripTags
+} = require('bellajs')
 
 const {
-  error,
-} = require('../utils/logger');
+  error
+} = require('../utils/logger')
 
-const MIN_SECTION_LENGTH = 200;
-const MIN_TEXT_LENGTH = 20;
+const MIN_SECTION_LENGTH = 200
+const MIN_TEXT_LENGTH = 20
 
 const countWord = (text) => {
-  return text.length > 0 ? text.split(/\s+/).length : 0;
-};
+  return text.length > 0 ? text.split(/\s+/).length : 0
+}
 
 module.exports = (html) => {
   try {
     const doc = cheerio.load(html, {
       lowerCaseTags: true,
       lowerCaseAttributeNames: true,
-      recognizeSelfClosing: true,
-    });
+      recognizeSelfClosing: true
+    })
 
     const filterElements = [
       '.tb-c-comments-box', // thebureauinvestigates.com
       '.share-buttons', // codecondo.com
-      '.sidebar-widget', // hongkiat.com
-    ];
+      '.sidebar-widget' // hongkiat.com
+    ]
     for (let j = 0; j < filterElements.length; j++) {
-      doc(filterElements[j]).empty();
+      doc(filterElements[j]).empty()
     }
 
     const potentialElements = [
@@ -83,32 +83,32 @@ module.exports = (html) => {
       '.timely-blog-rich-text-block', // memory.ai/timely-blog
       'article',
       '.article',
-      '#article',
-    ];
+      '#article'
+    ]
 
     for (let i = 0; i < potentialElements.length; i++) {
-      const selector = potentialElements[i];
-      const els = doc(selector);
+      const selector = potentialElements[i]
+      const els = doc(selector)
       if (els) {
-        const parts = [];
+        const parts = []
         els.each((_, el) => {
-          const section = doc(el);
-          const text = section.html().trim();
+          const section = doc(el)
+          const text = section.html().trim()
           if (countWord(text) >= MIN_SECTION_LENGTH) {
-            parts.push(text);
+            parts.push(text)
           }
-        });
+        })
         if (parts.length > 0) {
           return parts.reduce((prev, curr) => {
-            return prev.concat([curr]);
+            return prev.concat([curr])
           }, []).filter((sect) => {
-            return stripTags(sect).length > MIN_TEXT_LENGTH;
-          }).join('');
+            return stripTags(sect).length > MIN_TEXT_LENGTH
+          }).join('')
         }
       }
     }
   } catch (err) {
-    error(err);
+    error(err)
   }
-  return null;
-};
+  return null
+}
