@@ -50,7 +50,7 @@ test('test extract a bad link', async () => {
 })
 
 test('test extract a fake link', async () => {
-  const url = 'http://somewhere.xyz'
+  const url = 'https://somewhere.xyz'
   const { baseUrl, path } = parseUrl(url)
   nock(baseUrl).head(path).reply(404)
   nock(baseUrl).get(path).reply(404)
@@ -62,7 +62,7 @@ test('test extract a fake link', async () => {
 })
 
 test('test extract an error endpoint', async () => {
-  const url = 'http://bad-endpoint-somewhere-do-not.exist'
+  const url = 'https://bad-endpoint-somewhere-do-not.exist'
   const fn = async () => {
     const re = await extract(url)
     return re
