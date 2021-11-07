@@ -1,7 +1,5 @@
 // utils -> parseFromHtml
 
-const { URL } = require('url')
-
 const {
   unique,
   stripTags,
@@ -92,7 +90,7 @@ module.exports = async (input, links = []) => {
     contentLengthThreshold
   } = getParserOptions()
 
-  const normalizedContent = standalizeArticle(mainText, bestUrl)
+  const normalizedContent = await standalizeArticle(mainText, bestUrl)
   const textContent = stripTags(normalizedContent)
   if (textContent.length < contentLengthThreshold) {
     info('Main article is too short!')

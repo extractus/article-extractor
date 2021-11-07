@@ -27,15 +27,15 @@ Then:
 ```js
 const {
   extract
-} = require('article-parser');
+} = require('article-parser')
 
-const url = 'https://goo.gl/MV8Tkh';
+const url = 'https://goo.gl/MV8Tkh'
 
 extract(url).then((article) => {
-  console.log(article);
+  console.log(article)
 }).catch((err) => {
-  console.log(err);
-});
+  console.log(err)
+})
 ```
 
 ## APIs
@@ -53,20 +53,19 @@ Here is how we can use `article-parser`:
 ```js
 import {
   extract
-} from 'article-parser';
+} from 'article-parser'
 
 const getArticle = async (url) => {
   try {
-    const article = await extract(url);
-    return article;
+    const article = await extract(url)
+    return article
   } catch (err) {
-    console.trace(err);
+    console.trace(err)
   }
-};
-
+}
 ```
 
-In comparison to v3, the `article` object structure has been changed too. Now it looks like below:
+If the extraction works well, you should get an `article` object with the structure as below:
 
 ```json
 {
@@ -102,7 +101,7 @@ Here are default properties/values:
 ```js
 {
   wordsPerMinute: 300,
-  urlsCompareAlgorithm: 'levenshtein',
+  urlsCompareAlgorithm: 'levenshtein'
 }
 ```
 
@@ -119,7 +118,7 @@ Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs f
   timeout: 30000,
   redirect: 'follow',
   compress: true,
-  agent: false,
+  agent: false
 }
 ```
 Read [node-fetch](https://www.npmjs.com/package/node-fetch#options) docs for more info.
@@ -139,11 +138,11 @@ Read [node-fetch](https://www.npmjs.com/package/node-fetch#options) docs for mor
     'fieldset', 'legend',
     'img', 'picture',
     'br', 'p', 'hr',
-    'a',
+    'a'
   ],
   allowedAttributes: {
     a: ['href'],
-    img: ['src', 'alt'],
+    img: ['src', 'alt']
   },
 }
 ```

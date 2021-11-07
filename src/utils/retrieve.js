@@ -1,6 +1,6 @@
 // utils -> retrieve
 
-const fetch = require('node-fetch')
+const fetch = require('cross-fetch')
 
 const {
   error,

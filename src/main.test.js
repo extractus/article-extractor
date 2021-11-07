@@ -20,6 +20,8 @@ const {
 
 const keys = 'url title description image author content published source links ttr'.split(' ')
 
+jest.setTimeout(10000)
+
 const parseUrl = (url) => {
   const re = new URL(url)
   return {
@@ -68,21 +70,6 @@ test('test extract an error endpoint', async () => {
   expect(fn()).rejects.toThrow(Error)
 })
 
-test('test extract a good link', async () => {
-  const url = 'https://medium.com/swlh/the-golden-rule-of-freelancing-d02a35c73baa'
-  const html = readFileSync('./test-data/golden-rule-of-freelancing.txt', 'utf8')
-  const { baseUrl, path } = parseUrl(url)
-  nock(baseUrl).head(path).reply(200, '')
-  nock(baseUrl).get(path).reply(200, html, {
-    'Content-Type': 'text/html'
-  })
-  const result = await extract(url)
-  expect(result).toBeInstanceOf(Object)
-  keys.forEach((k) => {
-    expect(hasProperty(result, k)).toBe(true)
-  })
-})
-
 test('test extract from html content', async () => {
   const html = readFileSync('./test-data/venturebeat.txt', 'utf8')
   const result = await extract(html)
@@ -103,14 +90,6 @@ test('test extract from actual html content', async () => {
 
 test('test extract oembed', async () => {
   const link = 'https://twitter.com/ndaidong/status/1173592062878314497'
-  const url = 'https://publish.twitter.com/oembed?format=json&url=' + encodeURIComponent(link)
-  const text = readFileSync('./test-data/tweet-oembed.json', 'utf8')
-  const json = JSON.parse(text)
-  const { baseUrl, path } = parseUrl(url)
-  nock(baseUrl).head(path).reply(200, '')
-  nock(baseUrl).get(path).reply(200, json, {
-    'Content-Type': 'application/json'
-  })
   const result = await extract(link)
   expect(result).toBeInstanceOf(Object)
   keys.forEach((k) => {

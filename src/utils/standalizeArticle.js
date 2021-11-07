@@ -8,7 +8,7 @@ const { minify: htmlmin } = require('html-minifier-terser')
 const absolutifyUrl = require('./absolutifyUrl')
 const { getSanitizeHtmlOptions } = require('../config')
 
-module.exports = (htmlArticle, url) => {
+module.exports = async (htmlArticle, url) => {
   const $ = cheerio.load(htmlArticle, {
     normalizeWhitespace: true,
     decodeEntities: true
@@ -29,7 +29,7 @@ module.exports = (htmlArticle, url) => {
     }
   })
 
-  const minifiedHtml = htmlmin($.html(), {
+  const minifiedHtml = await htmlmin($.html(), {
     removeComments: true,
     removeEmptyElements: true,
     removeEmptyAttributes: true,
