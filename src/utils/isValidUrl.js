@@ -1,22 +1,9 @@
 // utils -> isValidUrl
 
-const {parse} = require('url');
-
-const {
-  isString,
-} = require('bellajs');
-
 module.exports = (url = '') => {
-  if (!isString(url)) {
-    return false;
+  try {
+    return new URL(url) !== null
+  } catch (err) {
+    return null
   }
-  const pros = ['http:', 'https:'];
-
-  const {
-    protocol,
-    host,
-    hostname,
-  } = parse(url);
-
-  return (!host || !hostname || !pros.includes(protocol)) ? false : true;
-};
+}

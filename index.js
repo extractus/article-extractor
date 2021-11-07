@@ -3,7 +3,7 @@
  * @ndaidong
 **/
 
-const main = require('./src/main');
-main.version = require('./package.json').version;
+const main = require('./src/main')
+main.version = require('./package.json').version
 
-module.exports = main;
+module.exports = main

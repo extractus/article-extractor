@@ -2,10 +2,10 @@
 
 const {
   existsSync,
-  unlinkSync,
-} = require('fs');
+  unlinkSync
+} = require('fs')
 
-const {execSync} = require('child_process');
+const { execSync } = require('child_process')
 
 const dirs = [
   'dist',
@@ -13,22 +13,22 @@ const dirs = [
   '.nyc_output',
   'coverage',
   'node_modules',
-  '.nuxt',
-];
+  '.nuxt'
+]
 
 const files = [
   'yarn.lock',
   'pnpm-lock.yaml',
   'package-lock.json',
-  'coverage.lcov',
-];
+  'coverage.lcov'
+]
 
 dirs.forEach((d) => {
-  execSync(`rm -rf ${d}`);
-});
+  execSync(`rm -rf ${d}`)
+})
 
 files.forEach((f) => {
   if (existsSync(f)) {
-    unlinkSync(f);
+    unlinkSync(f)
   }
-});
+})

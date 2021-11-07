@@ -1,5 +1,5 @@
 {
-  "version": "4.2.10",
+  "version": "4.2.11",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -14,7 +14,7 @@
     "node": ">= 10.14.2"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "standard .",
     "pretest": "npm run lint",
     "test": "jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
     "eval": "DEBUG=*:* node run",
@@ -24,18 +24,17 @@
     "bellajs": "^9.3.0",
     "cheerio": "^1.0.0-rc.10",
     "debug": "^4.3.2",
-    "html-minifier-terser": "^5.1.1",
-    "htmlparser2": "^6.1.0",
-    "node-fetch": "^2.6.1",
-    "oembed-parser": "^1.4.7",
+    "got": "^11.8.2",
+    "html-minifier-terser": "^6.0.2",
+    "htmlparser2": "^7.1.2",
+    "oembed-parser": "^1.5.2",
     "readabilitySAX": "^1.6.1",
-    "sanitize-html": "^2.4.0",
+    "sanitize-html": "^2.5.3",
     "string-comparison": "^1.0.9"
   },
   "devDependencies": {
-    "eslint-config-goes": "^1.2.0",
-    "jest": "^27.0.6",
-    "nock": "^13.1.1"
+    "jest": "^27.3.1",
+    "nock": "^13.1.4"
   },
   "keywords": [
     "article",
