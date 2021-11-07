@@ -11,10 +11,10 @@ const { name, version } = require('../package.json')
 const {
   extract,
   setParserOptions,
-  setNodeFetchOptions,
+  setFetchOptions,
   setSanitizeHtmlOptions,
   getParserOptions,
-  getNodeFetchOptions,
+  getFetchOptions,
   getSanitizeHtmlOptions
 } = require('./main')
 
@@ -70,6 +70,15 @@ test('test extract an error endpoint', async () => {
   expect(fn()).rejects.toThrow(Error)
 })
 
+test('test extract a good link', async () => {
+  const url = 'https://ndaidong.hashnode.dev/how-to-make-your-mongodb-container-more-secure'
+  const result = await extract(url)
+  expect(result).toBeInstanceOf(Object)
+  keys.forEach((k) => {
+    expect(hasProperty(result, k)).toBe(true)
+  })
+})
+
 test('test extract from html content', async () => {
   const html = readFileSync('./test-data/venturebeat.txt', 'utf8')
   const result = await extract(html)
@@ -111,8 +120,8 @@ test('Testing setParserOptions/getParserOptions methods', () => {
   expect(actual.urlsCompareAlgorithm).toEqual(expectedAlgorithm)
 })
 
-test('Testing setNodeFetchOptions/getNodeFetchOptions methods', () => {
-  setNodeFetchOptions({
+test('Testing setFetchOptions/getFetchOptions methods', () => {
+  setFetchOptions({
     headers: {
       authorization: 'bearer <token>'
     },
@@ -120,7 +129,7 @@ test('Testing setNodeFetchOptions/getNodeFetchOptions methods', () => {
     somethingElse: 1000
   })
 
-  const actual = getNodeFetchOptions()
+  const actual = getFetchOptions()
   const expectedHeader = {
     authorization: 'bearer <token>',
     'user-agent': `${name}/${version}`
@@ -132,7 +141,7 @@ test('Testing setNodeFetchOptions/getNodeFetchOptions methods', () => {
 
 test('Testing with custom user agent string', () => {
   const myUserAgent = 'Googlebot/2.1 (+http://www.google.com/bot.html)'
-  setNodeFetchOptions({
+  setFetchOptions({
     headers: {
       authorization: 'bearer <token>',
       'user-agent': myUserAgent
@@ -141,7 +150,7 @@ test('Testing with custom user agent string', () => {
     somethingElse: 1000
   })
 
-  const actual = getNodeFetchOptions()
+  const actual = getFetchOptions()
   const expectedHeader = {
     authorization: 'bearer <token>',
     'user-agent': myUserAgent

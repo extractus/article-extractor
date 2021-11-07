@@ -21,10 +21,10 @@ const {
 
 const {
   setParserOptions,
-  setNodeFetchOptions,
+  setFetchOptions,
   setSanitizeHtmlOptions,
   getParserOptions,
-  getNodeFetchOptions,
+  getFetchOptions,
   getSanitizeHtmlOptions
 } = require('./config')
 
@@ -51,51 +51,49 @@ const extract = async (input) => {
 
   const trimmedUrl = input.trim()
 
-  if (isValidUrl(trimmedUrl)) {
-    const normalizedUrl = normalizeUrl(trimmedUrl)
-    const links = [trimmedUrl, normalizedUrl]
-    article.url = normalizedUrl
-    if (hasProvider(normalizedUrl)) {
-      info('Provider found, loading as oEmbed data...')
-      const json = await extractOembed(normalizedUrl)
-      if (json) {
-        article.title = json.title || ''
-        article.content = json.html || ''
-        article.author = json.author_name || ''
-        article.image = json.thumbnail_url || ''
-        article.source = json.provider_name || ''
-        if (json.url) {
-          article.url = json.url
-          links.push(json.url)
-        }
-        article.links = unique(links)
-        return article
+  const normalizedUrl = normalizeUrl(trimmedUrl)
+  const links = [trimmedUrl, normalizedUrl]
+  article.url = normalizedUrl
+  if (hasProvider(normalizedUrl)) {
+    info('Provider found, loading as oEmbed data...')
+    const json = await extractOembed(normalizedUrl)
+    if (json) {
+      article.title = json.title || ''
+      article.content = json.html || ''
+      article.author = json.author_name || ''
+      article.image = json.thumbnail_url || ''
+      article.source = json.provider_name || ''
+      if (json.url) {
+        article.url = json.url
+        links.push(json.url)
       }
+      article.links = unique(links)
+      return article
     }
-    const res = await retrieve(normalizedUrl)
-    if (!res) {
-      throw new Error(`Could not retrieve content from "${normalizedUrl}"`)
-    }
-    const {
-      html,
-      url,
-      resUrl
-    } = res
+  }
+  const res = await retrieve(normalizedUrl)
+  if (!res) {
+    throw new Error(`Could not retrieve content from "${normalizedUrl}"`)
+  }
+  const {
+    html,
+    url,
+    resUrl
+  } = res
 
-    const result = parseFromHtml(html, [...links, url, resUrl])
-    if (result) {
-      return result
-    }
+  const result = parseFromHtml(html, [...links, url, resUrl])
+  if (result) {
+    return result
   }
   return null
 }
 
 module.exports = {
   setParserOptions,
-  setNodeFetchOptions,
+  setFetchOptions,
   setSanitizeHtmlOptions,
   getParserOptions,
-  getNodeFetchOptions,
+  getFetchOptions,
   getSanitizeHtmlOptions,
   extract
 }

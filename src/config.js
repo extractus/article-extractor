@@ -6,14 +6,12 @@ const { name, version } = require('../package.json')
 
 const env = process.env
 
-const nodeFetchOptions = {
+const fetchOptions = {
   headers: {
     'user-agent': `${name}/${version}`
   },
   timeout: 30 * 1e3,
-  redirect: 'follow',
-  compress: true,
-  agent: false
+  redirect: 'follow'
 }
 
 const sanitizeHtmlOptions = {
@@ -49,8 +47,8 @@ module.exports = {
   getParserOptions: () => {
     return clone(parserOptions)
   },
-  getNodeFetchOptions: () => {
-    return clone(nodeFetchOptions)
+  getFetchOptions: () => {
+    return clone(fetchOptions)
   },
   getSanitizeHtmlOptions: () => {
     return clone(sanitizeHtmlOptions)
@@ -58,8 +56,8 @@ module.exports = {
   setParserOptions: (opts) => {
     copies(opts, parserOptions)
   },
-  setNodeFetchOptions: (opts) => {
-    copies(opts, nodeFetchOptions)
+  setFetchOptions: (opts) => {
+    copies(opts, fetchOptions)
   },
   setSanitizeHtmlOptions: (opts) => {
     copies(opts, sanitizeHtmlOptions)

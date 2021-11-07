@@ -89,8 +89,8 @@ In addition, this lib provides some methods to customize default settings. Don't
 
 - setParserOptions(Object parserOptions)
 - getParserOptions()
-- setNodeFetchOptions(Object nodeFetchOptions)
-- getNodeFetchOptions()
+- setFetchOptions(Object fetchOptions)
+- getFetchOptions()
 - setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
 - getSanitizeHtmlOptions()
 
@@ -108,7 +108,7 @@ Here are default properties/values:
 Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs for more info about `urlsCompareAlgorithm`.
 
 
-#### Object `nodeFetchOptions`:
+#### Object `fetchOptions`:
 
 ```js
 {
@@ -116,12 +116,10 @@ Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs f
     'user-agent': 'article-parser/4.0.0',
   },
   timeout: 30000,
-  redirect: 'follow',
-  compress: true,
-  agent: false
+  retry: {limit: 5}
 }
 ```
-Read [node-fetch](https://www.npmjs.com/package/node-fetch#options) docs for more info.
+Read [got](https://github.com/sindresorhus/got/blob/main/documentation/2-options.md) docs for more info.
 
 #### Object `sanitizeHtmlOptions`:
 
