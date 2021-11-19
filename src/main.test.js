@@ -26,7 +26,7 @@ const parseUrl = (url) => {
   const re = new URL(url)
   return {
     baseUrl: `${re.protocol}//${re.host}`,
-    path: re.path
+    path: re.pathname
   }
 }
 
