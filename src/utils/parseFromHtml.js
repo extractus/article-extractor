@@ -14,8 +14,8 @@ const absolutifyUrl = require('./absolutifyUrl')
 const normalizeUrl = require('./normalizeUrl')
 const isValidUrl = require('./isValidUrl')
 const standalizeArticle = require('./standalizeArticle')
-const extractWithRules = require('./extractWithRules')
 const extractWithReadability = require('./extractWithReadability')
+const extractWithRules = require('./extractWithRules')
 const getTimeToRead = require('./getTimeToRead')
 
 const { getParserOptions } = require('../config')
@@ -73,7 +73,7 @@ module.exports = async (input, links = []) => {
   }
 
   info('Extracting main article...')
-  const mainText = extractWithRules(html) || await extractWithReadability(html)
+  const mainText = extractWithRules(html) || extractWithReadability(html)
   if (!mainText || !stripTags(mainText)) {
     info('Could not extract main article, stop processing')
     return null

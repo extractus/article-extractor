@@ -6,9 +6,11 @@ const {
   stripTags
 } = require('bellajs')
 
+const extractWithReadability = require('./extractWithReadability')
+
 const {
   error
-} = require('../utils/logger')
+} = require('./logger')
 
 const MIN_SECTION_LENGTH = 200
 const MIN_TEXT_LENGTH = 20
@@ -99,16 +101,19 @@ module.exports = (html) => {
           }
         })
         if (parts.length > 0) {
-          return parts.reduce((prev, curr) => {
+          const content = parts.reduce((prev, curr) => {
             return prev.concat([curr])
           }, []).filter((sect) => {
             return stripTags(sect).length > MIN_TEXT_LENGTH
           }).join('')
+
+          return extractWithReadability(content)
         }
       }
     }
   } catch (err) {
     error(err)
   }
+
   return null
 }
