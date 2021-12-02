@@ -1,5 +1,9 @@
 // utils -> absolutifyUrl
 
+const { isString } = require('bellajs')
+
+const isValidUrl = require('./isValidUrl')
+
 const resolve = (from, to) => {
   const resolvedUrl = new URL(to, new URL(from, 'resolve://'))
   if (resolvedUrl.protocol === 'resolve:') {
@@ -8,10 +12,6 @@ const resolve = (from, to) => {
   }
   return resolvedUrl.toString()
 }
-
-const { isString } = require('bellajs')
-
-const isValidUrl = require('./isValidUrl')
 
 module.exports = (fullUrl, relativeUrl) => {
   if (!isValidUrl(fullUrl) || !isString(relativeUrl)) {

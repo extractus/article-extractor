@@ -2,11 +2,8 @@
 /* eslint-env jest */
 
 const { readFileSync } = require('fs')
-const { URL } = require('url')
 
 const nock = require('nock')
-
-const { name, version } = require('../package.json')
 
 const {
   extract,
@@ -19,8 +16,6 @@ const {
 } = require('./main')
 
 const keys = 'url title description image author content published source links ttr'.split(' ')
-
-jest.setTimeout(10000)
 
 const parseUrl = (url) => {
   const re = new URL(url)
@@ -132,7 +127,7 @@ test('Testing setFetchOptions/getFetchOptions methods', () => {
   const actual = getFetchOptions()
   const expectedHeader = {
     authorization: 'bearer <token>',
-    'user-agent': `${name}/${version}`
+    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0'
   }
 
   expect(actual.headers).toEqual(expectedHeader)

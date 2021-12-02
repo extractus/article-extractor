@@ -1,8 +1,6 @@
 // retrieve.test
 /* eslint-env jest */
 
-const { URL } = require('url')
-
 const nock = require('nock')
 
 const retrieve = require('./retrieve')
