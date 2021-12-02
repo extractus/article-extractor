@@ -2,7 +2,6 @@
 /* eslint-env jest */
 
 const { readFileSync } = require('fs')
-const { URL } = require('url')
 
 const nock = require('nock')
 
@@ -19,8 +18,6 @@ const {
 } = require('./main')
 
 const keys = 'url title description image author content published source links ttr'.split(' ')
-
-jest.setTimeout(10000)
 
 const parseUrl = (url) => {
   const re = new URL(url)
