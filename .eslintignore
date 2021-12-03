@@ -1,8 +1,0 @@
-coverage/*
-node_modules/*
-dist
-**/vendor/*.js
-.nyc_output/*
-LICENSE
-package.json
-README.md

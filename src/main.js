@@ -5,13 +5,16 @@
 
 const {
   isString,
-  unique
+  unique,
+  md5
 } = require('bellajs')
 
 const { hasProvider, extract: extractOembed } = require('oembed-parser')
 
+const LRU = require('lru-cache')
+
 const retrieve = require('./utils/retrieve')
-const isValidUrl = require('./utils/isValidUrl')
+const isHTMLString = require('./utils/isHTMLString')
 const normalizeUrl = require('./utils/normalizeUrl')
 const parseFromHtml = require('./utils/parseFromHtml')
 
@@ -28,60 +31,95 @@ const {
   getSanitizeHtmlOptions
 } = require('./config')
 
+const lruCache = new LRU({
+  max: 500,
+  maxAge: 6e4 * 30
+})
+
 const extract = async (input) => {
   if (!isString(input)) {
     throw new Error('Input must be a string')
   }
-  const article = {
-    url: '',
-    links: [],
-    title: '',
-    description: '',
-    image: '',
-    author: '',
-    content: '',
-    source: '',
-    published: '',
-    ttr: 0
+
+  if (isHTMLString(input)) {
+    const result = await parseFromHtml(input, [])
+    return result
   }
 
-  if (!isValidUrl(input)) {
-    return parseFromHtml(input, [])
+  const normalizedUrl = normalizeUrl(input.trim())
+  if (!normalizedUrl) {
+    throw new Error('Input must be a valid URL')
   }
 
-  const trimmedUrl = input.trim()
+  const key = md5(normalizedUrl)
+  if (lruCache.has(key)) {
+    return lruCache.get(key)
+  }
 
-  const normalizedUrl = normalizeUrl(trimmedUrl)
-  const links = [trimmedUrl, normalizedUrl]
-  article.url = normalizedUrl
+  const links = [normalizedUrl]
+
   if (hasProvider(normalizedUrl)) {
     info('Provider found, loading as oEmbed data...')
+    const embedded = {
+      url: normalizedUrl,
+      links: [],
+      title: '',
+      description: '',
+      image: '',
+      author: '',
+      content: '',
+      source: '',
+      published: '',
+      ttr: 0
+    }
     const json = await extractOembed(normalizedUrl)
     if (json) {
-      article.title = json.title || ''
-      article.content = json.html || ''
-      article.author = json.author_name || ''
-      article.image = json.thumbnail_url || ''
-      article.source = json.provider_name || ''
-      if (json.url) {
-        article.url = json.url
-        links.push(json.url)
+      const {
+        title = '',
+        html: content = '',
+        author_name: author = '',
+        thumbnail_url: image = '',
+        provider_name: source = '',
+        url: embeddedUrl = ''
+      } = json
+      embedded.title = title
+      embedded.content = content
+      embedded.author = author
+      embedded.image = image
+      embedded.source = source
+      if (embeddedUrl) {
+        embedded.url = embeddedUrl
+        links.push(embeddedUrl)
       }
-      article.links = unique(links)
-      return article
+      embedded.links = unique(links)
+      embedded.links.forEach((link) => {
+        lruCache.set(md5(link), embedded)
+      })
+      return embedded
     }
   }
+
   const res = await retrieve(normalizedUrl)
   if (!res) {
     throw new Error(`Could not retrieve content from "${normalizedUrl}"`)
   }
+
   const {
     html,
     url,
     resUrl
   } = res
 
-  return parseFromHtml(html, [...links, url, resUrl])
+  const article = await parseFromHtml(html, [...links, url, resUrl])
+  if (article) {
+    article.links.forEach((link) => {
+      lruCache.set(md5(link), article)
+    })
+    return article
+  }
+
+  lruCache.set(key, null)
+  return null
 }
 
 module.exports = {

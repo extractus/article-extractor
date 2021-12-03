@@ -36,9 +36,9 @@ const parserOptions = {
   env: env.ENV || 'dev',
   wordsPerMinute: 300, // to estimate "time to read"
   urlsCompareAlgorithm: 'levenshtein', // to find best url from list
-  descriptionLengthThreshold: 40, // min num of chars allowed in description
+  descriptionLengthThreshold: 40, // min num of chars required for description
   descriptionTruncateLen: 156, // max num of chars generated for description
-  contentLengthThreshold: 200 // min num of chars allowed in content
+  contentLengthThreshold: 200 // content must have at least 200 chars
 }
 
 module.exports = {

@@ -13,7 +13,6 @@ const chooseBestUrl = require('./chooseBestUrl')
 const absolutifyUrl = require('./absolutifyUrl')
 const normalizeUrl = require('./normalizeUrl')
 const isValidUrl = require('./isValidUrl')
-const isHTMLString = require('./isHTMLString')
 const standalizeArticle = require('./standalizeArticle')
 const extractWithReadability = require('./extractWithReadability')
 const extractWithRules = require('./extractWithRules')
@@ -44,10 +43,6 @@ const getSource = (source, uri) => {
 }
 
 module.exports = async (input, links = []) => {
-  if (!isHTMLString(input)) {
-    info('Input must be a valid HTML string')
-    return null
-  }
   info('Start parsing from HTML...')
   const html = cleanify(input)
   const meta = extractMetaData(html)
