@@ -3,7 +3,7 @@
 
 const absolutifyUrl = require('./absolutifyUrl')
 
-test('test absolutifyUrl()', () => {
+describe('test absolutifyUrl()', () => {
   const entries = [
     {
       full: '',
@@ -39,7 +39,9 @@ test('test absolutifyUrl()', () => {
       relative,
       expected
     } = entry
-    const result = absolutifyUrl(full, relative)
-    expect(result).toEqual(expected)
+    test(`absolutifyUrl("${full}", "${relative}") must become "${expected}"`, () => {
+      const result = absolutifyUrl(full, relative)
+      expect(result).toEqual(expected)
+    })
   })
 })

@@ -40,15 +40,18 @@ test('test extract a non-string link', async () => {
 
 test('test extract a bad link', async () => {
   const url = 'sfh poidfsf sakdjfh'
-  const re = await extract(url)
-  expect(re).toBe(null)
+  const fn = async () => {
+    const re = await extract(url)
+    return re
+  }
+  expect(fn()).rejects.toThrow(Error)
 })
 
 test('test extract a fake link', async () => {
   const url = 'https://somewhere.xyz'
   const { baseUrl, path } = parseUrl(url)
-  nock(baseUrl).head(path).reply(404)
-  nock(baseUrl).get(path).reply(404)
+  const scope = nock(baseUrl)
+  scope.get(path).reply(404)
   const fn = async () => {
     const re = await extract(url)
     return re
@@ -72,6 +75,53 @@ test('test extract a good link', async () => {
   keys.forEach((k) => {
     expect(hasProperty(result, k)).toBe(true)
   })
+})
+
+test('test extract a good link from cache', async () => {
+  const url = 'https://ndaidong.hashnode.dev/how-to-make-your-mongodb-container-more-secure'
+  const result = await extract(url)
+  expect(result).toBeInstanceOf(Object)
+  keys.forEach((k) => {
+    expect(hasProperty(result, k)).toBe(true)
+  })
+})
+
+test('test extract a page with no title', async () => {
+  const html = readFileSync('./test-data/html-no-title.html')
+  const url = 'https://somewhere.com/categories/no-title-page'
+  const { baseUrl, path } = parseUrl(url)
+  const scope = nock(baseUrl)
+  scope.get(path).reply(200, html, {
+    'Content-Type': 'text/plain'
+  })
+  const result = await extract(url)
+  expect(result).toBe(null)
+  const cached = await extract(url)
+  expect(cached).toBe(null)
+})
+
+test('test extract a page with no article', async () => {
+  const html = readFileSync('./test-data/html-no-article.html')
+  const url = 'https://somewhere.com/categories/html-no-article'
+  const { baseUrl, path } = parseUrl(url)
+  const scope = nock(baseUrl)
+  scope.get(path).reply(200, html, {
+    'Content-Type': 'text/plain'
+  })
+  const result = await extract(url)
+  expect(result).toBe(null)
+})
+
+test('test extract a page with too-short article', async () => {
+  const html = readFileSync('./test-data/html-too-short-article.html')
+  const url = 'https://somewhere.com/categories/too-short-article'
+  const { baseUrl, path } = parseUrl(url)
+  const scope = nock(baseUrl)
+  scope.get(path).reply(200, html, {
+    'Content-Type': 'text/plain'
+  })
+  const result = await extract(url)
+  expect(result).toBe(null)
 })
 
 test('test extract from html content', async () => {

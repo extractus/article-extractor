@@ -3,7 +3,7 @@
 
 const normalizeUrl = require('./normalizeUrl')
 
-test('test normalizeUrl()', () => {
+describe('test normalizeUrl()', () => {
   const entries = [
     {
       url: '',
@@ -43,7 +43,9 @@ test('test normalizeUrl()', () => {
       url,
       expected
     } = entry
-    const result = normalizeUrl(url)
-    expect(result).toEqual(expected)
+    test(`normalizeUrl("${url}") must become "${expected}"`, () => {
+      const result = normalizeUrl(url)
+      expect(result).toEqual(expected)
+    })
   })
 })

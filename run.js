@@ -1,3 +1,6 @@
+// run.js
+// to quickly test with a single url or file
+
 const { readFileSync, existsSync } = require('fs')
 
 const isValidUrl = require('./src/utils/isValidUrl')
