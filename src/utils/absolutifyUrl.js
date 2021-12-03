@@ -1,23 +1,10 @@
 // utils -> absolutifyUrl
 
-const { isString } = require('bellajs')
-
-const isValidUrl = require('./isValidUrl')
-
-const resolve = (from, to) => {
-  const resolvedUrl = new URL(to, new URL(from, 'resolve://'))
-  if (resolvedUrl.protocol === 'resolve:') {
-    const { pathname, search, hash } = resolvedUrl
-    return pathname + search + hash
-  }
-  return resolvedUrl.toString()
-}
-
-module.exports = (fullUrl, relativeUrl) => {
-  if (!isValidUrl(fullUrl) || !isString(relativeUrl)) {
+module.exports = (fullUrl = '', relativeUrl = '') => {
+  try {
+    const result = new URL(relativeUrl, fullUrl)
+    return result.toString()
+  } catch (err) {
     return ''
   }
-  const parsed = new URL(fullUrl)
-  const first = [parsed.protocol, parsed.host].join('//')
-  return resolve(first, relativeUrl)
 }

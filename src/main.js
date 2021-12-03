@@ -81,11 +81,7 @@ const extract = async (input) => {
     resUrl
   } = res
 
-  const result = parseFromHtml(html, [...links, url, resUrl])
-  if (result) {
-    return result
-  }
-  return null
+  return parseFromHtml(html, [...links, url, resUrl])
 }
 
 module.exports = {
