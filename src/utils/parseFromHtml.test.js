@@ -7,6 +7,11 @@ const {
 
 const parseFromHtml = require('./parseFromHtml')
 
+test('test parseFromHtml a bad input', async () => {
+  const result = await parseFromHtml({})
+  expect(result).toBe(null)
+})
+
 test('test parseFromHtml a webpage with no title', async () => {
   const html = readFileSync('./test-data/html-no-title.html', 'utf8')
   const result = await parseFromHtml(html, [])

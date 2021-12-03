@@ -3,8 +3,16 @@
 
 const normalizeUrl = require('./normalizeUrl')
 
-test('test normalizeUrl in detailt', () => {
+test('test normalizeUrl()', () => {
   const entries = [
+    {
+      url: '',
+      expected: null
+    },
+    {
+      url: {},
+      expected: null
+    },
     {
       url: 'https://some.where/article/abc-xyz',
       expected: 'https://some.where/article/abc-xyz'
