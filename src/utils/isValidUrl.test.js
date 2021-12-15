@@ -39,7 +39,7 @@ describe('test isValidUrl()', () => {
     }
   ]
   cases.forEach(({ url, expected }) => {
-    test(`  isValidUrl("${url}") must return "${expected}"`, () => {
+    test(`isValidUrl("${url}") must return "${expected}"`, () => {
       const result = isValidUrl(url)
       expect(result).toEqual(expected)
     })
