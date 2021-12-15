@@ -6,6 +6,7 @@ const sanitize = require('sanitize-html')
 const { minify: htmlmin } = require('html-minifier-terser')
 
 const absolutifyUrl = require('./absolutifyUrl')
+
 const { getSanitizeHtmlOptions } = require('../config')
 
 module.exports = async (htmlArticle, url) => {

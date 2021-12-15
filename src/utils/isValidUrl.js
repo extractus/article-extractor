@@ -2,8 +2,9 @@
 
 module.exports = (url = '') => {
   try {
-    return new URL(url) !== null
+    const ourl = new URL(url)
+    return ourl !== null && ourl.protocol.startsWith('http')
   } catch (err) {
-    return null
+    return false
   }
 }

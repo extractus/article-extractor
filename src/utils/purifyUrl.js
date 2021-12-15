@@ -1,4 +1,6 @@
-// utils -> removeUTM
+// utils -> purifyUrl
+
+const logger = require('./logger')
 
 const blacklistKeys = [
   'CNDID',
@@ -70,6 +72,7 @@ module.exports = (url) => {
 
     return pureUrl.toString().replace(pureUrl.hash, '')
   } catch (err) {
+    logger.error(err)
     return null
   }
 }

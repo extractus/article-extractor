@@ -8,21 +8,22 @@ const {
 
 const sanitize = require('sanitize-html')
 
-const extractMetaData = require('./extractMetaData')
-const chooseBestUrl = require('./chooseBestUrl')
-const absolutifyUrl = require('./absolutifyUrl')
-const normalizeUrl = require('./normalizeUrl')
 const isValidUrl = require('./isValidUrl')
-const standalizeArticle = require('./standalizeArticle')
+const purifyUrl = require('./purifyUrl')
+const absolutifyUrl = require('./absolutifyUrl')
+const chooseBestUrl = require('./chooseBestUrl')
+const getHostname = require('./getHostname')
+
+const extractMetaData = require('./extractMetaData')
 const extractWithReadability = require('./extractWithReadability')
-const extractWithRules = require('./extractWithRules')
+const extractWithSelector = require('./extractWithSelector')
+
+const standalizeArticle = require('./standalizeArticle')
 const getTimeToRead = require('./getTimeToRead')
 
-const { getParserOptions } = require('../config')
+const logger = require('./logger')
 
-const {
-  info
-} = require('./logger')
+const { getParserOptions } = require('../config')
 
 const cleanify = (html) => {
   return sanitize(html, {
@@ -32,87 +33,92 @@ const cleanify = (html) => {
 }
 
 const summarize = (desc, txt, threshold, maxlen) => {
-  return desc.length < threshold ? truncate(txt, maxlen) : desc
+  return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
 }
 
-const getSource = (source, uri) => {
-  return source || (() => {
-    const { hostname } = new URL(uri)
-    return hostname
-  })()
-}
-
-module.exports = async (input, links = []) => {
-  info('Start parsing from HTML...')
-  const html = cleanify(input)
+const parseHtml = async (rawhtml, selector, inputUrl = '') => {
+  const html = cleanify(rawhtml)
   const meta = extractMetaData(html)
 
+  // gather title
+  if (!meta.title) {
+    logger.info('Could not detect article title!')
+    return null
+  }
+
   const {
-    title = '',
-    description = '',
-    image = '',
-    author = '',
-    source = '',
-    published = ''
-  } = meta;
+    url,
+    shortlink,
+    amphtml,
+    canonical,
+    title,
+    description: metaDesc,
+    image: metaImg,
+    author,
+    source,
+    published
+  } = meta
 
-  [
-    'url',
-    'shortlink',
-    'amphtml',
-    'canonical'
-  ].forEach((p) => {
-    if (meta[p]) {
-      links.push(meta[p])
-    }
-  })
+  // gather urls to choose the best url later
+  const links = unique([
+    url,
+    shortlink,
+    amphtml,
+    canonical,
+    inputUrl
+  ].filter(isValidUrl).map(purifyUrl))
 
-  if (!title || links.length === 0) {
-    info('No `title` or `url` detected, stop processing')
+  if (links.length === 0) {
+    logger.info('Could not detect article link!')
     return null
   }
 
-  info('Extracting main article...')
-  const mainText = extractWithRules(html) || extractWithReadability(html)
-  if (!mainText || !stripTags(mainText)) {
-    info('Could not extract main article, stop processing')
+  // choose the best url
+  const bestUrl = chooseBestUrl(links, title)
+
+  // find article content
+  const mainContent = selector ? extractWithSelector(html, selector) : null
+  const content = extractWithReadability(mainContent || html, bestUrl)
+
+  if (!content) {
+    logger.info('Could not detect article content!')
     return null
   }
-
-  info('Finding the best link...')
-  const ulinks = unique(links.filter(isValidUrl).map(normalizeUrl))
-  const bestUrl = chooseBestUrl(ulinks, title)
-
-  info('Normalizing content')
   const {
     descriptionLengthThreshold,
     descriptionTruncateLen,
     contentLengthThreshold
   } = getParserOptions()
 
-  const normalizedContent = await standalizeArticle(mainText, bestUrl)
+  const normalizedContent = await standalizeArticle(content, bestUrl)
+
   const textContent = stripTags(normalizedContent)
   if (textContent.length < contentLengthThreshold) {
-    info('Main article is too short!')
+    logger.info('Main article is too short!')
     return null
   }
 
-  info('Finish parsing process')
+  const description = summarize(
+    metaDesc,
+    textContent,
+    descriptionLengthThreshold,
+    descriptionTruncateLen
+  )
+
+  const image = metaImg ? absolutifyUrl(bestUrl, metaImg) : ''
+
   return {
     url: bestUrl,
     title,
-    description: summarize(
-      description,
-      textContent,
-      descriptionLengthThreshold,
-      descriptionTruncateLen
-    ),
-    links: ulinks,
-    image: image ? absolutifyUrl(bestUrl, image) : '',
+    description,
+    links,
+    image,
     content: normalizedContent,
     author,
-    source: getSource(source, bestUrl),
+    source: source || getHostname(bestUrl),
     published,
     ttr: getTimeToRead(textContent)
   }
 }
+
+module.exports = parseHtml

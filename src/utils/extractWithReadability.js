@@ -3,18 +3,10 @@
 const { Readability } = require('@mozilla/readability')
 const { JSDOM } = require('jsdom')
 
-const {
-  error
-} = require('./logger')
-
-module.exports = (html) => {
-  try {
-    const doc = new JSDOM(html)
-    const reader = new Readability(doc.window.document)
-    const { content, textContent } = reader.parse()
-    return !textContent || content.includes('>null</div>') ? null : content
-  } catch (err) {
-    error(err)
-    return null
-  }
+module.exports = (html, url) => {
+  const doc = new JSDOM(html, { url })
+  const reader = new Readability(doc.window.document)
+  const result = reader.parse() || {}
+  const { content, textContent, length } = result
+  return !textContent || length < 60 ? null : content
 }
