@@ -1,39 +1,24 @@
 // utils -> retrieve
 
-const got = require('got')
+const axios = require('axios')
 
-const {
-  error,
-  info
-} = require('./logger')
+const logger = require('./logger')
 
-const { getFetchOptions } = require('../config')
+const { getRequestOptions } = require('../config')
 
 module.exports = async (url) => {
   try {
-    const res = await got(url, getFetchOptions())
+    const res = await axios.get(url, getRequestOptions())
 
     const contentType = res.headers['content-type'] || ''
-    if (!contentType || !contentType.startsWith('text/')) {
-      info(`Got invalid content-type (${contentType}) from "${url}"`)
+    if (!contentType || !contentType.includes('text/html')) {
+      logger.error(`Content type must be "text/html", not "${contentType}"`)
       return null
     }
 
-    info(`Loaded remote HTML content from "${url}"`)
-    const html = res.body
-    const resUrl = res.url
-
-    const result = {
-      url,
-      resUrl,
-      html
-    }
-
-    return result
+    return res.data
   } catch (err) {
-    info(`Could not fetch HTML content from "${url}"`)
-    info(err.message)
-    error(err)
+    logger.error(err.message || err)
+    return null
   }
-  return null
 }

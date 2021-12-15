@@ -23,6 +23,7 @@ module.exports = (html) => {
   const sourceAttrs = [
     'application-name',
     'og:site_name',
+    'twitter:site',
     'dc.title'
   ]
   const urlAttrs = [
@@ -48,12 +49,14 @@ module.exports = (html) => {
     'author',
     'creator',
     'og:creator',
-    'og:article:author',
+    'article:author',
     'twitter:creator',
     'dc.creator'
   ]
   const publishedTimeAttrs = [
-    'article:published_time'
+    'article:published_time',
+    'article:modified_time',
+    'og:updated_time'
   ]
 
   const doc = cheerio.load(html, {

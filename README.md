@@ -1,4 +1,5 @@
 # article-parser
+
 Extract main article, main image and meta data from URL.
 
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
@@ -16,44 +17,66 @@ Extract main article, main image and meta data from URL.
 View [screenshots](#screenshots) for more info.
 
 
+## Installation
+
+```bash
+$ npm install article-parser
+
+# pnpm
+$ pnpm install article-parser
+
+# yarn
+$ yarn add article-parser
+```
+
 ## Usage
 
-```
-npm install article-parser
-```
-
-Then:
-
 ```js
-const {
-  extract
-} = require('article-parser')
+const { extract } = require('article-parser')
 
-const url = 'https://goo.gl/MV8Tkh'
+// es6 module syntax
+import { extract } from 'article-parser'
+
+// test
+const url = 'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646'
 
 extract(url).then((article) => {
   console.log(article)
 }).catch((err) => {
-  console.log(err)
+  console.trace(err)
 })
+```
+
+Result:
+
+```js
+{
+  url: 'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646',
+  title: 'How to make your MongoDB container more secure?',
+  description: 'Start it with docker   The most simple way to get MongoDB instance in your machine is using...',
+  links: [
+    'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646'
+  ],
+  image: 'https://res.cloudinary.com/practicaldev/image/fetch/s--qByI1v3K--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/p4sfysev3s1jhw2ar2bi.png',
+  content: '...', // full article content here
+  author: '@ndaidong',
+  source: 'dev.to',
+  published: '',
+  ttr: 162
+}
+
 ```
 
 ## APIs
 
-Since v4, `article-parser` will focus only on its main mission: extract main readable content from given webpages, such as blog posts or news entries. Although it is still able to get other kinds of content like YouTube movies, SoundCloud media, etc, they are just additions.
+#### extract(String url | String html [, querySelector])
 
+Load and extract article data.
 
-#### extract(String url | String html)
-
-Extract data from specified url or full HTML page content.
-Return: a Promise
-
-Here is how we can use `article-parser`:
+Example:
 
 ```js
-import {
-  extract
-} from 'article-parser'
+const { extract } = require('article-parser')
 
 const getArticle = async (url) => {
   try {
@@ -61,8 +84,12 @@ const getArticle = async (url) => {
     return article
   } catch (err) {
     console.trace(err)
+    return null
   }
 }
+
+const data = getArticle('your url')
+console.log(data)
 ```
 
 If the extraction works well, you should get an `article` object with the structure as below:
@@ -82,6 +109,28 @@ If the extraction works well, you should get an `article` object with the struct
 }
 ```
 
+Optional parameter `querySelector` can be specified for gathering main article content from relevant HTML element(s).
+
+Exmple:
+
+
+```js
+
+const { extract } = require('article-parser')
+
+const getArticleWithSelector = async (url, selector) => {
+  try {
+    const article = await extract(url, selector)
+    return article
+  } catch (err) {
+    console.trace(err)
+    return null
+  }
+}
+
+const data = getArticleWithSelector('your url', 'article.post-body')
+console.log(data)
+```
 
 #### Configuration methods
 
@@ -89,8 +138,8 @@ In addition, this lib provides some methods to customize default settings. Don't
 
 - setParserOptions(Object parserOptions)
 - getParserOptions()
-- setFetchOptions(Object fetchOptions)
-- getFetchOptions()
+- setRequestOptions(Object requestOptions)
+- getRequestOptions()
 - setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
 - getSanitizeHtmlOptions()
 
@@ -100,23 +149,29 @@ Here are default properties/values:
 
 ```js
 {
-  wordsPerMinute: 300,
-  urlsCompareAlgorithm: 'levenshtein'
+  wordsPerMinute: 300, // to estimate "time to read"
+  urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
+  descriptionLengthThreshold: 40, // min num of chars required for description
+  descriptionTruncateLen: 156, // max num of chars generated for description
+  contentLengthThreshold: 200 // content must have at least 200 chars
 }
 ```
 
 Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs for more info about `urlsCompareAlgorithm`.
 
 
-#### Object `fetchOptions`:
+#### Object `requestOptions`:
 
 ```js
 {
   headers: {
-    'user-agent': 'article-parser/4.0.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
+    accept: 'text/html; charset=utf-8'
   },
-  timeout: 30000,
-  retry: {limit: 5}
+  responseType: 'text',
+  responseEncoding: 'utf8',
+  timeout: 6e4,
+  maxRedirects: 3
 }
 ```
 Read [got](https://github.com/sindresorhus/got/blob/main/documentation/2-options.md) docs for more info.
@@ -139,7 +194,7 @@ Read [got](https://github.com/sindresorhus/got/blob/main/documentation/2-options
     'a'
   ],
   allowedAttributes: {
-    a: ['href'],
+    a: ['href', 'target'],
     img: ['src', 'alt']
   },
 }
@@ -163,10 +218,14 @@ Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-de
 ```bash
 git clone https://github.com/ndaidong/article-parser.git
 cd article-parser
-npm install  // or `yarn install` or `pnpm install`
+npm install
 npm test
+
+# quick evaluation
+npm run eval {URL_TO_PARSE_ARTICLE}
 ```
 
-# License
-
+## License
 The MIT License (MIT)
+
+---

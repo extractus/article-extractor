@@ -1,9 +1,9 @@
-// normalizeUrl.test
+// purifyUrl.test
 /* eslint-env jest */
 
-const normalizeUrl = require('./normalizeUrl')
+const purifyUrl = require('./purifyUrl')
 
-describe('test normalizeUrl()', () => {
+describe('test purifyUrl()', () => {
   const entries = [
     {
       url: '',
@@ -43,8 +43,8 @@ describe('test normalizeUrl()', () => {
       url,
       expected
     } = entry
-    test(`normalizeUrl("${url}") must become "${expected}"`, () => {
-      const result = normalizeUrl(url)
+    test(`purifyUrl("${url}") must become "${expected}"`, () => {
+      const result = purifyUrl(url)
       expect(result).toEqual(expected)
     })
   })

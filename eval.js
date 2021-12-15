@@ -1,4 +1,4 @@
-// run.js
+// eval.js
 // to quickly test with a single url or file
 
 const { readFileSync, existsSync } = require('fs')

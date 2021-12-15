@@ -2,14 +2,15 @@
 
 const { clone, copies } = require('bellajs')
 
-const env = process.env
-
-const fetchOptions = {
+const requestOptions = {
   headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0'
+    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
+    accept: 'text/html; charset=utf-8'
   },
-  timeout: 30 * 1e3,
-  redirect: 'follow'
+  responseType: 'text',
+  responseEncoding: 'utf8',
+  timeout: 6e4, // 1 minute
+  maxRedirects: 3
 }
 
 const sanitizeHtmlOptions = {
@@ -27,15 +28,14 @@ const sanitizeHtmlOptions = {
     'a'
   ],
   allowedAttributes: {
-    a: ['href'],
+    a: ['href', 'target'],
     img: ['src', 'alt']
   }
 }
 
 const parserOptions = {
-  env: env.ENV || 'dev',
   wordsPerMinute: 300, // to estimate "time to read"
-  urlsCompareAlgorithm: 'levenshtein', // to find best url from list
+  urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
   descriptionLengthThreshold: 40, // min num of chars required for description
   descriptionTruncateLen: 156, // max num of chars generated for description
   contentLengthThreshold: 200 // content must have at least 200 chars
@@ -45,8 +45,8 @@ module.exports = {
   getParserOptions: () => {
     return clone(parserOptions)
   },
-  getFetchOptions: () => {
-    return clone(fetchOptions)
+  getRequestOptions: () => {
+    return clone(requestOptions)
   },
   getSanitizeHtmlOptions: () => {
     return clone(sanitizeHtmlOptions)
@@ -54,8 +54,8 @@ module.exports = {
   setParserOptions: (opts) => {
     copies(opts, parserOptions)
   },
-  setFetchOptions: (opts) => {
-    copies(opts, fetchOptions)
+  setRequestOptions: (opts) => {
+    copies(opts, requestOptions)
   },
   setSanitizeHtmlOptions: (opts) => {
     copies(opts, sanitizeHtmlOptions)

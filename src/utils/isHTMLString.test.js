@@ -32,8 +32,7 @@ test('test isHTMLString(example HTML page)', () => {
     'regular-article.html',
     'html-no-title.html',
     'html-article-no-source.html',
-    'html-too-short-article.html',
-    'mongo-docker-security.txt'
+    'html-too-short-article.html'
   ]
   files.forEach((file) => {
     const html = readFileSync(`./test-data/${file}`, 'utf8')

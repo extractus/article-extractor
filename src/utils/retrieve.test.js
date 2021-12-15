@@ -18,10 +18,10 @@ test('test retrieve from good source', async () => {
   const { baseUrl, path } = parseUrl(url)
   const scope = nock(baseUrl)
   scope.get(path).reply(200, '<div>this is content</div>', {
-    'Content-Type': 'text/plain'
+    'Content-Type': 'text/html'
   })
   const result = await retrieve(url)
-  expect(result.html).toBe('<div>this is content</div>')
+  expect(result).toBe('<div>this is content</div>')
 })
 
 test('test retrieve with unsupported content type', async () => {
@@ -39,7 +39,9 @@ test('test retrieve from bad source', async () => {
   const url = 'https://some.where/bad/page'
   const { baseUrl, path } = parseUrl(url)
   const scope = nock(baseUrl)
-  scope.get(path).reply(500)
+  scope.get(path).reply(500, '<div>this is content</div>', {
+    'Content-Type': 'text/html'
+  })
   const result = await retrieve(url)
   expect(result).toBe(null)
 })
