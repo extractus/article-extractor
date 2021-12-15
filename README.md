@@ -71,7 +71,7 @@ Result:
 
 #### extract(String url | String html [, querySelector])
 
-Load and extract article data.
+Load and extract article data. Return a Promise object.
 
 Example:
 
@@ -88,8 +88,7 @@ const getArticle = async (url) => {
   }
 }
 
-const data = getArticle('your url')
-console.log(data)
+getArticle('https://domain.com/path/to/article')
 ```
 
 If the extraction works well, you should get an `article` object with the structure as below:
@@ -111,8 +110,7 @@ If the extraction works well, you should get an `article` object with the struct
 
 Optional parameter `querySelector` can be specified for gathering main article content from relevant HTML element(s).
 
-Exmple:
-
+Example:
 
 ```js
 
@@ -128,8 +126,7 @@ const getArticleWithSelector = async (url, selector) => {
   }
 }
 
-const data = getArticleWithSelector('your url', 'article.post-body')
-console.log(data)
+getArticleWithSelector('https://domain.com/path/to/article', 'article.post-body')
 ```
 
 #### Configuration methods
