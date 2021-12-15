@@ -171,7 +171,7 @@ Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs f
   maxRedirects: 3
 }
 ```
-Read [got](https://github.com/sindresorhus/got/blob/main/documentation/2-options.md) docs for more info.
+Read [axios' request config](https://axios-http.com/docs/req_config) for more info.
 
 #### Object `sanitizeHtmlOptions`:
 
