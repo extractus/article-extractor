@@ -83,7 +83,7 @@ describe('test extract(regular article url)', () => {
       .reply(statusCode, html, {
         'Content-Type': 'text/html'
       })
-    test(`  check extract("${url}")`, async () => {
+    test(`check extract("${url}")`, async () => {
       const result = await extract(url)
       validate(result, expect)
     })

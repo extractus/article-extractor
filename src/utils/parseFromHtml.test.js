@@ -14,27 +14,21 @@ describe('test parseFromHtml()', () => {
     {
       input: {
         desc: 'a bad input',
-        html: {},
-        selector: '',
-        url: ''
+        html: {}
       },
       expectation: null
     },
     {
       input: {
         desc: 'a webpage with no title',
-        html: readFileSync('./test-data/html-no-title.html', 'utf8'),
-        selector: '',
-        url: ''
+        html: readFileSync('./test-data/html-no-title.html', 'utf8')
       },
       expectation: null
     },
     {
       input: {
         desc: 'a webpage with no main article',
-        html: readFileSync('./test-data/html-no-article.html', 'utf8'),
-        selector: '',
-        url: ''
+        html: readFileSync('./test-data/html-no-article.html', 'utf8')
       },
       expectation: null
     },
@@ -42,7 +36,6 @@ describe('test parseFromHtml()', () => {
       input: {
         desc: 'a webpage with a very short article',
         html: readFileSync('./test-data/html-too-short-article.html', 'utf8'),
-        selector: '',
         url: 'abcd'
       },
       expectation: null
@@ -50,9 +43,7 @@ describe('test parseFromHtml()', () => {
     {
       input: {
         desc: 'a webpage with article but no source',
-        html: readFileSync('./test-data/html-article-no-source.html', 'utf8'),
-        selector: '',
-        url: 'abcd'
+        html: readFileSync('./test-data/html-article-no-source.html', 'utf8')
       },
       expectation: (result, expect) => {
         expect(result.source).toEqual('somewhere.any')
@@ -61,9 +52,7 @@ describe('test parseFromHtml()', () => {
     {
       input: {
         desc: 'a webpage with data-src in img tag',
-        html: readFileSync('./test-data/html-article-with-data-src.html', 'utf8'),
-        selector: '',
-        url: 'abcd'
+        html: readFileSync('./test-data/html-article-with-data-src.html', 'utf8')
       },
       expectation: (result, expect) => {
         expect(result.content).toContain('<img src="https://somewhere.any/image1.jpg" />')
@@ -88,8 +77,8 @@ describe('test parseFromHtml()', () => {
 
   cases.forEach((acase) => {
     const { input, expectation } = acase
-    const { desc, html, selector, url } = input
-    test(`  check if parseFromHtml() works with ${desc}`, async () => {
+    const { desc, html, selector = '', url = '' } = input
+    test(`check if parseFromHtml() works with ${desc}`, async () => {
       const result = await parseFromHtml(html, selector, url)
       if (isFunction(expectation)) {
         expectation(result, expect)
