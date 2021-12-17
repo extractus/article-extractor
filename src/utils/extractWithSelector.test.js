@@ -14,7 +14,7 @@ test('test extractWithSelector a bad input', () => {
 
 test('test extractWithSelector from good html content', async () => {
   const html = readFileSync('./test-data/regular-article.html', 'utf8')
-  const result = extractWithSelector(html)
+  const result = extractWithSelector(html, 'article', ['.ads-section'])
   expect(isString(result)).toBe(true)
   expect(result.length > 200).toBe(true)
 })
