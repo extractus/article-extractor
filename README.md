@@ -69,6 +69,11 @@ Result:
 
 ## APIs
 
+- [.extract(String url | String html [, querySelector])](#extractstring-url--string-html--queryselector)
+- [.addQueryRules(Array queryRules)](#addqueryrulesarray-queryrules)
+- [Configuration methods](#configuration-methods)
+
+
 #### extract(String url | String html [, querySelector])
 
 Load and extract article data. Return a Promise object.
@@ -133,7 +138,7 @@ getArticleWithSelector('https://domain.com/path/to/article', 'article.post-body'
 
 Add custom rules to get main article from the specific domains.
 
-This can be useful when the default extraction algorithm fails, or when you want to ignore some parts of main article content.
+This can be useful when the default extraction algorithm fails, or when you want to remove some parts of main article content.
 
 Example:
 
@@ -151,7 +156,8 @@ addQueryRules([
     ],
     selector: '#noop_article_locates_here',
     unwanted: [
-      '.header-content'
+      '.advertise-area',
+      '.stupid-banner'
     ]
   }
 ])
