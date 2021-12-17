@@ -15,13 +15,17 @@ const countWord = (text) => {
   return text.length > 0 ? text.split(/\s+/).length : 0
 }
 
-module.exports = (html, selector = 'article') => {
+module.exports = (html, selector = null, exclusions = []) => {
   try {
     const doc = cheerio.load(html, {
       lowerCaseTags: true,
       lowerCaseAttributeNames: true,
       recognizeSelfClosing: true
     })
+
+    for (let i = 0; i < exclusions.length; i++) {
+      doc(exclusions[i]).empty()
+    }
 
     const parts = []
     const els = doc(selector)
@@ -42,6 +46,8 @@ module.exports = (html, selector = 'article') => {
       }).join('')
       return content
     }
+
+    return doc.html().trim()
   } catch (err) {
     logger.error(err)
   }
