@@ -24,12 +24,12 @@ const retrieve = require('./utils/retrieve')
 
 const parseFromHtml = require('./utils/parseFromHtml')
 
-const extract = async (input, selector, unwanted = []) => {
+const extract = async (input) => {
   if (!isString(input)) {
     throw new Error('Input must be a string')
   }
   if (isHTMLString(input)) {
-    return parseFromHtml(input, selector, unwanted)
+    return parseFromHtml(input)
   }
 
   if (!isValidUrl(input)) {
@@ -40,7 +40,7 @@ const extract = async (input, selector, unwanted = []) => {
     return null
   }
 
-  return parseFromHtml(html, selector, unwanted, input)
+  return parseFromHtml(html, input)
 }
 
 module.exports = {

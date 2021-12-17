@@ -38,7 +38,7 @@ const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
 }
 
-const parseHtml = async (rawhtml, inputUrl = '', selector = null, unwanted = []) => {
+const parseHtml = async (rawhtml, inputUrl = '') => {
   const html = cleanify(rawhtml)
   const meta = extractMetaData(html)
 
@@ -80,14 +80,12 @@ const parseHtml = async (rawhtml, inputUrl = '', selector = null, unwanted = [])
 
   // get defined selector
   const {
-    selector: definedSelector = null,
-    unwanted: ignoredSelector = []
+    selector = null,
+    unwanted = []
   } = findRulesByUrl(bestUrl)
 
-  const querySelector = selector || definedSelector
-
   // find article content
-  const mainContent = extractWithSelector(html, querySelector, ignoredSelector)
+  const mainContent = extractWithSelector(html, selector, unwanted)
 
   const content = extractWithReadability(mainContent || html, bestUrl)
 

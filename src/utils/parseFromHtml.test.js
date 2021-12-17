@@ -63,7 +63,6 @@ describe('test parseFromHtml()', () => {
       input: {
         desc: 'a webpage with regular article',
         html: readFileSync('./test-data/regular-article.html', 'utf8'),
-        selector: 'article',
         url: 'https://somewhere.com/path/to/article'
       },
       expectation: (result, expect) => {
@@ -91,9 +90,9 @@ describe('test parseFromHtml()', () => {
 
   cases.forEach((acase) => {
     const { input, expectation } = acase
-    const { desc, html, selector = '', unwanted = [], url = '' } = input
+    const { desc, html, url = '' } = input
     test(`check if parseFromHtml() works with ${desc}`, async () => {
-      const result = await parseFromHtml(html, url, selector, unwanted)
+      const result = await parseFromHtml(html, url)
       if (isFunction(expectation)) {
         expectation(result, expect)
       } else {
