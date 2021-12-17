@@ -69,12 +69,12 @@ Result:
 
 ## APIs
 
-- [.extract(String url | String html [, querySelector])](#extractstring-url--string-html--queryselector)
+- [.extract(String url | String html)](#extractstring-url--string-html)
 - [.addQueryRules(Array queryRules)](#addqueryrulesarray-queryrules)
 - [Configuration methods](#configuration-methods)
 
 
-#### extract(String url | String html [, querySelector])
+#### extract(String url | String html)
 
 Load and extract article data. Return a Promise object.
 
@@ -111,27 +111,6 @@ If the extraction works well, you should get an `article` object with the struct
   "links": Array, // list of alternative links
   "ttr": Number, // time to read in second, 0 = unknown
 }
-```
-
-Optional parameter `querySelector` can be specified for gathering main article content from relevant HTML element(s).
-
-Example:
-
-```js
-
-const { extract } = require('article-parser')
-
-const getArticleWithSelector = async (url, selector) => {
-  try {
-    const article = await extract(url, selector)
-    return article
-  } catch (err) {
-    console.trace(err)
-    return null
-  }
-}
-
-getArticleWithSelector('https://domain.com/path/to/article', 'article.post-body')
 ```
 
 #### addQueryRules(Array queryRules)
