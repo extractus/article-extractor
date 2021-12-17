@@ -2,6 +2,10 @@
 
 const { clone, copies } = require('bellajs')
 
+const defaultRules = require('./rules')
+
+const rules = clone(defaultRules)
+
 const requestOptions = {
   headers: {
     'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
@@ -24,6 +28,7 @@ const sanitizeHtmlOptions = {
     'label',
     'fieldset', 'legend',
     'img', 'picture',
+    'video', 'audio', 'object', 'embed',
     'br', 'p', 'hr',
     'a'
   ],
@@ -62,5 +67,14 @@ module.exports = {
     if (Array.isArray(opts.allowedTags)) {
       sanitizeHtmlOptions.allowedTags = [...opts.allowedTags]
     }
+  },
+  getQueryRules: () => {
+    return [...rules]
+  },
+  addQueryRules: (entries = []) => {
+    entries.forEach((item) => {
+      rules.push(item)
+    })
+    return rules.length
   }
 }

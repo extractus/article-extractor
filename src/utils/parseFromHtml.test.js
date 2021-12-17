@@ -55,8 +55,8 @@ describe('test parseFromHtml()', () => {
         html: readFileSync('./test-data/html-article-with-data-src.html', 'utf8')
       },
       expectation: (result, expect) => {
-        expect(result.content).toContain('<img src="https://somewhere.any/image1.jpg" />')
-        expect(result.content).toContain('<img src="https://somewhere.any/image2.jpg" />')
+        expect(result.content).toEqual(expect.stringContaining('<img src="https://somewhere.any/image1.jpg" />'))
+        expect(result.content).toEqual(expect.stringContaining('<img src="https://somewhere.any/image2.jpg" />'))
       }
     },
     {
@@ -69,17 +69,31 @@ describe('test parseFromHtml()', () => {
       expectation: (result, expect) => {
         expect(result.title).toEqual('Article title here')
         expect(result.description).toEqual('Few words to summarize this article content')
-        expect(result.content).toContain('<a href="https://otherwhere.com/descriptions/rational-peach" target="_blank">')
-        expect(result.content).toContain('<a href="https://somewhere.com/dict/watermelon" target="_blank">')
+        expect(result.content).toEqual(expect.stringContaining('<a href="https://otherwhere.com/descriptions/rational-peach" target="_blank">'))
+        expect(result.content).toEqual(expect.stringContaining('<a href="https://somewhere.com/dict/watermelon" target="_blank">'))
+      }
+    },
+    {
+      input: {
+        desc: 'a webpage with unwanted elements',
+        html: readFileSync('./test-data/vnn-article.html', 'utf8'),
+        url: 'https://vnn.vn/path/to/article'
+      },
+      expectation: (result, expect) => {
+        expect(result.title).toEqual('Article title here')
+        expect(result.description).toEqual('Few words to summarize this article content')
+        expect(result.content).toEqual(expect.stringContaining('<a href="https://otherwhere.com/descriptions/rational-peach" target="_blank">'))
+        expect(result.content).toEqual(expect.stringContaining('<a href="https://vnn.vn/dict/watermelon" target="_blank">'))
+        expect(result.content).toEqual(expect.not.stringContaining('Related articles'))
       }
     }
   ]
 
   cases.forEach((acase) => {
     const { input, expectation } = acase
-    const { desc, html, selector = '', url = '' } = input
+    const { desc, html, selector = '', unwanted = [], url = '' } = input
     test(`check if parseFromHtml() works with ${desc}`, async () => {
-      const result = await parseFromHtml(html, selector, url)
+      const result = await parseFromHtml(html, url, selector, unwanted)
       if (isFunction(expectation)) {
         expectation(result, expect)
       } else {

@@ -7,7 +7,9 @@ const {
   setParserOptions,
   getParserOptions,
   setSanitizeHtmlOptions,
-  getSanitizeHtmlOptions
+  getSanitizeHtmlOptions,
+  getQueryRules,
+  addQueryRules
 } = require('./config')
 
 test('Testing setRequestOptions/getRequestOptions methods', () => {
@@ -70,4 +72,43 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   })
 
   expect(getSanitizeHtmlOptions().allowedTags).toEqual([])
+})
+
+test('Testing addQueryRules/getQueryRules methods', () => {
+  const defaultRules = require('./rules')
+  const currentRules = getQueryRules()
+
+  expect(currentRules).toEqual(defaultRules)
+
+  addQueryRules()
+  addQueryRules([])
+  expect(getQueryRules()).toHaveLength(defaultRules.length)
+
+  const newRules = [
+    {
+      patterns: [
+        /somewhere.com\/*/
+      ],
+      selector: '.article-body',
+      unwanted: [
+        '.removing-box',
+        '.ads-section'
+      ]
+    },
+    {
+      patterns: [
+        /elsewhere.net\/*/
+      ],
+      selector: '.main-content',
+      unwanted: [
+        '.related-posts'
+      ]
+    }
+  ]
+  addQueryRules(newRules)
+
+  const updatedRules = getQueryRules()
+  expect(updatedRules).toHaveLength(defaultRules.length + newRules.length)
+  expect(updatedRules[0]).toEqual(defaultRules[0])
+  expect(updatedRules[updatedRules.length - 1]).toEqual(newRules[newRules.length - 1])
 })

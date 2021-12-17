@@ -129,18 +129,52 @@ const getArticleWithSelector = async (url, selector) => {
 getArticleWithSelector('https://domain.com/path/to/article', 'article.post-body')
 ```
 
+#### addQueryRules(Array queryRules)
+
+Add custom rules to get main article from the specific domains.
+
+This can be useful when the default extraction algorithm fails, or when you want to ignore some parts of main article content.
+
+Example:
+
+```js
+const { addQueryRules, extract } = require('article-parser')
+
+// extractor doesn't work for you!
+extract('https://bad-website.domain/page/article')
+
+// add some rules for bad-website.domain
+addQueryRules([
+  {
+    patterns: [
+      /http(s?):\/\/bad-website.domain\/*/
+    ],
+    selector: '#noop_article_locates_here',
+    unwanted: [
+      '.header-content'
+    ]
+  }
+])
+
+// extractor will try to find article at `#noop_article_locates_here`
+
+// call it again, hopefully it works for you now :)
+extract('https://bad-website.domain/page/article')
+````
+
 #### Configuration methods
 
 In addition, this lib provides some methods to customize default settings. Don't touch them unless you have reason to do that.
 
-- setParserOptions(Object parserOptions)
 - getParserOptions()
-- setRequestOptions(Object requestOptions)
+- setParserOptions(Object parserOptions)
 - getRequestOptions()
-- setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
+- setRequestOptions(Object requestOptions)
 - getSanitizeHtmlOptions()
+- setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
 
 Here are default properties/values:
+
 
 #### Object `parserOptions`:
 
@@ -198,6 +232,7 @@ Read [axios' request config](https://axios-http.com/docs/req_config) for more in
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
+
 
 ## Screenshots
 

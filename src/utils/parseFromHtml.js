@@ -14,6 +14,8 @@ const absolutifyUrl = require('./absolutifyUrl')
 const chooseBestUrl = require('./chooseBestUrl')
 const getHostname = require('./getHostname')
 
+const findRulesByUrl = require('./findRulesByUrl')
+
 const extractMetaData = require('./extractMetaData')
 const extractWithReadability = require('./extractWithReadability')
 const extractWithSelector = require('./extractWithSelector')
@@ -36,7 +38,7 @@ const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
 }
 
-const parseHtml = async (rawhtml, selector, inputUrl = '') => {
+const parseHtml = async (rawhtml, inputUrl = '', selector = null, unwanted = []) => {
   const html = cleanify(rawhtml)
   const meta = extractMetaData(html)
 
@@ -76,8 +78,17 @@ const parseHtml = async (rawhtml, selector, inputUrl = '') => {
   // choose the best url
   const bestUrl = chooseBestUrl(links, title)
 
+  // get defined selector
+  const {
+    selector: definedSelector = null,
+    unwanted: ignoredSelector = []
+  } = findRulesByUrl(bestUrl)
+
+  const querySelector = selector || definedSelector
+
   // find article content
-  const mainContent = selector ? extractWithSelector(html, selector) : null
+  const mainContent = extractWithSelector(html, querySelector, ignoredSelector)
+
   const content = extractWithReadability(mainContent || html, bestUrl)
 
   if (!content) {

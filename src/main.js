@@ -13,7 +13,8 @@ const {
   setSanitizeHtmlOptions,
   getParserOptions,
   getRequestOptions,
-  getSanitizeHtmlOptions
+  getSanitizeHtmlOptions,
+  addQueryRules
 } = require('./config')
 
 const isValidUrl = require('./utils/isValidUrl')
@@ -23,12 +24,12 @@ const retrieve = require('./utils/retrieve')
 
 const parseFromHtml = require('./utils/parseFromHtml')
 
-const extract = async (input, selector) => {
+const extract = async (input, selector, unwanted = []) => {
   if (!isString(input)) {
     throw new Error('Input must be a string')
   }
   if (isHTMLString(input)) {
-    return parseFromHtml(input, selector)
+    return parseFromHtml(input, selector, unwanted)
   }
 
   if (!isValidUrl(input)) {
@@ -39,7 +40,7 @@ const extract = async (input, selector) => {
     return null
   }
 
-  return parseFromHtml(html, selector, input)
+  return parseFromHtml(html, selector, unwanted, input)
 }
 
 module.exports = {
@@ -49,5 +50,6 @@ module.exports = {
   getParserOptions,
   getRequestOptions,
   getSanitizeHtmlOptions,
+  addQueryRules,
   extract
 }
