@@ -81,8 +81,9 @@ const parseHtml = async (rawhtml, inputUrl = '') => {
   // get defined selector
   const {
     selector = null,
-    unwanted = []
-  } = findRulesByUrl(bestUrl)
+    unwanted = [],
+    transform = null
+  } = findRulesByUrl(links)
 
   // find article content
   const mainContent = extractWithSelector(html, selector, unwanted)
@@ -99,7 +100,7 @@ const parseHtml = async (rawhtml, inputUrl = '') => {
     contentLengthThreshold
   } = getParserOptions()
 
-  const normalizedContent = await standalizeArticle(content, bestUrl)
+  const normalizedContent = await standalizeArticle(content, bestUrl, transform)
 
   const textContent = stripTags(normalizedContent)
   if (textContent.length < contentLengthThreshold) {

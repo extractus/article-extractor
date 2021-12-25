@@ -147,6 +147,37 @@ addQueryRules([
 extract('https://bad-website.domain/page/article')
 ````
 
+While adding rules, you can specify a `transform()` function fine-tune article content more thoroughly.
+
+Example rule with transformation:
+
+```js
+const { addQueryRules } = require('article-parser')
+
+addQueryRules([
+  {
+    patterns: [
+      /http(s?):\/\/bad-website.domain\/*/
+    ],
+    selector: '#article_id_here',
+    transform: ($) => {
+      // with $ is cheerio's DOM instance which contains article content
+      // so you can do everything cheerio supports
+      // for example, here we replace all <h1></h1> with <b></b>
+      $('h1').replaceWith(function () {
+        const h1Html = $(this).html()
+        return `<b>${h1Html}</b>`
+      })
+      // at the end, you mush return $
+      return $
+    }
+  }
+])
+```
+
+Please refer [cheerio's docs](https://cheerio.js.org/) for more info.
+
+
 #### Configuration methods
 
 In addition, this lib provides some methods to customize default settings. Don't touch them unless you have reason to do that.
