@@ -4,16 +4,22 @@ const isValidUrl = require('./isValidUrl')
 
 const { getQueryRules } = require('../config')
 
-const findRulesByUrl = (url) => {
+const findRulesByUrl = (urls = []) => {
   const rules = getQueryRules()
-  const matches = !isValidUrl(url)
-    ? []
-    : rules.filter(({ patterns = [] }) => {
+  const xurls = urls.filter(isValidUrl)
+  for (let i = rules.length - 1; i >= 0; i--) {
+    const rule = rules[i]
+    const { patterns } = rule
+    const matched = xurls.some((url) => {
       return patterns.some((pattern) => {
         return pattern.test(url)
       })
     })
-  return matches.length > 0 ? matches[0] : {}
+    if (matched) {
+      return rule
+    }
+  }
+  return {}
 }
 
 module.exports = findRulesByUrl

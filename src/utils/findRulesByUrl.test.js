@@ -8,15 +8,11 @@ const findRulesByUrl = require('./findRulesByUrl')
 describe('test findRulesByUrl()', () => {
   const entries = [
     {
-      url: '',
+      urls: [{}, ''],
       expectation: {}
     },
     {
-      url: {},
-      expectation: {}
-    },
-    {
-      url: 'https://vietnamnet.vn/path/to/article',
+      urls: [1209, 'https://vietnamnet.vn/path/to/article'],
       expectation: (result, expect) => {
         expect(result).toBeTruthy()
         expect(result).toEqual(expect.objectContaining({ selector: '#ArticleContent' }))
@@ -24,7 +20,7 @@ describe('test findRulesByUrl()', () => {
       }
     },
     {
-      url: 'https://vnn.vn/path/to/article',
+      urls: ['https://vnn.vn/path/to/article'],
       expectation: (result, expect) => {
         expect(result).toBeTruthy()
         expect(result).toEqual(expect.objectContaining({ selector: '#ArticleContent' }))
@@ -34,11 +30,11 @@ describe('test findRulesByUrl()', () => {
   ]
   entries.forEach((entry) => {
     const {
-      url,
+      urls,
       expectation
     } = entry
-    test(`check if findRulesByUrl("${url}") works correctly`, () => {
-      const result = findRulesByUrl(url)
+    test('check if findRulesByUrl() works correctly', () => {
+      const result = findRulesByUrl(urls)
       if (isFunction(expectation)) {
         expectation(result, expect)
       } else {

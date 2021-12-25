@@ -7,6 +7,10 @@ const {
 
 const { isFunction } = require('bellajs')
 
+const {
+  addQueryRules
+} = require('../config')
+
 const parseFromHtml = require('./parseFromHtml')
 
 describe('test parseFromHtml()', () => {
@@ -100,4 +104,28 @@ describe('test parseFromHtml()', () => {
       }
     })
   })
+})
+
+test('check if parseFromHtml() works with transform rule', async () => {
+  addQueryRules([
+    {
+      patterns: [
+        /http(s?):\/\/([\w]+.)?need-transform.tld\/*/
+      ],
+      transform: ($) => {
+        $('a').replaceWith(function () {
+          const sHtml = $(this).html()
+          const link = $(this).attr('href')
+          return `[link url="${link}"]${sHtml}[/link]`
+        })
+        return $
+      }
+    }
+  ])
+  const html = readFileSync('./test-data/vnn-article.html', 'utf8')
+  const url = 'https://need-transform.tld/path/to/article'
+  const result = await parseFromHtml(html, url)
+  expect(result.title).toEqual('Article title here')
+  expect(result.content).toEqual(expect.not.stringContaining('<a href="https://vnn.vn/dict/watermelon" target="_blank">'))
+  expect(result.content).toEqual(expect.stringContaining('[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]'))
 })

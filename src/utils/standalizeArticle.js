@@ -9,7 +9,7 @@ const absolutifyUrl = require('./absolutifyUrl')
 
 const { getSanitizeHtmlOptions } = require('../config')
 
-module.exports = async (htmlArticle, url) => {
+module.exports = async (htmlArticle, url, transform = null) => {
   const $ = cheerio.load(htmlArticle, {
     normalizeWhitespace: true,
     decodeEntities: true
@@ -30,7 +30,8 @@ module.exports = async (htmlArticle, url) => {
     }
   })
 
-  const minifiedHtml = await htmlmin($.html(), {
+  const html = transform ? transform($).html() : $.html()
+  const minifiedHtml = await htmlmin(html, {
     removeComments: true,
     removeEmptyElements: true,
     removeEmptyAttributes: true,
