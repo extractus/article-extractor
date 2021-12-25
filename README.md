@@ -147,7 +147,7 @@ addQueryRules([
 extract('https://bad-website.domain/page/article')
 ````
 
-While adding rules, you can specify a `transform()` function fine-tune article content more thoroughly.
+While adding rules, you can specify a `transform()` function to fine-tune article content more thoroughly.
 
 Example rule with transformation:
 
