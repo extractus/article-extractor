@@ -11,34 +11,33 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-- [Give it a try!](https://ndaidong.github.io/article-parser-demo)
-- [Example FaaS](https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=https://devblogs.nvidia.com/training-custom-pretrained-models-using-tlt/)
-
-View [screenshots](#screenshots) for more info.
+- [Give it a try!](https://demos.pwshub.com/article-parser)
+- [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN)
 
 
-## Installation
+## Setup
 
-```bash
-$ npm install article-parser
+- Node.js
 
-# pnpm
-$ pnpm install article-parser
+  ```bash
+  npm i article-parser
 
-# yarn
-$ yarn add article-parser
-```
+  # pnpm
+  pnpm i article-parser
 
-## Usage
+  # yarn
+  yarn add article-parser
+  ```
+
+### Usage
 
 ```js
-const { extract } = require('article-parser')
-
-// es6 module syntax
 import { extract } from 'article-parser'
 
-// test
-const url = 'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646'
+// with CommonJS environments
+// const { read } = require('article-parser/dist/cjs/article-parser.js')
+
+const url = 'https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249'
 
 extract(url).then((article) => {
   console.log(article)
@@ -47,25 +46,11 @@ extract(url).then((article) => {
 })
 ```
 
-Result:
+##### Note:
 
-```js
-{
-  url: 'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646',
-  title: 'How to make your MongoDB container more secure?',
-  description: 'Start it with docker   The most simple way to get MongoDB instance in your machine is using...',
-  links: [
-    'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646'
-  ],
-  image: 'https://res.cloudinary.com/practicaldev/image/fetch/s--qByI1v3K--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/p4sfysev3s1jhw2ar2bi.png',
-  content: '...', // full article content here
-  author: '@ndaidong',
-  source: 'dev.to',
-  published: '',
-  ttr: 162
-}
+> Since Node.js v14, ECMAScript modules [have became the official standard format](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules).
+> Just ensure that you are [using module system](https://nodejs.org/api/packages.html#determining-module-system) and enjoy with ES6 import/export syntax.
 
-```
 
 ## APIs
 
@@ -81,7 +66,7 @@ Load and extract article data. Return a Promise object.
 Example:
 
 ```js
-const { extract } = require('article-parser')
+import { extract } from 'article-parser'
 
 const getArticle = async (url) => {
   try {
@@ -113,6 +98,9 @@ If the extraction works well, you should get an `article` object with the struct
 }
 ```
 
+[Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN) for seeing an actual result.
+
+
 #### addQueryRules(Array queryRules)
 
 Add custom rules to get main article from the specific domains.
@@ -122,7 +110,7 @@ This can be useful when the default extraction algorithm fails, or when you want
 Example:
 
 ```js
-const { addQueryRules, extract } = require('article-parser')
+import { addQueryRules, extract } from 'article-parser'
 
 // extractor doesn't work for you!
 extract('https://bad-website.domain/page/article')
@@ -152,7 +140,7 @@ While adding rules, you can specify a `transform()` function to fine-tune articl
 Example rule with transformation:
 
 ```js
-const { addQueryRules } = require('article-parser')
+import { addQueryRules } from 'article-parser'
 
 addQueryRules([
   {
@@ -212,7 +200,7 @@ Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs f
 ```js
 {
   headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
     accept: 'text/html; charset=utf-8'
   },
   responseType: 'text',
@@ -229,36 +217,40 @@ Read [axios' request config](https://axios-http.com/docs/req_config) for more in
 {
   allowedTags: [
     'h1', 'h2', 'h3', 'h4', 'h5',
-    'u', 'b', 'i', 'em', 'strong',
+    'u', 'b', 'i', 'em', 'strong', 'small', 'sup', 'sub',
     'div', 'span', 'p', 'article', 'blockquote', 'section',
+    'details', 'summary',
     'pre', 'code',
     'ul', 'ol', 'li', 'dd', 'dl',
     'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
-    'label',
     'fieldset', 'legend',
-    'img', 'picture',
+    'figure', 'figcaption', 'img', 'picture',
+    'video', 'audio', 'source',
+    'iframe',
+    'progress',
     'br', 'p', 'hr',
-    'a'
+    'label',
+    'abbr',
+    'a',
+    'svg'
   ],
   allowedAttributes: {
-    a: ['href', 'target'],
-    img: ['src', 'alt']
+    a: ['href', 'target', 'title'],
+    abbr: ['title'],
+    progress: ['value', 'max'],
+    img: ['src', 'srcset', 'alt', 'width', 'height', 'style', 'title'],
+    picture: ['media', 'srcset'],
+    video: ['controls', 'width', 'height', 'autoplay', 'muted'],
+    audio: ['controls'],
+    source: ['src', 'srcset', 'data-srcset', 'type', 'media', 'sizes'],
+    iframe: ['src', 'frameborder', 'height', 'width', 'scrolling'],
+    svg: ['width', 'height']
   },
+  allowedIframeDomains: ['youtube.com', 'vimeo.com']
 }
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
-
-
-## Screenshots
-
-- Article Parser demo:
-
-![Screenshot_2019-11-29_14-21-30.png](https://i.loli.net/2019/11/29/X3uP9aeTnq5Diwz.png)
-
-- Example FasS with Google Cloud Function
-
-![Screenshot_2019-11-29_14-38-32.png](https://i.loli.net/2019/11/29/upCFlkicESdy3Af.png)
 
 
 ## Test

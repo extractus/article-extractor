@@ -20,22 +20,36 @@ const requestOptions = {
 const sanitizeHtmlOptions = {
   allowedTags: [
     'h1', 'h2', 'h3', 'h4', 'h5',
-    'u', 'b', 'i', 'em', 'strong',
+    'u', 'b', 'i', 'em', 'strong', 'small', 'sup', 'sub',
     'div', 'span', 'p', 'article', 'blockquote', 'section',
+    'details', 'summary',
     'pre', 'code',
     'ul', 'ol', 'li', 'dd', 'dl',
     'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
-    'label',
     'fieldset', 'legend',
-    'img', 'picture',
-    'video', 'audio', 'object', 'embed',
+    'figure', 'figcaption', 'img', 'picture',
+    'video', 'audio', 'source',
+    'iframe',
+    'progress',
     'br', 'p', 'hr',
-    'a'
+    'label',
+    'abbr',
+    'a',
+    'svg'
   ],
   allowedAttributes: {
-    a: ['href', 'target'],
-    img: ['src', 'alt']
-  }
+    a: ['href', 'target', 'title'],
+    abbr: ['title'],
+    progress: ['value', 'max'],
+    img: ['src', 'srcset', 'alt', 'width', 'height', 'style', 'title'],
+    picture: ['media', 'srcset'],
+    video: ['controls', 'width', 'height', 'autoplay', 'muted'],
+    audio: ['controls'],
+    source: ['src', 'srcset', 'data-srcset', 'type', 'media', 'sizes'],
+    iframe: ['src', 'frameborder', 'height', 'width', 'scrolling'],
+    svg: ['width', 'height'] // sanitize-html does not support svg fully yet
+  },
+  allowedIframeDomains: ['youtube.com', 'vimeo.com']
 }
 
 const parserOptions = {

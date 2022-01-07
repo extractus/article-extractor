@@ -1,5 +1,5 @@
 {
-  "version": "5.0.1",
+  "version": "6.0.0rc1",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -16,14 +16,14 @@
   "scripts": {
     "lint": "standard .",
     "pretest": "npm run lint",
-    "test": "NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles --forceExit",
+    "test": "NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
     "eval": "DEBUG=*:* node eval",
     "reset": "node reset"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.1",
     "axios": "^0.24.0",
-    "bellajs": "^10.0.2",
+    "bellajs": "^11.0.0rc3",
     "cheerio": "^1.0.0-rc.10",
     "debug": "^4.3.3",
     "html-minifier-terser": "^6.1.0",
@@ -31,8 +31,24 @@
     "sanitize-html": "^2.6.1",
     "string-comparison": "^1.0.9"
   },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "standard": {
+    "ignore": [
+      "/dist"
+    ]
+  },
   "devDependencies": {
-    "jest": "^27.4.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.7",
+    "esbuild": "^0.14.10",
+    "jest": "^27.4.7",
     "nock": "^13.2.1"
   },
   "keywords": [

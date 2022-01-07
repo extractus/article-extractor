@@ -24,7 +24,7 @@ test('Testing setRequestOptions/getRequestOptions methods', () => {
   const actual = getRequestOptions()
   const expectedHeader = {
     authorization: 'bearer <token>',
-    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
     accept: 'text/html; charset=utf-8'
   }
 
