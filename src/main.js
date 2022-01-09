@@ -3,28 +3,18 @@
  * @ndaidong
  **/
 
-const {
+import {
   isString
-} = require('bellajs')
+} from 'bellajs'
 
-const {
-  setParserOptions,
-  setRequestOptions,
-  setSanitizeHtmlOptions,
-  getParserOptions,
-  getRequestOptions,
-  getSanitizeHtmlOptions,
-  addQueryRules
-} = require('./config')
+import isValidUrl from './utils/isValidUrl.js'
+import isHTMLString from './utils/isHTMLString.js'
 
-const isValidUrl = require('./utils/isValidUrl')
-const isHTMLString = require('./utils/isHTMLString')
+import retrieve from './utils/retrieve.js'
 
-const retrieve = require('./utils/retrieve')
+import parseFromHtml from './utils/parseFromHtml.js'
 
-const parseFromHtml = require('./utils/parseFromHtml')
-
-const extract = async (input) => {
+export const extract = async (input) => {
   if (!isString(input)) {
     throw new Error('Input must be a string')
   }
@@ -43,13 +33,4 @@ const extract = async (input) => {
   return parseFromHtml(html, input)
 }
 
-module.exports = {
-  setParserOptions,
-  setRequestOptions,
-  setSanitizeHtmlOptions,
-  getParserOptions,
-  getRequestOptions,
-  getSanitizeHtmlOptions,
-  addQueryRules,
-  extract
-}
+export * from './config.js'

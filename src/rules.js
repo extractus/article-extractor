@@ -4,7 +4,7 @@
 // Waiting for URL Pattern specs
 // https://developer.mozilla.org/en-US/docs/Web/API/URLPattern
 
-const rules = [
+export const rules = [
   {
     patterns: [
       /http(s?):\/\/([\w]+.)?techradar.com\/*/
@@ -21,37 +21,6 @@ const rules = [
       '.h-editors-recs-title',
       'ul.h-editors-recs'
     ]
-  },
-  {
-    patterns: [
-      /http(s?):\/\/([\w]+.)?mashable.com\/*/
-    ],
-    unwanted: [
-      'blockquote.tiktok-embed'
-    ],
-    transform: ($) => {
-      const html = $.html()
-      const separators = [
-        'Read more stories',
-        'Explore related content',
-        'Read more life stories'
-      ]
-      const separatorN = 'Follow Mashable SEA on'
-      const state = {
-        content: html
-      }
-      for (let i = 0; i < separators.length; i++) {
-        const sep = separators[i]
-        if (html.includes(sep)) {
-          state.content = html.split(sep)[0]
-          break
-        }
-      }
-      if (state.content.includes(separatorN)) {
-        state.content = html.split(separatorN)[0]
-      }
-      return $(state.content)
-    }
   },
   {
     patterns: [
@@ -101,5 +70,3 @@ const rules = [
     ]
   }
 ]
-
-module.exports = rules

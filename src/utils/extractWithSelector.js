@@ -1,12 +1,12 @@
 // utils/extractWithRules
 
-const cheerio = require('cheerio')
+import cheerio from 'cheerio'
 
-const {
+import {
   stripTags
-} = require('bellajs')
+} from 'bellajs'
 
-const logger = require('./logger')
+import logger from './logger.js'
 
 const MIN_SECTION_LENGTH = 100
 const MIN_TEXT_LENGTH = 20
@@ -15,7 +15,7 @@ const countWord = (text) => {
   return text.length > 0 ? text.split(/\s+/).length : 0
 }
 
-module.exports = (html, selector = null, exclusions = []) => {
+export default (html, selector = null, exclusions = []) => {
   try {
     const doc = cheerio.load(html, {
       lowerCaseTags: true,

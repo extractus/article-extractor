@@ -1,7 +1,7 @@
 // chooseBestUrl.test
 /* eslint-env jest */
 
-const chooseBestUrl = require('./chooseBestUrl')
+import chooseBestUrl from './chooseBestUrl.js'
 
 test('test chooseBestUrl an actual case', () => {
   const title = 'Google đã ra giá mua Fitbit'

@@ -1,14 +1,14 @@
 // utils -> chooseBestURL
 
-const {
+import {
   slugify
-} = require('bellajs')
+} from 'bellajs'
 
-const stringComparision = require('string-comparison')
+import stringComparision from 'string-comparison'
 
-const { getParserOptions } = require('../config')
+import { getParserOptions } from '../config.js'
 
-module.exports = (candidates = [], title = '') => {
+export default (candidates = [], title = '') => {
   let theBest = candidates.reduce((prev, curr) => {
     return curr.length < prev.length ? curr : prev
   }, candidates[0])

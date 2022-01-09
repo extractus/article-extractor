@@ -1,12 +1,12 @@
 // utils -> extractMetaData
 
-const cheerio = require('cheerio')
+import cheerio from 'cheerio'
 
 const strtolower = (s) => {
   return s ? s.toLowerCase() : ''
 }
 
-module.exports = (html) => {
+export default (html) => {
   const entry = {
     url: '',
     shortlink: '',

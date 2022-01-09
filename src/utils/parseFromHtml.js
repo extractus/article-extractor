@@ -1,31 +1,31 @@
 // utils -> parseFromHtml
 
-const {
+import {
   unique,
   stripTags,
   truncate
-} = require('bellajs')
+} from 'bellajs'
 
-const sanitize = require('sanitize-html')
+import sanitize from 'sanitize-html'
 
-const isValidUrl = require('./isValidUrl')
-const purifyUrl = require('./purifyUrl')
-const absolutifyUrl = require('./absolutifyUrl')
-const chooseBestUrl = require('./chooseBestUrl')
-const getHostname = require('./getHostname')
+import isValidUrl from './isValidUrl'
+import purifyUrl from './purifyUrl'
+import absolutifyUrl from './absolutifyUrl'
+import chooseBestUrl from './chooseBestUrl.js'
+import getHostname from './getHostname.js'
 
-const findRulesByUrl = require('./findRulesByUrl')
+import findRulesByUrl from './findRulesByUrl.js'
 
-const extractMetaData = require('./extractMetaData')
-const extractWithReadability = require('./extractWithReadability')
-const extractWithSelector = require('./extractWithSelector')
+import extractMetaData from './extractMetaData.js'
+import extractWithReadability from './extractWithReadability.js'
+import extractWithSelector from './extractWithSelector.js'
 
-const standalizeArticle = require('./standalizeArticle')
-const getTimeToRead = require('./getTimeToRead')
+import standalizeArticle from './standalizeArticle.js'
+import getTimeToRead from './getTimeToRead.js'
 
-const logger = require('./logger')
+import logger from './logger.js'
 
-const { getParserOptions } = require('../config')
+import { getParserOptions } from '../config.js'
 
 const cleanify = (html) => {
   return sanitize(html, {
@@ -38,7 +38,7 @@ const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
 }
 
-const parseHtml = async (rawhtml, inputUrl = '') => {
+export default async (rawhtml, inputUrl = '') => {
   const html = cleanify(rawhtml)
   const meta = extractMetaData(html)
 
@@ -130,5 +130,3 @@ const parseHtml = async (rawhtml, inputUrl = '') => {
     ttr: getTimeToRead(textContent)
   }
 }
-
-module.exports = parseHtml

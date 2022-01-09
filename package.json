@@ -8,7 +8,9 @@
     "url": "git@github.com:ndaidong/article-parser.git"
   },
   "author": "@ndaidong",
-  "main": "./index.js",
+  "main": "./dist/cjs/article-parser.js",
+  "module": "./src/main.js",
+  "type": "module",
   "types": "./index.d.ts",
   "engines": {
     "node": ">= 14"
@@ -17,6 +19,7 @@
     "lint": "standard .",
     "pretest": "npm run lint",
     "test": "NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
+    "build": "node build src/main.js",
     "eval": "DEBUG=*:* node eval",
     "reset": "node reset"
   },

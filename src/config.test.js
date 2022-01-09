@@ -1,7 +1,7 @@
 // config.test
 /* eslint-env jest */
 
-const {
+import {
   setRequestOptions,
   getRequestOptions,
   setParserOptions,
@@ -10,7 +10,9 @@ const {
   getSanitizeHtmlOptions,
   getQueryRules,
   addQueryRules
-} = require('./config')
+} from './config.js'
+
+import { rules as defaultRules } from './rules.js'
 
 test('Testing setRequestOptions/getRequestOptions methods', () => {
   setRequestOptions({
@@ -57,8 +59,7 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   const actual = getSanitizeHtmlOptions()
   const actualAllowedAttributes = actual.allowedAttributes
   const expectedAllowedAttributes = {
-    a: ['href', 'title'],
-    img: ['src', 'alt']
+    a: ['href', 'title']
   }
 
   expect(actualAllowedAttributes).toEqual(expectedAllowedAttributes)
@@ -75,7 +76,6 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
 })
 
 test('Testing addQueryRules/getQueryRules methods', () => {
-  const defaultRules = require('./rules')
   const currentRules = getQueryRules()
 
   expect(currentRules).toEqual(defaultRules)

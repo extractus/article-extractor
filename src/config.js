@@ -1,14 +1,14 @@
 // configs
 
-const { clone, copies } = require('bellajs')
+import { clone, copies, isObject, hasProperty } from 'bellajs'
 
-const defaultRules = require('./rules')
+import { rules as defaultRules } from './rules.js'
 
 const rules = clone(defaultRules)
 
 const requestOptions = {
   headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
     accept: 'text/html; charset=utf-8'
   },
   responseType: 'text',
@@ -60,35 +60,44 @@ const parserOptions = {
   contentLengthThreshold: 200 // content must have at least 200 chars
 }
 
-module.exports = {
-  getParserOptions: () => {
-    return clone(parserOptions)
-  },
-  getRequestOptions: () => {
-    return clone(requestOptions)
-  },
-  getSanitizeHtmlOptions: () => {
-    return clone(sanitizeHtmlOptions)
-  },
-  setParserOptions: (opts) => {
-    copies(opts, parserOptions)
-  },
-  setRequestOptions: (opts) => {
-    copies(opts, requestOptions)
-  },
-  setSanitizeHtmlOptions: (opts) => {
-    copies(opts, sanitizeHtmlOptions)
-    if (Array.isArray(opts.allowedTags)) {
-      sanitizeHtmlOptions.allowedTags = [...opts.allowedTags]
+export const getParserOptions = () => {
+  return clone(parserOptions)
+}
+
+export const getRequestOptions = () => {
+  return clone(requestOptions)
+}
+
+export const getSanitizeHtmlOptions = () => {
+  return clone(sanitizeHtmlOptions)
+}
+
+export const setParserOptions = (opts) => {
+  Object.keys(parserOptions).forEach((key) => {
+    if (key in opts) {
+      parserOptions[key] = opts[key]
     }
-  },
-  getQueryRules: () => {
-    return [...rules]
-  },
-  addQueryRules: (entries = []) => {
-    entries.forEach((item) => {
-      rules.push(item)
-    })
-    return rules.length
-  }
+  })
+}
+
+export const setRequestOptions = (opts) => {
+  copies(opts, requestOptions)
+}
+
+export const setSanitizeHtmlOptions = (opts) => {
+  Object.keys(opts).forEach((key) => {
+    sanitizeHtmlOptions[key] = clone(opts[key])
+  })
+}
+
+export const getQueryRules = () => {
+  return clone(rules)
+}
+export const addQueryRules = (entries = []) => {
+  entries.filter((item) => {
+    return isObject(item) && hasProperty(item, 'patterns')
+  }).forEach((item) => {
+    rules.push(item)
+  })
+  return rules.length
 }

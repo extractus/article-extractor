@@ -1,9 +1,9 @@
 // utils/extractWithReadability
 
-const { Readability } = require('@mozilla/readability')
-const { JSDOM } = require('jsdom')
+import { Readability } from '@mozilla/readability'
+import { JSDOM } from 'jsdom'
 
-module.exports = (html, url) => {
+export default (html, url) => {
   const doc = new JSDOM(html, { url })
   const reader = new Readability(doc.window.document)
   const result = reader.parse() || {}

@@ -1,17 +1,15 @@
 // parseFromHtml.test
 /* eslint-env jest */
 
-const {
-  readFileSync
-} = require('fs')
+import { readFileSync } from 'fs'
 
-const { isFunction } = require('bellajs')
+import { isFunction } from 'bellajs'
 
-const {
+import {
   addQueryRules
-} = require('../config')
+} from '../config.js'
 
-const parseFromHtml = require('./parseFromHtml')
+import parseFromHtml from './parseFromHtml.js'
 
 describe('test parseFromHtml()', () => {
   const cases = [

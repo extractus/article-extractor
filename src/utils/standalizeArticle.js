@@ -1,15 +1,15 @@
 // utils -> standalizeArticle
 
-const cheerio = require('cheerio')
-const sanitize = require('sanitize-html')
+import cheerio from 'cheerio'
+import sanitize from 'sanitize-html'
 
-const { minify: htmlmin } = require('html-minifier-terser')
+import { minify as htmlmin } from 'html-minifier-terser'
 
-const absolutifyUrl = require('./absolutifyUrl')
+import absolutifyUrl from './absolutifyUrl.js'
 
-const { getSanitizeHtmlOptions } = require('../config')
+import { getSanitizeHtmlOptions } from '../config.js'
 
-module.exports = async (htmlArticle, url, transform = null) => {
+export default async (htmlArticle, url, transform = null) => {
   const $ = cheerio.load(htmlArticle, {
     normalizeWhitespace: true,
     decodeEntities: true

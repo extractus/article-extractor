@@ -1,6 +1,6 @@
 // utils -> purifyUrl
 
-const logger = require('./logger')
+import logger from './logger'
 
 const blacklistKeys = [
   'CNDID',
@@ -62,7 +62,7 @@ const blacklistKeys = [
   'pk_campaign'
 ]
 
-module.exports = (url) => {
+export default (url) => {
   try {
     const pureUrl = new URL(url)
 

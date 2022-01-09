@@ -1,10 +1,10 @@
 // utils --> findRulesByUrl
 
-const isValidUrl = require('./isValidUrl')
+import isValidUrl from './isValidUrl.js'
 
-const { getQueryRules } = require('../config')
+import { getQueryRules } from '../config.js'
 
-const findRulesByUrl = (urls = []) => {
+export default (urls = []) => {
   const rules = getQueryRules()
   const xurls = urls.filter(isValidUrl)
   for (let i = rules.length - 1; i >= 0; i--) {
@@ -21,5 +21,3 @@ const findRulesByUrl = (urls = []) => {
   }
   return {}
 }
-
-module.exports = findRulesByUrl

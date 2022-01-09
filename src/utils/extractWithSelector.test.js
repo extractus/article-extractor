@@ -1,11 +1,11 @@
 // extractWithSelector.test
 /* eslint-env jest */
 
-const { readFileSync } = require('fs')
+import { readFileSync } from 'fs'
 
-const { isString } = require('bellajs')
+import { isString } from 'bellajs'
 
-const extractWithSelector = require('./extractWithSelector')
+import extractWithSelector from './extractWithSelector.js'
 
 test('test extractWithSelector a bad input', () => {
   const result = extractWithSelector(null)

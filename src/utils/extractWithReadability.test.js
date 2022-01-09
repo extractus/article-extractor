@@ -1,11 +1,11 @@
 // extractWithReadability.test
 /* eslint-env jest */
 
-const { readFileSync } = require('fs')
+import { readFileSync } from 'fs'
 
-const { isString } = require('bellajs')
+import { isString } from 'bellajs'
 
-const extractWithReadability = require('./extractWithReadability')
+import extractWithReadability from './extractWithReadability.js'
 
 test('test extractWithReadability from good html content', async () => {
   const html = readFileSync('./test-data/regular-article.html', 'utf8')

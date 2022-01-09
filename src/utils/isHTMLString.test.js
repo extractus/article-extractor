@@ -1,11 +1,11 @@
 // isHTMLString.test
 /* eslint-env jest */
 
-const {
+import {
   readFileSync
-} = require('fs')
+} from 'fs'
 
-const isHTMLString = require('./isHTMLString')
+import isHTMLString from './isHTMLString.js'
 
 test('test isHTMLString(bad input)', () => {
   const result = isHTMLString({})
