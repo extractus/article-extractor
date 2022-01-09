@@ -11,10 +11,8 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-- [Give it a try!](https://ndaidong.github.io/article-parser-demo)
-- [Example FaaS](https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=https://devblogs.nvidia.com/training-custom-pretrained-models-using-tlt/)
-
-View [screenshots](#screenshots) for more info.
+- [Give it a try!](https://demos.pwshub.com/article-parser)
+- [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN)
 
 
 ## Installation
@@ -212,7 +210,7 @@ Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs f
 ```js
 {
   headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux i686; rv:94.0) Gecko/20100101 Firefox/94.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
     accept: 'text/html; charset=utf-8'
   },
   responseType: 'text',
@@ -229,36 +227,40 @@ Read [axios' request config](https://axios-http.com/docs/req_config) for more in
 {
   allowedTags: [
     'h1', 'h2', 'h3', 'h4', 'h5',
-    'u', 'b', 'i', 'em', 'strong',
+    'u', 'b', 'i', 'em', 'strong', 'small', 'sup', 'sub',
     'div', 'span', 'p', 'article', 'blockquote', 'section',
+    'details', 'summary',
     'pre', 'code',
     'ul', 'ol', 'li', 'dd', 'dl',
     'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
-    'label',
     'fieldset', 'legend',
-    'img', 'picture',
+    'figure', 'figcaption', 'img', 'picture',
+    'video', 'audio', 'source',
+    'iframe',
+    'progress',
     'br', 'p', 'hr',
-    'a'
+    'label',
+    'abbr',
+    'a',
+    'svg'
   ],
   allowedAttributes: {
-    a: ['href', 'target'],
-    img: ['src', 'alt']
+    a: ['href', 'target', 'title'],
+    abbr: ['title'],
+    progress: ['value', 'max'],
+    img: ['src', 'srcset', 'alt', 'width', 'height', 'style', 'title'],
+    picture: ['media', 'srcset'],
+    video: ['controls', 'width', 'height', 'autoplay', 'muted'],
+    audio: ['controls'],
+    source: ['src', 'srcset', 'data-srcset', 'type', 'media', 'sizes'],
+    iframe: ['src', 'frameborder', 'height', 'width', 'scrolling'],
+    svg: ['width', 'height']
   },
+  allowedIframeDomains: ['youtube.com', 'vimeo.com']
 }
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
-
-
-## Screenshots
-
-- Article Parser demo:
-
-![Screenshot_2019-11-29_14-21-30.png](https://i.loli.net/2019/11/29/X3uP9aeTnq5Diwz.png)
-
-- Example FasS with Google Cloud Function
-
-![Screenshot_2019-11-29_14-38-32.png](https://i.loli.net/2019/11/29/upCFlkicESdy3Af.png)
 
 
 ## Test
