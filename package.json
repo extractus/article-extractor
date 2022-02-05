@@ -19,7 +19,7 @@
     "lint": "npx standard .",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
-    "build": "node build src/main.js",
+    "build": "node build",
     "eval": "cross-env DEBUG=*:* node eval",
     "reset": "node reset"
   },

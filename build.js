@@ -22,15 +22,16 @@ const comment = [
 ].join(' - ')
 
 /**
- * @type import(’esbuild‘).BuildOptions
- */
+ * @type {import('esbuild').BuildOptions}
+ * */
 const baseOpt = {
   entryPoints: ['src/main.js'],
   bundle: true,
   charset: 'utf8',
   target: ['es2020', 'node14'],
-  minify: false,
-  write: true
+  minify: true,
+  write: true,
+  sourcemap: 'external'
 }
 
 /**
