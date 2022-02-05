@@ -1,6 +1,6 @@
 // utils -> purifyUrl
 
-import logger from './logger'
+import logger from './logger.js'
 
 const blacklistKeys = [
   'CNDID',

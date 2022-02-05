@@ -5,5 +5,5 @@
 
 import metadata from './package.json'
 
-export * from './src/main'
+export * from './src/main.js'
 export const version = metadata.version
