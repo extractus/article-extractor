@@ -16,11 +16,11 @@
     "node": ">= 14"
   },
   "scripts": {
-    "lint": "standard .",
+    "lint": "npx standard .",
     "pretest": "npm run lint",
-    "test": "NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
     "build": "node build src/main.js",
-    "eval": "DEBUG=*:* node eval",
+    "eval": "cross-env DEBUG=*:* node eval",
     "reset": "node reset"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "axios": "^0.24.0",
     "bellajs": "^11.0.0rc3",
     "cheerio": "^1.0.0-rc.10",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.3",
     "html-minifier-terser": "^6.1.0",
     "jsdom": "^19.0.0",
@@ -52,7 +53,8 @@
     "@babel/plugin-transform-modules-commonjs": "^7.16.7",
     "esbuild": "^0.14.10",
     "jest": "^27.4.7",
-    "nock": "^13.2.1"
+    "nock": "^13.2.1",
+    "standard": "^16.0.4"
   },
   "keywords": [
     "article",

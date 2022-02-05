@@ -1,9 +1,9 @@
 /**
  * Starting app
  * @ndaidong
-**/
+ **/
 
-const main = require('./src/main')
-main.version = require('./package.json').version
+import metadata from './package.json'
 
-module.exports = main
+export * from './src/main'
+export const version = metadata.version
