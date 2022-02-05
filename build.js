@@ -46,7 +46,7 @@ const cjsVersion = {
   banner: {
     js: comment
   },
-  external: ['*.node', './xhr-sync-worker.js']
+  external: ['canvas', '*.node', './xhr-sync-worker.js']
 }
 buildSync(cjsVersion)
 
