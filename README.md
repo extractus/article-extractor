@@ -14,7 +14,6 @@ Extract main article, main image and meta data from URL.
 - [Give it a try!](https://demos.pwshub.com/article-parser)
 - [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN)
 
-
 ## Setup
 
 - Node.js
