@@ -16,22 +16,23 @@
     "node": ">= 14"
   },
   "scripts": {
-    "lint": "standard .",
+    "lint": "npx standard .",
     "pretest": "npm run lint",
-    "test": "NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
-    "build": "node build src/main.js",
-    "eval": "DEBUG=*:* node eval",
+    "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
+    "build": "node build",
+    "eval": "cross-env DEBUG=*:* node eval",
     "reset": "node reset"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.1",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "bellajs": "^11.0.0rc3",
     "cheerio": "^1.0.0-rc.10",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.3",
-    "html-minifier-terser": "^6.1.0",
+    "html-minifier-terser": "^7.0.0-alpha.1",
     "jsdom": "^19.0.0",
-    "sanitize-html": "^2.6.1",
+    "sanitize-html": "^2.7.0",
     "string-comparison": "^1.0.9"
   },
   "babel": {
@@ -49,10 +50,11 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.7",
-    "esbuild": "^0.14.10",
-    "jest": "^27.4.7",
-    "nock": "^13.2.1"
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "esbuild": "^0.14.18",
+    "jest": "^27.5.0",
+    "nock": "^13.2.4",
+    "standard": "^16.0.4"
   },
   "keywords": [
     "article",

@@ -1,15 +1,21 @@
 // Type definitions
 
+export interface QueryRule {
+    patterns: Array<RegExp>,
+    unwanted?: Array<String>,
+    selector?: String
+}
+
 export function extract(url: string): Promise<ArticleData>;
 
 export function setParserOptions(props: object): void;
-export function setNodeFetchOptions(props: object): void;
+export function setRequestOptions(props: object): void;
 export function setSanitizeHtmlOptions(props: object): void;
+export function addQueryRules(entries: Array<QueryRule>): Number;
 
 export function getParserOptions(): object;
-export function getNodeFetchOptions(): object;
+export function getRequestOptions(): object;
 export function getSanitizeHtmlOptions(): object;
-
 
 export interface ArticleData {
     url?: string;
