@@ -1,17 +1,18 @@
 /**
  * build.js
  * @ndaidong
-**/
-
-import { readFileSync, writeFileSync } from 'fs'
-import { execSync } from 'child_process'
+ **/
+import { readFileSync, writeFileSync, rmSync, mkdirSync } from 'fs'
 
 import { buildSync } from 'esbuild'
 
-const pkg = JSON.parse(readFileSync('./package.json'))
+const pkg = JSON.parse(readFileSync('./package.json', { encoding: 'utf-8' }))
 
-execSync('rm -rf dist')
-execSync('mkdir dist')
+rmSync('dist', {
+  force: true,
+  recursive: true
+})
+mkdirSync('dist')
 
 const buildTime = (new Date()).toISOString()
 const comment = [
@@ -20,6 +21,9 @@ const comment = [
   `published under ${pkg.license} license`
 ].join(' - ')
 
+/**
+ * @type import(’esbuild‘).BuildOptions
+ */
 const baseOpt = {
   entryPoints: ['src/main.js'],
   bundle: true,
@@ -29,6 +33,9 @@ const baseOpt = {
   write: true
 }
 
+/**
+ * @type {import('esbuild').BuildOptions}
+ */
 const cjsVersion = {
   ...baseOpt,
   platform: 'node',
@@ -37,7 +44,8 @@ const cjsVersion = {
   outfile: `dist/cjs/${pkg.name}.js`,
   banner: {
     js: comment
-  }
+  },
+  external: ['*.node', './xhr-sync-worker.js']
 }
 buildSync(cjsVersion)
 
