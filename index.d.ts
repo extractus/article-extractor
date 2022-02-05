@@ -3,7 +3,7 @@
 export interface QueryRule {
     patterns: Array<RegExp>,
     unwanted?: Array<String>,
-    slector?: String
+    selector?: String
 }
 
 export function extract(url: string): Promise<ArticleData>;
