@@ -8,9 +8,9 @@ import {
 
 import sanitize from 'sanitize-html'
 
-import isValidUrl from './isValidUrl'
-import purifyUrl from './purifyUrl'
-import absolutifyUrl from './absolutifyUrl'
+import isValidUrl from './isValidUrl.js'
+import purifyUrl from './purifyUrl.js'
+import absolutifyUrl from './absolutifyUrl.js'
 import chooseBestUrl from './chooseBestUrl.js'
 import getHostname from './getHostname.js'
 
