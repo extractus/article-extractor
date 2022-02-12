@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.21",
     "jest": "^27.5.1",
