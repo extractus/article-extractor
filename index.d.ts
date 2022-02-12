@@ -17,7 +17,10 @@ export interface QueryRule {
   selector?: String
 }
 
-export function extract(url: string): Promise<ArticleData>;
+/**
+ * @param input url or html
+ */
+export function extract(input: string): Promise<ArticleData>;
 
 export function setParserOptions(options: ParserOptions): void;
 
