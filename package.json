@@ -16,8 +16,8 @@
   "scripts": {
     "lint": "standard .",
     "pretest": "npm run lint",
-    "test": "NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles --forceExit",
-    "eval": "DEBUG=*:* node eval",
+    "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles --forceExit",
+    "eval": "cross-env DEBUG=*:* node eval",
     "reset": "node reset"
   },
   "dependencies": {
@@ -27,13 +27,15 @@
     "cheerio": "^1.0.0-rc.10",
     "debug": "^4.3.3",
     "html-minifier-terser": "^6.1.0",
-    "jsdom": "^19.0.0",
+    "linkedom": "^0.14.0",
     "sanitize-html": "^2.6.1",
     "string-comparison": "^1.0.9"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "jest": "^27.4.7",
-    "nock": "^13.2.2"
+    "nock": "^13.2.2",
+    "standard": "^16.0.4"
   },
   "keywords": [
     "article",
