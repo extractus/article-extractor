@@ -19,19 +19,18 @@
     "lint": "standard .",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
-    "build": "DEBUG=*:* node build",
+    "build": "node build",
     "eval": "cross-env DEBUG=*:* node eval",
-    "cjs-eval": "cross-env DEBUG=*:* node cjs-eval",
     "reset": "node reset"
   },
   "dependencies": {
-    "@mozilla/readability": "^0.4.1",
+    "@mozilla/readability": "^0.4.2",
     "axios": "^0.25.0",
-    "bellajs": "11.0.0",
+    "bellajs": "^11.0.0",
     "cheerio": "^1.0.0-rc.10",
     "debug": "^4.3.3",
     "html-minifier-terser": "^7.0.0-alpha.1",
-    "jsdom": "^19.0.0",
+    "linkedom": "^0.14.0",
     "sanitize-html": "^2.7.0",
     "string-comparison": "^1.0.9"
   },
@@ -51,10 +50,12 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.18",
-    "jest": "^27.5.0",
-    "nock": "^13.2.4"
+    "esbuild": "^0.14.21",
+    "jest": "^27.5.1",
+    "nock": "^13.2.4",
+    "standard": "^16.0.4"
   },
   "keywords": [
     "article",

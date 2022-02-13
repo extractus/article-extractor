@@ -88,7 +88,7 @@ export default async (rawhtml, inputUrl = '') => {
   // find article content
   const mainContent = extractWithSelector(html, selector, unwanted)
 
-  const content = extractWithReadability(mainContent || html, bestUrl)
+  const content = extractWithReadability(mainContent || html)
 
   if (!content) {
     logger.info('Could not detect article content!')

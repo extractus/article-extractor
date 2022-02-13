@@ -4,7 +4,7 @@ import {
   slugify
 } from 'bellajs'
 
-import stringComparision from 'string-comparison'
+import stringComparison from 'string-comparison'
 
 import { getParserOptions } from '../config.js'
 
@@ -15,7 +15,7 @@ export default (candidates = [], title = '') => {
 
   const opts = getParserOptions()
   const alg = opts.urlsCompareAlgorithm
-  const comparer = stringComparision[alg]
+  const comparer = stringComparison[alg]
 
   const titleHashed = slugify(title)
   let g = comparer.similarity(theBest, titleHashed)
