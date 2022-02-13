@@ -2,6 +2,8 @@
  * build.js
  * @ndaidong
  **/
+
+import { execSync } from 'child_process'
 import { readFileSync, writeFileSync, rmSync, mkdirSync } from 'fs'
 
 import { buildSync } from 'esbuild'
@@ -60,3 +62,4 @@ writeFileSync(
   JSON.stringify(cjspkg, null, '  '),
   'utf8'
 )
+execSync('cp -r node_modules/string-comparison/lib/main dist/cjs')
