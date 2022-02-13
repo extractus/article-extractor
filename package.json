@@ -10,6 +10,7 @@
   "author": "@ndaidong",
   "main": "./dist/cjs/article-parser.js",
   "module": "./src/main.js",
+  "type": "module",
   "types": "./index.d.ts",
   "engines": {
     "node": ">= 14"
