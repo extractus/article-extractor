@@ -21,19 +21,20 @@
     "reset": "node reset"
   },
   "dependencies": {
-    "@mozilla/readability": "^0.4.1",
+    "@mozilla/readability": "^0.4.2",
     "axios": "^0.25.0",
     "bellajs": "11.0.0",
     "cheerio": "^1.0.0-rc.10",
     "debug": "^4.3.3",
     "html-minifier-terser": "^6.1.0",
     "jsdom": "^19.0.0",
-    "sanitize-html": "^2.6.1",
+    "sanitize-html": "^2.7.0",
     "string-comparison": "^1.0.9"
   },
   "devDependencies": {
-    "jest": "^27.4.7",
-    "nock": "^13.2.2"
+    "@types/sanitize-html": "^2.6.2",
+    "jest": "^27.5.1",
+    "nock": "^13.2.4"
   },
   "keywords": [
     "article",
