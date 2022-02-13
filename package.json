@@ -21,7 +21,7 @@
     "reset": "node reset"
   },
   "dependencies": {
-    "@mozilla/readability": "^0.4.1",
+    "@mozilla/readability": "^0.4.2",
     "axios": "^0.25.0",
     "bellajs": "11.0.0",
     "cheerio": "^1.0.0-rc.10",
@@ -32,10 +32,10 @@
     "string-comparison": "^1.0.9"
   },
   "devDependencies": {
+    "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
     "jest": "^27.4.7",
-    "nock": "^13.2.2",
-    "standard": "^16.0.4"
+    "nock": "^13.2.4"
   },
   "keywords": [
     "article",
