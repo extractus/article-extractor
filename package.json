@@ -21,6 +21,7 @@
     "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
     "build": "node build",
     "eval": "cross-env DEBUG=*:* node eval",
+    "eval:cjs": "cross-env DEBUG=*:* node eval.cjs",
     "reset": "node reset"
   },
   "dependencies": {

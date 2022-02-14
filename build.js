@@ -3,7 +3,6 @@
  * @ndaidong
  **/
 
-import { execSync } from 'child_process'
 import { readFileSync, writeFileSync, rmSync, mkdirSync } from 'fs'
 
 import { buildSync } from 'esbuild'
@@ -48,7 +47,7 @@ const cjsVersion = {
   banner: {
     js: comment
   },
-  external: ['canvas', '*.node', './xhr-sync-worker.js']
+  external: ['canvas', './xhr-sync-worker.js']
 }
 buildSync(cjsVersion)
 
@@ -62,4 +61,3 @@ writeFileSync(
   JSON.stringify(cjspkg, null, '  '),
   'utf8'
 )
-execSync('cp -r node_modules/string-comparison/lib/main dist/cjs')
