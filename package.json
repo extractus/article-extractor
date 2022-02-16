@@ -26,12 +26,11 @@
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "bellajs": "^11.0.0",
-    "cheerio": "^1.0.0-rc.10",
     "debug": "^4.3.3",
     "html-minifier-terser": "^7.0.0-alpha.1",
-    "linkedom": "^0.14.0",
+    "linkedom": "^0.14.1",
     "sanitize-html": "^2.7.0",
     "string-comparison": "github:Rabbitzzc/js-string-comparison"
   },
