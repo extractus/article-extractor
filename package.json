@@ -10,6 +10,10 @@
   "author": "@ndaidong",
   "main": "./dist/cjs/article-parser.js",
   "module": "./src/main.js",
+  "browser": {
+    "linkedom": "./src/browser/linkedom.js",
+    "./main.js": "./dist/article-parser.browser.js"
+  },
   "type": "module",
   "types": "./index.d.ts",
   "engines": {
