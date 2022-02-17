@@ -15,7 +15,7 @@ export interface QueryRule {
   patterns: Array<RegExp>,
   unwanted?: Array<String>,
   selector?: String,
-  transform?: (Document) => Document
+  transform?: (document: Document) => Document
 }
 
 /**
