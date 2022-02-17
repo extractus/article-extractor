@@ -32,7 +32,7 @@ export default async (htmlArticle, url, transform = null) => {
     }
   })
 
-  const html = (transform?.apply(this, $article) ?? $article).documentElement.innerHTML
+  const html = (transform?.call(this, $article) ?? $article).documentElement.innerHTML
 
   const crushed = crush(html, {
     removeHTMLComments: 2,

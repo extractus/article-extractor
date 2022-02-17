@@ -9,24 +9,20 @@ import stringComparison from 'string-comparison'
 import { getParserOptions } from '../config.js'
 
 export default (candidates = [], title = '') => {
-  let theBest = candidates.reduce((prev, curr) => {
-    return curr.length < prev.length ? curr : prev
-  }, candidates[0])
+  const shortestUrl = candidates.reduce((prev, curr) => curr.length < prev.length ? curr : prev, candidates[0])
 
   const opts = getParserOptions()
   const alg = opts.urlsCompareAlgorithm
   const comparer = stringComparison[alg]
 
   const titleHashed = slugify(title)
-  let g = comparer.similarity(theBest, titleHashed)
 
-  candidates.forEach((url) => {
-    const k = comparer.similarity(url, titleHashed)
-    if (k > g) {
-      g = k
-      theBest = url
-    }
-  })
-
-  return theBest
+  return candidates.reduce((prev, curr) => {
+    const similarity = comparer.similarity(curr, titleHashed)
+    const better = similarity > prev.similarity
+    return better ? { similarity, value: curr } : prev
+  }, {
+    similarity: comparer.similarity(shortestUrl, titleHashed),
+    value: shortestUrl
+  }).value
 }
