@@ -1,7 +1,5 @@
 // utils --> findRulesByUrl
 
-import isValidUrl from './isValidUrl.js'
-
 import { getQueryRules } from '../config.js'
 
 /**
@@ -10,14 +8,9 @@ import { getQueryRules } from '../config.js'
  */
 export default (urls = []) => {
   const rules = getQueryRules()
-  const xurls = urls.filter(isValidUrl)
   for (const rule of rules) {
     const { patterns } = rule
-    const matched = xurls.some((url) => {
-      return patterns.some((pattern) => {
-        return pattern.test(url)
-      })
-    })
+    const matched = urls.some((url) => patterns.some((pattern) => pattern.test(url)))
     if (matched) {
       return rule
     }
