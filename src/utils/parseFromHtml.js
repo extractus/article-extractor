@@ -70,7 +70,7 @@ export default async (rawhtml, inputUrl = '') => {
     inputUrl
   ].filter(isValidUrl).map(purifyUrl))
 
-  if (links.length === 0) {
+  if (!links.length) {
     logger.info('Could not detect article link!')
     return null
   }

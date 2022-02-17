@@ -81,7 +81,7 @@ test('Testing addQueryRules/getQueryRules methods', () => {
   expect(currentRules).toEqual(defaultRules)
 
   addQueryRules()
-  addQueryRules([])
+  addQueryRules(...[])
   expect(getQueryRules()).toHaveLength(defaultRules.length)
 
   const newRules = [
@@ -105,10 +105,10 @@ test('Testing addQueryRules/getQueryRules methods', () => {
       ]
     }
   ]
-  addQueryRules(newRules)
+  addQueryRules(...newRules)
 
   const updatedRules = getQueryRules()
   expect(updatedRules).toHaveLength(defaultRules.length + newRules.length)
-  expect(updatedRules[0]).toEqual(defaultRules[0])
-  expect(updatedRules[updatedRules.length - 1]).toEqual(newRules[newRules.length - 1])
+  expect(updatedRules[0]).toEqual(newRules[0])
+  expect(updatedRules[updatedRules.length - 1]).toEqual(defaultRules[defaultRules.length - 1])
 })
