@@ -1,12 +1,9 @@
 // utils/extractWithRules
 
-import cheerio from 'cheerio'
-
-import {
-  stripTags
-} from 'bellajs'
+import { stripTags } from 'bellajs'
 
 import logger from './logger.js'
+import { DOMParser } from 'linkedom'
 
 const MIN_SECTION_LENGTH = 100
 const MIN_TEXT_LENGTH = 20
@@ -17,37 +14,24 @@ const countWord = (text) => {
 
 export default (html, selector = null, exclusions = []) => {
   try {
-    const doc = cheerio.load(html, {
-      lowerCaseTags: true,
-      lowerCaseAttributeNames: true,
-      recognizeSelfClosing: true
+    const $article = new DOMParser().parseFromString(html, 'text/html')
+    for (const exclusion of exclusions) {
+      $article.querySelectorAll(exclusion).forEach(node => node.remove())
+    }
+    const parts = []
+    $article.querySelectorAll(selector).forEach(node => {
+      const text = node.innerHTML.trim()
+      if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
     })
 
-    for (let i = 0; i < exclusions.length; i++) {
-      doc(exclusions[i]).empty()
+    if (parts.length) {
+      return parts
+        .reduce((prev, curr) => prev.concat([curr]), [])
+        .filter((sect) => stripTags(sect).length > MIN_TEXT_LENGTH)
+        .join('')
     }
 
-    const parts = []
-    const els = doc(selector)
-    if (els) {
-      els.each((_, el) => {
-        const section = doc(el)
-        const text = section.html().trim()
-        if (countWord(text) >= MIN_SECTION_LENGTH) {
-          parts.push(text)
-        }
-      })
-    }
-    if (parts.length > 0) {
-      const content = parts.reduce((prev, curr) => {
-        return prev.concat([curr])
-      }, []).filter((sect) => {
-        return stripTags(sect).length > MIN_TEXT_LENGTH
-      }).join('')
-      return content
-    }
-
-    return doc.html().trim()
+    return $article.documentElement.innerHTML
   } catch (err) {
     logger.error(err)
   }

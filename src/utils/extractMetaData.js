@@ -1,10 +1,6 @@
 // utils -> extractMetaData
 
-import cheerio from 'cheerio'
-
-const strtolower = (s) => {
-  return s ? s.toLowerCase() : ''
-}
+import { DOMParser } from 'linkedom'
 
 export default (html) => {
   const entry = {
@@ -59,34 +55,20 @@ export default (html) => {
     'og:updated_time'
   ]
 
-  const doc = cheerio.load(html, {
-    lowerCaseTags: true,
-    lowerCaseAttributeNames: true,
-    recognizeSelfClosing: true
+  const $article = new DOMParser().parseFromString(html, 'text/html')
+
+  entry.title = $article.querySelector('head > title')?.innerText
+
+  $article.getElementsByTagName('link').forEach(node => {
+    const rel = node.getAttribute('rel')
+    const href = node.getAttribute('href')
+    if (rel && href) entry[rel] = href
   })
 
-  entry.title = doc('head > title').text()
-
-  doc('link').each((i, link) => {
-    const m = doc(link)
-    const rel = m.attr('rel')
-    if (rel) {
-      const href = m.attr('href')
-      if (rel === 'canonical') {
-        entry.canonical = href
-      } else if (rel === 'shortlink') {
-        entry.shortlink = href
-      } else if (rel === 'amphtml') {
-        entry.amphtml = href
-      }
-    }
-  })
-
-  doc('meta').each((i, meta) => {
-    const m = doc(meta)
-    const content = m.attr('content')
-    const property = strtolower(m.attr('property'))
-    const name = strtolower(m.attr('name'))
+  $article.getElementsByTagName('meta').forEach(node => {
+    const content = node.getAttribute('content')
+    const property = node.getAttribute('property')?.toLowerCase()
+    const name = node.getAttribute('name')?.toLowerCase()
 
     if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
       entry.source = content

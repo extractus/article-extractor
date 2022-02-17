@@ -1,6 +1,5 @@
 // utils -> standalizeArticle
 
-import cheerio from 'cheerio'
 import sanitize from 'sanitize-html'
 
 import { minify as htmlmin } from 'html-minifier-terser'
@@ -8,29 +7,26 @@ import { minify as htmlmin } from 'html-minifier-terser'
 import absolutifyUrl from './absolutifyUrl.js'
 
 import { getSanitizeHtmlOptions } from '../config.js'
+import { DOMParser } from 'linkedom'
 
 export default async (htmlArticle, url, transform = null) => {
-  const $ = cheerio.load(htmlArticle, {
-    normalizeWhitespace: true,
-    decodeEntities: true
-  })
-
-  $('a').each((i, elem) => {
-    const href = $(elem).attr('href')
+  const $article = new DOMParser().parseFromString(htmlArticle, 'text/html')
+  $article.getElementsByTagName('a').forEach(node => {
+    const href = node.getAttribute('href')
     if (href) {
-      $(elem).attr('href', absolutifyUrl(url, href))
-      $(elem).attr('target', '_blank')
+      node.setAttribute('href', absolutifyUrl(url, href))
+      node.setAttribute('target', '_blank')
     }
   })
 
-  $('img').each((i, elem) => {
-    const src = $(elem).attr('data-src') || $(elem).attr('src')
+  $article.getElementsByTagName('img').forEach(node => {
+    const src = node.getAttribute('data-src')
     if (src) {
-      $(elem).attr('src', absolutifyUrl(url, src))
+      node.setAttribute('src', absolutifyUrl(url, src))
     }
   })
 
-  const html = transform ? transform($).html() : $.html()
+  const html = transform ? transform($article).documentElement.innerHTML : $article.documentElement.innerHTML
   const minifiedHtml = await htmlmin(html, {
     removeComments: true,
     removeEmptyElements: true,

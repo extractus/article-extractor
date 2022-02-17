@@ -70,8 +70,8 @@ describe('test parseFromHtml()', () => {
       expectation: (result, expect) => {
         expect(result.title).toEqual('Article title here')
         expect(result.description).toEqual('Few words to summarize this article content')
-        expect(result.content).toEqual(expect.stringContaining('<a href="https://otherwhere.com/descriptions/rational-peach" target="_blank">'))
-        expect(result.content).toEqual(expect.stringContaining('<a href="https://somewhere.com/dict/watermelon" target="_blank">'))
+        expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">'))
+        expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://somewhere.com/dict/watermelon">'))
       }
     },
     {
@@ -83,8 +83,8 @@ describe('test parseFromHtml()', () => {
       expectation: (result, expect) => {
         expect(result.title).toEqual('Article title here')
         expect(result.description).toEqual('Few words to summarize this article content')
-        expect(result.content).toEqual(expect.stringContaining('<a href="https://otherwhere.com/descriptions/rational-peach" target="_blank">'))
-        expect(result.content).toEqual(expect.stringContaining('<a href="https://vnn.vn/dict/watermelon" target="_blank">'))
+        expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">'))
+        expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://vnn.vn/dict/watermelon">'))
         expect(result.content).toEqual(expect.not.stringContaining('Related articles'))
       }
     }
@@ -111,10 +111,10 @@ test('check if parseFromHtml() works with transform rule', async () => {
         /http(s?):\/\/([\w]+.)?need-transform.tld\/*/
       ],
       transform: ($) => {
-        $('a').replaceWith(function () {
-          const sHtml = $(this).html()
-          const link = $(this).attr('href')
-          return `[link url="${link}"]${sHtml}[/link]`
+        $.querySelectorAll('a').forEach(node => {
+          const sHtml = node.innerHTML
+          const link = node.getAttribute('href')
+          node.parentNode.replaceChild($.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
         })
         return $
       }
