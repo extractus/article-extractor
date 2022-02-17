@@ -90,6 +90,9 @@ export const setSanitizeHtmlOptions = (opts) => {
   })
 }
 
+/**
+ * @returns {QueryRule[]}
+ */
 export const getQueryRules = () => {
   return clone(rules)
 }

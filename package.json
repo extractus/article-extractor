@@ -18,7 +18,7 @@
   "scripts": {
     "lint": "standard .",
     "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --unhandled-rejections=strict",
     "build": "node build",
     "eval": "cross-env DEBUG=*:* node eval",
     "eval:cjs": "cross-env DEBUG=*:* node eval.cjs",
@@ -29,19 +29,10 @@
     "axios": "^0.26.0",
     "bellajs": "^11.0.0",
     "debug": "^4.3.3",
-    "html-minifier-terser": "^7.0.0-alpha.1",
+    "html-crush": "^5.0.12",
     "linkedom": "^0.14.1",
     "sanitize-html": "^2.7.0",
     "string-comparison": "github:Rabbitzzc/js-string-comparison"
-  },
-  "babel": {
-    "env": {
-      "test": {
-        "plugins": [
-          "@babel/plugin-transform-modules-commonjs"
-        ]
-      }
-    }
   },
   "standard": {
     "ignore": [
@@ -49,7 +40,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.21",
