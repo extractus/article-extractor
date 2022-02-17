@@ -68,5 +68,5 @@ export const rules = [
     unwanted: [
       'nav.breadcrumb'
     ]
-  },
+  }
 ]
