@@ -7,7 +7,9 @@ import { isString } from 'bellajs'
 export default (html, url) => {
   if (!isString(html)) return null
   const doc = new DOMParser().parseFromString(html, 'text/html')
-  doc.baseURI = url
+  const base = doc.createElement('base')
+  base.href = url
+  doc.head.appendChild(base)
   const reader = new Readability(doc)
   const result = reader.parse() || {}
   const { content, textContent, length } = result
