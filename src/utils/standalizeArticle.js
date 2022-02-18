@@ -26,7 +26,7 @@ export default async (htmlArticle, url, transform = null) => {
   })
 
   Array.from($article.getElementsByTagName('img')).forEach(node => {
-    const src = node.getAttribute('data-src')
+    const src = node.getAttribute('data-src') ?? node.getAttribute('src')
     if (src) {
       node.setAttribute('src', absolutifyUrl(url, src))
     }
