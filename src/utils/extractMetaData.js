@@ -59,13 +59,13 @@ export default (html) => {
 
   entry.title = $article.querySelector('head > title')?.innerText
 
-  $article.getElementsByTagName('link').forEach(node => {
+  Array.from($article.getElementsByTagName('link')).forEach(node => {
     const rel = node.getAttribute('rel')
     const href = node.getAttribute('href')
     if (rel && href) entry[rel] = href
   })
 
-  $article.getElementsByTagName('meta').forEach(node => {
+  Array.from($article.getElementsByTagName('meta')).forEach(node => {
     const content = node.getAttribute('content')
     const property = node.getAttribute('property')?.toLowerCase()
     const name = node.getAttribute('name')?.toLowerCase()

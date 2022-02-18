@@ -17,7 +17,7 @@ import { DOMParser } from 'linkedom'
  */
 export default async (htmlArticle, url, transform = null) => {
   const $article = new DOMParser().parseFromString(htmlArticle, 'text/html')
-  $article.getElementsByTagName('a').forEach(node => {
+  Array.from($article.getElementsByTagName('a')).forEach(node => {
     const href = node.getAttribute('href')
     if (href) {
       node.setAttribute('href', absolutifyUrl(url, href))
@@ -25,7 +25,7 @@ export default async (htmlArticle, url, transform = null) => {
     }
   })
 
-  $article.getElementsByTagName('img').forEach(node => {
+  Array.from($article.getElementsByTagName('img')).forEach(node => {
     const src = node.getAttribute('data-src')
     if (src) {
       node.setAttribute('src', absolutifyUrl(url, src))
