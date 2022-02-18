@@ -16,7 +16,7 @@ import { DOMParser } from 'linkedom'
  * @returns {Promise<string>}
  */
 export default async (inputHtml, url, transform = null) => {
-  const $article = new DOMParser().parseFromString(html, 'text/html')
+  const $article = new DOMParser().parseFromString(inputHtml, 'text/html')
   Array.from($article.getElementsByTagName('a')).forEach(node => {
     const href = node.getAttribute('href')
     if (href) {

@@ -13,14 +13,15 @@ const countWord = (text) => {
 }
 
 /**
- * @param document {Document}
+ * @param html {string}
  * @param selector {string | null}
  * @param exclusions {string[]}
  * @returns {null|string}
  */
-export default (document, selector = null, exclusions = []) => {
+export default (html, selector = null, exclusions = []) => {
   if (!selector) return null
   try {
+    const document = new DOMParser().parseFromString(html, 'text/html')
     for (const exclusion of exclusions) {
       document.querySelectorAll(exclusion).forEach(node => node.remove())
     }
