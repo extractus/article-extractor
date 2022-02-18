@@ -31,10 +31,10 @@
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
     "axios": "^0.26.0",
-    "bellajs": "^11.0.0",
+    "bellajs": "^11.0.1",
     "debug": "^4.3.3",
     "html-crush": "^5.0.12",
-    "linkedom": "^0.14.1",
+    "linkedom": "^0.14.2",
     "sanitize-html": "^2.7.0",
     "string-comparison": "github:Rabbitzzc/js-string-comparison"
   },
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.21",
+    "esbuild": "^0.14.22",
     "jest": "^27.5.1",
     "nock": "^13.2.4",
     "standard": "^16.0.4"
