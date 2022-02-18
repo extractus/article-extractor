@@ -10,13 +10,13 @@ import { getSanitizeHtmlOptions } from '../config.js'
 import { DOMParser } from 'linkedom'
 
 /**
- * @param htmlArticle {string}
+ * @param inputHtml {string}
  * @param url {string}
  * @param transform {(Document)=>Document}
  * @returns {Promise<string>}
  */
-export default async (htmlArticle, url, transform = null) => {
-  const $article = new DOMParser().parseFromString(htmlArticle, 'text/html')
+export default async (inputHtml, url, transform = null) => {
+  const $article = new DOMParser().parseFromString(html, 'text/html')
   Array.from($article.getElementsByTagName('a')).forEach(node => {
     const href = node.getAttribute('href')
     if (href) {

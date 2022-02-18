@@ -13,20 +13,19 @@ const countWord = (text) => {
 }
 
 /**
- * @param html {string}
+ * @param document {Document}
  * @param selector {string | null}
  * @param exclusions {string[]}
  * @returns {null|string}
  */
-export default (html, selector = null, exclusions = []) => {
+export default (document, selector = null, exclusions = []) => {
   if (!selector) return null
   try {
-    const $article = new DOMParser().parseFromString(html, 'text/html')
     for (const exclusion of exclusions) {
-      $article.querySelectorAll(exclusion).forEach(node => node.remove())
+      document.querySelectorAll(exclusion).forEach(node => node.remove())
     }
     const parts = []
-    $article.querySelectorAll(selector).forEach(node => {
+    document.querySelectorAll(selector).forEach(node => {
       const text = node.innerHTML.trim()
       if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
     })
@@ -38,7 +37,7 @@ export default (html, selector = null, exclusions = []) => {
         .join('')
     }
 
-    return $article.documentElement.innerHTML
+    return document.documentElement.innerHTML
   } catch (err) {
     logger.error(err)
   }

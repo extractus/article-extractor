@@ -1,7 +1,10 @@
 // utils -> extractMetaData
-
 import { DOMParser } from 'linkedom'
 
+/**
+ * @param html {string}
+ * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string}}
+ */
 export default (html) => {
   const entry = {
     url: '',
@@ -55,17 +58,16 @@ export default (html) => {
     'og:updated_time'
   ]
 
-  const $article = new DOMParser().parseFromString(html, 'text/html')
+  const document = new DOMParser().parseFromString(html, 'text/html')
+  entry.title = document.querySelector('head > title')?.innerText
 
-  entry.title = $article.querySelector('head > title')?.innerText
-
-  Array.from($article.getElementsByTagName('link')).forEach(node => {
+  Array.from(document.getElementsByTagName('link')).forEach(node => {
     const rel = node.getAttribute('rel')
     const href = node.getAttribute('href')
     if (rel && href) entry[rel] = href
   })
 
-  Array.from($article.getElementsByTagName('meta')).forEach(node => {
+  Array.from(document.getElementsByTagName('meta')).forEach(node => {
     const content = node.getAttribute('content')
     const property = node.getAttribute('property')?.toLowerCase()
     const name = node.getAttribute('name')?.toLowerCase()
