@@ -10,7 +10,6 @@ export default (html, inputUrl) => {
   const base = doc.createElement('base')
   base.setAttribute('href', inputUrl)
   doc.head.appendChild(base)
-  console.log(doc.baseURI)
   const reader = new Readability(doc)
   const result = reader.parse() || {}
   const { content, textContent, length } = result
