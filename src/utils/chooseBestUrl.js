@@ -4,7 +4,7 @@ import {
   slugify
 } from 'bellajs'
 
-import stringComparison from 'string-comparison'
+import * as stringComparison from 'string-comparison'
 
 import { getParserOptions } from '../config.js'
 
