@@ -1,6 +1,6 @@
 // utils / logger
 
-import debug from 'debug/src/index.js'
+import debug from 'debug'
 
 const name = 'article-parser'
 

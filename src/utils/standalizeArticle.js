@@ -10,14 +10,14 @@ import { getSanitizeHtmlOptions } from '../config.js'
 import { DOMParser } from 'linkedom'
 
 /**
- * @param htmlArticle {string}
+ * @param inputHtml {string}
  * @param url {string}
  * @param transform {(Document)=>Document}
  * @returns {Promise<string>}
  */
-export default async (htmlArticle, url, transform = null) => {
-  const $article = new DOMParser().parseFromString(htmlArticle, 'text/html')
-  $article.getElementsByTagName('a').forEach(node => {
+export default async (inputHtml, url, transform = null) => {
+  const $article = new DOMParser().parseFromString(inputHtml, 'text/html')
+  Array.from($article.getElementsByTagName('a')).forEach(node => {
     const href = node.getAttribute('href')
     if (href) {
       node.setAttribute('href', absolutifyUrl(url, href))
@@ -25,14 +25,14 @@ export default async (htmlArticle, url, transform = null) => {
     }
   })
 
-  $article.getElementsByTagName('img').forEach(node => {
-    const src = node.getAttribute('data-src')
+  Array.from($article.getElementsByTagName('img')).forEach(node => {
+    const src = node.getAttribute('data-src') ?? node.getAttribute('src')
     if (src) {
       node.setAttribute('src', absolutifyUrl(url, src))
     }
   })
 
-  const html = (transform?.call(this, $article) ?? $article).documentElement.innerHTML
+  const html = (transform?.call($article, $article) ?? $article).documentElement.innerHTML
 
   const crushed = crush(html, {
     removeHTMLComments: 2,

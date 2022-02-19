@@ -1,10 +1,6 @@
 // utils -> parseFromHtml
 
-import {
-  unique,
-  stripTags,
-  truncate
-} from 'bellajs'
+import { stripTags, truncate, unique } from 'bellajs'
 
 import sanitize from 'sanitize-html'
 
@@ -38,8 +34,8 @@ const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
 }
 
-export default async (rawhtml, inputUrl = '') => {
-  const html = cleanify(rawhtml)
+export default async (inputHtml, inputUrl = '') => {
+  const html = cleanify(inputHtml)
   const meta = extractMetaData(html)
 
   // gather title
@@ -88,7 +84,7 @@ export default async (rawhtml, inputUrl = '') => {
   // find article content
   const mainContent = extractWithSelector(html, selector, unwanted)
 
-  const content = extractWithReadability(mainContent || html)
+  const content = extractWithReadability(mainContent ?? html, bestUrl)
 
   if (!content) {
     logger.info('Could not detect article content!')

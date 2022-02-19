@@ -32,7 +32,8 @@ const baseOpt = {
   target: ['es2020', 'node14'],
   minify: true,
   write: true,
-  sourcemap: 'external'
+  sourcemap: 'external',
+  external: ['canvas']
 }
 
 /**
@@ -46,8 +47,7 @@ const cjsVersion = {
   outfile: `dist/cjs/${pkg.name}.js`,
   banner: {
     js: comment
-  },
-  external: ['canvas', './xhr-sync-worker.js']
+  }
 }
 buildSync(cjsVersion)
 
@@ -61,3 +61,17 @@ writeFileSync(
   JSON.stringify(cjspkg, null, '  '),
   'utf8'
 )
+
+/**
+ * @type {import('esbuild').BuildOptions}
+ */
+const browserVersion = {
+  ...baseOpt,
+  platform: 'browser',
+  format: 'esm',
+  outfile: `dist/${pkg.name}.browser.js`,
+  banner: {
+    js: comment
+  }
+}
+buildSync(browserVersion)
