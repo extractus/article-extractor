@@ -105,21 +105,19 @@ describe('test parseFromHtml()', () => {
 })
 
 test('check if parseFromHtml() works with transform rule', async () => {
-  addQueryRules([
-    {
-      patterns: [
-        /http(s?):\/\/([\w]+.)?need-transform.tld\/*/
-      ],
-      transform: ($) => {
-        $.querySelectorAll('a').forEach(node => {
-          const sHtml = node.innerHTML
-          const link = node.getAttribute('href')
-          node.parentNode.replaceChild($.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
-        })
-        return $
-      }
+  addQueryRules({
+    patterns: [
+      /http(s?):\/\/([\w]+.)?need-transform.tld\/*/
+    ],
+    transform: ($) => {
+      $.querySelectorAll('a').forEach(node => {
+        const sHtml = node.innerHTML
+        const link = node.getAttribute('href')
+        node.parentNode.replaceChild($.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
+      })
+      return $
     }
-  ])
+  })
   const html = readFileSync('./test-data/vnn-article.html', 'utf8')
   const url = 'https://need-transform.tld/path/to/article'
   const result = await parseFromHtml(html, url)

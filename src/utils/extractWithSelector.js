@@ -12,7 +12,14 @@ const countWord = (text) => {
   return text.length > 0 ? text.split(/\s+/).length : 0
 }
 
+/**
+ * @param html {string}
+ * @param selector {string | null}
+ * @param exclusions {string[]}
+ * @returns {null|string}
+ */
 export default (html, selector = null, exclusions = []) => {
+  if (!selector) return null
   try {
     const $article = new DOMParser().parseFromString(html, 'text/html')
     for (const exclusion of exclusions) {

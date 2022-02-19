@@ -7,27 +7,30 @@
 export const rules = [
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?techradar.com\/*/
+      /http(s?):\/\/thanhnien.vn\/*/
     ],
     unwanted: [
-      'nav.breadcrumb'
+      '.morenews',
+      '.zone--media',
+      '.zone--timeline'
     ]
   },
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?digitaltrends.com\/*/
+      /http(s?):\/\/zingnews.vn\/*/
     ],
     unwanted: [
-      '.h-editors-recs-title',
-      'ul.h-editors-recs'
+      '.the-article-category',
+      '.the-article-meta',
+      '.the-article-tags'
     ]
   },
   {
     patterns: [
-      /thehill.com\/*/
+      /http(s?):\/\/([\w]+.)?vnexpress.net\/*/
     ],
     unwanted: [
-      '.rollover-people-block'
+      '.header-content'
     ]
   },
   {
@@ -43,30 +46,27 @@ export const rules = [
   },
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?vnexpress.net\/*/
+      /thehill.com\/*/
     ],
     unwanted: [
-      '.header-content'
+      '.rollover-people-block'
     ]
   },
   {
     patterns: [
-      /http(s?):\/\/zingnews.vn\/*/
+      /http(s?):\/\/([\w]+.)?digitaltrends.com\/*/
     ],
     unwanted: [
-      '.the-article-category',
-      '.the-article-meta',
-      '.the-article-tags'
+      '.h-editors-recs-title',
+      'ul.h-editors-recs'
     ]
   },
   {
     patterns: [
-      /http(s?):\/\/thanhnien.vn\/*/
+      /http(s?):\/\/([\w]+.)?techradar.com\/*/
     ],
     unwanted: [
-      '.morenews',
-      '.zone--media',
-      '.zone--timeline'
+      'nav.breadcrumb'
     ]
   }
 ]

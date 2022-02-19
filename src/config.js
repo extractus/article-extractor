@@ -1,6 +1,6 @@
 // configs
 
-import { clone, copies, isObject, hasProperty } from 'bellajs'
+import { clone, copies, isArray } from 'bellajs'
 
 import { rules as defaultRules } from './rules.js'
 
@@ -90,14 +90,13 @@ export const setSanitizeHtmlOptions = (opts) => {
   })
 }
 
-export const getQueryRules = () => {
-  return clone(rules)
-}
-export const addQueryRules = (entries = []) => {
-  entries.filter((item) => {
-    return isObject(item) && hasProperty(item, 'patterns')
-  }).forEach((item) => {
-    rules.push(item)
-  })
-  return rules.length
-}
+/**
+ * @returns {QueryRule[]}
+ */
+export const getQueryRules = () => clone(rules)
+
+/**
+ * @param entries {QueryRule}
+ * @returns {number}
+ */
+export const addQueryRules = (...entries) => rules.unshift(...entries.filter((item) => isArray(item?.patterns)))

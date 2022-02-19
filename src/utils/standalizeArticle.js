@@ -2,13 +2,19 @@
 
 import sanitize from 'sanitize-html'
 
-import { minify as htmlmin } from 'html-minifier-terser'
+import { crush } from 'html-crush'
 
 import absolutifyUrl from './absolutifyUrl.js'
 
 import { getSanitizeHtmlOptions } from '../config.js'
 import { DOMParser } from 'linkedom'
 
+/**
+ * @param htmlArticle {string}
+ * @param url {string}
+ * @param transform {(Document)=>Document}
+ * @returns {Promise<string>}
+ */
 export default async (htmlArticle, url, transform = null) => {
   const $article = new DOMParser().parseFromString(htmlArticle, 'text/html')
   $article.getElementsByTagName('a').forEach(node => {
@@ -26,17 +32,13 @@ export default async (htmlArticle, url, transform = null) => {
     }
   })
 
-  const html = transform ? transform($article).documentElement.innerHTML : $article.documentElement.innerHTML
-  const minifiedHtml = await htmlmin(html, {
-    removeComments: true,
-    removeEmptyElements: true,
-    removeEmptyAttributes: true,
-    collapseWhitespace: true,
-    collapseBooleanAttributes: true,
-    conservativeCollapse: false,
-    removeTagWhitespace: true
+  const html = (transform?.call(this, $article) ?? $article).documentElement.innerHTML
+
+  const crushed = crush(html, {
+    removeHTMLComments: 2,
+    removeLineBreaks: true
   })
 
-  const cleanHtml = sanitize(minifiedHtml, getSanitizeHtmlOptions())
+  const cleanHtml = sanitize(crushed.result, getSanitizeHtmlOptions())
   return cleanHtml.trim()
 }
