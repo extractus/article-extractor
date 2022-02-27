@@ -4,6 +4,7 @@ import {AxiosRequestConfig} from "axios";
 import * as sanitize from "sanitize-html";
 import { URLPatternInit } from "urlpattern-polyfill/dist/url-pattern.interfaces";
 
+
 /**
  * @example
  * {
