@@ -1,8 +1,8 @@
 // utils -> getHostname
 
-const logger = require('./logger')
+import logger from './logger.js'
 
-const getHostname = (uri) => {
+export default (uri) => {
   try {
     const { hostname } = new URL(uri)
     return hostname.replace('www.', '')
@@ -11,5 +11,3 @@ const getHostname = (uri) => {
     return ''
   }
 }
-
-module.exports = getHostname

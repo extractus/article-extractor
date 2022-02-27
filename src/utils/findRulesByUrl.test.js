@@ -1,9 +1,9 @@
 // findRulesByUrl.test
 /* eslint-env jest */
 
-const { isFunction } = require('bellajs')
+import { isFunction } from 'bellajs'
 
-const findRulesByUrl = require('./findRulesByUrl')
+import findRulesByUrl from './findRulesByUrl.js'
 
 describe('test findRulesByUrl()', () => {
   const entries = [

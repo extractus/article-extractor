@@ -1,31 +1,27 @@
 // utils -> parseFromHtml
 
-const {
-  unique,
-  stripTags,
-  truncate
-} = require('bellajs')
+import { stripTags, truncate, unique } from 'bellajs'
 
-const sanitize = require('sanitize-html')
+import sanitize from 'sanitize-html'
 
-const isValidUrl = require('./isValidUrl')
-const purifyUrl = require('./purifyUrl')
-const absolutifyUrl = require('./absolutifyUrl')
-const chooseBestUrl = require('./chooseBestUrl')
-const getHostname = require('./getHostname')
+import isValidUrl from './isValidUrl.js'
+import purifyUrl from './purifyUrl.js'
+import absolutifyUrl from './absolutifyUrl.js'
+import chooseBestUrl from './chooseBestUrl.js'
+import getHostname from './getHostname.js'
 
-const findRulesByUrl = require('./findRulesByUrl')
+import findRulesByUrl from './findRulesByUrl.js'
 
-const extractMetaData = require('./extractMetaData')
-const extractWithReadability = require('./extractWithReadability')
-const extractWithSelector = require('./extractWithSelector')
+import extractMetaData from './extractMetaData.js'
+import extractWithReadability from './extractWithReadability.js'
+import extractWithSelector from './extractWithSelector.js'
 
-const standalizeArticle = require('./standalizeArticle')
-const getTimeToRead = require('./getTimeToRead')
+import standalizeArticle from './standalizeArticle.js'
+import getTimeToRead from './getTimeToRead.js'
 
-const logger = require('./logger')
+import logger from './logger.js'
 
-const { getParserOptions } = require('../config')
+import { getParserOptions } from '../config.js'
 
 const cleanify = (html) => {
   return sanitize(html, {
@@ -38,8 +34,8 @@ const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
 }
 
-const parseHtml = async (rawhtml, inputUrl = '') => {
-  const html = cleanify(rawhtml)
+export default async (inputHtml, inputUrl = '') => {
+  const html = cleanify(inputHtml)
   const meta = extractMetaData(html)
 
   // gather title
@@ -70,7 +66,7 @@ const parseHtml = async (rawhtml, inputUrl = '') => {
     inputUrl
   ].filter(isValidUrl).map(purifyUrl))
 
-  if (links.length === 0) {
+  if (!links.length) {
     logger.info('Could not detect article link!')
     return null
   }
@@ -88,7 +84,7 @@ const parseHtml = async (rawhtml, inputUrl = '') => {
   // find article content
   const mainContent = extractWithSelector(html, selector, unwanted)
 
-  const content = extractWithReadability(mainContent || html, bestUrl)
+  const content = extractWithReadability(mainContent ?? html, bestUrl)
 
   if (!content) {
     logger.info('Could not detect article content!')
@@ -130,5 +126,3 @@ const parseHtml = async (rawhtml, inputUrl = '') => {
     ttr: getTimeToRead(textContent)
   }
 }
-
-module.exports = parseHtml

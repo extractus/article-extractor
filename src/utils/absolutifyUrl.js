@@ -1,8 +1,8 @@
 // utils -> absolutifyUrl
 
-const logger = require('./logger')
+import logger from './logger.js'
 
-module.exports = (fullUrl = '', relativeUrl = '') => {
+export default (fullUrl = '', relativeUrl = '') => {
   try {
     const result = new URL(relativeUrl, fullUrl)
     return result.toString()

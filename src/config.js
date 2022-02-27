@@ -1,8 +1,8 @@
 // configs
 
-const { clone, copies, isObject, hasProperty } = require('bellajs')
+import { clone, copies, isArray } from 'bellajs'
 
-const defaultRules = require('./rules')
+import { rules as defaultRules } from './rules.js'
 
 const rules = clone(defaultRules)
 
@@ -60,40 +60,43 @@ const parserOptions = {
   contentLengthThreshold: 200 // content must have at least 200 chars
 }
 
-module.exports = {
-  getParserOptions: () => {
-    return clone(parserOptions)
-  },
-  getRequestOptions: () => {
-    return clone(requestOptions)
-  },
-  getSanitizeHtmlOptions: () => {
-    return clone(sanitizeHtmlOptions)
-  },
-  setParserOptions: (opts) => {
-    Object.keys(parserOptions).forEach((key) => {
-      if (key in opts) {
-        parserOptions[key] = opts[key]
-      }
-    })
-  },
-  setRequestOptions: (opts) => {
-    copies(opts, requestOptions)
-  },
-  setSanitizeHtmlOptions: (opts) => {
-    Object.keys(opts).forEach((key) => {
-      sanitizeHtmlOptions[key] = clone(opts[key])
-    })
-  },
-  getQueryRules: () => {
-    return clone(rules)
-  },
-  addQueryRules: (entries = []) => {
-    entries.filter((item) => {
-      return isObject(item) && hasProperty(item, 'patterns')
-    }).forEach((item) => {
-      rules.push(item)
-    })
-    return rules.length
-  }
+export const getParserOptions = () => {
+  return clone(parserOptions)
 }
+
+export const getRequestOptions = () => {
+  return clone(requestOptions)
+}
+
+export const getSanitizeHtmlOptions = () => {
+  return clone(sanitizeHtmlOptions)
+}
+
+export const setParserOptions = (opts) => {
+  Object.keys(parserOptions).forEach((key) => {
+    if (key in opts) {
+      parserOptions[key] = opts[key]
+    }
+  })
+}
+
+export const setRequestOptions = (opts) => {
+  copies(opts, requestOptions)
+}
+
+export const setSanitizeHtmlOptions = (opts) => {
+  Object.keys(opts).forEach((key) => {
+    sanitizeHtmlOptions[key] = clone(opts[key])
+  })
+}
+
+/**
+ * @returns {QueryRule[]}
+ */
+export const getQueryRules = () => clone(rules)
+
+/**
+ * @param entries {QueryRule}
+ * @returns {number}
+ */
+export const addQueryRules = (...entries) => rules.unshift(...entries.filter((item) => isArray(item?.patterns)))

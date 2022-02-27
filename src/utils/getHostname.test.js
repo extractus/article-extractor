@@ -1,7 +1,7 @@
 // getHostname.test
 /* eslint-env jest */
 
-const getHostname = require('./getHostname')
+import getHostname from './getHostname.js'
 
 describe('test getHostname()', () => {
   const entries = [

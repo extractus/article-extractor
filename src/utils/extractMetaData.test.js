@@ -1,11 +1,11 @@
 // extractMetaData.test
 /* eslint-env jest */
 
-const { readFileSync } = require('fs')
+import { readFileSync } from 'fs'
 
-const { isObject, hasProperty } = require('bellajs')
+import { isObject, hasProperty } from 'bellajs'
 
-const extractMetaData = require('./extractMetaData')
+import extractMetaData from './extractMetaData.js'
 
 const keys = 'url shortlink amphtml canonical title description image author source published'.split(' ')
 

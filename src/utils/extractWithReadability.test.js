@@ -1,17 +1,18 @@
 // extractWithReadability.test
 /* eslint-env jest */
 
-const { readFileSync } = require('fs')
+import { readFileSync } from 'fs'
 
-const { isString } = require('bellajs')
+import { isString } from 'bellajs'
 
-const extractWithReadability = require('./extractWithReadability')
+import extractWithReadability from './extractWithReadability.js'
 
 test('test extractWithReadability from good html content', async () => {
   const html = readFileSync('./test-data/regular-article.html', 'utf8')
-  const result = extractWithReadability(html)
+  const result = extractWithReadability(html, 'https://foo.bar')
   expect(isString(result)).toBe(true)
   expect(result.length > 200).toBe(true)
+  expect(result).toEqual(expect.stringContaining('<img src="https://foo.bar/orange.png">'))
 })
 
 test('test extractWithReadability from bad html content', async () => {

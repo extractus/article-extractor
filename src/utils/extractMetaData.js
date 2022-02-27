@@ -1,12 +1,11 @@
 // utils -> extractMetaData
+import { DOMParser } from 'linkedom'
 
-const cheerio = require('cheerio')
-
-const strtolower = (s) => {
-  return s ? s.toLowerCase() : ''
-}
-
-module.exports = (html) => {
+/**
+ * @param html {string}
+ * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string}}
+ */
+export default (html) => {
   const entry = {
     url: '',
     shortlink: '',
@@ -59,34 +58,19 @@ module.exports = (html) => {
     'og:updated_time'
   ]
 
-  const doc = cheerio.load(html, {
-    lowerCaseTags: true,
-    lowerCaseAttributeNames: true,
-    recognizeSelfClosing: true
+  const document = new DOMParser().parseFromString(html, 'text/html')
+  entry.title = document.querySelector('head > title')?.innerText
+
+  Array.from(document.getElementsByTagName('link')).forEach(node => {
+    const rel = node.getAttribute('rel')
+    const href = node.getAttribute('href')
+    if (rel && href) entry[rel] = href
   })
 
-  entry.title = doc('head > title').text()
-
-  doc('link').each((i, link) => {
-    const m = doc(link)
-    const rel = m.attr('rel')
-    if (rel) {
-      const href = m.attr('href')
-      if (rel === 'canonical') {
-        entry.canonical = href
-      } else if (rel === 'shortlink') {
-        entry.shortlink = href
-      } else if (rel === 'amphtml') {
-        entry.amphtml = href
-      }
-    }
-  })
-
-  doc('meta').each((i, meta) => {
-    const m = doc(meta)
-    const content = m.attr('content')
-    const property = strtolower(m.attr('property'))
-    const name = strtolower(m.attr('name'))
+  Array.from(document.getElementsByTagName('meta')).forEach(node => {
+    const content = node.getAttribute('content')
+    const property = node.getAttribute('property')?.toLowerCase()
+    const name = node.getAttribute('name')?.toLowerCase()
 
     if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
       entry.source = content

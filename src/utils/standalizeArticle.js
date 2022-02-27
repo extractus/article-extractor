@@ -1,46 +1,44 @@
 // utils -> standalizeArticle
 
-const cheerio = require('cheerio')
-const sanitize = require('sanitize-html')
+import sanitize from 'sanitize-html'
 
-const { minify: htmlmin } = require('html-minifier-terser')
+import { crush } from 'html-crush'
 
-const absolutifyUrl = require('./absolutifyUrl')
+import absolutifyUrl from './absolutifyUrl.js'
 
-const { getSanitizeHtmlOptions } = require('../config')
+import { getSanitizeHtmlOptions } from '../config.js'
+import { DOMParser } from 'linkedom'
 
-module.exports = async (htmlArticle, url, transform = null) => {
-  const $ = cheerio.load(htmlArticle, {
-    normalizeWhitespace: true,
-    decodeEntities: true
-  })
-
-  $('a').each((i, elem) => {
-    const href = $(elem).attr('href')
+/**
+ * @param inputHtml {string}
+ * @param url {string}
+ * @param transform {(Document)=>Document}
+ * @returns {Promise<string>}
+ */
+export default async (inputHtml, url, transform = null) => {
+  const $article = new DOMParser().parseFromString(inputHtml, 'text/html')
+  Array.from($article.getElementsByTagName('a')).forEach(node => {
+    const href = node.getAttribute('href')
     if (href) {
-      $(elem).attr('href', absolutifyUrl(url, href))
-      $(elem).attr('target', '_blank')
+      node.setAttribute('href', absolutifyUrl(url, href))
+      node.setAttribute('target', '_blank')
     }
   })
 
-  $('img').each((i, elem) => {
-    const src = $(elem).attr('data-src') || $(elem).attr('src')
+  Array.from($article.getElementsByTagName('img')).forEach(node => {
+    const src = node.getAttribute('data-src') ?? node.getAttribute('src')
     if (src) {
-      $(elem).attr('src', absolutifyUrl(url, src))
+      node.setAttribute('src', absolutifyUrl(url, src))
     }
   })
 
-  const html = transform ? transform($).html() : $.html()
-  const minifiedHtml = await htmlmin(html, {
-    removeComments: true,
-    removeEmptyElements: true,
-    removeEmptyAttributes: true,
-    collapseWhitespace: true,
-    collapseBooleanAttributes: true,
-    conservativeCollapse: false,
-    removeTagWhitespace: true
+  const html = (transform?.call($article, $article) ?? $article).documentElement.innerHTML
+
+  const crushed = crush(html, {
+    removeHTMLComments: 2,
+    removeLineBreaks: true
   })
 
-  const cleanHtml = sanitize(minifiedHtml, getSanitizeHtmlOptions())
+  const cleanHtml = sanitize(crushed.result, getSanitizeHtmlOptions())
   return cleanHtml.trim()
 }

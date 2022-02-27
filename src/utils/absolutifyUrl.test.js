@@ -1,7 +1,7 @@
 // absolutifyUrl.test
 /* eslint-env jest */
 
-const absolutifyUrl = require('./absolutifyUrl')
+import absolutifyUrl from './absolutifyUrl.js'
 
 describe('test absolutifyUrl()', () => {
   const entries = [

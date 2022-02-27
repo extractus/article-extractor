@@ -1,10 +1,9 @@
 // eval.js
-// to quickly test with a single url or file
 
-const { readFileSync, existsSync } = require('fs')
+import { readFileSync, existsSync } from 'fs'
 
-const isValidUrl = require('./src/utils/isValidUrl')
-const { extract } = require('./index')
+import isValidUrl from './src/utils/isValidUrl.js'
+import { extract } from './src/main.js'
 
 const extractFromUrl = async (url) => {
   try {

@@ -1,9 +1,9 @@
 // retrieve.test
 /* eslint-env jest */
 
-const nock = require('nock')
+import nock from 'nock'
 
-const retrieve = require('./retrieve')
+import retrieve from './retrieve.js'
 
 const parseUrl = (url) => {
   const re = new URL(url)

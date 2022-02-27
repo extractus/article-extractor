@@ -1,5 +1,5 @@
 {
-  "version": "5.0.4",
+  "version": "6.0.0rc6",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -8,7 +8,13 @@
     "url": "git@github.com:ndaidong/article-parser.git"
   },
   "author": "@ndaidong",
-  "main": "./index.js",
+  "main": "./dist/cjs/article-parser.js",
+  "module": "./src/main.js",
+  "browser": {
+    "linkedom": "./src/browser/linkedom.js",
+    "./main.js": "./dist/article-parser.browser.js"
+  },
+  "type": "module",
   "types": "./index.d.ts",
   "engines": {
     "node": ">= 14"
@@ -16,26 +22,35 @@
   "scripts": {
     "lint": "standard .",
     "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test jest --verbose --coverage=true --unhandled-rejections=strict --detectOpenHandles --forceExit",
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --unhandled-rejections=strict",
+    "build": "node build",
     "eval": "cross-env DEBUG=*:* node eval",
+    "eval:cjs": "cross-env DEBUG=*:* node eval.cjs",
     "reset": "node reset"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
-    "axios": "^0.25.0",
-    "bellajs": "11.0.0",
-    "cheerio": "^1.0.0-rc.10",
+    "axios": "^0.26.0",
+    "bellajs": "^11.0.2",
     "debug": "^4.3.3",
-    "html-minifier-terser": "^6.1.0",
-    "linkedom": "^0.14.0",
+    "html-crush": "^5.0.12",
+    "linkedom": "^0.14.2",
     "sanitize-html": "^2.7.0",
-    "string-comparison": "^1.0.9"
+    "string-comparison": "^1.1.0",
+    "urlpattern-polyfill": "^1.0.0-rc5"
+  },
+  "standard": {
+    "ignore": [
+      "/dist"
+    ]
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
+    "esbuild": "^0.14.23",
     "jest": "^27.5.1",
-    "nock": "^13.2.4"
+    "nock": "^13.2.4",
+    "standard": "^16.0.4"
   },
   "keywords": [
     "article",

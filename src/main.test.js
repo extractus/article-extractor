@@ -1,15 +1,15 @@
 // main.test
 /* eslint-env jest */
 
-const {
+import {
   readFileSync
-} = require('fs')
+} from 'fs'
 
-const nock = require('nock')
+import nock from 'nock'
 
-const {
+import {
   extract
-} = require('./main')
+} from './main'
 
 const parseUrl = (url) => {
   const re = new URL(url)

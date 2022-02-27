@@ -14,29 +14,29 @@ Extract main article, main image and meta data from URL.
 - [Give it a try!](https://demos.pwshub.com/article-parser)
 - [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN)
 
+## Setup
 
-## Installation
+- Node.js
 
-```bash
-$ npm install article-parser
+  ```bash
+  npm i article-parser
 
-# pnpm
-$ pnpm install article-parser
+  # pnpm
+  pnpm i article-parser
 
-# yarn
-$ yarn add article-parser
-```
+  # yarn
+  yarn add article-parser
+  ```
 
-## Usage
+### Usage
 
 ```js
-const { extract } = require('article-parser')
-
-// es6 module syntax
 import { extract } from 'article-parser'
 
-// test
-const url = 'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646'
+// with CommonJS environments
+// const { read } = require('article-parser/dist/cjs/article-parser.js')
+
+const url = 'https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249'
 
 extract(url).then((article) => {
   console.log(article)
@@ -45,25 +45,11 @@ extract(url).then((article) => {
 })
 ```
 
-Result:
+##### Note:
 
-```js
-{
-  url: 'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646',
-  title: 'How to make your MongoDB container more secure?',
-  description: 'Start it with docker   The most simple way to get MongoDB instance in your machine is using...',
-  links: [
-    'https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646'
-  ],
-  image: 'https://res.cloudinary.com/practicaldev/image/fetch/s--qByI1v3K--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/p4sfysev3s1jhw2ar2bi.png',
-  content: '...', // full article content here
-  author: '@ndaidong',
-  source: 'dev.to',
-  published: '',
-  ttr: 162
-}
+> Since Node.js v14, ECMAScript modules [have became the official standard format](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules).
+> Just ensure that you are [using module system](https://nodejs.org/api/packages.html#determining-module-system) and enjoy with ES6 import/export syntax.
 
-```
 
 ## APIs
 
@@ -79,7 +65,7 @@ Load and extract article data. Return a Promise object.
 Example:
 
 ```js
-const { extract } = require('article-parser')
+import { extract } from 'article-parser'
 
 const getArticle = async (url) => {
   try {
@@ -111,6 +97,9 @@ If the extraction works well, you should get an `article` object with the struct
 }
 ```
 
+[Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN) for seeing an actual result.
+
+
 #### addQueryRules(Array queryRules)
 
 Add custom rules to get main article from the specific domains.
@@ -120,7 +109,7 @@ This can be useful when the default extraction algorithm fails, or when you want
 Example:
 
 ```js
-const { addQueryRules, extract } = require('article-parser')
+import { addQueryRules, extract } from 'article-parser'
 
 // extractor doesn't work for you!
 extract('https://bad-website.domain/page/article')
@@ -150,7 +139,7 @@ While adding rules, you can specify a `transform()` function to fine-tune articl
 Example rule with transformation:
 
 ```js
-const { addQueryRules } = require('article-parser')
+import { addQueryRules } from 'article-parser'
 
 addQueryRules([
   {

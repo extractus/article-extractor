@@ -1,7 +1,7 @@
 // purifyUrl.test
 /* eslint-env jest */
 
-const purifyUrl = require('./purifyUrl')
+import purifyUrl from './purifyUrl.js'
 
 describe('test purifyUrl()', () => {
   const entries = [
