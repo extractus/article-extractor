@@ -4,10 +4,13 @@
 // Waiting for URL Pattern specs
 // https://developer.mozilla.org/en-US/docs/Web/API/URLPattern
 
+/**
+ * @type {QueryRule[]}
+ */
 export const rules = [
   {
     patterns: [
-      /http(s?):\/\/thanhnien.vn\/*/
+      { hostname: 'thanhnien.vn' }
     ],
     unwanted: [
       '.morenews',
@@ -17,7 +20,7 @@ export const rules = [
   },
   {
     patterns: [
-      /http(s?):\/\/zingnews.vn\/*/
+      { hostname: 'zingnews.vn' }
     ],
     unwanted: [
       '.the-article-category',
@@ -27,7 +30,7 @@ export const rules = [
   },
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?vnexpress.net\/*/
+      { hostname: '{*.}?vnexpress.net' }
     ],
     unwanted: [
       '.header-content'
@@ -35,8 +38,8 @@ export const rules = [
   },
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?vietnamnet.vn\/*/,
-      /http(s?):\/\/([\w]+.)?vnn.vn\/*/
+      { hostname: '{*.}?vietnamnet.vn' },
+      { hostname: '{*.}?vnn.vn' }
     ],
     selector: '#ArticleContent',
     unwanted: [
@@ -46,7 +49,7 @@ export const rules = [
   },
   {
     patterns: [
-      /thehill.com\/*/
+      { hostname: 'thehill.com' }
     ],
     unwanted: [
       '.rollover-people-block'
@@ -54,7 +57,7 @@ export const rules = [
   },
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?digitaltrends.com\/*/
+      { hostname: '{*.}?digitaltrends.com' }
     ],
     unwanted: [
       '.h-editors-recs-title',
@@ -63,7 +66,7 @@ export const rules = [
   },
   {
     patterns: [
-      /http(s?):\/\/([\w]+.)?techradar.com\/*/
+      { hostname: '{*.}?techradar.com' }
     ],
     unwanted: [
       'nav.breadcrumb'

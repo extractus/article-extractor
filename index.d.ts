@@ -2,6 +2,7 @@
 
 import {AxiosRequestConfig} from "axios";
 import * as sanitize from "sanitize-html";
+import { URLPatternInit } from "urlpattern-polyfill/dist/url-pattern.interfaces";
 
 /**
  * @example
@@ -12,7 +13,7 @@ import * as sanitize from "sanitize-html";
  * }
  */
 export interface QueryRule {
-  patterns: Array<RegExp>,
+  patterns: Array<URLPatternInit>,
   unwanted?: Array<String>,
   selector?: String,
   transform?: (document: Document) => Document
