@@ -1,8 +1,8 @@
 // Type definitions
 
 import {AxiosRequestConfig} from "axios";
-import * as sanitize from "sanitize-html";
-import { URLPatternInit } from "urlpattern-polyfill/dist/url-pattern.interfaces";
+import { IOptions as SanitizeOptions } from "sanitize-html";
+import {URLPatternInit} from "urlpattern-polyfill/dist/url-pattern.interfaces";
 
 
 /**
@@ -29,7 +29,7 @@ export function setParserOptions(options: ParserOptions): void;
 
 export function setRequestOptions(options: AxiosRequestConfig): void;
 
-export function setSanitizeHtmlOptions(options: sanitize.IOptions): void;
+export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
 
 export function addQueryRules(...rules: Array<QueryRule>): Number;
 
@@ -37,7 +37,7 @@ export function getParserOptions(): ParserOptions;
 
 export function getRequestOptions(): AxiosRequestConfig;
 
-export function getSanitizeHtmlOptions(): sanitize.IOptions;
+export function getSanitizeHtmlOptions(): SanitizeOptions;
 
 export interface ParserOptions {
   /**
