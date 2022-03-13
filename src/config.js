@@ -60,14 +60,23 @@ const parserOptions = {
   contentLengthThreshold: 200 // content must have at least 200 chars
 }
 
+/**
+ * @returns {ParserOptions}
+ */
 export const getParserOptions = () => {
   return clone(parserOptions)
 }
 
+/**
+ * @returns {RequestOptions}
+ */
 export const getRequestOptions = () => {
   return clone(requestOptions)
 }
 
+/**
+ * @returns {SanitizeOptions}
+ */
 export const getSanitizeHtmlOptions = () => {
   return clone(sanitizeHtmlOptions)
 }

@@ -13,7 +13,7 @@ import getHostname from './getHostname.js'
 import findRulesByUrl from './findRulesByUrl.js'
 
 import extractMetaData from './extractMetaData.js'
-import extractWithReadability from './extractWithReadability.js'
+import extractWithReadability, { extractTitleWithReadability } from './extractWithReadability.js'
 import extractWithSelector from './extractWithSelector.js'
 
 import standalizeArticle from './standalizeArticle.js'
@@ -37,25 +37,35 @@ const summarize = (desc, txt, threshold, maxlen) => {
 export default async (inputHtml, inputUrl = '') => {
   const html = cleanify(inputHtml)
   const meta = extractMetaData(html)
-
-  // gather title
-  if (!meta.title) {
-    logger.info('Could not detect article title!')
-    return null
-  }
+  let title = meta.title
 
   const {
     url,
     shortlink,
     amphtml,
     canonical,
-    title,
     description: metaDesc,
     image: metaImg,
     author,
     source,
     published
   } = meta
+
+  const {
+    descriptionLengthThreshold,
+    descriptionTruncateLen,
+    contentLengthThreshold
+  } = getParserOptions()
+
+  // gather title
+  if (!title) {
+    logger.info('Could not detect article title from meta!')
+    title = extractTitleWithReadability(html, inputUrl)
+  }
+  if (!title) {
+    logger.info('Could not detect article title!')
+    return null
+  }
 
   // gather urls to choose the best url later
   const links = unique([
@@ -90,11 +100,6 @@ export default async (inputHtml, inputUrl = '') => {
     logger.info('Could not detect article content!')
     return null
   }
-  const {
-    descriptionLengthThreshold,
-    descriptionTruncateLen,
-    contentLengthThreshold
-  } = getParserOptions()
 
   const normalizedContent = await standalizeArticle(content, bestUrl, transform)
 
