@@ -19,25 +19,31 @@ const countWord = (text) => {
  * @returns {null|string}
  */
 export default (html, selector = null, exclusions = []) => {
-  if (!selector) return null
   try {
     const document = new DOMParser().parseFromString(html, 'text/html')
-    for (const exclusion of exclusions) {
-      document.querySelectorAll(exclusion).forEach(node => node.remove())
-    }
-    const parts = []
-    document.querySelectorAll(selector).forEach(node => {
-      const text = node.innerHTML.trim()
-      if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
-    })
 
-    if (parts.length) {
-      return parts
-        .reduce((prev, curr) => prev.concat([curr]), [])
-        .filter((sect) => stripTags(sect).length > MIN_TEXT_LENGTH)
-        .join('')
+    if (exclusions.length) {
+      for (const exclusion of exclusions) {
+        document.querySelectorAll(exclusion).forEach(node => node.remove())
+      }
     }
 
+    if (selector) {
+      const parts = []
+      document.querySelectorAll(selector).forEach(node => {
+        const text = node.innerHTML.trim()
+        if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
+      })
+
+      if (parts.length) {
+        return parts
+          .reduce((prev, curr) => prev.concat([curr]), [])
+          .filter((sect) => stripTags(sect).length > MIN_TEXT_LENGTH)
+          .join('')
+      }
+    }
+
+    // console.log('text', document.documentElement.innerHTML)
     return document.documentElement.innerHTML
   } catch (err) {
     logger.error(err)
