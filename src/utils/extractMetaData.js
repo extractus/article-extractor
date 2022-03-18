@@ -55,7 +55,8 @@ export default (html) => {
   const publishedTimeAttrs = [
     'article:published_time',
     'article:modified_time',
-    'og:updated_time'
+    'og:updated_time',
+    'datepublished'
   ]
 
   const document = new DOMParser().parseFromString(html, 'text/html')
@@ -69,7 +70,7 @@ export default (html) => {
 
   Array.from(document.getElementsByTagName('meta')).forEach(node => {
     const content = node.getAttribute('content')
-    const property = node.getAttribute('property')?.toLowerCase()
+    const property = node.getAttribute('property')?.toLowerCase() || node.getAttribute('itemprop')?.toLowerCase()
     const name = node.getAttribute('name')?.toLowerCase()
 
     if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
