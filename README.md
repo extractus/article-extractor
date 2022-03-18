@@ -118,7 +118,7 @@ extract('https://bad-website.domain/page/article')
 addQueryRules([
   {
     patterns: [
-      /http(s?):\/\/bad-website.domain\/*/
+      { hostname: 'bad-website.domain' }
     ],
     selector: '#noop_article_locates_here',
     unwanted: [
@@ -144,25 +144,25 @@ import { addQueryRules } from 'article-parser'
 addQueryRules([
   {
     patterns: [
-      /http(s?):\/\/bad-website.domain\/*/
+      { hostname: 'bad-website.domain' }
     ],
     selector: '#article_id_here',
-    transform: ($) => {
-      // with $ is cheerio's DOM instance which contains article content
-      // so you can do everything cheerio supports
+    transform: (document) => {
+      // document is parsed by https://github.com/WebReflection/linkedom which is almost identical to the browser Document object.
       // for example, here we replace all <h1></h1> with <b></b>
-      $('h1').replaceWith(function () {
-        const h1Html = $(this).html()
-        return `<b>${h1Html}</b>`
+      document.querySelectorAll('h1').forEach(node => {
+        const newNode = document.createElement('b')
+        newNode.innerHTML = node.innerHTML
+        node.parentNode.replaceChild(newNode, node)
       })
-      // at the end, you mush return $
-      return $
+      // at the end, you mush return document
+      return document
     }
   }
 ])
 ```
 
-Please refer [cheerio's docs](https://cheerio.js.org/) for more info.
+Please refer [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document) for more info.
 
 
 #### Configuration methods
