@@ -22,10 +22,9 @@ export default (html, selector = null, exclusions = []) => {
   try {
     const document = new DOMParser().parseFromString(html, 'text/html')
 
-    if (exclusions.length) {
-      for (const exclusion of exclusions) {
-        document.querySelectorAll(exclusion).forEach(node => node.remove())
-      }
+    for (const exclusion of exclusions) {
+      document.querySelectorAll(exclusion).forEach(node => node.remove())
+    }
     }
 
     if (selector) {
