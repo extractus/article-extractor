@@ -43,7 +43,6 @@ export default (html, selector = null, exclusions = []) => {
       }
     }
 
-    // console.log('text', document.documentElement.innerHTML)
     return document.documentElement.innerHTML
   } catch (err) {
     logger.error(err)
