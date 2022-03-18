@@ -70,7 +70,7 @@ export default (html) => {
 
   Array.from(document.getElementsByTagName('meta')).forEach(node => {
     const content = node.getAttribute('content')
-    const property = node.getAttribute('property')?.toLowerCase() || node.getAttribute('itemprop')?.toLowerCase()
+    const property = node.getAttribute('property')?.toLowerCase() ?? node.getAttribute('itemprop')?.toLowerCase()
     const name = node.getAttribute('name')?.toLowerCase()
 
     if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
