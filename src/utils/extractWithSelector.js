@@ -25,7 +25,6 @@ export default (html, selector = null, exclusions = []) => {
     for (const exclusion of exclusions) {
       document.querySelectorAll(exclusion).forEach(node => node.remove())
     }
-    }
 
     if (selector) {
       const parts = []
