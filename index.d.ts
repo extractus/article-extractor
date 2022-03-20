@@ -8,13 +8,19 @@ import {URLPatternInit} from "urlpattern-polyfill/dist/url-pattern.interfaces";
 /**
  * @example
  * {
- *   patterns: [new RegExp("somewhere.com\/*")],
+ *   patterns: [
+ *     'https://example.com/books/:id', {
+ *       protocol: 'https',
+ *       hostname: 'example.com',
+ *       pathname: '/books/:id',
+ *     }
+ *   ],
  *   selector: '.article-body',
  *   unwanted: ['.removing-box']
  * }
  */
 export interface QueryRule {
-  patterns: Array<URLPatternInit>,
+  patterns: Array<URLPatternInit | string>,
   unwanted?: Array<String>,
   selector?: String,
   transform?: (document: Document) => Document
