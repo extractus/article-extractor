@@ -4,7 +4,7 @@ import { clone, copies, isArray } from 'bellajs'
 
 import { rules as defaultRules } from './rules.js'
 
-const rules = clone(defaultRules)
+let rules = clone(defaultRules)
 
 const requestOptions = {
   headers: {
@@ -18,25 +18,7 @@ const requestOptions = {
 }
 
 const sanitizeHtmlOptions = {
-  allowedTags: [
-    'h1', 'h2', 'h3', 'h4', 'h5',
-    'u', 'b', 'i', 'em', 'strong', 'small', 'sup', 'sub',
-    'div', 'span', 'p', 'article', 'blockquote', 'section',
-    'details', 'summary',
-    'pre', 'code',
-    'ul', 'ol', 'li', 'dd', 'dl',
-    'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
-    'fieldset', 'legend',
-    'figure', 'figcaption', 'img', 'picture',
-    'video', 'audio', 'source',
-    'iframe',
-    'progress',
-    'br', 'p', 'hr',
-    'label',
-    'abbr',
-    'a',
-    'svg'
-  ],
+  allowedTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'u', 'b', 'i', 'em', 'strong', 'small', 'sup', 'sub', 'div', 'span', 'p', 'article', 'blockquote', 'section', 'details', 'summary', 'pre', 'code', 'ul', 'ol', 'li', 'dd', 'dl', 'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood', 'fieldset', 'legend', 'figure', 'figcaption', 'img', 'picture', 'video', 'audio', 'source', 'iframe', 'progress', 'br', 'p', 'hr', 'label', 'abbr', 'a', 'svg'],
   allowedAttributes: {
     a: ['href', 'target', 'title'],
     abbr: ['title'],
@@ -103,6 +85,11 @@ export const setSanitizeHtmlOptions = (opts) => {
  * @returns {QueryRule[]}
  */
 export const getQueryRules = () => clone(rules)
+
+/**
+ * @param value {QueryRule[]}
+ */
+export const setQueryRules = (value) => { rules = value }
 
 /**
  * @param entries {QueryRule}
