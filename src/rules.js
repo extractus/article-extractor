@@ -9,9 +9,7 @@
  */
 export const rules = [
   {
-    patterns: [
-      { hostname: 'thanhnien.vn' }
-    ],
+    patterns: ['*://thanhnien.vn/*'],
     unwanted: [
       '.morenews',
       '.zone--media',
@@ -19,9 +17,7 @@ export const rules = [
     ]
   },
   {
-    patterns: [
-      { hostname: 'zingnews.vn' }
-    ],
+    patterns: ['*://zingnews.vn/*'],
     unwanted: [
       '.the-article-category',
       '.the-article-meta',
@@ -29,18 +25,13 @@ export const rules = [
     ]
   },
   {
-    patterns: [
-      { hostname: '{*.}?vnexpress.net' }
-    ],
+    patterns: ['*://{*.}?vnexpress.net/*'],
     unwanted: [
       '.header-content'
     ]
   },
   {
-    patterns: [
-      { hostname: '{*.}?vietnamnet.vn' },
-      { hostname: '{*.}?vnn.vn' }
-    ],
+    patterns: ['*://{*.}?vietnamnet.vn/*', '*://{*.}?vnn.vn/*'],
     selector: '#ArticleContent',
     unwanted: [
       '.inner-article',
@@ -48,26 +39,20 @@ export const rules = [
     ]
   },
   {
-    patterns: [
-      { hostname: 'thehill.com' }
-    ],
+    patterns: ['*://thehill.com/*'],
     unwanted: [
       '.rollover-people-block'
     ]
   },
   {
-    patterns: [
-      { hostname: '{*.}?digitaltrends.com' }
-    ],
+    patterns: ['*://{*.}?digitaltrends.com/*'],
     unwanted: [
       '.h-editors-recs-title',
       'ul.h-editors-recs'
     ]
   },
   {
-    patterns: [
-      { hostname: '{*.}?techradar.com' }
-    ],
+    patterns: ['*://{*.}?techradar.com/*'],
     unwanted: [
       'nav.breadcrumb'
     ]
