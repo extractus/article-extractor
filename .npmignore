@@ -1,8 +1,0 @@
-.github
-node_modules
-coverage
-test-data
-src/**/*.test.js
-jest.config.js
-reset.js
-build.js
