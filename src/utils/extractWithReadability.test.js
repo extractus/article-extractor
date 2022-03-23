@@ -5,7 +5,7 @@ import { readFileSync } from 'fs'
 
 import { isString } from 'bellajs'
 
-import extractWithReadability from './extractWithReadability.js'
+import extractWithReadability, { extractTitleWithReadability } from './extractWithReadability.js'
 
 test('test extractWithReadability from good html content', async () => {
   const html = readFileSync('./test-data/regular-article.html', 'utf8')
@@ -19,4 +19,10 @@ test('test extractWithReadability from bad html content', async () => {
   expect(extractWithReadability(null)).toBe(null)
   expect(extractWithReadability({})).toBe(null)
   expect(extractWithReadability('<div></span>')).toBe(null)
+})
+
+test('test extractTitleWithReadability', async () => {
+  const html = readFileSync('./test-data/regular-article.html', 'utf8')
+  const result = extractTitleWithReadability(html)
+  expect(result).toBe('Article title here - ArticleParser')
 })
