@@ -4,7 +4,7 @@ import { clone, copies, isArray } from 'bellajs'
 
 import { rules as defaultRules } from './rules.js'
 
-const rules = clone(defaultRules)
+let rules = clone(defaultRules)
 
 const requestOptions = {
   headers: {
@@ -103,6 +103,11 @@ export const setSanitizeHtmlOptions = (opts) => {
  * @returns {QueryRule[]}
  */
 export const getQueryRules = () => clone(rules)
+
+/**
+ * @param value {QueryRule[]}
+ */
+export const setQueryRules = (value) => rules = value
 
 /**
  * @param entries {QueryRule}
