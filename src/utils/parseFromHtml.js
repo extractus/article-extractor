@@ -15,6 +15,7 @@ import findRulesByUrl from './findRulesByUrl.js'
 import extractMetaData from './extractMetaData.js'
 import extractWithReadability, { extractTitleWithReadability } from './extractWithReadability.js'
 import extractWithSelector from './extractWithSelector.js'
+import stripUnwantedTags from './stripUnwantedTags.js'
 
 import standalizeArticle from './standalizeArticle.js'
 import getTimeToRead from './getTimeToRead.js'
@@ -92,9 +93,11 @@ export default async (inputHtml, inputUrl = '') => {
   } = findRulesByUrl(links)
 
   // find article content
-  const mainContent = extractWithSelector(html, selector, unwanted)
+  const mainContentSelected = extractWithSelector(html, selector)
 
-  const content = extractWithReadability(mainContent ?? html, bestUrl)
+  const mainContent = stripUnwantedTags(mainContentSelected ?? html, unwanted)
+
+  const content = extractWithReadability(mainContent, bestUrl)
 
   if (!content) {
     logger.info('Could not detect article content!')

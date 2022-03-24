@@ -15,30 +15,24 @@ const countWord = (text) => {
 /**
  * @param html {string}
  * @param selector {string | null}
- * @param exclusions {string[]}
  * @returns {null|string}
  */
-export default (html, selector = null, exclusions = []) => {
+export default (html, selector = null) => {
+  if (!selector) return null
+
   try {
     const document = new DOMParser().parseFromString(html, 'text/html')
+    const parts = []
+    document.querySelectorAll(selector).forEach(node => {
+      const text = node.innerHTML.trim()
+      if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
+    })
 
-    for (const exclusion of exclusions) {
-      document.querySelectorAll(exclusion).forEach(node => node.remove())
-    }
-
-    if (selector) {
-      const parts = []
-      document.querySelectorAll(selector).forEach(node => {
-        const text = node.innerHTML.trim()
-        if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
-      })
-
-      if (parts.length) {
-        return parts
-          .reduce((prev, curr) => prev.concat([curr]), [])
-          .filter((sect) => stripTags(sect).length > MIN_TEXT_LENGTH)
-          .join('')
-      }
+    if (parts.length) {
+      return parts
+        .reduce((prev, curr) => prev.concat([curr]), [])
+        .filter((sect) => stripTags(sect).length > MIN_TEXT_LENGTH)
+        .join('')
     }
 
     return document.documentElement.innerHTML
