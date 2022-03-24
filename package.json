@@ -1,5 +1,5 @@
 {
-  "version": "6.0.0rc8",
+  "version": "6.0.0rc9",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -32,7 +32,7 @@
     "@mozilla/readability": "^0.4.2",
     "axios": "^0.26.1",
     "bellajs": "^11.0.2",
-    "debug": "^4.3.3",
+    "debug": "^4.3.4",
     "html-crush": "^5.0.12",
     "linkedom": "^0.14.4",
     "sanitize-html": "^2.7.0",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.25",
+    "esbuild": "^0.14.27",
     "jest": "^27.5.1",
     "nock": "^13.2.4",
     "standard": "^16.0.4"
