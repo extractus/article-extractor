@@ -1,6 +1,5 @@
 // utils/srtipUnwantedTags
 
-import logger from './logger.js'
 import { parseHTML } from 'linkedom'
 
 /**
@@ -9,21 +8,13 @@ import { parseHTML } from 'linkedom'
  * @returns {string}
  */
 export default (html, exclusions = []) => {
-  if (!exclusions.length) {
-    return html
+  if (typeof exclusions !== 'undefined' && !exclusions.length) return html
+
+  const { document } = parseHTML(html)
+
+  for (const exclusion of exclusions) {
+    document.querySelectorAll(exclusion).forEach(node => node.remove())
   }
 
-  try {
-    const { document } = parseHTML(html)
-
-    for (const exclusion of exclusions) {
-      document.querySelectorAll(exclusion).forEach(node => node.remove())
-    }
-
-    return document.toString()
-  } catch (err) {
-    logger.error(err)
-  }
-
-  return html
+  return document.toString()
 }
