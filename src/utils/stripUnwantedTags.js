@@ -8,7 +8,7 @@ import { parseHTML } from 'linkedom'
  * @returns {string}
  */
 export default (html, exclusions = []) => {
-  if (typeof exclusions !== 'undefined' && !exclusions.length) return html
+  if (!exclusions?.length) return html
 
   const { document } = parseHTML(html)
 
