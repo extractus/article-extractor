@@ -188,6 +188,10 @@ Here are default properties/values:
   descriptionLengthThreshold: 40, // min num of chars required for description
   descriptionTruncateLen: 156, // max num of chars generated for description
   contentLengthThreshold: 200 // content must have at least 200 chars
+  htmlCrush: { // see html-crush api options for more information
+    removeHTMLComments: 2,
+    removeLineBreaks: true
+  }
 }
 ```
 

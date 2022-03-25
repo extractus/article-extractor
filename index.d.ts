@@ -74,6 +74,23 @@ export interface ParserOptions {
    * Default: 200
    */
   contentLengthThreshold: number
+
+  /**
+   * html-crush Optional Options Object
+   * @see: https://codsen.com/os/html-crush/#api-crush-optional-options-object
+   */
+  htmlCrush: {
+    lineLengthLimit: number
+    removeIndentations: boolean
+    removeLineBreaks: boolean
+    removeHTMLComments: boolean | 0 | 1 | 2
+    removeCSSComments: boolean
+    reportProgressFunc: null | ((percDone: number) => void)
+    reportProgressFuncFrom: number
+    reportProgressFuncTo: number
+    breakToTheLeftOf: string[]
+    mindTheInlineTags: string[]
+  }
 }
 
 export interface ArticleData {
