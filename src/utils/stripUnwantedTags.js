@@ -1,6 +1,6 @@
 // utils/srtipUnwantedTags
 
-import { parseHTML } from 'linkedom'
+import { DOMParser } from 'linkedom'
 
 /**
  * @param html {string}
@@ -10,7 +10,7 @@ import { parseHTML } from 'linkedom'
 export default (html, exclusions = []) => {
   if (!exclusions?.length) return html
 
-  const { document } = parseHTML(html)
+  const document = new DOMParser().parseFromString(html, 'text/html')
 
   for (const exclusion of exclusions) {
     document.querySelectorAll(exclusion).forEach(node => node.remove())
