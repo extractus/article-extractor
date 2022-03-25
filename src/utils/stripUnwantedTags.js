@@ -1,4 +1,4 @@
-// utils/srtipUnwantedTags
+// utils -> stripUnwantedTags
 
 import { DOMParser } from 'linkedom'
 
