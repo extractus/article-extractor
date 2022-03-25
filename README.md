@@ -34,7 +34,7 @@ Extract main article, main image and meta data from URL.
 import { extract } from 'article-parser'
 
 // with CommonJS environments
-// const { read } = require('article-parser/dist/cjs/article-parser.js')
+// const { extract } = require('article-parser/dist/cjs/article-parser.js')
 
 const url = 'https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249'
 
