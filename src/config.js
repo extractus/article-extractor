@@ -43,6 +43,14 @@ const parserOptions = {
 }
 
 /**
+ * @type {HtmlCrushOptions}
+ */
+const htmlCrushOptions = {
+  removeHTMLComments: 2,
+  removeLineBreaks: true
+}
+
+/**
  * @returns {ParserOptions}
  */
 export const getParserOptions = () => {
@@ -54,6 +62,13 @@ export const getParserOptions = () => {
  */
 export const getRequestOptions = () => {
   return clone(requestOptions)
+}
+
+/**
+ * @returns {HtmlCrushOptions}
+ */
+export const getHtmlCrushOptions = () => {
+  return clone(htmlCrushOptions)
 }
 
 /**
@@ -73,6 +88,10 @@ export const setParserOptions = (opts) => {
 
 export const setRequestOptions = (opts) => {
   copies(opts, requestOptions)
+}
+
+export const setHtmlCrushOptions = (opts) => {
+  copies(opts, htmlCrushOptions)
 }
 
 export const setSanitizeHtmlOptions = (opts) => {

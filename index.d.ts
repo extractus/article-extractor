@@ -2,8 +2,10 @@
 
 import {AxiosRequestConfig} from "axios";
 import {IOptions as SanitizeOptions} from "sanitize-html";
+import {defaults} from "html-crush";
 import {URLPatternInit} from "urlpattern-polyfill/dist/url-pattern.interfaces";
 
+type HtmlCrushOptions = Partial<typeof defaults>
 
 /**
  * @example
@@ -37,6 +39,8 @@ export function setRequestOptions(options: AxiosRequestConfig): void;
 
 export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
 
+export function setHtmlCrushOptions(options: HtmlCrushOptions): void;
+
 export function addQueryRules(...rules: Array<QueryRule>): Number;
 
 export function getQueryRules(): Array<QueryRule>;
@@ -48,6 +52,8 @@ export function getParserOptions(): ParserOptions;
 export function getRequestOptions(): AxiosRequestConfig;
 
 export function getSanitizeHtmlOptions(): SanitizeOptions;
+
+export function getHtmlCrushOptions(): HtmlCrushOptions;
 
 export interface ParserOptions {
   /**
