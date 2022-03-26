@@ -6,7 +6,7 @@ import { crush } from 'html-crush'
 
 import absolutifyUrl from './absolutifyUrl.js'
 
-import { getSanitizeHtmlOptions } from '../config.js'
+import { getHtmlCrushOptions, getSanitizeHtmlOptions } from '../config.js'
 import { DOMParser } from 'linkedom'
 
 /**
@@ -34,10 +34,7 @@ export default async (inputHtml, url, transform = null) => {
 
   const html = (transform?.call($article, $article) ?? $article).documentElement.innerHTML
 
-  const crushed = crush(html, {
-    removeHTMLComments: 2,
-    removeLineBreaks: true
-  })
+  const crushed = crush(html, getHtmlCrushOptions())
 
   const cleanHtml = sanitize(crushed.result, getSanitizeHtmlOptions())
   return cleanHtml.trim()
