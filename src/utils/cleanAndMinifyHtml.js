@@ -10,7 +10,7 @@ import { DOMParser } from 'linkedom'
 
 /**
  * @param inputHtml {string}
- * @returns {Promise<string>}
+ * @returns cleanHtml {string}
  */
 export default inputHtml => {
   const $article = new DOMParser().parseFromString(inputHtml, 'text/html')

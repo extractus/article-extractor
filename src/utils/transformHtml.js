@@ -5,7 +5,7 @@ import { DOMParser } from 'linkedom'
 /**
  * @param inputHtml {string}
  * @param transform {(Document)=>Document}
- * @returns {Promise<string>}
+ * @returns document {string}
  */
 export default (inputHtml, transform = null) => {
   if (!transform) {

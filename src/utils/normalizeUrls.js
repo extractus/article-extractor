@@ -7,12 +7,12 @@ import { DOMParser } from 'linkedom'
 /**
  * @param inputHtml {string}
  * @param url {string}
- * @returns {Promise<string>}
+ * @returns article {string}
  */
 export default (inputHtml, url) => {
   const $article = new DOMParser().parseFromString(inputHtml, 'text/html')
 
-  Array.from($article.getElementsByTagName('a')).forEach((node) => {
+  Array.from($article.getElementsByTagName('a')).forEach(node => {
     const href = node.getAttribute('href')
     if (href) {
       node.setAttribute('href', absolutifyUrl(url, href))
@@ -20,7 +20,7 @@ export default (inputHtml, url) => {
     }
   })
 
-  Array.from($article.getElementsByTagName('img')).forEach((node) => {
+  Array.from($article.getElementsByTagName('img')).forEach(node => {
     const src = node.getAttribute('data-src') ?? node.getAttribute('src')
     if (src) {
       node.setAttribute('src', absolutifyUrl(url, src))
