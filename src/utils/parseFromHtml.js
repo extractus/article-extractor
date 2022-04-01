@@ -11,20 +11,22 @@ import chooseBestUrl from './chooseBestUrl.js'
 import getHostname from './getHostname.js'
 
 import findRulesByUrl from './findRulesByUrl.js'
-
+import cleanAndMinifyHtml from './cleanAndMinifyHtml.js'
 import extractMetaData from './extractMetaData.js'
-import extractWithReadability, { extractTitleWithReadability } from './extractWithReadability.js'
+import extractWithReadability, {
+  extractTitleWithReadability
+} from './extractWithReadability.js'
 import extractWithSelector from './extractWithSelector.js'
-import stripUnwantedTags from './stripUnwantedTags.js'
-
-import standalizeArticle from './standalizeArticle.js'
 import getTimeToRead from './getTimeToRead.js'
+import normalizeUrls from './normalizeUrls.js'
+import stripUnwantedTags from './stripUnwantedTags.js'
+import transformHtml from './transformHtml.js'
 
 import logger from './logger.js'
 
 import { getParserOptions } from '../config.js'
 
-const cleanify = (html) => {
+const cleanify = html => {
   return sanitize(html, {
     allowedTags: false,
     allowedAttributes: false
@@ -32,7 +34,9 @@ const cleanify = (html) => {
 }
 
 const summarize = (desc, txt, threshold, maxlen) => {
-  return desc.length < threshold ? truncate(txt, maxlen).replace(/\n/g, ' ') : desc
+  return desc.length < threshold
+    ? truncate(txt, maxlen).replace(/\n/g, ' ')
+    : desc
 }
 
 export default async (inputHtml, inputUrl = '') => {
@@ -69,13 +73,11 @@ export default async (inputHtml, inputUrl = '') => {
   }
 
   // gather urls to choose the best url later
-  const links = unique([
-    url,
-    shortlink,
-    amphtml,
-    canonical,
-    inputUrl
-  ].filter(isValidUrl).map(purifyUrl))
+  const links = unique(
+    [url, shortlink, amphtml, canonical, inputUrl]
+      .filter(isValidUrl)
+      .map(purifyUrl)
+  )
 
   if (!links.length) {
     logger.info('Could not detect article link!')
@@ -97,14 +99,18 @@ export default async (inputHtml, inputUrl = '') => {
 
   const mainContent = stripUnwantedTags(mainContentSelected ?? html, unwanted)
 
-  const content = extractWithReadability(mainContent, bestUrl)
+  const mainContentAbsoluteUrls = normalizeUrls(mainContent, bestUrl)
+
+  const transformedContent = transformHtml(mainContentAbsoluteUrls, transform)
+
+  const content = extractWithReadability(transformedContent, bestUrl)
 
   if (!content) {
     logger.info('Could not detect article content!')
     return null
   }
 
-  const normalizedContent = await standalizeArticle(content, bestUrl, transform)
+  const normalizedContent = cleanAndMinifyHtml(content)
 
   const textContent = stripTags(normalizedContent)
   if (textContent.length < contentLengthThreshold) {
