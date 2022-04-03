@@ -1,22 +1,17 @@
-// utils -> standalizeArticle
-
-import sanitize from 'sanitize-html'
-
-import { crush } from 'html-crush'
+// utils -> normalizeUrls
 
 import absolutifyUrl from './absolutifyUrl.js'
 
-import { getHtmlCrushOptions, getSanitizeHtmlOptions } from '../config.js'
 import { DOMParser } from 'linkedom'
 
 /**
  * @param inputHtml {string}
  * @param url {string}
- * @param transform {(Document)=>Document}
- * @returns {Promise<string>}
+ * @returns article {string}
  */
-export default async (inputHtml, url, transform = null) => {
+export default (inputHtml, url) => {
   const $article = new DOMParser().parseFromString(inputHtml, 'text/html')
+
   Array.from($article.getElementsByTagName('a')).forEach(node => {
     const href = node.getAttribute('href')
     if (href) {
@@ -32,10 +27,5 @@ export default async (inputHtml, url, transform = null) => {
     }
   })
 
-  const html = (transform?.call($article, $article) ?? $article).documentElement.innerHTML
-
-  const crushed = crush(html, getHtmlCrushOptions())
-
-  const cleanHtml = sanitize(crushed.result, getSanitizeHtmlOptions())
-  return cleanHtml.trim()
+  return $article.toString()
 }
