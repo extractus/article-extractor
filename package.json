@@ -37,7 +37,7 @@
     "linkedom": "^0.14.5",
     "sanitize-html": "^2.7.0",
     "string-comparison": "^1.1.0",
-    "urlpattern-polyfill": "^1.0.0-rc5"
+    "urlpattern-polyfill": "^4.0.2"
   },
   "standard": {
     "ignore": [
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.28",
+    "esbuild": "^0.14.32",
     "jest": "^27.5.1",
     "nock": "^13.2.4",
     "standard": "^16.0.4"

@@ -3,7 +3,7 @@
 import {AxiosRequestConfig} from "axios";
 import {IOptions as SanitizeOptions} from "sanitize-html";
 import {defaults} from "html-crush";
-import {URLPatternInit} from "urlpattern-polyfill/dist/url-pattern.interfaces";
+import {URLPatternInit} from "urlpattern-polyfill";
 
 type HtmlCrushOptions = Partial<typeof defaults>
 
@@ -11,8 +11,7 @@ type HtmlCrushOptions = Partial<typeof defaults>
  * @example
  * {
  *   patterns: [
- *     'https://example.com/books/:id', {
- *       protocol: 'https',
+ *     '*://example.com/books/:id', {
  *       hostname: 'example.com',
  *       pathname: '/books/:id',
  *     }
