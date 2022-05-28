@@ -5,7 +5,7 @@ Extract main article, main image and meta data from URL.
 [![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
 ![CI test](https://github.com/ndaidong/article-parser/workflows/ci-test/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg)](https://coveralls.io/github/ndaidong/article-parser)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ndaidong_article-parser&metric=alert_status)](https://sonarcloud.io/dashboard?id=ndaidong_article-parser)
+![CodeQL](https://github.com/ndaidong/article-parser/workflows/CodeQL/badge.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
