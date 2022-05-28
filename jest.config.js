@@ -8,7 +8,7 @@ const config = {
   transform: {},
   // TODO https://github.com/makotoshimazu/jest-module-field-resolver/issues/2
   moduleNameMapper: {
-    'urlpattern-polyfill': '<rootDir>/node_modules/urlpattern-polyfill/dist/index.js'
+    'urlpattern-polyfill': '<rootDir>/node_modules/urlpattern-polyfill/index.js'
   }
 }
 export default config
