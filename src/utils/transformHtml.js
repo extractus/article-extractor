@@ -16,5 +16,5 @@ export default (inputHtml, transform = null) => {
 
   const document = transform($article)
 
-  return document.toString()
+  return Array.from(document.children).map(it => it.outerHTML).join('')
 }
