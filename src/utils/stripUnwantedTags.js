@@ -16,5 +16,5 @@ export default (html, exclusions = []) => {
     document.querySelectorAll(exclusion).forEach(node => node.remove())
   }
 
-  return document.toString()
+  return Array.from(document.children).map(it => it.outerHTML).join('')
 }

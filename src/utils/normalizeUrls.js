@@ -27,5 +27,5 @@ export default (inputHtml, url) => {
     }
   })
 
-  return $article.toString()
+  return Array.from($article.children).map(it => it.outerHTML).join('')
 }
