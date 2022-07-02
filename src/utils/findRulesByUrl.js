@@ -1,9 +1,6 @@
 // utils --> findRulesByUrl
-
-import { URLPattern } from 'urlpattern-polyfill'
-
 import { getQueryRules } from '../config.js'
-
+import 'urlpattern-polyfill'
 /**
  * @param urls {string[]}
  * @returns {QueryRule|{}}

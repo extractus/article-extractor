@@ -3,7 +3,7 @@
 import {AxiosRequestConfig} from "axios";
 import {IOptions as SanitizeOptions} from "sanitize-html";
 import {defaults} from "html-crush";
-import {URLPatternInit} from "urlpattern-polyfill";
+import "urlpattern-polyfill";
 
 type HtmlCrushOptions = Partial<typeof defaults>
 
