@@ -1,4 +1,7 @@
 // utils --> findRulesByUrl
+
+/* global URLPattern */
+
 import { getQueryRules } from '../config.js'
 import 'urlpattern-polyfill'
 /**
