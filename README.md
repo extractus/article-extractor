@@ -137,11 +137,16 @@ addQueryRules([
 extract('https://bad-website.domain/page/article')
 ````
 
-Regarding pattern structure, please refer [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+#### Query Rule
 
-While adding rules, you can specify a `transform()` function to fine-tune article content more thoroughly.
+A query rule is an object with the following properties:
 
-Example rule with transformation:
+- `patterns`: required, an array of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects. Regarding the syntax for patterns, please refer [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+- `selector`: optional, String, where to find the HTMLElement which contains main article content
+- `unwanted`: optional, an array of selectors to filter unwanted HTML elements from the last result
+- `transform`, optional, a function to fine-tune article content more thoroughly
+
+Here is an example using rule with transformation:
 
 ```js
 import { addQueryRules } from 'article-parser'
@@ -149,7 +154,7 @@ import { addQueryRules } from 'article-parser'
 addQueryRules([
   {
     patterns: [
-      '*://bad-website.domain/*'
+      { hostname: 'bad-website.domain' }
     ],
     selector: '#article_id_here',
     transform: (document) => {
