@@ -8,7 +8,7 @@ let rules = clone(defaultRules)
 
 const requestOptions = {
   headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
     accept: 'text/html; charset=utf-8'
   },
   responseType: 'text',
