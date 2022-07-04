@@ -12,9 +12,9 @@ Extract main article, main image and meta data from URL.
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN)
+- [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.cnbc.com/2022/07/02/tesla-tsla-q2-2022-vehicle-delivery-and-production-numbers.html&apikey=demo-TEyRycuuMCiGBiBocbLGSpagfj7gOF8AMyAWfEgP)
 
-## Setup
+## Install
 
 - Node.js
 
@@ -97,7 +97,7 @@ If the extraction works well, you should get an `article` object with the struct
 }
 ```
 
-[Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-orePhhidnWKWPvF8EYKap7z55cN) for seeing an actual result.
+[Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-TEyRycuuMCiGBiBocbLGSpagfj7gOF8AMyAWfEgP) for seeing an actual result.
 
 
 #### addQueryRules(Array queryRules)
@@ -134,6 +134,8 @@ addQueryRules([
 extract('https://bad-website.domain/page/article')
 ````
 
+Regarding pattern structure, please refer [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+
 While adding rules, you can specify a `transform()` function to fine-tune article content more thoroughly.
 
 Example rule with transformation:
@@ -162,7 +164,7 @@ addQueryRules([
 ])
 ```
 
-Please refer [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document) for more info.
+To write better `transform()` logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
 
 #### Configuration methods
@@ -199,7 +201,7 @@ Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs f
 ```js
 {
   headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
     accept: 'text/html; charset=utf-8'
   },
   responseType: 'text',
