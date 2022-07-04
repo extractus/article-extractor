@@ -121,7 +121,7 @@ extract('https://bad-website.domain/page/article')
 addQueryRules([
   {
     patterns: [
-      { hostname: 'bad-website.domain' }
+      '*://bad-website.domain/*'
     ],
     selector: '#noop_article_locates_here',
     unwanted: [
@@ -149,7 +149,7 @@ import { addQueryRules } from 'article-parser'
 addQueryRules([
   {
     patterns: [
-      { hostname: 'bad-website.domain' }
+      '*://bad-website.domain/*'
     ],
     selector: '#article_id_here',
     transform: (document) => {
