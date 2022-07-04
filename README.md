@@ -141,10 +141,10 @@ extract('https://bad-website.domain/page/article')
 
 A query rule is an object with the following properties:
 
-- `patterns`: required, an array of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects. Regarding the syntax for patterns, please refer [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
-- `selector`: optional, String, where to find the HTMLElement which contains main article content
-- `unwanted`: optional, an array of selectors to filter unwanted HTML elements from the last result
-- `transform`, optional, a function to fine-tune article content more thoroughly
+- `patterns`: required, list of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects. See [the syntax for patterns](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+- `selector`: optional, where to find the HTMLElement which contains main article content
+- `unwanted`: optional, list of selectors to filter unwanted HTML elements from the last result
+- `transform`, optional, function to fine-tune article content more thoroughly
 
 Here is an example using rule with transformation:
 
