@@ -12,6 +12,13 @@ describe('test findRulesByUrl()', () => {
       expectation: {}
     },
     {
+      urls: ['https://zingnews.vn/article-slug.html'],
+      expectation: (result, expect) => {
+        expect(result).toBeTruthy()
+        expect(result.unwanted).toContain('.the-article-category')
+      }
+    },
+    {
       urls: [1209, 'https://vietnamnet.vn/path/to/article'],
       expectation: (result, expect) => {
         expect(result).toBeTruthy()

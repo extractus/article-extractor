@@ -73,7 +73,7 @@ export const rules = [
   },
   {
     patterns: [
-      '*://zingnews.vn/*'
+      { hostname: 'zingnews.vn' }
     ],
     unwanted: [
       '.the-article-category',

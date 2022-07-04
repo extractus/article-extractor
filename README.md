@@ -121,7 +121,7 @@ extract('https://bad-website.domain/page/article')
 addQueryRules([
   {
     patterns: [
-      { hostname: 'bad-website.domain' }
+      '*://bad-website.domain/*'
     ],
     selector: '#noop_article_locates_here',
     unwanted: [
@@ -137,11 +137,16 @@ addQueryRules([
 extract('https://bad-website.domain/page/article')
 ````
 
-Regarding pattern structure, please refer [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+#### Query Rule
 
-While adding rules, you can specify a `transform()` function to fine-tune article content more thoroughly.
+A query rule is an object with the following properties:
 
-Example rule with transformation:
+- `patterns`: required, list of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects. See [the syntax for patterns](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+- `selector`: optional, where to find the HTMLElement which contains main article content
+- `unwanted`: optional, list of selectors to filter unwanted HTML elements from the last result
+- `transform`, optional, function to fine-tune article content more thoroughly
+
+Here is an example using rule with transformation:
 
 ```js
 import { addQueryRules } from 'article-parser'
