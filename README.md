@@ -169,11 +169,11 @@ addQueryRules([
 
 To write better `transform()` logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
-#### addQueryRules(Array queryRules)
+#### setQueryRules(Array queryRules)
 
 Similar to `addQueryRules()` but new rules will replace the current query rules.
 
-#### geQueryRules()
+#### getQueryRules()
 
 Return an array of the current query rules.
 
