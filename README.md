@@ -177,7 +177,7 @@ Similar to `addQueryRules()` but new rules will replace the current query rules.
 
 Return an array of the current query rules.
 
-The default rules can be found [https://github.com/ndaidong/article-parser/blob/main/src/rules.js](here)
+The default rules can be found [here](https://github.com/ndaidong/article-parser/blob/main/src/rules.js)
 
 #### Configuration methods
 
