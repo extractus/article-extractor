@@ -189,7 +189,7 @@ In addition, this lib provides some methods to customize default settings. Don't
 - setRequestOptions(Object requestOptions)
 - getSanitizeHtmlOptions()
 - setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
-- getHtmlCrushOptions()
+- getHtmlCrushOptions(Object htmlCrushOptions)
 - setHtmlCrushOptions()
 
 Here are default properties/values:
@@ -266,6 +266,17 @@ Read [axios' request config](https://axios-http.com/docs/req_config) for more in
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
+
+#### Object `htmlCrushOptions`:
+
+```js
+{
+  removeLineBreaks: true,
+  removeHTMLComments: 2
+}
+```
+
+For more options, please refer [html-crush](https://www.codsen.com/os/html-crush/) docs.
 
 
 ## Test

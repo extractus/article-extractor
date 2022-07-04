@@ -8,8 +8,11 @@ import {
   getParserOptions,
   setSanitizeHtmlOptions,
   getSanitizeHtmlOptions,
+  getHtmlCrushOptions,
+  setHtmlCrushOptions,
   getQueryRules,
-  addQueryRules
+  addQueryRules,
+  setQueryRules
 } from './config.js'
 
 import { rules as defaultRules } from './rules.js'
@@ -75,7 +78,21 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   expect(getSanitizeHtmlOptions().allowedTags).toEqual([])
 })
 
-test('Testing addQueryRules/getQueryRules methods', () => {
+test('Testing setHtmlCrushOptions/getHtmlCrushOptions methods', () => {
+  const removeHTMLComments = 4
+  const removeLineBreaks = true
+
+  setHtmlCrushOptions({
+    removeHTMLComments
+  })
+
+  const actual = getHtmlCrushOptions()
+
+  expect(actual.removeHTMLComments).toEqual(removeHTMLComments)
+  expect(actual.removeLineBreaks).toEqual(removeLineBreaks)
+})
+
+test('Testing addQueryRules/setQueryRules/getQueryRules methods', () => {
   const currentRules = getQueryRules()
 
   expect(currentRules).toEqual(defaultRules)
@@ -111,4 +128,9 @@ test('Testing addQueryRules/getQueryRules methods', () => {
   expect(updatedRules).toHaveLength(defaultRules.length + newRules.length)
   expect(updatedRules[0]).toEqual(newRules[0])
   expect(updatedRules[updatedRules.length - 1]).toEqual(defaultRules[defaultRules.length - 1])
+
+  setQueryRules(newRules)
+  const latestUpdatedRules = getQueryRules()
+  expect(latestUpdatedRules).toHaveLength(2)
+  expect(updatedRules[1]).toEqual(newRules[1])
 })
