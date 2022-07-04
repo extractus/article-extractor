@@ -55,6 +55,8 @@ extract(url).then((article) => {
 
 - [.extract(String url | String html)](#extractstring-url--string-html)
 - [.addQueryRules(Array queryRules)](#addqueryrulesarray-queryrules)
+- [.setQueryRules(Array queryRules)](#setqueryrulesarray-queryrules)
+- [.getQueryRules()](#getqueryrules)
 - [Configuration methods](#configuration-methods)
 
 
@@ -103,6 +105,7 @@ If the extraction works well, you should get an `article` object with the struct
 #### addQueryRules(Array queryRules)
 
 Add custom rules to get main article from the specific domains.
+New rules will be appended to the current list of rules.
 
 This can be useful when the default extraction algorithm fails, or when you want to remove some parts of main article content.
 
@@ -166,6 +169,15 @@ addQueryRules([
 
 To write better `transform()` logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
+#### addQueryRules(Array queryRules)
+
+Similar to `addQueryRules()` but new rules will replace the current query rules.
+
+#### geQueryRules()
+
+Return an array of the current query rules.
+
+The default rules can be found [https://github.com/ndaidong/article-parser/blob/main/src/rules.js](here)
 
 #### Configuration methods
 
@@ -177,6 +189,8 @@ In addition, this lib provides some methods to customize default settings. Don't
 - setRequestOptions(Object requestOptions)
 - getSanitizeHtmlOptions()
 - setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
+- getHtmlCrushOptions(Object htmlCrushOptions)
+- setHtmlCrushOptions()
 
 Here are default properties/values:
 
@@ -252,6 +266,17 @@ Read [axios' request config](https://axios-http.com/docs/req_config) for more in
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
+
+#### Object `htmlCrushOptions`:
+
+```js
+{
+  removeLineBreaks: true,
+  removeHTMLComments: 2
+}
+```
+
+For more options, please refer [html-crush](https://www.codsen.com/os/html-crush/) docs.
 
 
 ## Test
