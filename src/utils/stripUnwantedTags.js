@@ -1,6 +1,7 @@
 // utils -> stripUnwantedTags
 
 import { DOMParser } from 'linkedom'
+import { unique } from 'bellajs'
 
 /**
  * @param html {string}
@@ -12,7 +13,7 @@ export default (html, exclusions = []) => {
 
   const document = new DOMParser().parseFromString(html, 'text/html')
 
-  for (const exclusion of exclusions) {
+  for (const exclusion of unique(exclusions)) {
     document.querySelectorAll(exclusion).forEach(node => node.remove())
   }
 

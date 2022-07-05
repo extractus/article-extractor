@@ -104,24 +104,40 @@ describe('test parseFromHtml()', () => {
   })
 })
 
-test('check if parseFromHtml() works with transform rule', async () => {
-  addQueryRules({
-    patterns: [
-      /http(s?):\/\/([\w]+.)?need-transform.tld\/*/
-    ],
-    transform: ($) => {
-      $.querySelectorAll('a').forEach(node => {
-        const sHtml = node.innerHTML
-        const link = node.getAttribute('href')
-        node.parentNode.replaceChild($.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
-      })
-      return $
+test('check if parseFromHtml() works with multi transforms', async () => {
+  addQueryRules([
+    {
+      patterns: [
+        '*://need-transform.tld/*'
+      ],
+      transform: (document) => {
+        document.querySelectorAll('a').forEach((node) => {
+          const sHtml = node.innerHTML
+          const link = node.getAttribute('href')
+          node.parentNode.replaceChild(document.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
+        })
+        return document
+      }
+    },
+    {
+      patterns: [
+        '*://sw.re/*'
+      ],
+      transform: (document) => {
+        document.querySelectorAll('strong').forEach((node) => {
+          const b = document.createElement('B')
+          b.innerHTML = node.innerHTML
+          node.parentNode.replaceChild(b, node)
+        })
+        return document
+      }
     }
-  })
+  ])
   const html = readFileSync('./test-data/vnn-article.html', 'utf8')
   const url = 'https://need-transform.tld/path/to/article'
   const result = await parseFromHtml(html, url)
   expect(result.title).toEqual('Article title here')
   expect(result.content).toEqual(expect.not.stringContaining('<a href="https://vnn.vn/dict/watermelon" target="_blank">'))
   expect(result.content).toEqual(expect.stringContaining('[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]'))
+  expect(result.content).toEqual(expect.stringContaining('<b>in its own way</b>'))
 })

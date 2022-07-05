@@ -9,13 +9,14 @@ import 'urlpattern-polyfill'
  * @returns {QueryRule|{}}
  */
 export default (urls = []) => {
+  const appliedRules = []
   const rules = getQueryRules()
   for (const rule of rules) {
     const { patterns } = rule
     const matched = urls.some((url) => patterns.some((pattern) => new URLPattern(pattern).test(url)))
     if (matched) {
-      return rule
+      appliedRules.push(rule)
     }
   }
-  return {}
+  return appliedRules
 }

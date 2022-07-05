@@ -18,24 +18,22 @@ const countWord = (text) => {
  * @returns {null|string}
  */
 export default (html, selector = null) => {
-  if (!selector) return null
-
+  if (!selector) return html
   try {
     const document = new DOMParser().parseFromString(html, 'text/html')
     const parts = []
-    document.querySelectorAll(selector).forEach(node => {
+    document.querySelectorAll(selector).forEach((node) => {
       const text = node.innerHTML.trim()
-      if (countWord(text) >= MIN_SECTION_LENGTH) { parts.push(text) }
+      if (countWord(text) >= MIN_SECTION_LENGTH) {
+        parts.push(text)
+      }
     })
 
-    if (parts.length) {
-      return parts
-        .reduce((prev, curr) => prev.concat([curr]), [])
+    return parts.length > 0
+      ? parts.reduce((prev, curr) => prev.concat([curr]), [])
         .filter((sect) => stripTags(sect).length > MIN_TEXT_LENGTH)
         .join('')
-    }
-
-    return document.documentElement.innerHTML
+      : document.documentElement.innerHTML
   } catch (err) {
     logger.error(err)
   }

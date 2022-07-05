@@ -105,9 +105,10 @@ If the extraction works well, you should get an `article` object with the struct
 #### addQueryRules(Array queryRules)
 
 Add custom rules to get main article from the specific domains.
-New rules will be appended to the current list of rules.
 
-This can be useful when the default extraction algorithm fails, or when you want to remove some parts of main article content.
+New rules will be added at the end of the list of current rules.
+
+This can be useful when the default extraction algorithm fails, or when you want to adjust content of extracted article.
 
 Example:
 
@@ -132,6 +133,7 @@ addQueryRules([
 ])
 
 // extractor will try to find article at `#noop_article_locates_here`
+// the elements with class .advertise-area or .stupid-banner will be removed
 
 // call it again, hopefully it works for you now :)
 extract('https://bad-website.domain/page/article')
@@ -141,10 +143,12 @@ extract('https://bad-website.domain/page/article')
 
 A query rule is an object with the following properties:
 
-- `patterns`: required, list of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects. See [the syntax for patterns](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+- `patterns`: required, list of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects
 - `selector`: optional, where to find the HTMLElement which contains main article content
 - `unwanted`: optional, list of selectors to filter unwanted HTML elements from the last result
 - `transform`, optional, function to fine-tune article content more thoroughly
+
+The rules without `patterns` will be ignored. Regarding the syntax for patterns, please view [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
 
 Here is an example using rule with transformation:
 
@@ -174,9 +178,52 @@ addQueryRules([
 
 To write better `transform()` logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
+#### Priority order
+
+While processing an article, more than one rule can be matched. Suppose that we have the following rules:
+
+```js
+[
+  {
+    patterns: [
+      '*://google.com/*',
+      '*://goo.gl/*'
+    ],
+    selector: '#selector1',
+    unwanted: [
+      '.class-1',
+      '.class-2',
+      '.class-3'
+    ],
+    transform: transformOne
+  },
+  {
+    patterns: [
+      '*://goo.gl/*',
+      '*://google.inc/*'
+    ],
+    selector: '#selector2',
+    unwanted: [
+      '.class-3',
+      '.class-4',
+      '.class-5'
+    ],
+    transform: transformTwo
+  }
+]
+```
+
+As you can see, an article from `goo.gl` certainly matches both them.
+
+In this scenario, `article-parser` handles as below:
+
+*   only selector from the first rule (`#selector1`) is being used
+*   two lists of `unwanted` will be merged and used (after removing duplicates)
+*   both transform functions will be used, `transformOne()` then `transformTwo()`
+
 #### setQueryRules(Array queryRules)
 
-Similar to `addQueryRules()` but new rules will replace the current query rules.
+Similar to `addQueryRules()` but new rules will replace completely the current query rules.
 
 #### getQueryRules()
 

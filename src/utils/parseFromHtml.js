@@ -1,6 +1,6 @@
 // utils -> parseFromHtml
 
-import { stripTags, truncate, unique } from 'bellajs'
+import { stripTags, truncate, unique, isNil } from 'bellajs'
 
 import sanitize from 'sanitize-html'
 
@@ -88,20 +88,22 @@ export default async (inputHtml, inputUrl = '') => {
   const bestUrl = chooseBestUrl(links, title)
 
   // get defined selector
-  const {
-    selector = null,
-    unwanted = [],
-    transform = null
-  } = findRulesByUrl(links)
+  const rules = findRulesByUrl(links)
+  const selectors = rules.filter(rule => !isNil(rule.selector)).map(rule => rule.selector)
+  const unwantedTags = rules.reduce((prev, curr) => {
+    const { unwanted = [] } = curr
+    return prev.concat(unwanted)
+  }, [])
+  const transforms = rules.filter(rule => !isNil(rule.transform)).map(rule => rule.transform)
 
   // find article content
-  const mainContentSelected = extractWithSelector(html, selector)
+  const mainContentSelected = extractWithSelector(html, selectors.length > 0 ? selectors[0] : null)
 
-  const mainContent = stripUnwantedTags(mainContentSelected ?? html, unwanted)
+  const mainContent = stripUnwantedTags(mainContentSelected ?? html, unwantedTags)
 
   const mainContentAbsoluteUrls = normalizeUrls(mainContent, bestUrl)
 
-  const transformedContent = transformHtml(mainContentAbsoluteUrls, transform)
+  const transformedContent = transformHtml(mainContentAbsoluteUrls, transforms)
 
   const content = extractWithReadability(transformedContent, bestUrl)
 
