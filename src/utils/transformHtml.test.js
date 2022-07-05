@@ -19,7 +19,7 @@ describe('test transformHtml()', () => {
     }
 
     const html = readFileSync('./test-data/regular-article.html', 'utf8')
-    const result = transformHtml(html, transform)
+    const result = transformHtml(html, [transform])
     expect(isString(result)).toBe(true)
     expect(result).toEqual(
       expect.not.stringContaining('<h1>Article title here</h1>')

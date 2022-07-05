@@ -7,14 +7,13 @@ import { DOMParser } from 'linkedom'
  * @param transform {(Document)=>Document}
  * @returns document {string}
  */
-export default (inputHtml, transform = null) => {
-  if (!transform) {
-    return inputHtml
-  }
+export default (html, transforms = []) => {
+  if (!transforms?.length) return html
 
-  const $article = new DOMParser().parseFromString(inputHtml, 'text/html')
-
-  const document = transform($article)
+  let document = new DOMParser().parseFromString(html, 'text/html')
+  transforms.forEach((transform) => {
+    document = transform(document)
+  })
 
   return Array.from(document.children).map(it => it.outerHTML).join('')
 }

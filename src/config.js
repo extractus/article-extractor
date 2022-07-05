@@ -4,8 +4,6 @@ import { clone, copies, isArray } from 'bellajs'
 
 import { rules as defaultRules } from './rules.js'
 
-let rules = clone(defaultRules)
-
 const requestOptions = {
   headers: {
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
@@ -31,15 +29,7 @@ const sanitizeHtmlOptions = {
     iframe: ['src', 'frameborder', 'height', 'width', 'scrolling'],
     svg: ['width', 'height'] // sanitize-html does not support svg fully yet
   },
-  allowedIframeDomains: ['youtube.com', 'vimeo.com']
-}
-
-const parserOptions = {
-  wordsPerMinute: 300, // to estimate "time to read"
-  urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
-  descriptionLengthThreshold: 40, // min num of chars required for description
-  descriptionTruncateLen: 156, // max num of chars generated for description
-  contentLengthThreshold: 200 // content must have at least 200 chars
+  allowedIframeDomains: ['youtube.com', 'twitter.com', 'facebook.com', 'vimeo.com']
 }
 
 /**
@@ -50,68 +40,95 @@ const htmlCrushOptions = {
   removeLineBreaks: true
 }
 
-/**
- * @returns {ParserOptions}
- */
-export const getParserOptions = () => {
-  return clone(parserOptions)
+const parserOptions = {
+  wordsPerMinute: 300, // to estimate "time to read"
+  urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
+  descriptionLengthThreshold: 40, // min num of chars required for description
+  descriptionTruncateLen: 156, // max num of chars generated for description
+  contentLengthThreshold: 200 // content must have at least 200 chars
+}
+
+const state = {
+  requestOptions,
+  sanitizeHtmlOptions,
+  htmlCrushOptions,
+  parserOptions,
+  rules: clone(defaultRules)
 }
 
 /**
  * @returns {RequestOptions}
  */
 export const getRequestOptions = () => {
-  return clone(requestOptions)
-}
-
-/**
- * @returns {HtmlCrushOptions}
- */
-export const getHtmlCrushOptions = () => {
-  return clone(htmlCrushOptions)
+  return clone(state.requestOptions)
 }
 
 /**
  * @returns {SanitizeOptions}
  */
 export const getSanitizeHtmlOptions = () => {
-  return clone(sanitizeHtmlOptions)
+  return clone(state.sanitizeHtmlOptions)
 }
 
-export const setParserOptions = (opts) => {
-  Object.keys(parserOptions).forEach((key) => {
+/**
+ * @returns {HtmlCrushOptions}
+ */
+export const getHtmlCrushOptions = () => {
+  return clone(state.htmlCrushOptions)
+}
+
+/**
+ * @returns {ParserOptions}
+ */
+export const getParserOptions = () => {
+  return clone(state.parserOptions)
+}
+
+export const setParserOptions = (opts = {}) => {
+  Object.keys(state.parserOptions).forEach((key) => {
     if (key in opts) {
-      parserOptions[key] = opts[key]
+      state.parserOptions[key] = opts[key]
     }
   })
 }
 
-export const setRequestOptions = (opts) => {
-  copies(opts, requestOptions)
+export const setRequestOptions = (opts = {}) => {
+  copies(opts, state.requestOptions)
 }
 
-export const setHtmlCrushOptions = (opts) => {
-  copies(opts, htmlCrushOptions)
+export const setHtmlCrushOptions = (opts = {}) => {
+  copies(opts, state.htmlCrushOptions)
 }
 
-export const setSanitizeHtmlOptions = (opts) => {
+export const setSanitizeHtmlOptions = (opts = {}) => {
   Object.keys(opts).forEach((key) => {
-    sanitizeHtmlOptions[key] = clone(opts[key])
+    state.sanitizeHtmlOptions[key] = clone(opts[key])
   })
 }
 
 /**
  * @returns {QueryRule[]}
  */
-export const getQueryRules = () => clone(rules)
+export const getQueryRules = () => clone(state.rules)
 
 /**
- * @param value {QueryRule[]}
+ * @param entries {QueryRule[]}
+ * @returns {number}
  */
-export const setQueryRules = (value) => { rules = value }
+export const setQueryRules = (entries = []) => {
+  state.rules = []
+  const newRules = [...entries].filter((item) => isArray(item?.patterns))
+  state.rules = [...newRules]
+  return state.rules.length
+}
 
 /**
  * @param entries {QueryRule}
  * @returns {number}
  */
-export const addQueryRules = (...entries) => rules.unshift(...entries.filter((item) => isArray(item?.patterns)))
+export const addQueryRules = (entries = []) => {
+  const { rules } = state
+  const newRules = [...entries].filter((item) => isArray(item?.patterns))
+  state.rules = [...rules, ...newRules]
+  return state.rules.length
+}

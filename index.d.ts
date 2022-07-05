@@ -40,11 +40,11 @@ export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
 
 export function setHtmlCrushOptions(options: HtmlCrushOptions): void;
 
-export function addQueryRules(...rules: Array<QueryRule>): Number;
+export function addQueryRules(rules: Array<QueryRule>): Number;
 
 export function getQueryRules(): Array<QueryRule>;
 
-export function setQueryRules(rules: Array<QueryRule>): void;
+export function setQueryRules(rules: Array<QueryRule>): Number;
 
 export function getParserOptions(): ParserOptions;
 
