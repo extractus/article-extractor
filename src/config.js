@@ -1,8 +1,6 @@
 // configs
 
-import { clone, copies, isArray } from 'bellajs'
-
-import { rules as defaultRules } from './rules.js'
+import { clone, copies } from 'bellajs'
 
 const requestOptions = {
   headers: {
@@ -52,8 +50,7 @@ const state = {
   requestOptions,
   sanitizeHtmlOptions,
   htmlCrushOptions,
-  parserOptions,
-  rules: clone(defaultRules)
+  parserOptions
 }
 
 /**
@@ -104,31 +101,4 @@ export const setSanitizeHtmlOptions = (opts = {}) => {
   Object.keys(opts).forEach((key) => {
     state.sanitizeHtmlOptions[key] = clone(opts[key])
   })
-}
-
-/**
- * @returns {QueryRule[]}
- */
-export const getQueryRules = () => clone(state.rules)
-
-/**
- * @param entries {QueryRule[]}
- * @returns {number}
- */
-export const setQueryRules = (entries = []) => {
-  state.rules = []
-  const newRules = [...entries].filter((item) => isArray(item?.patterns))
-  state.rules = [...newRules]
-  return state.rules.length
-}
-
-/**
- * @param entries {QueryRule}
- * @returns {number}
- */
-export const addQueryRules = (entries = []) => {
-  const { rules } = state
-  const newRules = [...entries].filter((item) => isArray(item?.patterns))
-  state.rules = [...rules, ...newRules]
-  return state.rules.length
 }

@@ -54,13 +54,15 @@ extract(url).then((article) => {
 ## APIs
 
 - [.extract(String url | String html)](#extractstring-url--string-html)
-- [.addQueryRules(Array queryRules)](#addqueryrulesarray-queryrules)
-- [.setQueryRules(Array queryRules)](#setqueryrulesarray-queryrules)
-- [.getQueryRules()](#getqueryrules)
+- [Transformations](#transformations)
+  - [`transformation` object](#)
+  - [.addTransformations](#)
+  - [.removeTransformations)](#)
+  - [Priority order)](#)
 - [Configuration methods](#configuration-methods)
 
 
-#### extract(String url | String html)
+### extract(String url | String html)
 
 Load and extract article data. Return a Promise object.
 
@@ -102,85 +104,157 @@ If the extraction works well, you should get an `article` object with the struct
 [Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-TEyRycuuMCiGBiBocbLGSpagfj7gOF8AMyAWfEgP) for seeing an actual result.
 
 
-#### addQueryRules(Array queryRules)
+### Transformations
 
-Add custom rules to get main article from the specific domains.
+Sometimes the default extraction algorithm may not work well. That is the time when we need transformations.
 
-New rules will be added at the end of the list of current rules.
+By adding some functions before and after the main extraction step, we aim to come up with a better result as much as possible.
 
-This can be useful when the default extraction algorithm fails, or when you want to adjust content of extracted article.
+`transformation` is available since `article-parser@7.0.0`, as the improvement of `queryRule` in the older versions.
 
-Example:
+To play with transformations, `article-parser` provides 2 public methods as below:
 
-```js
-import { addQueryRules, extract } from 'article-parser'
+- `addTransformations(Object transformation | Array transformations)`
+- `removeTransformations(Array patterns)`
 
-// extractor doesn't work for you!
-extract('https://bad-website.domain/page/article')
+At first, let's talk about `transformation` object.
 
-// add some rules for bad-website.domain
-addQueryRules([
-  {
-    patterns: [
-      '*://bad-website.domain/*'
-    ],
-    selector: '#noop_article_locates_here',
-    unwanted: [
-      '.advertise-area',
-      '.stupid-banner'
-    ]
-  }
-])
+#### `transformation` object
 
-// extractor will try to find article at `#noop_article_locates_here`
-// the elements with class .advertise-area or .stupid-banner will be removed
-
-// call it again, hopefully it works for you now :)
-extract('https://bad-website.domain/page/article')
-````
-
-#### Query Rule
-
-A query rule is an object with the following properties:
+In `article-parser`, `transformation` is an object with the following properties:
 
 - `patterns`: required, list of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects
-- `selector`: optional, where to find the HTMLElement which contains main article content
-- `unwanted`: optional, list of selectors to filter unwanted HTML elements from the last result
-- `transform`, optional, function to fine-tune article content more thoroughly
+- `pre`: optional, a function to process raw HTML
+- `post`: optional, a function to proces extracted article
 
-The rules without `patterns` will be ignored. Regarding the syntax for patterns, please view [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+Basically, the meaning of `transformation` can be interpreted like this:
 
-Here is an example using rule with transformation:
+> with the urls which match these `patterns`
+> let's run `pre` function to normalize HTML content
+> then extract main article content with normalized HTML, and if success
+> let's run `post` function to normalize extracted article content
+
+![article-parser extraction process](https://res.cloudinary.com/pwshub/image/upload/v1657336822/documentation/article-parser_extraction_process.png)
+
+Here is an example transformation:
 
 ```js
-import { addQueryRules } from 'article-parser'
+{
+  patterns: [
+    '*://*.domain.tld/*',
+    '*://domain.tld/articles/*'
+  ],
+  pre: (document) => {
+    // remove all .advertise-area and its siblings from raw HTML content
+    document.querySelectorAll('.advertise-area').forEach((element) => {
+      if (element.nodeName === 'DIV') {
+        while (element.nextSibling) {
+          element.parentNode.removeChild(element.nextSibling)
+        }
+        element.parentNode.removeChild(element)
+      }
+    })
+    return document
+  },
+  post: (document) => {
+    // with extracted article, replace all h4 tags with h2
+    document.querySelectorAll('h4').forEach((element) => {
+      const h2Element = document.createElement('h2')
+      h2Element.innerHTML = element.innerHTML
+      element.parentNode.replaceChild(h2Element, element)
+    })
+    // change small sized images to original version
+    document.querySelectorAll('img').forEach((element) => {
+      const src = element.getAttribute('src')
+      if (src.includes('domain.tld/pics/150x120/')) {
+        const fullSrc = src.replace('/pics/150x120/', '/pics/original/')
+        element.setAttribute('src', fullSrc)
+      }
+    })
+    return document
+  }
+}
+```
 
-addQueryRules([
+- Regarding the syntax for patterns, please view [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
+- To write better transformation logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+
+#### `addTransformations(Object transformation | Array transformations)`
+
+Add a single transformation or a list of transformations. For example:
+
+```js
+import { addTransformations } from 'article-parser'
+
+addTransformations({
+  patterns: [
+    '*://*.abc.tld/*'
+  ],
+  pre: (document) => {
+    // do something with document
+    return document
+  },
+  post: (document) => {
+    // do something with document
+    return document
+  }
+})
+
+addTransformations([
   {
     patterns: [
-      { hostname: 'bad-website.domain' }
+      '*://*.def.tld/*'
     ],
-    selector: '#article_id_here',
-    transform: (document) => {
-      // document is parsed by https://github.com/WebReflection/linkedom which is almost identical to the browser Document object.
-      // for example, here we replace all <h1></h1> with <b></b>
-      document.querySelectorAll('h1').forEach(node => {
-        const newNode = document.createElement('b')
-        newNode.innerHTML = node.innerHTML
-        node.parentNode.replaceChild(newNode, node)
-      })
-      // at the end, you mush return document
+    pre: (document) => {
+      // do something with document
+      return document
+    },
+    post: (document) => {
+      // do something with document
+      return document
+    }
+  },
+  {
+    patterns: [
+      '*://*.xyz.tld/*'
+    ],
+    pre: (document) => {
+      // do something with document
+      return document
+    },
+    post: (document) => {
+      // do something with document
       return document
     }
   }
 ])
+````
+
+The transformations without `patterns` will be ignored.
+
+#### `removeTransformations(Array patterns)`
+
+To remove transformations that match the specific patterns.
+
+For example, we can remove all added transformations above:
+
+```js
+import { removeTransformations } from 'article-parser'
+
+removeTransformations([
+  '*://*.abc.tld/*',
+  '*://*.def.tld/*',
+  '*://*.xyz.tld/*'
+])
 ```
 
-To write better `transform()` logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+Calling `removeTransformations()` without parameter will remove all current transformations.
 
 #### Priority order
 
-While processing an article, more than one rule can be matched. Suppose that we have the following rules:
+While processing an article, more than one transformation can be applied.
+
+Suppose that we have the following transformations:
 
 ```js
 [
@@ -189,49 +263,27 @@ While processing an article, more than one rule can be matched. Suppose that we 
       '*://google.com/*',
       '*://goo.gl/*'
     ],
-    selector: '#selector1',
-    unwanted: [
-      '.class-1',
-      '.class-2',
-      '.class-3'
-    ],
-    transform: transformOne
+    pre: function_one,
+    post: function_two
   },
   {
     patterns: [
       '*://goo.gl/*',
       '*://google.inc/*'
     ],
-    selector: '#selector2',
-    unwanted: [
-      '.class-3',
-      '.class-4',
-      '.class-5'
-    ],
-    transform: transformTwo
+    pre: function_three,
+    post: function_four
   }
 ]
 ```
 
 As you can see, an article from `goo.gl` certainly matches both them.
 
-In this scenario, `article-parser` handles as below:
+In this scenario, `article-parser` will execute both transformations, one by one:
 
-*   only selector from the first rule (`#selector1`) is being used
-*   two lists of `unwanted` will be merged and used (after removing duplicates)
-*   both transform functions will be used, `transformOne()` then `transformTwo()`
+`function_one` -> `function_three` -> extraction -> `function_two` -> `function_four`
 
-#### setQueryRules(Array queryRules)
-
-Similar to `addQueryRules()` but new rules will replace completely the current query rules.
-
-#### getQueryRules()
-
-Return an array of the current query rules.
-
-The default rules can be found [here](https://github.com/ndaidong/article-parser/blob/main/src/rules.js)
-
-#### Configuration methods
+### Configuration methods
 
 In addition, this lib provides some methods to customize default settings. Don't touch them unless you have reason to do that.
 

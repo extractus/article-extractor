@@ -2,7 +2,7 @@
 
 import { readFileSync, existsSync } from 'fs'
 
-import isValidUrl from './src/utils/isValidUrl.js'
+import { isValid as isValidUrl } from './src/utils/linker.js'
 import { extract } from './src/main.js'
 
 const extractFromUrl = async (url) => {

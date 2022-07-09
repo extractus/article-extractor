@@ -1,8 +1,6 @@
 // utils -> getTimeToRead
 
-import {
-  getParserOptions
-} from '../config.js'
+import { getParserOptions } from '../config.js'
 
 export default (text) => {
   const words = text.trim().split(/\s+/g).length
