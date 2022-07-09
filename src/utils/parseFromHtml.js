@@ -1,37 +1,31 @@
 // utils -> parseFromHtml
 
-import { stripTags, truncate, unique, isNil } from 'bellajs'
+import { stripTags, truncate, unique, pipe } from 'bellajs'
 
-import sanitize from 'sanitize-html'
+import { cleanify, cleanAndMinify as cleanAndMinifyHtml } from './html.js'
 
-import isValidUrl from './isValidUrl.js'
-import purifyUrl from './purifyUrl.js'
-import absolutifyUrl from './absolutifyUrl.js'
-import chooseBestUrl from './chooseBestUrl.js'
-import getHostname from './getHostname.js'
+import {
+  isValid as isValidUrl,
+  purify as purifyUrl,
+  absolutify as absolutifyUrl,
+  normalize as normalizeUrls,
+  getHostname,
+  chooseBestUrl
+} from './linker.js'
 
-import findRulesByUrl from './findRulesByUrl.js'
-import cleanAndMinifyHtml from './cleanAndMinifyHtml.js'
 import extractMetaData from './extractMetaData.js'
+
 import extractWithReadability, {
   extractTitleWithReadability
 } from './extractWithReadability.js'
-import extractWithSelector from './extractWithSelector.js'
+
+import { execPreParser, execPostParser } from './transformation.js'
+
 import getTimeToRead from './getTimeToRead.js'
-import normalizeUrls from './normalizeUrls.js'
-import stripUnwantedTags from './stripUnwantedTags.js'
-import transformHtml from './transformHtml.js'
 
 import logger from './logger.js'
 
 import { getParserOptions } from '../config.js'
-
-const cleanify = html => {
-  return sanitize(html, {
-    allowedTags: false,
-    allowedAttributes: false
-  })
-}
 
 const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length < threshold
@@ -87,34 +81,32 @@ export default async (inputHtml, inputUrl = '') => {
   // choose the best url
   const bestUrl = chooseBestUrl(links, title)
 
-  // get defined selector
-  const rules = findRulesByUrl(links)
-  const selectors = rules.filter(rule => !isNil(rule.selector)).map(rule => rule.selector)
-  const unwantedTags = rules.reduce((prev, curr) => {
-    const { unwanted = [] } = curr
-    return prev.concat(unwanted)
-  }, [])
-  const transforms = rules.filter(rule => !isNil(rule.transform)).map(rule => rule.transform)
+  const fns = pipe(
+    (input) => {
+      return normalizeUrls(input, bestUrl)
+    },
+    (input) => {
+      return execPreParser(input, links)
+    },
+    (input) => {
+      return extractWithReadability(input, bestUrl)
+    },
+    (input) => {
+      return input ? execPostParser(input, links) : null
+    },
+    (input) => {
+      return input ? cleanAndMinifyHtml(input) : null
+    }
+  )
 
-  // find article content
-  const mainContentSelected = extractWithSelector(html, selectors.length > 0 ? selectors[0] : null)
-
-  const mainContent = stripUnwantedTags(mainContentSelected ?? html, unwantedTags)
-
-  const mainContentAbsoluteUrls = normalizeUrls(mainContent, bestUrl)
-
-  const transformedContent = transformHtml(mainContentAbsoluteUrls, transforms)
-
-  const content = extractWithReadability(transformedContent, bestUrl)
+  const content = fns(html)
 
   if (!content) {
     logger.info('Could not detect article content!')
     return null
   }
 
-  const normalizedContent = cleanAndMinifyHtml(content)
-
-  const textContent = stripTags(normalizedContent)
+  const textContent = stripTags(content)
   if (textContent.length < contentLengthThreshold) {
     logger.info('Main article is too short!')
     return null
@@ -135,7 +127,7 @@ export default async (inputHtml, inputUrl = '') => {
     description,
     links,
     image,
-    content: normalizedContent,
+    content,
     author,
     source: source || getHostname(bestUrl),
     published,

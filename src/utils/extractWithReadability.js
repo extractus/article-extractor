@@ -2,7 +2,8 @@
 
 import { Readability } from '@mozilla/readability'
 import { DOMParser } from 'linkedom'
-import isHTMLString from './isHTMLString.js'
+
+import { isValid as isHTMLString } from './html.js'
 
 /**
  * @param html {string}

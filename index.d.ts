@@ -20,17 +20,20 @@ type HtmlCrushOptions = Partial<typeof defaults>
  *   unwanted: ['.removing-box']
  * }
  */
-export interface QueryRule {
+export interface Transformation {
   patterns: Array<URLPatternInit | string>,
-  unwanted?: Array<String>,
-  selector?: String,
-  transform?: (document: Document) => Document
+  pre?: (document: Document) => Document
+  post?: (document: Document) => Document
 }
 
 /**
  * @param input url or html
  */
 export function extract(input: string): Promise<ArticleData>;
+
+export function addTransformations(transformations: Array<Transformation>): Number;
+
+export function removeTransformations(options: Array<URLPatternInit>): Number;
 
 export function setParserOptions(options: ParserOptions): void;
 
@@ -39,12 +42,6 @@ export function setRequestOptions(options: AxiosRequestConfig): void;
 export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
 
 export function setHtmlCrushOptions(options: HtmlCrushOptions): void;
-
-export function addQueryRules(rules: Array<QueryRule>): Number;
-
-export function getQueryRules(): Array<QueryRule>;
-
-export function setQueryRules(rules: Array<QueryRule>): Number;
 
 export function getParserOptions(): ParserOptions;
 

@@ -1,14 +1,22 @@
 // main.test
 /* eslint-env jest */
 
-import {
-  readFileSync
-} from 'fs'
+import { readFileSync } from 'fs'
 
 import nock from 'nock'
 
 import {
-  extract
+  extract,
+  getParserOptions,
+  setParserOptions,
+  getRequestOptions,
+  setRequestOptions,
+  getSanitizeHtmlOptions,
+  setSanitizeHtmlOptions,
+  getHtmlCrushOptions,
+  setHtmlCrushOptions,
+  addTransformations,
+  removeTransformations
 } from './main'
 
 const parseUrl = (url) => {
@@ -18,6 +26,28 @@ const parseUrl = (url) => {
     path: re.pathname
   }
 }
+
+describe('check all exported methods', () => {
+  const fns = [
+    extract,
+    getParserOptions,
+    setParserOptions,
+    getRequestOptions,
+    setRequestOptions,
+    getSanitizeHtmlOptions,
+    setSanitizeHtmlOptions,
+    getHtmlCrushOptions,
+    setHtmlCrushOptions,
+    addTransformations,
+    removeTransformations
+  ]
+
+  fns.forEach((fn) => {
+    test(` check ${fn.name}`, () => {
+      expect(fn).toBeTruthy()
+    })
+  })
+})
 
 describe('test extract(bad url)', () => {
   const badSamples = [

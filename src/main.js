@@ -7,12 +7,10 @@ import {
   isString
 } from 'bellajs'
 
-import isValidUrl from './utils/isValidUrl.js'
-import isHTMLString from './utils/isHTMLString.js'
-
 import retrieve from './utils/retrieve.js'
-
 import parseFromHtml from './utils/parseFromHtml.js'
+import { isValid as isValidUrl } from './utils/linker.js'
+import { isValid as isHTMLString } from './utils/html.js'
 
 export const extract = async (input) => {
   if (!isString(input)) {
@@ -33,4 +31,5 @@ export const extract = async (input) => {
   return parseFromHtml(html, input)
 }
 
+export { addTransformations, removeTransformations } from './utils/transformation.js'
 export * from './config.js'

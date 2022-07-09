@@ -9,13 +9,8 @@ import {
   setSanitizeHtmlOptions,
   getSanitizeHtmlOptions,
   getHtmlCrushOptions,
-  setHtmlCrushOptions,
-  getQueryRules,
-  addQueryRules,
-  setQueryRules
+  setHtmlCrushOptions
 } from './config.js'
-
-import { rules as defaultRules } from './rules.js'
 
 test('Testing setRequestOptions/getRequestOptions methods', () => {
   setRequestOptions({
@@ -90,47 +85,4 @@ test('Testing setHtmlCrushOptions/getHtmlCrushOptions methods', () => {
 
   expect(actual.removeHTMLComments).toEqual(removeHTMLComments)
   expect(actual.removeLineBreaks).toEqual(removeLineBreaks)
-})
-
-test('Testing addQueryRules/setQueryRules/getQueryRules methods', () => {
-  const currentRules = getQueryRules()
-
-  expect(currentRules).toEqual(defaultRules)
-
-  addQueryRules()
-  addQueryRules([])
-  expect(getQueryRules()).toHaveLength(defaultRules.length)
-
-  const newRules = [
-    {
-      patterns: [
-        /somewhere.com\/*/
-      ],
-      selector: '.article-body',
-      unwanted: [
-        '.removing-box',
-        '.ads-section'
-      ]
-    },
-    {
-      patterns: [
-        /elsewhere.net\/*/
-      ],
-      selector: '.main-content',
-      unwanted: [
-        '.related-posts'
-      ]
-    }
-  ]
-  addQueryRules(newRules)
-
-  const updatedRules = getQueryRules()
-  expect(updatedRules).toHaveLength(defaultRules.length + newRules.length)
-  expect(updatedRules[0]).toEqual(defaultRules[0])
-  expect(updatedRules[updatedRules.length - 1]).toEqual(newRules[newRules.length - 1])
-
-  setQueryRules(newRules)
-  const latestUpdatedRules = getQueryRules()
-  expect(latestUpdatedRules).toHaveLength(2)
-  expect(latestUpdatedRules[1]).toEqual(newRules[1])
 })
