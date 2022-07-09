@@ -55,12 +55,13 @@ extract(url).then((article) => {
 
 - [.extract(String url | String html)](#extractstring-url--string-html)
 - [Transformations](#transformations)
-  - [`transformation` object](#)
-  - [.addTransformations](#)
-  - [.removeTransformations)](#)
-  - [Priority order)](#)
+  - [`transformation` object](#transformation-object)
+  - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
+  - [.removeTransformations](#removetransformationsarray-patterns)
+  - [Priority order](#priority-order)
 - [Configuration methods](#configuration-methods)
 
+---
 
 ### extract(String url | String html)
 
@@ -103,6 +104,7 @@ If the extraction works well, you should get an `article` object with the struct
 
 [Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-TEyRycuuMCiGBiBocbLGSpagfj7gOF8AMyAWfEgP) for seeing an actual result.
 
+---
 
 ### Transformations
 
@@ -129,9 +131,9 @@ In `article-parser`, `transformation` is an object with the following properties
 
 Basically, the meaning of `transformation` can be interpreted like this:
 
-> with the urls which match these `patterns`
-> let's run `pre` function to normalize HTML content
-> then extract main article content with normalized HTML, and if success
+> with the urls which match these `patterns` <br>
+> let's run `pre` function to normalize HTML content <br>
+> then extract main article content with normalized HTML, and if success <br>
 > let's run `post` function to normalize extracted article content
 
 ![article-parser extraction process](https://res.cloudinary.com/pwshub/image/upload/v1657336822/documentation/article-parser_extraction_process.png)
@@ -282,6 +284,8 @@ As you can see, an article from `goo.gl` certainly matches both them.
 In this scenario, `article-parser` will execute both transformations, one by one:
 
 `function_one` -> `function_three` -> extraction -> `function_two` -> `function_four`
+
+---
 
 ### Configuration methods
 
