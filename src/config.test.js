@@ -25,7 +25,8 @@ test('Testing setRequestOptions/getRequestOptions methods', () => {
   const expectedHeader = {
     authorization: 'bearer <token>',
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
-    accept: 'text/html; charset=utf-8'
+    accept: 'text/html; charset=utf-8',
+    'accept-encoding': 'deflate,zlib,gzip'
   }
 
   expect(actual.headers).toEqual(expectedHeader)
