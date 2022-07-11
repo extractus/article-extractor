@@ -5,7 +5,8 @@ import { clone, copies } from 'bellajs'
 const requestOptions = {
   headers: {
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
-    accept: 'text/html; charset=utf-8'
+    accept: 'text/html; charset=utf-8',
+    'Accept-Encoding': 'deflate,zlib,gzip'
   },
   responseType: 'text',
   responseEncoding: 'utf8',
@@ -21,10 +22,10 @@ const sanitizeHtmlOptions = {
     progress: ['value', 'max'],
     img: ['src', 'srcset', 'alt', 'width', 'height', 'style', 'title'],
     picture: ['media', 'srcset'],
-    video: ['controls', 'width', 'height', 'autoplay', 'muted'],
+    video: ['controls', 'width', 'height', 'autoplay', 'muted', 'loop', 'src'],
     audio: ['controls'],
     source: ['src', 'srcset', 'data-srcset', 'type', 'media', 'sizes'],
-    iframe: ['src', 'frameborder', 'height', 'width', 'scrolling'],
+    iframe: ['src', 'frameborder', 'height', 'width', 'scrolling', 'allow'],
     svg: ['width', 'height'] // sanitize-html does not support svg fully yet
   },
   allowedIframeDomains: ['youtube.com', 'twitter.com', 'facebook.com', 'vimeo.com']
