@@ -6,7 +6,7 @@ const requestOptions = {
   headers: {
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
     accept: 'text/html; charset=utf-8',
-    'Accept-Encoding': 'deflate,zlib,gzip'
+    'accept-encoding': 'deflate,zlib,gzip'
   },
   responseType: 'text',
   responseEncoding: 'utf8',
