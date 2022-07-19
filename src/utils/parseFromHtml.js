@@ -1,6 +1,7 @@
 // utils -> parseFromHtml
 
 import { stripTags, truncate, unique, pipe } from 'bellajs'
+import { getDomain } from 'tldts'
 
 import { cleanify, cleanAndMinify as cleanAndMinifyHtml } from './html.js'
 
@@ -9,7 +10,6 @@ import {
   purify as purifyUrl,
   absolutify as absolutifyUrl,
   normalize as normalizeUrls,
-  getHostname,
   chooseBestUrl
 } from './linker.js'
 
@@ -28,9 +28,20 @@ import logger from './logger.js'
 import { getParserOptions } from '../config.js'
 
 const summarize = (desc, txt, threshold, maxlen) => {
-  return desc.length < threshold
-    ? truncate(txt, maxlen).replace(/\n/g, ' ')
-    : desc
+  const removeFirstParts = (str) => {
+    const arr = str.split(' - ')
+    if (arr.length > 1) {
+      arr.shift()
+      return arr.join(' ')
+    }
+    return str
+  }
+  const metadesc = removeFirstParts(desc)
+  if (metadesc.length > threshold) {
+    return metadesc
+  }
+  const extradesc = truncate(txt, maxlen).replace(/\n/g, ' ')
+  return removeFirstParts(extradesc)
 }
 
 export default async (inputHtml, inputUrl = '') => {
@@ -46,7 +57,6 @@ export default async (inputHtml, inputUrl = '') => {
     description: metaDesc,
     image: metaImg,
     author,
-    source,
     published
   } = meta
 
@@ -129,7 +139,7 @@ export default async (inputHtml, inputUrl = '') => {
     image,
     content,
     author,
-    source: source || getHostname(bestUrl),
+    source: getDomain(bestUrl),
     published,
     ttr: getTimeToRead(textContent)
   }

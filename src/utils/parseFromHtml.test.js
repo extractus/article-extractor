@@ -9,6 +9,7 @@ import parseFromHtml from './parseFromHtml.js'
 import { addTransformations } from './transformation.js'
 
 describe('test parseFromHtml()', () => {
+  const expDesc = "Navigation here Few can name a rational peach that isn't a conscientious goldfish! One cannot separate snakes from plucky pomegranates? Draped neatly on a hanger, the melons could be said to resemble knowledgeable pigs."
   const cases = [
     {
       input: {
@@ -66,7 +67,7 @@ describe('test parseFromHtml()', () => {
       },
       expectation: (result, expect) => {
         expect(result.title).toEqual('Article title here')
-        expect(result.description).toEqual('Few words to summarize this article content')
+        expect(result.description).toEqual(expDesc)
         expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">'))
         expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://somewhere.com/dict/watermelon">'))
       }

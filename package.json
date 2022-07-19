@@ -1,5 +1,5 @@
 {
-  "version": "7.0.0rc3",
+  "version": "7.0.0rc4",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -37,7 +37,8 @@
     "linkedom": "^0.14.12",
     "sanitize-html": "^2.7.0",
     "string-comparison": "^1.1.0",
-    "urlpattern-polyfill": "^5.0.3"
+    "tldts": "^5.7.84",
+    "urlpattern-polyfill": "^5.0.5"
   },
   "standard": {
     "ignore": [
@@ -48,7 +49,7 @@
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.49",
-    "jest": "^28.1.2",
+    "jest": "^28.1.3",
     "nock": "^13.2.8",
     "standard": "^17.0.0"
   },
