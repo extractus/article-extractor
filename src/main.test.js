@@ -74,6 +74,7 @@ describe('test extract(bad url)', () => {
 })
 
 describe('test extract(regular article url)', () => {
+  const expDesc = "Navigation here Few can name a rational peach that isn't a conscientious goldfish! One cannot separate snakes from plucky pomegranates? Draped neatly on a hanger, the melons could be said to resemble knowledgeable pigs."
   const cases = [
     {
       input: {
@@ -101,7 +102,7 @@ describe('test extract(regular article url)', () => {
       validate: (result, expect) => {
         expect(result).toBeTruthy()
         expect(result.title).toEqual('Article title here')
-        expect(result.description).toEqual('Few words to summarize this article content')
+        expect(result.description).toEqual(expDesc)
       }
     }
   ]
@@ -124,6 +125,6 @@ describe('test extract(regular article url)', () => {
     const result = await extract(html)
     expect(result).toBeTruthy()
     expect(result.title).toEqual('Article title here')
-    expect(result.description).toEqual('Few words to summarize this article content')
+    expect(result.description).toEqual(expDesc)
   })
 })

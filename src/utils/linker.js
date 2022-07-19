@@ -18,16 +18,6 @@ export const isValid = (url = '') => {
   }
 }
 
-export const getHostname = (url) => {
-  try {
-    const { hostname } = new URL(url)
-    return hostname.replace('www.', '')
-  } catch (err) {
-    logger.error(err)
-    return ''
-  }
-}
-
 export const absolutify = (fullUrl = '', relativeUrl = '') => {
   try {
     const result = new URL(relativeUrl, fullUrl)
