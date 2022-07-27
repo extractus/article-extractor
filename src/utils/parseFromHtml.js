@@ -23,8 +23,6 @@ import { execPreParser, execPostParser } from './transformation.js'
 
 import getTimeToRead from './getTimeToRead.js'
 
-import logger from './logger.js'
-
 import { getParserOptions } from '../config.js'
 
 const summarize = (desc, txt, threshold, maxlen) => {
@@ -68,11 +66,9 @@ export default async (inputHtml, inputUrl = '') => {
 
   // gather title
   if (!title) {
-    logger.info('Could not detect article title from meta!')
     title = extractTitleWithReadability(html, inputUrl)
   }
   if (!title) {
-    logger.info('Could not detect article title!')
     return null
   }
 
@@ -84,7 +80,6 @@ export default async (inputHtml, inputUrl = '') => {
   )
 
   if (!links.length) {
-    logger.info('Could not detect article link!')
     return null
   }
 
@@ -112,13 +107,11 @@ export default async (inputHtml, inputUrl = '') => {
   const content = fns(html)
 
   if (!content) {
-    logger.info('Could not detect article content!')
     return null
   }
 
   const textContent = stripTags(content)
   if (textContent.length < contentLengthThreshold) {
-    logger.info('Main article is too short!')
     return null
   }
 

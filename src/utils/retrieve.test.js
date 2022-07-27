@@ -31,8 +31,11 @@ test('test retrieve with unsupported content type', async () => {
   scope.get(path).reply(200, '', {
     'Content-Type': 'something/strange'
   })
-  const result = await retrieve(url)
-  expect(result).toBe(null)
+  try {
+    await retrieve(url)
+  } catch (err) {
+    expect(err).toBeTruthy()
+  }
 })
 
 test('test retrieve from bad source', async () => {
@@ -42,6 +45,9 @@ test('test retrieve from bad source', async () => {
   scope.get(path).reply(500, '<div>this is content</div>', {
     'Content-Type': 'text/html'
   })
-  const result = await retrieve(url)
-  expect(result).toBe(null)
+  try {
+    await retrieve(url)
+  } catch (err) {
+    expect(err).toBeTruthy()
+  }
 })
