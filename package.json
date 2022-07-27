@@ -1,5 +1,5 @@
 {
-  "version": "7.0.0rc4",
+  "version": "7.0.0",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -8,8 +8,7 @@
     "url": "git@github.com:ndaidong/article-parser.git"
   },
   "author": "@ndaidong",
-  "main": "./dist/cjs/article-parser.js",
-  "module": "./src/main.js",
+  "main": "./src/main.js",
   "browser": {
     "linkedom": "./src/browser/linkedom.js",
     "./main.js": "./dist/article-parser.browser.js"
@@ -24,18 +23,17 @@
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --unhandled-rejections=strict",
     "build": "node build",
-    "eval": "cross-env DEBUG=*:* node eval",
-    "eval:cjs": "cross-env DEBUG=*:* node eval.cjs",
+    "eval": "cross-env node eval",
+    "eval:cjs": "cross-env node eval.cjs",
     "reset": "node reset"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
     "axios": "^0.27.2",
     "bellajs": "^11.0.3",
-    "debug": "^4.3.4",
-    "html-crush": "^5.0.19",
+    "html-crush": "^5.0.20",
     "linkedom": "^0.14.12",
-    "sanitize-html": "^2.7.0",
+    "sanitize-html": "^2.7.1",
     "string-comparison": "^1.1.0",
     "tldts": "^5.7.84",
     "urlpattern-polyfill": "^5.0.5"
@@ -48,9 +46,9 @@
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.49",
+    "esbuild": "^0.14.50",
     "jest": "^28.1.3",
-    "nock": "^13.2.8",
+    "nock": "^13.2.9",
     "standard": "^17.0.0"
   },
   "keywords": [

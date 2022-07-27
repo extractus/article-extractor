@@ -7,8 +7,6 @@ import * as stringComparison from 'string-comparison'
 
 import { getParserOptions } from '../config.js'
 
-import logger from './logger.js'
-
 export const isValid = (url = '') => {
   try {
     const ourl = new URL(url)
@@ -23,7 +21,6 @@ export const absolutify = (fullUrl = '', relativeUrl = '') => {
     const result = new URL(relativeUrl, fullUrl)
     return result.toString()
   } catch (err) {
-    logger.error(err)
     return ''
   }
 }
@@ -98,7 +95,6 @@ export const purify = (url) => {
 
     return pureUrl.toString().replace(pureUrl.hash, '')
   } catch (err) {
-    logger.error(err)
     return null
   }
 }

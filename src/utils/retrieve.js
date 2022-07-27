@@ -2,8 +2,6 @@
 
 import axios from 'axios'
 
-import logger from './logger.js'
-
 import { getRequestOptions } from '../config.js'
 
 export default async (url) => {
@@ -12,13 +10,10 @@ export default async (url) => {
 
     const contentType = res.headers['content-type'] || ''
     if (!contentType || !contentType.includes('text/html')) {
-      logger.error(`Content type must be "text/html", not "${contentType}"`)
-      return null
+      throw new Error(`Content type must be "text/html", not "${contentType}"`)
     }
-
     return res.data
   } catch (err) {
-    logger.error(err.message || err)
-    return null
+    throw new Error(`${err.name}: ${err.message}`)
   }
 }
