@@ -26,20 +26,9 @@ import getTimeToRead from './getTimeToRead.js'
 import { getParserOptions } from '../config.js'
 
 const summarize = (desc, txt, threshold, maxlen) => {
-  const removeFirstParts = (str) => {
-    const arr = str.split(' - ')
-    if (arr.length > 1) {
-      arr.shift()
-      return arr.join(' ')
-    }
-    return str
-  }
-  const metadesc = removeFirstParts(desc)
-  if (metadesc.length > threshold) {
-    return metadesc
-  }
-  const extradesc = truncate(txt, maxlen).replace(/\n/g, ' ')
-  return removeFirstParts(extradesc)
+  return desc.length > threshold
+    ? desc
+    : truncate(txt, maxlen).replace(/\n/g, ' ')
 }
 
 export default async (inputHtml, inputUrl = '') => {
