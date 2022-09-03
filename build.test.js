@@ -11,6 +11,7 @@ const pkg = JSON.parse(readFileSync('./package.json'))
 
 const cjsFile = `./dist/cjs/${pkg.name}.js`
 const cjsPkg = JSON.parse(readFileSync('./dist/cjs/package.json'))
+const cjsTypesFile = './dist/cjs/index.d.ts'
 
 describe('Validate commonjs version output', () => {
   test(`Check if ${cjsFile} created`, () => {
@@ -26,5 +27,8 @@ describe('Validate commonjs version output', () => {
     expect(lines[0].includes(`${pkg.name}@${pkg.version}`)).toBeTruthy()
     expect(lines[0].includes(pkg.author)).toBeTruthy()
     expect(lines[0].includes(pkg.license)).toBeTruthy()
+  })
+  test(`Check if ${cjsTypesFile} created`, () => {
+    expect(existsSync(cjsTypesFile)).toBeTruthy()
   })
 })

@@ -3,7 +3,7 @@
  * @ndaidong
  **/
 
-import { readFileSync, writeFileSync, rmSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, copyFileSync, rmSync, mkdirSync } from 'fs'
 
 import { buildSync } from 'esbuild'
 
@@ -75,3 +75,6 @@ const browserVersion = {
   }
 }
 buildSync(browserVersion)
+
+// copy types definition to cjs dir
+copyFileSync('./index.d.ts', 'dist/cjs/index.d.ts')
