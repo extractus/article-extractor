@@ -8,11 +8,12 @@ Extract main article, main image and meta data from URL.
 ![CodeQL](https://github.com/ndaidong/article-parser/workflows/CodeQL/badge.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ndaidong/article-parser-deta)
 
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extractor.pwshub.com/article/parse?url=https://www.cnbc.com/2022/07/02/tesla-tsla-q2-2022-vehicle-delivery-and-production-numbers.html&apikey=demo-TEyRycuuMCiGBiBocbLGSpagfj7gOF8AMyAWfEgP)
+- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freecodecamp.org/news/what-is-an-ide-for-beginners)
 
 ## Install
 
