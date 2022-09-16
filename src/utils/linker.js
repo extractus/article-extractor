@@ -143,3 +143,8 @@ export const chooseBestUrl = (candidates = [], title = '') => {
     value: shortestUrl
   }).value
 }
+
+export const getDomain = (url) => {
+  const host = (new URL(url)).host
+  return host.replace('www.', '')
+}
