@@ -1,7 +1,6 @@
 // utils -> parseFromHtml
 
 import { stripTags, truncate, unique, pipe } from 'bellajs'
-import { getDomain } from 'tldts'
 
 import { cleanify, cleanAndMinify as cleanAndMinifyHtml } from './html.js'
 
@@ -10,7 +9,8 @@ import {
   purify as purifyUrl,
   absolutify as absolutifyUrl,
   normalize as normalizeUrls,
-  chooseBestUrl
+  chooseBestUrl,
+  getDomain
 } from './linker.js'
 
 import extractMetaData from './extractMetaData.js'
