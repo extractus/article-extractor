@@ -2,7 +2,7 @@
 
 import { DOMParser } from 'linkedom'
 
-import { findBestMatch } from 'string-similarity'
+import { findBestMatch } from '../bun/string-similarity.js'
 
 export const isValid = (url = '') => {
   try {
@@ -11,6 +11,11 @@ export const isValid = (url = '') => {
   } catch (err) {
     return false
   }
+}
+
+export const chooseBestUrl = (candidates = [], title = '') => {
+  const ranking = findBestMatch(title, candidates)
+  return ranking.bestMatch.target
 }
 
 export const absolutify = (fullUrl = '', relativeUrl = '') => {
@@ -120,11 +125,6 @@ export const normalize = (html, url) => {
   })
 
   return Array.from(doc.children).map(element => element.outerHTML).join('')
-}
-
-export const chooseBestUrl = (candidates = [], title = '') => {
-  const ranking = findBestMatch(title, candidates)
-  return ranking.bestMatch.target
 }
 
 export const getDomain = (url) => {
