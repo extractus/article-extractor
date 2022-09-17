@@ -1,19 +1,16 @@
 // utils -> retrieve
 
-import axios from 'axios'
-
-import { getRequestOptions } from '../config.js'
+import fetch from 'cross-fetch'
 
 export default async (url) => {
-  try {
-    const res = await axios.get(url, getRequestOptions())
-
-    const contentType = res.headers['content-type'] || ''
-    if (!contentType || !contentType.includes('text/html')) {
-      throw new Error(`Content type must be "text/html", not "${contentType}"`)
+  const res = await fetch(url, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0'
     }
-    return res.data
-  } catch (err) {
-    throw new Error(`${err.name}: ${err.message}`)
+  })
+  const contentType = res.headers.get('content-type') || ''
+  if (!contentType || !contentType.includes('text/')) {
+    throw new Error(`Content type must be "text/html", not "${contentType}"`)
   }
+  return res.text()
 }
