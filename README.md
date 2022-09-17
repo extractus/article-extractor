@@ -173,8 +173,7 @@ Here is an example transformation:
 }
 ```
 
-- Regarding the syntax for patterns, please view [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
-- To write better transformation logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+- To write better transformation logic, please refer [linkedom](https://github.com/WebReflection/linkedom) and [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
 #### `addTransformations(Object transformation | Array transformations)`
 
