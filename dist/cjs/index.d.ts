@@ -1,23 +1,9 @@
 // Type definitions
 
 import {IOptions as SanitizeOptions} from "sanitize-html";
-import "urlpattern-polyfill";
 
-/**
- * @example
- * {
- *   patterns: [
- *     '*://example.com/books/:id', {
- *       hostname: 'example.com',
- *       pathname: '/books/:id',
- *     }
- *   ],
- *   selector: '.article-body',
- *   unwanted: ['.removing-box']
- * }
- */
 export interface Transformation {
-  patterns: Array<URLPatternInit | string>,
+  patterns: Array<RegExp>,
   pre?: (document: Document) => Document
   post?: (document: Document) => Document
 }
@@ -29,7 +15,7 @@ export function extract(input: string): Promise<ArticleData>;
 
 export function addTransformations(transformations: Array<Transformation>): Number;
 
-export function removeTransformations(options: Array<URLPatternInit>): Number;
+export function removeTransformations(options: Array<RegExp>): Number;
 
 export function setParserOptions(options: ParserOptions): void;
 
