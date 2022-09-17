@@ -13,23 +13,21 @@ Extract main article, main image and meta data from URL.
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freecodecamp.org/news/what-is-an-ide-for-beginners)
+- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world)
 
-## Install
+## Install & Usage
 
-- Node.js
+### Node.js
 
-  ```bash
-  npm i article-parser
+```bash
+npm i article-parser
 
-  # pnpm
-  pnpm i article-parser
+# pnpm
+pnpm i article-parser
 
-  # yarn
-  yarn add article-parser
-  ```
-
-### Usage
+# yarn
+yarn add article-parser
+```
 
 ```js
 import { extract } from 'article-parser'
@@ -37,7 +35,7 @@ import { extract } from 'article-parser'
 // with CommonJS environments
 // const { extract } = require('article-parser/dist/cjs/article-parser.js')
 
-const url = 'https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249'
+const url = 'https://www.freethink.com/technology/virtual-world'
 
 extract(url).then((article) => {
   console.log(article)
@@ -45,6 +43,18 @@ extract(url).then((article) => {
   console.trace(err)
 })
 ```
+
+### Deno
+
+```ts
+import { extract } from 'https://esm.sh/article-parser'
+
+(async () => {
+  const data = await extract('https://www.freethink.com/technology/virtual-world')
+  console.log(data)
+})();
+```
+
 
 ## APIs
 
@@ -97,7 +107,7 @@ If the extraction works well, you should get an `article` object with the struct
 }
 ```
 
-[Click here](https://extractor.pwshub.com/article/parse?url=https://www.binance.com/en/blog/markets/15-new-years-resolutions-that-will-make-2022-your-best-year-yet-421499824684903249&apikey=demo-TEyRycuuMCiGBiBocbLGSpagfj7gOF8AMyAWfEgP) for seeing an actual result.
+[Click here](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world) for seeing an actual result.
 
 ---
 
