@@ -50,7 +50,6 @@ const sanitizeHtmlOptions = {
 
 const parserOptions = {
   wordsPerMinute: 300, // to estimate "time to read"
-  urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
   descriptionLengthThreshold: 180, // min num of chars required for description
   descriptionTruncateLen: 210, // max num of chars generated for description
   contentLengthThreshold: 200 // content must have at least 200 chars

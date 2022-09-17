@@ -10,7 +10,6 @@ import {
 
 test('Testing setParserOptions/getParserOptions methods', () => {
   const expectedWPM = 400
-  const expectedAlgorithm = 'levenshtein'
 
   setParserOptions({
     wordsPerMinute: expectedWPM
@@ -19,7 +18,6 @@ test('Testing setParserOptions/getParserOptions methods', () => {
   const actual = getParserOptions()
 
   expect(actual.wordsPerMinute).toEqual(expectedWPM)
-  expect(actual.urlsCompareAlgorithm).toEqual(expectedAlgorithm)
 })
 
 test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
