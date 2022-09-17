@@ -1,8 +1,8 @@
 {
-  "version": "7.2.0rc3",
+  "version": "7.2.0rc4",
   "name": "article-parser",
   "description": "To extract main article from given URL",
-  "homepage": "https://ndaidong.github.io/article-parser-demo/",
+  "homepage": "https://demos.pwshub.com/article-parser",
   "repository": {
     "type": "git",
     "url": "git@github.com:ndaidong/article-parser.git"
@@ -41,7 +41,7 @@
     "html-crush": "^5.1.6",
     "linkedom": "^0.14.14",
     "sanitize-html": "^2.7.2",
-    "string-comparison": "^1.1.0"
+    "string-similarity": "^4.0.4"
   },
   "standard": {
     "ignore": [

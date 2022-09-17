@@ -1,5 +1,5 @@
 {
   "name": "article-parser-cjs",
-  "version": "7.2.0rc3",
+  "version": "7.2.0rc4",
   "main": "./article-parser.js"
 }
