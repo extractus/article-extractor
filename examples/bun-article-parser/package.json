@@ -1,0 +1,11 @@
+{
+  "name": "bun-article-parser",
+  "module": "index.ts",
+  "devDependencies": {
+    "bun-types": "^0.1.0"
+  },
+  "dependencies": {
+    "article-parser": "^7.2.0",
+    "hono": "^2.1.4"
+  }
+}

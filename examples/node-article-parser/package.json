@@ -1,0 +1,13 @@
+{
+  "name": "tsnode-article-parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "article-parser": "7.2.0-rc5",
+    "express": "^4.18.1"
+  }
+}
