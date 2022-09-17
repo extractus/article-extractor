@@ -1,5 +1,5 @@
 import { opine } from 'https://deno.land/x/opine@2.3.3/mod.ts'
-import { extract } from 'https://esm.sh/article-parser@7.2.0-rc5'
+import { extract } from 'https://esm.sh/article-parser@7.2.0'
 
 const app = opine()
 

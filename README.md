@@ -55,6 +55,8 @@ import { extract } from 'https://esm.sh/article-parser'
 })();
 ```
 
+View [more examples](https://github.com/ndaidong/article-parser/tree/main/examples).
+
 
 ## APIs
 
