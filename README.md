@@ -173,8 +173,7 @@ Here is an example transformation:
 }
 ```
 
-- Regarding the syntax for patterns, please view [URL Pattern API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API).
-- To write better transformation logic, please refer [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+- To write better transformation logic, please refer [linkedom](https://github.com/WebReflection/linkedom) and [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
 #### `addTransformations(Object transformation | Array transformations)`
 
@@ -296,56 +295,13 @@ Here are default properties/values:
 
 #### Object `parserOptions`:
 
-```js
-{
-  wordsPerMinute: 300, // to estimate "time to read"
-  urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
-  descriptionLengthThreshold: 40, // min num of chars required for description
-  descriptionTruncateLen: 156, // max num of chars generated for description
-  contentLengthThreshold: 200 // content must have at least 200 chars
-}
-```
+View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L51)
 
 Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs for more info about `urlsCompareAlgorithm`.
 
 #### Object `sanitizeHtmlOptions`:
 
-```js
-{
-  allowedTags: [
-    'h1', 'h2', 'h3', 'h4', 'h5',
-    'u', 'b', 'i', 'em', 'strong', 'small', 'sup', 'sub',
-    'div', 'span', 'p', 'article', 'blockquote', 'section',
-    'details', 'summary',
-    'pre', 'code',
-    'ul', 'ol', 'li', 'dd', 'dl',
-    'table', 'th', 'tr', 'td', 'thead', 'tbody', 'tfood',
-    'fieldset', 'legend',
-    'figure', 'figcaption', 'img', 'picture',
-    'video', 'audio', 'source',
-    'iframe',
-    'progress',
-    'br', 'p', 'hr',
-    'label',
-    'abbr',
-    'a',
-    'svg'
-  ],
-  allowedAttributes: {
-    a: ['href', 'target', 'title'],
-    abbr: ['title'],
-    progress: ['value', 'max'],
-    img: ['src', 'srcset', 'alt', 'width', 'height', 'style', 'title'],
-    picture: ['media', 'srcset'],
-    video: ['controls', 'width', 'height', 'autoplay', 'muted'],
-    audio: ['controls'],
-    source: ['src', 'srcset', 'data-srcset', 'type', 'media', 'sizes'],
-    iframe: ['src', 'frameborder', 'height', 'width', 'scrolling'],
-    svg: ['width', 'height']
-  },
-  allowedIframeDomains: ['youtube.com', 'vimeo.com']
-}
-```
+View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
 
@@ -355,7 +311,7 @@ Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-de
 ```bash
 git clone https://github.com/ndaidong/article-parser.git
 cd article-parser
-npm install
+npm i
 npm test
 
 # quick evaluation
