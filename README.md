@@ -120,7 +120,7 @@ At first, let's talk about `transformation` object.
 
 In `article-parser`, `transformation` is an object with the following properties:
 
-- `patterns`: required, list of [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) objects
+- `patterns`: required, a list of regexps to match the URLs
 - `pre`: optional, a function to process raw HTML
 - `post`: optional, a function to proces extracted article
 
@@ -138,8 +138,8 @@ Here is an example transformation:
 ```js
 {
   patterns: [
-    '*://*.domain.tld/*',
-    '*://domain.tld/articles/*'
+    /([\w]+.)?domain.tld\/*/,
+    /domain.tld\/articles\/*/
   ],
   pre: (document) => {
     // remove all .advertise-area and its siblings from raw HTML content
@@ -185,7 +185,7 @@ import { addTransformations } from 'article-parser'
 
 addTransformations({
   patterns: [
-    '*://*.abc.tld/*'
+    /([\w]+.)?abc.tld\/*/
   ],
   pre: (document) => {
     // do something with document
@@ -200,7 +200,7 @@ addTransformations({
 addTransformations([
   {
     patterns: [
-      '*://*.def.tld/*'
+      /([\w]+.)?def.tld\/*/
     ],
     pre: (document) => {
       // do something with document
@@ -213,7 +213,7 @@ addTransformations([
   },
   {
     patterns: [
-      '*://*.xyz.tld/*'
+      /([\w]+.)?xyz.tld\/*/
     ],
     pre: (document) => {
       // do something with document
@@ -239,9 +239,9 @@ For example, we can remove all added transformations above:
 import { removeTransformations } from 'article-parser'
 
 removeTransformations([
-  '*://*.abc.tld/*',
-  '*://*.def.tld/*',
-  '*://*.xyz.tld/*'
+  /([\w]+.)?abc.tld\/*/,
+  /([\w]+.)?def.tld\/*/,
+  /([\w]+.)?xyz.tld\/*/
 ])
 ```
 
@@ -257,16 +257,16 @@ Suppose that we have the following transformations:
 [
   {
     patterns: [
-      '*://google.com/*',
-      '*://goo.gl/*'
+      /http(s?):\/\/google.com\/*/,
+      /http(s?):\/\/goo.gl\/*/
     ],
     pre: function_one,
     post: function_two
   },
   {
     patterns: [
-      '*://goo.gl/*',
-      '*://google.inc/*'
+      /http(s?):\/\/goo.gl\/*/,
+      /http(s?):\/\/google.inc\/*/
     ],
     pre: function_three,
     post: function_four

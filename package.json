@@ -1,5 +1,5 @@
 {
-  "version": "7.1.0",
+  "version": "7.2.0rc1",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://ndaidong.github.io/article-parser-demo/",
@@ -12,6 +12,9 @@
   "exports": {
     "import": "./src/main.js",
     "require": "./dist/cjs/article-parser.js"
+  },
+  "imports": {
+    "cross-fetch": "./src/deno/cross-fetch.js"
   },
   "browser": {
     "linkedom": "./src/browser/linkedom.js",
@@ -38,8 +41,7 @@
     "html-crush": "^5.1.6",
     "linkedom": "^0.14.14",
     "sanitize-html": "^2.7.2",
-    "string-comparison": "^1.1.0",
-    "urlpattern-polyfill": "^5.0.9"
+    "string-comparison": "^1.1.0"
   },
   "standard": {
     "ignore": [

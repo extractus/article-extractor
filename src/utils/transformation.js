@@ -1,10 +1,7 @@
 // utils --> transformation.js
 
-/* global URLPattern */
-
 import { isArray, isFunction, clone } from 'bellajs'
 import { DOMParser } from 'linkedom'
-import 'urlpattern-polyfill'
 
 const transformations = []
 
@@ -33,7 +30,7 @@ export const removeTransformations = (patterns) => {
   let removing = 0
   for (let i = transformations.length - 1; i > 0; i--) {
     const { patterns: ipatterns } = transformations[i]
-    const matched = ipatterns.some((ptn) => patterns.some((pattern) => pattern === ptn))
+    const matched = ipatterns.some((ptn) => patterns.some((pattern) => String(pattern) === String(ptn)))
     if (matched) {
       transformations.splice(i, 1)
       removing += 1
@@ -51,7 +48,7 @@ export const findTransformations = (links) => {
   const tfms = []
   for (const transformation of transformations) {
     const { patterns } = transformation
-    const matched = urls.some((url) => patterns.some((pattern) => new URLPattern(pattern).test(url)))
+    const matched = urls.some((url) => patterns.some((pattern) => pattern.test(url)))
     if (matched) {
       tfms.push(clone(transformation))
     }

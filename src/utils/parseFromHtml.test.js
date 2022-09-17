@@ -91,7 +91,7 @@ describe('test parseFromHtml()', () => {
     addTransformations([
       {
         patterns: [
-          '*://need-transform.tld/*'
+          /http(s?):\/\/need-transform.tld\/*/
         ],
         post: (document) => {
           document.querySelectorAll('a').forEach((node) => {
@@ -104,7 +104,7 @@ describe('test parseFromHtml()', () => {
       },
       {
         patterns: [
-          '*://sw.re/*'
+          /http(s?):\/\/sw.re\/*/
         ],
         post: (document) => {
           document.querySelectorAll('strong').forEach((node) => {

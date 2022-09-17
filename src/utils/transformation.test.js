@@ -14,7 +14,7 @@ describe('test transformations apis', () => {
   test(' add one transformation object', () => {
     const result = addTransformations({
       patterns: [
-        '*://*.def.tld/*'
+        /http(s?):\/\/([\w]+.)?def.tld\/*/
       ],
       pre: (document) => {
         return document
@@ -30,14 +30,14 @@ describe('test transformations apis', () => {
     const result = addTransformations([
       {
         patterns: [
-          '*://google.com/*',
-          '*://goo.gl/*'
+          /http(s?):\/\/google.com\/*/,
+          /http(s?):\/\/goo.gl\/*/
         ]
       },
       {
         patterns: [
-          '*://goo.gl/*',
-          '*://google.inc/*'
+          /http(s?):\/\/goo.gl\/*/,
+          /http(s?):\/\/google.inc\/*/
         ]
       }
     ])
@@ -72,32 +72,32 @@ describe('test transformations apis', () => {
   test(' get all transformations', () => {
     const result = getTransformations()
     expect(result).toHaveLength(3)
-    expect(result[0].patterns[0]).toEqual('*://*.def.tld/*')
+    expect(result[0].patterns[0]).toEqual(/http(s?):\/\/([\w]+.)?def.tld\/*/)
   })
 
   test(' remove one transformation', () => {
     addTransformations([
       {
         patterns: [
-          '*://abc.com/*',
-          '*://def.gl/*'
+          /http(s?):\/\/abc.com\/*/,
+          /http(s?):\/\/def.gl\/*/
         ]
       },
       {
         patterns: [
-          '*://hik.gl/*',
-          '*://lmn.inc/*'
+          /http(s?):\/\/hik.gl\/*/,
+          /http(s?):\/\/lmn.inc\/*/
         ]
       },
       {
         patterns: [
-          '*://opq.gl/*',
-          '*://rst.inc/*'
+          /http(s?):\/\/opq.gl\/*/,
+          /http(s?):\/\/rst.inc\/*/
         ]
       }
     ])
     const result = removeTransformations([
-      '*://goo.gl/*'
+      /http(s?):\/\/goo.gl\/*/
     ])
     expect(result).toEqual(2)
   })
@@ -105,15 +105,15 @@ describe('test transformations apis', () => {
   test(' get all transformations again', () => {
     const result = getTransformations()
     expect(result).toHaveLength(4)
-    expect(result[3].patterns[1]).toEqual('*://rst.inc/*')
+    expect(result[3].patterns[1]).toEqual(/http(s?):\/\/rst.inc\/*/)
   })
 
   test(' find transformations', () => {
     addTransformations([
       {
         patterns: [
-          '*://def.gl/*',
-          '*://uvw.inc/*'
+          /http(s?):\/\/def.gl\/*/,
+          /http(s?):\/\/uvw.inc\/*/
         ]
       }
     ])
@@ -137,7 +137,7 @@ describe('test transformations apis', () => {
     addTransformations([
       {
         patterns: [
-          '*://xyz.com/*'
+          /http(s?):\/\/xyz.com\/*/
         ],
         pre: (doc) => {
           doc.querySelectorAll('.adv').forEach((element) => {
@@ -162,7 +162,7 @@ describe('test transformations apis', () => {
     addTransformations([
       {
         patterns: [
-          '*://xyz.com/*'
+          /http(s?):\/\/xyz.com\/*/
         ],
         post: (doc) => {
           doc.querySelectorAll('b').forEach((element) => {
