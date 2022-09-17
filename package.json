@@ -44,7 +44,8 @@
   },
   "standard": {
     "ignore": [
-      "/dist"
+      "/dist",
+      "/examples"
     ]
   },
   "devDependencies": {
