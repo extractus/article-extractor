@@ -4,7 +4,7 @@ import { DOMParser } from 'linkedom'
 import sanitize from 'sanitize-html'
 import { crush } from 'html-crush'
 
-import { getHtmlCrushOptions, getSanitizeHtmlOptions } from '../config.js'
+import { getSanitizeHtmlOptions } from '../config.js'
 
 export const isValid = (str = '') => {
   const reg = /<(?=.*? .*?\/ ?>|br|hr|input|!--|wbr)[a-z]+.*?>|<([a-z]+).*?<\/\1>/i
@@ -18,6 +18,11 @@ export const cleanify = html => {
   })
 }
 
+const htmlCrushOptions = {
+  removeHTMLComments: 2,
+  removeLineBreaks: true
+}
+
 /**
  * @param inputHtml {string}
  * @returns cleanHtml {string}
@@ -27,7 +32,7 @@ export const cleanAndMinify = (inputHtml) => {
 
   const html = doc.documentElement.innerHTML
 
-  const crushed = crush(html, getHtmlCrushOptions())
+  const crushed = crush(html, htmlCrushOptions)
 
   const cleanHtml = sanitize(crushed.result, getSanitizeHtmlOptions())
 

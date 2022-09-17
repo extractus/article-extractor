@@ -288,12 +288,8 @@ In addition, this lib provides some methods to customize default settings. Don't
 
 - getParserOptions()
 - setParserOptions(Object parserOptions)
-- getRequestOptions()
-- setRequestOptions(Object requestOptions)
 - getSanitizeHtmlOptions()
 - setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
-- getHtmlCrushOptions(Object htmlCrushOptions)
-- setHtmlCrushOptions()
 
 Here are default properties/values:
 
@@ -311,23 +307,6 @@ Here are default properties/values:
 ```
 
 Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs for more info about `urlsCompareAlgorithm`.
-
-
-#### Object `requestOptions`:
-
-```js
-{
-  headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
-    accept: 'text/html; charset=utf-8'
-  },
-  responseType: 'text',
-  responseEncoding: 'utf8',
-  timeout: 6e4,
-  maxRedirects: 3
-}
-```
-Read [axios' request config](https://axios-http.com/docs/req_config) for more info.
 
 #### Object `sanitizeHtmlOptions`:
 
@@ -369,17 +348,6 @@ Read [axios' request config](https://axios-http.com/docs/req_config) for more in
 ```
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
-
-#### Object `htmlCrushOptions`:
-
-```js
-{
-  removeLineBreaks: true,
-  removeHTMLComments: 2
-}
-```
-
-For more options, please refer [html-crush](https://www.codsen.com/os/html-crush/) docs.
 
 
 ## Test

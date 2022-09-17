@@ -9,12 +9,8 @@ import {
   extract,
   getParserOptions,
   setParserOptions,
-  getRequestOptions,
-  setRequestOptions,
   getSanitizeHtmlOptions,
   setSanitizeHtmlOptions,
-  getHtmlCrushOptions,
-  setHtmlCrushOptions,
   addTransformations,
   removeTransformations
 } from './main'
@@ -32,12 +28,8 @@ describe('check all exported methods', () => {
     extract,
     getParserOptions,
     setParserOptions,
-    getRequestOptions,
-    setRequestOptions,
     getSanitizeHtmlOptions,
     setSanitizeHtmlOptions,
-    getHtmlCrushOptions,
-    setHtmlCrushOptions,
     addTransformations,
     removeTransformations
   ]

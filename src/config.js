@@ -1,18 +1,6 @@
 // configs
 
-import { clone, copies } from 'bellajs'
-
-const requestOptions = {
-  headers: {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0',
-    accept: 'text/html; charset=utf-8',
-    'accept-encoding': 'deflate,zlib,gzip'
-  },
-  responseType: 'text',
-  responseEncoding: 'utf8',
-  timeout: 6e4, // 1 minute
-  maxRedirects: 3
-}
+import { clone } from 'bellajs'
 
 const sanitizeHtmlOptions = {
   allowedTags: [
@@ -60,14 +48,6 @@ const sanitizeHtmlOptions = {
   ]
 }
 
-/**
- * @type {HtmlCrushOptions}
- */
-const htmlCrushOptions = {
-  removeHTMLComments: 2,
-  removeLineBreaks: true
-}
-
 const parserOptions = {
   wordsPerMinute: 300, // to estimate "time to read"
   urlsCompareAlgorithm: 'levenshtein', // to find the best url from list
@@ -77,17 +57,8 @@ const parserOptions = {
 }
 
 const state = {
-  requestOptions,
   sanitizeHtmlOptions,
-  htmlCrushOptions,
   parserOptions
-}
-
-/**
- * @returns {RequestOptions}
- */
-export const getRequestOptions = () => {
-  return clone(state.requestOptions)
 }
 
 /**
@@ -95,13 +66,6 @@ export const getRequestOptions = () => {
  */
 export const getSanitizeHtmlOptions = () => {
   return clone(state.sanitizeHtmlOptions)
-}
-
-/**
- * @returns {HtmlCrushOptions}
- */
-export const getHtmlCrushOptions = () => {
-  return clone(state.htmlCrushOptions)
 }
 
 /**
@@ -117,14 +81,6 @@ export const setParserOptions = (opts = {}) => {
       state.parserOptions[key] = opts[key]
     }
   })
-}
-
-export const setRequestOptions = (opts = {}) => {
-  copies(opts, state.requestOptions)
-}
-
-export const setHtmlCrushOptions = (opts = {}) => {
-  copies(opts, state.htmlCrushOptions)
 }
 
 export const setSanitizeHtmlOptions = (opts = {}) => {
