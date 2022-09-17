@@ -307,7 +307,6 @@ Here are default properties/values:
 
 View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L51)
 
-Read [string-comparison](https://www.npmjs.com/package/string-comparison) docs for more info about `urlsCompareAlgorithm`.
 
 #### Object `sanitizeHtmlOptions`:
 

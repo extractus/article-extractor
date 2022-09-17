@@ -1,5 +1,5 @@
 {
-  "version": "7.2.0rc5",
+  "version": "7.2.0rc6",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://demos.pwshub.com/article-parser",
@@ -44,7 +44,8 @@
   },
   "standard": {
     "ignore": [
-      "/dist"
+      "/dist",
+      "/examples"
     ]
   },
   "devDependencies": {
