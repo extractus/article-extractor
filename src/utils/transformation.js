@@ -4,7 +4,10 @@
 
 import { isArray, isFunction, clone } from 'bellajs'
 import { DOMParser } from 'linkedom'
-import 'urlpattern-polyfill'
+
+if (!globalThis.URLPattern) {
+  import('urlpattern-polyfill')
+}
 
 const transformations = []
 
