@@ -1,20 +1,19 @@
 # bun-article-parser
 
-To install dependencies, please use `npm`, `pnpm`, `yarn` instead of `bun`
+To install dependencies:
 
 ```bash
-pnpm i
+bun install --backend=copyfile
 ```
 
-*`bun install` doesn't work as expected. Maybe a bug. It's new so let's give it time to fix.*
+*I don't know why `bun install` doesn't work on my environment ([oven-sh/bun#1248](https://github.com/oven-sh/bun/issues/1248))*
 
-
-To run:
+Start server:
 
 ```bash
 bun run index.ts
 ```
 
-Open `http://localhost:3100/?url=https://www.freethink.com/technology/virtual-world` to see the result.
+Open `http://localhost:3100/?url=https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646` to see the result.
 
 ---
