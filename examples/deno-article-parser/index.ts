@@ -1,32 +1,43 @@
-import { opine } from 'https://deno.land/x/opine@2.3.3/mod.ts'
-import { extract } from 'https://esm.sh/article-parser@7.2.0'
+import { serve } from 'https://deno.land/std/http/server.ts'
 
-const app = opine()
+import { Hono } from 'https://deno.land/x/hono@v2.1.4/mod.ts'
+import { extract } from 'https://esm.sh/article-parser@latest'
 
-app.get('/', async (req, res) => {
-  const url = req.query.url
+const app = new Hono()
+
+const meta = {
+  service: 'article-parser',
+  lang: 'typescript',
+  server: 'hono',
+  platform: 'deno'
+}
+
+app.get('/', async (c) => {
+  const url = c.req.query('url')
   if (!url) {
-    return res.json({
-      service: 'article-parser',
-      lang: 'typescript',
-      server: 'opine',
-      platform: 'deno'
-    })
+    return c.json(meta)
   }
   try {
     const data = await extract(url)
-    return res.json({
+    return c.json({
       error: 0,
       message: 'article has been extracted successfully',
-      data
+      data,
+      meta
     })
   } catch (err) {
-    return res.json({
+    return c.json({
       error: 1,
       message: err.message,
-      data: null
+      data: null,
+      meta
     })
   }
 })
 
-app.listen({ port: 3101 })
+serve(app.fetch, {
+  port: 3100,
+  onListen: () => {
+    console.log('Server is running at http://localhost:3100')
+  }
+})
