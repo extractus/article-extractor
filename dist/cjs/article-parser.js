@@ -1,4 +1,4 @@
-// article-parser@7.2.1-rc1, by @ndaidong - built with esbuild at 2022-09-20T07:24:18.960Z - published under MIT license
+// article-parser@7.2.1, by @ndaidong - built with esbuild at 2022-09-20T08:33:48.618Z - published under MIT license
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;

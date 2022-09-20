@@ -1,5 +1,5 @@
 {
-  "version": "7.2.1-rc1",
+  "version": "7.2.1",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://demos.pwshub.com/article-parser",

@@ -13,7 +13,7 @@ Extract main article, main image and meta data from URL.
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world)
+- [Example FaaS](https://extract-article.deta.dev/?url=https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646)
 
 ## Install & Usage
 
@@ -317,15 +317,13 @@ View [default options](https://github.com/ndaidong/article-parser/blob/main/src/
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
 
 
-## Test
+## Quick evaluation
 
 ```bash
 git clone https://github.com/ndaidong/article-parser.git
 cd article-parser
-npm i
-npm test
+pnpm i
 
-# quick evaluation
 npm run eval {URL_TO_PARSE_ARTICLE}
 ```
 
