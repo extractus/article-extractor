@@ -1,5 +1,5 @@
 {
-  "version": "7.2.0",
+  "version": "7.2.1",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://demos.pwshub.com/article-parser",
@@ -31,16 +31,16 @@
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage=true",
     "build": "node build",
     "eval": "cross-env node eval",
-    "eval:cjs": "cross-env node eval.cjs",
     "reset": "node reset"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
     "bellajs": "^11.0.7",
     "cross-fetch": "^3.1.5",
-    "html-crush": "^5.1.6",
+    "html-crush": "^5.1.7",
     "linkedom": "^0.14.14",
-    "sanitize-html": "^2.7.2"
+    "sanitize-html": "^2.7.2",
+    "string-similarity": "^4.0.4"
   },
   "standard": {
     "ignore": [
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.15.7",
+    "esbuild": "^0.15.8",
     "jest": "^29.0.3",
     "nock": "^13.2.9",
     "standard": "^17.0.0"

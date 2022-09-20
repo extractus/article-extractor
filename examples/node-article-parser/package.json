@@ -1,5 +1,5 @@
 {
-  "name": "tsnode-article-parser",
+  "name": "node-article-parser",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
