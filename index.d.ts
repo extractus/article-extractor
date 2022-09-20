@@ -1,6 +1,6 @@
 // Type definitions
 
-import {IOptions as SanitizeOptions} from "sanitize-html";
+import { IOptions as SanitizeOptions } from "sanitize-html";
 
 export interface Transformation {
   patterns: Array<RegExp>,
@@ -8,22 +8,18 @@ export interface Transformation {
   post?: (document: Document) => Document
 }
 
+export function addTransformations(transformations: Array<Transformation>): Number;
+export function removeTransformations(options: Array<RegExp>): Number;
+
+export function getParserOptions(): ParserOptions;
+export function setParserOptions(options: ParserOptions): void;
+
+export function getSanitizeHtmlOptions(): SanitizeOptions;
+export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
+
 /**
  * @param input url or html
  */
-export function extract(input: string): Promise<ArticleData>;
-
-export function addTransformations(transformations: Array<Transformation>): Number;
-
-export function removeTransformations(options: Array<RegExp>): Number;
-
-export function setParserOptions(options: ParserOptions): void;
-
-export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
-
-export function getParserOptions(): ParserOptions;
-
-export function getSanitizeHtmlOptions(): SanitizeOptions;
 
 export interface ParserOptions {
   /**
@@ -31,10 +27,6 @@ export interface ParserOptions {
    * Default: 300
    */
   wordsPerMinute: number
-  /**
-   * To find the best url from list
-   */
-  urlsCompareAlgorithm: 'levenshtein' | 'cosine' | 'diceCoefficient' | 'jaccardIndex' | 'lcs' | 'mlcs'
   /**
    * Min num of chars required for description
    * Default: 40
@@ -64,3 +56,5 @@ export interface ArticleData {
   published?: string;
   ttr?: number;
 }
+
+export function extract(input: string): Promise<ArticleData>;
