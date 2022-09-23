@@ -6,45 +6,8 @@ import { readFileSync } from 'fs'
 import { isString } from 'bellajs'
 
 import {
-  isValid as isHTMLString,
   cleanify
 } from './html.js'
-
-describe('test isValid() method', () => {
-  test('validate bad input', () => {
-    const result = isHTMLString({})
-    expect(result).toBe(false)
-  })
-
-  test('validate regular string', () => {
-    const result = isHTMLString('This is just a string, not HTML')
-    expect(result).toBe(false)
-  })
-
-  test('validate bad-format HTML', () => {
-    const result = isHTMLString('<div class="welcome">Hello world</span>')
-    expect(result).toBe(false)
-  })
-
-  test('validate well-format HTML', () => {
-    const result = isHTMLString('<div class="welcome">Hello <b>world</b><hr></div>')
-    expect(result).toBe(true)
-  })
-
-  test('validate example HTML page', () => {
-    const files = [
-      'regular-article.html',
-      'html-no-title.html',
-      'html-article-no-source.html',
-      'html-too-short-article.html'
-    ]
-    files.forEach((file) => {
-      const html = readFileSync(`./test-data/${file}`, 'utf8')
-      const result = isHTMLString(html)
-      expect(result).toBe(true)
-    })
-  })
-})
 
 describe('test cleanify() method', () => {
   test('check if unwanted elements/attributes removed', () => {
