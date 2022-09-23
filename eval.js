@@ -7,8 +7,10 @@ import { extract } from './src/main.js'
 
 const extractFromUrl = async (url) => {
   try {
+    console.time('extraction')
     const art = await extract(url)
     console.log(art)
+    console.timeEnd('extraction')
   } catch (err) {
     console.trace(err)
   }

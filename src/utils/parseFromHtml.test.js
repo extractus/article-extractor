@@ -13,15 +13,15 @@ describe('test parseFromHtml()', () => {
   const cases = [
     {
       input: {
-        desc: 'a bad input',
-        html: {}
+        desc: 'a webpage with no title',
+        html: readFileSync('./test-data/html-no-title.html', 'utf8')
       },
       expectation: null
     },
     {
       input: {
-        desc: 'a webpage with no title',
-        html: readFileSync('./test-data/html-no-title.html', 'utf8')
+        desc: 'a webpage without link',
+        html: readFileSync('./test-data/html-no-link.html', 'utf8')
       },
       expectation: null
     },

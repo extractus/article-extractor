@@ -10,19 +10,14 @@ import {
 import retrieve from './utils/retrieve.js'
 import parseFromHtml from './utils/parseFromHtml.js'
 import { isValid as isValidUrl } from './utils/linker.js'
-import { isValid as isHTMLString } from './utils/html.js'
 
 export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   if (!isString(input)) {
     throw new Error('Input must be a string')
   }
 
-  if (isHTMLString(input)) {
-    return parseFromHtml(input, null, parserOptions)
-  }
-
   if (!isValidUrl(input)) {
-    throw new Error('Input must be a valid URL')
+    return parseFromHtml(input, null, parserOptions)
   }
   const html = await retrieve(input, fetchOptions)
   if (!html) {

@@ -1,5 +1,5 @@
 {
-  "version": "7.2.2",
+  "version": "7.2.3",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://demos.pwshub.com/article-parser",
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "lint": "standard .",
-    "pretest": "npm run lint",
+
     "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage=true",
     "build": "node build",
     "eval": "node eval",

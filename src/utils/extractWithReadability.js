@@ -2,16 +2,12 @@
 
 import { Readability } from '@mozilla/readability'
 import { DOMParser } from 'linkedom'
+import { isString } from 'bellajs'
 
-import { isValid as isHTMLString } from './html.js'
-
-/**
- * @param html {string}
- * @param inputUrl {string}
- * @returns {string|null}
- */
 export default (html, inputUrl = '') => {
-  if (!isHTMLString(html)) return null
+  if (!isString(html)) {
+    return null
+  }
   const doc = new DOMParser().parseFromString(html, 'text/html')
   const base = doc.createElement('base')
   base.setAttribute('href', inputUrl)
@@ -22,9 +18,10 @@ export default (html, inputUrl = '') => {
 }
 
 export function extractTitleWithReadability (html) {
-  if (!isHTMLString(html)) return null
+  if (!isString(html)) {
+    return null
+  }
   const doc = new DOMParser().parseFromString(html, 'text/html')
   const reader = new Readability(doc)
-  // noinspection JSUnresolvedFunction
-  return reader._getArticleTitle()
+  return reader._getArticleTitle() || null
 }
