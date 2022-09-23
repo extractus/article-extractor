@@ -13,41 +13,52 @@ const parseUrl = (url) => {
   }
 }
 
-test('test retrieve from good source', async () => {
-  const url = 'https://some.where/good/page'
-  const { baseUrl, path } = parseUrl(url)
-  const scope = nock(baseUrl)
-  scope.get(path).reply(200, '<div>this is content</div>', {
-    'Content-Type': 'text/html'
+describe('test retrieve() method', () => {
+  test('test retrieve with bad status code', async () => {
+    const url = 'https://some.where/bad/page'
+    const { baseUrl, path } = parseUrl(url)
+    nock(baseUrl).get(path).reply(500, 'Error 500')
+    expect(retrieve(url)).rejects.toThrow(new Error('Request failed with error code 500'))
   })
-  const result = await retrieve(url)
-  expect(result).toBe('<div>this is content</div>')
-})
 
-test('test retrieve with unsupported content type', async () => {
-  const url = 'https://some.where/bad/page'
-  const { baseUrl, path } = parseUrl(url)
-  const scope = nock(baseUrl)
-  scope.get(path).reply(200, '', {
-    'Content-Type': 'something/strange'
+  test('test retrieve from good source', async () => {
+    const url = 'https://some.where/good/page'
+    const { baseUrl, path } = parseUrl(url)
+    nock(baseUrl).get(path).reply(200, '<div>this is content</div>', {
+      'Content-Type': 'text/html'
+    })
+    const html = await retrieve(url)
+    expect(html).toEqual('<div>this is content</div>')
   })
-  try {
-    await retrieve(url)
-  } catch (err) {
-    expect(err).toBeTruthy()
-  }
-})
 
-test('test retrieve from bad source', async () => {
-  const url = 'https://some.where/bad/page'
-  const { baseUrl, path } = parseUrl(url)
-  const scope = nock(baseUrl)
-  scope.get(path).reply(500, '<div>this is content</div>', {
-    'Content-Type': 'text/html'
+  test('test retrieve from good source with \\r\\n', async () => {
+    const url = 'https://some.where/good/page'
+    const { baseUrl, path } = parseUrl(url)
+    nock(baseUrl).get(path).reply(200, '\n\r\r\n\n<div>this is content</div>\n\r\r\n\n', {
+      'Content-Type': 'text/html'
+    })
+    const html = await retrieve(url)
+    expect(html).toEqual('<div>this is content</div>')
   })
-  try {
-    await retrieve(url)
-  } catch (err) {
-    expect(err).toBeTruthy()
-  }
+
+  test('test retrieve using proxy', async () => {
+    const url = 'https://some.where/good/source-with-proxy'
+    const { baseUrl, path } = parseUrl(url)
+    nock(baseUrl).get(path).reply(200, 'something bad', {
+      'Content-Type': 'bad/thing'
+    })
+    nock('https://proxy-server.com')
+      .get('/api/proxy?url=https%3A%2F%2Fsome.where%2Fgood%2Fsource-with-proxy')
+      .reply(200, '<div>this is content</div>', {
+        'Content-Type': 'text/html'
+      })
+
+    const html = await retrieve(url, {
+      proxy: {
+        target: 'https://proxy-server.com/api/proxy?url='
+      }
+    })
+    expect(html).toEqual('<div>this is content</div>')
+    nock.cleanAll()
+  })
 })

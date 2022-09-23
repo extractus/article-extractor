@@ -23,15 +23,13 @@ import { execPreParser, execPostParser } from './transformation.js'
 
 import getTimeToRead from './getTimeToRead.js'
 
-import { getParserOptions } from '../config.js'
-
 const summarize = (desc, txt, threshold, maxlen) => {
   return desc.length > threshold
     ? desc
     : truncate(txt, maxlen).replace(/\n/g, ' ')
 }
 
-export default async (inputHtml, inputUrl = '') => {
+export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
   const html = cleanify(inputHtml)
   const meta = extractMetaData(html)
   let title = meta.title
@@ -48,10 +46,11 @@ export default async (inputHtml, inputUrl = '') => {
   } = meta
 
   const {
-    descriptionLengthThreshold,
-    descriptionTruncateLen,
-    contentLengthThreshold
-  } = getParserOptions()
+    wordsPerMinute = 300,
+    descriptionTruncateLen = 210,
+    descriptionLengthThreshold = 180,
+    contentLengthThreshold = 200
+  } = parserOptions
 
   // gather title
   if (!title) {
@@ -123,6 +122,6 @@ export default async (inputHtml, inputUrl = '') => {
     author,
     source: getDomain(bestUrl),
     published,
-    ttr: getTimeToRead(textContent)
+    ttr: getTimeToRead(textContent, wordsPerMinute)
   }
 }

@@ -1,4 +1,4 @@
-// article-parser@7.2.1, by @ndaidong - built with esbuild at 2022-09-20T08:33:48.618Z - published under MIT license
+// article-parser@7.2.2-rc1, by @ndaidong - built with esbuild at 2022-09-23T03:24:19.822Z - published under MIT license
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -2900,9 +2900,9 @@ var require_node_ponyfill = __commonJS({
   }
 });
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/commonjs/perf_hooks.cjs
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/commonjs/perf_hooks.cjs
 var require_perf_hooks = __commonJS({
-  "node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/commonjs/perf_hooks.cjs"(exports) {
+  "node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/commonjs/perf_hooks.cjs"(exports) {
     try {
       const { performance: performance2 } = require("perf_hooks");
       exports.performance = performance2;
@@ -3558,7 +3558,7 @@ var require_CSSStyleRule = __commonJS({
     });
     CSSOM.CSSStyleRule.parse = function(ruleText) {
       var i = 0;
-      var state2 = "selector";
+      var state = "selector";
       var index;
       var j2 = i;
       var buffer = "";
@@ -3575,7 +3575,7 @@ var require_CSSStyleRule = __commonJS({
           case "\r":
           case "\n":
           case "\f":
-            if (SIGNIFICANT_WHITESPACE[state2]) {
+            if (SIGNIFICANT_WHITESPACE[state]) {
               switch (ruleText.charAt(i - 1)) {
                 case " ":
                 case "	":
@@ -3621,23 +3621,23 @@ var require_CSSStyleRule = __commonJS({
             }
             break;
           case "{":
-            if (state2 === "selector") {
+            if (state === "selector") {
               styleRule.selectorText = buffer.trim();
               buffer = "";
-              state2 = "name";
+              state = "name";
             }
             break;
           case ":":
-            if (state2 === "name") {
+            if (state === "name") {
               name = buffer.trim();
               buffer = "";
-              state2 = "value";
+              state = "value";
             } else {
               buffer += character;
             }
             break;
           case "!":
-            if (state2 === "value" && ruleText.indexOf("!important", i) === i) {
+            if (state === "value" && ruleText.indexOf("!important", i) === i) {
               priority = "important";
               i += "important".length;
             } else {
@@ -3645,26 +3645,26 @@ var require_CSSStyleRule = __commonJS({
             }
             break;
           case ";":
-            if (state2 === "value") {
+            if (state === "value") {
               styleRule.style.setProperty(name, buffer.trim(), priority);
               priority = "";
               buffer = "";
-              state2 = "name";
+              state = "name";
             } else {
               buffer += character;
             }
             break;
           case "}":
-            if (state2 === "value") {
+            if (state === "value") {
               styleRule.style.setProperty(name, buffer.trim(), priority);
               priority = "";
               buffer = "";
-            } else if (state2 === "name") {
+            } else if (state === "name") {
               break;
             } else {
               buffer += character;
             }
-            state2 = "selector";
+            state = "selector";
             break;
           default:
             buffer += character;
@@ -3778,7 +3778,7 @@ var require_CSSImportRule = __commonJS({
       },
       set: function(cssText) {
         var i = 0;
-        var state2 = "";
+        var state = "";
         var buffer = "";
         var index;
         for (var character; character = cssText.charAt(i); i++) {
@@ -3788,21 +3788,21 @@ var require_CSSImportRule = __commonJS({
             case "\r":
             case "\n":
             case "\f":
-              if (state2 === "after-import") {
-                state2 = "url";
+              if (state === "after-import") {
+                state = "url";
               } else {
                 buffer += character;
               }
               break;
             case "@":
-              if (!state2 && cssText.indexOf("@import", i) === i) {
-                state2 = "after-import";
+              if (!state && cssText.indexOf("@import", i) === i) {
+                state = "after-import";
                 i += "import".length;
                 buffer = "";
               }
               break;
             case "u":
-              if (state2 === "url" && cssText.indexOf("url(", i) === i) {
+              if (state === "url" && cssText.indexOf("url(", i) === i) {
                 index = cssText.indexOf(")", i + 1);
                 if (index === -1) {
                   throw i + ': ")" not found';
@@ -3816,40 +3816,40 @@ var require_CSSImportRule = __commonJS({
                 }
                 this.href = url;
                 i = index;
-                state2 = "media";
+                state = "media";
               }
               break;
             case '"':
-              if (state2 === "url") {
+              if (state === "url") {
                 index = cssText.indexOf('"', i + 1);
                 if (!index) {
                   throw i + `: '"' not found`;
                 }
                 this.href = cssText.slice(i + 1, index);
                 i = index;
-                state2 = "media";
+                state = "media";
               }
               break;
             case "'":
-              if (state2 === "url") {
+              if (state === "url") {
                 index = cssText.indexOf("'", i + 1);
                 if (!index) {
                   throw i + `: "'" not found`;
                 }
                 this.href = cssText.slice(i + 1, index);
                 i = index;
-                state2 = "media";
+                state = "media";
               }
               break;
             case ";":
-              if (state2 === "media") {
+              if (state === "media") {
                 if (buffer) {
                   this.media.mediaText = buffer.trim();
                 }
               }
               break;
             default:
-              if (state2 === "media") {
+              if (state === "media") {
                 buffer += character;
               }
               break;
@@ -4359,7 +4359,7 @@ var require_parse2 = __commonJS({
     var CSSOM = {};
     CSSOM.parse = function parse6(token) {
       var i = 0;
-      var state2 = "before-selector";
+      var state = "before-selector";
       var index;
       var buffer = "";
       var valueParenthesisDepth = 0;
@@ -4399,7 +4399,7 @@ var require_parse2 = __commonJS({
           case "\r":
           case "\n":
           case "\f":
-            if (SIGNIFICANT_WHITESPACE[state2]) {
+            if (SIGNIFICANT_WHITESPACE[state]) {
               buffer += character;
             }
             break;
@@ -4413,12 +4413,12 @@ var require_parse2 = __commonJS({
             } while (token[index - 2] === "\\");
             buffer += token.slice(i, index);
             i = index - 1;
-            switch (state2) {
+            switch (state) {
               case "before-value":
-                state2 = "value";
+                state = "value";
                 break;
               case "importRule-begin":
-                state2 = "importRule";
+                state = "importRule";
                 break;
             }
             break;
@@ -4432,12 +4432,12 @@ var require_parse2 = __commonJS({
             } while (token[index - 2] === "\\");
             buffer += token.slice(i, index);
             i = index - 1;
-            switch (state2) {
+            switch (state) {
               case "before-value":
-                state2 = "value";
+                state = "value";
                 break;
               case "importRule-begin":
-                state2 = "importRule";
+                state = "importRule";
                 break;
             }
             break;
@@ -4453,47 +4453,47 @@ var require_parse2 = __commonJS({
             } else {
               buffer += character;
             }
-            if (state2 === "importRule-begin") {
+            if (state === "importRule-begin") {
               buffer += " ";
-              state2 = "importRule";
+              state = "importRule";
             }
             break;
           case "@":
             if (token.indexOf("@-moz-document", i) === i) {
-              state2 = "documentRule-begin";
+              state = "documentRule-begin";
               documentRule = new CSSOM.CSSDocumentRule();
               documentRule.__starts = i;
               i += "-moz-document".length;
               buffer = "";
               break;
             } else if (token.indexOf("@media", i) === i) {
-              state2 = "atBlock";
+              state = "atBlock";
               mediaRule = new CSSOM.CSSMediaRule();
               mediaRule.__starts = i;
               i += "media".length;
               buffer = "";
               break;
             } else if (token.indexOf("@supports", i) === i) {
-              state2 = "conditionBlock";
+              state = "conditionBlock";
               supportsRule = new CSSOM.CSSSupportsRule();
               supportsRule.__starts = i;
               i += "supports".length;
               buffer = "";
               break;
             } else if (token.indexOf("@host", i) === i) {
-              state2 = "hostRule-begin";
+              state = "hostRule-begin";
               i += "host".length;
               hostRule = new CSSOM.CSSHostRule();
               hostRule.__starts = i;
               buffer = "";
               break;
             } else if (token.indexOf("@import", i) === i) {
-              state2 = "importRule-begin";
+              state = "importRule-begin";
               i += "import".length;
               buffer += "@import";
               break;
             } else if (token.indexOf("@font-face", i) === i) {
-              state2 = "fontFaceRule-begin";
+              state = "fontFaceRule-begin";
               i += "font-face".length;
               fontFaceRule = new CSSOM.CSSFontFaceRule();
               fontFaceRule.__starts = i;
@@ -4503,26 +4503,26 @@ var require_parse2 = __commonJS({
               atKeyframesRegExp.lastIndex = i;
               var matchKeyframes = atKeyframesRegExp.exec(token);
               if (matchKeyframes && matchKeyframes.index === i) {
-                state2 = "keyframesRule-begin";
+                state = "keyframesRule-begin";
                 keyframesRule = new CSSOM.CSSKeyframesRule();
                 keyframesRule.__starts = i;
                 keyframesRule._vendorPrefix = matchKeyframes[1];
                 i += matchKeyframes[0].length - 1;
                 buffer = "";
                 break;
-              } else if (state2 === "selector") {
-                state2 = "atRule";
+              } else if (state === "selector") {
+                state = "atRule";
               }
             }
             buffer += character;
             break;
           case "{":
-            if (state2 === "selector" || state2 === "atRule") {
+            if (state === "selector" || state === "atRule") {
               styleRule.selectorText = buffer.trim();
               styleRule.style.__starts = i;
               buffer = "";
-              state2 = "before-name";
-            } else if (state2 === "atBlock") {
+              state = "before-name";
+            } else if (state === "atBlock") {
               mediaRule.media.mediaText = buffer.trim();
               if (parentRule) {
                 ancestorRules.push(parentRule);
@@ -4530,8 +4530,8 @@ var require_parse2 = __commonJS({
               currentScope = parentRule = mediaRule;
               mediaRule.parentStyleSheet = styleSheet;
               buffer = "";
-              state2 = "before-selector";
-            } else if (state2 === "conditionBlock") {
+              state = "before-selector";
+            } else if (state === "conditionBlock") {
               supportsRule.conditionText = buffer.trim();
               if (parentRule) {
                 ancestorRules.push(parentRule);
@@ -4539,24 +4539,24 @@ var require_parse2 = __commonJS({
               currentScope = parentRule = supportsRule;
               supportsRule.parentStyleSheet = styleSheet;
               buffer = "";
-              state2 = "before-selector";
-            } else if (state2 === "hostRule-begin") {
+              state = "before-selector";
+            } else if (state === "hostRule-begin") {
               if (parentRule) {
                 ancestorRules.push(parentRule);
               }
               currentScope = parentRule = hostRule;
               hostRule.parentStyleSheet = styleSheet;
               buffer = "";
-              state2 = "before-selector";
-            } else if (state2 === "fontFaceRule-begin") {
+              state = "before-selector";
+            } else if (state === "fontFaceRule-begin") {
               if (parentRule) {
                 fontFaceRule.parentRule = parentRule;
               }
               fontFaceRule.parentStyleSheet = styleSheet;
               styleRule = fontFaceRule;
               buffer = "";
-              state2 = "before-name";
-            } else if (state2 === "keyframesRule-begin") {
+              state = "before-name";
+            } else if (state === "keyframesRule-begin") {
               keyframesRule.name = buffer.trim();
               if (parentRule) {
                 ancestorRules.push(parentRule);
@@ -4565,14 +4565,14 @@ var require_parse2 = __commonJS({
               keyframesRule.parentStyleSheet = styleSheet;
               currentScope = parentRule = keyframesRule;
               buffer = "";
-              state2 = "keyframeRule-begin";
-            } else if (state2 === "keyframeRule-begin") {
+              state = "keyframeRule-begin";
+            } else if (state === "keyframeRule-begin") {
               styleRule = new CSSOM.CSSKeyframeRule();
               styleRule.keyText = buffer.trim();
               styleRule.__starts = i;
               buffer = "";
-              state2 = "before-name";
-            } else if (state2 === "documentRule-begin") {
+              state = "before-name";
+            } else if (state === "documentRule-begin") {
               documentRule.matcher.matcherText = buffer.trim();
               if (parentRule) {
                 ancestorRules.push(parentRule);
@@ -4581,20 +4581,20 @@ var require_parse2 = __commonJS({
               currentScope = parentRule = documentRule;
               documentRule.parentStyleSheet = styleSheet;
               buffer = "";
-              state2 = "before-selector";
+              state = "before-selector";
             }
             break;
           case ":":
-            if (state2 === "name") {
+            if (state === "name") {
               name = buffer.trim();
               buffer = "";
-              state2 = "before-value";
+              state = "before-value";
             } else {
               buffer += character;
             }
             break;
           case "(":
-            if (state2 === "value") {
+            if (state === "value") {
               if (buffer.trim() === "expression") {
                 var info = new CSSOM.CSSValueExpression(token, i).parse();
                 if (info.error) {
@@ -4604,11 +4604,11 @@ var require_parse2 = __commonJS({
                   i = info.idx;
                 }
               } else {
-                state2 = "value-parenthesis";
+                state = "value-parenthesis";
                 valueParenthesisDepth = 1;
                 buffer += character;
               }
-            } else if (state2 === "value-parenthesis") {
+            } else if (state === "value-parenthesis") {
               valueParenthesisDepth++;
               buffer += character;
             } else {
@@ -4616,15 +4616,15 @@ var require_parse2 = __commonJS({
             }
             break;
           case ")":
-            if (state2 === "value-parenthesis") {
+            if (state === "value-parenthesis") {
               valueParenthesisDepth--;
               if (valueParenthesisDepth === 0)
-                state2 = "value";
+                state = "value";
             }
             buffer += character;
             break;
           case "!":
-            if (state2 === "value" && token.indexOf("!important", i) === i) {
+            if (state === "value" && token.indexOf("!important", i) === i) {
               priority = "important";
               i += "important".length;
             } else {
@@ -4632,16 +4632,16 @@ var require_parse2 = __commonJS({
             }
             break;
           case ";":
-            switch (state2) {
+            switch (state) {
               case "value":
                 styleRule.style.setProperty(name, buffer.trim(), priority);
                 priority = "";
                 buffer = "";
-                state2 = "before-name";
+                state = "before-name";
                 break;
               case "atRule":
                 buffer = "";
-                state2 = "before-selector";
+                state = "before-selector";
                 break;
               case "importRule":
                 importRule = new CSSOM.CSSImportRule();
@@ -4649,7 +4649,7 @@ var require_parse2 = __commonJS({
                 importRule.cssText = buffer + character;
                 styleSheet.cssRules.push(importRule);
                 buffer = "";
-                state2 = "before-selector";
+                state = "before-selector";
                 break;
               default:
                 buffer += character;
@@ -4657,7 +4657,7 @@ var require_parse2 = __commonJS({
             }
             break;
           case "}":
-            switch (state2) {
+            switch (state) {
               case "value":
                 styleRule.style.setProperty(name, buffer.trim(), priority);
                 priority = "";
@@ -4671,9 +4671,9 @@ var require_parse2 = __commonJS({
                 currentScope.cssRules.push(styleRule);
                 buffer = "";
                 if (currentScope.constructor === CSSOM.CSSKeyframesRule) {
-                  state2 = "keyframeRule-begin";
+                  state = "keyframeRule-begin";
                 } else {
-                  state2 = "before-selector";
+                  state = "before-selector";
                 }
                 break;
               case "keyframeRule-begin":
@@ -4702,25 +4702,25 @@ var require_parse2 = __commonJS({
                   parentRule = null;
                 }
                 buffer = "";
-                state2 = "before-selector";
+                state = "before-selector";
                 break;
             }
             break;
           default:
-            switch (state2) {
+            switch (state) {
               case "before-selector":
-                state2 = "selector";
+                state = "selector";
                 styleRule = new CSSOM.CSSStyleRule();
                 styleRule.__starts = i;
                 break;
               case "before-name":
-                state2 = "name";
+                state = "name";
                 break;
               case "before-value":
-                state2 = "value";
+                state = "value";
                 break;
               case "importRule-begin":
-                state2 = "importRule";
+                state = "importRule";
                 break;
             }
             buffer += character;
@@ -4915,9 +4915,9 @@ var require_lib3 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/commonjs/canvas.cjs
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/commonjs/canvas.cjs
 var require_canvas = __commonJS({
-  "node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/commonjs/canvas.cjs"(exports, module2) {
+  "node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/commonjs/canvas.cjs"(exports, module2) {
     try {
       module2.exports = require("canvas");
     } catch (fallback) {
@@ -8293,7 +8293,7 @@ var require_parse_srcset = __commonJS({
             return chars;
           }
         }
-        var inputLength = input.length, regexLeadingSpaces = /^[ \t\n\r\u000c]+/, regexLeadingCommasOrSpaces = /^[, \t\n\r\u000c]+/, regexLeadingNotSpaces = /^[^ \t\n\r\u000c]+/, regexTrailingCommas = /[,]+$/, regexNonNegativeInteger = /^\d+$/, regexFloatingPoint = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/, url, descriptors, currentDescriptor, state2, c3, pos = 0, candidates = [];
+        var inputLength = input.length, regexLeadingSpaces = /^[ \t\n\r\u000c]+/, regexLeadingCommasOrSpaces = /^[, \t\n\r\u000c]+/, regexLeadingNotSpaces = /^[^ \t\n\r\u000c]+/, regexTrailingCommas = /[,]+$/, regexNonNegativeInteger = /^\d+$/, regexFloatingPoint = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/, url, descriptors, currentDescriptor, state, c3, pos = 0, candidates = [];
         while (true) {
           collectCharacters(regexLeadingCommasOrSpaces);
           if (pos >= inputLength) {
@@ -8311,15 +8311,15 @@ var require_parse_srcset = __commonJS({
         function tokenize() {
           collectCharacters(regexLeadingSpaces);
           currentDescriptor = "";
-          state2 = "in descriptor";
+          state = "in descriptor";
           while (true) {
             c3 = input.charAt(pos);
-            if (state2 === "in descriptor") {
+            if (state === "in descriptor") {
               if (isSpace(c3)) {
                 if (currentDescriptor) {
                   descriptors.push(currentDescriptor);
                   currentDescriptor = "";
-                  state2 = "after descriptor";
+                  state = "after descriptor";
                 }
               } else if (c3 === ",") {
                 pos += 1;
@@ -8330,7 +8330,7 @@ var require_parse_srcset = __commonJS({
                 return;
               } else if (c3 === "(") {
                 currentDescriptor = currentDescriptor + c3;
-                state2 = "in parens";
+                state = "in parens";
               } else if (c3 === "") {
                 if (currentDescriptor) {
                   descriptors.push(currentDescriptor);
@@ -8340,10 +8340,10 @@ var require_parse_srcset = __commonJS({
               } else {
                 currentDescriptor = currentDescriptor + c3;
               }
-            } else if (state2 === "in parens") {
+            } else if (state === "in parens") {
               if (c3 === ")") {
                 currentDescriptor = currentDescriptor + c3;
-                state2 = "in descriptor";
+                state = "in descriptor";
               } else if (c3 === "") {
                 descriptors.push(currentDescriptor);
                 parseDescriptors();
@@ -8351,13 +8351,13 @@ var require_parse_srcset = __commonJS({
               } else {
                 currentDescriptor = currentDescriptor + c3;
               }
-            } else if (state2 === "after descriptor") {
+            } else if (state === "after descriptor") {
               if (isSpace(c3)) {
               } else if (c3 === "") {
                 parseDescriptors();
                 return;
               } else {
-                state2 = "in descriptor";
+                state = "in descriptor";
                 pos -= 1;
               }
             }
@@ -17140,10 +17140,8 @@ var main_exports = {};
 __export(main_exports, {
   addTransformations: () => addTransformations,
   extract: () => extract,
-  getParserOptions: () => getParserOptions,
   getSanitizeHtmlOptions: () => getSanitizeHtmlOptions,
   removeTransformations: () => removeTransformations,
-  setParserOptions: () => setParserOptions,
   setSanitizeHtmlOptions: () => setSanitizeHtmlOptions
 });
 module.exports = __toCommonJS(main_exports);
@@ -17252,24 +17250,31 @@ var unique = (arr = []) => {
 
 // src/utils/retrieve.js
 var import_cross_fetch = __toESM(require_node_ponyfill(), 1);
-var retrieve_default = async (url) => {
-  const res = await (0, import_cross_fetch.default)(url, {
-    headers: {
-      "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
-    }
+var profetch = async (url, proxy = {}) => {
+  const {
+    target,
+    headers = {}
+  } = proxy;
+  const res = await (0, import_cross_fetch.default)(target + encodeURIComponent(url), {
+    headers
   });
+  return res;
+};
+var retrieve_default = async (url, options = {}) => {
+  const {
+    headers = {},
+    proxy = null
+  } = options;
+  const res = proxy ? await profetch(url, proxy) : await (0, import_cross_fetch.default)(url, { headers });
   const status = res.status;
   if (status >= 400) {
     throw new Error(`Request failed with error code ${status}`);
   }
-  const contentType = res.headers.get("content-type") || "text/html";
-  if (!contentType.includes("text/")) {
-    throw new Error(`Content type must be "text/html", not "${contentType}"`);
-  }
-  return res.text();
+  const text = await res.text();
+  return text.trim();
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/symbols.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/symbols.js
 var CHANGED = Symbol("changed");
 var CLASS_LIST = Symbol("classList");
 var CUSTOM_ELEMENTS = Symbol("CustomElements");
@@ -19826,7 +19831,7 @@ function parseFeed(feed, options = { xmlMode: true }) {
   return getFeed(parseDOM(feed, options));
 }
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/constants.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/constants.js
 var NODE_END = -1;
 var ELEMENT_NODE = 1;
 var ATTRIBUTE_NODE = 2;
@@ -19848,7 +19853,7 @@ var DOCUMENT_POSITION_CONTAINED_BY = 16;
 var DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 32;
 var SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/object.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/object.js
 var {
   assign,
   create,
@@ -19859,7 +19864,7 @@ var {
   setPrototypeOf
 } = Object;
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/utils.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/utils.js
 var $String = String;
 var getEnd = (node) => node.nodeType === ELEMENT_NODE ? node[END] : node;
 var ignoreCase = ({ ownerDocument }) => ownerDocument[MIME].ignoreCase;
@@ -19889,10 +19894,10 @@ var setAdjacent = (prev, next) => {
     next[PREV] = prev;
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/shadow-roots.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/shadow-roots.js
 var shadowRoots = /* @__PURE__ */ new WeakMap();
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/custom-element-registry.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/custom-element-registry.js
 var reactive = false;
 var Classes = /* @__PURE__ */ new WeakMap();
 var customElements = /* @__PURE__ */ new WeakMap();
@@ -20015,7 +20020,7 @@ var CustomElementRegistry = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/parse-from-string.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/parse-from-string.js
 var { Parser: Parser2 } = esm_exports3;
 var notParsing = true;
 var append2 = (self2, node, active) => {
@@ -20094,7 +20099,7 @@ var parseFromString = (document, isHTML, markupLanguage) => {
   return document;
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/register-html-class.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/register-html-class.js
 var htmlClasses = /* @__PURE__ */ new Map();
 var registerHTMLClass = (names, Class) => {
   for (const name of [].concat(names)) {
@@ -20103,10 +20108,10 @@ var registerHTMLClass = (names, Class) => {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/document.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/document.js
 var import_perf_hooks = __toESM(require_perf_hooks(), 1);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/jsdon.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/jsdon.js
 var loopSegment = ({ [NEXT]: next, [END]: end }, json) => {
   while (next !== end) {
     switch (next.nodeType) {
@@ -20161,7 +20166,7 @@ var elementAsJSON = (element, json) => {
   loopSegment(element, json);
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/mutation-observer.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/mutation-observer.js
 var createRecord = (type, target, addedNodes, removedNodes, attributeName, oldValue) => ({ type, target, addedNodes, removedNodes, attributeName, oldValue });
 var queueAttribute = (observer, target, attributeName, attributeFilter, attributeOldValue, oldValue) => {
   if (!attributeFilter || attributeFilter.includes(attributeName)) {
@@ -20295,7 +20300,7 @@ var MutationObserverClass = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/attributes.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/attributes.js
 var emptyAttributes = /* @__PURE__ */ new Set([
   "allowfullscreen",
   "allowpaymentrequest",
@@ -20375,7 +20380,7 @@ var stringAttribute = {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/event-target.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/event-target.js
 var wm = /* @__PURE__ */ new WeakMap();
 function dispatch(event, listener) {
   if (typeof listener === "function")
@@ -20442,14 +20447,14 @@ var DOMEventTarget = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/node-list.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/node-list.js
 var NodeList = class extends Array {
   item(i) {
     return i < this.length ? this[i] : null;
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/node.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/node.js
 var getParentNodeCount = ({ parentNode }) => {
   let count = 0;
   while (parentNode) {
@@ -20645,7 +20650,7 @@ var Node2 = class extends DOMEventTarget {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/attr.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/attr.js
 var QUOTE = /"/g;
 var Attr = class extends Node2 {
   constructor(ownerDocument, name, value = "") {
@@ -20682,7 +20687,7 @@ var Attr = class extends Node2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/node.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/node.js
 var isConnected = ({ ownerDocument, parentNode }) => {
   while (parentNode) {
     if (parentNode === ownerDocument)
@@ -20716,7 +20721,7 @@ var nextSibling = (node) => {
   return next && (next.nodeType === NODE_END ? null : next);
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/mixin/non-document-type-child-node.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/mixin/non-document-type-child-node.js
 var nextElementSibling2 = (node) => {
   let next = nextSibling(node);
   while (next && next.nodeType !== ELEMENT_NODE)
@@ -20730,7 +20735,7 @@ var previousElementSibling = (node) => {
   return prev;
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/mixin/child-node.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/mixin/child-node.js
 var asFragment = (ownerDocument, nodes) => {
   const fragment = ownerDocument.createDocumentFragment();
   fragment.append(...nodes);
@@ -20777,7 +20782,7 @@ var remove = (prev, current, next) => {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/character-data.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/character-data.js
 var CharacterData = class extends Node2 {
   constructor(ownerDocument, localName, nodeType, data) {
     super(ownerDocument, localName, nodeType);
@@ -20860,7 +20865,7 @@ var CharacterData = class extends Node2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/comment.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/comment.js
 var Comment3 = class extends CharacterData {
   constructor(ownerDocument, data = "") {
     super(ownerDocument, "#comment", COMMENT_NODE, data);
@@ -21793,7 +21798,7 @@ function is2(elem, query2, options) {
   return (typeof query2 === "function" ? query2 : compile2(query2, opts))(elem);
 }
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/matches.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/matches.js
 var { isArray: isArray2 } = Array;
 var isTag3 = ({ nodeType }) => nodeType === ELEMENT_NODE;
 var existsOne2 = (test, elements) => elements.some(
@@ -21887,7 +21892,7 @@ var matches = (element, selectors) => is2(
   }
 );
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/text-escaper.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/text-escaper.js
 var { replace } = "";
 var ca = /[<>&\xA0]/g;
 var esca = {
@@ -21899,7 +21904,7 @@ var esca = {
 var pe = (m2) => esca[m2];
 var escape2 = (es) => replace.call(es, ca, pe);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/text.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/text.js
 var Text3 = class extends CharacterData {
   constructor(ownerDocument, data = "") {
     super(ownerDocument, "#text", TEXT_NODE, data);
@@ -21933,7 +21938,7 @@ var Text3 = class extends CharacterData {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/mixin/parent-node.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/mixin/parent-node.js
 var isNode = (node) => node instanceof Node2;
 var insert = (parentNode, child, nodes) => {
   const { ownerDocument } = parentNode;
@@ -22149,7 +22154,7 @@ var ParentNode = class extends Node2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/mixin/non-element-parent-node.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/mixin/non-element-parent-node.js
 var NonElementParentNode = class extends ParentNode {
   getElementById(id) {
     let { [NEXT]: next, [END]: end } = this;
@@ -22181,14 +22186,14 @@ var NonElementParentNode = class extends ParentNode {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/document-fragment.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/document-fragment.js
 var DocumentFragment = class extends NonElementParentNode {
   constructor(ownerDocument) {
     super(ownerDocument, "#document-fragment", DOCUMENT_FRAGMENT_NODE);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/document-type.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/document-type.js
 var DocumentType = class extends Node2 {
   constructor(ownerDocument, name, publicId = "", systemId = "") {
     super(ownerDocument, "#document-type", DOCUMENT_TYPE_NODE);
@@ -22220,7 +22225,7 @@ var DocumentType = class extends Node2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/mixin/inner-html.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/mixin/inner-html.js
 var getInnerHtml = (node) => node.childNodes.join("");
 var setInnerHtml = (node, html) => {
   const { ownerDocument } = node;
@@ -22234,7 +22239,7 @@ var setInnerHtml = (node, html) => {
 // node_modules/.pnpm/uhyphen@0.1.0/node_modules/uhyphen/esm/index.js
 var esm_default2 = (camel) => camel.replace(/(([A-Z0-9])([A-Z0-9][a-z]))|(([a-z])([A-Z]))/g, "$2$5-$3$6").toLowerCase();
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/dom/string-map.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/dom/string-map.js
 var refs = /* @__PURE__ */ new WeakMap();
 var key = (name) => `data-${esm_default2(name)}`;
 var prop = (name) => name.slice(5).replace(/-([a-z])/g, (_, $1) => $1.toUpperCase());
@@ -22266,7 +22271,7 @@ var DOMStringMap = class {
 };
 setPrototypeOf(DOMStringMap.prototype, null);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/dom/token-list.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/dom/token-list.js
 var { add } = Set.prototype;
 var addTokens = (self2, tokens) => {
   for (const token of tokens) {
@@ -22337,7 +22342,7 @@ var DOMTokenList = class extends Set {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/css-style-declaration.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/css-style-declaration.js
 var refs2 = /* @__PURE__ */ new WeakMap();
 var getKeys = (style) => [...style.keys()].filter((key2) => key2 !== PRIVATE);
 var updateKeys = (style) => {
@@ -22443,7 +22448,7 @@ function push(value, key2) {
     this.push(`${key2}:${value}`);
 }
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/event.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/event.js
 var BUBBLING_PHASE = 3;
 var AT_TARGET = 2;
 var CAPTURING_PHASE = 1;
@@ -22503,7 +22508,7 @@ var GlobalEvent = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/named-node-map.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/named-node-map.js
 var NamedNodeMap = class extends Array {
   constructor(ownerElement) {
     super();
@@ -22535,7 +22540,7 @@ var NamedNodeMap = class extends Array {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/shadow-root.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/shadow-root.js
 var ShadowRoot = class extends NonElementParentNode {
   constructor(host) {
     super(host.ownerDocument, "#shadow-root", DOCUMENT_FRAGMENT_NODE);
@@ -22549,7 +22554,7 @@ var ShadowRoot = class extends NonElementParentNode {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/element.js
 var attributesHandler = {
   get(target, key2) {
     return key2 in target ? target[key2] : target.find(({ name }) => name === key2);
@@ -22872,7 +22877,12 @@ var Element2 = class extends ParentNode {
           parentNode = node;
           break;
         }
-        case ATTRIBUTE_NODE:
+        case ATTRIBUTE_NODE: {
+          const attr = next.cloneNode(deep);
+          attr.ownerElement = parentNode;
+          addNext(attr);
+          break;
+        }
         case TEXT_NODE:
         case COMMENT_NODE:
           addNext(next.cloneNode(deep));
@@ -22963,7 +22973,7 @@ var Element2 = class extends ParentNode {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/svg/element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/svg/element.js
 var classNames = /* @__PURE__ */ new WeakMap();
 var handler3 = {
   get(target, name) {
@@ -23003,7 +23013,7 @@ var SVGElement = class extends Element2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/facades.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/facades.js
 var illegalConstructor = () => {
   throw new TypeError("Illegal constructor");
 };
@@ -23070,7 +23080,7 @@ var Facades = {
   SVGElement: SVGElement2
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/element.js
 var Level0 = /* @__PURE__ */ new WeakMap();
 var level0 = {
   get(element, name) {
@@ -23599,7 +23609,7 @@ var HTMLElement = class extends Element2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/template-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/template-element.js
 var tagName = "template";
 var HTMLTemplateElement = class extends HTMLElement {
   constructor(ownerDocument) {
@@ -23617,14 +23627,14 @@ var HTMLTemplateElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName, HTMLTemplateElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/html-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/html-element.js
 var HTMLHtmlElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "html") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/text-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/text-element.js
 var { toString: toString2 } = HTMLElement.prototype;
 var TextElement = class extends HTMLElement {
   get innerHTML() {
@@ -23639,7 +23649,7 @@ var TextElement = class extends HTMLElement {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/script-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/script-element.js
 var tagName2 = "script";
 var HTMLScriptElement = class extends TextElement {
   constructor(ownerDocument, localName = tagName2) {
@@ -23696,14 +23706,14 @@ var HTMLScriptElement = class extends TextElement {
 };
 registerHTMLClass(tagName2, HTMLScriptElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/frame-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/frame-element.js
 var HTMLFrameElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "frame") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/i-frame-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/i-frame-element.js
 var tagName3 = "iframe";
 var HTMLIFrameElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName3) {
@@ -23718,28 +23728,28 @@ var HTMLIFrameElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName3, HTMLIFrameElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/object-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/object-element.js
 var HTMLObjectElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "object") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/head-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/head-element.js
 var HTMLHeadElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "head") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/body-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/body-element.js
 var HTMLBodyElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "body") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/style-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/style-element.js
 var import_cssom = __toESM(require_lib3(), 1);
 var tagName4 = "style";
 var HTMLStyleElement = class extends TextElement {
@@ -23778,84 +23788,84 @@ var HTMLStyleElement = class extends TextElement {
 };
 registerHTMLClass(tagName4, HTMLStyleElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/time-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/time-element.js
 var HTMLTimeElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "time") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/field-set-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/field-set-element.js
 var HTMLFieldSetElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "fieldset") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/embed-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/embed-element.js
 var HTMLEmbedElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "embed") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/hr-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/hr-element.js
 var HTMLHRElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "hr") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/progress-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/progress-element.js
 var HTMLProgressElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "progress") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/paragraph-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/paragraph-element.js
 var HTMLParagraphElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "p") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/table-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/table-element.js
 var HTMLTableElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "table") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/frame-set-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/frame-set-element.js
 var HTMLFrameSetElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "frameset") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/li-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/li-element.js
 var HTMLLIElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "li") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/base-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/base-element.js
 var HTMLBaseElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "base") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/data-list-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/data-list-element.js
 var HTMLDataListElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "datalist") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/input-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/input-element.js
 var tagName5 = "input";
 var HTMLInputElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName5) {
@@ -23894,28 +23904,28 @@ var HTMLInputElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName5, HTMLInputElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/param-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/param-element.js
 var HTMLParamElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "param") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/media-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/media-element.js
 var HTMLMediaElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "media") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/audio-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/audio-element.js
 var HTMLAudioElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "audio") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/heading-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/heading-element.js
 var tagName6 = "h1";
 var HTMLHeadingElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName6) {
@@ -23924,21 +23934,21 @@ var HTMLHeadingElement = class extends HTMLElement {
 };
 registerHTMLClass([tagName6, "h2", "h3", "h4", "h5", "h6"], HTMLHeadingElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/directory-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/directory-element.js
 var HTMLDirectoryElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "dir") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/quote-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/quote-element.js
 var HTMLQuoteElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "quote") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/canvas-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/canvas-element.js
 var import_canvas = __toESM(require_canvas(), 1);
 var { createCanvas } = import_canvas.default;
 var tagName7 = "canvas";
@@ -23970,49 +23980,49 @@ var HTMLCanvasElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName7, HTMLCanvasElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/legend-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/legend-element.js
 var HTMLLegendElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "legend") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/option-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/option-element.js
 var HTMLOptionElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "option") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/span-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/span-element.js
 var HTMLSpanElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "span") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/meter-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/meter-element.js
 var HTMLMeterElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "meter") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/video-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/video-element.js
 var HTMLVideoElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "video") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/table-cell-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/table-cell-element.js
 var HTMLTableCellElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "td") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/title-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/title-element.js
 var tagName8 = "title";
 var HTMLTitleElement = class extends TextElement {
   constructor(ownerDocument, localName = tagName8) {
@@ -24021,35 +24031,35 @@ var HTMLTitleElement = class extends TextElement {
 };
 registerHTMLClass(tagName8, HTMLTitleElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/output-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/output-element.js
 var HTMLOutputElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "output") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/table-row-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/table-row-element.js
 var HTMLTableRowElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "tr") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/data-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/data-element.js
 var HTMLDataElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "data") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/menu-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/menu-element.js
 var HTMLMenuElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "menu") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/select-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/select-element.js
 var tagName9 = "select";
 var HTMLSelectElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName9) {
@@ -24082,14 +24092,14 @@ var HTMLSelectElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName9, HTMLSelectElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/br-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/br-element.js
 var HTMLBRElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "br") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/button-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/button-element.js
 var tagName10 = "button";
 var HTMLButtonElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName10) {
@@ -24116,28 +24126,28 @@ var HTMLButtonElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName10, HTMLButtonElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/map-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/map-element.js
 var HTMLMapElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "map") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/opt-group-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/opt-group-element.js
 var HTMLOptGroupElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "optgroup") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/d-list-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/d-list-element.js
 var HTMLDListElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "dl") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/text-area-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/text-area-element.js
 var tagName11 = "textarea";
 var HTMLTextAreaElement = class extends TextElement {
   constructor(ownerDocument, localName = tagName11) {
@@ -24176,21 +24186,21 @@ var HTMLTextAreaElement = class extends TextElement {
 };
 registerHTMLClass(tagName11, HTMLTextAreaElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/font-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/font-element.js
 var HTMLFontElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "font") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/div-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/div-element.js
 var HTMLDivElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "div") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/link-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/link-element.js
 var tagName12 = "link";
 var HTMLLinkElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName12) {
@@ -24235,21 +24245,21 @@ var HTMLLinkElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName12, HTMLLinkElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/slot-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/slot-element.js
 var HTMLSlotElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "slot") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/form-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/form-element.js
 var HTMLFormElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "form") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/image-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/image-element.js
 var tagName13 = "img";
 var HTMLImageElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName13) {
@@ -24300,56 +24310,56 @@ var HTMLImageElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName13, HTMLImageElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/pre-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/pre-element.js
 var HTMLPreElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "pre") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/u-list-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/u-list-element.js
 var HTMLUListElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "ul") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/meta-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/meta-element.js
 var HTMLMetaElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "meta") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/picture-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/picture-element.js
 var HTMLPictureElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "picture") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/area-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/area-element.js
 var HTMLAreaElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "area") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/o-list-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/o-list-element.js
 var HTMLOListElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "ol") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/table-caption-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/table-caption-element.js
 var HTMLTableCaptionElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "caption") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/anchor-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/anchor-element.js
 var tagName14 = "a";
 var HTMLAnchorElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName14) {
@@ -24382,35 +24392,35 @@ var HTMLAnchorElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName14, HTMLAnchorElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/label-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/label-element.js
 var HTMLLabelElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "label") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/unknown-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/unknown-element.js
 var HTMLUnknownElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "unknown") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/mod-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/mod-element.js
 var HTMLModElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "mod") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/details-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/details-element.js
 var HTMLDetailsElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "details") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/source-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/source-element.js
 var tagName15 = "source";
 var HTMLSourceElement = class extends HTMLElement {
   constructor(ownerDocument, localName = tagName15) {
@@ -24443,21 +24453,21 @@ var HTMLSourceElement = class extends HTMLElement {
 };
 registerHTMLClass(tagName15, HTMLSourceElement);
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/track-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/track-element.js
 var HTMLTrackElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "track") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/marquee-element.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/marquee-element.js
 var HTMLMarqueeElement = class extends HTMLElement {
   constructor(ownerDocument, localName = "marquee") {
     super(ownerDocument, localName);
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/html-classes.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/html-classes.js
 var HTMLClasses = {
   HTMLElement,
   HTMLTemplateElement,
@@ -24529,7 +24539,7 @@ var HTMLClasses = {
   HTMLMarqueeElement
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/mime.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/mime.js
 var voidElements2 = { test: () => true };
 var Mime = {
   "text/html": {
@@ -24559,7 +24569,7 @@ var Mime = {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/custom-event.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/custom-event.js
 var GlobalCustomEvent = typeof CustomEvent === "function" ? CustomEvent : class CustomEvent2 extends GlobalEvent {
   constructor(type, eventInitDict = {}) {
     super(type, eventInitDict);
@@ -24567,7 +24577,7 @@ var GlobalCustomEvent = typeof CustomEvent === "function" ? CustomEvent : class 
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/input-event.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/input-event.js
 var InputEvent = class extends GlobalEvent {
   constructor(type, inputEventInit = {}) {
     super(type, inputEventInit);
@@ -24579,7 +24589,7 @@ var InputEvent = class extends GlobalEvent {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/image.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/image.js
 var ImageClass = (ownerDocument) => class Image extends HTMLImageElement {
   constructor(width, height) {
     super(ownerDocument);
@@ -24596,7 +24606,7 @@ var ImageClass = (ownerDocument) => class Image extends HTMLImageElement {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/range.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/range.js
 var deleteContents = ({ [START]: start, [END]: end }, fragment = null) => {
   setAdjacent(start[PREV], end[NEXT]);
   do {
@@ -24670,7 +24680,7 @@ var Range = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/tree-walker.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/tree-walker.js
 var isOK = ({ nodeType }, mask) => {
   switch (nodeType) {
     case ELEMENT_NODE:
@@ -24708,7 +24718,7 @@ var TreeWalker = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/interface/document.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/interface/document.js
 var query = (method, ownerDocument, selectors) => {
   let { [NEXT]: next, [END]: end } = ownerDocument;
   return method.call({ ownerDocument, [NEXT]: next, [END]: end }, selectors);
@@ -24935,7 +24945,7 @@ setPrototypeOf(
   Document2
 ).prototype = Document2.prototype;
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/html/document.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/html/document.js
 var createHTMLElement = (ownerDocument, builtin, localName, options) => {
   if (!builtin && htmlClasses.has(localName)) {
     const Class = htmlClasses.get(localName);
@@ -25014,7 +25024,7 @@ var HTMLDocument = class extends Document2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/svg/document.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/svg/document.js
 var SVGDocument = class extends Document2 {
   constructor() {
     super("image/svg+xml");
@@ -25024,7 +25034,7 @@ var SVGDocument = class extends Document2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/xml/document.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/xml/document.js
 var XMLDocument = class extends Document2 {
   constructor() {
     super("text/xml");
@@ -25034,7 +25044,7 @@ var XMLDocument = class extends Document2 {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/dom/parser.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/dom/parser.js
 var DOMParser = class {
   parseFromString(markupLanguage, mimeType, globals = null) {
     let isHTML = false, document;
@@ -25054,10 +25064,10 @@ var DOMParser = class {
   }
 };
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/shared/parse-json.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/shared/parse-json.js
 var { parse: parse5 } = JSON;
 
-// node_modules/.pnpm/linkedom@0.14.14/node_modules/linkedom/esm/index.js
+// node_modules/.pnpm/linkedom@0.14.16/node_modules/linkedom/esm/index.js
 function Document4() {
   illegalConstructor();
 }
@@ -25820,32 +25830,12 @@ var sanitizeHtmlOptions = {
     "instagram.com"
   ]
 };
-var parserOptions = {
-  wordsPerMinute: 300,
-  descriptionLengthThreshold: 180,
-  descriptionTruncateLen: 210,
-  contentLengthThreshold: 200
-};
-var state = {
-  sanitizeHtmlOptions,
-  parserOptions
-};
 var getSanitizeHtmlOptions = () => {
-  return clone(state.sanitizeHtmlOptions);
-};
-var getParserOptions = () => {
-  return clone(state.parserOptions);
-};
-var setParserOptions = (opts = {}) => {
-  Object.keys(state.parserOptions).forEach((key2) => {
-    if (key2 in opts) {
-      state.parserOptions[key2] = opts[key2];
-    }
-  });
+  return clone(sanitizeHtmlOptions);
 };
 var setSanitizeHtmlOptions = (opts = {}) => {
   Object.keys(opts).forEach((key2) => {
-    state.sanitizeHtmlOptions[key2] = clone(opts[key2]);
+    sanitizeHtmlOptions[key2] = clone(opts[key2]);
   });
 };
 
@@ -26156,9 +26146,8 @@ var execPostParser = (html, links) => {
 };
 
 // src/utils/getTimeToRead.js
-var getTimeToRead_default = (text) => {
+var getTimeToRead_default = (text, wordsPerMinute) => {
   const words = text.trim().split(/\s+/g).length;
-  const { wordsPerMinute } = getParserOptions();
   const minToRead = words / wordsPerMinute;
   const secToRead = Math.ceil(minToRead * 60);
   return secToRead;
@@ -26168,7 +26157,7 @@ var getTimeToRead_default = (text) => {
 var summarize = (desc, txt, threshold, maxlen) => {
   return desc.length > threshold ? desc : truncate(txt, maxlen).replace(/\n/g, " ");
 };
-var parseFromHtml_default = async (inputHtml, inputUrl = "") => {
+var parseFromHtml_default = async (inputHtml, inputUrl = "", parserOptions = {}) => {
   const html = cleanify(inputHtml);
   const meta = extractMetaData_default(html);
   let title = meta.title;
@@ -26183,10 +26172,11 @@ var parseFromHtml_default = async (inputHtml, inputUrl = "") => {
     published
   } = meta;
   const {
-    descriptionLengthThreshold,
-    descriptionTruncateLen,
-    contentLengthThreshold
-  } = getParserOptions();
+    wordsPerMinute = 300,
+    descriptionTruncateLen = 210,
+    descriptionLengthThreshold = 180,
+    contentLengthThreshold = 200
+  } = parserOptions;
   if (!title) {
     title = extractTitleWithReadability(html, inputUrl);
   }
@@ -26242,34 +26232,32 @@ var parseFromHtml_default = async (inputHtml, inputUrl = "") => {
     author,
     source: getDomain(bestUrl),
     published,
-    ttr: getTimeToRead_default(textContent2)
+    ttr: getTimeToRead_default(textContent2, wordsPerMinute)
   };
 };
 
 // src/main.js
-var extract = async (input) => {
+var extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   if (!isString(input)) {
     throw new Error("Input must be a string");
   }
   if (isValid(input)) {
-    return parseFromHtml_default(input);
+    return parseFromHtml_default(input, null, parserOptions);
   }
   if (!isValid2(input)) {
     throw new Error("Input must be a valid URL");
   }
-  const html = await retrieve_default(input);
+  const html = await retrieve_default(input, fetchOptions);
   if (!html) {
     return null;
   }
-  return parseFromHtml_default(html, input);
+  return parseFromHtml_default(html, input, parserOptions);
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   addTransformations,
   extract,
-  getParserOptions,
   getSanitizeHtmlOptions,
   removeTransformations,
-  setParserOptions,
   setSanitizeHtmlOptions
 });

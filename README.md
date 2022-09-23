@@ -66,50 +66,84 @@ View [more examples](https://github.com/ndaidong/article-parser/tree/main/exampl
   - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
   - [.removeTransformations](#removetransformationsarray-patterns)
   - [Priority order](#priority-order)
-- [Configuration methods](#configuration-methods)
+- [`sanitize-html`'s options](#sanitize-htmls-options)
 
 ---
 
-### extract(String url | String html)
+### `extract()`
 
 Load and extract article data. Return a Promise object.
 
-Example:
+#### Syntax
+
+```ts
+extract(String input)
+extract(String input, Object parserOptions)
+extract(String input, Object parserOptions, Object fetchOptions)
+```
+
+#### Parameters
+
+##### `input` *required*
+
+URL string links to the article or HTML content of that web page.
+
+For example:
 
 ```js
 import { extract } from 'article-parser'
 
-const getArticle = async (url) => {
-  try {
-    const article = await extract(url)
-    return article
-  } catch (err) {
-    console.trace(err)
-    return null
-  }
-}
-
-getArticle('https://domain.com/path/to/article')
+const input = 'https://www.freethink.com/technology/virtual-world'
+extract(input)
+  .then(article => console.log(article))
+  .catch(err => console.error(err))
 ```
 
-If the extraction works well, you should get an `article` object with the structure as below:
+The result - `article` - can be `null` or an object with the following structure:
 
-```json
+```ts
 {
-  "url": URI String,
-  "title": String,
-  "description": String,
-  "image": URI String,
-  "author": String,
-  "content": HTML String,
-  "published": Date String,
-  "source": String, // original publisher
-  "links": Array, // list of alternative links
-  "ttr": Number, // time to read in second, 0 = unknown
+  url: String,
+  title: String,
+  description: String,
+  image: String,
+  author: String,
+  content: String,
+  published: Date String,
+  source: String, // original publisher
+  links: Array, // list of alternative links
+  ttr: Number, // time to read in second, 0 = unknown
 }
 ```
 
 [Click here](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world) for seeing an actual result.
+
+
+##### `parserOptions` *optional*
+
+Object with all or several of the following properties:
+
+  - `wordsPerMinute`: Number, to estimate time to read. Default `300`.
+  - `descriptionTruncateLen`: Number, max num of chars generated for description. Default `210`.
+  - `descriptionLengthThreshold`: Number, min num of chars required for description. Default `180`.
+  - `contentLengthThreshold`: Number, min num of chars required for content. Default `200`.
+
+Note that when `normalization` is set to `false`, other options will take no effect to the last output.
+
+For example:
+
+```js
+import { read } from 'feed-reader'
+
+read('https://news.google.com/atom', {
+  useISODateFormat: false
+})
+
+read('https://news.google.com/rss', {
+  useISODateFormat: false,
+  includeOptionalElements: true
+})
+```
 
 ---
 
@@ -293,26 +327,18 @@ In this scenario, `article-parser` will execute both transformations, one by one
 
 ---
 
-### Configuration methods
+### `sanitize-html`'s options
 
-In addition, this lib provides some methods to customize default settings. Don't touch them unless you have reason to do that.
+`article-parser` use [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
 
-- getParserOptions()
-- setParserOptions(Object parserOptions)
-- getSanitizeHtmlOptions()
-- setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
+Here is the [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
 
-Here are default properties/values:
+Depending on the needs of your content system, you might want to gather some HTML tags/attributes, while ignoring others.
 
+There are 2 methods to access and modify these options in `article-parser`.
 
-#### Object `parserOptions`:
-
-View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L51)
-
-
-#### Object `sanitizeHtmlOptions`:
-
-View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
+- `getSanitizeHtmlOptions()`
+- `setSanitizeHtmlOptions(Object sanitizeHtmlOptions)`
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
 

@@ -1,6 +1,6 @@
 // eval.js
 
-import { readFileSync, existsSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
 
 import { isValid as isValidUrl } from './src/utils/linker.js'
 import { extract } from './src/main.js'
@@ -9,6 +9,7 @@ const extractFromUrl = async (url) => {
   try {
     const art = await extract(url)
     console.log(art)
+    writeFileSync('output3.html', art.content, 'utf-8')
   } catch (err) {
     console.trace(err)
   }

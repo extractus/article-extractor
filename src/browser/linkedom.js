@@ -1,1 +1,1 @@
-export const DOMParser = global.DOMParser
+export const DOMParser = window.DOMParser

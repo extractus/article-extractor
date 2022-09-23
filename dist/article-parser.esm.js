@@ -1,4 +1,4 @@
-// article-parser@7.2.1, by @ndaidong - built with esbuild at 2022-09-20T08:33:48.618Z - published under MIT license
+// article-parser@7.2.2-rc1, by @ndaidong - built with esbuild at 2022-09-23T03:24:19.822Z - published under MIT license
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -3842,7 +3842,7 @@ var require_parse_srcset = __commonJS({
             return chars;
           }
         }
-        var inputLength = input.length, regexLeadingSpaces = /^[ \t\n\r\u000c]+/, regexLeadingCommasOrSpaces = /^[, \t\n\r\u000c]+/, regexLeadingNotSpaces = /^[^ \t\n\r\u000c]+/, regexTrailingCommas = /[,]+$/, regexNonNegativeInteger = /^\d+$/, regexFloatingPoint = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/, url, descriptors, currentDescriptor, state2, c3, pos = 0, candidates = [];
+        var inputLength = input.length, regexLeadingSpaces = /^[ \t\n\r\u000c]+/, regexLeadingCommasOrSpaces = /^[, \t\n\r\u000c]+/, regexLeadingNotSpaces = /^[^ \t\n\r\u000c]+/, regexTrailingCommas = /[,]+$/, regexNonNegativeInteger = /^\d+$/, regexFloatingPoint = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/, url, descriptors, currentDescriptor, state, c3, pos = 0, candidates = [];
         while (true) {
           collectCharacters(regexLeadingCommasOrSpaces);
           if (pos >= inputLength) {
@@ -3860,15 +3860,15 @@ var require_parse_srcset = __commonJS({
         function tokenize() {
           collectCharacters(regexLeadingSpaces);
           currentDescriptor = "";
-          state2 = "in descriptor";
+          state = "in descriptor";
           while (true) {
             c3 = input.charAt(pos);
-            if (state2 === "in descriptor") {
+            if (state === "in descriptor") {
               if (isSpace(c3)) {
                 if (currentDescriptor) {
                   descriptors.push(currentDescriptor);
                   currentDescriptor = "";
-                  state2 = "after descriptor";
+                  state = "after descriptor";
                 }
               } else if (c3 === ",") {
                 pos += 1;
@@ -3879,7 +3879,7 @@ var require_parse_srcset = __commonJS({
                 return;
               } else if (c3 === "(") {
                 currentDescriptor = currentDescriptor + c3;
-                state2 = "in parens";
+                state = "in parens";
               } else if (c3 === "") {
                 if (currentDescriptor) {
                   descriptors.push(currentDescriptor);
@@ -3889,10 +3889,10 @@ var require_parse_srcset = __commonJS({
               } else {
                 currentDescriptor = currentDescriptor + c3;
               }
-            } else if (state2 === "in parens") {
+            } else if (state === "in parens") {
               if (c3 === ")") {
                 currentDescriptor = currentDescriptor + c3;
-                state2 = "in descriptor";
+                state = "in descriptor";
               } else if (c3 === "") {
                 descriptors.push(currentDescriptor);
                 parseDescriptors();
@@ -3900,13 +3900,13 @@ var require_parse_srcset = __commonJS({
               } else {
                 currentDescriptor = currentDescriptor + c3;
               }
-            } else if (state2 === "after descriptor") {
+            } else if (state === "after descriptor") {
               if (isSpace(c3)) {
               } else if (c3 === "") {
                 parseDescriptors();
                 return;
               } else {
-                state2 = "in descriptor";
+                state = "in descriptor";
                 pos -= 1;
               }
             }
@@ -10816,25 +10816,32 @@ var unique = (arr = []) => {
 
 // src/utils/retrieve.js
 var import_cross_fetch = __toESM(require_browser_ponyfill(), 1);
-var retrieve_default = async (url) => {
-  const res = await (0, import_cross_fetch.default)(url, {
-    headers: {
-      "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
-    }
+var profetch = async (url, proxy = {}) => {
+  const {
+    target,
+    headers = {}
+  } = proxy;
+  const res = await (0, import_cross_fetch.default)(target + encodeURIComponent(url), {
+    headers
   });
+  return res;
+};
+var retrieve_default = async (url, options = {}) => {
+  const {
+    headers = {},
+    proxy = null
+  } = options;
+  const res = proxy ? await profetch(url, proxy) : await (0, import_cross_fetch.default)(url, { headers });
   const status = res.status;
   if (status >= 400) {
     throw new Error(`Request failed with error code ${status}`);
   }
-  const contentType = res.headers.get("content-type") || "text/html";
-  if (!contentType.includes("text/")) {
-    throw new Error(`Content type must be "text/html", not "${contentType}"`);
-  }
-  return res.text();
+  const text = await res.text();
+  return text.trim();
 };
 
 // src/browser/linkedom.js
-var DOMParser = global.DOMParser;
+var DOMParser = window.DOMParser;
 
 // src/utils/html.js
 var import_sanitize_html = __toESM(require_sanitize_html(), 1);
@@ -11607,32 +11614,12 @@ var sanitizeHtmlOptions = {
     "instagram.com"
   ]
 };
-var parserOptions = {
-  wordsPerMinute: 300,
-  descriptionLengthThreshold: 180,
-  descriptionTruncateLen: 210,
-  contentLengthThreshold: 200
-};
-var state = {
-  sanitizeHtmlOptions,
-  parserOptions
-};
 var getSanitizeHtmlOptions = () => {
-  return clone(state.sanitizeHtmlOptions);
-};
-var getParserOptions = () => {
-  return clone(state.parserOptions);
-};
-var setParserOptions = (opts = {}) => {
-  Object.keys(state.parserOptions).forEach((key) => {
-    if (key in opts) {
-      state.parserOptions[key] = opts[key];
-    }
-  });
+  return clone(sanitizeHtmlOptions);
 };
 var setSanitizeHtmlOptions = (opts = {}) => {
   Object.keys(opts).forEach((key) => {
-    state.sanitizeHtmlOptions[key] = clone(opts[key]);
+    sanitizeHtmlOptions[key] = clone(opts[key]);
   });
 };
 
@@ -11943,9 +11930,8 @@ var execPostParser = (html, links) => {
 };
 
 // src/utils/getTimeToRead.js
-var getTimeToRead_default = (text) => {
+var getTimeToRead_default = (text, wordsPerMinute) => {
   const words = text.trim().split(/\s+/g).length;
-  const { wordsPerMinute } = getParserOptions();
   const minToRead = words / wordsPerMinute;
   const secToRead = Math.ceil(minToRead * 60);
   return secToRead;
@@ -11955,7 +11941,7 @@ var getTimeToRead_default = (text) => {
 var summarize = (desc, txt, threshold, maxlen) => {
   return desc.length > threshold ? desc : truncate(txt, maxlen).replace(/\n/g, " ");
 };
-var parseFromHtml_default = async (inputHtml, inputUrl = "") => {
+var parseFromHtml_default = async (inputHtml, inputUrl = "", parserOptions = {}) => {
   const html = cleanify(inputHtml);
   const meta = extractMetaData_default(html);
   let title = meta.title;
@@ -11970,10 +11956,11 @@ var parseFromHtml_default = async (inputHtml, inputUrl = "") => {
     published
   } = meta;
   const {
-    descriptionLengthThreshold,
-    descriptionTruncateLen,
-    contentLengthThreshold
-  } = getParserOptions();
+    wordsPerMinute = 300,
+    descriptionTruncateLen = 210,
+    descriptionLengthThreshold = 180,
+    contentLengthThreshold = 200
+  } = parserOptions;
   if (!title) {
     title = extractTitleWithReadability(html, inputUrl);
   }
@@ -12029,33 +12016,31 @@ var parseFromHtml_default = async (inputHtml, inputUrl = "") => {
     author,
     source: getDomain(bestUrl),
     published,
-    ttr: getTimeToRead_default(textContent)
+    ttr: getTimeToRead_default(textContent, wordsPerMinute)
   };
 };
 
 // src/main.js
-var extract = async (input) => {
+var extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   if (!isString(input)) {
     throw new Error("Input must be a string");
   }
   if (isValid(input)) {
-    return parseFromHtml_default(input);
+    return parseFromHtml_default(input, null, parserOptions);
   }
   if (!isValid2(input)) {
     throw new Error("Input must be a valid URL");
   }
-  const html = await retrieve_default(input);
+  const html = await retrieve_default(input, fetchOptions);
   if (!html) {
     return null;
   }
-  return parseFromHtml_default(html, input);
+  return parseFromHtml_default(html, input, parserOptions);
 };
 export {
   addTransformations,
   extract,
-  getParserOptions,
   getSanitizeHtmlOptions,
   removeTransformations,
-  setParserOptions,
   setSanitizeHtmlOptions
 };

@@ -48,42 +48,15 @@ const sanitizeHtmlOptions = {
   ]
 }
 
-const parserOptions = {
-  wordsPerMinute: 300, // to estimate "time to read"
-  descriptionLengthThreshold: 180, // min num of chars required for description
-  descriptionTruncateLen: 210, // max num of chars generated for description
-  contentLengthThreshold: 200 // content must have at least 200 chars
-}
-
-const state = {
-  sanitizeHtmlOptions,
-  parserOptions
-}
-
 /**
  * @returns {SanitizeOptions}
  */
 export const getSanitizeHtmlOptions = () => {
-  return clone(state.sanitizeHtmlOptions)
-}
-
-/**
- * @returns {ParserOptions}
- */
-export const getParserOptions = () => {
-  return clone(state.parserOptions)
-}
-
-export const setParserOptions = (opts = {}) => {
-  Object.keys(state.parserOptions).forEach((key) => {
-    if (key in opts) {
-      state.parserOptions[key] = opts[key]
-    }
-  })
+  return clone(sanitizeHtmlOptions)
 }
 
 export const setSanitizeHtmlOptions = (opts = {}) => {
   Object.keys(opts).forEach((key) => {
-    state.sanitizeHtmlOptions[key] = clone(opts[key])
+    sanitizeHtmlOptions[key] = clone(opts[key])
   })
 }
