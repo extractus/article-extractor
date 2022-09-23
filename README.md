@@ -13,7 +13,7 @@ Extract main article, main image and meta data from URL.
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extract-article.deta.dev/?url=https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646)
+- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world)
 
 ## Install & Usage
 
@@ -30,37 +30,34 @@ yarn add article-parser
 ```
 
 ```js
+// es6 module
 import { extract } from 'article-parser'
 
-// with CommonJS environments
-// const { extract } = require('article-parser/dist/cjs/article-parser.js')
+// CommonJS
+const { extract } = require('article-parser')
 
-const url = 'https://www.freethink.com/technology/virtual-world'
-
-extract(url).then((article) => {
-  console.log(article)
-}).catch((err) => {
-  console.trace(err)
-})
+// or specify exactly path to CommonJS variant
+const { extract } = require('article-parser/dist/cjs/article-parser.js')
 ```
 
 ### Deno
 
 ```ts
 import { extract } from 'https://esm.sh/article-parser'
-
-(async () => {
-  const data = await extract('https://www.freethink.com/technology/virtual-world')
-  console.log(data)
-})();
 ```
 
-View [more examples](https://github.com/ndaidong/article-parser/tree/main/examples).
+### Browser
+
+```js
+import { extract } from 'https://unpkg.com/article-parser@latest/dist/article-parser.esm.js'
+```
+
+Please check [the examples](https://github.com/ndaidong/article-parser/tree/main/examples) for reference.
 
 
 ## APIs
 
-- [.extract(String url | String html)](#extractstring-url--string-html)
+- [.extract()](#extract)
 - [Transformations](#transformations)
   - [`transformation` object](#transformation-object)
   - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
@@ -93,7 +90,7 @@ For example:
 ```js
 import { extract } from 'article-parser'
 
-const input = 'https://www.freethink.com/technology/virtual-world'
+const input = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
 extract(input)
   .then(article => console.log(article))
   .catch(err => console.error(err))
@@ -128,22 +125,57 @@ Object with all or several of the following properties:
   - `descriptionLengthThreshold`: Number, min num of chars required for description. Default `180`.
   - `contentLengthThreshold`: Number, min num of chars required for content. Default `200`.
 
-Note that when `normalization` is set to `false`, other options will take no effect to the last output.
+For example:
+
+```js
+import { extract } from 'article-parser'
+
+extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {
+  descriptionLengthThreshold: 120,
+  contentLengthThreshold: 500
+})
+```
+
+##### `fetchOptions` *optional*
+
+You can use this param to set request headers to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
 
 For example:
 
 ```js
-import { read } from 'feed-reader'
+import { extract } from 'article-parser'
 
-read('https://news.google.com/atom', {
-  useISODateFormat: false
-})
-
-read('https://news.google.com/rss', {
-  useISODateFormat: false,
-  includeOptionalElements: true
+const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+extract(url, null, {
+  headers: {
+    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
+  }
 })
 ```
+
+You can also specify a proxy endpoint to load remote content, instead of fetching directly.
+
+For example:
+
+```js
+import { extract } from 'article-parser'
+
+const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+
+extract(url, null, {
+  headers: {
+    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
+  },
+  proxy: {
+    target: 'https://your-secret-proxy.io/loadXml?url=',
+    headers: {
+      'Proxy-Authorization': 'Bearer YWxhZGRpbjpvcGVuc2VzYW1l...'
+    }
+  }
+})
+```
+
+Passing requests to proxy is useful while running `article-parser` on browser. View `examples/browser-article-parser` as reference example.
 
 ---
 
