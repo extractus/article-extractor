@@ -2,23 +2,9 @@
 /* eslint-env jest */
 
 import {
-  setParserOptions,
-  getParserOptions,
   setSanitizeHtmlOptions,
   getSanitizeHtmlOptions
 } from './config.js'
-
-test('Testing setParserOptions/getParserOptions methods', () => {
-  const expectedWPM = 400
-
-  setParserOptions({
-    wordsPerMinute: expectedWPM
-  })
-
-  const actual = getParserOptions()
-
-  expect(actual.wordsPerMinute).toEqual(expectedWPM)
-})
 
 test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   setSanitizeHtmlOptions({

@@ -13,7 +13,7 @@ Extract main article, main image and meta data from URL.
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extract-article.deta.dev/?url=https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646)
+- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world)
 
 ## Install & Usage
 
@@ -30,86 +30,152 @@ yarn add article-parser
 ```
 
 ```js
+// es6 module
 import { extract } from 'article-parser'
 
-// with CommonJS environments
-// const { extract } = require('article-parser/dist/cjs/article-parser.js')
+// CommonJS
+const { extract } = require('article-parser')
 
-const url = 'https://www.freethink.com/technology/virtual-world'
-
-extract(url).then((article) => {
-  console.log(article)
-}).catch((err) => {
-  console.trace(err)
-})
+// or specify exactly path to CommonJS variant
+const { extract } = require('article-parser/dist/cjs/article-parser.js')
 ```
 
 ### Deno
 
 ```ts
 import { extract } from 'https://esm.sh/article-parser'
-
-(async () => {
-  const data = await extract('https://www.freethink.com/technology/virtual-world')
-  console.log(data)
-})();
 ```
 
-View [more examples](https://github.com/ndaidong/article-parser/tree/main/examples).
+### Browser
+
+```js
+import { extract } from 'https://unpkg.com/article-parser@latest/dist/article-parser.esm.js'
+```
+
+Please check [the examples](https://github.com/ndaidong/article-parser/tree/main/examples) for reference.
 
 
 ## APIs
 
-- [.extract(String url | String html)](#extractstring-url--string-html)
+- [.extract()](#extract)
 - [Transformations](#transformations)
   - [`transformation` object](#transformation-object)
   - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
   - [.removeTransformations](#removetransformationsarray-patterns)
   - [Priority order](#priority-order)
-- [Configuration methods](#configuration-methods)
+- [`sanitize-html`'s options](#sanitize-htmls-options)
 
 ---
 
-### extract(String url | String html)
+### `extract()`
 
 Load and extract article data. Return a Promise object.
 
-Example:
+#### Syntax
+
+```ts
+extract(String input)
+extract(String input, Object parserOptions)
+extract(String input, Object parserOptions, Object fetchOptions)
+```
+
+#### Parameters
+
+##### `input` *required*
+
+URL string links to the article or HTML content of that web page.
+
+For example:
 
 ```js
 import { extract } from 'article-parser'
 
-const getArticle = async (url) => {
-  try {
-    const article = await extract(url)
-    return article
-  } catch (err) {
-    console.trace(err)
-    return null
-  }
-}
-
-getArticle('https://domain.com/path/to/article')
+const input = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+extract(input)
+  .then(article => console.log(article))
+  .catch(err => console.error(err))
 ```
 
-If the extraction works well, you should get an `article` object with the structure as below:
+The result - `article` - can be `null` or an object with the following structure:
 
-```json
+```ts
 {
-  "url": URI String,
-  "title": String,
-  "description": String,
-  "image": URI String,
-  "author": String,
-  "content": HTML String,
-  "published": Date String,
-  "source": String, // original publisher
-  "links": Array, // list of alternative links
-  "ttr": Number, // time to read in second, 0 = unknown
+  url: String,
+  title: String,
+  description: String,
+  image: String,
+  author: String,
+  content: String,
+  published: Date String,
+  source: String, // original publisher
+  links: Array, // list of alternative links
+  ttr: Number, // time to read in second, 0 = unknown
 }
 ```
 
 [Click here](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world) for seeing an actual result.
+
+
+##### `parserOptions` *optional*
+
+Object with all or several of the following properties:
+
+  - `wordsPerMinute`: Number, to estimate time to read. Default `300`.
+  - `descriptionTruncateLen`: Number, max num of chars generated for description. Default `210`.
+  - `descriptionLengthThreshold`: Number, min num of chars required for description. Default `180`.
+  - `contentLengthThreshold`: Number, min num of chars required for content. Default `200`.
+
+For example:
+
+```js
+import { extract } from 'article-parser'
+
+extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {
+  descriptionLengthThreshold: 120,
+  contentLengthThreshold: 500
+})
+```
+
+##### `fetchOptions` *optional*
+
+You can use this param to set request headers to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
+For example:
+
+```js
+import { extract } from 'article-parser'
+
+const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+extract(url, null, {
+  headers: {
+    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
+  }
+})
+```
+
+You can also specify a proxy endpoint to load remote content, instead of fetching directly.
+
+For example:
+
+```js
+import { extract } from 'article-parser'
+
+const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+
+extract(url, null, {
+  headers: {
+    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
+  },
+  proxy: {
+    target: 'https://your-secret-proxy.io/loadXml?url=',
+    headers: {
+      'Proxy-Authorization': 'Bearer YWxhZGRpbjpvcGVuc2VzYW1l...'
+    }
+  }
+})
+```
+
+Passing requests to proxy is useful while running `article-parser` on browser. View `examples/browser-article-parser` as reference example.
 
 ---
 
@@ -119,9 +185,7 @@ Sometimes the default extraction algorithm may not work well. That is the time w
 
 By adding some functions before and after the main extraction step, we aim to come up with a better result as much as possible.
 
-`transformation` is available since `article-parser@7.0.0`, as the improvement of `queryRule` in the older versions.
-
-To play with transformations, `article-parser` provides 2 public methods as below:
+There are 2 methods to play with transformations:
 
 - `addTransformations(Object transformation | Array transformations)`
 - `removeTransformations(Array patterns)`
@@ -134,7 +198,7 @@ In `article-parser`, `transformation` is an object with the following properties
 
 - `patterns`: required, a list of regexps to match the URLs
 - `pre`: optional, a function to process raw HTML
-- `post`: optional, a function to proces extracted article
+- `post`: optional, a function to process extracted article
 
 Basically, the meaning of `transformation` can be interpreted like this:
 
@@ -264,7 +328,7 @@ While processing an article, more than one transformation can be applied.
 
 Suppose that we have the following transformations:
 
-```js
+```ts
 [
   {
     patterns: [
@@ -293,26 +357,18 @@ In this scenario, `article-parser` will execute both transformations, one by one
 
 ---
 
-### Configuration methods
+### `sanitize-html`'s options
 
-In addition, this lib provides some methods to customize default settings. Don't touch them unless you have reason to do that.
+`article-parser` uses [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
 
-- getParserOptions()
-- setParserOptions(Object parserOptions)
-- getSanitizeHtmlOptions()
-- setSanitizeHtmlOptions(Object sanitizeHtmlOptions)
+Here is the [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
 
-Here are default properties/values:
+Depending on the needs of your content system, you might want to gather some HTML tags/attributes, while ignoring others.
 
+There are 2 methods to access and modify these options in `article-parser`.
 
-#### Object `parserOptions`:
-
-View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L51)
-
-
-#### Object `sanitizeHtmlOptions`:
-
-View [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
+- `getSanitizeHtmlOptions()`
+- `setSanitizeHtmlOptions(Object sanitizeHtmlOptions)`
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
 

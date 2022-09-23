@@ -1,0 +1,12 @@
+{
+  "name": "browser-article-parser",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "got": "^12.5.0"
+  }
+}

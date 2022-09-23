@@ -1,5 +1,5 @@
 {
-  "version": "7.2.1",
+  "version": "7.2.2",
   "name": "article-parser",
   "description": "To extract main article from given URL",
   "homepage": "https://demos.pwshub.com/article-parser",
@@ -17,8 +17,7 @@
     "cross-fetch": "./src/deno/cross-fetch.js"
   },
   "browser": {
-    "linkedom": "./src/browser/linkedom.js",
-    "./main.js": "./dist/article-parser.browser.js"
+    "linkedom": "./src/browser/linkedom.js"
   },
   "type": "module",
   "types": "./index.d.ts",
@@ -28,17 +27,16 @@
   "scripts": {
     "lint": "standard .",
     "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage=true",
+    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage=true",
     "build": "node build",
-    "eval": "cross-env node eval",
+    "eval": "node eval",
     "reset": "node reset"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
     "bellajs": "^11.0.7",
     "cross-fetch": "^3.1.5",
-    "html-crush": "^5.1.7",
-    "linkedom": "^0.14.14",
+    "linkedom": "^0.14.16",
     "sanitize-html": "^2.7.2",
     "string-similarity": "^4.0.4"
   },
@@ -50,11 +48,9 @@
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
-    "cross-env": "^7.0.3",
-    "esbuild": "^0.15.8",
+    "esbuild": "^0.15.9",
     "jest": "^29.0.3",
-    "nock": "^13.2.9",
-    "standard": "^17.0.0"
+    "nock": "^13.2.9"
   },
   "keywords": [
     "article",

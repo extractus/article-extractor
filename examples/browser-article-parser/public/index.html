@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example article-parser</title>
+    <link rel="stylesheet" href="/chota.min.css">
+    <style>
+      html, body {
+        overflow-x: hidden;
+        padding: 10px;
+      }
+      body {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-12">
+        <header>
+          <h1>article-parser on browser</h1>
+        </header>
+        <form id="form_parser">
+          <fieldset>
+            <legend>enter link to blog post or news article</legend>
+            <p>
+              <input id="input_url" type="url" value="https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html">
+            </p>
+            <p>
+              <label><input type="checkbox" id="ckb_proxy"> Use proxy</label>
+              <button class="button primary pull-right" id="btn_submit">Load and parse</button>
+            </p>
+          </fieldset>
+        </form>
+        <fieldset>
+          <legend>Result</legend>
+          <p>
+            <textarea id="area_result" rows="12" cols="48"></textarea>
+          </p>
+        </fieldset>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    import { extract } from 'https://unpkg.com/article-parser@latest/dist/article-parser.esm.js'
+
+    const loadFeed = async (url, useProxy = false) => {
+      const data = await extract(url, {
+        descriptionLengthThreshold: 120,
+        contentLengthThreshold: 300
+      }, {
+        proxy: useProxy ? { target: '/proxy/gethtml?url=' } : null
+      })
+      return Object.assign(Object.create(null), data) // use pure object to hold data
+    }
+
+    const init = () => {
+      const form = document.getElementById('form_parser')
+      const url = document.getElementById('input_url')
+      const ckbox = document.getElementById('ckb_proxy')
+      const button = document.getElementById('btn_submit')
+      const txtarea = document.getElementById('area_result')
+
+      const onSubmit = async (e) => {
+        e.preventDefault()
+        const feedurl = url.value.trim()
+        if (!feedurl || button.disabled) {
+          return false
+        }
+        button.setAttribute('disabled', '')
+        try {
+          const oembed = await loadFeed(feedurl, ckbox.checked)
+          txtarea.value = JSON.stringify(oembed, undefined, '  ')
+        } catch (err) {
+          txtarea.value = err.message
+        } finally {
+          button.removeAttribute('disabled')
+        }
+      }
+      form.addEventListener('submit', onSubmit)
+    }
+
+    window.onload = init
+  </script>
+</html>

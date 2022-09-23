@@ -11,9 +11,6 @@ export interface Transformation {
 export function addTransformations(transformations: Array<Transformation>): Number;
 export function removeTransformations(options: Array<RegExp>): Number;
 
-export function getParserOptions(): ParserOptions;
-export function setParserOptions(options: ParserOptions): void;
-
 export function getSanitizeHtmlOptions(): SanitizeOptions;
 export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
 
@@ -23,25 +20,43 @@ export function setSanitizeHtmlOptions(options: SanitizeOptions): void;
 
 export interface ParserOptions {
   /**
-   * For estimating "time to read".
+   * to estimate time to read.
    * Default: 300
    */
   wordsPerMinute: number
   /**
-   * Min num of chars required for description
-   * Default: 40
-   */
-  descriptionLengthThreshold: number
-  /**
-   * Max num of chars generated for description
-   * Default: 156
+   * max num of chars generated for description
+   * Default: 210
    */
   descriptionTruncateLen: number
   /**
-   * Min num of chars required for content
+   * min num of chars required for description
+   * Default: 180
+   */
+  descriptionLengthThreshold: number
+  /**
+   * min num of chars required for content
    * Default: 200
    */
   contentLengthThreshold: number
+}
+
+export interface ProxyConfig {
+  target?: string;
+  headers?: string[];
+}
+
+export interface FetchOptions {
+  /**
+   * list of request headers
+   * default: null
+   */
+  headers?: string[];
+  /**
+   * the values to configure proxy
+   * default: null
+   */
+  proxy?: ProxyConfig;
 }
 
 export interface ArticleData {
@@ -57,4 +72,4 @@ export interface ArticleData {
   ttr?: number;
 }
 
-export function extract(input: string): Promise<ArticleData>;
+export function extract(input: string, parserOptions?: ParserOptions, fetchOptions?: FetchOptions): Promise<ArticleData>;

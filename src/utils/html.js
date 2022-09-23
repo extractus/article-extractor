@@ -2,7 +2,6 @@
 
 import { DOMParser } from 'linkedom'
 import sanitize from 'sanitize-html'
-import { crush } from 'html-crush'
 
 import { getSanitizeHtmlOptions } from '../config.js'
 
@@ -11,30 +10,20 @@ export const isValid = (str = '') => {
   return reg.test(str)
 }
 
-export const cleanify = html => {
+export const purify = html => {
   return sanitize(html, {
     allowedTags: false,
     allowedAttributes: false
   })
 }
 
-const htmlCrushOptions = {
-  removeHTMLComments: 2,
-  removeLineBreaks: true
-}
-
 /**
  * @param inputHtml {string}
  * @returns cleanHtml {string}
  */
-export const cleanAndMinify = (inputHtml) => {
+export const cleanify = (inputHtml) => {
   const doc = new DOMParser().parseFromString(inputHtml, 'text/html')
-
   const html = doc.documentElement.innerHTML
-
-  const crushed = crush(html, htmlCrushOptions)
-
-  const cleanHtml = sanitize(crushed.result, getSanitizeHtmlOptions())
-
-  return cleanHtml.trim()
+  const cleanHtml = sanitize(html, getSanitizeHtmlOptions())
+  return cleanHtml.replace(/[\r\n]/gm, '').replace(/  +/g, ' ').trim()
 }

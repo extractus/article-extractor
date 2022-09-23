@@ -7,8 +7,6 @@ import nock from 'nock'
 
 import {
   extract,
-  getParserOptions,
-  setParserOptions,
   getSanitizeHtmlOptions,
   setSanitizeHtmlOptions,
   addTransformations,
@@ -26,8 +24,6 @@ const parseUrl = (url) => {
 describe('check all exported methods', () => {
   const fns = [
     extract,
-    getParserOptions,
-    setParserOptions,
     getSanitizeHtmlOptions,
     setSanitizeHtmlOptions,
     addTransformations,
