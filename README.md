@@ -29,7 +29,7 @@ pnpm i article-parser
 yarn add article-parser
 ```
 
-```js
+```ts
 // es6 module
 import { extract } from 'article-parser'
 
@@ -48,7 +48,7 @@ import { extract } from 'https://esm.sh/article-parser'
 
 ### Browser
 
-```js
+```ts
 import { extract } from 'https://unpkg.com/article-parser@latest/dist/article-parser.esm.js'
 ```
 
@@ -57,7 +57,7 @@ Please check [the examples](https://github.com/ndaidong/article-parser/tree/main
 
 ## APIs
 
-- [.extract()](#extract)
+- [extract()](#extract)
 - [Transformations](#transformations)
   - [`transformation` object](#transformation-object)
   - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
@@ -175,7 +175,7 @@ extract(url, null, {
 })
 ```
 
-Passing requests to proxy is useful while running `article-parser` on browser. View `examples/browser-article-parser` as reference example.
+Passing requests to proxy is useful while running `article-parser` on browser. View [examples/browser-article-parser](https://github.com/ndaidong/article-parser/tree/main/examples/browser-article-parser) as reference example.
 
 ---
 
@@ -211,7 +211,7 @@ Basically, the meaning of `transformation` can be interpreted like this:
 
 Here is an example transformation:
 
-```js
+```ts
 {
   patterns: [
     /([\w]+.)?domain.tld\/*/,
@@ -372,6 +372,7 @@ There are 2 methods to access and modify these options in `article-parser`.
 
 Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
 
+---
 
 ## Quick evaluation
 
