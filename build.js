@@ -29,7 +29,7 @@ const baseOpt = {
   target: ['es2020', 'node14'],
   pure: ['console.log', 'debug', 'alert'],
   legalComments: 'none',
-  minify: false,
+  minify: true,
   sourcemap: false,
   write: true
 }

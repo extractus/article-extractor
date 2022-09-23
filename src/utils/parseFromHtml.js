@@ -2,7 +2,7 @@
 
 import { stripTags, truncate, unique, pipe } from 'bellajs'
 
-import { cleanify, cleanAndMinify as cleanAndMinifyHtml } from './html.js'
+import { purify, cleanify } from './html.js'
 
 import {
   isValid as isValidUrl,
@@ -30,7 +30,7 @@ const summarize = (desc, txt, threshold, maxlen) => {
 }
 
 export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
-  const html = cleanify(inputHtml)
+  const html = purify(inputHtml)
   const meta = extractMetaData(html)
   let title = meta.title
 
@@ -88,7 +88,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
       return input ? execPostParser(input, links) : null
     },
     (input) => {
-      return input ? cleanAndMinifyHtml(input) : null
+      return input ? cleanify(input) : null
     }
   )
 
