@@ -185,9 +185,7 @@ Sometimes the default extraction algorithm may not work well. That is the time w
 
 By adding some functions before and after the main extraction step, we aim to come up with a better result as much as possible.
 
-`transformation` is available since `article-parser@7.0.0`, as the improvement of `queryRule` in the older versions.
-
-To play with transformations, `article-parser` provides 2 public methods as below:
+There are 2 methods to play with transformations:
 
 - `addTransformations(Object transformation | Array transformations)`
 - `removeTransformations(Array patterns)`
@@ -200,7 +198,7 @@ In `article-parser`, `transformation` is an object with the following properties
 
 - `patterns`: required, a list of regexps to match the URLs
 - `pre`: optional, a function to process raw HTML
-- `post`: optional, a function to proces extracted article
+- `post`: optional, a function to process extracted article
 
 Basically, the meaning of `transformation` can be interpreted like this:
 
@@ -330,7 +328,7 @@ While processing an article, more than one transformation can be applied.
 
 Suppose that we have the following transformations:
 
-```js
+```ts
 [
   {
     patterns: [
@@ -361,7 +359,7 @@ In this scenario, `article-parser` will execute both transformations, one by one
 
 ### `sanitize-html`'s options
 
-`article-parser` use [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
+`article-parser` uses [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
 
 Here is the [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
 

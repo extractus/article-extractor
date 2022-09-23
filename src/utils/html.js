@@ -25,5 +25,5 @@ export const cleanify = (inputHtml) => {
   const doc = new DOMParser().parseFromString(inputHtml, 'text/html')
   const html = doc.documentElement.innerHTML
   const cleanHtml = sanitize(html, getSanitizeHtmlOptions())
-  return cleanHtml.trim()
+  return cleanHtml.replace(/[\r\n]/gm, '').replace(/  +/g, ' ').trim()
 }
