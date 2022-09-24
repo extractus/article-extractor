@@ -11,7 +11,7 @@ import {
 import { execSync } from 'child_process'
 
 const dirs = [
-  'dist',
+  'evaluation',
   'docs',
   '.nyc_output',
   'coverage',

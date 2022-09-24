@@ -177,6 +177,10 @@ extract(url, null, {
 
 Passing requests to proxy is useful while running `article-parser` on browser. View [examples/browser-article-parser](https://github.com/ndaidong/article-parser/tree/main/examples/browser-article-parser) as reference example.
 
+For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
+
+For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
+
 ---
 
 ### Transformations
