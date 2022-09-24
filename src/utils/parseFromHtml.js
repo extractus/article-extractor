@@ -49,7 +49,8 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     wordsPerMinute = 300,
     descriptionTruncateLen = 210,
     descriptionLengthThreshold = 180,
-    contentLengthThreshold = 200
+    contentLengthThreshold = 200,
+    removeLineBreaks = true
   } = parserOptions
 
   // gather title
@@ -88,7 +89,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
       return input ? execPostParser(input, links) : null
     },
     (input) => {
-      return input ? cleanify(input) : null
+      return input ? cleanify(input, removeLineBreaks) : null
     }
   )
 

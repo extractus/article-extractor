@@ -2,19 +2,23 @@
 
 import { DOMParser } from 'linkedom'
 import sanitize from 'sanitize-html'
+import { pipe } from 'bellajs'
 
 import { getSanitizeHtmlOptions } from '../config.js'
 
-export const purify = html => {
+export const purify = (html) => {
   return sanitize(html, {
     allowedTags: false,
     allowedAttributes: false
   })
 }
 
-export const cleanify = (inputHtml) => {
+export const cleanify = (inputHtml, removeLineBreaks = true) => {
   const doc = new DOMParser().parseFromString(inputHtml, 'text/html')
   const html = doc.documentElement.innerHTML
-  const cleanHtml = sanitize(html, getSanitizeHtmlOptions())
-  return cleanHtml.replace(/[\r\n]/gm, '').replace(/  +/g, ' ').trim()
+  return pipe(
+    input => sanitize(input, getSanitizeHtmlOptions()),
+    input => removeLineBreaks ? input.replace(/[\r\n]/gm, '') : input,
+    input => input.replace(/  +/g, ' ').trim()
+  )(html)
 }

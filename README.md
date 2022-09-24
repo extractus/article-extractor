@@ -124,6 +124,7 @@ Object with all or several of the following properties:
   - `descriptionTruncateLen`: Number, max num of chars generated for description. Default `210`.
   - `descriptionLengthThreshold`: Number, min num of chars required for description. Default `180`.
   - `contentLengthThreshold`: Number, min num of chars required for content. Default `200`.
+  - `removeLineBreaks`: Boolean, keep or remove all line breaks. Default `true`
 
 For example:
 
