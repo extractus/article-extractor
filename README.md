@@ -124,7 +124,6 @@ Object with all or several of the following properties:
   - `descriptionTruncateLen`: Number, max num of chars generated for description. Default `210`.
   - `descriptionLengthThreshold`: Number, min num of chars required for description. Default `180`.
   - `contentLengthThreshold`: Number, min num of chars required for content. Default `200`.
-  - `removeLineBreaks`: Boolean, keep or remove all line breaks. Default `true`
 
 For example:
 
@@ -177,6 +176,10 @@ extract(url, null, {
 ```
 
 Passing requests to proxy is useful while running `article-parser` on browser. View [examples/browser-article-parser](https://github.com/ndaidong/article-parser/tree/main/examples/browser-article-parser) as reference example.
+
+For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
+
+For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
 
 ---
 
