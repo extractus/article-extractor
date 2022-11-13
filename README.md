@@ -8,8 +8,6 @@ Extract main article, main image and meta data from URL.
 ![CodeQL](https://github.com/ndaidong/article-parser/workflows/CodeQL/badge.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ndaidong/article-parser-deta)
-
 
 ## Intro
 
@@ -77,6 +75,13 @@ import { extract } from 'https://unpkg.com/article-parser@latest/dist/article-pa
 ```
 
 Please check [the examples](https://github.com/ndaidong/article-parser/tree/main/examples) for reference.
+
+
+### Deta cloud
+
+For [Deta](https://www.deta.sh/) devs please refer [the source code and guideline here](https://github.com/ndaidong/article-parser-deta) or simply click the button below.
+
+[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ndaidong/article-parser-deta)
 
 
 ## APIs
