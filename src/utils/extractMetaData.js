@@ -41,7 +41,10 @@ export default (html) => {
     'twitter:description'
   ]
   const imageAttrs = [
+    'image',
     'og:image',
+    'og:image:url',
+    'og:image:secure_url',
     'twitter:image',
     'twitter:image:src'
   ]
@@ -57,7 +60,18 @@ export default (html) => {
     'article:published_time',
     'article:modified_time',
     'og:updated_time',
-    'datepublished'
+    'dc.date',
+    'dc.date.issued',
+    'dc.date.created',
+    'dc:created',
+    'dcterms.date',
+    'datepublished',
+    'datemodified',
+    'updated_time',
+    'modified_time',
+    'published_time',
+    'release_date',
+    'date'
   ]
 
   const document = new DOMParser().parseFromString(html, 'text/html')
