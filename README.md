@@ -10,10 +10,34 @@ Extract main article, main image and meta data from URL.
 
 [![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ndaidong/article-parser-deta)
 
+
+## Intro
+
+*article-parser* is a part of tool sets for content builder:
+
+- [feed-reader](https://github.com/ndaidong/feed-reader): extract & normalize RSS/ATOM/JSON feed
+- [article-parser](https://github.com/ndaidong/article-parser): extract main article from given URL
+- [oembed-parser](https://github.com/ndaidong/oembed-parser): extract oEmbed data from supported providers
+
+You can use one or combination of these tools to build news sites, create automated content systems for marketing campaign or gather dataset for NLP projects...
+
+```
+                                    ┌────────────────┐
+                            ┌───────► article-parser ├──────────┐
+                            │       └────────────────┘          │
+┌─────────────┐   ┌─────────┴────┐                     ┌────────▼─────────┐   ┌─────────────┐
+│ feed-reader ├───► feed entries │                     │ content database ├───► public APIs │
+└─────────────┘   └─────────┬────┘                     └────────▲─────────┘   └─────────────┘
+                            │       ┌────────────────┐          │
+                            └───────► oembed-parser  ├──────────┘
+                                    └────────────────┘
+```
+
 ## Demo
 
 - [Give it a try!](https://demos.pwshub.com/article-parser)
 - [Example FaaS](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world)
+
 
 ## Install & Usage
 
@@ -215,7 +239,7 @@ Basically, the meaning of `transformation` can be interpreted like this:
 
 Here is an example transformation:
 
-```ts
+```js
 {
   patterns: [
     /([\w]+.)?domain.tld\/*/,
