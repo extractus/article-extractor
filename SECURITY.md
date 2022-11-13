@@ -12,6 +12,6 @@ Description above is a general rule and may be altered on case by case basis.
 
 You can report low severity vulnerabilities as GitHub issues.
 
-More severe vulnerabilities should be reported to the my email ndaidong@gmail.com or Twitter [@ndaidong](https://twitter.com/ndaidong).
+More severe vulnerabilities should be reported to my email ndaidong@gmail.com or Twitter [@ndaidong](https://twitter.com/ndaidong).
 
 ---
