@@ -2,9 +2,9 @@
 
 Extract main article, main image and meta data from URL.
 
-[![NPM](https://badge.fury.io/js/@extractus%2Farticle-extractor.svg)](https://badge.fury.io/js/@extractus%2Farticle-extractor)
+[![npm version](https://badge.fury.io/js/@extractus%2Farticle-extractor.svg)](https://badge.fury.io/js/@extractus%2Farticle-extractor)
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/extractus/article-extractor/badge.svg)](https://coveralls.io/github/extractus/article-extractor)
+[![Coverage Status](https://img.shields.io/coveralls/github/extractus/article-extractor)](https://coveralls.io/github/extractus/article-extractor?branch=main)
 ![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
