@@ -9,8 +9,8 @@ import {
 
 const pkg = JSON.parse(readFileSync('./package.json'))
 
-const esmFile = `./dist/${pkg.name}.esm.js`
-const cjsFile = `./dist/cjs/${pkg.name}.js`
+const esmFile = './dist/article-extractor.esm.js'
+const cjsFile = './dist/cjs/article-extractor.js'
 const cjsPkg = JSON.parse(readFileSync('./dist/cjs/package.json'))
 const cjsType = './dist/cjs/index.d.ts'
 

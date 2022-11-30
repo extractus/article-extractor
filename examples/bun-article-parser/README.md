@@ -3,10 +3,8 @@
 To install dependencies:
 
 ```bash
-bun install --backend=copyfile
+bun i
 ```
-
-*I don't know why `bun install` doesn't work on my environment ([oven-sh/bun#1248](https://github.com/oven-sh/bun/issues/1248))*
 
 Start server:
 

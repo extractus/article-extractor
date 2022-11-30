@@ -1,35 +1,27 @@
-# article-parser
+# @extractus/article-extractor
 
 Extract main article, main image and meta data from URL.
 
-[![NPM](https://badge.fury.io/js/article-parser.svg)](https://badge.fury.io/js/article-parser)
-![CI test](https://github.com/ndaidong/article-parser/workflows/ci-test/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/ndaidong/article-parser/badge.svg)](https://coveralls.io/github/ndaidong/article-parser)
-![CodeQL](https://github.com/ndaidong/article-parser/workflows/CodeQL/badge.svg)
+[![NPM](https://badge.fury.io/js/@extractus%2Farticle-extractor.svg)](https://badge.fury.io/js/@extractus%2Farticle-extractor)
+![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/extractus/article-extractor/badge.svg)](https://coveralls.io/github/extractus/article-extractor)
+![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
 ## Intro
 
-*article-parser* is a part of tool sets for content builder:
+*article-extractor* is a part of tool sets for content builder:
 
-- [feed-reader](https://github.com/ndaidong/feed-reader): extract & normalize RSS/ATOM/JSON feed
-- [article-parser](https://github.com/ndaidong/article-parser): extract main article from given URL
-- [oembed-parser](https://github.com/ndaidong/oembed-parser): extract oEmbed data from supported providers
+- [feed-extractor](https://github.com/extractus/feed-extractor): extract & normalize RSS/ATOM/JSON feed
+- [article-extractor](https://github.com/extractus/article-extractor): extract main article from given URL
+- [oembed-extractor](https://github.com/extractus/oembed-extractor): extract oEmbed data from supported providers
 
 You can use one or combination of these tools to build news sites, create automated content systems for marketing campaign or gather dataset for NLP projects...
 
-```
-                                    ┌────────────────┐
-                            ┌───────► article-parser ├──────────┐
-                            │       └────────────────┘          │
-┌─────────────┐   ┌─────────┴────┐                     ┌────────▼─────────┐   ┌─────────────┐
-│ feed-reader ├───► feed entries │                     │ content database ├───► public APIs │
-└─────────────┘   └─────────┬────┘                     └────────▲─────────┘   └─────────────┘
-                            │       ┌────────────────┐          │
-                            └───────► oembed-parser  ├──────────┘
-                                    └────────────────┘
-```
+### Attention
+
+`article-parser` has been renamed to `@extractus/article-extractor` since v7.2.5
 
 ## Demo
 
@@ -42,39 +34,43 @@ You can use one or combination of these tools to build news sites, create automa
 ### Node.js
 
 ```bash
-npm i article-parser
+npm i @extractus/article-extractor
 
 # pnpm
-pnpm i article-parser
+pnpm i @extractus/article-extractor
 
 # yarn
-yarn add article-parser
+yarn add @extractus/article-extractor
 ```
 
 ```ts
 // es6 module
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
 // CommonJS
-const { extract } = require('article-parser')
+const { extract } = require('@extractus/article-extractor')
 
 // or specify exactly path to CommonJS variant
-const { extract } = require('article-parser/dist/cjs/article-parser.js')
+const { extract } = require('@extractus/article-extractor/dist/cjs/article-extractor.js')
 ```
 
 ### Deno
 
 ```ts
-import { extract } from 'https://esm.sh/article-parser'
+// deno > 1.28
+import { extract } from 'npm:@extractus/article-extractor'
+
+// deno < 1.28
+// import { extract } from 'https://esm.sh/@extractus/article-extractor'
 ```
 
 ### Browser
 
 ```ts
-import { extract } from 'https://unpkg.com/article-parser@latest/dist/article-parser.esm.js'
+import { read } from 'https://unpkg.com/@extractus/article-extractor@latest/dist/article-extractor.esm.js'
 ```
 
-Please check [the examples](https://github.com/ndaidong/article-parser/tree/main/examples) for reference.
+Please check [the examples](examples) for reference.
 
 
 ### Deta cloud
@@ -117,7 +113,7 @@ URL string links to the article or HTML content of that web page.
 For example:
 
 ```js
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
 const input = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
 extract(input)
@@ -157,12 +153,14 @@ Object with all or several of the following properties:
 For example:
 
 ```js
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
-extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {
+const article = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {
   descriptionLengthThreshold: 120,
   contentLengthThreshold: 500
 })
+
+console.log(article)
 ```
 
 ##### `fetchOptions` *optional*
@@ -172,14 +170,16 @@ You can use this param to set request headers to [fetch](https://developer.mozil
 For example:
 
 ```js
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
 const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-extract(url, null, {
+const article = await extract(url, null, {
   headers: {
     'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
   }
 })
+
+console.log(article)
 ```
 
 You can also specify a proxy endpoint to load remote content, instead of fetching directly.
@@ -187,11 +187,11 @@ You can also specify a proxy endpoint to load remote content, instead of fetchin
 For example:
 
 ```js
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
 const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
 
-extract(url, null, {
+await extract(url, null, {
   headers: {
     'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
   },
@@ -204,7 +204,7 @@ extract(url, null, {
 })
 ```
 
-Passing requests to proxy is useful while running `article-parser` on browser. View [examples/browser-article-parser](https://github.com/ndaidong/article-parser/tree/main/examples/browser-article-parser) as reference example.
+Passing requests to proxy is useful while running `@extractus/article-extractor` on browser. View [examples/browser-article-parser](examples/browser-article-parser) as reference example.
 
 For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 
@@ -227,7 +227,7 @@ At first, let's talk about `transformation` object.
 
 #### `transformation` object
 
-In `article-parser`, `transformation` is an object with the following properties:
+In `@extractus/article-extractor`, `transformation` is an object with the following properties:
 
 - `patterns`: required, a list of regexps to match the URLs
 - `pre`: optional, a function to process raw HTML
@@ -240,11 +240,11 @@ Basically, the meaning of `transformation` can be interpreted like this:
 > then extract main article content with normalized HTML, and if success <br>
 > let's run `post` function to normalize extracted article content
 
-![article-parser extraction process](https://res.cloudinary.com/pwshub/image/upload/v1657336822/documentation/article-parser_extraction_process.png)
+![article-extractor extraction process](https://res.cloudinary.com/pwshub/image/upload/v1657336822/documentation/article-parser_extraction_process.png)
 
 Here is an example transformation:
 
-```js
+```ts
 {
   patterns: [
     /([\w]+.)?domain.tld\/*/,
@@ -288,8 +288,8 @@ Here is an example transformation:
 
 Add a single transformation or a list of transformations. For example:
 
-```js
-import { addTransformations } from 'article-parser'
+```ts
+import { addTransformations } from '@extractus/article-extractor'
 
 addTransformations({
   patterns: [
@@ -344,7 +344,7 @@ To remove transformations that match the specific patterns.
 For example, we can remove all added transformations above:
 
 ```js
-import { removeTransformations } from 'article-parser'
+import { removeTransformations } from '@extractus/article-extractor'
 
 removeTransformations([
   /([\w]+.)?abc.tld\/*/,
@@ -384,7 +384,7 @@ Suppose that we have the following transformations:
 
 As you can see, an article from `goo.gl` certainly matches both them.
 
-In this scenario, `article-parser` will execute both transformations, one by one:
+In this scenario, `@extractus/article-extractor` will execute both transformations, one by one:
 
 `function_one` -> `function_three` -> extraction -> `function_two` -> `function_four`
 
@@ -392,13 +392,13 @@ In this scenario, `article-parser` will execute both transformations, one by one
 
 ### `sanitize-html`'s options
 
-`article-parser` uses [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
+`@extractus/article-extractor` uses [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
 
-Here is the [default options](https://github.com/ndaidong/article-parser/blob/main/src/config.js#L5)
+Here is the [default options](src/config.js#L5)
 
 Depending on the needs of your content system, you might want to gather some HTML tags/attributes, while ignoring others.
 
-There are 2 methods to access and modify these options in `article-parser`.
+There are 2 methods to access and modify these options in `@extractus/article-extractor`.
 
 - `getSanitizeHtmlOptions()`
 - `setSanitizeHtmlOptions(Object sanitizeHtmlOptions)`
@@ -410,8 +410,8 @@ Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-de
 ## Quick evaluation
 
 ```bash
-git clone https://github.com/ndaidong/article-parser.git
-cd article-parser
+git clone https://github.com/extractus/article-extractor.git
+cd article-extractor
 pnpm i
 
 npm run eval {URL_TO_PARSE_ARTICLE}

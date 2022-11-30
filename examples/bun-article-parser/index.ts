@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
 const app = new Hono()
 

@@ -1,5 +1,5 @@
 import express from 'express'
-import { extract } from 'article-parser'
+import { extract } from '@extractus/article-extractor'
 
 const app = express()
 

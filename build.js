@@ -38,7 +38,7 @@ const esmVersion = {
   ...baseOpt,
   platform: 'browser',
   format: 'esm',
-  outfile: `dist/${pkg.name}.esm.js`,
+  outfile: 'dist/article-extractor.esm.js',
   banner: {
     js: comment
   }
@@ -50,7 +50,7 @@ const cjsVersion = {
   platform: 'node',
   format: 'cjs',
   mainFields: ['main'],
-  outfile: `dist/cjs/${pkg.name}.js`,
+  outfile: 'dist/cjs/article-extractor.js',
   banner: {
     js: comment
   }
@@ -60,7 +60,7 @@ buildSync(cjsVersion)
 const cjspkg = {
   name: pkg.name,
   version: pkg.version,
-  main: `./${pkg.name}.js`
+  main: './article-extractor.js'
 }
 
 writeFileSync(
