@@ -1,7 +1,12 @@
 import { serve } from 'https://deno.land/std/http/server.ts'
 
 import { Hono } from 'https://deno.land/x/hono@v2.1.4/mod.ts'
-import { extract } from 'https://esm.sh/article-parser@latest'
+
+// for deno > 1.28 only
+import { extract } from 'npm:@extractus/article-extractor'
+
+// for deno < 1.28
+// import { extract } from 'https://esm.sh/@extractus/article-extractor'
 
 const app = new Hono()
 
