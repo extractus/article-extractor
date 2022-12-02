@@ -402,13 +402,24 @@ Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-de
 
 ---
 
+## Test
+
+```bash
+git clone https://github.com/extractus/article-extractor.git
+cd article-extractor
+npm i
+npm test
+```
+
+![article-extractor-test.png](https://i.imgur.com/TbRCUSS.png)
+
+
 ## Quick evaluation
 
 ```bash
 git clone https://github.com/extractus/article-extractor.git
 cd article-extractor
-pnpm i
-
+npm i
 npm run eval {URL_TO_PARSE_ARTICLE}
 ```
 
