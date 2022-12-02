@@ -31,8 +31,8 @@ jobs:
 
     - name: Coverage monitor
       uses: slavcodev/coverage-monitor-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: cache node modules
       uses: actions/cache@v3
