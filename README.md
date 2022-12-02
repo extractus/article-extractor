@@ -2,9 +2,7 @@
 
 Extract main article, main image and meta data from URL.
 
-[![npm version](https://badge.fury.io/js/@extractus%2Farticle-extractor.svg)](https://badge.fury.io/js/@extractus%2Farticle-extractor)
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
-[![Coverage Status](https://img.shields.io/coveralls/github/extractus/article-extractor)](https://coveralls.io/github/extractus/article-extractor?branch=main)
 ![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -25,8 +23,8 @@ You can use one or combination of these tools to build news sites, create automa
 
 ## Demo
 
-- [Give it a try!](https://demos.pwshub.com/article-parser)
-- [Example FaaS](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world)
+- [Give it a try!](https://extractor-demos.pages.dev/article-extractor)
+- [Example FaaS](https://extractus.deno.dev/extract?apikey=rn0wbHos2e73W6ghQf705bdF&type=article&url=https://github.blog/2022-11-17-octoverse-2022-10-years-of-tracking-open-source/)
 
 
 ## Install & Usage
@@ -137,9 +135,6 @@ The result - `article` - can be `null` or an object with the following structure
   ttr: Number, // time to read in second, 0 = unknown
 }
 ```
-
-[Click here](https://extract-article.deta.dev/?url=https://www.freethink.com/technology/virtual-world) for seeing an actual result.
-
 
 ##### `parserOptions` *optional*
 
