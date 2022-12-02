@@ -29,8 +29,8 @@ jobs:
         npm run build --if-present
         npm run test
 
-    - name: Jest coverage report
-      uses: ArtiomTr/jest-coverage-report-action@v2.1.2
+    - name: Coverage monitor
+      uses: slavcodev/coverage-monitor-action@v1
 
     - name: cache node modules
       uses: actions/cache@v3
