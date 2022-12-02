@@ -57,7 +57,7 @@ cd article-extractor
 npm test
 ```
 
-![article-extractor unit test](https://i.imgur.com/TbRCUSS.png)
+![article-extractor unit test](https://i.imgur.com/TbRCUSS.png?110222)
 
 If test coverage decreased, please check test scripts and try to improve this number.
 

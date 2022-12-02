@@ -411,7 +411,7 @@ npm i
 npm test
 ```
 
-![article-extractor-test.png](https://i.imgur.com/TbRCUSS.png)
+![article-extractor-test.png](https://i.imgur.com/TbRCUSS.png?110222)
 
 
 ## Quick evaluation
