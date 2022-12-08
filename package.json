@@ -1,5 +1,5 @@
 {
-  "version": "7.2.7",
+  "version": "7.2.8rc1",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -15,7 +15,8 @@
     "require": "./dist/cjs/article-extractor.js"
   },
   "imports": {
-    "cross-fetch": "./src/deno/cross-fetch.js"
+    "cross-fetch": "./src/deno/cross-fetch.js",
+    "linkedom": "./src/deno/linkedom.js"
   },
   "browser": {
     "linkedom": "./src/browser/linkedom.js"
