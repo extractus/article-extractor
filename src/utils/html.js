@@ -9,7 +9,7 @@ import { getSanitizeHtmlOptions } from '../config.js'
 export const purify = (html) => {
   return sanitize(html, {
     allowedTags: false,
-    allowedAttributes: false
+    allowedAttributes: false,
   })
 }
 

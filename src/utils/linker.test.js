@@ -17,36 +17,36 @@ describe('test isValidUrl()', () => {
   const cases = [
     {
       url: 'https://www.23hq.com',
-      expected: true
+      expected: true,
     },
     {
       url: 'https://secure.actblue.com',
-      expected: true
+      expected: true,
     },
     {
       url: 'https://docs.microsoft.com/en-us/azure/iot-edge/quickstart?view=iotedge-2018-06',
-      expected: true
+      expected: true,
     },
     {
       url: 'http://192.168.1.199:8081/example/page',
-      expected: true
+      expected: true,
     },
     {
       url: 'ftp://192.168.1.199:8081/example/page',
-      expected: false
+      expected: false,
     },
     {
       url: '',
-      expected: false
+      expected: false,
     },
     {
       url: null,
-      expected: false
+      expected: false,
     },
     {
       url: { a: 'x' },
-      expected: false
-    }
+      expected: false,
+    },
   ]
   cases.forEach(({ url, expected }) => {
     test(`isValidUrl("${url}") must return "${expected}"`, () => {
@@ -93,41 +93,41 @@ describe('test purifyUrl()', () => {
   const entries = [
     {
       url: '',
-      expected: null
+      expected: null,
     },
     {
       url: {},
-      expected: null
+      expected: null,
     },
     {
       url: 'https://some.where/article/abc-xyz',
-      expected: 'https://some.where/article/abc-xyz'
+      expected: 'https://some.where/article/abc-xyz',
     },
     {
       url: 'https://some.where/article/abc-xyz#name,bob',
-      expected: 'https://some.where/article/abc-xyz'
+      expected: 'https://some.where/article/abc-xyz',
     },
     {
       url: 'https://some.where/article/abc-xyz?utm_source=news4&utm_medium=email&utm_campaign=spring-summer',
-      expected: 'https://some.where/article/abc-xyz'
+      expected: 'https://some.where/article/abc-xyz',
     },
     {
       url: 'https://some.where/article/abc-xyz?q=3&utm_source=news4&utm_medium=email&utm_campaign=spring-summer',
-      expected: 'https://some.where/article/abc-xyz?q=3'
+      expected: 'https://some.where/article/abc-xyz?q=3',
     },
     {
       url: 'https://some.where/article/abc-xyz?pk_source=news4&pk_medium=email&pk_campaign=spring-summer',
-      expected: 'https://some.where/article/abc-xyz'
+      expected: 'https://some.where/article/abc-xyz',
     },
     {
       url: 'https://some.where/article/abc-xyz?q=3&pk_source=news4&pk_medium=email&pk_campaign=spring-summer',
-      expected: 'https://some.where/article/abc-xyz?q=3'
-    }
+      expected: 'https://some.where/article/abc-xyz?q=3',
+    },
   ]
   entries.forEach((entry) => {
     const {
       url,
-      expected
+      expected,
     } = entry
     test(`purifyUrl("${url}") must become "${expected}"`, () => {
       const result = purifyUrl(url)
@@ -140,37 +140,37 @@ describe('test absolutifyUrl()', () => {
   const entries = [
     {
       full: '',
-      expected: ''
+      expected: '',
     },
     {
       relative: {},
-      expected: ''
+      expected: '',
     },
     {
       full: 'https://some.where/article/abc-xyz',
       relative: 'category/page.html',
-      expected: 'https://some.where/article/category/page.html'
+      expected: 'https://some.where/article/category/page.html',
     },
     {
       full: 'https://some.where/article/abc-xyz',
       relative: '../category/page.html',
-      expected: 'https://some.where/category/page.html'
+      expected: 'https://some.where/category/page.html',
     },
     {
       full: 'https://some.where/blog/authors/article/abc-xyz',
       relative: '/category/page.html',
-      expected: 'https://some.where/category/page.html'
+      expected: 'https://some.where/category/page.html',
     },
     {
       full: 'https://some.where/article/abc-xyz',
-      expected: 'https://some.where/article/abc-xyz'
-    }
+      expected: 'https://some.where/article/abc-xyz',
+    },
   ]
   entries.forEach((entry) => {
     const {
       full,
       relative,
-      expected
+      expected,
     } = entry
     test(`absolutifyUrl("${full}", "${relative}") must become "${expected}"`, () => {
       const result = absolutifyUrl(full, relative)
@@ -187,7 +187,7 @@ describe('test chooseBestUrl()', () => {
       'https://alpha.xyz/tin-tuc-kinh-doanh/view/2965950/907893219797',
       'https://alpha.xyz/tin-tuc-kinh-doanh/google-da-ra-gia-mua-fitbit',
       'https://a.xyz/read/google-da-ra-gia-mua-fitbit',
-      'https://a.xyz/read/2965950/907893219797'
+      'https://a.xyz/read/2965950/907893219797',
     ]
     const result = chooseBestUrl(urls, title)
     expect(result).toBe(urls[3])

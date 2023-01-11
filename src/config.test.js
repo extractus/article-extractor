@@ -10,14 +10,14 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   setSanitizeHtmlOptions({
     allowedTags: ['div', 'span'],
     allowedAttributes: {
-      a: ['href', 'title']
-    }
+      a: ['href', 'title'],
+    },
   })
 
   const actual = getSanitizeHtmlOptions()
   const actualAllowedAttributes = actual.allowedAttributes
   const expectedAllowedAttributes = {
-    a: ['href', 'title']
+    a: ['href', 'title'],
   }
 
   expect(actualAllowedAttributes).toEqual(expectedAllowedAttributes)
@@ -27,7 +27,7 @@ test('Testing setSanitizeHtmlOptions/getSanitizeHtmlOptions methods', () => {
   expect(actualAllowedTags).toEqual(expectedAllowedTags)
 
   setSanitizeHtmlOptions({
-    allowedTags: []
+    allowedTags: [],
   })
 
   expect(getSanitizeHtmlOptions().allowedTags).toEqual([])

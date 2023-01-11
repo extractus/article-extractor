@@ -27,5 +27,9 @@ export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   return parseFromHtml(html, input, parserOptions)
 }
 
+export const extractFromHtml = async (html, url, parserOptions = {}) => {
+  return parseFromHtml(html, url, parserOptions)
+}
+
 export { addTransformations, removeTransformations } from './utils/transformation.js'
 export { setSanitizeHtmlOptions, getSanitizeHtmlOptions } from './config.js'

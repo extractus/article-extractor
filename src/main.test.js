@@ -17,7 +17,7 @@ const parseUrl = (url) => {
   const re = new URL(url)
   return {
     baseUrl: `${re.protocol}//${re.host}`,
-    path: re.pathname
+    path: re.pathname,
   }
 }
 
@@ -27,7 +27,7 @@ describe('check all exported methods', () => {
     getSanitizeHtmlOptions,
     setSanitizeHtmlOptions,
     addTransformations,
-    removeTransformations
+    removeTransformations,
   ]
 
   fns.forEach((fn) => {
@@ -47,7 +47,7 @@ describe('test extract(bad url)', () => {
     'fpt://abc.com/failed-none-sense',
     'ttp://badcom/146753785',
     'https://674458092126388225',
-    'https://soundcloud^(*%%$%^$$%$$*&(&)())'
+    'https://soundcloud^(*%%$%^$$%$$*&(&)())',
   ]
 
   badSamples.forEach((url) => {
@@ -62,37 +62,41 @@ describe('test extract(bad url)', () => {
 })
 
 describe('test extract(regular article url)', () => {
-  const expDesc = "Navigation here Few can name a rational peach that isn't a conscientious goldfish! One cannot separate snakes from plucky pomegranates? Draped neatly on a hanger, the melons could be said to resemble knowledgeable pigs."
+  const expDesc = [
+    'Navigation here Few can name a rational peach that isn\'t a conscientious goldfish!',
+    'One cannot separate snakes from plucky pomegranates?',
+    'Draped neatly on a hanger, the melons could be said to resemble knowledgeable pigs.',
+  ].join(' ')
   const cases = [
     {
       input: {
         url: 'https://somewhere.com/path/to/no/article',
-        html: readFileSync('./test-data/html-no-article.html', 'utf8')
+        html: readFileSync('./test-data/html-no-article.html', 'utf8'),
       },
       validate: (result, expect) => {
         expect(result).toBeFalsy()
-      }
+      },
     },
     {
       input: {
         url: 'https://somewhere.com/path/to/no/content',
-        html: ''
+        html: '',
       },
       validate: (result, expect) => {
         expect(result).toBeFalsy()
-      }
+      },
     },
     {
       input: {
         url: 'https://somewhere.com/path/to/article',
-        html: readFileSync('./test-data/regular-article.html', 'utf8')
+        html: readFileSync('./test-data/regular-article.html', 'utf8'),
       },
       validate: (result, expect) => {
         expect(result).toBeTruthy()
         expect(result.title).toEqual('Article title here')
         expect(result.description).toEqual(expDesc)
-      }
-    }
+      },
+    },
   ]
   cases.forEach(({ input, validate }) => {
     const { url, html, statusCode = 200 } = input
@@ -100,7 +104,7 @@ describe('test extract(regular article url)', () => {
     const scope = nock(baseUrl)
     scope.get(path)
       .reply(statusCode, html, {
-        'Content-Type': 'text/html'
+        'Content-Type': 'text/html',
       })
     test(`check extract("${url}")`, async () => {
       const result = await extract(url)

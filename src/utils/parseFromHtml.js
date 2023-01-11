@@ -23,7 +23,7 @@ import { execPreParser, execPostParser } from './transformation.js'
 
 import getTimeToRead from './getTimeToRead.js'
 
-const summarize = (desc, txt, threshold, maxlen) => {
+const summarize = (desc, txt, threshold, maxlen) => { // eslint-disable-line
   return desc.length > threshold
     ? desc
     : truncate(txt, maxlen).replace(/\n/g, ' ')
@@ -42,14 +42,14 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     description: metaDesc,
     image: metaImg,
     author,
-    published
+    published,
   } = meta
 
   const {
     wordsPerMinute = 300,
     descriptionTruncateLen = 210,
     descriptionLengthThreshold = 180,
-    contentLengthThreshold = 200
+    contentLengthThreshold = 200,
   } = parserOptions
 
   // gather title
@@ -71,7 +71,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     return null
   }
 
-  // choose the best url
+  // choose the best url, which one looks like title the most
   const bestUrl = chooseBestUrl(links, title)
 
   const fns = pipe(
@@ -122,6 +122,6 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     author,
     source: getDomain(bestUrl),
     published,
-    ttr: getTimeToRead(textContent, wordsPerMinute)
+    ttr: getTimeToRead(textContent, wordsPerMinute),
   }
 }

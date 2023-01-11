@@ -20,7 +20,7 @@ const sanitizeHtmlOptions = {
     'label',
     'abbr',
     'a',
-    'svg'
+    'svg',
   ],
   allowedAttributes: {
     h1: ['id'],
@@ -38,14 +38,14 @@ const sanitizeHtmlOptions = {
     audio: ['controls', 'width', 'height', 'autoplay', 'muted', 'loop', 'src'],
     source: ['src', 'srcset', 'data-srcset', 'type', 'media', 'sizes'],
     iframe: ['src', 'frameborder', 'height', 'width', 'scrolling', 'allow'],
-    svg: ['width', 'height'] // sanitize-html does not support svg fully yet
+    svg: ['width', 'height'], // sanitize-html does not support svg fully yet
   },
   allowedIframeDomains: [
     'youtube.com', 'vimeo.com', 'odysee.com',
     'soundcloud.com', 'audius.co',
     'github.com', 'codepen.com',
-    'twitter.com', 'facebook.com', 'instagram.com'
-  ]
+    'twitter.com', 'facebook.com', 'instagram.com',
+  ],
 }
 
 /**

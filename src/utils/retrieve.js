@@ -5,10 +5,10 @@ import fetch from 'cross-fetch'
 const profetch = async (url, proxy = {}) => {
   const {
     target,
-    headers = {}
+    headers = {},
   } = proxy
   const res = await fetch(target + encodeURIComponent(url), {
-    headers
+    headers,
   })
   return res
 }
@@ -16,7 +16,7 @@ const profetch = async (url, proxy = {}) => {
 export default async (url, options = {}) => {
   const {
     headers = {},
-    proxy = null
+    proxy = null,
   } = options
 
   const res = proxy ? await profetch(url, proxy) : await fetch(url, { headers })
