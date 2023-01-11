@@ -235,7 +235,8 @@ HTML string which contains the article you want to extract.
 
 ##### `url` *optional*
 
-`url` indicating the source of that HTML content. `article-extractor` may use this info to handle internal/relative links.
+URL string that indicates the source of that HTML content.
+`article-extractor` may use this info to handle internal/relative links.
 
 ##### `parserOptions` *optional*
 
