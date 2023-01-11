@@ -6,18 +6,8 @@ Extract main article, main image and meta data from URL.
 ![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/extractus/article-extractor/badge.svg?branch=main)](https://coveralls.io/github/extractus/article-extractor?branch=main)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![CodeFactor](https://www.codefactor.io/repository/github/extractus/article-extractor/badge)](https://www.codefactor.io/repository/github/extractus/article-extractor)
 
-
-## Intro
-
-*article-extractor* is a part of tool sets for content builder:
-
-- [feed-extractor](https://github.com/extractus/feed-extractor): extract & normalize RSS/ATOM/JSON feed
-- [article-extractor](https://github.com/extractus/article-extractor): extract main article from given URL
-- [oembed-extractor](https://github.com/extractus/oembed-extractor): extract oEmbed data from supported providers
-
-You can use one or combination of these tools to build news sites, create automated content systems for marketing campaign or gather dataset for NLP projects...
 
 ### Attention
 
@@ -73,16 +63,10 @@ import { read } from 'https://unpkg.com/@extractus/article-extractor@latest/dist
 Please check [the examples](examples) for reference.
 
 
-### Deta cloud
-
-For [Deta](https://www.deta.sh/) devs please refer [the source code and guideline here](https://github.com/ndaidong/article-parser-deta) or simply click the button below.
-
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/ndaidong/article-parser-deta)
-
-
 ## APIs
 
 - [extract()](#extract)
+- [extractFromHtml()](#extractfromhtml)
 - [Transformations](#transformations)
   - [`transformation` object](#transformation-object)
   - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
@@ -104,21 +88,20 @@ extract(String input, Object parserOptions)
 extract(String input, Object parserOptions, Object fetchOptions)
 ```
 
-#### Parameters
-
-##### `input` *required*
-
-URL string links to the article or HTML content of that web page.
-
-For example:
+Example:
 
 ```js
 import { extract } from '@extractus/article-extractor'
 
 const input = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-extract(input)
-  .then(article => console.log(article))
-  .catch(err => console.error(err))
+
+// here we use top-level await, assume current platform supports it
+try {
+  const article = await extract(input)
+  console.log(article)
+} catch (err) {
+  console.error(err)
+}
 ```
 
 The result - `article` - can be `null` or an object with the following structure:
@@ -137,6 +120,13 @@ The result - `article` - can be `null` or an object with the following structure
   ttr: Number, // time to read in second, 0 = unknown
 }
 ```
+
+
+#### Parameters
+
+##### `input` *required*
+
+URL string links to the article or HTML content of that web page.
 
 ##### `parserOptions` *optional*
 
@@ -206,6 +196,52 @@ Passing requests to proxy is useful while running `@extractus/article-extractor`
 For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 
 For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
+
+
+### `extractFromHtml()`
+
+Extract article data from HTML string. Return a Promise object as same as `extract()` method above.
+
+#### Syntax
+
+```ts
+extractFromHtml(String html)
+extractFromHtml(String html, String url)
+extractFromHtml(String html, String url, Object parserOptions)
+```
+
+Example:
+
+```js
+import { extractFromHtml } from '@extractus/article-extractor'
+
+const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+
+const res = await fetch(url)
+const html = await res.text()
+
+// you can do whatever with this raw html here: clean up, remove ads banner, etc
+// just ensure a html string returned
+
+const article = await extractFromHtml(html, url)
+console.log(article)
+```
+
+#### Parameters
+
+##### `html` *required*
+
+HTML string which contains the article you want to extract.
+
+##### `url` *optional*
+
+URL string that indicates the source of that HTML content.
+`article-extractor` may use this info to handle internal/relative links.
+
+##### `parserOptions` *optional*
+
+See [parserOptions](#parseroptions-optional) above.
+
 
 ---
 

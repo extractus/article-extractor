@@ -7,7 +7,7 @@ const meta = {
   service: 'article-parser',
   lang: 'javascript',
   server: 'express',
-  platform: 'node'
+  platform: 'node',
 }
 
 app.get('/', async (req, res) => {
@@ -21,14 +21,14 @@ app.get('/', async (req, res) => {
       error: 0,
       message: 'article has been extracted successfully',
       data,
-      meta
+      meta,
     })
   } catch (err) {
     return res.json({
       error: 1,
       message: err.message,
       data: null,
-      meta
+      meta,
     })
   }
 })

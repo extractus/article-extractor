@@ -17,28 +17,28 @@ export default (html) => {
     image: '',
     author: '',
     source: '',
-    published: ''
+    published: '',
   }
 
   const sourceAttrs = [
     'application-name',
     'og:site_name',
     'twitter:site',
-    'dc.title'
+    'dc.title',
   ]
   const urlAttrs = [
     'og:url',
-    'twitter:url'
+    'twitter:url',
   ]
   const titleAttrs = [
     'title',
     'og:title',
-    'twitter:title'
+    'twitter:title',
   ]
   const descriptionAttrs = [
     'description',
     'og:description',
-    'twitter:description'
+    'twitter:description',
   ]
   const imageAttrs = [
     'image',
@@ -46,7 +46,7 @@ export default (html) => {
     'og:image:url',
     'og:image:secure_url',
     'twitter:image',
-    'twitter:image:src'
+    'twitter:image:src',
   ]
   const authorAttrs = [
     'author',
@@ -54,7 +54,7 @@ export default (html) => {
     'og:creator',
     'article:author',
     'twitter:creator',
-    'dc.creator'
+    'dc.creator',
   ]
   const publishedTimeAttrs = [
     'article:published_time',
@@ -71,7 +71,7 @@ export default (html) => {
     'modified_time',
     'published_time',
     'release_date',
-    'date'
+    'date',
   ]
 
   const document = new DOMParser().parseFromString(html, 'text/html')

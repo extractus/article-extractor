@@ -9,7 +9,7 @@ const parseUrl = (url) => {
   const re = new URL(url)
   return {
     baseUrl: `${re.protocol}//${re.host}`,
-    path: re.pathname
+    path: re.pathname,
   }
 }
 
@@ -25,7 +25,7 @@ describe('test retrieve() method', () => {
     const url = 'https://some.where/good/page'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(200, '<div>this is content</div>', {
-      'Content-Type': 'text/html'
+      'Content-Type': 'text/html',
     })
     const html = await retrieve(url)
     expect(html).toEqual('<div>this is content</div>')
@@ -35,7 +35,7 @@ describe('test retrieve() method', () => {
     const url = 'https://some.where/good/page'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(200, '\n\r\r\n\n<div>this is content</div>\n\r\r\n\n', {
-      'Content-Type': 'text/html'
+      'Content-Type': 'text/html',
     })
     const html = await retrieve(url)
     expect(html).toEqual('<div>this is content</div>')
@@ -45,18 +45,18 @@ describe('test retrieve() method', () => {
     const url = 'https://some.where/good/source-with-proxy'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(200, 'something bad', {
-      'Content-Type': 'bad/thing'
+      'Content-Type': 'bad/thing',
     })
     nock('https://proxy-server.com')
       .get('/api/proxy?url=https%3A%2F%2Fsome.where%2Fgood%2Fsource-with-proxy')
       .reply(200, '<div>this is content</div>', {
-        'Content-Type': 'text/html'
+        'Content-Type': 'text/html',
       })
 
     const html = await retrieve(url, {
       proxy: {
-        target: 'https://proxy-server.com/api/proxy?url='
-      }
+        target: 'https://proxy-server.com/api/proxy?url=',
+      },
     })
     expect(html).toEqual('<div>this is content</div>')
     nock.cleanAll()

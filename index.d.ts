@@ -73,3 +73,5 @@ export interface ArticleData {
 }
 
 export function extract(input: string, parserOptions?: ParserOptions, fetchOptions?: FetchOptions): Promise<ArticleData>;
+
+export function extractFromHtml(html: string, url?: string, parserOptions?: ParserOptions): Promise<ArticleData>;

@@ -84,7 +84,7 @@ const blacklistKeys = [
   'WT.srch',
   'pk_source',
   'pk_medium',
-  'pk_campaign'
+  'pk_campaign',
 ]
 
 export const purify = (url) => {

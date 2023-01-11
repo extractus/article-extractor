@@ -11,7 +11,7 @@ const pkg = JSON.parse(readFileSync('./package.json', { encoding: 'utf-8' }))
 
 rmSync('dist', {
   force: true,
-  recursive: true
+  recursive: true,
 })
 mkdirSync('dist')
 
@@ -19,7 +19,7 @@ const buildTime = (new Date()).toISOString()
 const comment = [
   `// ${pkg.name}@${pkg.version}, by ${pkg.author}`,
   `built with esbuild at ${buildTime}`,
-  `published under ${pkg.license} license`
+  `published under ${pkg.license} license`,
 ].join(' - ')
 
 const baseOpt = {
@@ -31,7 +31,7 @@ const baseOpt = {
   legalComments: 'none',
   minify: true,
   sourcemap: false,
-  write: true
+  write: true,
 }
 
 const esmVersion = {
@@ -40,8 +40,8 @@ const esmVersion = {
   format: 'esm',
   outfile: 'dist/article-extractor.esm.js',
   banner: {
-    js: comment
-  }
+    js: comment,
+  },
 }
 buildSync(esmVersion)
 
@@ -52,15 +52,15 @@ const cjsVersion = {
   mainFields: ['main'],
   outfile: 'dist/cjs/article-extractor.js',
   banner: {
-    js: comment
-  }
+    js: comment,
+  },
 }
 buildSync(cjsVersion)
 
 const cjspkg = {
   name: pkg.name,
   version: pkg.version,
-  main: './article-extractor.js'
+  main: './article-extractor.js',
 }
 
 writeFileSync(
