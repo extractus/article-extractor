@@ -120,3 +120,25 @@ describe('test extract(regular article url)', () => {
     expect(result.description).toEqual(expDesc)
   })
 })
+
+describe('test extract with modified sanitize-html options', () => {
+  const currentSanitizeOptions = getSanitizeHtmlOptions()
+
+  setSanitizeHtmlOptions({
+    ...currentSanitizeOptions,
+    allowedAttributes: {
+      ...currentSanitizeOptions.allowedAttributes,
+      code: ['class'],
+      div: ['class'],
+    },
+    allowedClasses: {
+      code: ['language-*', 'lang-*'],
+    },
+  })
+
+  test('check if output contain class attribute', async () => {
+    const html = readFileSync('./test-data/article-with-classes-attributes.html', 'utf8')
+    const result = await extract(html)
+    expect(result.content).toEqual(expect.stringContaining('code class="lang-js"'))
+  })
+})

@@ -1,5 +1,5 @@
 {
   "name": "@extractus/article-extractor",
-  "version": "7.2.8",
+  "version": "7.2.9",
   "main": "./article-extractor.js"
 }
