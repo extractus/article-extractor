@@ -425,7 +425,7 @@ In this scenario, `@extractus/article-extractor` will execute both transformatio
 
 ### `sanitize-html`'s options
 
-`@extractus/article-extractor` uses [sanitize-html](https://www.npmjs.com/package/sanitize-html) to make a clean sweep of HTML content.
+`@extractus/article-extractor` uses [sanitize-html](https://github.com/apostrophecms/sanitize-html) to make a clean sweep of HTML content.
 
 Here is the [default options](src/config.js#L5)
 
@@ -436,7 +436,7 @@ There are 2 methods to access and modify these options in `@extractus/article-ex
 - `getSanitizeHtmlOptions()`
 - `setSanitizeHtmlOptions(Object sanitizeHtmlOptions)`
 
-Read [sanitize-html](https://www.npmjs.com/package/sanitize-html#what-are-the-default-options) docs for more info.
+Read [sanitize-html](https://github.com/apostrophecms/sanitize-html#default-options) docs for more info.
 
 ---
 

@@ -10,6 +10,7 @@ export const purify = (html) => {
   return sanitize(html, {
     allowedTags: false,
     allowedAttributes: false,
+    allowVulnerableTags: true,
   })
 }
 

@@ -12,7 +12,9 @@ export default (html, inputUrl = '') => {
   const base = doc.createElement('base')
   base.setAttribute('href', inputUrl)
   doc.head.appendChild(base)
-  const reader = new Readability(doc)
+  const reader = new Readability(doc, {
+    keepClasses: true,
+  })
   const result = reader.parse() ?? {}
   return result.textContent ? result.content : null
 }
