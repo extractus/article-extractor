@@ -14,13 +14,8 @@ const profetch = async (url, proxy = {}) => {
 }
 
 export default async (url, options = {}) => {
-  const {
-    headers = {},
-    proxy = null,
-  } = options
-
-  const res = proxy ? await profetch(url, proxy) : await fetch(url, { headers })
-
+  const { proxy } = options
+  const res = proxy ? await profetch(url, proxy) : await fetch(url, options)
   const status = res.status
   if (status >= 400) {
     throw new Error(`Request failed with error code ${status}`)

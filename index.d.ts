@@ -46,12 +46,9 @@ export interface ProxyConfig {
   headers?: string[];
 }
 
-export interface FetchOptions {
-  /**
-   * list of request headers
-   * default: null
-   */
-  headers?: string[];
+export type FetchOptions = ProxyFetchOptions | RequestInit
+
+interface ProxyFetchOptions {
   /**
    * the values to configure proxy
    * default: null
