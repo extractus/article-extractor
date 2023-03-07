@@ -1,4 +1,4 @@
-// configs
+// config.js
 
 import { clone } from 'bellajs'
 

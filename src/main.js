@@ -1,7 +1,4 @@
-/**
- * Article parser
- * @ndaidong
- **/
+// main.js
 
 import {
   isString

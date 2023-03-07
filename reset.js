@@ -1,7 +1,4 @@
-/**
- * reset.js
- * @ndaidong
-**/
+// reset.js
 
 import {
   existsSync,
