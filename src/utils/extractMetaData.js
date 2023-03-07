@@ -85,6 +85,9 @@ export default (html) => {
 
   Array.from(document.getElementsByTagName('meta')).forEach(node => {
     const content = node.getAttribute('content')
+    if (!content) {
+      return false
+    }
     const property = node.getAttribute('property')?.toLowerCase() ?? node.getAttribute('itemprop')?.toLowerCase()
     const name = node.getAttribute('name')?.toLowerCase()
 

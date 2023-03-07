@@ -1,7 +1,4 @@
-/**
- * build.js
- * @ndaidong
-**/
+// build.js
 
 import { readFileSync, writeFileSync, copyFileSync, rmSync, mkdirSync } from 'fs'
 
