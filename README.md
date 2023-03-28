@@ -160,7 +160,7 @@ For example:
 import { extract } from '@extractus/article-extractor'
 
 const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-const article = await extract(url, null, {
+const article = await extract(url, {}, {
   headers: {
     'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
   }
@@ -178,7 +178,7 @@ import { extract } from '@extractus/article-extractor'
 
 const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
 
-await extract(url, null, {
+await extract(url, {}, {
   headers: {
     'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
   },
