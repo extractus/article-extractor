@@ -1,5 +1,5 @@
 {
-  "version": "7.2.12",
+  "version": "7.2.13rc1",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -13,9 +13,6 @@
   "exports": {
     "import": "./src/main.js",
     "require": "./dist/cjs/article-extractor.js"
-  },
-  "imports": {
-    "cross-fetch": "./src/deno/cross-fetch.js"
   },
   "browser": {
     "linkedom": "./src/browser/linkedom.js"
@@ -34,7 +31,7 @@
     "reset": "node reset"
   },
   "dependencies": {
-    "@mozilla/readability": "^0.4.3",
+    "@mozilla/readability": "^0.4.4",
     "bellajs": "^11.1.2",
     "cross-fetch": "^3.1.5",
     "linkedom": "^0.14.25",
@@ -43,8 +40,8 @@
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.9.0",
-    "esbuild": "^0.17.14",
-    "eslint": "^8.36.0",
+    "esbuild": "^0.17.16",
+    "eslint": "^8.38.0",
     "jest": "^29.5.0",
     "nock": "^13.3.0"
   },
