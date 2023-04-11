@@ -1,5 +1,5 @@
 {
-  "version": "7.2.13rc1",
+  "version": "7.2.13",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
