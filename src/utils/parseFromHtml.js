@@ -32,6 +32,7 @@ const summarize = (desc, txt, threshold, maxlen) => { // eslint-disable-line
 export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
   const html = purify(inputHtml)
   const meta = extractMetaData(html)
+
   let title = meta.title
 
   const {
