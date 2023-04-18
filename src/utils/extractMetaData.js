@@ -29,16 +29,19 @@ export default (html) => {
   const urlAttrs = [
     'og:url',
     'twitter:url',
+    'parsely-link',
   ]
   const titleAttrs = [
     'title',
     'og:title',
     'twitter:title',
+    'parsely-title',
   ]
   const descriptionAttrs = [
     'description',
     'og:description',
     'twitter:description',
+    'parsely-description',
   ]
   const imageAttrs = [
     'image',
@@ -47,6 +50,7 @@ export default (html) => {
     'og:image:secure_url',
     'twitter:image',
     'twitter:image:src',
+    'parsely-image-url',
   ]
   const authorAttrs = [
     'author',
@@ -55,6 +59,7 @@ export default (html) => {
     'article:author',
     'twitter:creator',
     'dc.creator',
+    'parsely-author',
   ]
   const publishedTimeAttrs = [
     'article:published_time',
@@ -72,6 +77,7 @@ export default (html) => {
     'published_time',
     'release_date',
     'date',
+    'parsely-pub-date',
   ]
 
   const document = new DOMParser().parseFromString(html, 'text/html')
