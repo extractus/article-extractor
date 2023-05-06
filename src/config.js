@@ -46,7 +46,10 @@ const sanitizeHtmlOptions = {
     'github.com', 'codepen.com',
     'twitter.com', 'facebook.com', 'instagram.com',
   ],
+  disallowedTagsMode: 'discard',
   allowVulnerableTags: false,
+  parseStyleAttributes: false,
+  enforceHtmlBoundary: false,
 }
 
 /**

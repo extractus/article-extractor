@@ -2,7 +2,7 @@
 
 import { DOMParser } from 'linkedom'
 
-import { findBestMatch } from 'string-similarity'
+import { findBestMatch } from './similarity.js'
 
 export const isValid = (url = '') => {
   try {
