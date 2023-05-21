@@ -25,11 +25,7 @@ const stripMultiLinebreaks = (str) => {
 }
 
 const stripMultispaces = (str) => {
-  return str.replace(WS_REGEXP, ' ')
-    .replace(/  +/g, ' ')
-    .replace(/\s+/g, ' ')
-    .replace(/\t+/gm, '')
-    .trim()
+  return str.replace(WS_REGEXP, ' ').trim()
 }
 
 export const cleanify = (inputHtml) => {
