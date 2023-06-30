@@ -4,7 +4,7 @@ import { DOMParser } from 'linkedom'
 
 /**
  * @param html {string}
- * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string}}
+ * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string, favicon: string}}
  */
 export default (html) => {
   const entry = {
@@ -18,6 +18,7 @@ export default (html) => {
     author: '',
     source: '',
     published: '',
+    favicon: '',
   }
 
   const sourceAttrs = [
@@ -86,7 +87,12 @@ export default (html) => {
   Array.from(document.getElementsByTagName('link')).forEach(node => {
     const rel = node.getAttribute('rel')
     const href = node.getAttribute('href')
-    if (rel && href) entry[rel] = href
+    if (rel && href) {
+      entry[rel] = href
+      if (rel === 'icon' || rel === 'shortcut icon') {
+        entry.favicon = href
+      }
+    }
   })
 
   Array.from(document.getElementsByTagName('meta')).forEach(node => {
