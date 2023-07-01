@@ -113,6 +113,7 @@ The result - `article` - can be `null` or an object with the following structure
   description: String,
   image: String,
   author: String,
+  favicon: String,
   content: String,
   published: Date String,
   source: String, // original publisher
