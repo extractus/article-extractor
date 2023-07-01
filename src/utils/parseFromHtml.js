@@ -44,7 +44,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     image: metaImg,
     author,
     published,
-    favicon,
+    favicon: metaFav,
   } = meta
 
   const {
@@ -113,6 +113,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
   )
 
   const image = metaImg ? absolutifyUrl(bestUrl, metaImg) : ''
+  const favicon = metaFav ? absolutifyUrl(bestUrl, metaFav) : ''
 
   return {
     url: bestUrl,

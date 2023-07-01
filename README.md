@@ -6,8 +6,6 @@ Extract main article, main image and meta data from URL.
 ![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/extractus/article-extractor/badge.svg?branch=main)](https://coveralls.io/github/extractus/article-extractor?branch=main)
-[![CodeFactor](https://www.codefactor.io/repository/github/extractus/article-extractor/badge)](https://www.codefactor.io/repository/github/extractus/article-extractor)
-
 
 ### Attention
 
@@ -187,12 +185,28 @@ await extract(url, {}, {
     target: 'https://your-secret-proxy.io/loadXml?url=',
     headers: {
       'Proxy-Authorization': 'Bearer YWxhZGRpbjpvcGVuc2VzYW1l...'
-    }
+    },
   }
 })
 ```
 
 Passing requests to proxy is useful while running `@extractus/article-extractor` on browser. View [examples/browser-article-parser](examples/browser-article-parser) as reference example.
+
+Another way to work with proxy is use `agent` option instead of `proxy` as below:
+
+```js
+import { extract } from '@extractus/article-extractor'
+
+import { HttpsProxyAgent } from 'https-proxy-agent'
+
+const proxy = 'http://abc:RaNdoMpasswORd_country-France@proxy.packetstream.io:31113'
+
+const article = await extract(url, {}, {
+  agent: new HttpsProxyAgent(proxy),
+})
+console.log('Run article-extractor with proxy:', proxy)
+console.log(art)
+```
 
 For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 

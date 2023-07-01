@@ -65,6 +65,7 @@ export interface ArticleData {
   title?: string;
   description?: string;
   image?: string;
+  favicon?: string;
   author?: string;
   content?: string;
   source?: string;

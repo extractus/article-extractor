@@ -83,8 +83,6 @@ cases.forEach((acase) => {
   const { desc, html, url = '' } = input
   test(`check if parseFromHtml() works with ${desc}`, async () => {
     const result = await parseFromHtml(html, url)
-    console.log(url)
-    console.log(result)
     if (isFunction(expectation)) {
       expectation(result, expect)
     } else {
