@@ -208,6 +208,8 @@ console.log('Run article-extractor with proxy:', proxy)
 console.log(art)
 ```
 
+For more info about [https-proxy-agent](https://www.npmjs.com/package/https-proxy-agent), check [its repo](https://github.com/TooTallNate/proxy-agents).
+
 For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 
 For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
