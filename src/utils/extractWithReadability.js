@@ -4,13 +4,13 @@ import { Readability } from '@mozilla/readability'
 import { DOMParser } from 'linkedom'
 import { isString } from 'bellajs'
 
-export default (html, inputUrl = '') => {
+export default (html, url = '') => {
   if (!isString(html)) {
     return null
   }
   const doc = new DOMParser().parseFromString(html, 'text/html')
   const base = doc.createElement('base')
-  base.setAttribute('href', inputUrl)
+  base.setAttribute('href', url)
   doc.head.appendChild(base)
   const reader = new Readability(doc, {
     keepClasses: true,
