@@ -3,6 +3,8 @@
 
 import { readFileSync } from 'fs'
 
+import { HttpsProxyAgent } from 'https-proxy-agent'
+
 import nock from 'nock'
 
 import {
@@ -12,6 +14,9 @@ import {
   addTransformations,
   removeTransformations
 } from './main'
+
+const env = process.env || {}
+const PROXY_SERVER = env.PROXY_SERVER || ''
 
 const parseUrl = (url) => {
   const re = new URL(url)
@@ -142,3 +147,16 @@ describe('test extract with modified sanitize-html options', () => {
     expect(result.content).toEqual(expect.stringContaining('code class="lang-js"'))
   })
 })
+
+if (PROXY_SERVER !== '') {
+  describe('test extract live article API via proxy server', () => {
+    test('check if extract method works with proxy server', async () => {
+      const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+      const result = await extract(url, {}, {
+        agent: new HttpsProxyAgent(PROXY_SERVER),
+      })
+      expect(result.title).toEqual(expect.stringContaining('Federal Reserve'))
+      expect(result.source).toEqual('cnbc.com')
+    }, 10000)
+  })
+}

@@ -192,6 +192,10 @@ await extract(url, {}, {
 
 Passing requests to proxy is useful while running `@extractus/article-extractor` on browser. View [examples/browser-article-parser](examples/browser-article-parser) as reference example.
 
+For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
+
+For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
+
 Another way to work with proxy is use `agent` option instead of `proxy` as below:
 
 ```js
@@ -201,18 +205,16 @@ import { HttpsProxyAgent } from 'https-proxy-agent'
 
 const proxy = 'http://abc:RaNdoMpasswORd_country-France@proxy.packetstream.io:31113'
 
+const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+
 const article = await extract(url, {}, {
   agent: new HttpsProxyAgent(proxy),
 })
 console.log('Run article-extractor with proxy:', proxy)
-console.log(art)
+console.log(article)
 ```
 
 For more info about [https-proxy-agent](https://www.npmjs.com/package/https-proxy-agent), check [its repo](https://github.com/TooTallNate/proxy-agents).
-
-For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
-
-For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
 
 
 ### `extractFromHtml()`

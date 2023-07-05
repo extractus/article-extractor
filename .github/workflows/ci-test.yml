@@ -23,6 +23,8 @@ jobs:
         node-version: ${{ matrix.node_version }}
 
     - name: run npm scripts
+      env:
+        PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
       run: |
         npm install
         npm run lint
