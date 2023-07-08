@@ -3,13 +3,13 @@
 To install dependencies:
 
 ```bash
-bun i
+bun install
 ```
 
 Start server:
 
 ```bash
-bun run index.ts
+bun start
 ```
 
 Open `http://localhost:3100/?url=https://dev.to/ndaidong/how-to-make-your-mongodb-container-more-secure-1646` to see the result.

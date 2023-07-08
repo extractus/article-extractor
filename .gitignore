@@ -16,4 +16,6 @@ yarn.lock
 coverage.lcov
 pnpm-lock.yaml
 
+deno.lock
+
 evaluation

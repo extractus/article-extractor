@@ -7,9 +7,7 @@ Extract main article, main image and meta data from URL.
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/extractus/article-extractor/badge.svg?branch=main)](https://coveralls.io/github/extractus/article-extractor?branch=main)
 
-### Attention
-
-`article-parser` has been renamed to `@extractus/article-extractor` since v7.2.5
+(This library is derived from [article-parser](https://www.npmjs.com/package/article-parser) renamed.)
 
 ## Demo
 
@@ -151,9 +149,14 @@ console.log(article)
 
 ##### `fetchOptions` *optional*
 
-You can use this param to set request headers to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+`fetchOptions` is an object that can have the following properties:
 
-For example:
+- `headers`: to set request headers
+- `proxy`: another endpoint to forward the request to
+- `agent`: a HTTP proxy agent
+- `signal`: AbortController signal or AbortSignal timeout to terminate the request
+
+For example, you can use this param to set request headers to fetch as below:
 
 ```js
 import { extract } from '@extractus/article-extractor'
@@ -215,6 +218,37 @@ console.log(article)
 ```
 
 For more info about [https-proxy-agent](https://www.npmjs.com/package/https-proxy-agent), check [its repo](https://github.com/TooTallNate/proxy-agents).
+
+By default, there is no request timeout. You can use the option `signal` to cancel request at the right time.
+
+The common way is to use AbortControler:
+
+```js
+const controller = new AbortController()
+
+// stop after 5 seconds
+setTimeout(() => {
+  controller.abort()
+}, 5000)
+
+const data = await extract(url, null, {
+  signal: controller.signal,
+})
+```
+
+A newer solution is AbortSignal's `timeout()` static method:
+
+```js
+// stop after 5 seconds
+const data = await extract(url, null, {
+  signal: AbortSignal.timeout(5000),
+})
+```
+
+For more info:
+
+- [AbortController constructor](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+- [AbortSignal: timeout() static method](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static)
 
 
 ### `extractFromHtml()`
