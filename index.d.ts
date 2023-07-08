@@ -63,6 +63,11 @@ export interface FetchOptions {
    * default: null
    */
   agent?: object;
+  /**
+   * signal to terminate request
+   * default: null
+   */
+  signal?: object;
 }
 
 export interface ArticleData {

@@ -45,7 +45,7 @@
     </div>
   </body>
   <script type="module">
-    import { extract } from 'https://unpkg.com/@extractus/article-extractor@latest/dist/article-extractor.esm.js'
+    import { extract } from "https://esm.sh/@extractus/article-extractor@latest"
 
     const loadFeed = async (url, useProxy = false) => {
       const data = await extract(url, {
