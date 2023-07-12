@@ -32,12 +32,6 @@ yarn add @extractus/article-extractor
 ```ts
 // es6 module
 import { extract } from '@extractus/article-extractor'
-
-// CommonJS
-const { extract } = require('@extractus/article-extractor')
-
-// or specify exactly path to CommonJS variant
-const { extract } = require('@extractus/article-extractor/dist/cjs/article-extractor.js')
 ```
 
 ### Deno
@@ -53,7 +47,7 @@ import { extract } from 'npm:@extractus/article-extractor'
 ### Browser
 
 ```ts
-import { read } from 'https://unpkg.com/@extractus/article-extractor@latest/dist/article-extractor.esm.js'
+import { extract } from '@extractus/article-extractor'
 ```
 
 Please check [the examples](examples) for reference.
@@ -498,8 +492,8 @@ Read [sanitize-html](https://github.com/apostrophecms/sanitize-html#default-opti
 ```bash
 git clone https://github.com/extractus/article-extractor.git
 cd article-extractor
-npm i
-npm test
+pnpm i
+pnpm test
 ```
 
 ![article-extractor-test.png](https://i.imgur.com/TbRCUSS.png?110222)
@@ -510,8 +504,8 @@ npm test
 ```bash
 git clone https://github.com/extractus/article-extractor.git
 cd article-extractor
-npm i
-npm run eval {URL_TO_PARSE_ARTICLE}
+pnpm i
+pnpm eval {URL_TO_PARSE_ARTICLE}
 ```
 
 ## License

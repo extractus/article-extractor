@@ -1,7 +1,7 @@
 // eval.js
 
-import { execSync } from 'child_process'
-import { readFileSync, writeFileSync, existsSync } from 'fs'
+import { execSync } from 'node:child_process'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 
 import { slugify } from 'bellajs'
 
