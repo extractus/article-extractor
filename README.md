@@ -37,11 +37,10 @@ import { extract } from '@extractus/article-extractor'
 ### Deno
 
 ```ts
+import { extract } from 'https://esm.sh/@extractus/article-extractor'
+
 // deno > 1.28
 import { extract } from 'npm:@extractus/article-extractor'
-
-// deno < 1.28
-// import { extract } from 'https://esm.sh/@extractus/article-extractor'
 ```
 
 ### Browser
