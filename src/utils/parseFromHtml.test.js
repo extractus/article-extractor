@@ -1,7 +1,7 @@
 // parseFromHtml.test
 /* eslint-env jest */
 
-import { readFileSync } from 'fs'
+import { readFileSync } from 'node:fs'
 
 import { isFunction } from 'bellajs'
 

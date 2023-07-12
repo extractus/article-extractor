@@ -1,7 +1,7 @@
 // extractMetaData.test
 /* eslint-env jest */
 
-import { readFileSync } from 'fs'
+import { readFileSync } from 'node:fs'
 
 import { isObject, hasProperty } from 'bellajs'
 
