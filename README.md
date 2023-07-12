@@ -46,7 +46,7 @@ import { extract } from 'npm:@extractus/article-extractor'
 ### Browser
 
 ```ts
-import { extract } from '@extractus/article-extractor'
+import { extract } from 'https://esm.sh/@extractus/article-extractor'
 ```
 
 Please check [the examples](examples) for reference.
