@@ -1,5 +1,5 @@
 {
-  "version": "7.3.0",
+  "version": "7.3.1",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -10,6 +10,10 @@
   "author": "@extractus",
   "main": "./src/main.js",
   "type": "module",
+  "exports": {
+    "import": "./src/main.js",
+    "require": "./dist/cjs/article-extractor.js"
+  },
   "browser": {
     "linkedom": "./src/browser/linkedom.js"
   },
@@ -22,6 +26,7 @@
     "lint:fix": "eslint --fix .",
     "pretest": "npm run lint",
     "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage=true",
+    "build": "node build",
     "eval": "node eval",
     "reset": "node reset"
   },
@@ -29,15 +34,16 @@
     "@mozilla/readability": "^0.4.4",
     "bellajs": "^11.1.2",
     "cross-fetch": "^4.0.0",
-    "linkedom": "^0.14.26",
+    "linkedom": "^0.15.1",
     "sanitize-html": "2.11.0"
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.9.0",
-    "eslint": "^8.44.0",
-    "https-proxy-agent": "^7.0.0",
-    "jest": "^29.6.0",
-    "nock": "^13.3.1"
+    "esbuild": "^0.18.16",
+    "eslint": "^8.45.0",
+    "https-proxy-agent": "^7.0.1",
+    "jest": "^29.6.1",
+    "nock": "^13.3.2"
   },
   "keywords": [
     "article",
