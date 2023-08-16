@@ -508,6 +508,17 @@ pnpm eval {URL_TO_PARSE_ARTICLE}
 ```
 
 ## License
+
 The MIT License (MIT)
+
+## Support the project
+
+If you find value from this open source project, you can support in the following ways:
+
+- Give it a star ⭐
+- Buy me a coffee: https://paypal.me/ndaidong 🍵
+- Subscribe [Article Extractor service](https://rapidapi.com/pwshub-pwshub-default/api/article-extractor2) on RapidAPI 😉
+
+Thank you.
 
 ---

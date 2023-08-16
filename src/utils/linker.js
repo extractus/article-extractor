@@ -124,7 +124,7 @@ export const normalize = (html, url) => {
     }
   })
 
-  return Array.from(doc.children).map(element => element.outerHTML).join('')
+  return Array.from(doc.childNodes).map(element => element.outerHTML).join('')
 }
 
 export const getDomain = (url) => {

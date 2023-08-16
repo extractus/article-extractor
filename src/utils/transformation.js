@@ -59,11 +59,11 @@ export const findTransformations = (links) => {
 export const execPreParser = (html, links) => {
   const doc = new DOMParser().parseFromString(html, 'text/html')
   findTransformations(links).map(tfm => tfm.pre).filter(fn => isFunction(fn)).map(fn => fn(doc))
-  return Array.from(doc.children).map(it => it.outerHTML).join('')
+  return Array.from(doc.childNodes).map(it => it.outerHTML).join('')
 }
 
 export const execPostParser = (html, links) => {
   const doc = new DOMParser().parseFromString(html, 'text/html')
   findTransformations(links).map(tfm => tfm.post).filter(fn => isFunction(fn)).map(fn => fn(doc))
-  return Array.from(doc.children).map(it => it.outerHTML).join('')
+  return Array.from(doc.childNodes).map(it => it.outerHTML).join('')
 }
