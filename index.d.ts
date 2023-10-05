@@ -23,22 +23,22 @@ export interface ParserOptions {
    * to estimate time to read.
    * Default: 300
    */
-  wordsPerMinute: number
+  wordsPerMinute?: number
   /**
    * max num of chars generated for description
    * Default: 210
    */
-  descriptionTruncateLen: number
+  descriptionTruncateLen?: number
   /**
    * min num of chars required for description
    * Default: 180
    */
-  descriptionLengthThreshold: number
+  descriptionLengthThreshold?: number
   /**
    * min num of chars required for content
    * Default: 200
    */
-  contentLengthThreshold: number
+  contentLengthThreshold?: number
 }
 
 export interface ProxyConfig {
