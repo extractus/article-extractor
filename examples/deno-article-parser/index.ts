@@ -1,8 +1,7 @@
-import { serve } from 'https://deno.land/std/http/server.ts'
+import { serve } from 'serve'
+import { Hono } from 'hono'
 
-import { Hono } from 'https://deno.land/x/hono@v3.2.7/mod.ts'
-
-import { extract } from 'npm:@extractus/article-extractor'
+import { extract } from 'article-extractor'
 
 const app = new Hono()
 

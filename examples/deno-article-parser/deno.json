@@ -1,6 +1,11 @@
 {
   "name": "deno-article-parser",
   "version": "1.0.0",
+  "imports": {
+    "serve": "https://deno.land/std@0.203.0/http/server.ts",
+    "hono": "https://deno.land/x/hono@v3.7.2/mod.ts",
+    "article-extractor": "https://esm.sh/@extractus/article-extractor"
+  },
   "tasks": {
     "dev": "deno run --allow-net --allow-env --allow-read index.ts",
   },

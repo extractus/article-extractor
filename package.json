@@ -1,5 +1,5 @@
 {
-  "version": "8.0.2",
+  "version": "8.0.3",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -19,7 +19,7 @@
   },
   "types": "./index.d.ts",
   "engines": {
-    "node": ">= 15"
+    "node": ">= 16"
   },
   "scripts": {
     "lint": "eslint .",
