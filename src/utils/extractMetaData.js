@@ -1,10 +1,35 @@
 // utils -> extractMetaData
 
 import { DOMParser } from 'linkedom'
+import extractLdSchema from './extractLdSchema.js'
+
+/**
+ * @param {Element} node
+ * @param {Object} attributeLists
+ * @returns {?{key: string, content: string}}
+ */
+function getMetaContentByNameOrProperty (node, attributeLists) {
+  const content = node.getAttribute('content')
+  if (!content) return null
+
+  const property = node
+    .getAttribute('property')?.toLowerCase() ??
+    node.getAttribute('itemprop')?.toLowerCase()
+
+  const name = node.getAttribute('name')?.toLowerCase()
+
+  for (const [key, attrs] of Object.entries(attributeLists)) {
+    if (attrs.includes(property) || attrs.includes(name)) {
+      return { key, content }
+    }
+  }
+
+  return null
+}
 
 /**
  * @param html {string}
- * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string, favicon: string}}
+ * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string, favicon: string, type: string}}
  */
 export default (html) => {
   const entry = {
@@ -19,6 +44,7 @@ export default (html) => {
     source: '',
     published: '',
     favicon: '',
+    type: '',
   }
 
   const sourceAttrs = [
@@ -80,6 +106,20 @@ export default (html) => {
     'date',
     'parsely-pub-date',
   ]
+  const typeAttrs = [
+    'og:type',
+  ]
+
+  const attributeLists = {
+    source: sourceAttrs,
+    url: urlAttrs,
+    title: titleAttrs,
+    description: descriptionAttrs,
+    image: imageAttrs,
+    author: authorAttrs,
+    published: publishedTimeAttrs,
+    type: typeAttrs,
+  }
 
   const document = new DOMParser().parseFromString(html, 'text/html')
   entry.title = document.querySelector('head > title')?.innerText
@@ -96,35 +136,13 @@ export default (html) => {
   })
 
   Array.from(document.getElementsByTagName('meta')).forEach(node => {
-    const content = node.getAttribute('content')
-    if (!content) {
-      return false
-    }
-    const property = node.getAttribute('property')?.toLowerCase() ?? node.getAttribute('itemprop')?.toLowerCase()
-    const name = node.getAttribute('name')?.toLowerCase()
-
-    if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
-      entry.source = content
-    }
-    if (urlAttrs.includes(property) || urlAttrs.includes(name)) {
-      entry.url = content
-    }
-    if (titleAttrs.includes(property) || titleAttrs.includes(name)) {
-      entry.title = content
-    }
-    if (descriptionAttrs.includes(property) || descriptionAttrs.includes(name)) {
-      entry.description = content
-    }
-    if (imageAttrs.includes(property) || imageAttrs.includes(name)) {
-      entry.image = content
-    }
-    if (authorAttrs.includes(property) || authorAttrs.includes(name)) {
-      entry.author = content
-    }
-    if (publishedTimeAttrs.includes(property) || publishedTimeAttrs.includes(name)) {
-      entry.published = content
+    const result = getMetaContentByNameOrProperty(node, attributeLists)
+    if (result) {
+      entry[result.key] = result.content
     }
   })
 
-  return entry
+  const entries = extractLdSchema(document, entry)
+
+  return entries
 }
