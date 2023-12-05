@@ -45,6 +45,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     author,
     published,
     favicon: metaFav,
+    type,
   } = meta
 
   const {
@@ -127,5 +128,6 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     source: getDomain(bestUrl),
     published,
     ttr: getTimeToRead(textContent, wordsPerMinute),
+    type,
   }
 }

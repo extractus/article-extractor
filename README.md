@@ -105,6 +105,7 @@ The result - `article` - can be `null` or an object with the following structure
   favicon: String,
   content: String,
   published: Date String,
+  type: String, // page type
   source: String, // original publisher
   links: Array, // list of alternative links
   ttr: Number, // time to read in second, 0 = unknown
