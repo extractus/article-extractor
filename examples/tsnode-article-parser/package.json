@@ -2,12 +2,13 @@
   "name": "tsnode-article-parser",
   "version": "1.0.0",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "prestart": "npx tsc",
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "typescript": "^5.1.6"
+    "typescript": "^5.3.2"
   },
   "dependencies": {
     "@extractus/article-extractor": "latest",
