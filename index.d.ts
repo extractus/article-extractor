@@ -82,6 +82,7 @@ export interface ArticleData {
   source?: string;
   published?: string;
   ttr?: number;
+  type?: string;
 }
 
 export function extract(input: string, parserOptions?: ParserOptions, fetchOptions?: FetchOptions): Promise<ArticleData|null>;
