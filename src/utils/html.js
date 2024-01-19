@@ -43,7 +43,7 @@ export const imagify = (inputHtml) => {
   const images = doc.querySelectorAll('img')
   const srcMap = new Map()
   images.forEach((item) => {
-    if (item.src && item.src.toLowerCase().match('/^http.*\\.(jpeg|jpg|webp|png)$/')) {
+    if (item.src && /\.(jpg|jpeg|png|gif|bmp|svg)(.*)?$/i.test(item.src.toLowerCase())) {
       srcMap.set(new URL(item.src).toString(), item.src)
     }
   })
