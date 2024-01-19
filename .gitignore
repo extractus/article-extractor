@@ -19,3 +19,5 @@ pnpm-lock.yaml
 deno.lock
 
 evaluation
+.idea
+.vscode

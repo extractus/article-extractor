@@ -14,18 +14,18 @@ export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   }
 
   if (!isValidUrl(input)) {
-    return parseFromHtml(input, null, parserOptions || {})
+    return parseFromHtml({ inputHtml: input, parserOptions: parserOptions })
   }
   const html = await retrieve(input, fetchOptions)
   if (!html) {
     return null
   }
 
-  return parseFromHtml(html, input, parserOptions || {})
+  return parseFromHtml({ inputHtml: html, inputUrl: input, parserOptions: parserOptions })
 }
 
 export const extractFromHtml = async (html, url, parserOptions = {}) => {
-  return parseFromHtml(html, url, parserOptions)
+  return parseFromHtml({ inputHtml: html, inputUrl: url, parserOptions: parserOptions })
 }
 
 export { addTransformations, removeTransformations } from './utils/transformation.js'

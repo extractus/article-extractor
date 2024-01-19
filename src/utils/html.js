@@ -37,3 +37,15 @@ export const cleanify = (inputHtml) => {
     input => stripMultispaces(input)
   )(html)
 }
+
+export const imagify = (inputHtml) => {
+  const doc = new DOMParser().parseFromString(inputHtml, 'text/html')
+  const images = doc.querySelectorAll('img')
+  const srcMap = new Map()
+  images.forEach((item) => {
+    if (item.src && item.src.toLowerCase().match('/^http.*\\.(jpeg|jpg|webp|png)$/')) {
+      srcMap.set(new URL(item.src).toString(), item.src)
+    }
+  })
+  return Array.from(new Set(Array.from(srcMap.values())))
+}

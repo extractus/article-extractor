@@ -8,11 +8,10 @@ const profetch = async (url, options = {}) => {
     target,
     headers = {},
   } = proxy
-  const res = await fetch(target + encodeURIComponent(url), {
+  return await fetch(target + encodeURIComponent(url), {
     headers,
     signal,
   })
-  return res
 }
 
 export default async (url, options = {}) => {

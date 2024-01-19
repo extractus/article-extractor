@@ -2,7 +2,7 @@
 
 import { stripTags, truncate, unique, pipe } from 'bellajs'
 
-import { purify, cleanify } from './html.js'
+import { purify, cleanify, imagify } from './html.js'
 
 import {
   isValid as isValidUrl,
@@ -29,7 +29,7 @@ const summarize = (desc, txt, threshold, maxlen) => { // eslint-disable-line
     : truncate(txt, maxlen).replace(/\n/g, ' ')
 }
 
-export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
+export default async ({ inputHtml, inputUrl = '', parserOptions = {} }) => {
   const html = purify(inputHtml)
   const meta = extractMetaData(html)
 
@@ -113,20 +113,21 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     descriptionTruncateLen
   )
 
-  const image = metaImg ? absolutifyUrl(bestUrl, metaImg) : ''
-  const favicon = metaFav ? absolutifyUrl(bestUrl, metaFav) : ''
-
   return {
     url: bestUrl,
-    title,
-    description,
-    links,
-    image,
-    content,
-    author,
-    favicon,
     source: getDomain(bestUrl),
-    published,
+    meta: {
+      title: title,
+      description: description,
+      links: links,
+      cover: metaImg ? absolutifyUrl(bestUrl, metaImg) : '',
+      favicon: metaFav ? absolutifyUrl(bestUrl, metaFav) : '',
+      author: author,
+      published: published,
+    },
+    images: imagify(inputHtml),
+    content: textContent,
+    rawContent: content,
     ttr: getTimeToRead(textContent, wordsPerMinute),
     type,
   }
