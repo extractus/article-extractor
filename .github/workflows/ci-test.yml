@@ -5,10 +5,6 @@ name: ci-test
 
 on: [push, pull_request]
 name: ci-test
-on:
-  pull_request:
-    branches:
-      - main
 
 jobs:
   test:
