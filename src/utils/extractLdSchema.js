@@ -35,6 +35,14 @@ const attributeLists = {
   type: '@type',
 }
 
+const parseJson = (text) => {
+  try {
+    return JSON.parse(text)
+  } catch {
+    return null
+  }
+}
+
 /**
  * Parses JSON-LD data from a document and populates an entry object.
  * Only populates if the original entry object is empty or undefined.
@@ -46,26 +54,25 @@ const attributeLists = {
 export default (document, entry) => {
   const ldSchema = document.querySelector('script[type="application/ld+json"]')?.textContent
 
-  if (!ldSchema) {
-    return entry
+  const ldJson = ldSchema ? parseJson(ldSchema) : null
+
+  if (ldJson) {
+    Object.entries(attributeLists).forEach(([key, attr]) => {
+      if ((typeof entry[key] === 'undefined' || entry[key] === '') && ldJson[attr]) {
+        if (key === 'type' && typeof ldJson[attr] === 'string') {
+          return entry[key] = typeSchemas.includes(ldJson[attr].toLowerCase()) ? ldJson[attr].toLowerCase() : ''
+        }
+
+        if (typeof ldJson[attr] === 'string') {
+          return entry[key] = ldJson[attr].toLowerCase()
+        }
+
+        if (Array.isArray(ldJson[attr]) && typeof ldJson[attr][0] === 'string') {
+          return entry[key] = ldJson[attr][0].toLowerCase()
+        }
+      }
+    })
   }
-
-  const ldJson = JSON.parse(ldSchema)
-  Object.entries(attributeLists).forEach(([key, attr]) => {
-    if ((typeof entry[key] === 'undefined' || entry[key] === '') && ldJson[attr]) {
-      if (key === 'type' && typeof ldJson[attr] === 'string') {
-        return entry[key] = typeSchemas.includes(ldJson[attr].toLowerCase()) ? ldJson[attr].toLowerCase() : ''
-      }
-
-      if (typeof ldJson[attr] === 'string') {
-        return entry[key] = ldJson[attr].toLowerCase()
-      }
-
-      if (Array.isArray(ldJson[attr]) && typeof ldJson[attr][0] === 'string') {
-        return entry[key] = ldJson[attr][0].toLowerCase()
-      }
-    }
-  })
 
   return entry
 }

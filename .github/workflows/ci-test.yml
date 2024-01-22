@@ -15,7 +15,7 @@ jobs:
         node_version: [18.x, 20.x, 21.x]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: setup Node.js v${{ matrix.node_version }}
       uses: actions/setup-node@v4
@@ -31,15 +31,28 @@ jobs:
         npm run build --if-present
         npm run test
 
-    - name: Report Coveralls
+    - name: Coveralls Parallel
       uses: coverallsapp/github-action@v2
       with:
+        flag-name: run-${{ join(matrix.*, '-') }}
+        parallel: true
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: cache node modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+
+  finish:
+    needs: test
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@v2
+      with:
+        parallel-finished: true
+        carryforward: "run-18.x,run-20.x,run-21.x"
