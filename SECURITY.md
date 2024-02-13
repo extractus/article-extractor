@@ -12,6 +12,6 @@ Description above is a general rule and may be altered on case by case basis.
 
 You can report low severity vulnerabilities as GitHub issues.
 
-More severe vulnerabilities should be reported to email extractus.security@skiff.com.
+More severe vulnerabilities should be reported to email extractus@pwshub.com.
 
 ---

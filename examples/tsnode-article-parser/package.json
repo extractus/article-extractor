@@ -8,7 +8,7 @@
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@extractus/article-extractor": "latest",
