@@ -34,7 +34,7 @@
     "bellajs": "^11.1.2",
     "cross-fetch": "^4.0.0",
     "linkedom": "^0.16.8",
-    "sanitize-html": "2.11.0"
+    "sanitize-html": "2.12.1"
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.11.0",
