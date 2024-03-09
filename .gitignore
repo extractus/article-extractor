@@ -19,3 +19,6 @@ pnpm-lock.yaml
 deno.lock
 
 evaluation
+
+bundle.cjs
+bundle.cjs.map

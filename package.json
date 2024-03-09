@@ -18,12 +18,21 @@
     "linkedom": "./src/browser/linkedom.js"
   },
   "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./src/main.js",
+      "require": "./bundle.cjs",
+      "default": "./src/main.js"
+    }
+  },
   "engines": {
     "node": ">= 16"
   },
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
+    "build": "node build",
     "pretest": "npm run lint",
     "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage=true",
     "eval": "node eval",
@@ -37,6 +46,7 @@
     "sanitize-html": "2.11.0"
   },
   "devDependencies": {
+    "esbuild": "^0.19.8",
     "@types/sanitize-html": "^2.11.0",
     "eslint": "^8.56.0",
     "https-proxy-agent": "^7.0.3",
