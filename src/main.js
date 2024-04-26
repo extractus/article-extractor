@@ -6,6 +6,7 @@ import {
 
 import retrieve from './utils/retrieve.js'
 import parseFromHtml from './utils/parseFromHtml.js'
+import { getCharset } from './utils/html.js'
 import { isValid as isValidUrl } from './utils/linker.js'
 
 export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
@@ -16,11 +17,14 @@ export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   if (!isValidUrl(input)) {
     return parseFromHtml(input, null, parserOptions || {})
   }
-  const html = await retrieve(input, fetchOptions)
-  if (!html) {
+  const buffer = await retrieve(input, fetchOptions)
+  const text = buffer ? Buffer.from(buffer).toString().trim() : ''
+  if (!text) {
     return null
   }
-
+  const charset = getCharset(text)
+  const decoder = new TextDecoder(charset)
+  const html = decoder.decode(buffer)
   return parseFromHtml(html, input, parserOptions || {})
 }
 

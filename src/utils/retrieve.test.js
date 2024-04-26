@@ -27,7 +27,8 @@ describe('test retrieve() method', () => {
     nock(baseUrl).get(path).reply(200, '<div>this is content</div>', {
       'Content-Type': 'text/html',
     })
-    const html = await retrieve(url)
+    const buffer = await retrieve(url)
+    const html = Buffer.from(buffer).toString()
     expect(html).toEqual('<div>this is content</div>')
   })
 
@@ -37,7 +38,8 @@ describe('test retrieve() method', () => {
     nock(baseUrl).get(path).reply(200, '\n\r\r\n\n<div>this is content</div>\n\r\r\n\n', {
       'Content-Type': 'text/html',
     })
-    const html = await retrieve(url)
+    const buffer = await retrieve(url)
+    const html = Buffer.from(buffer).toString().trim()
     expect(html).toEqual('<div>this is content</div>')
   })
 
@@ -53,11 +55,12 @@ describe('test retrieve() method', () => {
         'Content-Type': 'text/html',
       })
 
-    const html = await retrieve(url, {
+    const buffer = await retrieve(url, {
       proxy: {
         target: 'https://proxy-server.com/api/proxy?url=',
       },
     })
+    const html = Buffer.from(buffer).toString()
     expect(html).toEqual('<div>this is content</div>')
     nock.cleanAll()
   })

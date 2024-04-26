@@ -8,7 +8,7 @@ export const isValid = (url = '') => {
   try {
     const ourl = new URL(url)
     return ourl !== null && ourl.protocol.startsWith('http')
-  } catch (err) {
+  } catch {
     return false
   }
 }
@@ -22,7 +22,7 @@ export const absolutify = (fullUrl = '', relativeUrl = '') => {
   try {
     const result = new URL(relativeUrl, fullUrl)
     return result.toString()
-  } catch (err) {
+  } catch {
     return ''
   }
 }
@@ -96,7 +96,7 @@ export const purify = (url) => {
     })
 
     return pureUrl.toString().replace(pureUrl.hash, '')
-  } catch (err) {
+  } catch {
     return null
   }
 }
