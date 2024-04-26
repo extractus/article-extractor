@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { slugify } from 'bellajs'
 
 import { isValid as isValidUrl } from './src/utils/linker.js'
-import { extractFromHtml } from './src/main.js'
+import { extract, extractFromHtml } from './src/main.js'
 
 if (!existsSync('evaluation')) {
   execSync('mkdir evaluation')
@@ -15,15 +15,12 @@ if (!existsSync('evaluation')) {
 const extractFromUrl = async (url) => {
   try {
     console.time('extraction')
-    const res = await fetch(url)
-    const buffer = await res.arrayBuffer()
-    const decoder = new TextDecoder('iso-8859-1')
-    const html = decoder.decode(buffer)
-
-    const art = await extractFromHtml(html)
+    const art = await extract(url)
     console.log(art)
-    const slug = slugify(art.title)
-    writeFileSync(`evaluation/${slug}.html`, art.content, 'utf8')
+    if (art) {
+      const slug = slugify(art.title)
+      writeFileSync(`evaluation/${slug}.html`, art.content, 'utf8')
+    }
     console.timeEnd('extraction')
   } catch (err) {
     console.trace(err)

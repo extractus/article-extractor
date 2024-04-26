@@ -28,6 +28,17 @@ const stripMultispaces = (str) => {
   return str.replace(WS_REGEXP, ' ').trim()
 }
 
+export const getCharset = (html) => {
+  const doc = new DOMParser().parseFromString(html, 'text/html')
+  const m = doc.querySelector('meta[charset]') || null
+  let charset = m ? m.getAttribute('charset') : ''
+  if (!charset) {
+    const h = doc.querySelector('meta[http-equiv="content-type"]') || null
+    charset = h ? h.getAttribute('content')?.split(';')[1]?.replace('charset=', '')?.trim() : ''
+  }
+  return charset?.toLowerCase() || 'utf8'
+}
+
 export const cleanify = (inputHtml) => {
   const doc = new DOMParser().parseFromString(inputHtml, 'text/html')
   const html = doc.documentElement.innerHTML

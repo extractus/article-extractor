@@ -31,6 +31,6 @@ export default async (url, options = {}) => {
   if (status >= 400) {
     throw new Error(`Request failed with error code ${status}`)
   }
-  const text = await res.text()
-  return text.trim()
+  const buffer = await res.arrayBuffer()
+  return buffer
 }

@@ -121,10 +121,10 @@ export default (html) => {
     type: typeAttrs,
   }
 
-  const document = new DOMParser().parseFromString(html, 'text/html')
-  entry.title = document.querySelector('head > title')?.innerText
+  const doc = new DOMParser().parseFromString(html, 'text/html')
+  entry.title = doc.querySelector('head > title')?.innerText
 
-  Array.from(document.getElementsByTagName('link')).forEach(node => {
+  Array.from(doc.getElementsByTagName('link')).forEach(node => {
     const rel = node.getAttribute('rel')
     const href = node.getAttribute('href')
     if (rel && href) {
@@ -135,14 +135,13 @@ export default (html) => {
     }
   })
 
-  Array.from(document.getElementsByTagName('meta')).forEach(node => {
+  Array.from(doc.getElementsByTagName('meta')).forEach(node => {
     const result = getMetaContentByNameOrProperty(node, attributeLists)
     if (result) {
       entry[result.key] = result.content
     }
   })
 
-  const entries = extractLdSchema(document, entry)
-
+  const entries = extractLdSchema(doc, entry)
   return entries
 }
