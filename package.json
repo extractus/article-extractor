@@ -1,5 +1,5 @@
 {
-  "version": "8.0.9",
+  "version": "8.0.10",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -11,8 +11,7 @@
   "main": "./src/main.js",
   "type": "module",
   "imports": {
-    "cross-fetch": "./src/deno/cross-fetch.js",
-    "linkedom": "https://deno.land/x/deno_dom@v0.1.45/deno-dom-wasm.ts"
+    "cross-fetch": "./src/deno/cross-fetch.js"
   },
   "browser": {
     "cross-fetch": "./src/deno/cross-fetch.js",
