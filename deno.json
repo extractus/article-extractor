@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "cross-fetch": "./src/deno/cross-fetch.js",
-    "linkedom": "https://deno.land/x/deno_dom@v0.1.45/deno-dom-wasm.ts",
-    "@mozilla/readability": "https://esm.sh/@mozilla/readability@0.5.0",
-    "sanitize-html": "https://esm.sh/sanitize-html@2.13.0",
-    "bellajs": "https://esm.sh/bellajs@11.1.3"
-  }
-}
