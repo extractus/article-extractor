@@ -14,6 +14,6 @@ Start server:
 npm start
 ```
 
-Open `http://localhost:3100/?url=https://www.techradar.com/televisions/samsungs-new-cheaper-oled-tvs-are-now-available-to-buy` to see the result.
+Open `http://localhost:3100/?url=https://client-side-rendering.pages.dev/lorem-ipsum` to see the result.
 
 ---

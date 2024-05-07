@@ -30,8 +30,8 @@ const summarize = (desc, txt, threshold, maxlen) => { // eslint-disable-line
 }
 
 export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
-  const html = purify(inputHtml)
-  const meta = extractMetaData(html)
+  const pureHtml = purify(inputHtml)
+  const meta = extractMetaData(pureHtml)
 
   let title = meta.title
 
@@ -57,7 +57,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
 
   // gather title
   if (!title) {
-    title = extractTitleWithReadability(html, inputUrl)
+    title = extractTitleWithReadability(pureHtml, inputUrl)
   }
   if (!title) {
     return null
@@ -95,7 +95,7 @@ export default async (inputHtml, inputUrl = '', parserOptions = {}) => {
     }
   )
 
-  const content = fns(html)
+  const content = fns(inputHtml)
 
   if (!content) {
     return null
