@@ -1,5 +1,5 @@
 {
-  "name": "node-article-parser",
+  "name": "node-pupperteer",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@extractus/article-extractor": "latest",
-    "express": "latest"
+    "express": "latest",
+    "puppeteer": "latest"
   }
 }

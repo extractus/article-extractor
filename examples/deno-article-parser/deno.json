@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "imports": {
     "serve": "https://deno.land/std/http/server.ts",
-    "hono": "https://deno.land/x/hono@v3.11.2/mod.ts",
+    "hono": "https://deno.land/x/hono/mod.ts",
     "article-extractor": "https://esm.sh/@extractus/article-extractor"
   },
   "tasks": {

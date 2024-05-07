@@ -5,10 +5,10 @@
     "start": "bun run index.ts"
   },
   "devDependencies": {
-    "bun-types": "^1.0.26"
+    "bun-types": "latest"
   },
   "dependencies": {
     "@extractus/article-extractor": "latest",
-    "hono": "^4.0.1"
+    "hono": "latest"
   }
 }
