@@ -1,5 +1,6 @@
 // extractMetaData.test
-/* eslint-env jest */
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
 import { readFileSync } from 'node:fs'
 
@@ -9,20 +10,22 @@ import extractMetaData from './extractMetaData.js'
 
 const keys = 'url shortlink amphtml canonical title description image author source published favicon type'.split(' ')
 
-test('test extractMetaData(good content)', async () => {
-  const html = readFileSync('./test-data/regular-article.html', 'utf8')
-  const result = extractMetaData(html)
-  expect(isObject(result)).toBe(true)
-  keys.forEach((k) => {
-    expect(hasProperty(result, k)).toBe(true)
+describe('test extractMetaData', () => {
+  it('test extractMetaData(good content)', async () => {
+    const html = readFileSync('./test-data/regular-article.html', 'utf8')
+    const result = extractMetaData(html)
+    assert.ok(isObject(result))
+    keys.forEach((k) => {
+      assert.ok(hasProperty(result, k))
+    })
   })
-})
 
-test('test extractMetaData(json ld schema content)', async () => {
-  const html = readFileSync('./test-data/regular-article-json-ld.html', 'utf8')
-  const result = extractMetaData(html)
-  expect(isObject(result)).toBe(true)
-  keys.forEach((k) => {
-    expect(hasProperty(result, k)).toBe(true)
+  it('test extractMetaData(json ld schema content)', async () => {
+    const html = readFileSync('./test-data/regular-article-json-ld.html', 'utf8')
+    const result = extractMetaData(html)
+    assert.ok(isObject(result))
+    keys.forEach((k) => {
+      assert.ok(hasProperty(result, k))
+    })
   })
 })

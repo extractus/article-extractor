@@ -1,5 +1,6 @@
 // linker.test
-/* eslint-env jest */
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
 import { readFileSync } from 'node:fs'
 
@@ -49,43 +50,29 @@ describe('test isValidUrl()', () => {
     },
   ]
   cases.forEach(({ url, expected }) => {
-    test(`isValidUrl("${url}") must return "${expected}"`, () => {
+    it(`isValidUrl("${url}") must return "${expected}"`, () => {
       const result = isValidUrl(url)
-      expect(result).toEqual(expected)
+      assert.equal(result, expected)
     })
   })
 })
 
 describe('test normalizeUrls()', () => {
-  test('test adding absolute URLs to all links', () => {
+  it('test adding absolute URLs to all links', () => {
     const bestUrl = 'https://test-url.com/burritos-for-life'
     const html = readFileSync('./test-data/regular-article.html', 'utf8')
     const result = normalizeUrls(html, bestUrl)
-    expect(isString(result)).toBe(true)
-    expect(result).toEqual(
-      expect.not.stringContaining('<a href="/dict/watermelon">watermelon</a>')
-    )
-    expect(result).toEqual(
-      expect.stringContaining(
-        '<a target="_blank" href="https://test-url.com/dict/watermelon">watermelon</a>'
-      )
-    )
+    assert.ok(isString(result))
+    assert.equal(result.includes('<a href="/dict/watermelon">watermelon</a>'), false)
+    assert.equal(result.includes('<a target="_blank" href="https://test-url.com/dict/watermelon">watermelon</a>'), true)
   })
-  test('test adding target=_blank to all links', () => {
+  it('test adding target=_blank to all links', () => {
     const bestUrl = 'https://test-url.com/burritos-for-life'
     const html = readFileSync('./test-data/regular-article.html', 'utf8')
     const result = normalizeUrls(html, bestUrl)
-    expect(isString(result)).toBe(true)
-    expect(result).toEqual(
-      expect.not.stringContaining(
-        '<a href="https://otherwhere.com/descriptions/rational-peach">rational peach</a>'
-      )
-    )
-    expect(result).toEqual(
-      expect.stringContaining(
-        '<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">rational peach</a>'
-      )
-    )
+    assert.ok(isString(result))
+    assert.equal(result.includes('<a href="https://otherwhere.com/descriptions/rational-peach">rational peach</a>'), false)
+    assert.equal(result.includes('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">rational peach</a>'), true)
   })
 })
 
@@ -129,9 +116,9 @@ describe('test purifyUrl()', () => {
       url,
       expected,
     } = entry
-    test(`purifyUrl("${url}") must become "${expected}"`, () => {
+    it(`purifyUrl("${url}") must become "${expected}"`, () => {
       const result = purifyUrl(url)
-      expect(result).toEqual(expected)
+      assert.equal(result, expected)
     })
   })
 })
@@ -172,15 +159,15 @@ describe('test absolutifyUrl()', () => {
       relative,
       expected,
     } = entry
-    test(`absolutifyUrl("${full}", "${relative}") must become "${expected}"`, () => {
+    it(`absolutifyUrl("${full}", "${relative}") must become "${expected}"`, () => {
       const result = absolutifyUrl(full, relative)
-      expect(result).toEqual(expected)
+      assert.equal(result, expected)
     })
   })
 })
 
 describe('test chooseBestUrl()', () => {
-  test('test chooseBestUrl an actual case', () => {
+  it('test chooseBestUrl an actual case', () => {
     const title = 'Google đã ra giá mua Fitbit'
     const urls = [
       'https://alpha.xyz/tin-tuc-kinh-doanh/-/view_content/content/2965950/google-da-ra-gia-mua-fitbit',
@@ -190,6 +177,6 @@ describe('test chooseBestUrl()', () => {
       'https://a.xyz/read/2965950/907893219797',
     ]
     const result = chooseBestUrl(urls, title)
-    expect(result).toBe(urls[3])
+    assert.equal(result, urls[3])
   })
 })

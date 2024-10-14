@@ -12,7 +12,6 @@ export default [
       globals: {
         ...globals.node,
         ...globals.browser,
-        ...globals.jest,
         Intl: 'readonly',
       },
     },
@@ -76,7 +75,7 @@ export default [
       'max-lines-per-function': [
         'error',
         {
-          'max': 150,
+          'max': 180,
           'skipBlankLines': true,
         },
       ],

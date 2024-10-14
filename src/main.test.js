@@ -1,5 +1,7 @@
 // main.test
-/* eslint-env jest */
+
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
 import { readFileSync } from 'fs'
 
@@ -13,7 +15,7 @@ import {
   setSanitizeHtmlOptions,
   addTransformations,
   removeTransformations
-} from './main'
+} from './main.js'
 
 const env = process.env || {}
 const PROXY_SERVER = env.PROXY_SERVER || ''
@@ -36,8 +38,8 @@ describe('check all exported methods', () => {
   ]
 
   fns.forEach((fn) => {
-    test(` check ${fn.name}`, () => {
-      expect(fn).toBeTruthy()
+    it(` check ${fn.name}`, () => {
+      assert.ok(fn)
     })
   })
 })
@@ -56,11 +58,11 @@ describe('test extract(bad url)', () => {
   ]
 
   badSamples.forEach((url) => {
-    test(`testing extract bad url "${url}"`, async () => {
+    it(`testing extract bad url "${url}"`, async () => {
       try {
         await extract(url)
       } catch (err) {
-        expect(err).toBeTruthy()
+        assert.ok(err)
       }
     })
   })
@@ -78,8 +80,8 @@ describe('test extract(regular article url)', () => {
         url: 'https://somewhere.com/path/to/no/article',
         html: readFileSync('./test-data/html-no-article.html', 'utf8'),
       },
-      validate: (result, expect) => {
-        expect(result).toBeFalsy()
+      validate: (result) => {
+        assert.equal(result, null)
       },
     },
     {
@@ -87,8 +89,8 @@ describe('test extract(regular article url)', () => {
         url: 'https://somewhere.com/path/to/no/content',
         html: '',
       },
-      validate: (result, expect) => {
-        expect(result).toBeFalsy()
+      validate: (result) => {
+        assert.equal(result, null)
       },
     },
     {
@@ -96,10 +98,10 @@ describe('test extract(regular article url)', () => {
         url: 'https://somewhere.com/path/to/article',
         html: readFileSync('./test-data/regular-article.html', 'utf8'),
       },
-      validate: (result, expect) => {
-        expect(result).toBeTruthy()
-        expect(result.title).toEqual('Article title here')
-        expect(result.description).toEqual(expDesc)
+      validate: (result) => {
+        assert.ok(result)
+        assert.equal(result.title, 'Article title here')
+        assert.equal(result.description, expDesc)
       },
     },
   ]
@@ -111,18 +113,18 @@ describe('test extract(regular article url)', () => {
       .reply(statusCode, html, {
         'Content-Type': 'text/html',
       })
-    test(`check extract("${url}")`, async () => {
+    it(`check extract("${url}")`, async () => {
       const result = await extract(url)
-      validate(result, expect)
+      validate(result)
     })
   })
 
-  test('check extract(html string)', async () => {
+  it('check extract(html string)', async () => {
     const html = readFileSync('./test-data/regular-article.html', 'utf8')
     const result = await extract(html)
-    expect(result).toBeTruthy()
-    expect(result.title).toEqual('Article title here')
-    expect(result.description).toEqual(expDesc)
+    assert.ok(result)
+    assert.equal(result.title, 'Article title here')
+    assert.equal(result.description, expDesc)
   })
 })
 
@@ -141,22 +143,22 @@ describe('test extract with modified sanitize-html options', () => {
     },
   })
 
-  test('check if output contain class attribute', async () => {
+  it('check if output contain class attribute', async () => {
     const html = readFileSync('./test-data/article-with-classes-attributes.html', 'utf8')
     const result = await extract(html)
-    expect(result.content).toEqual(expect.stringContaining('code class="lang-js"'))
+    assert.ok(result.content.includes('code class="lang-js"'))
   })
 })
 
 if (PROXY_SERVER !== '') {
   describe('test extract live article API via proxy server', () => {
-    test('check if extract method works with proxy server', async () => {
+    it('check if extract method works with proxy server', async () => {
       const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
       const result = await extract(url, {}, {
         agent: new HttpsProxyAgent(PROXY_SERVER),
       })
-      expect(result.title).toEqual(expect.stringContaining('Federal Reserve'))
-      expect(result.source).toEqual('cnbc.com')
+      assert.ok(result.title.includes('Federal Reserve'))
+      assert.equal(result.source, 'cnbc.com')
     }, 10000)
   })
 }
