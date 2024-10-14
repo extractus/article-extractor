@@ -1,5 +1,6 @@
 // html.test
-/* eslint-env jest */
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
 import { readFileSync } from 'node:fs'
 
@@ -10,29 +11,13 @@ import {
 } from './html.js'
 
 describe('test cleanify() method', () => {
-  test('check if unwanted elements/attributes removed', () => {
+  it('check if unwanted elements/attributes removed', () => {
     const html = readFileSync('./test-data/regular-article.html', 'utf8')
-    expect(html).toEqual(
-      expect.stringContaining(
-        '<address>4746 Kelly Drive, West Virginia</address>'
-      )
-    )
-    expect(html).toEqual(
-      expect.stringContaining(
-        '<img src="./orange.png" style="border: solid 1px #000">'
-      )
-    )
+    assert.ok(html.includes('<address>4746 Kelly Drive, West Virginia</address>'))
+    assert.ok(html.includes('<img src="./orange.png" style="border: solid 1px #000">'))
     const result = cleanify(html)
-    expect(isString(result)).toBe(true)
-    expect(result).toEqual(
-      expect.not.stringContaining(
-        '<address>4746 Kelly Drive, West Virginia</address>'
-      )
-    )
-    expect(result).toEqual(
-      expect.not.stringContaining(
-        '<img src="./orange.png" style="border: solid 1px #000">'
-      )
-    )
+    assert.ok(isString(result))
+    assert.equal(result.includes('<address>4746 Kelly Drive, West Virginia</address>'), false)
+    assert.equal(result.includes('<img src="./orange.png" style="border: solid 1px #000">'), false)
   })
 })

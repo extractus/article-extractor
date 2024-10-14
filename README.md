@@ -5,7 +5,6 @@ Extract main article, main image and meta data from URL.
 [![npm version](https://badge.fury.io/js/@extractus%2Farticle-extractor.svg)](https://badge.fury.io/js/@extractus%2Farticle-extractor)
 ![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/extractus/article-extractor/badge.svg?branch=main)](https://coveralls.io/github/extractus/article-extractor?branch=main)
 
 (This library is derived from [article-parser](https://www.npmjs.com/package/article-parser) renamed.)
 
