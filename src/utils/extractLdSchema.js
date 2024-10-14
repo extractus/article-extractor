@@ -52,27 +52,30 @@ const parseJson = (text) => {
  * @returns {Object} The entry object after being merged/populated with data.
  */
 export default (document, entry) => {
-  const ldSchema = document.querySelector('script[type="application/ld+json"]')?.textContent
+  const ldSchemas = document.querySelectorAll('script[type="application/ld+json"]')
 
-  const ldJson = ldSchema ? parseJson(ldSchema) : null
+  ldSchemas.forEach(ldSchema => {
+    const ldJson = parseJson(ldSchema.textContent.replace(/[\n\r\t]/g, ''))
+    const isAllowedLdJsonType = typeSchemas.includes(ldJson['@type'].toLowerCase())
 
-  if (ldJson) {
-    Object.entries(attributeLists).forEach(([key, attr]) => {
-      if ((typeof entry[key] === 'undefined' || entry[key] === '') && ldJson[attr]) {
-        if (key === 'type' && typeof ldJson[attr] === 'string') {
-          return entry[key] = typeSchemas.includes(ldJson[attr].toLowerCase()) ? ldJson[attr].toLowerCase() : ''
+    if (ldJson && isAllowedLdJsonType) {
+      Object.entries(attributeLists).forEach(([key, attr]) => {
+        const isEntryAlreadyPopulated = typeof entry[key] !== 'undefined' && entry[key] !== ''
+
+        if (isEntryAlreadyPopulated || !ldJson[attr]) {
+          return
         }
 
-        if (typeof ldJson[attr] === 'string') {
-          return entry[key] = ldJson[attr].toLowerCase()
+        const keyValue = ldJson[attr]
+        if (keyValue) {
+          entry[key] = Array.isArray(keyValue) ? keyValue[0] : keyValue
+          if (typeof entry[key] === 'string') {
+            entry[key] = entry[key].toLowerCase().trim()
+          }
         }
-
-        if (Array.isArray(ldJson[attr]) && typeof ldJson[attr][0] === 'string') {
-          return entry[key] = ldJson[attr][0].toLowerCase()
-        }
-      }
-    })
-  }
+      })
+    }
+  })
 
   return entry
 }

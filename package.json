@@ -25,7 +25,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "pretest": "npm run lint",
-    "test": "node --test",
+    "test": "node --test --experimental-test-coverage",
     "eval": "node eval",
     "reset": "node reset"
   },
