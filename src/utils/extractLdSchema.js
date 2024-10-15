@@ -56,7 +56,7 @@ export default (document, entry) => {
 
   ldSchemas.forEach(ldSchema => {
     const ldJson = parseJson(ldSchema.textContent.replace(/[\n\r\t]/g, ''))
-    const isAllowedLdJsonType = typeSchemas.includes(ldJson['@type'].toLowerCase())
+    const isAllowedLdJsonType = typeSchemas.includes(ldJson['@type']?.toLowerCase())
 
     if (ldJson && isAllowedLdJsonType) {
       Object.entries(attributeLists).forEach(([key, attr]) => {
