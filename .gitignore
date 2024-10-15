@@ -15,6 +15,7 @@ coverage
 yarn.lock
 coverage.lcov
 pnpm-lock.yaml
+lcov.info
 
 deno.lock
 

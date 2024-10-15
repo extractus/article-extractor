@@ -1,5 +1,6 @@
 // retrieve.test
-/* eslint-env jest */
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
 import nock from 'nock'
 
@@ -14,14 +15,14 @@ const parseUrl = (url) => {
 }
 
 describe('test retrieve() method', () => {
-  test('test retrieve with bad status code', async () => {
+  it('test retrieve with bad status code', async () => {
     const url = 'https://some.where/bad/page'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(500, 'Error 500')
-    expect(retrieve(url)).rejects.toThrow(new Error('Request failed with error code 500'))
+    assert.rejects(retrieve(url), new Error('Request failed with error code 500'))
   })
 
-  test('test retrieve from good source', async () => {
+  it('test retrieve from good source', async () => {
     const url = 'https://some.where/good/page'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(200, '<div>this is content</div>', {
@@ -29,10 +30,10 @@ describe('test retrieve() method', () => {
     })
     const buffer = await retrieve(url)
     const html = Buffer.from(buffer).toString()
-    expect(html).toEqual('<div>this is content</div>')
+    assert.equal(html, '<div>this is content</div>')
   })
 
-  test('test retrieve from good source with \\r\\n', async () => {
+  it('test retrieve from good source with \\r\\n', async () => {
     const url = 'https://some.where/good/page'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(200, '\n\r\r\n\n<div>this is content</div>\n\r\r\n\n', {
@@ -40,10 +41,10 @@ describe('test retrieve() method', () => {
     })
     const buffer = await retrieve(url)
     const html = Buffer.from(buffer).toString().trim()
-    expect(html).toEqual('<div>this is content</div>')
+    assert.equal(html, '<div>this is content</div>')
   })
 
-  test('test retrieve using proxy', async () => {
+  it('test retrieve using proxy', async () => {
     const url = 'https://some.where/good/source-with-proxy'
     const { baseUrl, path } = parseUrl(url)
     nock(baseUrl).get(path).reply(200, 'something bad', {
@@ -61,7 +62,7 @@ describe('test retrieve() method', () => {
       },
     })
     const html = Buffer.from(buffer).toString()
-    expect(html).toEqual('<div>this is content</div>')
+    assert.equal(html, '<div>this is content</div>')
     nock.cleanAll()
   })
 })

@@ -4,3 +4,4 @@ coverage
 pnpm-lock.yaml
 examples
 test-data
+lcov.info

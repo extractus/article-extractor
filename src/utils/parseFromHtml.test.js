@@ -1,5 +1,6 @@
 // parseFromHtml.test
-/* eslint-env jest */
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
 
 import { readFileSync } from 'node:fs'
 
@@ -49,8 +50,8 @@ const cases = [
       desc: 'a webpage with article but no source',
       html: readFileSync('./test-data/html-article-no-source.html', 'utf8'),
     },
-    expectation: (result, expect) => {
-      expect(result.source).toEqual('somewhere.any')
+    expectation: (result) => {
+      assert.equal(result.source, 'somewhere.any')
     },
   },
   {
@@ -58,9 +59,9 @@ const cases = [
       desc: 'a webpage with data-src in img tag',
       html: readFileSync('./test-data/html-article-with-data-src.html', 'utf8'),
     },
-    expectation: (result, expect) => {
-      expect(result.content).toEqual(expect.stringContaining('<img src="https://somewhere.any/image1.jpg" />'))
-      expect(result.content).toEqual(expect.stringContaining('<img src="https://somewhere.any/image2.jpg" />'))
+    expectation: (result) => {
+      assert.equal(result.content.includes('<img src="https://somewhere.any/image1.jpg" />'), true)
+      assert.equal(result.content.includes('<img src="https://somewhere.any/image2.jpg" />'), true)
     },
   },
   {
@@ -69,62 +70,64 @@ const cases = [
       html: readFileSync('./test-data/regular-article.html', 'utf8'),
       url: 'https://somewhere.com/path/to/article',
     },
-    expectation: (result, expect) => {
-      expect(result.title).toEqual('Article title here')
-      expect(result.description).toEqual(expDesc)
-      expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">'))
-      expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://somewhere.com/dict/watermelon">'))
+    expectation: (result) => {
+      assert.equal(result.title, 'Article title here')
+      assert.equal(result.description, expDesc)
+      assert.equal(result.content.includes('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">'), true)
+      assert.equal(result.content.includes('<a target="_blank" href="https://somewhere.com/dict/watermelon">'), true)
     },
   },
 ]
 
-cases.forEach((acase) => {
-  const { input, expectation } = acase
-  const { desc, html, url = '' } = input
-  test(`check if parseFromHtml() works with ${desc}`, async () => {
-    const result = await parseFromHtml(html, url)
-    if (isFunction(expectation)) {
-      expectation(result, expect)
-    } else {
-      expect(result).toEqual(expectation)
-    }
+describe('test parseFromHtml', () => {
+  cases.forEach((acase) => {
+    const { input, expectation } = acase
+    const { desc, html, url = '' } = input
+    it(`check if parseFromHtml() works with ${desc}`, async () => {
+      const result = await parseFromHtml(html, url)
+      if (isFunction(expectation)) {
+        expectation(result)
+      } else {
+        assert.equal(result, expectation)
+      }
+    })
   })
-})
 
-test('check if parseFromHtml() works with multi transforms', async () => {
-  addTransformations([
-    {
-      patterns: [
-        /http(s?):\/\/need-transform.tld\/*/,
-      ],
-      post: (document) => {
-        document.querySelectorAll('a').forEach((node) => {
-          const sHtml = node.innerHTML
-          const link = node.getAttribute('href')
-          node.parentNode.replaceChild(document.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
-        })
-        return document
+  it('check if parseFromHtml() works with multi transforms', async () => {
+    addTransformations([
+      {
+        patterns: [
+          /http(s?):\/\/need-transform.tld\/*/,
+        ],
+        post: (document) => {
+          document.querySelectorAll('a').forEach((node) => {
+            const sHtml = node.innerHTML
+            const link = node.getAttribute('href')
+            node.parentNode.replaceChild(document.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node)
+          })
+          return document
+        },
       },
-    },
-    {
-      patterns: [
-        /http(s?):\/\/sw.re\/*/,
-      ],
-      post: (document) => {
-        document.querySelectorAll('strong').forEach((node) => {
-          const b = document.createElement('B')
-          b.innerHTML = node.innerHTML
-          node.parentNode.replaceChild(b, node)
-        })
-        return document
+      {
+        patterns: [
+          /http(s?):\/\/sw.re\/*/,
+        ],
+        post: (document) => {
+          document.querySelectorAll('strong').forEach((node) => {
+            const b = document.createElement('B')
+            b.innerHTML = node.innerHTML
+            node.parentNode.replaceChild(b, node)
+          })
+          return document
+        },
       },
-    },
-  ])
-  const html = readFileSync('./test-data/vnn-article.html', 'utf8')
-  const url = 'https://need-transform.tld/path/to/article'
-  const result = await parseFromHtml(html, url)
-  expect(result.title).toEqual('Article title here')
-  expect(result.content).toEqual(expect.not.stringContaining('<a href="https://vnn.vn/dict/watermelon" target="_blank">'))
-  expect(result.content).toEqual(expect.stringContaining('[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]'))
-  expect(result.content).toEqual(expect.stringContaining('<b>in its own way</b>'))
+    ])
+    const html = readFileSync('./test-data/vnn-article.html', 'utf8')
+    const url = 'https://need-transform.tld/path/to/article'
+    const result = await parseFromHtml(html, url)
+    assert.equal(result.title, 'Article title here')
+    assert.equal(result.content.includes('<a href="https://vnn.vn/dict/watermelon" target="_blank">'), false)
+    assert.equal(result.content.includes('[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]'), true)
+    assert.equal(result.content.includes('<b>in its own way</b>'), true)
+  })
 })

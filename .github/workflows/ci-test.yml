@@ -31,13 +31,6 @@ jobs:
         npm run build --if-present
         npm run test
 
-    - name: Coveralls Parallel
-      uses: coverallsapp/github-action@v2
-      with:
-        flag-name: run-${{ join(matrix.*, '-') }}
-        parallel: true
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: cache node modules
       uses: actions/cache@v4
       with:
@@ -45,14 +38,3 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-
-  finish:
-    needs: test
-    if: ${{ always() }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@v2
-      with:
-        parallel-finished: true
-        carryforward: "run-18.x,run-20.x,run-21.x"
