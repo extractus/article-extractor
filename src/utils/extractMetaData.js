@@ -2,6 +2,7 @@
 
 import { DOMParser } from 'linkedom'
 import extractLdSchema from './extractLdSchema.js'
+import findDate from './findDate.js'
 
 /**
  * @param {Element} node
@@ -143,5 +144,10 @@ export default (html) => {
   })
 
   const entries = extractLdSchema(doc, entry)
+
+  if (!entries.published) {
+    entries.published = findDate(doc)
+  }
+
   return entries
 }
