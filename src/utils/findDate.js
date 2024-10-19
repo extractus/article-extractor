@@ -38,7 +38,7 @@ export default function (doc) {
       const match = element.textContent.match(pattern)
       if (match) return convertDateFormat(match[0])
     }
-    return null
+    return ''
   }
 
   const priorityElements = doc.querySelectorAll('time, [datetime], [itemprop~=datePublished], [itemprop~=dateCreated]')
@@ -53,5 +53,5 @@ export default function (doc) {
     if (date) return date
   }
 
-  return null
+  return ''
 }

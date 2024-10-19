@@ -143,11 +143,11 @@ export default (html) => {
     }
   })
 
-  const entries = extractLdSchema(doc, entry)
+  const metadata = extractLdSchema(doc, entry)
 
-  if (!entries.published) {
-    entries.published = findDate(doc)
+  if (!metadata.published) {
+    metadata.published = findDate(doc) || ''
   }
 
-  return entries
+  return metadata
 }

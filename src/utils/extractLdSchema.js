@@ -1,3 +1,7 @@
+// utils -> extractLdSchema.js
+
+import { isArray, isObject, isString } from 'bellajs'
+
 const typeSchemas = [
   'aboutpage',
   'checkoutpage',
@@ -53,25 +57,20 @@ const parseJson = (text) => {
  */
 export default (document, entry) => {
   const ldSchemas = document.querySelectorAll('script[type="application/ld+json"]')
-
   ldSchemas.forEach(ldSchema => {
     const ldJson = parseJson(ldSchema.textContent.replace(/[\n\r\t]/g, ''))
     const isAllowedLdJsonType = typeSchemas.includes(ldJson['@type']?.toLowerCase())
 
     if (ldJson && isAllowedLdJsonType) {
       Object.entries(attributeLists).forEach(([key, attr]) => {
-        const isEntryAlreadyPopulated = typeof entry[key] !== 'undefined' && entry[key] !== ''
-
-        if (isEntryAlreadyPopulated || !ldJson[attr]) {
+        if (!entry[key] || !ldJson[attr]) {
           return
         }
 
         const keyValue = ldJson[attr]
-        if (keyValue) {
-          entry[key] = Array.isArray(keyValue) ? keyValue[0] : keyValue
-          if (typeof entry[key] === 'string') {
-            entry[key] = entry[key].toLowerCase().trim()
-          }
+        const val = isArray(keyValue) ? keyValue[0] : isObject(keyValue) ? keyValue?.name || '' : keyValue
+        if (isString(val)) {
+          entry[key] = val.trim()
         }
       })
     }
