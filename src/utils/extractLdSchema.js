@@ -43,7 +43,7 @@ const parseJson = (text) => {
   try {
     return JSON.parse(text)
   } catch {
-    return null
+    return {}
   }
 }
 
@@ -59,7 +59,8 @@ export default (document, entry) => {
   const ldSchemas = document.querySelectorAll('script[type="application/ld+json"]')
   ldSchemas.forEach(ldSchema => {
     const ldJson = parseJson(ldSchema.textContent.replace(/[\n\r\t]/g, ''))
-    const isAllowedLdJsonType = typeSchemas.includes(ldJson['@type']?.toLowerCase())
+    const ldJsonType = ldJson['@type']?.toLowerCase() || null
+    const isAllowedLdJsonType = ldJsonType ? typeSchemas.includes(ldJsonType) : false
 
     if (ldJson && isAllowedLdJsonType) {
       Object.entries(attributeLists).forEach(([key, attr]) => {
