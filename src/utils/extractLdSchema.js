@@ -47,6 +47,13 @@ const parseJson = (text) => {
   }
 }
 
+const isAllowedLdJsonType = (ldJson) => {
+  const rootLdJsonType = ldJson['@type'] || ''
+  const arr = isArray(rootLdJsonType) ? rootLdJsonType : [rootLdJsonType]
+  const ldJsonTypes = arr.filter(x => !!x)
+  return ldJsonTypes.length > 0 && ldJsonTypes.some(x => typeSchemas.includes(x.toLowerCase()))
+}
+
 /**
  * Parses JSON-LD data from a document and populates an entry object.
  * Only populates if the original entry object is empty or undefined.
@@ -59,10 +66,7 @@ export default (document, entry) => {
   const ldSchemas = document.querySelectorAll('script[type="application/ld+json"]')
   ldSchemas.forEach(ldSchema => {
     const ldJson = parseJson(ldSchema.textContent.replace(/[\n\r\t]/g, ''))
-    const ldJsonType = ldJson['@type']?.toLowerCase() || null
-    const isAllowedLdJsonType = ldJsonType ? typeSchemas.includes(ldJsonType) : false
-
-    if (ldJson && isAllowedLdJsonType) {
+    if (ldJson && isAllowedLdJsonType(ldJson)) {
       Object.entries(attributeLists).forEach(([key, attr]) => {
         if (!entry[key] || !ldJson[attr]) {
           return
