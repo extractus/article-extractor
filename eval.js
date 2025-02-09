@@ -32,6 +32,10 @@ const extractFromFile = async (fpath) => {
     const html = readFileSync(fpath, 'utf8')
     const art = await extractFromHtml(html)
     console.log(art)
+    if (art) {
+      const slug = slugify(art.title)
+      writeFileSync(`evaluation/${slug}.html`, art.content, 'utf8')
+    }
   } catch (err) {
     console.trace(err)
   }
