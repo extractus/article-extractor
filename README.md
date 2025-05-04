@@ -26,10 +26,10 @@ bun add @extractus/article-extractor
 
 ```ts
 import { extract } from '@extractus/article-extractor'
+
+const data = await extract(ARTICLE_URL)
+console.log(data)
 ```
-
-Please check [the examples](examples) for reference.
-
 
 ## APIs
 
