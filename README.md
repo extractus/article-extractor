@@ -10,46 +10,26 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-- [Give it a try!](https://extractor-demos.pages.dev/article-extractor)
-- [Example FaaS](https://extractus.deno.dev/extract?apikey=rn0wbHos2e73W6ghQf705bdF&type=article&url=https://github.blog/2022-11-17-octoverse-2022-10-years-of-tracking-open-source/)
+- [Give it a try!](https://extractus-demo.vercel.app/article)
 
-
-## Install & Usage
-
-### Node.js
+## Install
 
 ```bash
+# npm, pnpm, yarn
 npm i @extractus/article-extractor
 
-# pnpm
-pnpm i @extractus/article-extractor
-
-# yarn
-yarn add @extractus/article-extractor
+# bun
+bun add @extractus/article-extractor
 ```
 
+## Usage
+
 ```ts
-// es6 module
 import { extract } from '@extractus/article-extractor'
+
+const data = await extract(ARTICLE_URL)
+console.log(data)
 ```
-
-### Deno
-
-```ts
-import { extract } from 'https://esm.sh/@extractus/article-extractor'
-
-// deno > 1.28
-import { extract } from 'npm:@extractus/article-extractor'
-```
-
-### Browser
-
-```ts
-import { extract } from 'https://esm.sh/@extractus/article-extractor'
-```
-
-Please check [the examples](examples) for reference.
-
 
 ## APIs
 

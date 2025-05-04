@@ -1,5 +1,5 @@
 {
-  "version": "8.0.17",
+  "version": "8.0.18",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -30,18 +30,19 @@
     "reset": "node reset"
   },
   "dependencies": {
-    "@mozilla/readability": "^0.5.0",
+    "@mozilla/readability": "^0.6.0",
     "bellajs": "^11.2.0",
     "cross-fetch": "^4.1.0",
-    "linkedom": "^0.18.9",
-    "sanitize-html": "2.14.0"
+    "linkedom": "^0.18.10",
+    "sanitize-html": "2.16.0"
   },
   "devDependencies": {
-    "@types/sanitize-html": "^2.13.0",
-    "eslint": "^9.20.0",
-    "globals": "^15.14.0",
+    "@eslint/js": "^9.26.0",
+    "@types/sanitize-html": "^2.15.0",
+    "eslint": "^9.26.0",
+    "globals": "^16.0.0",
     "https-proxy-agent": "^7.0.6",
-    "nock": "^14.0.1"
+    "nock": "^14.0.4"
   },
   "keywords": [
     "article",
