@@ -10,9 +10,7 @@ Extract main article, main image and meta data from URL.
 
 ## Demo
 
-- [Give it a try!](https://extractor-demos.pages.dev/article-extractor)
-- [Example FaaS](https://extractus.deno.dev/extract?apikey=rn0wbHos2e73W6ghQf705bdF&type=article&url=https://github.blog/2022-11-17-octoverse-2022-10-years-of-tracking-open-source/)
-
+- [Give it a try!](https://extractus-demo.vercel.app/article)
 
 ## Install & Usage
 
