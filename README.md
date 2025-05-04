@@ -12,38 +12,20 @@ Extract main article, main image and meta data from URL.
 
 - [Give it a try!](https://extractus-demo.vercel.app/article)
 
-## Install & Usage
-
-### Node.js
+## Install
 
 ```bash
+# npm, pnpm, yarn
 npm i @extractus/article-extractor
 
-# pnpm
-pnpm i @extractus/article-extractor
-
-# yarn
-yarn add @extractus/article-extractor
+# bun
+bun add @extractus/article-extractor
 ```
 
+## Usage
+
 ```ts
-// es6 module
 import { extract } from '@extractus/article-extractor'
-```
-
-### Deno
-
-```ts
-import { extract } from 'https://esm.sh/@extractus/article-extractor'
-
-// deno > 1.28
-import { extract } from 'npm:@extractus/article-extractor'
-```
-
-### Browser
-
-```ts
-import { extract } from 'https://esm.sh/@extractus/article-extractor'
 ```
 
 Please check [the examples](examples) for reference.
