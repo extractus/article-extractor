@@ -1,7 +1,7 @@
 // similarity.js
 // https://github.com/aceakash/string-similarity
 
-import { isArray, isString } from 'bellajs'
+import { isArray, isString } from '@ndaidong/bellajs'
 
 const areArgsValid = (mainString, targetStrings) => {
   return isString(mainString) && isArray(targetStrings)

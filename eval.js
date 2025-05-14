@@ -3,7 +3,7 @@
 import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 
-import { slugify } from 'bellajs'
+import { slugify } from '@ndaidong/bellajs'
 
 import { isValid as isValidUrl } from './src/utils/linker.js'
 import { extract, extractFromHtml } from './src/main.js'
