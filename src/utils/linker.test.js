@@ -4,7 +4,7 @@ import assert from 'node:assert'
 
 import { readFileSync } from 'node:fs'
 
-import { isString } from 'bellajs'
+import { isString } from '@ndaidong/bellajs'
 
 import {
   chooseBestUrl,

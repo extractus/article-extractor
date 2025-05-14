@@ -138,8 +138,9 @@ export default (html) => {
 
   Array.from(doc.getElementsByTagName('meta')).forEach(node => {
     const result = getMetaContentByNameOrProperty(node, attributeLists)
-    if (result) {
-      entry[result.key] = result.content
+    const val = result?.content || ''
+    if (val !== '') {
+      entry[result.key] = val
     }
   })
 

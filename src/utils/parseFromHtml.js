@@ -1,6 +1,6 @@
 // utils -> parseFromHtml
 
-import { stripTags, truncate, unique, pipe } from 'bellajs'
+import { stripTags, truncate, unique, pipe } from '@ndaidong/bellajs'
 
 import { purify, cleanify } from './html.js'
 

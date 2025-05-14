@@ -1,6 +1,6 @@
 // utils -> extractLdSchema.js
 
-import { isArray, isObject, isString } from 'bellajs'
+import { isArray, isObject, isString } from '@ndaidong/bellajs'
 
 const typeSchemas = [
   'aboutpage',
@@ -74,7 +74,7 @@ export default (document, entry) => {
 
         const keyValue = ldJson[attr]
         const val = isArray(keyValue) ? keyValue[0] : isObject(keyValue) ? keyValue?.name || '' : keyValue
-        if (isString(val)) {
+        if (isString(val) && val !== '') {
           entry[key] = val.trim()
         }
       })

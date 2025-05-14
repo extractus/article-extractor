@@ -2,7 +2,7 @@
 
 import { DOMParser } from 'linkedom'
 import sanitize from 'sanitize-html'
-import { pipe } from 'bellajs'
+import { pipe } from '@ndaidong/bellajs'
 
 import { getSanitizeHtmlOptions } from '../config.js'
 

@@ -4,7 +4,7 @@ import assert from 'node:assert'
 
 import { readFileSync } from 'node:fs'
 
-import { isObject, hasProperty } from 'bellajs'
+import { isObject, hasProperty } from '@ndaidong/bellajs'
 
 import extractMetaData from './extractMetaData.js'
 
