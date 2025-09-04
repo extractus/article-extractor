@@ -1,5 +1,5 @@
 {
-  "version": "8.0.19",
+  "version": "8.0.20",
   "name": "@extractus/article-extractor",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
@@ -19,7 +19,7 @@
   },
   "types": "./index.d.ts",
   "engines": {
-    "node": ">= 18"
+    "node": ">= 20"
   },
   "scripts": {
     "lint": "eslint .",
@@ -33,16 +33,16 @@
     "@mozilla/readability": "^0.6.0",
     "@ndaidong/bellajs": "^12.0.1",
     "cross-fetch": "^4.1.0",
-    "linkedom": "^0.18.10",
-    "sanitize-html": "2.16.0"
+    "linkedom": "^0.18.12",
+    "sanitize-html": "2.17.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.26.0",
+    "@eslint/js": "^9.34.0",
     "@types/sanitize-html": "^2.16.0",
-    "eslint": "^9.26.0",
-    "globals": "^16.1.0",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
     "https-proxy-agent": "^7.0.6",
-    "nock": "^14.0.4"
+    "nock": "^14.0.10"
   },
   "keywords": [
     "article",
