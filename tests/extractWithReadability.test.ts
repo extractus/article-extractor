@@ -2,14 +2,19 @@
 
 import { assertEquals } from "@std/assert";
 import { isString } from "@pwshub/bellajs";
-import extractWithReadability, { extractTitleWithReadability } from "../src/utils/extractWithReadability.ts";
+import extractWithReadability, {
+  extractTitleWithReadability,
+} from "../src/utils/extractWithReadability.ts";
 
 Deno.test("extractWithReadability - good html content", () => {
   const html = Deno.readTextFileSync("tests/test-data/regular-article.html");
   const result = extractWithReadability(html, "https://foo.bar");
   assertEquals(isString(result), true);
   assertEquals((result as string).length > 200, true);
-  assertEquals((result as string).includes('<img src="https://foo.bar/orange.png">'), true);
+  assertEquals(
+    (result as string).includes('<img src="https://foo.bar/orange.png">'),
+    true,
+  );
 });
 
 Deno.test("extractWithReadability - bad html content", () => {

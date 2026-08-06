@@ -1,11 +1,12 @@
 // tests/main.test.ts
 
 import { assertEquals, assertRejects } from "@std/assert";
+import { extract } from "../src/main.ts";
 import {
-  extract,
-  getSanitizeHtmlOptions,
-  setSanitizeHtmlOptions,
-} from "../src/main.ts";
+  defaultAllowedAttributes,
+  defaultAllowedIframeDomains,
+  defaultAllowedTags,
+} from "../src/config.ts";
 import { createMockFetcher } from "./helpers.ts";
 
 Deno.test("extract - non-string input", async () => {
@@ -41,7 +42,11 @@ Deno.test("extract - regular article from url", async () => {
 
   const html = Deno.readTextFileSync("tests/test-data/regular-article.html");
   const fetcher = createMockFetcher(html, "text/html");
-  const result = await extract("https://somewhere.com/path/to/article", {}, fetcher);
+  const result = await extract(
+    "https://somewhere.com/path/to/article",
+    {},
+    fetcher,
+  );
   assertEquals((result as Record<string, unknown>).title, "Article title here");
   assertEquals((result as Record<string, unknown>).description, expDesc);
 });
@@ -49,13 +54,21 @@ Deno.test("extract - regular article from url", async () => {
 Deno.test("extract - no article from url", async () => {
   const html = Deno.readTextFileSync("tests/test-data/html-no-article.html");
   const fetcher = createMockFetcher(html, "text/html");
-  const result = await extract("https://somewhere.com/path/to/no/article", {}, fetcher);
+  const result = await extract(
+    "https://somewhere.com/path/to/no/article",
+    {},
+    fetcher,
+  );
   assertEquals(result, null);
 });
 
 Deno.test("extract - empty content from url", async () => {
   const fetcher = createMockFetcher("", "text/html");
-  const result = await extract("https://somewhere.com/path/to/no/content", {}, fetcher);
+  const result = await extract(
+    "https://somewhere.com/path/to/no/content",
+    {},
+    fetcher,
+  );
   assertEquals(result, null);
 });
 
@@ -72,22 +85,21 @@ Deno.test("extract - html string directly", async () => {
   assertEquals((result as Record<string, unknown>).description, expDesc);
 });
 
-Deno.test("extract with modified sanitize-html options", async () => {
-  const currentSanitizeOptions = getSanitizeHtmlOptions();
-
-  setSanitizeHtmlOptions({
-    ...currentSanitizeOptions,
+Deno.test("extract with custom allowed attributes via ParserOptions", async () => {
+  const html = Deno.readTextFileSync(
+    "tests/test-data/article-with-classes-attributes.html",
+  );
+  const result = await extract(html, {
+    allowedTags: defaultAllowedTags,
     allowedAttributes: {
-      ...currentSanitizeOptions.allowedAttributes as Record<string, unknown>,
+      ...defaultAllowedAttributes,
       code: ["class"],
       div: ["class"],
     },
-    allowedClasses: {
-      code: ["language-*", "lang-*"],
-    },
+    allowedIframeDomains: defaultAllowedIframeDomains,
   });
-
-  const html = Deno.readTextFileSync("tests/test-data/article-with-classes-attributes.html");
-  const result = await extract(html);
-  assertEquals((result as Record<string, string>).content.includes('code class="lang-js"'), true);
+  assertEquals(
+    (result as Record<string, string>).content.includes('code class="lang-js"'),
+    true,
+  );
 });

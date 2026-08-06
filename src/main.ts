@@ -30,6 +30,12 @@ export interface ParserOptions {
   descriptionLengthThreshold?: number;
   /** Min characters required for article content. Default: 200 */
   contentLengthThreshold?: number;
+  /** Allowed HTML tags in output. Default: list of semantic/content tags. */
+  allowedTags?: string[];
+  /** Per-tag allowed attributes. Default: src, href, alt, etc. */
+  allowedAttributes?: Record<string, string[]>;
+  /** Allowed domains for iframe src. Default: youtube, vimeo, etc. */
+  allowedIframeDomains?: string[];
 }
 
 /** Extracted article data structure. */
@@ -108,5 +114,7 @@ export const extractFromHtml = async (
   return parseFromHtml(html, url || "", parserOptions);
 };
 
-export { addTransformations, removeTransformations } from "./utils/transformation.ts";
-export { setSanitizeHtmlOptions, getSanitizeHtmlOptions } from "./config.ts";
+export {
+  addTransformations,
+  removeTransformations,
+} from "./utils/transformation.ts";

@@ -21,9 +21,13 @@ const add = (tn: Transformation): number => {
 };
 
 /** Register one or more transformations for per-site HTML processing. */
-export const addTransformations = (tfms: Transformation | Transformation[]): number => {
+export const addTransformations = (
+  tfms: Transformation | Transformation[],
+): number => {
   if (isArray(tfms)) {
-    return (tfms as Transformation[]).map((tfm) => add(tfm)).filter((result) => result === 1).length;
+    return (tfms as Transformation[]).map((tfm) => add(tfm)).filter((result) =>
+      result === 1
+    ).length;
   }
   return add(tfms as Transformation);
 };
@@ -53,7 +57,9 @@ export const getTransformations = (): Transformation[] => {
   return [...transformations];
 };
 
-export const findTransformations = (links: string | string[]): Transformation[] => {
+export const findTransformations = (
+  links: string | string[],
+): Transformation[] => {
   const urls = !isArray(links) ? [links] : links;
   const tfms: Transformation[] = [];
   for (const transformation of transformations) {
@@ -70,14 +76,28 @@ export const findTransformations = (links: string | string[]): Transformation[] 
   return tfms;
 };
 
-export const execPreParser = (html: string, links: string | string[]): string => {
+export const execPreParser = (
+  html: string,
+  links: string | string[],
+): string => {
   const doc = new DOMParser().parseFromString(html, "text/html");
-  findTransformations(links).map((tfm) => tfm.pre).filter((fn) => isFunction(fn)).forEach((fn) => (fn as (doc: Document) => Document)(doc as any));
-  return Array.from(doc.childNodes).map((it) => (it as Element).outerHTML).join("");
+  findTransformations(links).map((tfm) => tfm.pre).filter((fn) =>
+    isFunction(fn)
+  ).forEach((fn) => (fn as (doc: Document) => Document)(doc as any));
+  return Array.from(doc.childNodes).map((it) => (it as Element).outerHTML).join(
+    "",
+  );
 };
 
-export const execPostParser = (html: string, links: string | string[]): string => {
+export const execPostParser = (
+  html: string,
+  links: string | string[],
+): string => {
   const doc = new DOMParser().parseFromString(html, "text/html");
-  findTransformations(links).map((tfm) => tfm.post).filter((fn) => isFunction(fn)).forEach((fn) => (fn as (doc: Document) => Document)(doc as any));
-  return Array.from(doc.childNodes).map((it) => (it as Element).outerHTML).join("");
+  findTransformations(links).map((tfm) => tfm.post).filter((fn) =>
+    isFunction(fn)
+  ).forEach((fn) => (fn as (doc: Document) => Document)(doc as any));
+  return Array.from(doc.childNodes).map((it) => (it as Element).outerHTML).join(
+    "",
+  );
 };

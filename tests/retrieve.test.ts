@@ -24,7 +24,10 @@ Deno.test("retrieve - good source", async () => {
 
 Deno.test("retrieve - good source with \\r\\n", async () => {
   const url = "https://some.where/good/page";
-  const fetcher = createMockFetcher("\n\r\r\n\n<div>this is content</div>\n\r\r\n\n", "text/html");
+  const fetcher = createMockFetcher(
+    "\n\r\r\n\n<div>this is content</div>\n\r\r\n\n",
+    "text/html",
+  );
   const buffer = await retrieve(url, fetcher);
   const html = new TextDecoder().decode(buffer).trim();
   assertEquals(html, "<div>this is content</div>");
@@ -32,7 +35,10 @@ Deno.test("retrieve - good source with \\r\\n", async () => {
 
 Deno.test("retrieve - custom fetcher", async () => {
   const url = "https://some.where/good/source-with-fetcher";
-  const innerFetcher = createMockFetcher("<div>this is content</div>", "text/html");
+  const innerFetcher = createMockFetcher(
+    "<div>this is content</div>",
+    "text/html",
+  );
   const myFetcher = (fetchUrl: string) => {
     assertEquals(fetchUrl, url);
     return innerFetcher();

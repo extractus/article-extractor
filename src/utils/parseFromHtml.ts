@@ -1,26 +1,22 @@
 // utils -> parseFromHtml.ts
 
 import {
+  getTTR,
+  pipe,
   stripTags,
   truncateByChar,
   unique,
-  pipe,
-  getTTR,
 } from "@pwshub/bellajs";
 
-import {
-  purify,
-  cleanify,
-  countImages,
-} from "./html.ts";
+import { cleanify, countImages } from "./html.ts";
 
 import {
-  isValid as isValidUrl,
-  purify as purifyUrl,
   absolutify as absolutifyUrl,
-  normalize as normalizeUrls,
   chooseBestUrl,
   getDomain,
+  isValid as isValidUrl,
+  normalize as normalizeUrls,
+  purify as purifyUrl,
 } from "./linker.ts";
 
 import extractMetaData from "./extractMetaData.ts";
@@ -29,20 +25,36 @@ import extractWithReadability, {
   extractTitleWithReadability,
 } from "./extractWithReadability.ts";
 
-import { execPreParser, execPostParser } from "./transformation.ts";
+import { execPostParser, execPreParser } from "./transformation.ts";
+
+import {
+  defaultAllowedAttributes,
+  defaultAllowedIframeDomains,
+  defaultAllowedTags,
+} from "../config.ts";
 
 import type { ArticleData, ParserOptions } from "../main.ts";
 
-const summarize = ({ desc, text, threshold, maxlen }: { desc: string; text: string; threshold: number; maxlen: number }): string => {
+const summarize = (
+  { desc, text, threshold, maxlen }: {
+    desc: string;
+    text: string;
+    threshold: number;
+    maxlen: number;
+  },
+): string => {
   return desc.length > threshold
     ? desc
     : truncateByChar(text, maxlen).replace(/\n/g, " ");
 };
 
 // deno-lint-ignore require-await
-export default async (inputHtml: string, inputUrl = "", parserOptions: ParserOptions = {}): Promise<ArticleData | null> => {
-  const pureHtml = purify(inputHtml);
-  const meta = extractMetaData(pureHtml);
+export default async (
+  inputHtml: string,
+  inputUrl = "",
+  parserOptions: ParserOptions = {},
+): Promise<ArticleData | null> => {
+  const meta = extractMetaData(inputHtml);
 
   let title = meta.title;
 
@@ -64,10 +76,13 @@ export default async (inputHtml: string, inputUrl = "", parserOptions: ParserOpt
     descriptionTruncateLen = 210,
     descriptionLengthThreshold = 180,
     contentLengthThreshold = 200,
+    allowedTags = defaultAllowedTags,
+    allowedAttributes = defaultAllowedAttributes,
+    allowedIframeDomains = defaultAllowedIframeDomains,
   } = parserOptions;
 
   if (!title) {
-    title = extractTitleWithReadability(pureHtml) || "";
+    title = extractTitleWithReadability(inputHtml) || "";
   }
   if (!title) {
     return null;
@@ -99,7 +114,13 @@ export default async (inputHtml: string, inputUrl = "", parserOptions: ParserOpt
       return input ? execPostParser(input, links) : null;
     },
     (input: string | null) => {
-      return input ? cleanify(input) : null;
+      return input
+        ? cleanify(input, {
+          allowedTags,
+          allowedAttributes,
+          allowedIframeDomains,
+        })
+        : null;
     },
   );
 

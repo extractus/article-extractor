@@ -13,7 +13,10 @@ export const isValid = (url: string = ""): boolean => {
   }
 };
 
-export const chooseBestUrl = (candidates: string[] = [], title = ""): string => {
+export const chooseBestUrl = (
+  candidates: string[] = [],
+  title = "",
+): string => {
   const ranking = findBestMatch(title, candidates);
   return ranking.bestMatch.target;
 };
@@ -126,7 +129,9 @@ export const normalize = (html: string, url: string): string => {
     }
   });
 
-  return Array.from(doc.childNodes).map((element) => (element as Element).outerHTML).join("");
+  return Array.from(doc.childNodes).map((element) =>
+    (element as Element).outerHTML
+  ).join("");
 };
 
 export const getDomain = (url: string): string => {

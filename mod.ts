@@ -1,14 +1,12 @@
 export {
+  addTransformations,
   extract,
   extractFromHtml,
-  addTransformations,
   removeTransformations,
-  setSanitizeHtmlOptions,
-  getSanitizeHtmlOptions,
 } from "./src/main.ts";
 export type {
   ArticleData,
-  ParserOptions,
   Fetcher,
+  ParserOptions,
   Transformation,
 } from "./src/main.ts";

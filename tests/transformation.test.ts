@@ -3,11 +3,11 @@
 import { assertEquals } from "@std/assert";
 import {
   addTransformations,
-  removeTransformations,
-  getTransformations,
-  findTransformations,
-  execPreParser,
   execPostParser,
+  execPreParser,
+  findTransformations,
+  getTransformations,
+  removeTransformations,
 } from "../src/utils/transformation.ts";
 
 Deno.test("add one transformation object", () => {
@@ -71,7 +71,10 @@ Deno.test("add transformation object without valid patterns", () => {
 Deno.test("get all transformations", () => {
   const result = getTransformations();
   assertEquals(result.length, 3);
-  assertEquals(String(result[0].patterns[0]), String(/http(s?):\/\/([\w]+.)?def.tld\/*/));
+  assertEquals(
+    String(result[0].patterns[0]),
+    String(/http(s?):\/\/([\w]+.)?def.tld\/*/),
+  );
 });
 
 Deno.test("remove one transformation", () => {
@@ -104,7 +107,10 @@ Deno.test("remove one transformation", () => {
 Deno.test("get all transformations again", () => {
   const result = getTransformations();
   assertEquals(result.length, 4);
-  assertEquals(String(result[3].patterns[1]), String(/http(s?):\/\/rst.inc\/*/));
+  assertEquals(
+    String(result[3].patterns[1]),
+    String(/http(s?):\/\/rst.inc\/*/),
+  );
 });
 
 Deno.test("find transformations", () => {
@@ -153,8 +159,14 @@ Deno.test("execPreParser", () => {
       </div>
     `;
   const result = execPreParser(html, "https://xyz.com/article");
-  assertEquals(result.includes("hi <b>user</b>, this is an advertisement element"), true);
-  assertEquals(result.includes('<div class="adv">free product now!</div>'), false);
+  assertEquals(
+    result.includes("hi <b>user</b>, this is an advertisement element"),
+    true,
+  );
+  assertEquals(
+    result.includes('<div class="adv">free product now!</div>'),
+    false,
+  );
 });
 
 Deno.test("execPostParser", () => {

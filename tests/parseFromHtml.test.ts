@@ -2,7 +2,10 @@
 
 import { assertEquals } from "@std/assert";
 import { extractFromHtml as parseFromHtml } from "../src/main.ts";
-import { addTransformations, removeTransformations } from "../src/utils/transformation.ts";
+import {
+  addTransformations,
+  removeTransformations,
+} from "../src/utils/transformation.ts";
 
 const expDesc = [
   "Navigation here Few can name a rational peach that isn't a conscientious goldfish!",
@@ -29,31 +32,60 @@ Deno.test("parseFromHtml - webpage with no main article", async () => {
 });
 
 Deno.test("parseFromHtml - webpage with very short article", async () => {
-  const html = Deno.readTextFileSync("tests/test-data/html-too-short-article.html");
+  const html = Deno.readTextFileSync(
+    "tests/test-data/html-too-short-article.html",
+  );
   const result = await parseFromHtml(html, "abcd");
   assertEquals(result, null);
 });
 
 Deno.test("parseFromHtml - webpage with article but no source", async () => {
-  const html = Deno.readTextFileSync("tests/test-data/html-article-no-source.html");
+  const html = Deno.readTextFileSync(
+    "tests/test-data/html-article-no-source.html",
+  );
   const result = await parseFromHtml(html);
   assertEquals((result as Record<string, unknown>).source, "somewhere.any");
 });
 
 Deno.test("parseFromHtml - webpage with data-src in img tag", async () => {
-  const html = Deno.readTextFileSync("tests/test-data/html-article-with-data-src.html");
+  const html = Deno.readTextFileSync(
+    "tests/test-data/html-article-with-data-src.html",
+  );
   const result = await parseFromHtml(html);
-  assertEquals((result as Record<string, string>).content.includes('<img src="https://somewhere.any/image1.jpg" />'), true);
-  assertEquals((result as Record<string, string>).content.includes('<img src="https://somewhere.any/image2.jpg" />'), true);
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      '<img src="https://somewhere.any/image1.jpg">',
+    ),
+    true,
+  );
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      '<img src="https://somewhere.any/image2.jpg">',
+    ),
+    true,
+  );
 });
 
 Deno.test("parseFromHtml - regular article", async () => {
   const html = Deno.readTextFileSync("tests/test-data/regular-article.html");
-  const result = await parseFromHtml(html, "https://somewhere.com/path/to/article");
+  const result = await parseFromHtml(
+    html,
+    "https://somewhere.com/path/to/article",
+  );
   assertEquals((result as Record<string, unknown>).title, "Article title here");
   assertEquals((result as Record<string, unknown>).description, expDesc);
-  assertEquals((result as Record<string, string>).content.includes('<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">'), true);
-  assertEquals((result as Record<string, string>).content.includes('<a target="_blank" href="https://somewhere.com/dict/watermelon">'), true);
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      '<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">',
+    ),
+    true,
+  );
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      '<a target="_blank" href="https://somewhere.com/dict/watermelon">',
+    ),
+    true,
+  );
 });
 
 Deno.test("parseFromHtml - multi transforms", async () => {
@@ -66,7 +98,10 @@ Deno.test("parseFromHtml - multi transforms", async () => {
         document.querySelectorAll("a").forEach((node: Element) => {
           const sHtml = node.innerHTML;
           const link = node.getAttribute("href");
-          node.parentNode!.replaceChild(document.createTextNode(`[link url="${link}"]${sHtml}[/link]`), node);
+          node.parentNode!.replaceChild(
+            document.createTextNode(`[link url="${link}"]${sHtml}[/link]`),
+            node,
+          );
         });
         return document;
       },
@@ -89,8 +124,23 @@ Deno.test("parseFromHtml - multi transforms", async () => {
   const url = "https://need-transform.tld/path/to/article";
   const result = await parseFromHtml(html, url);
   assertEquals((result as Record<string, unknown>).title, "Article title here");
-  assertEquals((result as Record<string, string>).content.includes('<a href="https://vnn.vn/dict/watermelon" target="_blank">'), false);
-  assertEquals((result as Record<string, string>).content.includes('[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]'), true);
-  assertEquals((result as Record<string, string>).content.includes("<b>in its own way</b>"), true);
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      '<a href="https://vnn.vn/dict/watermelon" target="_blank">',
+    ),
+    false,
+  );
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      '[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]',
+    ),
+    true,
+  );
+  assertEquals(
+    (result as Record<string, string>).content.includes(
+      "<b>in its own way</b>",
+    ),
+    true,
+  );
   removeTransformations();
 });

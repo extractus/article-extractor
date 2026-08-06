@@ -50,7 +50,7 @@ console.log(data);
   - [`addTransformations()`](#addtransformationstransformation--transformation)
   - [`removeTransformations()`](#removetransformationspatterns-regexp)
   - [Priority order](#priority-order)
-- [`sanitize-html` options](#sanitize-html-options)
+- [Content sanitization options](#content-sanitization-options)
 
 ---
 
@@ -112,6 +112,9 @@ URL string or raw HTML content.
 | `descriptionTruncateLen` | `number` | `210` | Max characters for generated description |
 | `descriptionLengthThreshold` | `number` | `180` | Min characters to keep meta description |
 | `contentLengthThreshold` | `number` | `200` | Min characters for article content |
+| `allowedTags` | `string[]` | *(semantic/content tags)* | HTML tags to keep in output |
+| `allowedAttributes` | `Record<string, string[]>` | *(src, href, alt, etc.)* | Per-tag attributes to keep |
+| `allowedIframeDomains` | `string[]` | *(youtube, vimeo, etc.)* | Allowed domains for iframe src |
 
 ```ts
 const article = await extract(url, {
@@ -322,24 +325,25 @@ pre_one -> pre_three -> extraction -> post_two -> post_four
 
 ---
 
-### `sanitize-html` options
+### Content sanitization options
 
-Uses [sanitize-html](https://github.com/apostrophecms/sanitize-html) to clean extracted content. See the [default options](src/config.ts).
+Extracted HTML is sanitized using a built-in DOM tree walker. Disallowed tags are removed (not escaped), and disallowed attributes are stripped. Configure via `parserOptions`:
 
 ```ts
-import { getSanitizeHtmlOptions, setSanitizeHtmlOptions } from "jsr:@extractus/article-extractor";
+import { extract } from "jsr:@extractus/article-extractor";
 
-// get current options (returns a clone)
-const opts = getSanitizeHtmlOptions();
-
-// merge new options
-setSanitizeHtmlOptions({
+// allow class attributes on <code> and <div>
+const article = await extract(url, {
   allowedAttributes: {
-    ...opts.allowedAttributes as Record<string, string[]>,
+    a: ["href", "target", "title"],
+    img: ["src", "srcset", "alt", "title"],
     code: ["class"],
+    div: ["class"],
   },
 });
 ```
+
+To see the full defaults, refer to [`src/config.ts`](src/config.ts).
 
 ---
 
@@ -362,5 +366,15 @@ deno run -A ./scripts/build_npm.ts
 ## License
 
 The MIT License (MIT)
+
+## Support the project
+
+This project is maintained in my spare time. If you find it helpful, there are a few simple ways to support its continued development:
+
+* ⭐ Star this repository to help more people discover it.
+* ☕ Buy me a coffee: https://paypal.me/ndaidong
+* 🚀 Subscribe to the [Article Extractor service](https://rapidapi.com/pwshub-pwshub-default/api/article-extractor2) on RapidAPI.
+
+Every bit of support helps keep this project actively maintained. Thank you! ❤️
 
 ---

@@ -32,9 +32,12 @@ export default function findDate(doc: Document): string {
     return "";
   };
 
-  const priorityElements = doc.querySelectorAll("time, [datetime], [itemprop~=datePublished], [itemprop~=dateCreated]");
+  const priorityElements = doc.querySelectorAll(
+    "time, [datetime], [itemprop~=datePublished], [itemprop~=dateCreated]",
+  );
   for (const el of Array.from(priorityElements)) {
-    const date = el.getAttribute("datetime") || el.getAttribute("content") || findDateInElement(el);
+    const date = el.getAttribute("datetime") || el.getAttribute("content") ||
+      findDateInElement(el);
     if (date) return date;
   }
 

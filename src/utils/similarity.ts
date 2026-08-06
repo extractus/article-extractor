@@ -1,10 +1,6 @@
 // utils -> similarity.ts
 
-import {
-  isString,
-  compareTwoStrings,
-  isArray,
-} from "@pwshub/bellajs";
+import { compareTwoStrings, isArray, isString } from "@pwshub/bellajs";
 
 interface MatchResult {
   target: string;
@@ -19,12 +15,18 @@ interface BestMatchResult {
 
 const areArgsValid = (mainString: unknown, targetStrings: unknown): boolean => {
   return isString(mainString) && isArray(targetStrings) &&
-    (targetStrings as unknown[]).length > 0 && (targetStrings as string[]).every((s) => isString(s));
+    (targetStrings as unknown[]).length > 0 &&
+    (targetStrings as string[]).every((s) => isString(s));
 };
 
-export const findBestMatch = (mainString: string, targetStrings: string[]): BestMatchResult => {
+export const findBestMatch = (
+  mainString: string,
+  targetStrings: string[],
+): BestMatchResult => {
   if (!areArgsValid(mainString, targetStrings)) {
-    throw new Error("Bad arguments: First argument should be a string, second should be an array of strings");
+    throw new Error(
+      "Bad arguments: First argument should be a string, second should be an array of strings",
+    );
   }
 
   const ratings: MatchResult[] = [];

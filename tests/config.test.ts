@@ -1,31 +1,35 @@
 // tests/config.test.ts
 
 import { assertEquals } from "@std/assert";
-import { setSanitizeHtmlOptions, getSanitizeHtmlOptions } from "../src/config.ts";
+import {
+  defaultAllowedAttributes,
+  defaultAllowedIframeDomains,
+  defaultAllowedTags,
+} from "../src/config.ts";
 
-Deno.test("setSanitizeHtmlOptions/getSanitizeHtmlOptions", () => {
-  setSanitizeHtmlOptions({
-    allowedTags: ["div", "span"],
-    allowedAttributes: {
-      a: ["href", "title"],
-    },
-  });
+Deno.test("defaultAllowedTags - contains expected tags", () => {
+  assertEquals(defaultAllowedTags.includes("a"), true);
+  assertEquals(defaultAllowedTags.includes("img"), true);
+  assertEquals(defaultAllowedTags.includes("p"), true);
+  assertEquals(defaultAllowedTags.includes("script"), false);
+  assertEquals(defaultAllowedTags.includes("style"), false);
+});
 
-  const actual = getSanitizeHtmlOptions();
-  const actualAllowedAttributes = actual.allowedAttributes as Record<string, string[]>;
-  const expectedAllowedAttributes = {
-    a: ["href", "title"],
-  };
+Deno.test("defaultAllowedAttributes - contains expected attributes", () => {
+  assertEquals(defaultAllowedAttributes.a, ["href", "target", "title"]);
+  assertEquals(defaultAllowedAttributes.img, ["src", "srcset", "alt", "title"]);
+  assertEquals(defaultAllowedAttributes.iframe, [
+    "src",
+    "frameborder",
+    "height",
+    "width",
+    "scrolling",
+    "allow",
+  ]);
+});
 
-  assertEquals(actualAllowedAttributes, expectedAllowedAttributes);
-
-  const actualAllowedTags = actual.allowedTags as string[];
-  const expectedAllowedTags = ["div", "span"];
-  assertEquals(actualAllowedTags, expectedAllowedTags);
-
-  setSanitizeHtmlOptions({
-    allowedTags: [],
-  });
-
-  assertEquals(getSanitizeHtmlOptions().allowedTags, []);
+Deno.test("defaultAllowedIframeDomains - contains expected domains", () => {
+  assertEquals(defaultAllowedIframeDomains.includes("youtube.com"), true);
+  assertEquals(defaultAllowedIframeDomains.includes("vimeo.com"), true);
+  assertEquals(defaultAllowedIframeDomains.includes("evil.com"), false);
 });
