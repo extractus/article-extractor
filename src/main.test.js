@@ -5,8 +5,6 @@ import assert from 'node:assert'
 
 import { readFileSync } from 'fs'
 
-import { HttpsProxyAgent } from 'https-proxy-agent'
-
 import nock from 'nock'
 
 import {
@@ -151,12 +149,14 @@ describe('test extract with modified sanitize-html options', () => {
 })
 
 if (PROXY_SERVER !== '') {
-  describe('test extract live article API via proxy server', () => {
-    it('check if extract method works with proxy server', async () => {
+  describe('test extract live article API via custom fetcher', () => {
+    it('check if extract method works with custom fetcher', async () => {
+      const { HttpsProxyAgent } = await import('https-proxy-agent')
       const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-      const result = await extract(url, {}, {
+      const myFetcher = (fetchUrl) => fetch(fetchUrl, {
         agent: new HttpsProxyAgent(PROXY_SERVER),
       })
+      const result = await extract(url, {}, myFetcher)
       assert.ok(result.title.includes('Federal Reserve'))
       assert.equal(result.source, 'cnbc.com')
     }, 10000)

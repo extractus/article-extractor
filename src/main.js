@@ -13,11 +13,11 @@ import { isValid as isValidUrl } from './utils/linker.js'
  * Load and extract article data from a URL or HTML string.
  *
  * @param {string} input - URL or HTML string to extract from
- * @param {ParserOptions} [parserOptions={}] - Options for parsing
- * @param {FetchOptions} [fetchOptions={}] - Options for HTTP fetch
- * @returns {Promise<ArticleData|null>} Extracted article data or null
+ * @param {object} [parserOptions={}] - Options for parsing
+ * @param {Function} [fetcher] - Custom fetch function (url) => Promise<Response>. Defaults to globalThis.fetch.
+ * @returns {Promise<object|null>} Extracted article data or null
  */
-export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
+export const extract = async (input, parserOptions = {}, fetcher = globalThis.fetch) => {
   if (!isString(input)) {
     throw new Error('Input must be a string')
   }
@@ -25,7 +25,7 @@ export const extract = async (input, parserOptions = {}, fetchOptions = {}) => {
   if (!isValidUrl(input)) {
     return parseFromHtml(input, null, parserOptions)
   }
-  const buffer = await retrieve(input, fetchOptions)
+  const buffer = await retrieve(input, fetcher)
   const text = buffer ? Buffer.from(buffer).toString().trim() : ''
   if (!text) {
     return null

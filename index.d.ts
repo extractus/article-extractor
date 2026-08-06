@@ -29,28 +29,12 @@ export interface ParserOptions {
 }
 
 /**
- * Proxy configuration for fetching articles.
+ * Custom fetch function signature.
+ *
+ * @param url - URL to fetch
+ * @returns Promise resolving to a Response object
  */
-export interface ProxyConfig {
-  /** Proxy endpoint URL */
-  target?: string
-  /** Headers for proxy request */
-  headers?: Record<string, string>
-}
-
-/**
- * Options for the HTTP fetch request.
- */
-export interface FetchOptions {
-  /** Custom request headers */
-  headers?: Record<string, string>
-  /** Proxy configuration */
-  proxy?: ProxyConfig
-  /** HTTP proxy agent (e.g. HttpsProxyAgent) */
-  agent?: object
-  /** AbortSignal to cancel the request */
-  signal?: object
-}
+export type Fetcher = (url: string) => Promise<Response>
 
 /**
  * Extracted article data structure.
@@ -116,13 +100,13 @@ export function setSanitizeHtmlOptions (options: SanitizeOptions): void
  *
  * @param input - URL or HTML string to extract from
  * @param parserOptions - Options for parsing
- * @param fetchOptions - Options for HTTP fetch
+ * @param fetcher - Custom fetch function (url) => Promise<Response>. Defaults to globalThis.fetch.
  * @returns Extracted article data or null
  */
 export function extract (
   input: string,
   parserOptions?: ParserOptions,
-  fetchOptions?: FetchOptions,
+  fetcher?: Fetcher,
 ): Promise<ArticleData | null>
 
 /**

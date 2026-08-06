@@ -59,7 +59,7 @@ Load and extract article data. Return a Promise object.
 ```ts
 extract(String input)
 extract(String input, Object parserOptions)
-extract(String input, Object parserOptions, Object fetchOptions)
+extract(String input, Object parserOptions, Function fetcher)
 ```
 
 Example:
@@ -126,102 +126,73 @@ const article = await extract('https://www.cnbc.com/2022/09/21/what-another-majo
 console.log(article)
 ```
 
-##### `fetchOptions` *optional*
+##### `fetcher` *optional*
 
-`fetchOptions` is an object that can have the following properties:
+A custom fetch function with the signature `(url: string) => Promise<Response>`.
+Use this to customize HTTP behavior: proxy, headers, TLS, authentication, timeouts, etc.
 
-- `headers`: to set request headers
-- `proxy`: another endpoint to forward the request to
-- `agent`: a HTTP proxy agent
-- `signal`: AbortController signal or AbortSignal timeout to terminate the request
+Defaults to `globalThis.fetch`.
 
-For example, you can use this param to set request headers to fetch as below:
+**Node.js** (with proxy via undici):
 
 ```js
 import { extract } from '@extractus/article-extractor'
+import { fetch, ProxyAgent } from 'undici'
 
-const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-const article = await extract(url, {}, {
-  headers: {
-    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
-  }
-})
+const dispatcher = new ProxyAgent('http://proxy.example.com:8080')
+const myFetcher = (url) => fetch(url, { dispatcher })
 
-console.log(article)
+const result = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {}, myFetcher)
 ```
 
-You can also specify a proxy endpoint to load remote content, instead of fetching directly.
-
-For example:
+**Bun** (with proxy):
 
 ```js
 import { extract } from '@extractus/article-extractor'
 
-const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-
-await extract(url, {}, {
-  headers: {
-    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1'
-  },
+const myFetcher = (url) => fetch(url, {
   proxy: {
-    target: 'https://your-secret-proxy.io/loadXml?url=',
-    headers: {
-      'Proxy-Authorization': 'Bearer YWxhZGRpbjpvcGVuc2VzYW1l...'
-    },
-  }
+    url: 'http://proxy.example.com:8080',
+  },
 })
+
+const result = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {}, myFetcher)
 ```
 
-Passing requests to proxy is useful while running `@extractus/article-extractor` on browser. View [examples/browser-article-parser](examples/browser-article-parser) as reference example.
-
-For more info about proxy authentication, please refer [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
-
-For a deeper customization, you can consider using [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to replace `fetch` behaviors with your own handlers.
-
-Another way to work with proxy is use `agent` option instead of `proxy` as below:
+**Deno** (with proxy):
 
 ```js
-import { extract } from '@extractus/article-extractor'
+import { extract } from 'npm:@extractus/article-extractor'
 
-import { HttpsProxyAgent } from 'https-proxy-agent'
-
-const proxy = 'http://abc:RaNdoMpasswORd_country-France@proxy.packetstream.io:31113'
-
-const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-
-const article = await extract(url, {}, {
-  agent: new HttpsProxyAgent(proxy),
+const client = Deno.createHttpClient({
+  proxy: { url: 'http://localhost:8080' },
 })
-console.log('Run article-extractor with proxy:', proxy)
-console.log(article)
+const myFetcher = (url) => fetch(url, { client })
+
+const result = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {}, myFetcher)
 ```
 
-For more info about [https-proxy-agent](https://www.npmjs.com/package/https-proxy-agent), check [its repo](https://github.com/TooTallNate/proxy-agents).
-
-By default, there is no request timeout. You can use the option `signal` to cancel request at the right time.
-
-The common way is to use AbortControler:
+**Custom headers**:
 
 ```js
-const controller = new AbortController()
-
-// stop after 5 seconds
-setTimeout(() => {
-  controller.abort()
-}, 5000)
-
-const data = await extract(url, null, {
-  signal: controller.signal,
+const myFetcher = (url) => fetch(url, {
+  headers: {
+    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1',
+    'authorization': 'Bearer token123',
+  },
 })
+
+const result = await extract(url, {}, myFetcher)
 ```
 
-A newer solution is AbortSignal's `timeout()` static method:
+**Request timeout**:
 
 ```js
-// stop after 5 seconds
-const data = await extract(url, null, {
+const myFetcher = (url) => fetch(url, {
   signal: AbortSignal.timeout(5000),
 })
+
+const result = await extract(url, {}, myFetcher)
 ```
 
 For more info:
