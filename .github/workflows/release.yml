@@ -1,13 +1,15 @@
-name: ci-test
+name: Release
 
-on: [push, pull_request]
+on:
+  release:
+    types: [published]
 
 jobs:
-  test:
+  publish:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        deno-version: ["lts", "canary"]
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - uses: actions/checkout@v7
@@ -15,7 +17,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: ${{ matrix.deno-version }}
+          deno-version: lts
 
       - name: lint
         run: deno lint
@@ -25,3 +27,6 @@ jobs:
 
       - name: audit
         run: deno audit
+
+      - name: publish to jsr
+        run: deno publish

@@ -2,128 +2,122 @@
 
 Extract main article, main image and meta data from URL.
 
+[![JSR](https://jsr.io/badges/@extractus/article-extractor)](https://jsr.io/@extractus/article-extractor)
 [![npm version](https://badge.fury.io/js/@extractus%2Farticle-extractor.svg)](https://badge.fury.io/js/@extractus%2Farticle-extractor)
-![CodeQL](https://github.com/extractus/article-extractor/workflows/CodeQL/badge.svg)
 ![CI test](https://github.com/extractus/article-extractor/workflows/ci-test/badge.svg)
-
-(This library is derived from [article-parser](https://www.npmjs.com/package/article-parser) renamed.)
-
-## Demo
-
-- [Give it a try!](https://extractus.pwshub.com/article)
 
 ## Install
 
+### Deno
+
 ```bash
-# bun
+deno add jsr:@extractus/article-extractor
+```
+
+### Node.js / Bun
+
+```bash
+pnpm add jsr:@extractus/article-extractor
+# or
+npx jsr add @extractus/article-extractor
+# or
+bunx jsr add @extractus/article-extractor
+```
+
+Alternatively, install from npm:
+
+```bash
+npm install @extractus/article-extractor
+# or
 bun add @extractus/article-extractor
-
-# npm
-npm i @extractus/article-extractor
-
-# pnpm
-pnpm install @extractus/article-extractor
-
-# yarn
-yarn add @extractus/article-extractor
 ```
 
 ## Usage
 
 ```ts
-import { extract } from '@extractus/article-extractor'
+import { extract } from "jsr:@extractus/article-extractor";
 
-const data = await extract(ARTICLE_URL)
-console.log(data)
+const data = await extract("https://example.com/article");
+console.log(data);
 ```
 
 ## APIs
 
-- [extract()](#extract)
-- [extractFromHtml()](#extractfromhtml)
+- [`extract()`](#extract)
+- [`extractFromHtml()`](#extractfromhtml)
 - [Transformations](#transformations)
-  - [`transformation` object](#transformation-object)
-  - [.addTransformations](#addtransformationsobject-transformation--array-transformations)
-  - [.removeTransformations](#removetransformationsarray-patterns)
+  - [`Transformation` object](#transformation-object)
+  - [`addTransformations()`](#addtransformationstransformation--transformation)
+  - [`removeTransformations()`](#removetransformationspatterns-regexp)
   - [Priority order](#priority-order)
-- [`sanitize-html`'s options](#sanitize-htmls-options)
+- [`sanitize-html` options](#sanitize-html-options)
 
 ---
 
 ### `extract()`
 
-Load and extract article data. Return a Promise object.
+Load and extract article data from a URL or HTML string.
 
 #### Syntax
 
 ```ts
-extract(String input)
-extract(String input, Object parserOptions)
-extract(String input, Object parserOptions, Function fetcher)
+extract(input: string): Promise<ArticleData | null>
+extract(input: string, parserOptions?: ParserOptions): Promise<ArticleData | null>
+extract(input: string, parserOptions?: ParserOptions, fetcher?: Fetcher): Promise<ArticleData | null>
 ```
 
 Example:
 
-```js
-import { extract } from '@extractus/article-extractor'
+```ts
+import { extract } from "jsr:@extractus/article-extractor";
 
-const input = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
-
-// here we use top-level await, assume current platform supports it
 try {
-  const article = await extract(input)
-  console.log(article)
+  const article = await extract("https://example.com/some-article");
+  console.log(article);
 } catch (err) {
-  console.error(err)
+  console.error(err);
 }
 ```
 
-The result - `article` - can be `null` or an object with the following structure:
+The result can be `null` (when no article found) or an `ArticleData` object:
 
 ```ts
-{
-  url: String,
-  title: String,
-  description: String,
-  image: String,
-  author: String,
-  favicon: String,
-  content: String,
-  published: Date String,
-  type: String, // page type
-  source: String, // original publisher
-  links: Array, // list of alternative links
-  ttr: Number, // time to read in second, 0 = unknown
+interface ArticleData {
+  url?: string;           // best resolved URL
+  links?: string[];       // alternative URLs (canonical, shortlink, amphtml)
+  title?: string;         // article title
+  description?: string;   // short description / excerpt
+  image?: string;         // main image URL
+  favicon?: string;       // site favicon URL
+  author?: string;        // author name
+  content?: string;       // extracted article HTML
+  source?: string;        // original publisher domain
+  published?: string;     // publication date string
+  ttr?: number;           // estimated time to read (seconds), 0 = unknown
+  type?: string;          // page type (e.g. "article")
 }
 ```
-
 
 #### Parameters
 
 ##### `input` *required*
 
-URL string links to the article or HTML content of that web page.
+URL string or raw HTML content.
 
 ##### `parserOptions` *optional*
 
-Object with all or several of the following properties:
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `wordsPerMinute` | `number` | `300` | Words per minute for time-to-read estimation |
+| `descriptionTruncateLen` | `number` | `210` | Max characters for generated description |
+| `descriptionLengthThreshold` | `number` | `180` | Min characters to keep meta description |
+| `contentLengthThreshold` | `number` | `200` | Min characters for article content |
 
-  - `wordsPerMinute`: Number, to estimate time to read. Default `300`.
-  - `descriptionTruncateLen`: Number, max num of chars generated for description. Default `210`.
-  - `descriptionLengthThreshold`: Number, min num of chars required for description. Default `180`.
-  - `contentLengthThreshold`: Number, min num of chars required for content. Default `200`.
-
-For example:
-
-```js
-import { extract } from '@extractus/article-extractor'
-
-const article = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {
+```ts
+const article = await extract(url, {
   descriptionLengthThreshold: 120,
-  contentLengthThreshold: 500
-})
-
-console.log(article)
+  contentLengthThreshold: 500,
+});
 ```
 
 ##### `fetcher` *optional*
@@ -133,349 +127,240 @@ Use this to customize HTTP behavior: proxy, headers, TLS, authentication, timeou
 
 Defaults to `globalThis.fetch`.
 
+**Deno** (with proxy):
+
+```ts
+import { extract } from "@extractus/article-extractor";
+
+const client = Deno.createHttpClient({
+  proxy: { url: "http://proxy.example.com:8080" },
+});
+const myFetcher = (url: string) => fetch(url, { client });
+
+const result = await extract("https://example.com/some-article", {}, myFetcher);
+```
+
 **Node.js** (with proxy via undici):
 
-```js
-import { extract } from '@extractus/article-extractor'
-import { fetch, ProxyAgent } from 'undici'
+```ts
+import { extract } from "@extractus/article-extractor";
+import { fetch, ProxyAgent } from "undici";
 
-const dispatcher = new ProxyAgent('http://proxy.example.com:8080')
-const myFetcher = (url) => fetch(url, { dispatcher })
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+const myFetcher = (url: string) => fetch(url, { dispatcher });
 
-const result = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {}, myFetcher)
+const result = await extract("https://example.com/some-article", {}, myFetcher);
 ```
 
 **Bun** (with proxy):
 
-```js
-import { extract } from '@extractus/article-extractor'
+```ts
+import { extract } from "@extractus/article-extractor";
 
-const myFetcher = (url) => fetch(url, {
-  proxy: {
-    url: 'http://proxy.example.com:8080',
-  },
-})
+const myFetcher = (url: string) =>
+  fetch(url, {
+    proxy: "http://proxy.example.com:8080",
+  });
 
-const result = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {}, myFetcher)
-```
-
-**Deno** (with proxy):
-
-```js
-import { extract } from 'npm:@extractus/article-extractor'
-
-const client = Deno.createHttpClient({
-  proxy: { url: 'http://localhost:8080' },
-})
-const myFetcher = (url) => fetch(url, { client })
-
-const result = await extract('https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html', {}, myFetcher)
+const result = await extract("https://example.com/some-article", {}, myFetcher);
 ```
 
 **Custom headers**:
 
-```js
-const myFetcher = (url) => fetch(url, {
-  headers: {
-    'user-agent': 'Opera/9.60 (Windows NT 6.0; U; en) Presto/2.1.1',
-    'authorization': 'Bearer token123',
-  },
-})
+```ts
+const myFetcher = (url: string) =>
+  fetch(url, {
+    headers: {
+      "user-agent": "MyBot/1.0",
+      authorization: "Bearer token123",
+    },
+  });
 
-const result = await extract(url, {}, myFetcher)
+const result = await extract("https://example.com/some-article", {}, myFetcher);
 ```
 
 **Request timeout**:
 
-```js
-const myFetcher = (url) => fetch(url, {
-  signal: AbortSignal.timeout(5000),
-})
+```ts
+const myFetcher = (url: string) =>
+  fetch(url, {
+    signal: AbortSignal.timeout(5000),
+  });
 
-const result = await extract(url, {}, myFetcher)
+const result = await extract("https://example.com/some-article", {}, myFetcher);
 ```
-
-For more info:
-
-- [AbortController constructor](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
-- [AbortSignal: timeout() static method](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static)
-
+---
 
 ### `extractFromHtml()`
 
-Extract article data from HTML string. Return a Promise object as same as `extract()` method above.
+Extract article data from an HTML string directly.
 
 #### Syntax
 
 ```ts
-extractFromHtml(String html)
-extractFromHtml(String html, String url)
-extractFromHtml(String html, String url, Object parserOptions)
+extractFromHtml(html: string): Promise<ArticleData | null>
+extractFromHtml(html: string, url?: string): Promise<ArticleData | null>
+extractFromHtml(html: string, url?: string, parserOptions?: ParserOptions): Promise<ArticleData | null>
 ```
 
 Example:
 
-```js
-import { extractFromHtml } from '@extractus/article-extractor'
+```ts
+import { extractFromHtml } from "jsr:@extractus/article-extractor";
 
-const url = 'https://www.cnbc.com/2022/09/21/what-another-major-rate-hike-by-the-federal-reserve-means-to-you.html'
+const res = await fetch(url);
+const html = await res.text();
 
-const res = await fetch(url)
-const html = await res.text()
-
-// you can do whatever with this raw html here: clean up, remove ads banner, etc
-// just ensure a html string returned
-
-const article = await extractFromHtml(html, url)
-console.log(article)
+const article = await extractFromHtml(html, url);
 ```
 
 #### Parameters
 
 ##### `html` *required*
 
-HTML string which contains the article you want to extract.
+HTML string containing the article.
 
 ##### `url` *optional*
 
-URL string that indicates the source of that HTML content.
-`article-extractor` may use this info to handle internal/relative links.
+Source URL for resolving relative links.
 
 ##### `parserOptions` *optional*
 
 See [parserOptions](#parseroptions-optional) above.
 
-
 ---
 
 ### Transformations
 
-Sometimes the default extraction algorithm may not work well. That is the time when we need transformations.
+Sometimes the default extraction algorithm may not work well. Transformations let you add pre/post processing per-site.
 
-By adding some functions before and after the main extraction step, we aim to come up with a better result as much as possible.
+- `addTransformations(transformation: Transformation | Transformation[]): number`
+- `removeTransformations(patterns?: RegExp[]): number`
 
-There are 2 methods to play with transformations:
-
-- `addTransformations(Object transformation | Array transformations)`
-- `removeTransformations(Array patterns)`
-
-At first, let's talk about `transformation` object.
-
-#### `transformation` object
-
-In `@extractus/article-extractor`, `transformation` is an object with the following properties:
-
-- `patterns`: required, a list of regexps to match the URLs
-- `pre`: optional, a function to process raw HTML
-- `post`: optional, a function to process extracted article
-
-Basically, the meaning of `transformation` can be interpreted like this:
-
-> with the urls which match these `patterns` <br>
-> let's run `pre` function to normalize HTML content <br>
-> then extract main article content with normalized HTML, and if success <br>
-> let's run `post` function to normalize extracted article content
-
-![article-extractor extraction process](https://res.cloudinary.com/pwshub/image/upload/v1657336822/documentation/article-parser_extraction_process.png)
-
-Here is an example transformation:
+#### `Transformation` object
 
 ```ts
-{
-  patterns: [
-    /([\w]+.)?domain.tld\/*/,
-    /domain.tld\/articles\/*/
-  ],
-  pre: (document) => {
-    // remove all .advertise-area and its siblings from raw HTML content
-    document.querySelectorAll('.advertise-area').forEach((element) => {
-      if (element.nodeName === 'DIV') {
-        while (element.nextSibling) {
-          element.parentNode.removeChild(element.nextSibling)
-        }
-        element.parentNode.removeChild(element)
-      }
-    })
-    return document
-  },
-  post: (document) => {
-    // with extracted article, replace all h4 tags with h2
-    document.querySelectorAll('h4').forEach((element) => {
-      const h2Element = document.createElement('h2')
-      h2Element.innerHTML = element.innerHTML
-      element.parentNode.replaceChild(h2Element, element)
-    })
-    // change small sized images to original version
-    document.querySelectorAll('img').forEach((element) => {
-      const src = element.getAttribute('src')
-      if (src.includes('domain.tld/pics/150x120/')) {
-        const fullSrc = src.replace('/pics/150x120/', '/pics/original/')
-        element.setAttribute('src', fullSrc)
-      }
-    })
-    return document
-  }
+interface Transformation {
+  patterns: RegExp[];                        // URL patterns to match
+  pre?: (document: Document) => Document;    // pre-process raw HTML
+  post?: (document: Document) => Document;   // post-process extracted article
 }
 ```
 
-- To write better transformation logic, please refer [linkedom](https://github.com/WebReflection/linkedom) and [Document Object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+> For URLs matching `patterns`, run `pre` on raw HTML, extract article, then run `post` on the result.
 
-#### `addTransformations(Object transformation | Array transformations)`
+![extraction process](https://res.cloudinary.com/pwshub/image/upload/v1657336822/documentation/article-parser_extraction_process.png)
 
-Add a single transformation or a list of transformations. For example:
+Example:
 
 ```ts
-import { addTransformations } from '@extractus/article-extractor'
+import { addTransformations } from "jsr:@extractus/article-extractor";
 
 addTransformations({
-  patterns: [
-    /([\w]+.)?abc.tld\/*/
-  ],
+  patterns: [/([\w]+.)?domain\.tld\/*/],
   pre: (document) => {
-    // do something with document
-    return document
+    document.querySelectorAll(".advertise-area").forEach((el) => {
+      el.parentNode?.removeChild(el);
+    });
+    return document;
   },
   post: (document) => {
-    // do something with document
-    return document
-  }
-})
+    document.querySelectorAll("h4").forEach((el) => {
+      const h2 = document.createElement("h2");
+      h2.innerHTML = el.innerHTML;
+      el.parentNode?.replaceChild(h2, el);
+    });
+    return document;
+  },
+});
+```
+
+To write better transformations, refer to [linkedom](https://github.com/WebReflection/linkedom) and the [Document API](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+
+#### `addTransformations(transformation | Transformation[])`
+
+Add a single or multiple transformations. Transformations without `patterns` are ignored.
+
+```ts
+import { addTransformations } from "jsr:@extractus/article-extractor";
 
 addTransformations([
   {
-    patterns: [
-      /([\w]+.)?def.tld\/*/
-    ],
-    pre: (document) => {
-      // do something with document
-      return document
-    },
-    post: (document) => {
-      // do something with document
-      return document
-    }
+    patterns: [/([\w]+.)?abc\.tld\/*/],
+    pre: (doc) => { /* ... */ return doc; },
+    post: (doc) => { /* ... */ return doc; },
   },
   {
-    patterns: [
-      /([\w]+.)?xyz.tld\/*/
-    ],
-    pre: (document) => {
-      // do something with document
-      return document
-    },
-    post: (document) => {
-      // do something with document
-      return document
-    }
-  }
-])
-````
-
-The transformations without `patterns` will be ignored.
-
-#### `removeTransformations(Array patterns)`
-
-To remove transformations that match the specific patterns.
-
-For example, we can remove all added transformations above:
-
-```js
-import { removeTransformations } from '@extractus/article-extractor'
-
-removeTransformations([
-  /([\w]+.)?abc.tld\/*/,
-  /([\w]+.)?def.tld\/*/,
-  /([\w]+.)?xyz.tld\/*/
-])
+    patterns: [/([\w]+.)?xyz\.tld\/*/],
+    post: (doc) => { /* ... */ return doc; },
+  },
+]);
 ```
 
-Calling `removeTransformations()` without parameter will remove all current transformations.
+#### `removeTransformations(patterns?: RegExp[])`
+
+Remove transformations matching the given patterns. Call without arguments to remove all.
+
+```ts
+import { removeTransformations } from "jsr:@extractus/article-extractor";
+
+removeTransformations([
+  /([\w]+.)?abc\.tld\/*/,
+  /([\w]+.)?xyz\.tld\/*/,
+]);
+```
 
 #### Priority order
 
-While processing an article, more than one transformation can be applied.
+When multiple transformations match, they all execute in order.
 
-Suppose that we have the following transformations:
+Given two transformations matching `goo.gl`:
+
+```
+pre_one -> pre_three -> extraction -> post_two -> post_four
+```
+
+---
+
+### `sanitize-html` options
+
+Uses [sanitize-html](https://github.com/apostrophecms/sanitize-html) to clean extracted content. See the [default options](src/config.ts).
 
 ```ts
-[
-  {
-    patterns: [
-      /http(s?):\/\/google.com\/*/,
-      /http(s?):\/\/goo.gl\/*/
-    ],
-    pre: function_one,
-    post: function_two
+import { getSanitizeHtmlOptions, setSanitizeHtmlOptions } from "jsr:@extractus/article-extractor";
+
+// get current options (returns a clone)
+const opts = getSanitizeHtmlOptions();
+
+// merge new options
+setSanitizeHtmlOptions({
+  allowedAttributes: {
+    ...opts.allowedAttributes as Record<string, string[]>,
+    code: ["class"],
   },
-  {
-    patterns: [
-      /http(s?):\/\/goo.gl\/*/,
-      /http(s?):\/\/google.inc\/*/
-    ],
-    pre: function_three,
-    post: function_four
-  }
-]
+});
 ```
 
-As you can see, an article from `goo.gl` certainly matches both them.
-
-In this scenario, `@extractus/article-extractor` will execute both transformations, one by one:
-
-`function_one` -> `function_three` -> extraction -> `function_two` -> `function_four`
-
 ---
 
-### `sanitize-html`'s options
-
-`@extractus/article-extractor` uses [sanitize-html](https://github.com/apostrophecms/sanitize-html) to make a clean sweep of HTML content.
-
-Here is the [default options](src/config.js#L5)
-
-Depending on the needs of your content system, you might want to gather some HTML tags/attributes, while ignoring others.
-
-There are 2 methods to access and modify these options in `@extractus/article-extractor`.
-
-- `getSanitizeHtmlOptions()`
-- `setSanitizeHtmlOptions(Object sanitizeHtmlOptions)`
-
-Read [sanitize-html](https://github.com/apostrophecms/sanitize-html#default-options) docs for more info.
-
----
-
-## Test
+## Development
 
 ```bash
 git clone https://github.com/extractus/article-extractor.git
 cd article-extractor
-pnpm i
-pnpm test
-```
 
-![article-extractor-test.png](https://i.imgur.com/TbRCUSS.png?110222)
+# run tests
+deno test --allow-all
 
+# lint
+deno lint
 
-## Quick evaluation
-
-```bash
-git clone https://github.com/extractus/article-extractor.git
-cd article-extractor
-pnpm i
-pnpm eval {URL_TO_PARSE_ARTICLE}
+# build npm package
+deno run -A ./scripts/build_npm.ts
 ```
 
 ## License
 
 The MIT License (MIT)
-
-## Support the project
-
-If you find value from this open source project, you can support in the following ways:
-
-- Give it a star ⭐
-- Buy me a coffee: https://paypal.me/ndaidong 🍵
-- Subscribe [Article Extractor service](https://rapidapi.com/pwshub-pwshub-default/api/article-extractor2) on RapidAPI 😉
-
-Thank you.
 
 ---
