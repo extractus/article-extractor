@@ -90,7 +90,7 @@ export default (document, entry) => {
     const ldJson = parseJson(ldSchema.textContent.replace(/[\n\r\t]/g, ''))
     if (ldJson && isAllowedLdJsonType(ldJson)) {
       for (const [key, attr] of Object.entries(attributeLists)) {
-        if (!entry[key] || !ldJson[attr]) {
+        if (entry[key] || !ldJson[attr]) {
           continue
         }
 

@@ -35,6 +35,27 @@ describe('test extractMetaData', () => {
     })
   })
 
+  it('test extractMetaData(json ld schema fills empty meta fields)', async () => {
+    const ldJson = {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      author: { name: 'JSON Author' },
+      datePublished: '2026-01-02T03:04:05Z',
+      description: 'JSON description',
+      image: 'https://example.com/json.jpg',
+    }
+    const body = '<p>' + 'Article text. '.repeat(50) + '</p>'
+    const html = `<html><head>
+<title>Fixture article</title>
+<script type="application/ld+json">${JSON.stringify(ldJson)}</script>
+</head><body><article><h1>Fixture article</h1>${body}</article></body></html>`
+    const result = extractMetaData(html)
+    assert.strictEqual(result.author, 'JSON Author')
+    assert.strictEqual(result.published, '2026-01-02T03:04:05Z')
+    assert.strictEqual(result.description, 'JSON description')
+    assert.strictEqual(result.image, 'https://example.com/json.jpg')
+  })
+
   it('test extractMetaData(find date)', async () => {
     const html1 = readFileSync('./test-data/regular-article-date-time.html', 'utf8')
     const html2 = readFileSync('./test-data/regular-article-date-itemprop.html', 'utf8')
