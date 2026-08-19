@@ -5,7 +5,7 @@
   "homepage": "https://github.com/extractus/article-extractor",
   "repository": {
     "type": "git",
-    "url": "git@github.com:extractus/article-extractor.git"
+    "url": "git+ssh://git@github.com/extractus/article-extractor.git"
   },
   "author": "@extractus",
   "license": "MIT",
