@@ -13,7 +13,7 @@ Deno.test("extract - non-string input", async () => {
   await assertRejects(
     () => extract({} as unknown as string),
     Error,
-    "Input must be a string",
+    "Input must be a URL or raw HTML",
   );
 });
 

@@ -83,7 +83,9 @@ export const execPreParser = (
   const doc = new DOMParser().parseFromString(html, "text/html");
   findTransformations(links).map((tfm) => tfm.pre).filter((fn) =>
     isFunction(fn)
-  ).forEach((fn) => (fn as (doc: Document) => Document)(doc as any));
+  ).forEach((fn) =>
+    (fn as (doc: Document) => Document)(doc as unknown as Document)
+  );
   return Array.from(doc.childNodes).map((it) => (it as Element).outerHTML).join(
     "",
   );
@@ -96,7 +98,9 @@ export const execPostParser = (
   const doc = new DOMParser().parseFromString(html, "text/html");
   findTransformations(links).map((tfm) => tfm.post).filter((fn) =>
     isFunction(fn)
-  ).forEach((fn) => (fn as (doc: Document) => Document)(doc as any));
+  ).forEach((fn) =>
+    (fn as (doc: Document) => Document)(doc as unknown as Document)
+  );
   return Array.from(doc.childNodes).map((it) => (it as Element).outerHTML).join(
     "",
   );

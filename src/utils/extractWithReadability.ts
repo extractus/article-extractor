@@ -2,28 +2,44 @@
 
 import { Readability } from "@mozilla/readability";
 import { DOMParser } from "linkedom";
-import { isString } from "@pwshub/bellajs";
 
-export default (html: string, url = ""): string | null => {
-  if (!isString(html)) {
-    return null;
-  }
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const base = doc.createElement("base", {});
-  base.setAttribute("href", url);
-  doc.head.appendChild(base);
-  const reader = new Readability(doc as unknown as Document, {
-    keepClasses: true,
-  });
-  const result: Record<string, unknown> = reader.parse() ?? {};
-  return result.textContent ? result.content as string : null;
+type ReadabilityOutput = {
+  title: string;
+  content: string;
+  excerpt: string;
+  byline: string;
+  siteName: string;
+  publishedTime: string;
 };
 
-export function extractTitleWithReadability(html: string): string | null {
-  if (!isString(html)) {
+export default (html: string, url = ""): ReadabilityOutput | null => {
+  try {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const base = doc.createElement("base", {});
+    base.setAttribute("href", url);
+    doc.head.appendChild(base);
+    const reader = new Readability(doc as unknown as Document, {
+      nbTopCandidates: 4,
+      charThreshold: 400,
+      keepClasses: true,
+    });
+    const result = reader.parse();
+    const charlen = result?.length || 0;
+    const title = result?.title ?? "";
+    const excerpt = result?.excerpt ?? "";
+    const content = result?.content ?? "";
+    const byline = result?.byline ?? "";
+    const siteName = result?.siteName ?? "";
+    const publishedTime = result?.publishedTime ?? "";
+    return (!charlen || !title || !content) ? null : {
+      title,
+      content,
+      excerpt,
+      byline,
+      siteName,
+      publishedTime,
+    };
+  } catch {
     return null;
   }
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const reader = new Readability(doc as unknown as Document);
-  return (reader as any)._getArticleTitle() || null;
-}
+};

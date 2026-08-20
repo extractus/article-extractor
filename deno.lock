@@ -3,12 +3,12 @@
   "specifiers": {
     "jsr:@david/code-block-writer@^13.0.3": "13.0.3",
     "jsr:@deno/dnt@~0.43.2": "0.43.2",
-    "jsr:@pwshub/bellajs@13.1.0": "13.1.0",
-    "jsr:@std/assert@1.0.12": "1.0.12",
+    "jsr:@pwshub/bellajs@13.1.1": "13.1.1",
+    "jsr:@std/assert@1.0.19": "1.0.19",
     "jsr:@std/fmt@1": "1.0.10",
     "jsr:@std/fs@1": "1.0.24",
+    "jsr:@std/internal@^1.0.12": "1.0.14",
     "jsr:@std/internal@^1.0.14": "1.0.14",
-    "jsr:@std/internal@^1.0.6": "1.0.14",
     "jsr:@std/path@1": "1.1.6",
     "jsr:@std/path@^1.1.5": "1.1.6",
     "jsr:@ts-morph/bootstrap@0.29": "0.29.0",
@@ -30,13 +30,13 @@
         "jsr:@ts-morph/bootstrap"
       ]
     },
-    "@pwshub/bellajs@13.1.0": {
-      "integrity": "3b2e3074c621edbab0514cd1737a1564765deefe55237f56663c54675cb5d315"
+    "@pwshub/bellajs@13.1.1": {
+      "integrity": "243139f7414b966f1cb4553197166fbcacc9d75d37cc8ab827d43661978f3425"
     },
-    "@std/assert@1.0.12": {
-      "integrity": "08009f0926dda9cbd8bef3a35d3b6a4b964b0ab5c3e140a4e0351fbf34af5b9a",
+    "@std/assert@1.0.19": {
+      "integrity": "eaada96ee120cb980bc47e040f82814d786fe8162ecc53c91d8df60b8755991e",
       "dependencies": [
-        "jsr:@std/internal@^1.0.6"
+        "jsr:@std/internal@^1.0.12"
       ]
     },
     "@std/fmt@1.0.10": {
@@ -189,8 +189,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@deno/dnt@~0.43.2",
-      "jsr:@pwshub/bellajs@13.1.0",
-      "jsr:@std/assert@1.0.12",
+      "jsr:@pwshub/bellajs@13.1.1",
+      "jsr:@std/assert@1.0.19",
       "npm:@mozilla/readability@0.6",
       "npm:linkedom@~0.18.13"
     ]

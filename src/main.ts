@@ -1,10 +1,8 @@
 // main.ts
 
-import { isString } from "@pwshub/bellajs";
-
 import retrieve from "./utils/retrieve.ts";
 import parseFromHtml from "./utils/parseFromHtml.ts";
-import { getCharset } from "./utils/html.ts";
+import { getCharset, isHTML } from "./utils/html.ts";
 import { isValid as isValidUrl } from "./utils/linker.ts";
 
 /** Custom fetch function signature. */
@@ -79,13 +77,20 @@ export const extract = async (
   parserOptions: ParserOptions = {},
   fetcher: Fetcher = globalThis.fetch,
 ): Promise<ArticleData | null> => {
-  if (!isString(input)) {
-    throw new Error("Input must be a string");
+  const inputType = isValidUrl(input)
+    ? "url"
+    : isHTML(input)
+    ? "html"
+    : "other";
+
+  if (inputType === "other") {
+    throw new Error("Input must be a URL or raw HTML");
   }
 
-  if (!isValidUrl(input)) {
+  if (inputType === "html") {
     return parseFromHtml(input, "", parserOptions);
   }
+
   const buffer = await retrieve(input, fetcher);
   const text = buffer ? new TextDecoder().decode(buffer).trim() : "";
   if (!text) {
