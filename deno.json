@@ -1,6 +1,6 @@
 {
   "name": "@extractus/article-extractor",
-  "version": "9.0.1-rc2",
+  "version": "9.0.1",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
   "repository": {
