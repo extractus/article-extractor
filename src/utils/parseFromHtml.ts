@@ -25,7 +25,15 @@ import {
   defaultAllowedTags,
 } from "../config.ts";
 
-import type { ArticleData, ParserOptions } from "../main.ts";
+import type { ArticleData, ParserOptions } from "../types.ts";
+
+const fmtIso = (input: string): string => {
+  try {
+    return (new Date(input)).toISOString();
+  } catch {
+    return input;
+  }
+};
 
 const summarize = (
   { desc, text, threshold, maxlen }: {
@@ -139,7 +147,7 @@ export default async (
     author: author || readabilityExtracted.byline || "",
     favicon,
     source: readabilityExtracted.siteName || getDomain(bestUrl),
-    published: readabilityExtracted.publishedTime || published,
+    published: fmtIso(readabilityExtracted.publishedTime || published),
     ttr: getTTR(textContent, imgcount, wordsPerMinute),
     type,
   };

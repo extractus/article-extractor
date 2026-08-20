@@ -78,12 +78,12 @@ export const defaultAllowedAttributes: Record<string, string[]> = {
 export const defaultAllowedIframeDomains: string[] = [
   "youtube.com",
   "vimeo.com",
-  "odysee.com",
   "soundcloud.com",
   "audius.co",
   "github.com",
-  "codepen.com",
   "twitter.com",
+  "x.com",
+  "tiktok.com",
   "facebook.com",
   "instagram.com",
 ];

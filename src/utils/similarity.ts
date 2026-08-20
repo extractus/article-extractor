@@ -2,16 +2,16 @@
 
 import { compareTwoStrings, isArray, isString } from "@pwshub/bellajs";
 
-interface MatchResult {
+type MatchResult = {
   target: string;
   rating: number;
-}
+};
 
-interface BestMatchResult {
+type BestMatchResult = {
   ratings: MatchResult[];
   bestMatch: MatchResult;
   bestMatchIndex: number;
-}
+};
 
 const areArgsValid = (mainString: unknown, targetStrings: unknown): boolean => {
   return isString(mainString) && isArray(targetStrings) &&
