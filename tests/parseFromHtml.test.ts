@@ -44,7 +44,7 @@ Deno.test("parseFromHtml - webpage with article but no source", async () => {
     "tests/test-data/html-article-no-source.html",
   );
   const result = await parseFromHtml(html);
-  assertEquals((result as Record<string, unknown>).source, "somewhere.any");
+  assertEquals(result?.source, "somewhere.any");
 });
 
 Deno.test("parseFromHtml - webpage with data-src in img tag", async () => {
@@ -53,13 +53,13 @@ Deno.test("parseFromHtml - webpage with data-src in img tag", async () => {
   );
   const result = await parseFromHtml(html);
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       '<img src="https://somewhere.any/image1.jpg">',
     ),
     true,
   );
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       '<img src="https://somewhere.any/image2.jpg">',
     ),
     true,
@@ -72,16 +72,16 @@ Deno.test("parseFromHtml - regular article", async () => {
     html,
     "https://somewhere.com/path/to/article",
   );
-  assertEquals((result as Record<string, unknown>).title, "Article title here");
-  assertEquals((result as Record<string, unknown>).description, expDesc);
+  assertEquals(result?.title, "Article title here");
+  assertEquals(result?.description, expDesc);
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       '<a target="_blank" href="https://otherwhere.com/descriptions/rational-peach">',
     ),
     true,
   );
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       '<a target="_blank" href="https://somewhere.com/dict/watermelon">',
     ),
     true,
@@ -123,21 +123,21 @@ Deno.test("parseFromHtml - multi transforms", async () => {
   const html = Deno.readTextFileSync("tests/test-data/vnn-article.html");
   const url = "https://need-transform.tld/path/to/article";
   const result = await parseFromHtml(html, url);
-  assertEquals((result as Record<string, unknown>).title, "Article title here");
+  assertEquals(result?.title, "Article title here");
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       '<a href="https://vnn.vn/dict/watermelon" target="_blank">',
     ),
     false,
   );
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       '[link url="https://vnn.vn/dict/watermelon"]watermelon[/link]',
     ),
     true,
   );
   assertEquals(
-    (result as Record<string, string>).content.includes(
+    result?.content?.includes(
       "<b>in its own way</b>",
     ),
     true,

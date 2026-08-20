@@ -1,12 +1,6 @@
 // utils -> parseFromHtml.ts
 
-import {
-  getTTR,
-  pipe,
-  stripTags,
-  truncateByChar,
-  unique,
-} from "@pwshub/bellajs";
+import { getTTR, stripTags, truncateByChar, unique } from "@pwshub/bellajs";
 
 import { cleanify, countImages } from "./html.ts";
 
@@ -21,9 +15,7 @@ import {
 
 import extractMetaData from "./extractMetaData.ts";
 
-import extractWithReadability, {
-  extractTitleWithReadability,
-} from "./extractWithReadability.ts";
+import extractWithReadability from "./extractWithReadability.ts";
 
 import { execPostParser, execPreParser } from "./transformation.ts";
 
@@ -81,13 +73,6 @@ export default async (
     allowedIframeDomains = defaultAllowedIframeDomains,
   } = parserOptions;
 
-  if (!title) {
-    title = extractTitleWithReadability(inputHtml) || "";
-  }
-  if (!title) {
-    return null;
-  }
-
   const links = unique(
     [url, shortlink, amphtml, canonical, inputUrl]
       .filter(isValidUrl)
@@ -100,34 +85,31 @@ export default async (
 
   const bestUrl = chooseBestUrl(links, title);
 
-  const fns = pipe(
-    (input: string) => {
-      return normalizeUrls(input, bestUrl);
-    },
-    (input: string) => {
-      return execPreParser(input, links);
-    },
-    (input: string) => {
-      return extractWithReadability(input, bestUrl);
-    },
-    (input: string | null) => {
-      return input ? execPostParser(input, links) : null;
-    },
-    (input: string | null) => {
-      return input
-        ? cleanify(input, {
-          allowedTags,
-          allowedAttributes,
-          allowedIframeDomains,
-        })
-        : null;
-    },
+  const normalizedHtml = normalizeUrls(inputHtml, bestUrl);
+  const preTransformedHtml = execPreParser(normalizedHtml, links);
+  const readabilityExtracted = extractWithReadability(
+    preTransformedHtml,
+    bestUrl,
   );
 
-  const content = fns(inputHtml);
+  if (!readabilityExtracted) {
+    return null;
+  }
+
+  const extractedContent = readabilityExtracted.content;
+  const postTransformedHtml = execPostParser(extractedContent, links);
+  const content = cleanify(postTransformedHtml, {
+    allowedTags,
+    allowedAttributes,
+    allowedIframeDomains,
+  });
 
   if (!content) {
     return null;
+  }
+
+  if (!title) {
+    title = readabilityExtracted.title;
   }
 
   const textContent = stripTags(content);
@@ -136,7 +118,7 @@ export default async (
   }
 
   const description = summarize({
-    desc: metaDesc,
+    desc: readabilityExtracted.excerpt || metaDesc,
     text: textContent,
     threshold: descriptionLengthThreshold,
     maxlen: descriptionTruncateLen,
@@ -154,10 +136,10 @@ export default async (
     links,
     image,
     content,
-    author,
+    author: author || readabilityExtracted.byline || "",
     favicon,
-    source: getDomain(bestUrl),
-    published,
+    source: readabilityExtracted.siteName || getDomain(bestUrl),
+    published: readabilityExtracted.publishedTime || published,
     ttr: getTTR(textContent, imgcount, wordsPerMinute),
     type,
   };

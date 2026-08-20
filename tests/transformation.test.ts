@@ -45,19 +45,20 @@ Deno.test("add multi transformation object", () => {
 
 Deno.test("add transformation object without patterns", () => {
   const result = addTransformations({
+    patterns: [],
     pre: (document: Document) => {
       return document;
     },
     post: (document: Document) => {
       return document;
     },
-  } as any);
+  });
   assertEquals(result, 0);
 });
 
 Deno.test("add transformation object without valid patterns", () => {
   const result = addTransformations({
-    patterns: 123 as any,
+    patterns: 123 as unknown as RegExp[],
     pre: (document: Document) => {
       return document;
     },

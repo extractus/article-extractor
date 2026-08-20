@@ -1,6 +1,6 @@
 {
   "name": "@extractus/article-extractor",
-  "version": "9.0.0",
+  "version": "9.0.1-rc1",
   "description": "To extract main article from given URL",
   "homepage": "https://github.com/extractus/article-extractor",
   "repository": {
@@ -12,25 +12,24 @@
   "exports": "./mod.ts",
   "tasks": {
     "test": "deno test --allow-all",
-    "lint": "deno lint",
+    "lint": "deno check && deno lint && deno audit",
     "build": "deno run -A ./scripts/build_npm.ts"
   },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.43.2",
-    "@pwshub/bellajs": "jsr:@pwshub/bellajs@13.1.0",
-    "@std/assert": "jsr:@std/assert@1.0.12",
     "@mozilla/readability": "npm:@mozilla/readability@^0.6.0",
+    "@pwshub/bellajs": "jsr:@pwshub/bellajs@13.1.1",
+    "@std/assert": "jsr:@std/assert@1.0.19",
     "linkedom": "npm:linkedom@^0.18.13"
   },
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
+    "lib": ["dom", "deno.ns"]
   },
   "lint": {
     "include": ["src/", "mod.ts", "scripts/", "tests/"],
     "exclude": ["npm/"],
     "rules": {
-      "tags": ["recommended"],
-      "exclude": ["no-explicit-any", "no-control-regex"]
+      "tags": ["recommended"]
     }
   },
   "fmt": {
@@ -43,5 +42,6 @@
   "publish": {
     "include": ["LICENSE", "README.md", "mod.ts", "src/"],
     "exclude": ["tests/", "scripts/"]
-  }
+  },
+  "exclude": ["scripts/", "npm/"]
 }
