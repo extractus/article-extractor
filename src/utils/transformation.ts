@@ -3,11 +3,7 @@
 import { isArray, isFunction } from "@pwshub/bellajs";
 import { DOMParser } from "linkedom";
 
-export interface Transformation {
-  patterns: RegExp[];
-  pre?: (document: Document) => Document;
-  post?: (document: Document) => Document;
-}
+import type { Transformation } from "../types.ts";
 
 const transformations: Transformation[] = [];
 
